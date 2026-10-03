@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Offline · Clause &amp; Effect</title>
+<link rel="icon" href="/static/icons/favicon-32.png">
+<style>
+@font-face { font-family: "Instrument Serif"; src: url(/static/fonts/InstrumentSerif-Regular.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Inter"; src: url(/static/fonts/InterVariable.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
+:root { --ink: #000c1f; --ink-2: rgb(0 12 31 / .68); --line: rgb(0 12 31 / .10); --navy: #002664; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px; font: 15px/1.5 Inter, system-ui, sans-serif; color: var(--ink);
+  background: radial-gradient(120% 70% at 50% 0%, #f2f3f5, #fff 70%); }
+main { width: min(440px, 100%); text-align: center; }
+.mark { width: 64px; height: 64px; border-radius: 20px; margin: 0 auto 22px; display: grid; place-items: center; color: #fff; font: 400 40px/1 "Instrument Serif", serif;
+  background: radial-gradient(120% 90% at 22% 12%, #1d4c9e, #002664 62%, #001a47); box-shadow: 0 10px 30px rgb(0 38 100 / .25); }
+h1 { font: 400 clamp(2.2rem, 1.6rem + 3vw, 3rem)/1 "Instrument Serif", serif; letter-spacing: -.03em; margin: 0 0 10px; }
+p { color: var(--ink-2); margin: 0 0 24px; }
+button { border: 0; border-radius: 999px; padding: 12px 22px; font: 600 15px Inter, system-ui, sans-serif; background: var(--navy); color: #fff; cursor: pointer; box-shadow: 0 6px 16px rgb(0 38 100 / .22); }
+button:active { transform: scale(.98); }
+ul { list-style: none; padding: 0; margin: 32px 0 0; text-align: left; display: grid; gap: 8px; }
+li a { display: block; padding: 12px 16px; border-radius: 16px; background: #fff; box-shadow: 0 0 0 1px var(--line); color: var(--ink); text-decoration: none; font-weight: 560; }
+li small { display: block; color: var(--ink-2); font-weight: 400; }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark" aria-hidden="true">§</div>
+  <h1>You're offline</h1>
+  <p>Saved answers still open. Everything else returns with the connection.</p>
+  <button type="button" onclick="location.reload()">Try again</button>
+  <ul id="saved" aria-label="Saved answers"></ul>
+</main>
+<script>
+// list the answers the service worker kept (newest first)
+(async () => {
+  if (!("caches" in self)) return;
+  const c = await caches.open("ce-answers-v1");
+  const seen = new Set();
+  for (const k of (await c.keys()).reverse()) {
+    const id = new URL(k.url).pathname.split("/").pop();
+    if (seen.has(id)) continue;
+    seen.add(id);
+    const d = await (await c.match(k)).json().catch(() => null);
+    const a = d && d.address;
+    if (!a) continue;
+    const li = document.createElement("li");
+    li.innerHTML = '<a></a>';
+    li.firstChild.href = "/#/a/" + id;
+    li.firstChild.textContent = String(a.street_address).toLowerCase().replace(/\b\w/g, (m) => m.toUpperCase());
+    const s = document.createElement("small");
+    s.textContent = [a.postal_city, a.state].filter(Boolean).join(", ");
+    li.firstChild.append(s);
+    document.getElementById("saved").append(li);
+  }
+})();
+</script>
+</body>
+</html>

@@ -24,7 +24,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from web.any_address import router as any_address_router
@@ -1063,6 +1063,32 @@ def health():
         "lookups": len(STORE.lookups),
         "engine": engine_name(),
     }
+
+
+# ===================================================================== PWA (#44) ==
+# Service worker and manifest live at the root so their scope is the whole app. Every non-/static path
+# already gets Cache-Control: no-store from reload_mw, so browsers and the CDN always fetch them fresh.
+
+
+def build_id() -> str:
+    """Hash over every static file: changes on each deploy that touches the front end, so the
+    service worker script changes byte-wise, the browser installs it and old caches are dropped."""
+    h = hashlib.sha1()
+    for f in sorted(STATIC.rglob("*")):
+        if f.is_file():
+            h.update(f"{f.relative_to(STATIC)}:{asset_hash(f)};".encode())
+    return h.hexdigest()[:12]
+
+
+@app.get("/sw.js", include_in_schema=False)
+def service_worker():
+    js = (STATIC / "sw.js").read_text().replace("__BUILD_ID__", build_id())
+    return Response(js, media_type="text/javascript", headers={"Service-Worker-Allowed": "/"})
+
+
+@app.get("/manifest.webmanifest", include_in_schema=False)
+def web_manifest():
+    return FileResponse(STATIC / "manifest.webmanifest", media_type="application/manifest+json")
 
 
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
