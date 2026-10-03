@@ -1,0 +1,72 @@
+[
+ {
+  "test_id": "T1",
+  "title": "California AB 325 / SB 763 takes effect",
+  "type": "as_of",
+  "rule_ids": [
+   "CA-ALG-01"
+  ],
+  "as_of_before": "2025-12-31",
+  "as_of_after": "2026-01-02",
+  "states": [
+   "CA"
+  ],
+  "expected_behavior": "not_yet_effective before, applies after, for every CA address."
+ },
+ {
+  "test_id": "T2",
+  "title": "Hoboken vs Jersey City local algorithmic bans",
+  "type": "boundary",
+  "rule_ids": [
+   "HOB-ALG-01",
+   "JC-ALG-01"
+  ],
+  "as_of": "2026-10-01",
+  "expected_behavior": "HOB-ALG-01 only for Hoboken addresses; JC-ALG-01 only for Jersey City addresses; neither for Newark."
+ },
+ {
+  "test_id": "T3",
+  "title": "NJ FAIR Act: enacted, not yet effective; possible preemption",
+  "type": "as_of",
+  "rule_ids": [
+   "NJ-ALG-01"
+  ],
+  "as_of_before": "2026-10-01",
+  "as_of_after": "2027-07-02",
+  "states": [
+   "NJ"
+  ],
+  "conflict_with": [
+   "JC-ALG-01",
+   "HOB-ALG-01"
+  ],
+  "expected_behavior": "not_yet_effective on 2026-10-01, applies on 2027-07-02 for every NJ address; Jersey City and Hoboken addresses carry a conflict flag for human review."
+ },
+ {
+  "test_id": "T4",
+  "title": "Massachusetts pending bills S.2983 and H.5222",
+  "type": "pending",
+  "rule_ids": [
+   "MA-ALG-P1",
+   "MA-ALG-P2"
+  ],
+  "as_of": "2026-10-01",
+  "states": [
+   "MA"
+  ],
+  "expected_behavior": "Reported as pending (not in force) for every Boston and Cambridge address; affected set = all MA addresses if enacted."
+ },
+ {
+  "test_id": "T5",
+  "title": "Massachusetts rent-control ballot question struck",
+  "type": "negative",
+  "rule_ids": [
+   "MA-RENT-P1"
+  ],
+  "as_of": "2026-10-01",
+  "states": [
+   "MA"
+  ],
+  "expected_behavior": "No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty."
+ }
+]

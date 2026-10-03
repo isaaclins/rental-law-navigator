@@ -1,0 +1,22 @@
+{
+  "team_rule_id": "r-0007",
+  "jurisdiction": "NJ",
+  "level": "state",
+  "category": "security_deposits",
+  "status": "in_force",
+  "title": "Rent Security Deposit Act",
+  "requirement": "A security deposit may not exceed one and one-half months' rent.",
+  "key_value": "1.5 months' rent",
+  "coverage_conditions": "Residential rentals statewide",
+  "exemptions": "Owner-occupied premises with 2 or fewer units (unless tenant opts in); seasonal rentals",
+  "overrides": [],
+  "interaction": null,
+  "effective_date": null,
+  "citation": "N.J.S.A. 46:8-21.2",
+  "source_doc_id": "D0xx",
+  "source_url": "https://law.justia.com/codes/new-jersey/title-46/section-46-8-21-2/",
+  "quoted_span": "<copy the exact sentence from the source document here>",
+  "confidence": 0.9,
+  "conflict_flag": false,
+  "conflict_note": null
+}

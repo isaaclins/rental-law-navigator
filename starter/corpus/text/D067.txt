@@ -1,0 +1,2485 @@
+SOURCE: https://www.nj.gov/dca/codes/publications/pdf_lti/t_i_r.pdf
+RETRIEVED: 2026-10-01 22:37 UTC
+
+Department of Community Affairs • Division of Housing and Community Resources 
+101 South Broad Street, • PO Box 806 • Trenton, NJ 08625-0806
+www.nj.gov/dca/divisions/dhcr 
+TRUTH IN RENTING
+A guide to the rights and responsibilities of
+residential tenants and landlords in New Jersey
+
+Table of Contents 
+Overview of Truth in Renting Act 1 
+The Lease 2 
+  Mobile Home Leases – Private Residential Leasehold Communities Law 3 
+  Public Housing Leases 4 
+  Renewal of a Lease Agreement 4 
+  Cable Installation 5 
+  Pets 5 
+  Termination of a Lease Agreement 7 
+  Modification of the Rental Premises for People with Disabilities 10 
+  Right of Entry 11 
+  Filing a complaint for unlawful entry and detainer 11 
+  Access to the property 12 
+Security Deposits 12 
+Discrimination 15 
+Disposition of Personal Property 16 
+     Nonpayment and Distraint 18 
+Consumer Fraud Protection 18 
+Credit Checks and Background Checks 18 
+Rent 18 
+  Rent Control/Rent Increases 19 
+  Public Financed and Subsidized Housing 20 
+  Property Tax Rebate for Tenants 21 
+  New Jersey Homestead Property Tax Credit 21 
+Identity of Landlord 22 
+Habitability 23 
+23 
+24 
+24 
+25 
+25 
+26 
+26 
+27 
+27 
+28 
+28 
+29 
+31 
+ Reporting Housing Code Violations 
+ Child-Protection Window Guards/Screens 
+ Carbon Monoxide and Smoke Detectors 
+ Locks 
+ State Heat and Utility Requirements 
+ Rent Receivership for Substandard Housing and Diversion of Ut ilities 
+ Multifamily Housing Preservation and Receivership 
+ Public Housing Maintenance 
+ Federal Lead-Based Paint Disclosure 
+ State Lead-Based Paint Disclosure 
+ Post of Drinking Water Test Results 
+ Remedies if the landlord fails to maint ain the pr operty in a ha bitable condition 
+ Flood Plain Notification Requirement 
+ Crime Insurance Information 32 
+Eviction 32 
+  Applicability 33 
+  Exceptions 33 
+  Filing a Complaint for Eviction 33 
+  Judgment for Possession 33 
+  “Self-help” Evictions 34 
+  Causes for Eviction 34 
+  Evictions for Owner-Occupied Two-and Three-Family Dwellings 40 
+  Rooming and Boarding House Evictions 40 
+  Public Housing Evictions 41 
+  Penalties for Eviction Law Violations 41 
+  Reprisal – Civil Rights of Tenants 41 
+  Procedures for Recovery of Premises 42 
+Foreclosure 42 
+  Notice Requirements to Tenants Prior to the Transfer of Title Due to a Foreclosure 
+Action 
+43 
+     Notice Requirements to Tenants After the Transfer of Title Due to a Foreclosure 
+Action 
+43 
+Senior Citizens and Disabled Tenants in Condominium or Cooperative Conversion 44 
+  Senior Citizens and Disabled Protected Tenancy 44 
+  Tenant Protection Act of 1992 44 
+     Disclosure Statement to Senior Citizen Housing Residents 44 
+New Jersey Judiciary Ombudsman Offices 46 
+Anti-Discrimination Offices  46 
+New Jersey’s Legal Services Programs 
+Additional Agencies and Organizations 
+47 
+48 
+ 
+Greetings from the New Jersey Department of Community Affairs 
+When an individual renter and a private individual, corporation, or government agency, the 
+landlord, enter into an agreement to pay money in exchange for housing, a landlord tenant 
+relationship is created. This agreement, the lease, can either be oral or memorialized in writing. 
+Residential leases include private homes, apartment and condominium units, or mobile homes. 
+The lease agreement entered into between the landlord and tenant sets forth the rights and 
+responsibilities of both parties in accordance with Federal and New Jersey statutes, regulations, 
+restrictions, and case law. 
+In accordance with the Truth in Renting Act, the New Jersey Department of Community 
+Affairs has posted this reference guide to highlight important information regarding the rights and 
+responsibilities of residential landlords and tenants in New Jersey. This publication highlights 
+information about lease agreements, payment, and collection of rent, habitability, evictions, senior 
+citizens and protected tenants, foreclosures, security deposits, and other topics pertaining to 
+residential tenancies in New Jersey.  
+If you believe you need legal advice, contact an attorney. If you cannot afford an attorney 
+contact legal services or public organizations that can provide legal services for both landlords and 
+tenants.  
+Finally, congratulations on renting your residential unit in New Jersey. The Department 
+hopes that you find this resource guide helpful. 
+ 
+ 
+ 
+1 
+ 
+ 
+ 
+Overview of Truth in Renting Act 
+ The Department of Community Affairs has provided this statement to highlight the primary 
+legal rights and responsibilities of tenants and landlords of residential rental dwelling units in New 
+Jersey. This statement is available in English and Spanish languages and it is posted on the 
+Department of Community Affairs’ website, hereinafter the Department. The Department website 
+is: 
+https://www.nj.gov/dca/divisions/codes/offices/landlord_tenant_information.html 
+This shall serve as an informational document only and is not intended as legal advice, and it 
+does not substitute for consulting with a lawyer about specific facts and circumstances. Further, 
+nothing therein shall be construed as binding on or affecting judicial determinations issued by a 
+court of competent jurisdiction.  
+ Every landlord subject to the Truth in Renting Act, (N.J.S.A. 46:8-43 to 51), hereinafter 
+the Act, is required to distribute one copy of the Truth in Renting Statement to each of their tenants 
+within 30 days after it has been posted by the Department on its website and shall thereafter provide 
+a copy of the most current statement to each new tenant at or prior to the time the tenant executes 
+a lease for the rental unit.  
+ The Act calls for distribution of the statement by the landlord to all tenants with a rental 
+term of at least one month living in residences with more than two dwelling units,  or more than 
+three if the landlord occupies one of the units. The Act does not require distribution to residents of 
+hotels, motels, or other guest houses serving transient or seasonal tenants (N.J.S.A. 46:8-44).  
+A landlord who violates any provisions of the Act, contrary to the legal rights of tenants 
+shall be liable for a penalty of not more than $100.00 per offense (N.J.S.A. 46:8-47). Such penalty 
+shall be collected and enforced by summary proceedings pursuant to the Penalty Enforcement Law 
+(N.J.S.A. 2A-58-1 et seq.).  The Superior Court, Law Division, Special Civil Part in the county in 
+which the rental premises are located shall have jurisdiction over such proceedings (N.J.S.A. 46:8-
+47). 
+ The Department does not have jurisdiction over the administratio n of the courts, nor can 
+the Department render legal advice. This publication is based on existing New Jersey statutes, 
+regulations, and court cases that concern landlord-tenant relations; however, this publication is not 
+a complete summary of all laws, regulations, and court cases that concern landlord-tenant relations 
+in New Jersey. Any person who plans to initiate a legal action resulting from a landlord -tenant 
+dispute may wish to consult the appropriate enforcing agency, a county legal services agency, 
+private counsel, or an owner’s, tenant’s, or mobile home organization. A list of additional agencies 
+and organizations that may be available to provide assistance is located in the appendix section of 
+this publication.  Please be advised that this guide may be amended by the Department as required, 
+and will be posted on the Department’s website accordingly.    
+ If you would like more detailed information on New Jersey landlord -tenant law, you may  
+review the various state statutes identified in this guide. You may search the statutes by looking at 
+the table of contents or you may enter a keyword in the search bar, i.e. Security Deposit Law.  
+ 
+ 
+ 
+2 
+ 
+ 
+ 
+The Lease 
+ 
+ In New Jersey a landlord -tenant relationship is created when a landlord allows another 
+person to use a dwelling unit for a specified period of time in exchange for rent. A dwelling unit 
+is defined as an apartment, a house, a room, or a mobile home or mobile home space. The tenant 
+should read the rental agreement before signing. It is advisable for the tenant to obtain a copy of 
+the lease for their records at the time that the lease is signed. If a new landlord takes  over the 
+building, both the new landlord and the tenant must honor the pre -existing rental agreement until 
+it expires.  
+Requirements of a residential lease in New Jersey: 
+1. Parties to a lease must be at least 18 years old and mentally competent. (N.J.S.A. 9:17-B-
+1; Morgan v. Sandford Brown Institute, 225 N.J. 289, 310 (2016)) 
+2. Landlord and tenant are required to include their names in the lease agreement. 
+3. Lease can be either written or oral. If written, lease must be in plain language and written 
+so the average person can understand it ( N.J.S.A. 56:12-2; Morgan v. Sandford Brown 
+Institute, 225 N.J. 289, 310 (2016)). 
+4. Any fees that the landlord intends to charge should be clearly stated, i.e. late fees and 
+attorney fees. 
+5. In order to avoid confusion, it is recomm ended that the lease contain the following 
+provisions: 
+a. Conditions of occupancy; 
+b. Description of the rental space; 
+c. Renewal provisions; 
+d. Late rent penalty provisions; 
+e. Landlord and tenant responsibilities for the amount of rent, pets, utility expenses 
+and owner responsibilities associated with the rental of the premises; 
+f. Restrictions on subletting or assigning of the lease agreement; 
+g. Requirement to provide copies of keys to the landlord by the tenant;  
+h. Tenant’s requirement to obtain renter’s insurance; and 
+i. Other provisions which clarify the terms of the lease agreement.  
+ 
+The landlord should provide specific information to tenants: 
+1. Lead paint EPA approved information pamphlet (N.J.A.C. 5:10-6.6); 
+2. Truth in Renting statement, (which does not apply to buildings  of two (2) or fewer units 
+and owner-occupied premises of three (3) or fewer units (N.J.S.A. 46:8-44 to -46)); 
+3. Flood zone notification (N.J.S.A. 46:8-50);  
+4. Child protection window guards (N.J.A.C. 5:10-27.1 (c), (d)); 
+5. Bed bugs (N.J.A.C. 5:10-10.2); 
+6. Late fees (N.J.S.A. 2A-42-6.1 to -6.3); 
+7. Dishonored payment fees (N.J.S.A. 2A:32A-1); and 
+8. Domestic violence termination policy (N.J.S.A. 46:8-9.6 to -9.7). 
+ 
+ 
+ 
+3 
+ 
+ 
+ 
+Additionally, if clearly stated in the lease agreement, the landlord may require the tenant 
+to pay the landlord the costs of the landlord’s attorney fees and court costs in the event of an 
+eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late 
+charge” when the rent is not paid by a certain date. There is a five (5) “business day” grace period 
+for senior citizens before a late fee may be assessed. A business day does not include Saturday, 
+Sunday, State or Federal holidays.  
+ The written lease must expressly permit a landlord to recover reasonable attorney’s fees 
+and include late fees as part of the rent in order for a judge to consider those expenses as additional 
+rent in a summary dispossess proceeding (Community Realty v. Harris , 155 N.J. 212 (1998); 
+Housing Authority & Urban Redevelopment Agency of City of Atla ntic City v. Taylor, 334 
+N.J. Super. 572 (App. Div. 2000); Sundersan v. Royal, 386 N.J. Super. 246 (App. Div. 2005)). 
+If a lease contains provisions that violate state statutes, local ordinances, or governmental 
+regulations, or a tenant believes a provisio n is unreasonable, the tenant has the right to  file an 
+action in Superior Court, Law Division, Special Civil Part  in the county where the building is 
+located requesting the court to remove the provision from the lease (N.J.S.A. 46:8-48).  
+Mobile Home Leases – Private Residential Leasehold Communities Law N.J.S.A. 46:8C-2 to 
+-21. 
+ Mobile homeowners or residents of private residential leasehold communities are also 
+tenants if they rent space in either of these types of communities. Therefore, they are afford ed 
+certain protections under New Jersey statutes and regulations, i.e, the Anti -Eviction Act, 
+Homestead Property, Tax Credit Act and special protections under the Mobile Home Act. As set 
+forth in New Jersey case law (Fromet Properties, Inc. v. Burl, 249 N.J. Super. 601 (App. Div. 
+1996); Hale v. Farrakhan, 3990 N.J. Super. 335 (App. Div. 2007); Pohlman v. Metropolitan 
+Trailer Park, Inc. , 126 N.J. Super. 114 (Ch . Div. 1973)), it has been established that other 
+landlord tenant laws are applicable including, but not limited to, security deposits, receivership, 
+truth in renting, landlord tenant law,  discrimination based on familial status, self -help eviction, 
+distraint, and reprisal (Tenant’s Rights in New Jersey written and published by Legal Services of 
+New Jersey, 2014).  
+In accordance with N.J.S.A. 46:8C-2 to -21, a mobile home park or private residential 
+leasehold landlord or operator is required to: 
+1. Offer a written lease for at least 12 months  to each household within the park or 
+community. The lease must be offered within 30 days from the time the new owner lawfully 
+moves in; 
+2. Provide the occupant with a copy of all park/community rules and regulation s prior to 
+signing the lease; 
+3. Post a copy of park/community rules and regulations in a recreation hall or some other 
+public location within the community where they can be easily located; 
+4. Fully disclose all fees, charges, and assessments, which must be bas ed on actual costs 
+incurred and all rules and regulations before the occupant moves in;  
+ 
+ 
+ 
+4 
+ 
+ 
+ 
+5. Provide a written notice of any fees, charges, and assessments within 30 days before a lease 
+change become effective; and  
+6. Provide a copy of Truth in Renting statement. 
+A mobile park owner may not: 
+1. Force a tenant to buy equipment from a park owner or a particular outlet (N.J.S.A. 46:8C-
+2); 
+2. Force a tenant to either buy a mobile home or necessary equipment from a particular seller 
+(N.J.S.A. 46:8C-2); 
+3. Force a tenant to mov e their mobile home within the park unless the move is reasonably 
+necessary. If reasonably necessary, the park owner must serve the tenant with a 30 -day 
+written notice. In an emergency, the operator may move the mobile home, however, they 
+are responsible for all damages to the home resulting from the move (N.J.S.A. 46:8C-2); 
+4. Charge a commission or fee for the sale of a mobile home unless they acted as the sales 
+agent, nor prohibit the posting of a “for sale” on the home (N.J.S.A. 46:8C-3); 
+5. Force a tenant to make a donation or gift directly or indirectly from someone who wants to 
+rent a space in the park (N.J.S.A. 46:8C-2); and 
+6. No landlord or operator may deny any resident the right to sell their home within the park 
+community or require the unit to be moved solely because it is being sold (N.J.S.A. 46:8C-
+2).  
+A mobile park owner may reserve the right to approve the purchaser of a mobile home but 
+approval cannot be unreasonably withheld. Any entrance fee or other payment required  by the 
+landlord to get into a  park/community accepted by a landlord or operator makes the landlord or 
+operator a disorderly person and may result in the person making the payment able to recover 
+double the amount paid plus losses in Superior Court where the property is located.  
+Public Housing Leases 
+Public housing authorities must follow lease regulations developed by the U.S. Department 
+of Housing and Urban Development (HUD) as well as existing state laws. The HUD regulations 
+reference both provisions that must be included in housing authority leases and provisions that 
+must not be included: questions regarding public housing can be directed to the U.S. Department 
+of Housing and Urban Development, New Jersey State Office, 1 Newark Center, Attn: Public 
+Housing, Newark, New Jersey 07102-5260, (973) 622-7900. 
+Renewal of a Lease Agreement 
+ Many written leases contain a clause detailing what needs to be done to renew or extend 
+the current lease term. The lease may, for instance, have a clause that states that unless either the 
+landlord or tenant terminates the lease, it will renew automatically. Most yearly leases require a 
+60 to 90-day notice to the landlord by the tenant requesting terminatation of the existing lease. If 
+ 
+ 
+ 
+5 
+ 
+ 
+ 
+a tenant fails to give proper written notice or if notice of i ntent to terminate is not given in time, 
+the lease will renew automatically.  
+ A yearly lease that is not renewed automatically becomes a month to month lease when the 
+current lease term ends. A month to month lease will renew automatically for another month unless 
+the landlord or tenant acts to terminate the lease. This rule applies to both oral and written leases 
+(N.J.S.A. 46:8-10). 
+ When the lease term ends, the landlord can offer the tenant a new lease with amended terms 
+and conditions. In order to do t his, the landlord must provide the tenant with written notice 
+terminating the existing lease and offering a new lease. The landlord’s notice must clearly detail 
+the changes made to the existing lease.  
+ No landlord of residential rental properties except t hose in owner occupied two or three 
+family dwellings, motels or hotels, transient, or seasonal units may fail to renew any lease, 
+regardless of whether it is written or oral unless they have good cause not to renew the lease. The 
+good causes for eviction are detailed under the section entitled, “Eviction,” (N.J.S.A. 2A:18:61.3). 
+Tenants of two - or three- family owner occupied buildings should refer to the section entitled, 
+“Evictions for Owner-Occupied Two and Three Family Dwellings.” 
+Cable Installation 
+A landlord may not forbid or prevent installation of cable service or unreasonably restrict 
+the tenant from installing an individual satellite dish or require advance payment for permission to 
+install cable or satellite. 
+Installation must be in compliance wit h the Federal Communications (FCC) Regulations 
+(47 C.F.R. Section 1.4000). If a tenant or landlord wishes to file a complaint regarding the lease 
+or local government restrictions regarding installation of cable or a satellite dish, they may contact 
+the Off ice of the Secretary, Federal Communications Commission, 445 12 th Street S.W. – 
+Washington D.C. 20554; Attn: Media Bureau.  
+A landlord may restrict installation of cable or a satellite dish communication system in 
+common areas such as the stairwells, roofs, or exterior walls of a multiple dwelling. Landlord may 
+also restrict installation to prevent damage to the property, if there is a safety risk, or the property 
+is a historic property or in a historic district.  
+A landlord may disallow the installation of an individually owned satellite dish if there is 
+a common antenna available for use by the residents and the costs are the same for the tenant 
+(N.J.S.A. 48:5A-49/47 C.F.R. 1.4000). 
+Pets 
+Generally, landlords have a right to include a “no pets, ” provision in the lease agreement. 
+There is no state law that prohibits landlords from requiring lease agreements that exclude pets in 
+rental property, except in certain senior citizen housing projects and for handicapped, blind, or 
+deaf tenants. George Yo ung v. Victor Savinon , et al., 201 N.J. Super. 1 , established the 
+precedent that allows tenants in certain circumstances to keep their existing pets at their rental 
+ 
+ 
+ 
+6 
+ 
+ 
+ 
+units. In this case, the court found that tenants that were allowed to have pets and actually had pets 
+living in their rental units at the beginning of their tenancy and continued to have those pets 
+throughout their tenancies could not have their leases changed (upon renewal) by the new (or 
+existing) landlord to prohibit the tenants from keeping  the pets that they currently had. However, 
+the landlord could prohibit the housing of any additional pets that those tenants may acquire in the 
+future. A landlord may also prohibit existing and future tenants who do not own or maintain pets 
+from caring for or maintaining pets on the premises.  
+The Pets in Housing Projects law, N.J.S.A. 2A:42-103, et seq. , defines “senior citizen 
+housing project,” as any building or structure having three or more rental dwelling units. It does 
+not apply to owner -occupied premises that do not have more than three rental dwelling units, or 
+any health care facility. Any senior citizen residing in a senior citizen housing project and 
+providing written notice to the landlord is allowed to own or care for a pet. 
+A landlord may ref use to renew a tenant’s lease because of a pet, under the following 
+circumstances: 
+1. If the pet’s existence or behavior violates federal, state, or local building, health or use 
+codes; 
+2. If the tenant fails to properly care for the pet; 
+3. If the tenant fails to control the pet, when taking the pet to or from the building, or if the 
+tenant fails to take prompt action to remove any pet waste when requested by the landlord; 
+and 
+4. If the tenant fails to keep the pet’s waste functions confined to areas that do not inter fere 
+with the common areas or entrance and exist of anyone to or from the senior citizen housing 
+project. 
+A municipal court may declare a dog to be potentially dangerous if the dog: 
+1. Causes bodily injury to a person during an unprovoked attack, and poses a serious threat 
+of bodily injury to a person; 
+2. Poses a threat or severely injured or killed another pet; or 
+3. The dog has been trained or encouraged to engage in unprovoked attacks on people or other 
+pets. 
+A landlord may require a tenant to remove a pet from t he rental premises if the pet is a 
+continuing nuisance to the welfare or property of the landlord or the other residents. If the tenant 
+does not remove the pet, the landlord may file for an eviction action for violating the lease due to 
+a continuing nuisance created by the pet. The landlord has the burden of proving that the pet is a 
+continuing nuisance. A continuing nuisance means that the pet’s existence interferes with the 
+health, security, and comfort of other tenants or the number, size, breed, or spec ies of the pet is 
+inappropriate for the type of housing accommodations. 
+Landlords have the right to create reasonable written rules and regulations regarding the 
+care and maintenance of pets. These rules and regulations should be incorporated into the tenant’s 
+lease. 
+ 
+ 
+ 
+7 
+ 
+ 
+ 
+The Law Against Discrimination as set forth in N.J.S.A. 10:5 -29.2, prohibits 
+discrimination against handicapped, blind, or deaf people in renting or leasing housing 
+accommodations. A handicapped, blind, or deaf person who has a service or guide  dog, or who 
+obtains a service or guide dog, shall have full and equal access to all housing accommodations and 
+shall not be required to pay extra compensation. Any lease or rental agreement prohibiting pets 
+shall not apply to a service or guide dog owned by a handicapped, blind, or deaf tenant. The tenant 
+is responsible for any damages done to the premises by the service or guide dog. 
+Tenants should maintain control of their pets and obey any lease requirements regarding 
+the care and control of a pet’s beh avior, designated activity/walking areas and waste cleanup. 
+Tenants should obey all Federal, State, and Local laws regarding the maintenance of their pets. 
+Pets should not create a continuing nuisance for other residents or the landlord. Landlords are not 
+responsible for the actions of a tenant’s pet, unless the landlord is aware of the pet’s vicious 
+propensity and fails to take action. If tenants do not obey pertinent laws, rules, and regulations, the 
+landlord may have cause to ask the tenant to remove the pet from the premises or the landlord may 
+have cause for an eviction action.  
+Termination of a Lease Agreement 
+ The only reason a landlord can terminate a lease is if they offer a new lease to the tenant 
+with different terms, i.e. higher rent or new rules and regulations, and the tenant does not agree. A 
+landlord cannot evict a tenant just because the lease term has ended. It is important to note that 
+termination is distinguishable from eviction. For more detailed information, see the eviction 
+section of this publication.  
+ If a tenant moves out before the end of the lease, the landlord may be able to hold the tenant 
+responsible for the rent that becomes due until the premises is rented again, or until the lease ends, 
+whichever occurs first. If the tenant moves out before the lease term has expired, the landlord must 
+attempt to re-rent the apartment for the remaining months on the lease and prove that there was an 
+attempt to re-rent the unit, i.e. advertising the premises for rent and interviewing tenants (Sommer 
+v. Kridel, 74 N.J. 446 (1977); McGuire v. City of Jersey City, 125 N.J. 310 (1991); Fanarjian 
+v. Moskowitz, 237 N.J. Super. 395 (App. Div. 1989)). 
+A tenant may terminate a lease for the following reasons: 
+1. Moving out because of bad conditions  - if the landlord fails to make needed repairs the 
+tenant must have proof of the bad conditions. If this is the case, the law holds the landlord 
+responsible for breaking the lease by failing to fulfill their contractual obligation to provide 
+safe and decen t housing. This is called constructive eviction ( Reste Realty Corp v. 
+Cooper, 53 N.J. 444 (1969); Harel Assoc. v. Cooper Healthcare Prof. Serv., Inc., 271 
+N.J. Super. 405 (App. Div. 1994)).  
+2. Housing that is not handicapped accessible - if a landlord cannot or will not make a 
+dwelling unit handicapped-accessible, at the landlord’s own expense, for a disabled 
+tenant or a member of the tenant’s immediate family who is disabled as a result of the 
+loss of one or more limbs or who requires an assistive device to move about, the lease can 
+be terminated on the 40th day following receipt by the landlord of a notice of lease 
+ 
+ 
+ 
+8 
+ 
+ 
+ 
+termination and certification from a treating physician on a form submitted by the tenant 
+to the landlord (N.J.S.A. 46:8-9.2).  
+The same procedure applies to the termination of the lease in the event of the death of the 
+tenant or the tenant’s spouse, except that a specific form is not prescribed (N.J.S.A. 46:8-
+9.1). These provisions for early termination do not apply to any lease that speci fically 
+provides otherwise.  
+3. Lease Termination Due to Disabling Illness  - under the Lease Termination Due to 
+Disabling Illness, Accident or Death Law, a tenant may break their lease, under certain 
+conditions. A 40-day written notice of lease termination is  required in each instance. The 
+tenant must vacate and return possession of the property to the landlord at least five 
+working days prior to the 40 th day following the landlord’s receipt of the notice to 
+terminate. Rent must be paid until the termination date (N.J.S.A. 46:8-9.2).  
+A. In certain circumstances, a tenant suffering a disabling illness or accident resulting 
+in a loss of income may break a lease having a term of one or more years after 
+submitting a form prescribed by law (N.J.S.A. 46:8-9.2). 
+B. Tenants 62 years of age or older that are accepted into an assisted living facility, a 
+nursing home, or a continuing care retirement community may break their lease. 
+The tenant, spouse, or legal representative must provide the landlord with written 
+notice of termination of the lease and attach a certification from a treating physician 
+stating that the tenant or spouse needs to be in an assisted living facility, nursing 
+home, or continuing care retirement community and documentation that the tenant 
+has been accepted into one of those facilities (N.J.S.A. 46:8-9.2). 
+C. Tenants 62 years of age or older that do not already reside in low - or moderate-
+income housing and are accepted into low- or moderate-income housing may break 
+their lease agreements. The tenant, spouse, or legal representative must provide the 
+landlord with a written notice of termination of the lease and attach documentation 
+i.e., a lease or intent to lease low or moderate housing (N.J.S.A. 46:8-9.2).  
+4. Termination of the Lease Due to Domestic Violence - according to the New Jersey Safe 
+Housing Act (N.J.S.A. 46:8-9.4 et seq.) victims of domestic violence may terminate their 
+lease without penalty prior to the expiration of  the lease by providing the landlord with a 
+written notice that the tenant or a child of the tenant faces an imminent threat of serious 
+physical harm from a specific person, (that must be identified in the written notice) , if the 
+tenant remains on the premises, and by fulfilling any of the following requirements:  
+A. Has a certified copy of a permanent restraining order issued by a court under the 
+Prevention of Domestic Violence Act of 1991 ( N.J.S.A. 2C:25 -17 et seq. ) and 
+protecting the tenant or child from the person named in the written notice;  
+B. Has a  certified copy of a permanent restraining order from another jurisdiction 
+issued pursuant to that jurisdiction’s laws concerning domestic violence, and 
+protecting the tenant or child from the person named in the written notice;  
+C. A law enforcement agency record documenting the domestic violence, or certifying 
+that the tenant or a child of the tenant is a victim of domestic violence;  
+ 
+ 
+ 
+9 
+ 
+ 
+ 
+D. Medical documentation of the domestic violence provided by a health care 
+provider;  
+E. Certification, provided by a certified Domestic Violence Specialist, or the director 
+of a designated domestic violence agency, that the tenant or a child of the tenant is 
+a victim of domestic violence; or  
+F. Other documentation or certification, provided by a licensed social worker, that the 
+tenant or a child of the tenant is a victim of domestic violence.  
+ Lease Termination due to domestic violence shall take effect on the thirtieth day following 
+receipt by the landlord of one of the documents listed above and a written notice from the tenant 
+that they intend to vacate the premises and terminate the lease. The rent shall be pro -rated up to 
+the time of the lease termination (N.J.S.A. 46:8-9.4 et seq.).  
+ If there are tenants on the lease other than the tenant who has given notice of termination 
+of the lease due to domestic violence, the co -tenant’s lease also terminates. The co -tenant may 
+enter into a new lease agreement with the landlord at the landlord’s option. 
+ Where the leased premises are under the control of a public housing authority or 
+redevelopment agency, the victim of domestic violence must give notice in accordance with any 
+relevant regulations pertaining to public housing leases.  
+ If a tenant terminates the lease agreement prior to the expiration of the lease pursuant to 
+the Safe Housing Act , (N.J.S.A. 46:8-9.6), the tenant is entitled to the return of their security 
+deposit. Within 15 business days after the lease  is terminated, the landlord shall make available 
+the return of the tenant’s security deposit, plus any interest earned, to the tenant or the tenant’s 
+agent. In addition, within three business days after the lease is terminated, the landlord must notify 
+the tenant in writing of when and where the tenant can pick up the security deposit. The notice 
+must be given by personal delivery or mailed to the last known address, indicating the location of 
+the security deposit and the hours in which the tenant may pick  up their security deposit. The 
+landlord must provide a duplicate notice to the relocation officer. If there is no relocation officer, 
+notice must be provided to the municipal clerk. The security deposit must be available for return 
+during normal business hours for thirty (30) days in the municipality where the rental property is 
+located. The security deposit must be accompanied by an itemized list of the interest earned and 
+any deductions. Any security money not demanded by and returned to the tenant or th e tenant’s 
+designated agent within 30 days shall be redeposited or reinvested by the landlord, in accordance 
+with the Security Deposit law. The landlord may charge the tenant for any money due the landlord 
+under the terms of the lease, including damages to the property that are not ordinary wear and tear 
+and any rent due and owing at the time the lease is terminated (N.J.S.A. 46:8-19  
+ A landlord shall not disclose information documenting domestic violence that has been 
+provided to the landlord by a victim of domestic violence. The information shall not be entered 
+into any shared databases or provided to any person or entity. However, the information may be 
+used as evidence in an eviction proceeding, legal action for unpaid rent or damages from the 
+tenancy, with the consent of the tenant, or as otherwise allowed by law. 
+ 
+ 
+ 
+10 
+ 
+ 
+ 
+ This law does not apply to transient or seasonal rentals. 
+5. Service Members Civil Relief Act - a service member leasing an apartment before entering 
+the military has the legal right under this act to terminate the lease under the following 
+circumstances (50 U.S.C.A. § 3955):  
+A. At any time after the renter’s entry into military service; or 
+B. The service member, while in military service, executes the lease and thereafter receives 
+military orders for a permanent change of station outside of the continental United States 
+or to deploy with a military unit for a period of not less than 90 days.  
+The service member must provide the landlord written notice of termination of the lease and a 
+copy of the military orders. Notice of termination of the lease must be provided in advance . 
+Termination of the lease is effective on the last day of the month following the month in which the 
+notice is delivered. The service member will incur no further monetary responsibility after 
+providing the landlord with the proper notices. The landlord is required to return the security 
+deposit in accordance with the applicable Security Deposit Law (N.J.S.A. 46:8-26). 
+ Moreover, if the rent does not exceed $3,991.90 per month, eviction actions may be stayed 
+by the courts for three (3) months unless the court finds that the tenant’s ability to pay rent is not 
+materially affect ed by reason of the military service. This amount is current as of 2020 and 
+increases each year in accordance with the CPI component for housing.  
+ For further information about the act including specific notice requirements and time 
+frames, military personnel can contact the Legal Assistance Section of Fort Dix and McGuire Air 
+Force Base at (609) 754 -2010 or the Reserve Office of Fort Monmouth Legal Services at (732) 
+532- 4371.  
+Modification of the Rental Premises for People with Disabilities 
+ It is illegal for a landlord to refuse to rent to a tenant because of the tenant’s handicap or 
+disability. The landlord is not required to modify existing rental premises occupied, or to be 
+occupied, by a person with a disability. However, the landlord also cannot ref use to make 
+reasonable changes (at the expense of the disabled person) as may be necessary to afford the 
+disabled person full enjoyment of the premises. The tenant may be required to restore the premises 
+to the condition that existed before the modificatio n, except for reasonable wear and tear. The 
+landlord may also require a description of the modifications and proof of required permits 
+(N.J.A.C. 13:13-3.4(f)). 
+ The landlord may require the tenant deposit money into an escrow account each month to 
+cover the costs of removal of the modifications when the tenant moves out. The landlord can only 
+require the tenant to deposit the money into the escrow account if they can prove that the costs of 
+restoring the premises to its original condition will be expensive. Payments into an escrow account 
+must be affordable and must cease when the amount needed to restore the unit to its original 
+condition is reached.  Interest on the account goes to the tenant. 
+ 
+ 
+ 
+11 
+ 
+ 
+ 
+ New Jersey State Law also allows a disabled tenant to terminate the lease agreement if the 
+unit is not handicapped accessible. A lease can be terminated if the landlord refuses to make the 
+unit handicapped accessible after the tenant requests that the unit be made handicapped accessible 
+and the landlord is unable or unwilling to do so (N.J.S.A. 46:8-9.2).  
+Right of Entry 
+ In general, a landlord does not have the right to enter a residential rental premises without 
+consent of the tenant or a judgement from the Superior Court of New Jersey. There is no case law 
+in New J ersey that either requires a tenant to give a landlord a key or prohibits a landlord from 
+keeping a key to a rented unit. The landlord does not have the right to come into the dwelling unit 
+whenever he or she wants to enter. However, the courts have generally approved lease provisions 
+that require the tenant provide the landlord with a key citing emergency circumstances where the 
+lack of a key could result in the loss of life or property in the case of an emergency. Unless 
+otherwise clearly stated in the lease agreement, a tenant disputing the landlord’s right to a key can 
+simply refuse to provide the landlord with a key. The landlord may then seek an action for eviction 
+based on the tenant’s refusal to provide the landlord with a key. The court may deny the  landlord 
+the right to have a key if the tenant can prove that the landlord has abused the right to enter the 
+premises. Moreover, the landlord may be liable to the tenant for damage or stolen property if the 
+landlord is known to have a key and known to enter the rental unit when the tenant is not home. In 
+a written lease, the landlord’s duty not to enter the premises in called the covenant of quiet 
+enjoyment which means that the tenant can control who may or may not enter the dwelling unit 
+(N.J.S.A. 2A-39-1).  
+ A landlord shall be guilty of an unlawful entry and detainer if they enter the rental premises 
+peacefully or forcibly and then detain or keep possession of the property or take the property by 
+force, the threat of force, or remove the tenant’s personal property without consent of the tenant or 
+a judgment from the Superior Court of New Jersey. With the exceptions noted above, if a landlord 
+enters a tenant’s unit while the tenant is not home, without the tenant’s permission, it is forceable 
+entry ( N.J.S.A. 2A:39-2). If a tenant willfully and without force holds over or remains at the 
+property after they have been given a written notice demanding delivery of possession (Notice to 
+Quit) of the rental premises from the tenant to the landlord, the tenant shall be guilty of an unlawful 
+detainer. If the tenant is found guilty of an unlawful detainer, the tenant shall pay the landlord 
+double the rent for the holdover time that the tenant possesses the premises (N.J.S.A. 2A:39-2).  
+Filing a complaint for unlawful entry and detainer 
+ Any legal action for a forcible unlawful entry and detainer, forcible detainer, and unlawful 
+detainer shall be brought before the Superior Court, and the court may hear and make a 
+determination in that action. If a landlord enters the rental premises unlaw fully, a trespass 
+complaint may be filed by the tenant with the local police department, under the New Jersey 
+Criminal Code for “defiant trespass” (N.J.S.A. 2A:39-6).  
+ A tenant or landlord depending on the judge’s decision shall be entitled to possession of 
+the real property and shall recover all damages that may have been caused by the unlawful entry 
+12 
+and detainer, including, court costs and attorney’s fees. When it is not appropriate to return the 
+person to possession of the premises, treble (3x) damages shall be awarded (N.J.S.A. 2A:39-8).  
+Access to the property 
+The Bureau of Housing Inspection, or an authorized representative, has the authority to 
+enter and inspect at any reasonable time any multiple dwelling ( N.J.A.C. 5:10-1.1 et seq. ). A 
+multiple dwelling is a building with three or more independent dwelling units. It is the duty of the 
+landlord to notify the tenant when the Bureau of Housing Inspection has scheduled the property 
+for an inspection. 
+The Bureau of Housing Inspection regulations also pr ovide that upon reasonable 
+notification tenants must give the landlord and the landlord’s employees access to the dwelling 
+unit for the purpose of inspection and maintenance. Reasonable notification is normally one day. 
+However, in the case of safety or st ructural emergencies immediate access shall be granted 
+(N.J.A.C. 5:10-1.2). 
+Consent of the tenant is required for inspection of the tenant’s private living quarters  that 
+are subject to the lease agreement except in the following cases (N.J.A.C. 5:10-1.10 (d)): 
+1. In case of emergencies where a condition exists that pose an immediate threat to the safety or
+health of persons using or near the premises.
+2. Where access to the premises has been denied and inspection is required to implement the
+requirements of the Bureau of Housing Inspection.
+A landlord may request entry to a rental unit to perform other services or to show the unit 
+for re-renting or sale. However, there is no statute or available case law that obligates a tenant to 
+allow a landlord access to the rental premises for purposes other than inspection, maintenance, and 
+repair. Therefore, the issue of entry in other cases should be addressed in the terms  of the lease 
+agreement. Disputes that arise regarding a landlord’s right of entry must be decided on a case-by-
+case basis in court.  
+Security Deposits 
+The Security Deposit Law applies to most  residential rental properties, including mobile 
+homes. The exception is an owner-occupied two-, or three-family dwelling. A tenant in an owner-
+occupied two-, or three-family dwelling may, however, make this provision applicable to their 
+tenancy 30 days  after sending a  written  request  to the landlord  that  the landlord  fulfill  the 
+requirements of the Security Deposit Law. In New Jersey, the landlord is not required to collect a 
+security deposit from  the tenant,  however, if they do, they must  follow prescribed rules and 
+regulations (N.J.S.A. 46:8-26).  
+The maximum-security deposit to be collected by the landlord cannot be more than 
+one and one-half times one month’s rent ( N.J.S.A. 46:8-21.2 ). It can be less. Any additional 
+yearly security deposit increase may not exceed 10% of the current security deposit. A landlord 
+may not charge a pet security deposit if it exceeds one and one-half times one month’s rent when 
+combined with the regular security deposit. In the case of Brownstone Arms v. Asher, 121 N.J. 
+Super. 401 
+ 
+ 
+ 
+13 
+ 
+ 
+ 
+(1972), and Reilly v. Weiss, 406 N.J. Super. 71 (2009), the courts determined that advanced rents 
+in excess of one and one-half times the monthly rental payment violate the Security Deposit Law. 
+Therefore, any prepaid funds held to secure future rents are considered to be a part of the security 
+deposit. This includes the last month’s rent. It does not matter how the prepaid funds are labeled. 
+The landlord may only require one and one -half times the tenant’s monthly rent as security and 
+the first month’s rent at the inception of the lease. That means the landlo rd may not require more 
+than two and one-half times the monthly rent at the inception of the lease, this includes the security 
+deposit and the first month’s rent. There is no time limitation within the statute for making the 
+request for a deposit.  
+ The security deposit money continues to be the property of the person making the deposit 
+and must be held in trust by the person receiving the money. This means that the person who 
+receives the money must not use the money in any way not permitted by law. The security deposit 
+shall not be comingled with the personal property or become an asset of the landlord.  
+ A landlord or designee who receives security deposit money for ten or less units must 
+deposit that money in an insured bank or savings and loan association located in New Jersey in an 
+interest-bearing account at the current interest rate at the time of deposit. A landlord or designee 
+who receives security deposit money for 10 or more units has the option of investing the money in 
+an insured money market fund of a New Jersey-based investment company where the investments 
+mature in one year or less, or deposit that money in a State or federally charted bank, or savings, 
+and loan association located in New Jersey in an account bearing a variable rate of intere st. This 
+section of the Security Deposit Law does not apply to security deposits for seasonal use or rental. 
+Seasonal use or rental means use or rental for a term of not more than 125 consecutive days for 
+residential purposes by a person having a permanent  place of residence elsewhere. Seasonal use 
+or rental does not mean use or rental of living quarters for seasonal, temporary, or migrant farm 
+workers in connection with work or place where work is being performed. The landlord shall have 
+the burden of proving that the use or rental of the residential property is seasonal ( N.J.S.A. 46:8-
+19 (d)). 
+ The interest or earnings paid on the security deposit belongs to the tenant and shall be paid 
+to the tenant in cash or credited toward rent due and owing on the ren ewal or anniversary of the 
+tenant’s lease or on January 31,  if the tenant has been given written notice, that the interest 
+payments will be paid on January 31 of each year (N.J.S.A. 46:8-19 (c)).  
+ Within 30 days of receipt of the security deposit and at t he time of each annual interest 
+payment, the landlord must notify the tenant in writing of the name and address of the banking 
+institution or investment company in which the money is deposited, the amount of the deposit, 
+type of account, and current rate o f interest for the account. In addition, the landlord must notify 
+the tenant within 30 days of transferring security deposit money to a new landlord or moving the 
+security deposit to another account or bank. If a tenant does not receive proper notice or is not paid 
+interest as required, the tenant may use the security deposit for payment of rent by giving the 
+landlord written notice that the security money plus interest at the rate of 7% per annum be applied 
+to rent payments or payments due or to become due  from the tenant. However, if the tenant does 
+not receive the annual notice at the time of the annual interest payment, or is not paid the annual 
+ 
+ 
+ 
+14 
+ 
+ 
+ 
+interest, as required, the tenant must give the landlord written notice and allow the landlord 30 
+days to comply with the annual interest payment and notice requirements. If the landlord does not 
+reply within the allotted time, the tenant can use his security deposit toward his rent. If the tenant’s 
+security deposit gets applied to his rent, the landlord may not m ake further demand for an 
+additional security deposit (N.J.S.A. 46:8-19.1 (c)).  
+ Within 30 days after the termination of a tenancy, a landlord must return the security 
+deposit, plus interest earned less deductions, to the tenant ( N.J.S.A. 46:8-21.1). Deductions may 
+include the cost of any damages over and above normal wear and tear, and any other money due 
+the landlord under the terms of the lease. The landlord must return the money either by personal 
+delivery, registered, or certified mail. If there are a ny deductions made from the security deposit 
+by the landlord, an itemized list of these deductions must also be sent to the tenant by registered 
+or certified mail within 30 days from the termination of the tenancy. If the amount of money owed 
+to the landlord for damages or unpaid rent is greater than the amount of the security deposit, the 
+landlord may sue for the difference. No deductions shall be made from a security deposit of a 
+tenant who remains in possession of the rental premises.  
+ If a landlord fails to return the security deposit within 30 days, or the tenant disagrees with 
+the amount deducted, the tenant may sue for double the amount of the security deposit that the 
+tenant contends was wrongfully withheld. If the tenant is successful, the court ma y award the 
+tenant double the amount wrongly withheld, together with court costs and reasonable attorney’s 
+fees (N.J.S.A. 46:8-21.1). However, if the tenant breaks the lease and moves out of the dwelling 
+unit prior to the expiration of the lease, without l egal cause, the lease is not considered to be 
+terminated. The lease is considered to be terminated once the unit is re-rented or the lease expires, 
+whichever occurs first, provided that the tenant notified the landlord as required by the lease 
+agreement. T he date the rental unit is re -rented determines the date of the termination of the 
+breached lease, J.C. Mitchell v. First Real Estate, 287 N.J. Super 546 (1996). Therefore, in the 
+case of a broken lease agreement by the tenant, the 30 days that the landlord shall return the tenant’s 
+security deposit does not start until the landlord re -rents the rental unit, or until the lease expires, 
+whichever occurs first. 
+ Within five (5) business days after a tenant is displaced by fire, flood, condemnation, or 
+evacuation, the landlord must return the security deposit. The law requires the return when either 
+an authorized public official has posted a notice prohibiting occupancy or has certified that the 
+displacement is expected to continue longer than seven (7) days. Within three (3) business days of 
+having received notice of the displacement, the landlord must let the tenant know where the 
+security deposit can be collected. The landlord may arrange to have the municipal clerk hold the 
+security deposit so that the tenant may collect it at the clerk’s office. If the tenant has not collected 
+the deposit within 30 days, the landlord can redeposit it with the banking institution or investment 
+company with which it was deposited before the displacement. If the tenant is later  able to move 
+back into the dwelling unit but has already collected the deposit, the tenant must again pay the 
+landlord a security deposit (one -third will be due immediately, another one -third in 30 days, and 
+the last one-third in 60 days) (N.J.S.A. 46:8-21.1).  
+ 
+ 
+ 
+15 
+ 
+ 
+ 
+ If the property is sold or transferred it is the duty of the new owner to obtain the security 
+deposit, plus accrued interest on the tenant’s deposit, that was collected by the former owner. 
+Whether or not the deposit and interest are transferred, t he new owner is responsible for the 
+investment of the security deposit, giving all notices and paying interest, and for the return of the 
+security deposit, plus any accrued earnings or interest (N.J.S.A. 46:8-21). 
+ The Small Claims section of the Special Civil Part of the Superior Court, Law Division in 
+the county where the unit is located or in the county where the landlord resides has jurisdiction in 
+actions involving security deposits where the amount does not exceed $5,000, including any 
+applicable pena lties, but not including court costs. For actions over $5,000 but not exceeding 
+$15,000, a person must file in the Special Civil Part of the Superior Court Law Division, New 
+Jersey Court Rule 6:11 ( N.J.S.A. 46:8-21.4). There is no State agency that has jur isdiction over 
+security deposit disputes. All disputes must be settled through court action.  
+ Any landlord who willfully and intentionally withholds a security deposit made by or on 
+behalf of a tenant who has received financial assistance through any Stat e or federal program, 
+including welfare or rental assistance , may be penalized. The landlord may be liable for a civil 
+penalty of not less than $500 or not more than $2,000 for each offense. The penalty shall be 
+collected and enforced by summary proceeding s pursuant to the Penalty Enforcement Law 
+(N.J.S.A. 2A:58-12). The State entity which made the deposits on behalf of the tenant will be 
+entitled to any penalty amounts recovered. A tenant receiving governmental financial assistance is 
+not required to file an action to recover security deposits withheld by a landlord in violation of this 
+law in order to continue participation in the governmental program (N.J.S.A. 46:8-21.1; N.J.S.A. 
+46:8-21.5). 
+ Any person who unlawfully uses security deposit monies may be c riminally charged as a 
+disorderly person and may be subject to a fine of not less than $200 or imprisonment for not more 
+than 30 days, or both (N.J.S.A. 46:8-25). 
+Discrimination 
+ Under State and federal laws, it is illegal for a landlord or rental agency to refuse to rent or 
+discriminate in the rental of housing units. The New Jersey Law Against Discrimination (LAD), 
+N.J.S.A. 10:5-12(g) to -(h), prohibits discrimination when selling or renting property and requires 
+equal treatment in the sale or rental of housing regardless of race, creed, color, national origin, 
+ancestry, sex, marital status, civil union status, domestic partnership status, familial status, 
+affectional or sexual orientation, gender  identity or expression, mental and physical disability, 
+nationality, or source of lawful income. 
+ The law applies to all landlord -tenant relationships, except those involving two -family 
+owner occupied dwellings, rooms in an owner or resident -occupied single home, and residences 
+planned exclusively for and occupied by one sex, i.e. YMCA and age -restricted housing, as it 
+pertains to familial status (N.J.S.A. 10:5-5(n)). 
+ 
+ 
+ 
+16 
+ 
+ 
+ 
+A landlord may refuse to rent to an individual or family if they do not have sufficient 
+income, family is too large for the unit, overcrowded occupancy would result in violation of zoning 
+laws, or credit history is poor (42 U.S.C.A. § 3601 to -3610). 
+ Under the LAD and the Fair Housing Amendments Act, the refusal to rent to a family that 
+includes children, with the exception of housing built for older persons and owner -occupied 
+structures with no more than two dwelling units is prohibited under 42 U.S.C.A. § 3601 to -3610. 
+ A complaint against a person who refuses to rent, or who at tempts to cancel a lease based 
+on illegal discrimination may be filed in a court of competent jurisdiction, i.e. New Jersey Superior 
+Court. Discrimination complaints pertaining to New Jersey state law violations should be reported 
+to the proper field office of the Division of Civil Rights, New Jersey Department of Law and Public 
+Safety. Addresses and contact information of the various regional offices are located in the 
+appendix section of this publication. If there is a federal violation, a complaint may b e filed with 
+the U.S. Department of Housing and Urban Development or the U.S. Attorney. For additional 
+information regarding discrimination on housing in New Jersey, the website i s 
+http://www.nj.gov/oag/dcr/index.html 
+ If a complaint is filed with one of t he three agencies referenced above these agencies are 
+required to investigate the complaint and take action and remedy the situation if it is found that 
+discrimination has actually occurred. A landlord that discriminates may be required to pay 
+monetary damages and be required to rent the unit to the complainant if a violation is determined 
+to have occurred. Under the LAD, landlords who violate this law are subject to substantial fines 
+and penalties, up to $10,000 for a first offense (N.J.S.A. 10:5-14.1a(a)).  
+Disposition of Personal Property 
+In accordance with N.J.S.A. 2A:18-72, a landlord of residential property may dispose of 
+any personal property, tangible goods, manufactured, or mobile homes left on the premises after 
+having given notice to the tenant prior to disposition of the property; or the tenant has provided 
+the landl ord with a written notice that they are relinquishing possession of the premises. The 
+landlord may dispose of the property if they believe that the tenant has left the property on the 
+premises with no intention of asserting any further claim to the propert y and the premises. 
+Additionally, the landlord must satisfy the following conditions: 
+1. Written notice to the tenant with the requirements of the Abandoned Property Law concerning 
+delivery and storage. The notice shall be sent by certified mail return receip t requested or by 
+receipted first class mail addressed to the tenant at tenant’s last known address and at any 
+alternate address known to the landlord (N.J.S.A. 2A:18-73); and 
+2. A warrant for removal has been executed and possession of the property has been restored to 
+the landlord (N.J.S.A. 2A:18-72(b)); or 
+3. The tenant has given written notice that they are voluntarily relinquishing possession of the 
+premises (N.J.S.A. 2A:18-72(b)).  
+If the abandoned property is not removed: 
+1. The landlord may sell the property at a public or private sale (N.J.S.A. 2A:18-78(a)); or 
+ 
+ 
+ 
+17 
+ 
+ 
+ 
+2. The landlord may destroy or otherwise dispose of the property if the landlord reasonably 
+determines that the value of the property is so low that the cost of storage and conducting a 
+public sale would probably exceed the amount that would be realized from the sale ( N.J.S.A. 
+2A:18-78(b)); or 
+3. The landlord may sell items of value and destroy or otherwise dispose of the remaining 
+property (N.J.S.A. 2A:18-78(c)). 
+If the tenant claims the property within the  timeframe provided in the notice, the landlord 
+must make the property available for removal by the tenant without payment by the tenant of any 
+unpaid rent.  
+After notifying a tenant as required by sections N.J.S.A. 2A:18 -73 to -74 (contents of 
+notice for abandoned property), a landlord shall store all goods and other personal property of the 
+tenant in a place of safekeeping and shall exercise reasonable care for the property, except that the 
+landlord may promptly dispose of perishable food and shall allow an animal control agency or 
+humane society to remove any abandoned pets . A landlord shall be entitled to reasonable storage 
+charges and costs incidental to storage. A landlord may store property in a commercial storage 
+facility, in which case the storage c ost shall include the actual storage charge plus the reasonable 
+cost of removal of the property to the place of storage. 
+If a tenant responds in writing or orally to the landlord, on or before the day specified in 
+the required notice, that they intend to r emove the property from the premises, or from the place 
+of safekeeping if the landlord has stored the property and does not do so within the time specified 
+in the notice or within 15 days after the written response, whichever is later, the tenant’s property 
+shall be conclusively presumed to be abandoned (N.J.S.A. 2A:18-76). 
+Upon removal of property, a tenant shall reimburse the landlord for the reasonable cost of 
+storage for the period the property was in the landlord’s safekeeping, including the reasonable cost 
+of removal of the property to a place of storage. A landlord shall not be entitled to reimbursement 
+for storage and removal costs which are greater than the fair market value of such costs in the 
+locale of the rental property. A landlord shall not be  responsible for any loss to a tenant resulting 
+from storage of property unless the loss was caused by the landlord’s deliberate or negligent act or 
+omission (N.J.S.A. 2A:18-77). 
+A landlord may deduct from the proceeds of any sale the reasonable costs of notice, storage 
+and sale and any unpaid rent and charges not covered by a security deposit. After deducting these 
+amounts, the landlord shall remit to the tenant the remaining proceeds, if any, together with an 
+itemized accounting. If the tenant, after due diligence, cannot be found the remaining proceeds 
+shall be deposited with the Superior Court and, if not claimed within 10 years, shall escheat to the 
+State (N.J.S.A. 2A:18-80). 
+ Compliance in good faith by the landlord with the requirements of the law con stitutes a 
+complete defense in any action brought by a tenant against a landlord for loss or damage to the 
+property, however, if the landlord seizes and retains a tenant’s property without complying with 
+the law, the tenant is relieved of any liability for  reimbursement of the landlord’s cost and is 
+entitled to recover up to twice the actual damages sustained (N.J.S.A. 2A:18-82). 
+ 
+ 
+ 
+18 
+ 
+ 
+ 
+Nonpayment and Distraint 
+ A landlord is prohibited from taking or holding a residential tenant’s possessions for 
+nonpayment of rent. The legal term for this practice is “distraint.” A landlord cannot use distraint 
+for money owed on a lease or other agreement for a unit used only as a residence (N.J.S.A. 2A:33-
+1 to -23).  
+ A tenant may sue for damages resulting from distraint for nonpayment of rent in Superior 
+Court, Special Civil Part, in the county the building is located or the county in which the landlord 
+resides. The court may award double damages and costs of legal action to a tenant whose property 
+was wrongfully distrained, (N.J.S.A. 2A:33-19). Any tenant who removes or conceals any of his 
+personal property with the intent to delay, hinder, or defraud the landlord shall be liable for the 
+damages to the landlord if the action of the tenant appears to be willful, the landlord shall be 
+entitled to recover double damages (N.J.S.A. 2A:33-21).  
+ When a tenant threatens to leave the unit without payment of rent and a landlord has not 
+yet received a judgement from the court, the landlord may seek a temporary restraining order to 
+prohibit the tenant from leaving the jurisdiction of the court (Court Rule 4:51-5).  
+Consumer Fraud Protection 
+ Deception, fraud, misrepresentation, or knowing failure or refusal to provide important 
+information in connection with the sale or advertisement of real estate is illegal in New Jersey 
+(N.J.S.A. 56:8-2). An aggrieved consumer may sue for triple damages plus attorney’s fees for 
+consumer fraud ( N.J.S.A. 56:8 -19). A tenant may contact the Department of Law and Public 
+Safety, Division of Consumer Affairs, Office of Consumer Protection, 124 Halsey Street, Newark, 
+New Jersey 07101, (973) 504 -6200, https://www.njconsumeraffairs.gov for further information 
+concerning the Consumer Fraud Act. 
+Credit Checks and Background Checks 
+ Landlords may access credit reports for prospective tenants from credit bureaus or tenant 
+screening agencies. The landlord may use the information provided in deciding whether to approve 
+or deny an applicant. If a tenant’s  application is denied due their credit report, the landlord must 
+provide the tenant with the name, address, and telephone number of the credit reporting or 
+screening agency that supplied the negative report (15 U.S.C.A. § 1681m). The landlord is allowed 
+to charge the tenant for the cost of the report. The landlord may also request reasonable rental 
+application fees or employment verification. For more information about the Fair Credit Reporting 
+Act, call toll -free 1 -877-FTC-HELP (1 -877-382-4357), or visit their website at www.ftc.gov. 
+Landlords may also perform background checks through public records.   
+ Furthermore, landlords may attempt to verify the validity of any information a tenant 
+provides on his or her rental application.  
+Rent 
+ A tenant has the responsibility to pay the full amount of rent on time. An owner has the 
+responsibility to maintain the dwelling in a habitable condition. 
+ 
+ 
+ 
+19 
+ 
+ 
+ 
+ A tenant who remains in a unit after giving his or her landlord written notice of i ntent to 
+leave may be held responsible for double the rent payments for the months that the tenant continues 
+to occupy the unit without a lease. The payment of double rent payments shall continue to be paid 
+during the time period in which the tenant contin ues in possession of the premises after giving 
+written notice of intention to leave the premises ( N.J.S.A. 2A:42-5). The amount due and owing 
+to the landlord is recoverable by any action in any court of competent jurisdiction (N.J.S.A. 2A:42-
+6). 
+ Any senior citizen receiving a Social Security Old Page Pension, a Railroad Retirement 
+Pension, or any other governmental pension in lieu of a Social Security Old Age Pension, and any 
+recipients of Social Security Disability Benefits, Supplemental Security Income, or benefits under 
+Work First New Jersey, must be given a period of five (5) business days grace period for payment 
+when the rent is due on the first of the month. No delinquency or late charge may be assessed 
+during the grace period. Any landlord who fails  to allow this grace period may be criminally 
+prosecuted as a disorderly person (N.J.S.A. 2A:42-6.1 to -6.3). 
+Rent Control/Rent Increases 
+ The State of New Jersey has no laws that establish, govern or control rents. Municipalities 
+may pass an ordinance establishing rent control or rent leveling. Locally created boards enforce 
+these ordinances. Rent control ordinances have been upheld as a val id exercise of the municipal 
+police power where there is a housing shortage (Iganamort v. Borough of Fort Lee , 120 N.J. 
+Super. 286 (1973); Helmsley v. Borough of Fort Lee, 78 N.J. 200 (1978); Orange Taxpayers 
+Council, Inc. v. City of Orange, 83 N.J. 246 (1980)) 
+ Under the Newly Constructed Multiple Dwellings Law ( N.J.S.A. 2A:42 -84.5), newly 
+constructed multiple dwellings shall be exempt from any local rent control ordinances for a period 
+of 30 years following completion of construction of the building. Rent s that are subsidized by 
+governmental funding may also be exempt from local rent control ordinances. A tenant may 
+contact the Rent Control Board or municipal clerk in their town to find out if their rental unit is 
+covered by a rent control or rent leveling ordinance.  
+Although the State of New Jersey does not have any laws that establish, govern, or control 
+rents, a landlord can increase rents if they follow certain procedures. A landlord cannot raise the 
+rent mid-lease term. The old lease must be terminated, and the new lease must have the increased 
+rental payment. The landlord has to offer the tenant a new lease with the increased rent once the 
+old lease has been terminated. In order to terminate a lease, the landlord must take the following 
+steps (N.J.S.A. 2A:18-61.1(f)): 
+1. Landlord must give the tenant proper written notice, which informs the tenant that the current 
+lease is terminated, and the tenant can remain in the premises by signing a new lease at an 
+increased rent. 
+2. Written notice must also state that  end of the current lease, tenant has the right to continue 
+renting the premises at the increased rent. 
+ 
+ 
+ 
+20 
+ 
+ 
+ 
+Notice requirements for rent increases are contained in the Anti -Eviction Act ( N.J.S.A. 
+2A:18-61.1 et seq.). This law provides that before an owner can evict a tenant for nonpayment of 
+an increased rent, they must first serve the tenant with a valid notice to quit and notice of rent 
+increase. This notice does not mean that the tenant must actually leave; the tenant has the right to 
+remain as long as they pay any legal increase in rent. The increase in rent must not be 
+unconscionable; it must not be so unreasonable as to shock the conscience of a fair and honest 
+person and must comply with any municipal ordinances governing rent increases.  
+ The definition of unconscionable is fact sensitive. Factors used in defining unconscionable 
+are the amount of the increase; the landlord’s expenses and profitability; how the existing and 
+proposed rent compared to rents charged at similar rental properties in the same ge ographic area; 
+the relative bargaining position of the parties; and the Judge’s general knowle dge (Fromet 
+Properties v. Buel, 294 N.J. Super. 601 (App. Div. 1996); Hale v. Farrakhan, 390 N.J. Super. 
+335 (App. Div. 2007)). 
+If an increase is determined to be unconscionable or a tenant has not received proper notice, 
+the tenant may file a complaint with a municipal rent control board where one exists. Where there 
+is no municipal rent control and a rent increase is charged that a tenant does not pay on the ground 
+that it is unconscionable, the landlord may file an eviction action for non -payment of the rent 
+increase. A judge would decide if the increase was unconscionable or not. If the court finds that 
+the rent increase is not unconscionable or in violation of a rent control ordinance, the tenant will 
+have to pay the increase in order to avoid being evicted.  
+ If a building is converted to a condominium or cooperative form of ownership, or to fee 
+simple ownership of units, rents may not be increased to cover cos ts resulting solely from the 
+conversion (N.J.S.A. 2A:18-61.31). This does not mean that rents may not be increased to cover 
+the cost of new services or amenities. This prohibition applies to all tenants in the building 
+regardless of whether they are eligible for protected tenancy as senior citizens or disabled persons.  
+Public Financed and Subsidized Housing 
+ Housing developments owned or subsidized by the U.S. Department of Housing and Urban 
+Development (HUD), as well as unsubsidized developments with HUD -insured mortgages 
+determined by HUD to have certain economic problems, are not subject to municipal rent control. 
+For further information on the proper notice of a rent increase (the allowable amount of each rent 
+increase in HUD buildings), contact the U.S. Department of Housing and Urban Development, 
+New Jersey State Office, 1 Newark Center, Newark, New Jerse y 07102-5260, (973) 622 -7900. 
+Likewise, rents fixed and controlled by the New Jersey Housing and Mortgage Finance Agency 
+(NJHMFA) in projects it finances are not subject to municipal rent control ordinances. For further 
+information on the proper notice of a rent increase or the allowable amount of rent increase in a 
+NJHMFA project, contact the New Jersey Housing and Mortgage Finance Agency, 637 South 
+Clinton Ave., Post Office Box 18550, Trenton, New Jersey 08650-2085, (609) 278-7400. 
+ 
+ 
+ 
+ 
+ 
+21 
+ 
+ 
+ 
+Property Tax Rebate for Tenants 
+ The Tenants’ Property Tax Rebate Act (N.J.S.A. 54:4-6.2 to – 6.13; N.J.A.C. 5:33-3.1 et 
+seq.), as amended in 1998, may require owners of properties with five (5) or more rental units to 
+pass on to their tenants as a rent credit or cash rebate, the full amount of any current property tax 
+reduction. Reductions are calculated by comparing the current year’s taxes with a previous year 
+(beginning with 1998) that shows a larger tax amount. The difference is the amount to be rebated 
+to tenants. Municip alities with rent control ordinances that do not permit landlords to pass tax 
+increases along to tenants are not subject to the law. The law also contains exceptions for certain 
+types of rental properties. See N.J.S.A. 54:4-6.3 for the list of the types of  properties that are 
+exempt. 
+ In each municipality, where a rebate is due, a notice of property tax reduction ( N.J.S.A. 
+54:4-6.7) is sent from the local tax collector to the building owners within 30 days after tax bills 
+are issued to the building owner. Generally, rebates are to be distributed in monthly installments 
+at rent payment dates, beginning within 30 days after receipt of Notice of Tax Reduction. The first 
+rebate is to be cumulative from January and all are to be completed by December 31. However, if 
+the notice is received after November 1, the rebate is to be completed by June 30 of the following 
+year.  
+ Under the law, in  eligible municipalities, a property rebate is due to tenants only when 
+property taxes are reduced because of: 1) a municipal wide revaluation of all real estate and only 
+in the first year the revaluation takes effect, 2) generally, when the property tax rate in the current 
+year is lower than the base year (usually 1998), 3) taxpayers in the municipality receive tax rate 
+credit through the Regional Efficiency Aid Program (REAP)  (N.J.S.A. 54:4-8.76 et seq .). The 
+entire amount of the REAP credit must be passed through to tenants. 
+ The law and rules contain details on eligibility and other issues beyond what is covered in 
+this publication. For additional information, please direct all questions about the program to the 
+Tenant Property Tax Rebate Program, Divisi on of Local Government Services, P.O. Box 803,  
+Trenton, New Jersey 08625 -0803, (609) 984 -5076, or via e -mail at dlgs@dca.nj.gov, or on the 
+website at www.nj.gov/dca. The program also has a handbook titled “Tenant and Landlord Guide 
+to the Tenant Property Tax Rebate Act,” which can be obtained at no cost by writing or e-mailing 
+the above address. 
+New Jersey Homestead Property Tax Credit 
+ Residential tenants may be eligible for a tax  credit under the Homestead Property Tax 
+Credit Act, if they were tenants during the year for which the tax return is filed. In order to qualify, 
+applicants must meet income eligibility requirements. This is not a credit on rent payments and is 
+not paid by  or through the landlord. The benefit is paid through the New Jersey Division of 
+Taxation. The homestead benefit may come in the form of a rebate or credit. Tenants may apply 
+for a homestead rebate or credit by filling out the application on the New Jersey Gross Income Tax 
+Form. This form must be filed by April 15th of each year with the New Jersey Division of Taxation. 
+Even tenants who are not required to file a return for income taxes may still apply for the credit. 
+Questions concerning this credit should  be directed to the New Jersey Division of Taxation, 
+ 
+ 
+ 
+22 
+ 
+ 
+ 
+Taxpayers Information Service, 50 Barrack Street, Post Office Box 269, Trenton, NJ 08646, (609) 
+292-6400 or (800) 323-4400. (See Homestead Property Tax Credit Act, N.J.S.A. 54:4-8.57 through 
+8.75). 
+Identity of Landlord 
+ A landlord who owns a one or two-family non-owner-occupied home is required by law to 
+file a registration statement with the clerk of the municipality in which the building is located. If 
+the building has three (3) or more units, the statement must be filed with the Bureau of Housing 
+Inspection, Post Office Box 810, Trenton, New Jersey 08625-0810, on a registration form provided 
+by the Bureau. The Bureau sends a validated copy of the filed registration form to the municipal 
+clerk. Owner -occupied two -family homes are not required to be registered. The landlord 
+registration law prohibits a landlord from evicting a tenant in the building if the landlord has not 
+been properly registered (N.J.S.A. 46:8-27 to -37). 
+ The registration statement must be given in writing to each tenant and posted in a place in 
+the building where it can be easily seen. The document must state the date of preparation and 
+contain the names and addresses of the following: 1) the owner or owners of the building and the 
+owners of the rental business if not the same person; 2) the registered agent and corporate officers 
+if the owner is a corporation; 3) a person who resides in or has an office in the same county as the 
+building and is authorized to accept service of process, if the owner is not located in the county; 
+4) the managing agent; 5) regular maintenance personnel; 6) the owner’s representative who must 
+be available and able to act in an emergency (the representative’s telephone number must be 
+listed); 7) every holder of a recorded mortgage on the building; 8) if fuel oil is used to provide heat 
+to the building and it is furnished by the owner, the name, and address of the fuel oil dealer and 
+the grade of oil used must also be included (N.J.S.A. 46:8-28).  
+ Every landlord required to file a certificate of registration must file an amended registration 
+with the correct agency (Bureau of Housing Inspection or clerk of the municipality) within 20 days 
+after any changes to the information on the certificate. No fee shall be charged for filing an 
+amendment except where ownership of the property has changed, (N.J.S.A. 46:8-28.2). Amended 
+registration statements must also be posted in the building and each tenant must be notified in 
+writing within seven (7) days after filing the amended statement. In any eviction action by a 
+landlord who has failed to follow the provisions of this law, the court is required by law to reserve 
+judgement and continue the case – that is, to keep the case open and not issue a judgement for 
+eviction – for up to 90 days to allow the landlord time to comply. If the landlord has not-complied 
+within the allotted time, the court must dismiss the case, which means that the tenant is not evicted. 
+ The Superior Court, Law Division, Special Civil Part and the municipal court in the 
+municipality in which the premises are located have concurre nt jurisdiction to enforce penalties 
+sought against landlords who violate the requirements of the Landlord Identity law. The maximum 
+penalty is $500.00 for each offense, recoverable by a summary proceeding under “The Penalty 
+Enforcement Law” (N.J.S.A 2A:58-1 et seq.). The Attorney General, the municipality in which  
+the premises are located, or any other person may institute the summary proceeding. The court will 
+remit any penalty recovered to the municipality in which the subject premises is located unless the 
+ 
+ 
+ 
+23 
+ 
+ 
+ 
+action is brought by the Attorney General, in which case the penalty is remitted to the State 
+(N.J.S.A. 46:8-35).  
+Habitability 
+ Many citizens in the State reside in dwelling units that fail to meet minimum standards of 
+safety and sanitation.  All units shall be maintained as so to be fit for human use and habitation 
+and to prevent progressive deterioration of the unit to the detriment of the health, safety, and well-
+being of its occupants.  Both landlords and tenants have certain obligations for mainte nance of 
+these dwelling units. These obligations are based on lease provisions , New Jersey Statutes, local 
+municipal ordinances, and court decisions, and require that proper and timely notice be given by 
+the tenant to the landlord where there are safety and sanitation conditions that must be corrected. 
+ Tenants have the right to safe, sanitary, and decent housing. Residential leases carry an 
+implied warranty of habitability. The New Jersey Supreme Court has held that a landlord offering 
+two units or more for rent implies that it is habitable and agrees to keep it in that condition. Upon 
+terminating the lease, a tenant is responsible for maintaining and returning the property to the 
+landlord in the same condition that the tenant received it, except for normal  wear and tear. When 
+damage has been caused by malicious or abnormal use by the tenant, the tenant is responsible for 
+the repair (Marini v. Ireland, 56 N.J. 130 (1970); Dowler v. Boczkowski, 148 N.J. 512 (1997)).  
+Reporting Housing Code Violations: 
+All buildings with three or more rental units must comply with the regulations for the 
+maintenance of Hotels and Multiple Dwellings and must be registered with the Bureau of Housing 
+Inspection (BHI) in the Department of Community Affairs. BHI i s responsible for the Statewide 
+enforcement of the Hotel and Multiple Dwelling Law and the regulations for maintenance of Hotel 
+and Multiple Dwellings (N.J.S.A. 55:13A-1 et seq.). 
+To file a complaint against a landlord, for housing code violations contact the Bureau of 
+Housing Inspection at (609) 633-6241. Multiple dwellings are to be inspected for violations in the 
+following manner: inspection will be scheduled on a seven, five, or two -year schedule depending 
+on the number of violations and abatements on the property. Under this tiered system inspections 
+will take place as follows: (1) Every seven years when no violations are found or all violations are 
+abated before the first reinspection; (2) Every five years in dwellings where all violations are 
+abated by the second or third reinspection; (3) Every two years in dwellings where all violations 
+are not abated by the third reinspection. The law also requires that the owner of each multiple 
+dwelling of three or more units must file a certificate of registratio n. Once the certificate of 
+registration is obtained, it must be prominently placed in a conspicuous site on the property. This 
+certificate of registration must be filed annually. Should the information change, the owner must 
+file an amended registration st atement. Violation of this law can result in a $200.00 penalty per 
+violation (N.J.S.A. 55-13A-12(d)).  One- and two-unit buildings that are not owner-occupied must 
+comply with any applicable local ordinances and must register with the Clerk in the municipa lity 
+in which the residential property is located. No registration is required for owner -occupied two-
+family houses.  
+ 
+ 
+ 
+24 
+ 
+ 
+ 
+The Hotel and Multiple Dwelling Law gives the Commissioner of the Department of 
+Community Affairs power to issue and enforce regulations a nd to levy penalties to ensure that 
+multiple dwellings are maintained so that they do not endanger the health, safety, or welfare of the 
+tenants or the general public. Both landlords and tenants must maintain buildings so that there is 
+no violation of thes e regulations. Tenants must take care of their units and report any code 
+violations to the landlord or superintendent and upon one -day notice, shall allow the landlord or 
+his representative to enter the unit to make any inspections, repairs, or alterations required in order 
+to meet code requirements. In case of an emergency, immediate access shall be granted. The 
+landlord must keep the property in good repair, clean, free of infestation and free of any hazards 
+or nuisances that might be harmful to the health or safety of the occupants, and must provide basic 
+maintenance, including heat, building security, smoke alarm systems or detectors, and properly 
+functioning plumbing and electrical systems, etc. (N.J.A.C. 5:10-5.1). 
+Child-Protection Window Guards/Screens 
+ This requirement does not apply to seasonal rental units (units rented from May 1 to 
+October 1 each year). Nor does this requirement apply to owner -occupied units, condominiums 
+and co-ops (N.J.S.A. 55:13A-7.13(a)1 to –(b)2). 
+ Leases must contain a notice advising tenants that, upon written request by the tenant, the 
+owner is required to provide, install, and maintain window guards in dwelling units with children 
+10 years of age or younger. In addition, bi -annual written notices must be given to tenants 
+informing them of the window guard regulation. Furthermore, landlords must give first -floor 
+tenants notice that they may also request window guards to protect the safety of their children, if 
+the windows are more than six feet above ground or if there are o ther hazardous conditions that 
+make the installation of the window guards necessary (N.J.A.C. 5:10-27.1(c) to –(d)). By law the 
+landlord may charge a tenant no more than twenty dollars ($20.00) for each window guard installed 
+in the tenant’s apartment (N.J.A.C. 5:10-27 Appx. 27B). 
+ Screens suited to protect the interior of the building against insects must be provided and 
+kept in good repair for each exterior door, except exterior doors which do not provide ventilation. 
+Screens shall also be provided, maint ained and installed for each openable window in living and 
+common areas. Screens are not required for units or common areas on the 6th floor or above.  
+Carbon Monoxide and Smoke Detectors 
+Both one - and two -household dwellings as well as living space in hotels and multiple 
+dwellings must be equipped with smoke detectors and carbon monoxide alarms. In the case of one- 
+and two-family houses the requirement is enforced upon any change in occupancy or any time a 
+permit is required for work being undertaken (N.J.S.A. 52:27D-192). An owner of a one- or two-
+family house must obtain a Certificate of Smoke Detector and Carbon Monoxide Detector Alarm 
+Compliance from the local fire official responsible for the enforcement of the Uniform Fire Safety 
+Act. The requirement is enforced by the New Jersey Department of Community Affairs under the 
+Regulations for the Maintenance of Hotels and Multiple Dwellings with respect to multiple 
+dwellings (N.J.A.C. 5:10-28.1).  
+ 
+ 
+ 
+25 
+ 
+ 
+ 
+No carbon monoxide alarm is required in any building that does not contain any fuel -
+burning appliances and does not have an attached garage. The enforcing agency may issue a 
+certificate for a seasonal rental unit for a period of 12 months, regardless of the number or 
+frequency of changes in tenancy (N.J.A.C. 5:70-2.3, 2.9, & 4.19).  
+At the request of a tenant who is deaf or hearing impaired and residing in a multiple 
+dwelling or rooming and boarding house, the landlord must provide and install a visual alarm type 
+carbon monoxide detector and smoke detector for that unit or, in the case of a rooming or boarding 
+house resident, for the resident’s sleeping area. The tenant should make his or her request in writing 
+to the landlord (N.J.A.C. 5:10-28.1, 5:27-14.1, 5:70-4.9). 
+Locks 
+ For a dwelling unit to be insurable, it must be equipped with locks that meet the federal 
+standards as described below. State law requires that every landlord of a multiple dwelling equip 
+the building with locks meeting federal standards. These standards are the same as those required 
+under the New Jersey Hotel and Multiple Dwelling Regulations.  
+ The regulations call for each exterior doorway to be protected by a door which, if not a 
+sliding door, is equipped with a deadbolt lock using either an interlocking vertical bolt and striker, 
+or a minimum ½-inch throw deadbolt, or a minimum ½-inch throw self-locking latch. For further 
+information on locks, write to the Code Administrator for the county the building is in, Bureau of 
+Housing Inspection, Department of Community Affairs, P.O. Box 810, Trenton, NJ 08625 -0810, 
+(609) 633-6225. In buildings of fewer than three (3) units, the tenant should contact the municipal 
+building inspector or health officer for enforcement of any existing local ordinances (N.J.A.C. 
+5:10-19.2). 
+State Heat and Utility Requirements 
+ The Hotel and Multiple Dwelling regulations establish heating standards for buildings with 
+three (3) or more units. For buildings with fewer than three (3) units, tenants need to contact their 
+municipal building or health offices for enforcement of local ordinances regarding heating. Every 
+unit or dwelling space must have a heating system that will provide and maintain heat at least 68 
+degrees F. from October 1 to May 1, from 6:00 a.m. to 11:00 p.m. and 65 degrees F. at other hours, 
+supplying the required fuel or energy, and maintained the heating system in good condition so that 
+it can provide the required amount of heat. However, a landlord and a tenant may agree that the 
+tenant will supply heat to a dwelling unit when the unit is served by separate heating equipment 
+and the source of that heat can be separately computed and billed (N.J.A.C. 5:10-14.4). To file a 
+complaint pertaining to heating and utilities from anywhere in the State of New Jersey, contact the 
+Bureau of Housing Inspection at (609) 633-6241.  
+ The State Board of Public  Utilities (BPU) enforces regulations that prohibit utility 
+companies from shutting off utilities in tenant -occupied buildings whose owners have failed to 
+make payments until tenants have been given notice and an opportunity to agree to make future 
+payments (N.J.A.C. 14:3-3A5 to -3A:8). The office of the BPU is located at 44 S. Clinton Avenue, 
+Post Office Box 350, Trenton, NJ 08625, (609) 777-3300. 
+ 
+ 
+ 
+26 
+ 
+ 
+ 
+ The Board of Public Utilities also handles complaints regarding diversion of service. The 
+utility company tha t provides service to the rental property will provide an application for 
+requesting a diversion of service investigation. There is no cost to have the investigation 
+performed. If the investigation reveals that a tenant is being billed for service used by another, the 
+landlord will be contacted to have the problem corrected. For the Utility Residential Customer’s 
+Bill of Rights, please visit https://www.state.nj.us/bpu/assistance/rights/. The Ut ility Residential 
+Customer’s Bill of Rights is a concise, plain language explanation of the BPU regulations as set 
+forth in N.J.A.C. 14:3-1.1 et seq. 
+ For emergency action in the event of failure to provide required heat, a tenant can contact 
+the local hea lth officer immediately after giving, or attempting to give, notice to the landlord. 
+When the heating equipment in a residential unit fails and the landlord does not take appropriate 
+action after receiving proper notice form the tenant, the local board of health may act as an agent 
+for the landlord and order the repairs necessary to restore the equipment to operating conditions 
+(N.J.S.A. 26:3-31(p)).  
+Rent Receivership for Substandard Housing and Diversion of Utilities 
+ In the event that a dwelling unit fails to meet minimum standards of safety and sanitation, 
+the Rent Receivership Law permits the public officer of a municipality or tenant(s) of a dwelling 
+to petition the court for a judgment directing the deposit of rents with the court and the appointment 
+of an administrator who must use the money to correct the unsafe conditions (rent receiver) 
+(N.J.S.A. 2A:42-85 to -95). 
+ If a tenant’s utility service has been wrongfully diverted by the owners or some other party 
+without the consent of the tenant, and the  charges are being billed to the tenant whose services 
+have been diverted, and the landlord has been notified  by a public officer, the tenant or a utility 
+company, and the landlord has failed to take necessary action to correct the wrongful diversion 
+within 30 days of receipt of the notice, the tenant may file a complaint in Superior Court for Rent 
+Receivership (to deposit rent money with the court until the problem is corrected) or in Small 
+Claims Court. The notice to the landlord regarding the wrongful d iversion should be sent by 
+certified mail (N.J.S.A. 2A:42-87). 
+Multifamily Housing Preservation and Receivership 
+ Any interested party may bring a court action to have a receiver appointed for multifamily 
+buildings which are substandard and deteriorating. Interested parties should file a complaint in 
+Superior Court in the county in which the building is located to have a receiver appointed to take 
+charge and manage the building. Any receiver appointed will be under the direction and control of 
+the court. In order for the building to be eligible for receivership it must meet one of the following 
+criteria (N.J.S.A. 2A:42-117): 
+1. The building is in violation of any State or municipal code to such an extent as to endanger the 
+health and safety of the tenants as of the date of the filing of the complaint with the court, and 
+the violation(s) have persisted, unfixed for at least 90 days; or 
+ 
+ 
+ 
+27 
+ 
+ 
+ 
+2. The building  is the site of a clear and convincing pattern of recurrent code violations, which 
+may be shown by proofs that the building has been cited for such violations at least  4 separate 
+times within the prior 12 months or 6 separate times within the preceding 2 years and the owner 
+has failed to take action.  
+Public Housing Maintenance 
+ Public Housing Authority leases must con tain the rights and responsibilities of both the 
+Housing Authority and the tenant in the event there is extensive damage to a property and 
+conditions are created that are  hazardous to life, health, or safety of the occupants. A Public 
+Housing Authority lease must include a provision for standard alternative accommodations, if 
+available, where necessary repairs cannot be accomplished within a reasonable time period. For 
+more information regarding public housing leases you may contact the, U.S. D epartment of 
+Housing and Urban Development, (HUD), New Jersey State Office, 1 Newark Center, Attn: Public 
+Housing, Newark, N.J. 07102-5260, (973) 622-7900. 
+Federal Lead-Based Paint Disclosure 
+Under rules adopted jointly by the U.S. Environmental Protection  Agency (EPA) and the 
+U.S. Department of Housing and Urban Development (HUD) in 1994, landlords of certain types 
+of buildings must notify prospective tenants of lead-based paint hazards in the dwelling they wish 
+to rent and provide them with information ab out the identification and control of such hazards. 
+More specifically, if the dwelling to be rented was constructed prior to 1978, contains bedrooms 
+and is to be rented for more than 100 days, the landlord must provide the tenant, before the lease 
+is signed, an EPA pamphlet entitled, ”Protect Your Family from Lead in Your Home” (42 U.S.C.S. 
+§ 4851 et al.). 
+ In addition, the landlord must ensure that the lease agreement includes a federal disclosure 
+form. On the form, the landlord must state whether they are  aware of the presence of any lead -
+based paint or lead based hazards in the property. If the landlord has a lead evaluation report of 
+the property, the report must be attached to the form.  
+ The federal regulations only require landlords to disclose known lead hazards. They do not 
+require landlords to conduct any investigations to determine whether there are lead -based paint 
+hazards in their rental properties. Therefore, the fact that the landlord is unaware of a lead hazard 
+does not mean that one does not exist. Lead-based paint hazards may still be present and, if they 
+are, young children residing in those buildings are at risk of childhood lead poisoning.  
+ Housing for the elderly or persons with disabilities are exempt from the lead paint 
+disclosure requirement unless a child under the age of six (6) resides with the tenants. For specific 
+questions about childhood lead poisoning or single copies of the pamphlet titled, “Protect Your 
+Family from Lead in Your Home,” forms and rules, call the National Lead I nformation Center 
+(NLIC) at (800) 424-5323 (LEAD). Requests can be faxed to (585) 232-3111, and information can 
+also be found on the HUD Office of Lead Hazard Control and Healthy Homes website, which is: 
+https://www.hud.gov/program_offices/healthy_homes. Noncompliance with the guide include 
+civil and administrative penalties.  
+ 
+ 
+ 
+28 
+ 
+ 
+ 
+ For bulk copies of the “Protect Your Family from Lead in Your Home” (Stock number 
+055-000-00507) pamphlet, call (202) 512-1800.  
+State Lead-Based Paint Disclosure 
+ Multiple Dwellings and one - and two -family tenant occupied residential buildings, 
+including all common areas, constructed before 1978, are required to undergo a combined 
+inspection and risk assessment, and lead hazard control work, or periodically treat the property for 
+lead-based paint hazards. However, this rule does not apply to the following: a dwelling unit that 
+has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal  
+dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly 
+or a residential property designed exclusively for persons with disabilities, unless a child less than 
+six (6) years of age is expected to reside in the dwelling unit. The owner must post a notice advising 
+tenants to report deteriorated paint and shall respond to any reported problem within 30 days. The 
+notice shall include the landlord’s name, address, and telephone number, however, the landlord 
+shall respond to any report of deteriorated paint within one week if there is a pregnant woman or 
+child under the age of six (6) in the unit or if the problem is in a common area ( N.J.A.C. 5:10-
+6.6(h)2(i)). The Bureau of Housing Inspection is responsible for the ins pection of multiple 
+dwellings for compliance with the state lead paint requirements.  
+ Tenant notification and landlord response requirements are as follows: Landlords shall 
+distribute the pamphlet for Lead Safe Maintenance  prior to commencement of repair work that 
+will disturb more than two (2) square feet of lead -based paint, unless the tenant has received the 
+pamphlet within the past 12 months ( N.J.A.C. 5:10-6.6(h)1). The pamphlet may be obtained by 
+contacting the Bureau of Housing Inspection, P.O. Box 810, Trenton, N.J. 08625, (609) 633-6225 
+or at www.nj.gov/dca/codes. 
+ Occupants will not be permitted to enter the worksite during hazard reduction activities 
+and will be temporarily relocated to a safe and similarly assessible dwelling unit, unless the 
+treatment will not cause a hazard. The occupant’s belongings must also b e moved from the 
+contaminated area or protected by an impermeable covering. A warning sign shall be posted at 
+each entry to a room where hazard reduction activities are conducted when occupants are present; 
+or at each main and secondary entryway to a build ing form which occupants have been relocated 
+(24 C.F.R. 35.1345). 
+A local board of health has the authority to order the removal of lead paint from the interior 
+of a dwelling unit when it causes a danger to occupants. 
+Post of Drinking Water Test Results 
+1. Public Water Systems: 
+ Public water systems are defined as those having at least 15 service connections or 
+regularly serve an average of at least 25 individuals daily at least 60 days or more out of the year 
+(N.J.S.A. 58:12A-3). 
+ 
+ 
+ 
+29 
+ 
+ 
+ 
+ The landlord of  a multiple dwelling who is required to prepare a Consumer Confidence 
+Report pursuant to the “Safe Drinking Water Act Amendments of 1996,” (42 U.S.C.S. § 300f et 
+al.), or who receives a Consumer Confidence Report from the owner or operator  of a public 
+community water system, shall post each Consumer Confidence Report it prepares or receives in 
+each common area routinely used by tenants living in a multiple dwelling unit or, if there is no 
+common area routinely used by tenants, the landlord of the multiple dwelling unit must transmit a 
+copy of the Consumer Confidence Report to each dwelling unit. 
+ The landlord of a multiple dwelling unit who is a supplier of water but is not required to 
+prepare a Consumer Confidence Report pursuant to the “Safe Drinking Water  Act Amendments 
+of 1996,” and who is required to conduct tests of its drinking water by the Department of 
+Environmental Protection, must post a chart setting forth the results of the water tests, including 
+the level of detection and, as appropriate for eac h contaminant, the maximum containment level, 
+highest level allowed, action level, treatment technique, or other expression of an acceptable level, 
+for each contaminant, in each common area routinely used by the tenants living in a multiple 
+dwelling unit, or if there is no common area routinely used by the tenant, the owner of the multiple 
+dwelling unit must transmit a copy of the chart to each dwelling unit. The chart also must include 
+in bold print the statement required to be included in a Consumer Confidence Report, pursuant to 
+40 C.F. R. 141.154(a).  
+2. Private Water Systems: 
+ Private water systems are defined as any water system that does not meet the definition of 
+a public water system. 
+ The Private Well Testing Act (N.J.S.A. 58:12A-26 et seq.) requires private potable wells 
+to be tested in accordance with the law . All landlords of property supplied by a private potable 
+well must provide a copy of the test results to all tenants of the property. Testing is required at 
+least once every five (5) years. T he landlord is required to provide a copy of new test results to 
+each rental unit within 30 days of receiving those results. Any new tenant of a rental unit is to be 
+provided a written copy of the most recent test results by the landlord (N.J.S.A. 58:12A-32). The 
+New Jersey Department of Environmental Protection will notify local health authorities of failed 
+well tests. For further information or questions about the Private Well Testing Act, contact the 
+New Jersey Department of Environmental Protection (NJDEP), 401 East State Street, Post Office 
+Box 426, Trenton, New Jersey 08625-0426, (609) 292-5550.  
+Remedies if the landlord fails to maintain the property in a habitable condition 
+1.  Repair and Deduct 
+If the landlord does not keep the premises in a  habitable condition, a tenant may repair any vital 
+deficiencies and deduct the amount of the repair from the rent. The landlord’s failure to maintain 
+the property could also lead to what is called a constructive eviction by the tenant (see below for 
+explanation). The tenant may seek rent abatement (a reduction in rent) or withhold the rent or a 
+portion of the rent if the property is not habitable (Marini v. Ireland, 56 N.J. 130 (1970); Dowler 
+v. Boczkowski, 148 N.J. 512 (1997)) 
+30 
+Before applying the remedies  of repair and deduct, constructive eviction, rent abatement, or 
+withholding the rent or a portion of the rent, the following must apply: 
+1. The defect must be of a “vital facility.” Vital facilities are those items necessary to make
+the rental unit habitable. Example of defects of vital facilities include broken toilets, no hot
+or cold water, lack of heat or electricity, broken windows, or air conditioning.
+2. The tenant must not have caused the condition.
+3. The tenant must have notified the landlord that the deficient condition existed and allowed
+the landlord adequate time to fix the defect. Notice to the landlord should be given by the
+tenant in writing and by certified mail, return receipt requested.
+A maintenance problem that does not threaten residents’ sa fety, or does not affect
+habitability, does not provide a basis for rent withholding or repair and deduct. Rent withholding 
+was authorized when the New Jersey Supreme Court held that the obligation of a tenant to pay 
+rent and the obligation, (whether written or not) on the part of a landlord to maintain the property 
+in a livable condition are mutually dependent (Berzito v. Gambino Rental Abatement, 114 N.J. 
+Super. 124 (1971), 63 N.J. 460 (1973); Housing Authority of City of Newark v. Scott, 137 N.J. 
+Super. 110 (App. Div. 1975)).  
+The New Jersey Supreme Court has permitted the self-help remedy of “repair and deduct.” 
+A landlord promises at the beginning of a lease that the vital facilities needed to make the dwelling 
+unit livable are in good condition and th e property will be maintained. When there are defects in 
+the vital facilities, a tenant must first notify the landlord of the situation and allow a reasonable 
+amount of time for the landlord to make repairs or replacements. If a landlord fails to take action, 
+a tenant may have the repairs made and deduct the cost from future rent. However, a landlord may 
+still take a tenant to court for nonpayment of rent. As a defense, the tenant would have to prove 
+the presence of defects, the failure of the owner to act despite having received reasonable notice, 
+and the need to make repairs. In the event the matter goes to court, the tenant will very likely be 
+required to deposit the full amount of the rent with the court. If there is a finding in favor of the 
+landlord, in most cases, the unpaid rent must be paid by the end of the court day to avoid eviction. 
+If there are defects in the vital facilities and the landlord has not repaired them after 
+receiving proper and timely notice from the tenant, the tenant may either seek a decrease in rent 
+by court action or simply withhold rent. A landlord may bring an eviction action for nonpayment 
+of rent. As a defense, the tenant must prove the necessity to make repairs and the failure of the 
+landlord to act despite having received reasonable notice. To avoid possible eviction in the event 
+the court finds in favor of the landlord, the tenant should save the amount of money withheld so 
+that he will be able to pay it if ordered by the judge. It is advisable to set up a separate bank account 
+for this purpose. 
+As to air conditioning, the Superior Court, Appellate Division has held that air conditioning 
+that is part of the original tenancy may be considered a “vital facility,” and air conditioning failure 
+affects the habitability of the premises. 
+2. Constructive eviction  – Constructive eviction occurs when a tenant breaks the lease without
+penalties because the landlord is guilty of neglect or default, which makes the premises unsafe,
+31 
+unfit, or unsuitable for occupanc y. Reste Realty v. Cooper , 53 N.J. 444 (1969) , established the 
+foundation for constructive eviction. If a tenant invokes the remedy of constructive eviction, and 
+the landlord is found to be negligent in maintaining the rental unit, the tenant is entitled t o the 
+return of the security deposit and is not responsible for the rent for the balance of the lease or the 
+cost of re-renting the property.  
+3. Rent abatement (reduction)  – Upon entering into a lease, the tenant’s promise to pay rent and
+the landlord’s warranty of habitability are interdependent. In Berzito v. Gambino, 63 N.J. 460
+(1973), the court held that a tenant claiming that the landlord did not maintain the property in a
+habitable condition may initiate an action to recover all or part of the deposit paid when the lease
+was finalized or all of the rent paid. If the court finds that the landlord did not maintain the property
+in a habitable condition, the tenant will be charged only with the reasonable rental value of the
+property in its imperfect condition during the tenancy.
+4. Withholding the rent or a portion of the rent  – If the landlord breaches his obligation of
+maintaining the property at an adequate standard of habitability, a tenant may withhold the rent or
+a portion of the rent to be used as a set-off, because of the deficient condition. If the landlord
+institutes an eviction proceeding for non-payment of rent, the tenant is entitled to use the landlord’s
+breach of obligation to provide a habitable residence as a defense and justification for the set-off
+(deduction of rental payment) (Marini v. Ireland, 56 N.J. 130 (1970))
+5. Rent Receivership  – The law promoting safe and sanitary housing for tenants of substandard
+dwellings (N.J.S.A. 2A:42-85 et seq.) was enacted after the Berzito decision. The law authorizes
+tenants in substandard dwelling units to deposit their rents with a court-appointed administrator
+for use in remedying defective conditions. If there is a difference in the market value of the
+premises in its defective condition and the amount of rent that the tenant paid to the court
+administrator, the tenant may be entitled to a rent abatement and may only be charged the
+reasonable rental value of the property in its imperfect condition. To use this remedy, a tenant or
+housing inspector may file a complaint in the court of the municipality in which the property is
+located.
+Note: Not every defect or inconvenience is considered a breach of the warranty of habitability. 
+Each case must be judged on its own facts. To avoid eviction, any rent withheld by the tenant 
+should be saved and accessible in case the court requires the tenant to pay the outstanding rent. 
+In emergency situations created by the landlord  or  resulting  from  his negligence, the 
+landlord may be responsible to bear a tenant’s expenses in obtaining alternative housing during 
+the emergency.  Expenses may be  deducted  from the rent.  However, the expenses  must  be 
+reasonable.  
+Flood Plain Notification Requirement 
+If the rental property has been determined to be located in a flood zone or area, the landlord must 
+notify each new tenant prior to prior to lease signing or renewal that the rental property is located 
+in a flood zone or area. This notice is not required to be given in one- and two-unit residential 
+buildings, or in an owner-occupied three-family dwelling, or in hotels, motels, or other guest 
+housing serving transient or seasonal guests defined as those who rent a property for a period of 
+less than 120 days.
+32 
+This model notice can be found at https://www.nj.gov/dca/dhcr/offices/housing_assistance.shtml 
+under the Landlord/Tenant link for “Landlord Floor Disclosure Notice” (N.J.S.A. 46:8-50).  
+Crime Insurance Information 
+Crime insurance is available through the New Jersey Insurance Underwriters Association, 
+Crime Insurance Indemnity Plan. To apply for crime insurance, contact the New Jersey Insurance 
+Underwriters Association, Crime Insurance for Habitable Property, 570 Broad Street, Post Office 
+Box 32609, Newark, New Jersey, 07102, (973) 622-3838 directly for an application. 
+This insurance is applicable to coverage from losses from theft and/or burglaries. A tenant 
+may also purchase renter’s insurance from a private insurance company to cover damages to 
+his or her personal property. Please visit www.njiua.org for additional information on insurance 
+coverage.  
+Eviction 
+The Anti-Eviction Act,  N.J.S.A. 2A:18-61.1 to 61.12, was created to protect 
+blameless tenants from eviction and was adopted in recognition of the housing shortage in 
+the State. A landlord may recover possession of a dwelling unit used as a residence only by 
+consent of the tenants or through the legal process of eviction. In  an eviction action, when a 
+landlord obtains a judgment of possession of the unit from a court, the landlord is entitled to a 
+warrant for removal. This warrant will direct an officer of the court to remove all persons from 
+the dwelling unit and give the landlord full possession. The warrant may also direct the officer 
+of the court to remove the tenants’ belongings. It is the landlord’s responsibility to obtain the 
+warrant for removal and have it enforced ( N.J.S.A. 2A:18-61.1). 
+An eviction is an actual removal of a tenant from the premises. A landlord must have 
+good cause to evict a tenant (N.J.S.A. 2A:18-53). There are several grounds for a good cause 
+eviction. Each cause, except for nonpayment of rent, must be described in detail by the landlord 
+in a written notice to the tenant. A “Notice to Quit” is required for all good cause evictions, 
+except for an eviction for nonpayment of rent ( N.J.S.A. 2A:18-61.2). A “Notice to Quit” is a 
+notice given by the landlord terminating the tenancy and ordering the tenant to vacate the 
+premises. However, a Judgment for Possession must be entered by the Court before the tenant 
+is required to move. In some cases, a “Notice to Cease” may also be required. A “Notice to 
+Cease” serves as a warning notice; this notice tells the tenant to stop the wrongful conduct. If the 
+tenant does not comply with the “Notice to Cease,” a “Notice to Quit” may be served on the 
+tenant. There is no statutory time period for a “Notice to Cease,” however, the period of time for 
+a resident to comply with the notice must be reasonable under the circumstances (Brunswick 
+Street Assocs . v. Gerard, 357 N.J. Super. 598 (2002)). 
+After serving a “Notice to Quit,” on the tenant, the landlord may file suit for an eviction. 
+If a suit for eviction is filed and the landlord wins his case, he may be granted a Judgment for 
+Possession. A Judgment for Possession terminates the tenancy and allows the landlord to have 
+the tenant evicted from the rental premises. No residential landlord may evict or fail to renew a 
+lease, whether it is a written or an oral lease without good cause. The landlord must be able to 
+prove in court that he has grounds for an eviction.  
+ 
+ 
+ 
+33 
+ 
+ 
+ 
+Applicability 
+ The Anti-Eviction Act applies to most residential rental properties including single-family 
+homes, mobile homes and land in a mobile home park, apartment buildings, and complexes. This 
+law also applies to rooming and boarding homes (N.J.S.A. 2A:18-53 to -84). 
+Exceptions 
+ This law may not apply to two - or three-unit owner-occupied premises with two (2) or 
+fewer rental units. It does not apply to hotel guests, motel guests, or guest houses rented to a 
+transient guest or seasonal tenant. However, hotel and motel guests are c overed under this law if, 
+the occupant has no alternate residence and resides at the hotel or motel on a continual basis. 
+Additionally, this law does not apply to a unit held in trust on behalf of a member of the immediate 
+family, if that family member is developmentally disabled, and permanently occupies the dwelling 
+unit.  
+Filing a Complaint for Eviction 
+An Eviction Action Complaint must be filed with the Office of the Clerk of the Special 
+Civil Part in the county where the rental premises are located. A Landlord-Tenant complaint 
+form (to be used by the landlord) is available from the Clerk of the Special Civil Part in the 
+county where the rental premises are located. 
+Both the landlord and the tenant must appear at the court hearing. If the landlord or his 
+attorney fails to appear, the complaint may be dismissed. If the tenant does not appear, a default 
+judgment may be entered against the tenant allowing the landlord to evict the tenant from the 
+premises. 
+Judgment for Possession 
+If the landlord is granted a judgment for possession, the landlord may apply to the Clerk of 
+the Special Civil Part for a warrant for possession, which allows the landlord to force the tenant to 
+move out of the premises. The warrant for possession may not be issued unt il three (3) business 
+days after the judgment for possession is granted. The tenant has three (3) business days to move 
+all persons and belongings from the premises. If the tenant does not move after three (3) business 
+days from the time the warrant for possession was served on the tenant, the landlord may arrange 
+for the Court Officer to have the tenant evicted or locked out (N.J.S.A. 2A:18-57). 
+Following the eviction, the landlord must allow the tenant to remove their personal 
+belongings from the premises. A landlord cannot keep the tenant’s belongings but can arrange for 
+their storage. A landlord must apply for a warrant for possession within 30 days from the date of 
+the judgment for possession unless the judgment is vacated through a court order or other  written 
+agreement signed by the landlord and tenant. 
+A tenant may ask the court for permission to stay in the premises due to special 
+circumstances that moving may cause. This action is a stay of eviction. If permission is granted, 
+the tenant may not stay in the premises for more than one year, unless there is an agreed upon 
+extension between landlord and tenant . All rent due ordinarily must be paid for permission to be 
+granted by the court (N.J.S.A. 2A:18-59.1).   
+ 
+ 
+ 
+34 
+ 
+ 
+ 
+“Self-help” Evictions  
+Self-help evictions occur when the landlord or someone acting on the landlord’s behalf 
+enters into the dwelling unit without the permission of the tenant and without a judgment from the 
+Court and forces the tenant to move. A lockout occurs when the landlord padlocks the door or 
+changes the locks while the tenant are not home and then refuses to allow the tenant back into the 
+premises. A lockout also occurs when the landlord shuts off the utilities in attempt to force the 
+tenant to move. Self-help evictions, or lockouts, made by the landlord are illegal in New Jersey. 
+If a landlord attempts a self -help eviction or lockout, the tenant should call the police. If 
+the landlord refuses to allow the tenant back into the premises after  the police have warned the 
+landlord about the illegal procedures, the landlord may be charged with disorderly conduct.  
+“Self-help” eviction is entry into a dwelling unit and removal of tenants without their 
+consent or without a judgment from a court, are  not permitted in New Jersey under any 
+circumstances.  A landlord or any other person who enters an apartment or property without a court 
+order authorizing such entry and/or holds a tenant’s belongings unlawfully by force or threat of 
+monies owed may be liable for damages to the tenant (N.J.S.A. 2A:39-1).  
+ A landlord or their agent may not padlock, disconnect utilities or otherwise block entry to 
+a rental premise while the tenant still lives there.  Also, the removal of a tenant’s belongings from 
+a premise by a landlord after the eviction may be done only in accordance with the Abandoned 
+Property Law, N.J.S.A. 2A:18-72 to 84, Only an officer of the court can legally physically evict a 
+tenant, after a judge has issued a Warrant for Removal.   
+ A person who is illegally evicted may file a complaint with the Cler k of the Landlord -
+Tenant Section, Special Civil Part of the Law Division, or the Chancery Division, of the Superior 
+Court, in the county in which the act was committed.  In a successful action by a tenant evicted 
+through forcible entry and detainer, the co urt may award possession of the dwelling unit and all 
+damages, including court costs and reasonable attorney fees. If the dwelling unit cannot be returned 
+to the tenant as a result of the self-help eviction, the court may award damages. 
+Causes for Eviction 
+ Listed below are the statutory grounds for eviction as set forth in the Anti-Eviction Statute.  
+A. Failure to Pay Rent  
+If a tenant fails to pay rent, the landlord may immediately take legal action to have the 
+tenant evicted. The landlord is not required to give the tenant notice before filing an 
+eviction suit, except if the tenant resides in federally subsidized housing. I f the tenant 
+resides in federally subsidized housing a 14-day notice must be given before filing a suite 
+for eviction (N.J.S.A. 2A:18-61.1(a)). Note: A tenant may not be evicted for nonpayment 
+of rent, if the tenant used the unpaid portion of rent to continue utility services to the rental 
+premises after receiving notice that the services were in danger of being discontinued, and 
+if the landlord was responsible for the payment of those utility services and did not make 
+the payments required to retain the us e of those services. These utilities include electric, 
+gas, water, and sewer. The money used to pay for the continuance of those services shall 
+be considered a portion of the rental payment.  
+ 
+ 
+ 
+ 
+35 
+ 
+ 
+ 
+B. Disorderly Conduct 
+If after given written Notice to Cease disorderly conduct, the tenant continues the 
+disorderly conduct and that conduct destroys the peace and quiet of the other tenants living 
+in the building or neighborhood, the landlord may file a suite for eviction. A Notice to Quit 
+must be served on the tenant at least three days prior to filing a suit for eviction (N.J.S.A. 
+2A:18-61.1(b)).  
+ 
+C. Damage or Destruction to the Property 
+The tenant may be evicted if they have intentionally or by reason of gross negligence 
+caused or allowed destruction, damage, or injury to the property. A Notice to Quit must be 
+served on the tenant at least three days prior to filing a suit for eviction  (N.J.S.A.:2A-
+18-61.1(c)). 
+ 
+D. Substantial Violation or Breach of the Landlord’s Rules and Regulations 
+If after given a written Notice to Cease violating or breaching reasonable rules and 
+regulations contained in the lease or accepted in writing by the tenant, the tenant continues 
+to substantially violate or breach the rules and regulations, the  landlord may file a suit for 
+eviction. A Notice to Quit must be served on the tenant at least one month prior to filing 
+the suit for eviction. In addition, any notices must be given on or before the start of a 
+new month (N.J.S.A. 2A:18-61.1(d)).  
+ 
+E. Violation or Breach of Covenants or Agreements Contained in the Lease 
+1) If the tenant continues to substantially violate or breach the reasonable covenants or 
+agreements contained in the lease, after given written Notice to Cease violating or 
+breaching those covenants or agreements and if the landlord has reserved a right of re-entry 
+in the lease, the landlord may file a suit for eviction. A Notice to Quit must be served on 
+the tenant at least one month prior to filing the suit for this type of eviction. 
+2) In public housing, if the tenant has substantially violated or breached any of the 
+covenants or agreements contained in the lease, pertaining to illegal uses of controlled 
+dangerous substances, or other illegal activities, the landlord may file a suit for eviction. 
+The covenant or agreement must conform to federal guidelines and must have been in effect 
+at the beginning of the lease term. The landlord does not have to give Notice to Cease the 
+illegal activity before filing a Notice to Quit. A Notice to Quit must be served on the tenant 
+in accordance with federal regulations pertaining to public housing (N.J.S.A. 2A:18-
+61.1(e)).  
+Note: A public housing authority may evict a tenant when a member of the tenant’s 
+household or guest engages in drug -related activity, even if the tenant did not know of 
+the drug related activity. Dept. of Housing and Urban Development v. Rucker, 122 S.Ct. 
+1230 (2002).  
+F. Failure to Pay Rent Increase 
+If a tenant fails to pay rent after being given notice of a rent increase and a Notice to Quit, 
+the landlord may file a suit for eviction. The rent increase must not be unconscionable and 
+must comply with all other laws or municipal ordinances, including rent control. A Notice 
+ 
+ 
+ 
+36 
+ 
+ 
+ 
+to Quit must be served on the tenant at least one month prior to filing the suit for eviction 
+(N.J.S.A. 2A:18-61.1(f)).  
+ 
+Note: If the tenant believes the rent increase is unconscionable, they may withhold a 
+portion of the rent. They may withhold the difference between the old rent rate and the 
+new increased rate. However, the landlord may file suit for eviction and the court would 
+determine if the rent increase is unconscionable.  
+G. Health and Safety Violation or Removal from the Rental Market 
+A tenant may be evicted if the following conditions apply: 
+ 
+1) The landlord has been cited by an inspector and needs to board up or demolish the 
+property because of substantial health and safety violations and because it is financially 
+difficult to abate the violations. 
+2) The landlord needs to abate health and safety violations and it is not possible to do so, 
+while the tenant resides at the property. In addition, upon request, the landlord must provide 
+the Department of Community Affairs with information as required under the law, so that 
+the Department may prepare a report informing all parties and the court of the feasibility 
+of the landlord to abate the violations without removing the tenants from the property. 
+3) The landlord needs to correct an illegal occupancy and it is not possible to correct this 
+violation without removing the tenant.  
+4) A governmental agency wants to permanently take the property off the rental market, so 
+that it can redevelop or clear land in a blighted area (N.J.S.A. 2A:18-61.1(g)). 
+A Notice to Quit must be served on the tenant at least three months before filing a suit 
+for eviction. The tenant can’t be evicted until relocation assistance is provided. 
+Note: Tenants evicted under this cause may be eligible for financial and other assistance 
+for relocation. If eligible, this assistance must be provided before the tenant can be 
+evicted. Information on relocation assistance can be obtained from the Relocation 
+Assistance Program of the Division of Codes and Standards, P.O. Box 802, Trenton, 
+New Jersey 08625, (609) 984-7609. 
+Any tenant evicted under G 3) (illegal occupancy) is entitled to relocation assistance in 
+an amount equal to six times the tenant’s monthly rent. The landlord is responsible f or 
+paying the tenant’s relocation expenses. Any tenant who does not receive the required 
+payment from the landlord at least five days prior to their removal f rom the premises, 
+may receive payment from a revolving relocation assistance fund established by t he 
+municipality. The landlord will be required to repay the money to the municipality 
+(N.J.S.A. 2A:18-61.1(g) or 2A:18-61.1(h); Kona Miah v. Ahmed, 179. N.J. 511 (2004)). 
+However, if the municipality has not established a relocation assistance fund, and the 
+landlord does not pay the relocation funds within the required time, interest will accrue 
+on the unpaid balance at the rate of 18% per year until the amount due, includi ng 
+interest is paid in full to the tenant. The amount due to the tenant is a lien on the property. 
+ 
+ 
+ 
+37 
+ 
+ 
+ 
+The tenant may file a lien statement with the county clerk or registrar in order to enforce 
+the lien (N.J.A.C. 5:11-8.5(c)). 
+H. The Landlord Wants to Permanently Retire the Property from Residential Use 
+If the landlord wants to permanently retire a building or mobile home park from residential 
+use, provided the circumstances covered under section (G) above do not apply, the landlord 
+may file suit for eviction. A Notice to Quit must be served on the tenant at least 18 months 
+prior to filing the suit for eviction. No legal action may be taken until the lease expires  
+(N.J.S.A. 2A:18-61.1(h)). 
+ 
+I. Refusal to Accept Reasonable Changes in the Terms and Conditions of the Lease 
+When the lease expires, the landlord may propose reasonable but substantial changes to the 
+terms and conditions of the lease. If after written notice the tenant refuses to accept those 
+changes the landlord may file a suit for eviction and the court will determine if the proposed 
+changes are reasonable. In cases where a tenant has received a notice of termination on any 
+of the grounds listed in section (K) below, has a protected tenancy status pursuant to the 
+“Senior Citizens and Disabled Protected Ten ancy Act,” or pursuant to the “Tenant 
+Protection Act of 1992,” the landlord or owner shall have the burden o f proof that any 
+changes in the terms and conditions of the lease, rental, or regulations are reasonable and 
+does not substantially reduce the right s and privileges that the tenant was entitled to prior 
+to the conversion. A Notice to Quit must be served on the tenant at least one month before 
+filing suit for eviction (N.J.S.A. 2A:18-61.1(i)). 
+ 
+Note: The Senior Citizens and Disabled Protected Tenancy A ct protects qualifying 
+tenants from changes in the terms of the tenancy or rent increases, which rests solely on 
+the landlord’s decision to convert the rental premises. 
+ 
+J. Tenant Continuously Fails to Pay Rent or Habitually Pays Late 
+If the tenant continuously fails to pay rent or habitually pays late, after written Notice to 
+Cease, the landlord may file a suit for eviction. A Notice to Quit must be served on the 
+tenant at least one month before filing a suit for eviction (N.J.S.A. 2A:18-61.1(j)). 
+ 
+Note: The Courts have ruled that habitual late payments means more than one (1) late 
+payment following the Notice to Cease. Also, the N.J. Supreme Court ruled that a 
+landlord, after giving a tenant a notice to cease late payments, must continue to give the 
+tenant reasonable and sufficient notice when accepting further late payments, that 
+continued late payments from the tenant would result in an eviction action. If the 
+landlord does not give this continued notice, the original Notice to Cease given to the 
+tenant may be considered to be waived by the Court.  
+ 
+K. Conversion to Condominium, Cooperative, or Fee Simple Ownership 
+If the landlord or owner of a building or mobile home park is converting the property  from 
+the rental market to a condominium, cooperative, or fee simple ownership of two or more 
+dwelling units or park sites, except as hereinafter provided in subsection ( L) below, the 
+landlord may file a suit for eviction. The landlord must comply with the regulations 
+governing conversion to condominiums and cooperatives, before a warrant for possession 
+shall be issued. Up to five , one-year stays of eviction shall be granted by the court if the 
+ 
+ 
+ 
+38 
+ 
+ 
+ 
+tenant has not been offered a reasonable opportunity to examine and rent comparable 
+housing. However, not more than  a one-year stay shall be granted if the landlord allows 
+the tenant five months’ free rent as compensation for hardship in relocation. No action for 
+possession shall be brought against a senior citizen tenant or disabled tenant with protected 
+tenancy status pursuant to the “Senior Citizens and Disabled Protected Tenancy Act of 
+1992,” as long as the agency has not terminated the protected tenancy status or the protected 
+tenancy period has not expired. A Notice to Quit must be ser ved on the tenant at least 
+three years before filing a suit for eviction. No legal action may be taken until the lease 
+expires (N.J.S.A. 2A:18-61.1(k)). 
+ 
+L. Tenancy After Conversion to Condominium, Cooperative, or Fee Simple Ownership 
+1) The landlord may file for eviction, if the owner of a building or mobile home park, which 
+is constructed as or being converted to a condominium, cooperative or fee simple 
+ownership, seeks to evict a tenant or sublessee whose initial tenancy began after the master 
+deed, or agreement establishing the cooperative or subdivision plat was recorded, because 
+the owner has contracted to sell the unit to a buyer who seeks to personally occupy it and 
+the contract for sale calls for the unit to be vacant at the time of closing. However, no action 
+shall be brought against a tenant under paragraph one (1) of this subsection unless the 
+tenant was given a statement, informing the tenant that the property is being converted. A 
+Notice to Quit must be served on the tenant at least two months prior to filing suit for 
+eviction. No legal action may be taken until the lease expires.  
+ 
+2) The landlord may file for eviction, if the owner of three or less condominium or 
+cooperative units seeks to evict a tenant whose initial tenancy began, by rental, after the 
+master deed or agreement establishing the cooperative was recorded, because the owner 
+seeks to personally occupy the unit, or has contracted to sell the unit to a buyer who seeks 
+to personally occupy it and the contract for sale calls for the unit to be vacant at the time 
+of closing. A Notice to Quit must be served on the tenant at least two months prior to 
+filing suit for eviction. No legal action may be taken until the lease expires.  
+3) The landlord may file for eviction, if the owner of a building with three residential units 
+or less seeks to personally occupy a unit, or has contracted to sell the residential unit to a 
+buyer who wishes to personally occupy it and the contract fo r sale calls for the unit to be 
+vacant at the time of closing. A Notice to Quit must be served on the tenant at least two 
+months prior to filing suit for eviction. No legal action may be taken until the lease 
+expires (N.J.S.A. 2A:18-61.1(l)). 
+M. Tenancy Based on Employment 
+If a tenant resides in the property on the condition that, he is employed by the landlord as 
+a superintendent, janitor, or in some other job and that employment is terminated the 
+landlord may file a suit for eviction. A Notice to Quit must be served on the tenant three 
+days prior to filing a suit for eviction (N.J.S.A. 2A:18-61.1(m)).  
+ 
+N. Conviction of a Drug Offense Committed on the Property 
+The landlord may file a suit for eviction, if the tenant, including juveniles who have been 
+found by the Court to be delinquent, has been convicted of or pleaded guilty to drug 
+offenses that took place on the property, and has not in connection with his sentence either 
+ 
+ 
+ 
+39 
+ 
+ 
+ 
+(1) successfully completed or (2) been admitted to and continues during probation 
+participation toward completion of a drug rehabilitation program. Also, if the tenant lets a 
+person who has been convicted of or pleaded guilty to drug offenses, occupy the premises 
+for residential purposes whether it is continuously or occasionally, the landlord may file 
+for eviction. This does not apply to a tenant allowing a juvenile to reside at the property 
+where the juvenile has been found to be delinquent due to use or possession of drugs. No 
+eviction suit may be brought more than two years after : the juvenile was found to be 
+delinquent; conviction of the person; of after the person’s release from incarceration , 
+whichever is later. A Notice to Quit must be served on the tenant at least three days prior 
+to filing suit for eviction (N.J.S.A. 2A:18-61.1(n)). 
+    
+O. Conviction of Assaulting or Threatening the Landlord, The Landlord’s Family, or 
+Employees 
+The landlord may file for eviction, if the tenant has been convicted of or pleaded guilty to, 
+or if a juvenile has been found by the court to be delinquent due to an offense involving 
+assault or terrorist threats against the landlord, a member of the landl ord’s family or an 
+employee of the landlord. Also, if the tenant permits a person he knows has been convicted 
+of or has pleaded guilty to these offenses to reside at the premises continuously or 
+occasionally, the landlord may file a suit for eviction. No eviction suit may be brought 
+more than two years after: the juvenile was found to be delinquent; conviction of the 
+person; or after the person’s release from incarceration, whichever is later. A Notice to 
+Quit must be served on the tenant at least three day s prior to filing a suit for (N.J.S.A. 
+2A-18-61.1(o)). 
+ 
+P. Civil Court Action that Holds Tenant Liable for Involvement in Criminal Activities 
+The landlord may file for eviction, if the tenant is found by a civil court proceeding (not 
+criminal) to be liable fo r involvement in theft of property located on the premises, 
+involvement in assaults or terrorist threats against the landlord, a member of the landlord’s 
+family or an employee of the landlord, or involved in illegal drug activities that takes place 
+on the premises and that tenant has not in connection with his sentence for the drug offense 
+either (1) successfully completed or (2) been admitted to and continues during probation 
+participation towards completion of a drug rehabilitation program. Also, if the t enant 
+permits a person he knows has been convicted of or has pleaded guilty to these actions, to 
+reside at the premises continuously or occasionally, the landlord may file for eviction. This 
+does not apply to a tenant allowing a juvenile to reside at the p roperty where the juvenile 
+has been found to be delinquent due to the use or possession of drugs. No eviction suit may 
+be brought more than two years after : the juvenile was found to be delinquent; 
+conviction of the person; or after the person’s release fr om incarceration, whichever is 
+later. A Notice to Quit must be served on the tenant at least three days prior to filing suit 
+for eviction (N.J.S.A. 2A:18-61.1(p)). 
+ 
+Q. Conviction for Theft of Property 
+The landlord may file for eviction, if the tenant has been convicted of or pleaded guilty to, 
+or if a juvenile has been found to be delinquent by the Court due to an offense involving 
+theft of property from the landlord or from tenants residing in the same building or 
+complex. Also, if the tenant permits a person he knows has been convicted of or has pleaded 
+ 
+ 
+ 
+40 
+ 
+ 
+ 
+guilty to these actions to reside at the premises continuously or occasionally, the landlord 
+may file for eviction. A Notice to Quit must be served on the tenant at least three days 
+prior to filing suit for eviction (N.J.S.A. 2A:18-61.1(q)). 
+ 
+R. Conviction for Human Trafficking 
+The landlord may file for eviction, if the tenant in a civil action is found to have committed 
+a violation of the human trafficking provisions set forth in section 1 of P.L. 2005, c.77 
+(2C:13-8) within or upon the leased premises , building, or complex of the building and 
+land appurtenant thereto, or the mobile home park, in which those premises are located, or, 
+being the tenant or lessee of such leased premises, knowingly harbors or harbored a person 
+engaged in human trafficking, or permits or permitted such a person to occupy those 
+premises for residential purposes, whether continuously or intermittently. No action for 
+removal pursuant to this subsection may be brought mor e than two years after the alleged 
+violation has terminated (N.J.S.A. 2A:18-61.1(r)). 
+ 
+Evictions for Owner-Occupied Two-and Three-Family Dwellings  
+ Tenants of landlord-occupied two- and three-family dwellings can be removed only when 
+a court issues an order for eviction. However, in these cases, the landlord must prove that the tenant 
+(a) is staying after the expiration of the term of the lease, (b) is staying after a failure to pay rent, 
+(c) is disorderly so as to destroy the peace and quiet of other tena nts, (d) willfully destroys or 
+damages the premises, (e) constantly violates the written rules and regulations or (f) violates any 
+lease provision where the lease reserves a right of re -entry for such violations. A three (3) month 
+notice to quit must be gi ven if an at will tenancy or year -to-year tenancy exists. A one (1) month 
+notice to quit is required for a month-to-month tenancy and other types of tenancies are entitled to 
+a one (1) month notice to quit.
+ 
+No further notice is required before bringing action in court to evict 
+in the case of a tenant staying after a failure to pay  rent. A three-day written Notice to Quit is 
+required for any of the causes described as disorderly, destructive or violative of written rules or 
+lease provisions (N.J.S.A. 2A:18-61.2(a)). In addition to the causes listed above, a tenant residing 
+in an owner- occupied two- or three-family dwelling may be evicted if the landlord can show that 
+the tenant is staying after the expiration of the lease and the landlord has given the tenant a written 
+notice for delivery of possession of the property. Under this cause of not renewing the lease, a 
+three-month notice to quit must be given if an at will tenancy or year -to year tenancy exists. A 
+one-month notice to quit is required for a month-to-month tenancy.  
+ 
+Rooming and Boarding House Evictions  
+ The Regulations Governing Rooming and Boarding Houses, which are enforced by the 
+Bureau of Rooming and Boarding House Standards of the Department of Community Affairs, 
+require owners of rooming and boarding houses to follow the good causes and notice requirements 
+of the Eviction Law when evicting residents, except if otherwise ordered by the Bureau (N.J.A.C. 
+5:27-3.3(c)). There is a further requirement that the owner give at least three (3) working days’ 
+notice to the County Welfare Board before starting the eviction action for any resident  (N.J.A.C. 
+5:26-3.4(c)). 
+ Any building having at least two (2) living units occupied by persons unrelated to each 
+other without private kitchens and bathro oms is a rooming or boarding house if it does not meet 
+one (1) of the exceptions in the Rooming and Boarding House Act  (N.J.S.A. 55:13B-3). These 
+ 
+ 
+ 
+41 
+ 
+ 
+ 
+exceptions include hotels with more than 85 percent temporary occupancy by people with homes 
+elsewhere, school and college dormitories, buildings housing only college students and certain 
+residences for the disabled. For additional information concerning rooming and boarding houses, 
+contact the Bureau of Rooming and Boarding House Standards, Post Office Box 804, Trenton, NJ 
+08625-0804, (609) 633-6251 or (609) 984-1704.  
+Public Housing Evictions 
+  Public housing authorities must follow State laws regarding evictions as well as the 
+regulations of the U.S. Department of Housing and Urban Development (HUD) (N.J.S.A. 2A:18-
+61.1; 24 C.F.R. 966 et seq. ). In the case of an eviction, a public housing tenant may request a 
+hearing from the housing authority after receiving a notice of termination of tenancy. A housing 
+authority may not begin an eviction action in court until t he decision of the hearing officer or the 
+hearing panel has been mailed or delivered to the tenant and a notice to vacate has been served. 
+Penalties for Eviction Law Violations  
+ When a tenant vacates a dwelling unit after having been given notice that the  landlord 
+wishes to personally occupy the unit the landlord must occupy the unit for at least six (6) months. 
+If instead the landlord permits personal occupancy of the unit by another tenant or registration of 
+conversion of the property to a condominium or cooperative, the landlord is liable to the former 
+tenant for three (3) times the damages suffered plus attorney fees and costs  (N.J.S.A. 2A:18-
+61.6(a)). 
+ When a tenant vacates a dwelling unit after having been given notice that the landlord seeks 
+to permanently board up or demolish the building or to permanently retire it from residential use, 
+the landlord must not use this property for residential use for a period of five (5) years. If the 
+landlord allows any residential use of the unit during the five (5) year period from the date the unit 
+became vacant, the landlord, or the former landlord, may be liable to the tenant for three (3) times 
+the damages plus attorney fees and costs. Additionally, the landlord or former landlord may be 
+liable for a civil penalty up to $10,000.00 for each violation of this law and the property may not 
+be registered as a planned real estate development during the five -year period following the date 
+on which any dwelling unit in the property became vacant as a result of an eviction notice stating 
+that the property was being permanently removed from residential use (N.J.S.A. 2A:18-61.6(c)). 
+Reprisal - Civil Rights of Tenants  
+ A landlord cannot take reprisal action against a tenant by eviction, substantial alteration of 
+a lease or its terms, or refusal to renew a lease when a tenant exercises certain civil rights (N.J.S.A. 
+2A:42-10.10).  The law against reprisal applies to all rental properties used for dwelling purposes, 
+including mobile homes, except owner-occupied two- or three-family dwellings. These civil rights 
+are:  
+1. A tenant attempts to enforce any rights under the lease or State or local laws.  
+2. A tenant has made a good faith complaint to a governmental authority about a landlord’s 
+violation of any health or safety law, regulation, code, or ordinance. A tenant must ha ve first 
+notified the landlord in writing and given the landlord a reasonable time to correct the violation 
+before making the complaint. 
+ 
+ 
+ 
+42 
+ 
+ 
+ 
+3. A tenant has been an organizer, or member, of any lawful organization, including a tenant 
+organization.  
+4. A tenant refuses to comply with changes in the lease or agreement, if the change(s), have been 
+made by the owner because the tenant took any of the above actions. If a landlord does take 
+reprisal action, the tenant may sue the landlord for damages in a civil action. 
+Procedures for Recovery of Premises  
+ A landlord may recover possession of a dwelling unit through a summary dispossess action 
+in the Landlord -Tenant Section, Special Civil Part of the Superior Court Law Division in the 
+county where the building is located. M onetary damages must be recovered in a separate civil 
+action in Superior Court. Actions for rent recovery in the Special Civil Part cannot exceed 
+$15,000.00.  
+ When a landlord obtains a judgment for possession from the Special Civil Part, the warrant 
+of removal cannot be issued until three (3) days after the judgment and only between the hours of 
+8:00 a.m. and 6:00 p.m. The warrant of removal cannot be executed until a minimum of three (3) 
+days and two (2) days for seasonal tenants in buildings with five (5 ) or fewer units, have elapsed 
+since it was issued . The Fair Eviction Notice Act requires any warrant for removal to include a 
+notice that the tenant has a right to request more time (called a “stay of execution”). The court will 
+continue the case for up t o 10 days after the execution of the warrant for the purpose of hearing 
+applications by the tenant for lawful relief.  
+Foreclosure 
+ Recent changes to federal law have strengthened a tenant’s rights in foreclosure 
+proceedings.  However, the federal law does not preempt any State or local law that provides 
+longer time periods or other additional protections for tenants  in foreclosure proceedings .  
+Foreclosure alone is not grounds for eviction in New Jersey. In Chase Manhattan Bank v. 
+Josephson, 135 N.J. 209 (1994) the court held that when a lender or other buyer takes possession 
+of the property, the residential tenant comes with the property. Before a tenant can be evicted due 
+to foreclosure, the landlord must provide the tenant with a 90 -day notice to qui t when the 
+foreclosed property has been purchased by a buyer who wants to personally occupy it as his or her 
+primary residence. However, if a tenant has a lease agreement that goes beyond the 90 days the 
+landlord may not take action to evict the tenant unt il after the lease expires and the 90 -day notice 
+to quit has been given.  The 90-day notice may be given 90 days before the lease expires.  Month-
+to-month tenants and two- and three-family owner-occupied units are not exempt from the 90-day 
+notice requirements. 
+ Any person acquiring a foreclosed property containing one or more residential rental units 
+must provide notices to the tenants in English and Spanish, within 10 business days after the sale, 
+letting tenants know that ownership has changed hands and that the tenants are not required to 
+move because of the foreclosure.  In buildings with 10 or fewer dwelling units, the new owner 
+must make a good faith effort to obtain the names of all the tenants occupying the property.  
+Notices must be addressed to tenants by name, unless the new owner is unable to identify the tenant 
+by name, then the owner shall address the notice to “Tenant.”  The notice must also be placed on 
+the front door of each tenant’s unit and sent to each tenant via certified and regular mail (N.J.S.A. 
+2A:50-69 et seq.). 
+ 
+ 
+ 
+43 
+ 
+ 
+ 
+ In a residential property containing more than 10 dwelling units, the new owner must 
+provide notice to tenants occupying the property by conspicuously displaying a copy of the 
+“NOTICE TO TENANTS” in a prominent location, such as a common area of the building or other 
+structure on the property.  If there is no common area, the notice must be posted in a conspicuous 
+location in each building, such as the walls of the front vestibule or any foyer or hallway near the 
+main entrance of the building (N.J.S.A. 2A:50-70(c)2).   
+Notice Requirements to Tenants Prior to the Transfer of Title Due to a Foreclosure Action 
+ Any written or verbal communication, including a summons and complaint, an initial 
+written or verbal communication by a foreclosing creditor, or any communication written or verbal 
+that requests a tenant to vacate the property before the foreclosure or sale of the property, requires 
+the foreclosing creditor to give notice to the tenants as outlined in the  New Jersey Court Rules, 
+entitled “Notice to Residential Tenants of Rights During Foreclosure,”  (APPENDIX XII-K). 
+Notice Requirements to Tenants After the Transfer of Title Due to a Foreclosure Action 
+ When making a bona fide monetary offer to induce tena nts to move, the new owner must 
+provide a separate and different notice from the notice required to be given by a foreclosing 
+creditor.  The new owner must provide a copy of the “NOTICE TO TENANTS” and give it with 
+the initial and final written or verbal offer to the tenant.   
+ The foreclosing agency, including a bank, creditor, or a new landlord may make a written 
+bona fide (good faith) monetary offer requesting that the tenant vacate the property, without “good 
+cause.”  An acceptance of the offer by the t enant must be in writing and include an 
+acknowledgement of the date of the receipt of the offer, and an understanding that the tenant had 
+a five-day review period to accept or reject the offer presented.   
+ However, it is important to note that the accepta nce of a bona fide monetary offer is 
+voluntary.  The tenant shall not be pressured by anyone, including the person making the offer to 
+accept any offer to vacate the property.  Pursuant to the New Jersey Foreclosure Fairness Act 
+(N.J.S.A. 2A:50-69 et seq.), pressure tactics include but are not limited to (N.J.S.A. 2A:50-71(b)): 
+1. Mischaracterizing or misrepresenting the rights of the tenant under the law; 
+2. Implying the tenant is obligated to accept the offer;  
+3. Implying that there will be consequences against the tenant for failing to accept the offer; 
+4. Harassment, including but not limited to discontinuance of utilities, failure to maintain 
+common areas or fa cilities, or any other failure to maintain the premises in a habitable 
+condition; and 
+5. An increase in rent in excess of any rent control or rent leveling ordinance, or if the property 
+is not subject to rent control, an unreasonable or unconscionable rent increase.  
+  
+ 
+ 
+ 
+44 
+ 
+ 
+ 
+Senior Citizens and Disabled Tenants in Condominium or Cooperative Conversion 
+ 
+Senior Citizens and Disabled Protected Tenancy 
+ The Senior Citizens and Disabled Protected Tenancy Act protects senior citizens who meet 
+certain eligibility requirements (N.J.S.A. 2A:18-61.22 to -61.39; N.J.A.C. 5:24-2.1 to -2.11). To 
+qualify, tenants must :  (1) be at least 62 years of age before the d ate of the conversion recording 
+of the condominium or cooperative; or (2) be permanently disabled; or (3)  be  honorably 
+discharged from any military service under certain circumstances from any branch of the U.S. 
+Armed Forces and disabled at 60% or higher resulting from said service and, (4) live in a building 
+being converted to a condominium, cooperative; or fee simple ownership of units at least one (1) 
+year prior to the conversion recording date. Tenants may be protected from eviction for 40 years 
+if their family income is not more than three (3) times the average per person income in their 
+county or $50,000.00, whichever  is greater (N.J.S.A. 2A:18-61.28). The date the conversion is 
+recorded is the date on which a master deed or deed to a cooperative corporation, or a subdivision 
+deed or map legally establishing separate lots, is filed. The landlord or converter is required to 
+notify all tenants of their right to file for protected tenancy if they may be eligible. Generally, 
+applications for protected tena ncy must be filed with the designated municipal official or the 
+administrative agent within 60 days, although later filings may be accepted if there is good reason 
+for the late filing and the conversion has not yet taken place. Tenants in Hudson County (N.J.S.A. 
+2A:18-61.40 to -61.59; N.J.A.C. 5:24-3.1 to -3.4) may be eligible for additional protected tenancy 
+established under the Tenant Protection Act of 1992. For copies of the law, regulations or forms, 
+landlords or converters, tenants, and local officials may visit our website at: 
+www.nj.gov/dca/divisions/codes/offices/landlord_tenant_information.html. 
+For help in filling out the forms, a tenant should contact the appropriate municipal administrative 
+agent who sent the forms to him or her.   
+Tenant Protection Act of 1992 
+ The Tenant Protection Law of 1992 amendment extends protections to qualified tenants in 
+qualified counties in buildings converted or being converted who were not eligible for Protected 
+Tenancy as either Senior Citizens or Disabled Persons under the “Senior Citizens and Disabled 
+Protected Tenancy Act of 1981” (N.J.S.A. 2A:18-61.40 to -61.59; N.J.A.C. 5:24-3.1 to -3.4). At 
+the present time, the only qualified county is Hudson County (N.J.A.C. 5:24-3.2(b)). Tenants in 
+Hudson County with questions or in need of assistance in filling out the required forms should 
+contact the Administrative Agent of their municipality.  
+Disclosure Statement to Senior Citizen Housing Residents 
+ Every landlord of a senior citizen housing project and every landlord of a unit within a 
+senior citizen housing project that is a planned unit development, shall, upon sig ning or renewal 
+of a lease, give a copy of the Truth-In-Renting Statement and the Landlord Identity Statement, as 
+well as a Statement that sets forth the telephone numbers of the State and local offices for the 
+municipality designated to receive reports of  housing emergencies and complaints. If the project 
+is organized or operated as a planned real estate development, the governing board or body must 
+provide copies of the Public Offering Statement registered with the New Jersey Department of 
+ 
+ 
+ 
+45 
+ 
+ 
+ 
+Community Affairs, along with a copy of the current bylaws. The tenant must sign a receipt for 
+these Statements and documents. The Statements and documents must be posted in one (1) or more 
+locations accessible to the tenants (N.J.S.A. 2A:42-113).  
+ 
+ 
+ 
+46 
+ 
+ 
+ 
+New Jersey Judiciary Ombudsman Offices 
+HTTPS://WWW.NJCOURTS.GOV/PUBLIC/OMBUDS.HTML  
+    The Ombudsman provides assistance to citizens.  The services include helping parties who do not have 
+attorneys, by explaining court procedures, programs and service; confidentially receiving and documenting complaints 
+from the public related to misunderstandings, conflicts, mistreatment or discrimination in the courthouse; and acting 
+as a mediator to resolve conflicts between the public and the courts. 
+ The Ombudsman also serves as a point of contact to citizens who may need assistance in coordinating 
+multiple court services during their visit to the courthouse, makes referrals to other agencies of government, takes 
+customer suggestions, and develops court tours and outreach programs.  
+VICINAGE OMBUDSMAN TELEPHONE NUMBERS 
+AOC Probation Services Maurice Hart 609-815-3810 ext. 16314 
+Atlantic/Cape May Ellen Procida-Fisher 609-402-0100 ext. 47230 
+Bergen Kelly Gibson 201-221-0700 ext. 25103 
+Burlington Heshim J. Thomas 609-288-9500 ext. 38118 
+Camden Vannessa A. Ravenelle 856-650-9100 ext. 43090 
+Cumberland/Gloucester/Salem Vanessa Cardwell 856-878-5050 ext. 15159 
+Essex Sarah Hatcher 973-776-9300 ext. 56886 
+Hudson Pauline D. Daniels 201-748-4400 ext. 60145 
+Mercer Audrey Jones-Butler 609-571-4200 ext. 74205 
+Middlesex Luis Hernandez 732-645-4300 ext. 88748 
+Monmouth Rebekah Heilman 732-358-8700 ext. 87260 
+Morris/Sussex Jennifer V. Shultis 862-397-5700 ext. 75160 
+Ocean James Castaneda 732-504-0700 ext. 64470 
+Passaic June Zieder 973-653-2910 ext. 24032 
+Somerset/Hunterdon/Warren Elizabeth Raimondo 908-332-7700 ext. 13240 
+Superior Court Clerk’s Office Sven Pfahlert 609-815-2900 ext. 52757 
+Union David Beverly 908-787-1650 ext. 21028 
+ 
+Anti-Discrimination Offices 
+STATE OF NEW JERSEY 
+DEPARTMENT OF LAW AND PUBLIC SAFETY 
+DIVISION OF CIVIL RIGHTS 
+HTTPS://WWW.NJ.GOV/OAG/DCR/LOCALCONTACT.HTML  
+ 
+CENTRAL REGIONAL OFFICE 
+140 EAST FRONT STREET, 6TH FLOOR 
+PO BOX 090 
+TRENTON, NJ 08625 
+TELEPHONE: 609-292-4605 
+ 
+NORTHERN REGIONAL OFFICE 
+31 CLINTON STREET, 3RD FLOOR 
+NEWARK, NEW JERSEY 07102 
+TELEPHONE: 973-648-2700 
+ 
+SOUTHERN REGIONAL OFFICE 
+5 EXECUTIVE CAMPUS, SUITE 107 
+CHERRY HILL, NJ 08034 
+TELEPHONE: 856-486-4080 
+ 
+SOUTH SHORE REGIONAL OFFICE 
+1325 BOARDWALK, 1ST FLOOR 
+TENNESSEE AVE & BOARDWALK 
+ATLANTIC CITY, NJ 08401 
+TELEPHONE: 609-441-3100 
+  
+ 
+ 
+ 
+47 
+ 
+ 
+ 
+New Jersey’s Legal Services Programs 
+LEGAL SERVICES OF NEW JERSEY 
+PO BOX 1357 
+EDISON, NJ 08818-1357 
+(732) 572-9100 
+WWW.LSNJ.ORG/DIRECTORY.HTM 
+ 
+ATLANTIC COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+1300 ATLANTIC AVENUE, MEZZANINE FLOOR 
+ATLANTIC CITY, NJ 08401 
+(609) 348-4200 
+BERGEN COUNTY 
+NORTHEAST NEW JERSEY LEGAL SERVICES 
+190 MOORE STREET, 1ST FLOOR 
+HACKENSACK, NEW JERSEY 07601 
+(201) 487-2166 
+BURLINGTON COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+107 HIGH STREET 
+MOUNT HOLLY, NJ 08060 
+(609) 261-1088 
+CAMDEN COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+745 MARKET STREET 
+CAMDEN, NJ 08102 
+1(800) 496-4570 
+(856) 964-2010 
+CAPE MAY COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+1261 ROUTE 9 SOUTH 
+CAPE MAY COURT HOUSE, NJ 08210 
+(609) 465-3001 
+CUMBERLAND COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+415 W. LANDIS AVENUE, 2ND FLOOR 
+VINELAND, NJ 08360 
+(856) 691-0494 
+ESSEX COUNTY 
+ESSEX-NEWARK LEGAL SERVICES 
+5 COMMERCE STREET, 2ND FLOOR 
+NEWARK, NJ 07102 
+(973) 624-4500    
+GLOUCESTER COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+47 NEWTON AVENUE 
+WOODBURY, NJ 08096 
+(856) 848-5360 
+HUDSON COUNTY 
+NORTHEAST NEW JERSEY LEGAL SERVICES 
+574 SUMMIT AVENUE, 2ND FLOOR 
+JERSEY CITY, NJ 07306 
+(201) 792-6363 
+HUNTERDON COUNTY 
+LEGAL SERVICES OF NORTHWEST JERSEY 
+82 PARK AVENUE 
+FLEMINGTON, NJ 08822 
+(908) 782-7979 
+MERCER COUNTY 
+CENTRAL JERSEY LEGAL SERVICES 
+198 WEST STATE STREET 
+TRENTON, NJ 08608 
+(609) 695-6249 
+MIDDLESEX COUNTY 
+CENTRAL JERSEY LEGAL SERVICES 
+317 GEORGE STREET, SUITE 201 
+NEW BRUNSWICK, NJ 08901 
+(732) 249-7600 
+ 
+313 STATE STREET, SUITE 308 
+PERTH AMBOY, NJ 08861 
+(732) 324-1613 
+  
+ 
+ 
+ 
+48 
+ 
+ 
+ 
+MONMOUTH COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+303 WEST MAIN STREET, 3RD FLOOR 
+FREEHOLD, NJ 07728 
+(732) 414-6750 
+MORRIS COUNTY 
+LEGAL SERVICES OF NORTHWEST JERSEY 
+30 SCHUYLER PLACE, 2ND FLOOR 
+MORRISTOWN, NJ 07963 
+(973) 285-6911 
+OCEAN COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+215 MAIN STREET 
+TOMS RIVER, NJ 08753 
+(732) 608-7794 
+PASSAIC COUNTY 
+NORTHEAST NEW JERSEY LEGAL SERVICES 
+152 MARKET STREET, 6TH FLOOR 
+PATERSON, NJ 07505 
+(973) 523-2900 
+SALEM COUNTY 
+SOUTH JERSEY LEGAL SERVICES 
+415 W. LANDIS AVENUE, 2ND FLOOR 
+VINELAND, NJ 08360 
+(856) 691-0494 
+SOMERSET COUNTY 
+LEGAL SERVICES OF NORTHWEST JERSEY 
+90 EAST MAIN STREET, 3RD FLOOR 
+SOMERVILLE, NJ 08876 
+(908) 231-0840 
+SUSSEX COUNTY 
+LEGAL SERVICES OF NORTHWEST JERSEY 
+18 CHURCH STREET, SUITE 120 
+NEWTON, NJ 07860 
+(973) 383-7400 
+UNION COUNTY 
+CENTRAL JERSEY LEGAL SERVICES 
+60 PRINCE STREET 
+ELIZABETH, NJ 07208 
+(908) 354-4340 
+WARREN COUNTY 
+LEGAL SERVICES OF NORTHWEST JERSEY 
+91 FRONT STREET 
+BELVIDERE, NJ 07823 
+(908) 475-2010 
+ 
+ 
+ 
+Additional Agencies and Organizations 
+ 
+ The following is a list of public agencies and private organizations that offer informational 
+services to landlords and/or tenants. It is provided solely for reference purposes and no 
+endorsement is expressed or implied. Organizations interested in being included may contact the 
+Department. The Department reserves the right to determine which organizations or agencies will 
+be included.  
+If you are a tenant and need information, contact:  
+    
+New Jersey Tenants Organization  
+  96 Linwood Plaza #233  
+  Fort Lee, NJ 07024 
+201-342-3775 
+  https://www.njto.org   
+ 
+ 
+ 
+ 
+49 
+ 
+ 
+ 
+If you are a landlord or tenant  and need assistance, contact: 
+ 
+  NJ Apartment Association 
+  104 Interchange Plaza, Suite 201 
+  Monroe Twp., NJ 08831 
+  (732) 992-0600 
+https://njaa.com/  
+ 
+Information for landlords (costs for service), contact: 
+ 
+  Property Owners Association (POA) 
+  1072 Madison Avenue 
+  Lakewood, NJ 08701 
+  (732) 780-1966 Fax (732) 780-1611 
+https://www.poanj.org  
+ 
+For persons owning a mobile home trailer and renting the land in a mobile home park, contact:  
+      
+Manufactured Home Owners Association of New Jersey, Inc. 
+  P.O. Box 104 
+  Jackson, NJ 08527 
+  (732) 534-0085 
+  https://www.mhoanj.org  
+ 
+ 
+ 
+For owners of mobile home parks and landlords of rented trailers, contact:  
+       
+New Jersey Manufactured Housing Association  
+   2741 Nottingham Way 
+   Trenton, NJ 08619  
+   (609) 588-9040  
+https://njmha.org  
+ 
+ 
+For questions concerning mobile home construction, contact:  
+      
+NJ Department of Community Affairs  
+  Office of Code Services, Industrialized Buildings Unit 
+  Post Office Box 816  
+ 
+ 
+ 
+50 
+ 
+ 
+ 
+  Trenton, NJ 08625-0816  
+  (609) 984-7974 
+ 
+For mobile home parks designating themselves as adult parks only, contact:     
+Office of Fair Housing & Equal Opportunities  
+  New York/New Jersey Regional Office  
+  26 Federal Plaza, Room 3532 
+  New York, NY 10278-0068  
+  (212) 542-7519 or 1(800) 496-4294  TTY (212) 264-0927 
+ 
+For additional questions on mobile homes, contact a private attorney of your choice. For a referral 
+to an attorney, contact your County Bar Association listed in your telephone directory or the Legal 
+Services office in your county.  
+ 
+If you are being faced with an eviction action or condominium conversion, you may obtain 
+information concerning the rights you possess under these circumstances by viewing the Eviction 
+Law from:  
+https://www.state.nj.us/dca/divisions/codes/offices/landlord_tenant_information.html 
+If Spanish is your primary language and you need assistance, please contact the Center for Hispanic 
+Policy, Research and Development (CHPRD). The CHPRD can provide a list of local resources 
+available to the Hispanic Community. For additional information, the CHPRD can be contacted 
+at:      
+Center for Hispanic Policy, Research and Development 
+  PO Box 301 
+  Trenton, NJ 08625-0301 
+  (609) 943-4990 
+  https://nj.gov/state/chprd.shtml  
+ 
+ 
+For information on housing codes and maintenance requirements for multiple dwellings 
+(apartment buildings with 3 or more dwelling units) or to obtain a copy of the regulations for the 
+maintenance of hotels and multiple dwellings you may write or call: 
+Department of Community Affairs 
+Bureau of Housing Inspection 
+P.O. Box 810  
+Trenton, NJ 08625-0810,  
+(609) 633-6210  
+                              
+ 
+ 
+ 
+51 
+ 
+ 
+ 
+If you are a tenant living in public housing subsidized by HUD and you would like to file a 
+complaint regarding maintenance, discrimination, illegal practice or other resident concerns you 
+may contact: 
+U.S. Department of Housing and Urban Development 
+  One Newark Center  
+  1085 Raymond Blvd., 13th Floor 
+  Newark, New Jersey 07102-5260 
+  (973) 622-7900 
+  Multifamily Housing Complaint Line 1(800) 685-8470, TTY 1(800) 432-2209 
+ 
+ 

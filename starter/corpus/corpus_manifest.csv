@@ -1,0 +1,88 @@
+doc_id,jurisdictions,url,source_type,capture,retrieved_at,sha256,text_file,status
+D001,"Berkeley, CA",https://berkeleyca.gov/sites/default/files/documents/2025-12-02%20Item%2001%20Ordinance%207992.pdf,official,yes,2026-10-01T22:44Z,764e0430da30388ff875606eb2f551388fc85e214d549e305d7f502ff550803d,text/D001.txt,ok
+D002,"Berkeley, CA",https://morganlewis.com/pubs/2026/08/algorithmic-rent-pricing-litigation-expands-under-new-state-and-local-laws,secondary (law firm / news / mirror),link-only,,,,link-only
+D003,"Berkeley, CA",https://rentboard.berkeleyca.gov/Fair_Chance,official,yes,2026-10-01T22:35Z,f24e09665a24fcf906ff6a75d46a7a72092ef978cfa2a1410dc8dfac48691074,text/D003.txt,ok
+D004,"Berkeley, CA",https://rentboard.berkeleyca.gov/elected-rent-board/news/2026-adjustments-relocation-assistance-payments,official,yes,2026-10-01T22:35Z,60224fac40eb78746c3f7bb6ab05985daeb7a433d03132a7a088e56c7827e5a6,text/D004.txt,ok
+D005,"Berkeley, CA",https://rentboard.berkeleyca.gov/laws-regulations/city-berkeley-ordinances-affecting-rental-properties/tenant-screening-and,official,yes,2026-10-01T22:35Z,b5efcc2d1bfb2fbc5609bd30f83d66bfdf5a45f44f690bea0f1d37130f14a18d,text/D005.txt,ok
+D006,"Berkeley, CA",https://rentboard.berkeleyca.gov/laws-regulations/measure-bb-changes-berkeleys-rent-ordinance,official,yes,2026-10-01T22:35Z,db130d6eaf69a72123c1ef45989faf8b2b4748720425e0a2f4bf378df16ba195,text/D006.txt,ok
+D007,"Berkeley, CA",https://rentboard.berkeleyca.gov/rights-responsibilities/security-deposits,official,yes,2026-10-01T22:35Z,d91318f17f00ac1906efb890b717cf2d73b7a34d5bd82f47c9e9a9ea3752404c,text/D007.txt,ok
+D008,"Berkeley, CA",https://rentboard.berkeleyca.gov/sites/default/files/documents/AGA%20Public%20Notice.pdf,official,yes,2026-10-01T22:35Z,654b6ecd0f7b68896b5c6e9a3b1d9bf28189d3c4e92cad1562c4743c06c45b1a,text/D008.txt,ok
+D009,"Berkeley, CA",https://rentboard.berkeleyca.gov/sites/default/files/documents/Rent%20Ordinance%20Coverage%20by%20Unit%20Type.pdf,official,yes,2026-10-01T22:35Z,e5c4623e6ef6f3e65baca5ce07a9d6397297cf9d252e50224ff0aca341fa840f,text/D009.txt,ok
+D010,"Boston, MA",https://drive.google.com/file/d/1j4U3fDtmnYuwcUWhx5BMUcXc1bnKT8Ku/view?usp=sharing,official city-linked policy,yes,2026-10-01T22:44Z,8d2640c97add084cc59ec2de89097fc2ec9f2fe42d39c8d6c52777aa3d1a4862,text/D010.txt,ok
+D011,"Boston, MA",https://malegislature.gov/Bills/193/H3744,official,yes,2026-10-01T22:35Z,1b2efd6622f0536e1100ef4a448593b214f4a76a47a0e1ecec93076e96927a20,text/D011.txt,ok
+D012,"Boston, MA",https://www.boston.gov/departments/fair-housing-and-equity/boston-fair-housing-regulations,official,yes,2026-10-01T22:35Z,dfa99cae6edf7ab6365424961305a100c26d53385970ee5dc7efab20ef6497df,text/D012.txt,ok
+D013,"Boston, MA",https://www.boston.gov/housing-stability-notification-act,official,yes,2026-10-01T22:35Z,372ca0bcb1bd441d5a0b966989649674a20910bbdcae3defd99485c372421bd5,text/D013.txt,ok
+D014,"Boston, MA",https://www.boston.gov/sites/default/files/file/2020/11/Housing%20Stability%20Notification%20Act%20Tenant%20FAQs.pdf,official,yes,2026-10-01T22:35Z,4976368fa1947fe1e993e2fb2f6b9d004e07398fe6fd009b0fcb9b8b862a8c94,text/D014.txt,ok
+D015,CA,https://caanet.org/compliance-reminder-section-8-acceptance-and-criminal-background-checks-are-fair-housing-issues/,secondary (law firm / news / mirror),link-only,,,,link-only
+D016,CA,https://calcivilrights.ca.gov/housing/,official,yes,2026-10-01T22:35Z,620f35253fad41fd920fc8298db66045a73a5bb5df2b1d22d5efa13f75fa8c2c,text/D016.txt,ok
+D017,CA,https://california.public.law/codes/civil_code_section_1950.6,secondary (law firm / news / mirror),link-only,,,,link-only
+D018,CA,https://law.justia.com/codes/california/code-civ/division-3/part-4/title-5/chapter-2/section-1946-2/,secondary (law firm / news / mirror),link-only,,,,link-only
+D019,CA,https://law.justia.com/codes/california/code-civ/division-3/part-4/title-5/chapter-2/section-1947-12/,secondary (law firm / news / mirror),link-only,,,,link-only
+D020,CA,https://law.justia.com/codes/california/code-civ/division-3/part-4/title-5/chapter-2/section-1950-5/,secondary (law firm / news / mirror),link-only,,,,link-only
+D021,CA,https://law.justia.com/codes/california/code-gov/title-2/division-3/part-2-8/chapter-6/article-2/section-12955/,secondary (law firm / news / mirror),link-only,,,,link-only
+D022,CA,https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB325,official,yes,2026-10-01T22:35Z,90e2901ce96a4d4b0e698c8a2954e3f2468c5b4e8e3f0a79fb8d7d4a9001fa51,text/D022.txt,ok
+D023,CA,https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1946.2,official,yes,2026-10-01T22:35Z,823aa700801184618c5511ba5446ff5a2fc9c0687382c87ed41a65fc2fa0ca4b,text/D023.txt,ok
+D024,CA,https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12,official,yes,2026-10-01T22:35Z,e6e520ca190db10aa69e655ede7e91c16622f5ef21eb58a3229487746ef313b1,text/D024.txt,ok
+D025,CA,https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.5,official,yes,2026-10-01T22:35Z,4fe1fd67bfbeefb49a91f6fa08ebf0cab004204289ed363aa0386be9ed775d08,text/D025.txt,ok
+D026,CA,https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.6,official,yes,2026-10-01T22:35Z,b749f447673b318960fed3651b887c31c8ca301905cf308c9936ca50fcc178c3,text/D026.txt,ok
+D027,CA,https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=12955,official,yes,2026-10-01T22:35Z,0b7418e67532d04b912e6218e587650afd50ea695864ccb7425038c919c0aae3,text/D027.txt,ok
+D028,CA,https://www.clearygottlieb.com/news-and-insights/publication-listing/californias-antitrust-law-amendments-kick-in-targeting-algorithmic-pricing,secondary (law firm / news / mirror),link-only,,,,link-only
+D029,"Cambridge, MA",https://www.cambridgema.gov/departments/humanrightscommission,official,yes,2026-10-01T22:36Z,2bf1d0131839b6594bda907caee3d1166c1425712d159abc6817bfd9488cffde,text/D029.txt,ok
+D030,"Cambridge, MA",https://www.cambridgeday.com/?p=158097,secondary (law firm / news / mirror),link-only,,,,link-only
+D031,"Cambridge, MA",https://www.cambridgema.gov/tenantrights,official,yes,2026-10-01T22:36Z,2a74f0750568bb7cc53620bc79c2e1df938c50f2a17eee4f0f2753b7fd0431d2,text/D031.txt,ok
+D032,"Hoboken, NJ",https://ecode360.com/15252438,code publisher,check-terms,,,,link-only
+D033,"Hoboken, NJ",https://ecode360.com/15252470,code publisher,check-terms,,,,link-only
+D034,"Hoboken, NJ",https://ecode360.com/46833413,code publisher,check-terms,,,,link-only
+D035,"Jersey City, NJ",https://hudsoncountyview.com/jersey-city-council-approves-realpage-ban-and-increasing-benefits-for-laborers/,secondary (law firm / news / mirror),link-only,,,,link-only
+D036,"Jersey City, NJ",https://www.jerseycitynj.gov/landlordtenant,official,yes,2026-10-01T22:36Z,71c1daff7a30e80b513c3921d75750b8608da7a35fe1c764ecc1579deb1f505e,text/D036.txt,ok
+D037,"Jersey City, NJ",https://www.morganlewis.com/pubs/2026/08/algorithmic-rent-pricing-litigation-expands-under-new-state-and-local-laws,secondary (law firm / news / mirror),link-only,,,,link-only
+D038,"Los Angeles, CA",https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-322208,code publisher,check-terms,,,,link-only
+D039,"Los Angeles, CA",https://cityclerk.lacity.org/onlinedocs/2024/24-1031_misc_9-03-24.pdf,official,yes,2026-10-01T22:36Z,3e9c9a16ee1bc4ec4981f16a55831bb39d6fb013826178c07730ff207745044b,text/D039.txt,ok
+D040,"Los Angeles, CA",https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco,official,yes,2026-10-01T22:36Z,6633b8bd769d3795ac08c7599324beb392631f044d3f3ad5c73248fbc09e48c7,text/D040.txt,ok
+D041,"Los Angeles, CA",https://housing.lacity.gov/residents/rso-overview,official,yes,2026-10-01T22:36Z,5d2e79094fcb8c09aa51120208725b130b1932bceb848b3641dd82f0a6b3656b,text/D041.txt,ok
+D042,"Los Angeles, CA",https://housing.lacity.gov/rso-rent-increase-calculator,official,yes,2026-10-01T22:36Z,173b8fd5169b465fb8e634598a74881c1247f23df4a8c1f487cd53294b379995,text/D042.txt,ok
+D043,"Los Angeles, CA",https://housing.lacity.gov/wp-content/uploads/2026/08/Relocation-Assistance-Bulletins-A-and-B-Combined.pdf,official,yes,2026-10-01T22:36Z,b7a8c88e14d50821a59abd88c5c457f101c26d337351da2c7134e1fc1830309b,text/D043.txt,ok
+D044,"Los Angeles, CA",https://members.aagla.org/news/city-of-la-security-deposit-interest-requirement,secondary (law firm / news / mirror),link-only,,,,link-only
+D045,MA,https://malegislature.gov/Bills/194/H5222,official,yes,2026-10-01T22:36Z,cc3a2eee30cb567368f01c10da2da5c38703954d3640199539737980a4caf8ca,text/D045.txt,ok
+D046,MA,https://malegislature.gov/Bills/194/S2983,official,yes,2026-10-01T22:36Z,d6ea7aaf0dd90e92cbb141ec127402e0db1e00fa3aa67d67a0f1264dd2b96827,text/D046.txt,ok
+D047,MA,https://malegislature.gov/Bills/194/S2983/BillHistory,official,yes,2026-10-01T22:36Z,7216d5e2d65f6e8080124eb2fff6b6c209b14a400166df4d2ab1bcc1c351ef12,text/D047.txt,ok
+D048,MA,https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter40P/Section4,official,yes,2026-10-01T22:36Z,713cae78081e4354df2926b45984dcacdb2299cf4edb8dcd7064d7da7fa3c06e,text/D048.txt,ok
+D049,MA,https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151B/Section4,official,yes,2026-10-01T22:37Z,7727efb19acd13f7b10f320df75ceca00526c8584cac1af80c6848cc86c7ae5c,text/D049.txt,ok
+D050,MA,https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section11,official,yes,2026-10-01T22:37Z,86a6894f508e94f7257239bfcb5ffa0e560c2dd2d1fa25672e889ae9bff7d998,text/D050.txt,ok
+D051,MA,https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section12,official,yes,2026-10-01T22:37Z,94da03e3a8acc3859e73e1f0f15e93c3efcbec8b7926a9f9de9c3e9ff62b04ba,text/D051.txt,ok
+D052,MA,https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B,official,yes,2026-10-01T22:37Z,4052b3a94693be64fada21672df3f6f7368198b6b65a7686a8cc20e5f076d997,text/D052.txt,ok
+D053,MA,https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section18,official,yes,2026-10-01T22:37Z,0d73e63fc5911e44aba74196703315000e18aac46965310b14142193a5658d8b,text/D053.txt,ok
+D054,MA,https://masslandlords.net/can-massachusetts-landlords-charge-an-application-fee/,secondary (law firm / news / mirror),link-only,,,,link-only
+D055,MA,https://massrealestatelawblog.com/tag/cella-v-attorney-general/,secondary (law firm / news / mirror),link-only,,,,link-only
+D056,MA,https://www.mass.gov/doc/803-cmr-5-criminal-offender-record-information-cori-housing/download,official,yes,,,,manual: 403 Client Error: Forbidden for url: https://www.mass.gov/doc/803-cmr-5-criminal-offender-record-information-cori-housing/download
+D057,MA,https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section87DDD%201~2,official,yes,2026-10-01T22:56Z,0109f5cb48ad7951f1b8d49df1b1e277f6dbd04d3140063cc6f1ed354e623b8f,text/D057.txt,ok
+D058,MA,https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section31,official,yes,2026-10-01T22:54Z,50e034e62f603fbf2437d20a85ea9a619fe6ff7e42b7e6ca85c56e0919a7eee1,text/D058.txt,ok
+D059,MA,https://www.wbur.org/news/2026/06/23/massachusetts-high-court-rent-control-ballot-question-struck,secondary (law firm / news / mirror),link-only,,,,link-only
+D060,NJ,https://daypitney.com/new-jersey-enacts-fair-act-to-prohibit-algorithmic-rent-setting-practices,secondary (law firm / news / mirror),link-only,,,,link-only
+D061,NJ,https://law.justia.com/codes/new-jersey/title-10/section-10-5-12/,secondary (law firm / news / mirror),link-only,,,,link-only
+D062,NJ,https://law.justia.com/codes/new-jersey/title-2a/section-2a-18-61-1/,secondary (law firm / news / mirror),link-only,,,,link-only
+D063,NJ,https://law.justia.com/codes/new-jersey/title-46/section-46-8-21-2/,secondary (law firm / news / mirror),link-only,,,,link-only
+D064,NJ,https://law.justia.com/codes/new-jersey/title-46/section-46-8-26/,secondary (law firm / news / mirror),link-only,,,,link-only
+D065,NJ,https://pub.njleg.gov/bills/2020/PL21/110_.HTM,official,yes,2026-10-01T22:37Z,2ebdb9726f7ae35a1fdecebbcf3d5aeecea142567039747009c568aa0c1408b4,text/D065.txt,ok
+D066,NJ,https://pub.njleg.gov/bills/2024/PL25/405_.HTM,official,yes,2026-10-01T22:37Z,7de900de205fe25bcb0d2d5a4f4ea1037d784cf677a886f2f6c5ab4782667115,text/D066.txt,ok
+D067,NJ,https://www.nj.gov/dca/codes/publications/pdf_lti/t_i_r.pdf,official,yes,2026-10-01T22:37Z,ba627933d9acecbc4333a21ecc14f35d893a811069c53b304240031a8a08009c,text/D067.txt,ok
+D068,NJ,https://www.nj.gov/oag/dcr/downloads/kyrhousing02.pdf,official,yes,2026-10-01T22:37Z,0262ee31d4e096b1e73056dff3f0511f7ef8da8a43f83d0e6eddc618c912909f,text/D068.txt,ok
+D069,NJ,https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM,official,yes,2026-10-01T22:56Z,eb4d4e4797616e5bc1d641db418d4e6cfc3064e1cef925725f83c77472a154f0,text/D069.txt,ok
+D070,"Newark, NJ",https://ecode360.com/36623772,code publisher,check-terms,,,,link-only
+D071,"Newark, NJ",https://ecode360.com/36637822,code publisher,check-terms,,,,link-only
+D072,"Newark, NJ",https://ecode360.com/36642000,code publisher,check-terms,,,,link-only
+D073,"San Diego, CA",https://docs.sandiego.gov/municode/municodechapter09/ch09art08division07.pdf,official,yes,2026-10-01T22:37Z,9b30d1ef437a88840dcc15bfab72dee1952e183e9b7584786224c98214cf4905,text/D073.txt,ok
+D074,"San Diego, CA",https://gocodebook.com/library/us/ca/san-diego-zoning/division-11-prohibition-of-anti-competitive-automated-rent-price-fixing/98.1103-use-and-sale-of-algorithmic-devices-prohibited,code publisher,check-terms,,,,link-only
+D075,"San Diego, CA",https://gocodebook.com/library/us/ca/san-diego-zoning/division-8-prohibition-of-discrimination-based-on-a-tenant-s-source-of-income,code publisher,check-terms,,,,link-only
+D076,"San Diego, CA",https://sandiego.gov/sites/default/files/2025-04/automated-rent-price-fixing-prohibition-ordinance-materials.pdf,official,yes,2026-10-01T22:37Z,199151161d82324eee612bc44556f1a727e26a0efa0c4a6ad61a0ee5772bb244,text/D076.txt,ok
+D077,"San Diego, CA",https://www.lassd.org/resource/city-of-san-diego-tenant-protection-ordinance/,secondary (law firm / news / mirror),link-only,,,,link-only
+D078,"San Francisco, CA",https://sf-hrc.org/fair-chance-ordinance,official,yes,2026-10-01T22:37Z,8388f4067a3218ee3b20e2c706f56aea9da75d45525f6920451984207e8ef8b1,text/D078.txt,ok
+D079,"San Francisco, CA",https://sf.gov/information/overview-just-cause-evictions,official,yes,2026-10-01T22:37Z,adeded646ba7b0ca6d9daceca173f072948928df492872febafafd487e4d04d1,text/D079.txt,ok
+D080,"San Francisco, CA",https://www.sf.gov/news--annual-rent-increase-3126-22827-announced,official,yes,2026-10-01T22:37Z,e864d1c6a213ef38e925160f5c3c3532bf59230be3f13b51e43d7ba12d688cae,text/D080.txt,ok
+D081,"San Francisco, CA",https://www.sf.gov/news/new-law-prohibits-algorithmic-devices-used-set-rents-san-francisco,official,yes,2026-10-01T22:37Z,c77c6ddad9b2a6c7dda9a5f0c37660eac4c2e4765f677e81dccd517555aad7c1,text/D081.txt,ok
+D082,"San Francisco, CA",https://www.sf.gov/reports--archive-relocation-rates,official,yes,2026-10-01T22:37Z,85ca3517f80d9430b1a04b2a635bbabe3acd99c3dbdc245c3c463d12c5a87c41,text/D082.txt,ok
+D083,"San Francisco, CA",https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit,official,yes,2026-10-01T22:37Z,ad666827b1e294e0f4bd9cad28741b664a3ab043fc7c7f28ece726215f3a8756,text/D083.txt,ok
+D084,"Santa Ana, CA",https://santa-ana.gov/departments/rent-stabilization,official,yes,2026-10-01T22:37Z,8e7e3eca334bc0206189904518c82d88732b3406289868dc833d69970c9ded7b,text/D084.txt,ok
+D085,"Santa Ana, CA",https://santa-ana.gov/santa-ana-city-council-adopts-rent-stabilization-and-just-cause-eviction-ordinances-effective-nov-19,official,yes,2026-10-01T22:37Z,5753c1b4a0d6f81beb0c19413435719acf633697dd6922627633e42104e97a89,text/D085.txt,ok
+D086,"Santa Ana, CA",https://www.ocbj.com/real-estate/santa-ana-bans-landlords-from-using-ai-apartment-rent-pricing-software/,secondary (law firm / news / mirror),link-only,,,,link-only
+D087,"Santa Ana, CA",https://www.publicceo.com/2026/02/santa-ana-city-council-continues-to-strengthen-tenant-protections-by-banning-anticompetitive-rent-setting-software/,secondary (law firm / news / mirror),link-only,,,,link-only

@@ -1,0 +1,501 @@
+address_id,street_address,postal_city,state,zip,year_built,units,use_code,use_description,source_dataset,retrieved_at
+A0001,6238 DE LONGPRE AVE,Los Angeles,CA,90028,1927,32,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0002,1031-1035 CLINTON ST,Hoboken,NJ,07030,2001,,4C,6B-20U-G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0003,876-878 S 14TH ST,Newark,NJ,11219,,,4C,4SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0004,10050 MOUNTAIR AVE,Los Angeles,CA,91042,1964,39,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0005,1609 ADDISON ST,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0006,69-71 WESTLAND AV,Boston,MA,02115,1900,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0007,4257 SAN PEDRO PL,Los Angeles,CA,90011,1913,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0008,1065 SUMMIT AVENUE,Jersey City,NJ,78746,,,4C,10S-B-A-151U-HE,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0009,322-322.5 Western Ave,Cambridge,MA,,1915,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0010,134 Oxford St,Cambridge,MA,,1915,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0011,834-836 RAYMOND BLVD,Newark,NJ,08805,,,4C,3S.F.,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0012,1064 SUMMIT AVE.,Jersey City,NJ,07728,1900,,4C,3S-F-D-6U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0013,137 N 11TH ST,Newark,NJ,07107,,,4C,3SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0014,5907 CAHUENGA BLVD,Los Angeles,CA,91601,1947,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0015,15 Everett St,Cambridge,MA,,1930,83,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0016,3515 FILLMORE ST,San Francisco,CA,,1926,21,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0017,225 DUNCAN AVE.,Jersey City,NJ,10949,,,4C,3S-F-D-6U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0018,1906 BONITA AVE,Berkeley,CA,94704,,,7200,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0019,3820 HAINES ST,San Diego,CA,92109,,16,15,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0020,646-648 N 6TH ST,Newark,NJ,07083,,,4C,Apartments (class 4C),NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0021,22 PRECITA AV,San Francisco,CA,,1963,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0022,10908 HARTSOOK ST,Los Angeles,CA,91601,2012,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0023,843 IROLO ST,Los Angeles,CA,90005,1987,33,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0024,227 Charles St,Cambridge,MA,,1920,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0025,2341 8TH ST,Berkeley,CA,94710,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0026,59 OAK ST.,Jersey City,NJ,07306,1901,,4C,4S-B-D-8U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0027,3918 FULTON ST,San Francisco,CA,,1923,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0028,585 5TH ST,Newark,NJ,07107,,,4C,3SF3UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0029,280-284 VERONA AVE,Newark,NJ,07653,,,4C,4SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0030,2051 DIVISADERO ST,San Francisco,CA,,1908,5,FS5,Flat & Store 5 to 14 units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0031,5624 S SAN PEDRO ST,Los Angeles,CA,90011,1911,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0032,63 OAK ST.,Jersey City,NJ,08820,,,4C,4S-B-D-8U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0033,1260 KEARNY ST,San Francisco,CA,,1910,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0034,25 Gore St,Cambridge,MA,,1886,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0035,5239 HARMONY AVE,Los Angeles,CA,91601,1997,14,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0036,33 WARD ST,South Boston,MA,02127,2019,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0037,770 IROLO ST,Los Angeles,CA,90005,2001,47,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0038,154 YUKON ST,San Francisco,CA,,1908,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0039,1 Craigie St,Cambridge,MA,,1910,32,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0040,69-75 JACKSON ST,Hoboken,NJ,07030,,,4C,3B-7U/4B-24U-G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0041,122 TIFFANY AV,San Francisco,CA,,1900,15,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0042,320 FORREST ST.,Jersey City,NJ,07304,1912,,4C,2S-B-A-6U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0043,4 Orchard St,Cambridge,MA,,1920,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0044,773-775 SANDFORD AVE,Newark,NJ,11211,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0045,12829 BRANFORD ST,Los Angeles,CA,91331,1987,65,0501,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0046,8-12 Soden St,Cambridge,MA,,1975,44,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0047,14 RUTGERS AVE.,Jersey City,NJ,07304,1913,,4C,3S-B-D-6U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0048,1619 COMMONWEALTH AV,Brighton,MA,02135,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0049,721 CLINTON ST,Hoboken,NJ,07856,,,4C,3S-6U-AFFORDABL,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0050,36 HOFF ST,San Francisco,CA,,1986,49,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0051,65 OAKLAND AVE.,Jersey City,NJ,07423,,,4C,3S+BT-F-6U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0052,88 Gardner ST,Allston,MA,02134,1965,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0053,32 Garrison ST,Boston,MA,02116,1990,,A/120,LUXURY APARTMENT,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0054,13 Shetland ST,Roxbury,MA,02119,2020,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0055,305 10TH AV,San Francisco,CA,,1963,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0056,41-43 Edgerly RD,Boston,MA,02115,1920,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0057,57 STONE ST,Newark,NJ,07012,,,4C,4SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0058,3137 BOSTON AVE,San Diego,CA,92113,,7,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0059,84-86 WALNUT ST,Newark,NJ,07078,,,4C,1SCB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0060,5737 WILLOWCREST AVE,Los Angeles,CA,91601,1962,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0061,106 18TH AV,San Francisco,CA,,1915,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0062,77 HOFF ST,San Francisco,CA,,1906,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0063,11 Cortes ST,Boston,MA,02116,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0064,24-26 Concord Ave,Cambridge,MA,,1890,84,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0065,63 Bailey ST,Dorchester,MA,02124,,,A/120,LUXURY APARTMENT,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0066,1318 N ORANGE DR,Los Angeles,CA,90028,1988,36,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0067,1335 N VISTA ST,Los Angeles,CA,90046,1954,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0068,40-42 Clearway ST,Boston,MA,02115,1920,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0069,2277 UNION ST,San Francisco,CA,,1900,7,FS5,Flat & Store 5 to 14 units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0070,43 Fayette St,Cambridge,MA,,1910,7,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0071,14.5-16 Vandine St,Cambridge,MA,,1900,5,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0072,1251 10TH AV,San Francisco,CA,,1973,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0073,35-37 Inman St,Cambridge,MA,,1900,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0074,717 S BERENDO ST,Los Angeles,CA,90005,1963,34,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0075,27 Everett St,Cambridge,MA,,1880,10,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0076,304 E KINNEY ST,Newark,NJ,07033,,,4C,3SB2UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0077,91 Brookline St,Cambridge,MA,,1902,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0078,115 BAYVIEW AVE.,Jersey City,NJ,07304,,,4C,4S-B-A-16U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0079,2361 PORTLAND ST,Los Angeles,CA,90007,1912,9,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0080,690 S CATALINA ST,Los Angeles,CA,90005,2002,90,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0081,145 TAYLOR ST,San Francisco,CA,,2005,69,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0082,63 Inman St,Cambridge,MA,,1880,16,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0083,38 KENILWORTH ST,Roxbury,MA,02119,1890,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0084,1725 CHESTNUT ST,San Francisco,CA,,1908,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0085,1101 CHURCH ST,San Francisco,CA,,1926,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0086,67 Plymouth St,Cambridge,MA,,1837,5,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0087,323 BLOOMFIELD ST,Hoboken,NJ,07504,,,4C,"2,4B-16U-H-X",NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0088,201 CLEMENT ST,San Francisco,CA,,1908,9,FS5,Flat & Store 5 to 14 units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0089,935 PARK AVE,Hoboken,NJ,07030,,,4C,5B-10U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0090,30 JACKSON ST,Newark,NJ,07105,,,4C,3S.F.,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0091,2229 DWIGHT WAY,Berkeley,CA,94704,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0092,2514 PIEDMONT AVE,Berkeley,CA,94704,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0093,90 BICKFORD ST,Jamaica Plain,MA,02130,2004,,A/118,ELDERLY HOME,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0094,1371 27TH ST,San Diego,CA,92154,,88,16,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0095,23 Elm St,Cambridge,MA,,1900,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0096,81 WESTLAND AV,Boston,MA,02115,1910,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0097,1560 MASON ST,San Francisco,CA,,1907,8,FS5,Flat & Store 5 to 14 units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0098,WILLOWWOOD ST,Dorchester,MA,02124,,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0099,822 WASHINGTON ST,Hoboken,NJ,07458,,,4C,4B-5U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0100,4732 BANCROFT ST,San Diego,CA,92116,,7,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0101,315-319 FAIRMOUNT AVENUE,Jersey City,NJ,07039,,,4C,2-4S-B-A-26U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0102,124 BLOOMFIELD ST,Hoboken,NJ,10003,,,4C,4B-5U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0103,2161 ALLSTON WAY,Berkeley,CA,94704,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0104,409 5TH ST,Newark,NJ,07012,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0105,140 PORTOLA DR,San Francisco,CA,,2019,7,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0106,250 FREMONT ST,San Francisco,CA,,,60,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0107,10635 SHERMAN GROVE AVE,Los Angeles,CA,91040,1978,20,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0108,13 JEFFERSON AVE.,Jersey City,NJ,07030,,,4C,3S-B-D-6U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0109,2922 OTIS ST,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0110,130-132 2ND AVE,Newark,NJ,07055,,,4C,3SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0111,10075 TUJUNGA CANYON BLVD,Los Angeles,CA,91042,1984,40,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0112,448 BRODERICK ST,San Francisco,CA,,1905,9,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0113,3151 ETON AVE,Berkeley,CA,94705,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0114,3743 INDIA ST,San Diego,CA,92103,,6,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0115,397 05TH AV,San Francisco,CA,,1900,6,FS5,Flat & Store 5 to 14 units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0116,36 PROSPECT ST.,Jersey City,NJ,07111,1923,,4C,3S-F-D-6U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0117,1733 N CHEROKEE AVE,Los Angeles,CA,90028,1924,40,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0118,18-34 KINGBIRD RD,Dorchester,MA,02124,2009,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0119,607 ADAMS ST,Hoboken,NJ,07030,,,4C,2F-4U/2F-2U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0120,139 ELM ST,Newark,NJ,07105,,,4C,3SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0121,4079 FRONT ST,San Diego,CA,92103,,22,15,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0122,4812 S BROADWAY,Los Angeles,CA,90037,1909,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0123,123 Condor ST,East Boston,MA,02128,2013,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0124,33-35 Brookline St,Cambridge,MA,,1929,16,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0125,227 GRAND ST,Hoboken,NJ,07030,,,4C,5B-5U-H-(CO-OP),NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0126,1350 POTRERO AV,San Francisco,CA,,1927,8,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0127,10029 SEPULVEDA BLVD,Los Angeles,CA,91345,1964,5,050C,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0128,Harvard ST,Dorchester,MA,02124,,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0129,526-532 MULBERRY ST,Newark,NJ,07039,,,4C,3SB1UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0130,554 MARKET ST,Newark,NJ,07205,,,4C,3S.B.,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0131,43 POPLAR ST.,Jersey City,NJ,07307,1900,,4C,3S-F-D-6U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0132,587 N 6TH ST,Newark,NJ,11205,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0133,8819 LANKERSHIM BLVD,Los Angeles,CA,91352,1956,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0134,101 Norfolk ST,Dorchester,MA,02124,1899,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0135,843 CLAY ST,San Francisco,CA,,1908,29,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0136,920 HUDSON ST,Hoboken,NJ,07030,,,4C,5B-26U-H-CO-OP,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0137,65-71 NORFLOK ST,Newark,NJ,07003,,,4C,3SF5UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0138,1033 E 51ST ST,Los Angeles,CA,90011,1959,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0139,54 STUYVESANT AVE.,Jersey City,NJ,07042,1910,,4C,3S-F-5U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0140,459 BEACON ST,Boston,MA,02115,1910,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0141,2601 43RD AV,San Francisco,CA,,1974,8,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0142,4615 AVALON BLVD,Los Angeles,CA,90011,1957,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0143,75 ELM HILL AV,Dorchester,MA,02121,,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0144,112-114 Amory ST,Roxbury,MA,02119,1910,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0145,4515 FELTON ST,San Diego,CA,92116,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0146,93-95 HAWKINS ST,Newark,NJ,07105,,,4C,2SF3UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0147,2850 GOLDEN GATE AV,San Francisco,CA,,1900,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0148,162-166 5TH ST,Newark,NJ,07105,,,4C,2.5SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0149,25 Everett ST,East Boston,MA,02128,2023,,A/120,LUXURY APARTMENT,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0150,3784 E BROADWAY,San Diego,CA,92102,,9,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0151,16 Queensberry ST,Boston,MA,02215,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0152,1669 SUNSET CLIFFS BLVD,San Diego,CA,92107,,12,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0153,366 E 55TH ST,Los Angeles,CA,90011,1924,9,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0154,4568 IDAHO ST,San Diego,CA,92116,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0155,473 Harvard ST,Dorchester,MA,02124,,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0156,290 GREEN ST,San Francisco,CA,,1927,9,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0157,2701 RIDGE RD,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0158,2522 HILGARD AVE,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0159,104 SUNSET AVE,Newark,NJ,11211,,,4C,3SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0160,86 CHARLES ST.,Jersey City,NJ,07642,1918,,4C,3S-B-A-22U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0161,317 UNION ST.,Jersey City,NJ,07013,1930,,4C,4S-B-A-21U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0162,1640 N POINSETTIA PL,Los Angeles,CA,90046,1987,24,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0163,233-235 SECOND ST.,Jersey City,NJ,07042,1870,,4C,3&4S-B&F-14U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0164,725 14TH ST,San Francisco,CA,,1911,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0165,734 JAMAICA CT,San Diego,CA,92109,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0166,1 Potter Pk,Cambridge,MA,,1900,5,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0167,4616 FLORIDA ST,San Diego,CA,92116,,20,15,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0168,600 JACKSON/601 HARRISON,Hoboken,NJ,07030,2007,,4C,5B-64U/5B-64U-G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0169,115 KILSYTH RD,Brighton,MA,02135,1920,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0170,8917 CEDROS AVE,Los Angeles,CA,91402,1990,32,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0171,127 OGDEN AVE.,Jersey City,NJ,07660,1910,,4C,3S-B-D-7U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0172,8504 WILLIS AVE,Los Angeles,CA,91402,1960,33,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0173,13180 FOOTHILL BLVD,Los Angeles,CA,91342,1937,9,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0174,84 Hampshire St,Cambridge,MA,,1900,19,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0175,10 Dover St,Cambridge,MA,,1922,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0176,15 Chester St,Cambridge,MA,,1965,29,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0177,166 HIGHLAND AVE.,Jersey City,NJ,11201,1912,,4C,3S-F-D-6U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0178,5308 RIVERTON AVE,Los Angeles,CA,91601,1961,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0179,7006 LANEWOOD AVE,Los Angeles,CA,90028,1958,18,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0180,845 S KINGSLEY DR,Los Angeles,CA,90005,1990,33,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0181,931 GARDEN ST,Hoboken,NJ,07030,,,4C,5B-10U-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0182,911-923 CLINTON ST,Hoboken,NJ,07030,,,4C,"2,5B-90U-H-BA",NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0183,2427 HILGARD AVE,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0184,156 W 32ND ST,Los Angeles,CA,90007,1907,16,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0185,154 TERHUNE AVE.,Jersey City,NJ,07103,1922,,4C,3S-F-D-6U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0186,107 BEACON AVE.,Jersey City,NJ,07306,,,4C,3S-F-D-5U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0187,146 CARLTON AVE.,Jersey City,NJ,07423,1925,,4C,3S-F-D-6U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0188,2819 MCGEE AVE,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0189,1811 CARLETON ST,Berkeley,CA,94703,,,7200,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0190,283 ADAMS ST,Newark,NJ,07105,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0191,60 Kirkland St,Cambridge,MA,,1891,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0192,780 POST ST,San Francisco,CA,,1916,36,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0193,1626 BONITA AVE,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0194,72 Burbank ST,Boston,MA,02115,2022,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0195,1850-1848 COMMONWEALTH AV,Brighton,MA,02135,1910,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0196,16915 BLACKHAWK ST,Los Angeles,CA,91344,1962,30,0501,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0197,1611 62ND ST,Berkeley,CA,94703,,,7200,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0198,194 Havre ST,East Boston,MA,02128,2019,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0199,42 Bay State Rd,Cambridge,MA,,2012,5,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0200,1853 N HIGHLAND AVE,Los Angeles,CA,90028,,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0201,2737 BENVENUE AVE,Berkeley,CA,94705,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0202,1446 JACKSON ST,San Francisco,CA,,1907,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0203,2986-2930 Washington ST,Roxbury,MA,02119,2002,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0204,202-208 6TH AVE W,Newark,NJ,08736,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0205,2425 GRANT ST,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0206,401 43RD AV,San Francisco,CA,,1929,21,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0207,705 W 23RD ST,Los Angeles,CA,90007,1901,10,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0208,126 ADAMS ST,Hoboken,NJ,07604,,,4C,4B-8U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0209,19 Trowbridge St,Cambridge,MA,,1910,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0210,1432 N CURSON AVE,Los Angeles,CA,90046,2016,9,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0211,499 BEACON ST,Boston,MA,02215,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0212,1311 SOUTH VAN NESS AV,San Francisco,CA,,1900,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0213,11649 ACAMA ST,Los Angeles,CA,91604,1986,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0214,358 Harvard St,Cambridge,MA,,1900,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0215,2295 CALIFORNIA ST,San Francisco,CA,,1924,21,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0216,2309 HASTE ST,Berkeley,CA,94704,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0217,170-172 Maverick ST,East Boston,MA,02128,2011,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0218,15 Richdale Ave,Cambridge,MA,,1910,46,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0219,3735 32ND ST,San Diego,CA,92104,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0220,21-23 Faulkner ST,Dorchester,MA,02122,1900,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0221,191 Park DR,Boston,MA,02215,1910,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0222,1901 VALLEJO ST,San Francisco,CA,,1960,8,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0223,504 COURT ST,Hoboken,NJ,07030,,,4C,4B-5U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0224,8727 TOBIAS AVE,Los Angeles,CA,91402,1960,13,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0225,1627 JACKSON ST,San Francisco,CA,,1913,9,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0226,663 MASSACHUSETTS AV,Boston,MA,02118,1905,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0227,1401 HUDSON ST,Hoboken,NJ,07030,2010,2,4C,13B-93U-2C-G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0228,225 COLLINGWOOD ST,San Francisco,CA,,1907,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0229,5164 03RD ST,San Francisco,CA,,1914,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0230,85 Hancock St,Cambridge,MA,,1996,18,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0231,521 ARGUELLO BL,San Francisco,CA,,1971,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0232,189 Third St,Cambridge,MA,,1900,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0233,30 MEDFIELD ST,Boston,MA,02215,1920,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0234,2212 BLAKE ST,Berkeley,CA,94704,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0235,6736 SELMA AVE,Los Angeles,CA,90028,,,050V,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0236,1110 JACKSON ST,San Francisco,CA,,1961,9,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0237,36 VALLEY ST,San Francisco,CA,,1927,12,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0238,15256 ACRE ST,Los Angeles,CA,91343,1957,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0239,1476 UNIVERSITY AVE,Berkeley,CA,94702,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0240,4135 38TH ST,San Diego,CA,92105,,7,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0241,913 GARDEN ST,Hoboken,NJ,07030,,,4C,5B-14U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0242,85-87 SIERRA RD,Hyde Park,MA,02136,1960,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0243,664 OCEAN AVE.,Jersey City,NJ,07305,1910,,4C,3S+BT-F-6U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0244,1126 HUDSON ST,Hoboken,NJ,07030,,,4C,5B-12U-1BX-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0245,30 WEST HOWELL ST M-D,Dorchester,MA,02125,2018,,A/120,LUXURY APARTMENT,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0246,4386 COPELAND AVE,San Diego,CA,92105,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0247,4957 CAPE MAY AVE,San Diego,CA,92107,,10,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0248,941 S KENMORE AVE,Los Angeles,CA,90006,1923,24,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0249,498-500 HAWTHORNE AVE,Newark,NJ,10013,,,4C,3SF4UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0250,211 BALDWIN AVE.,Jersey City,NJ,07002,,,4C,6S-B+F-45U-17G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0251,4663 33RD ST,San Diego,CA,92116,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0252,15514 CHASE ST,Los Angeles,CA,91343,1984,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0253,2250 NORTH POINT ST,San Francisco,CA,,1928,7,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0254,805 WASHINGTON ST,Hoboken,NJ,07030,,,4C,4B-9U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0255,851 E 51ST ST,Los Angeles,CA,90011,1923,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0256,327 JACKSON ST,Hoboken,NJ,07017,,,4C,5B-20U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0257,5 COMMER CT,San Francisco,CA,,,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0258,471 COLUMBIA RD,Dorchester,MA,02125,1930,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0259,872 NORTH POINT ST,San Francisco,CA,,1900,5,FS5,Flat & Store 5 to 14 units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0260,2479 LE CONTE AVE,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0261,525 ADAMS ST,Hoboken,NJ,07030,,,4C,5B-1OU,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0262,2924 E JUNIPER ST,San Diego,CA,92104,,18,15,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0263,1636 M L KING JR WAY,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0264,583-589 ELIZABETH AVE,Newark,NJ,11516,,,4C,5SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0265,102 BALDWIN AVE.,Jersey City,NJ,07306,1912,,4C,3S-B-A-13U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0266,52 BRIGHT ST.,Jersey City,NJ,10016,,,4C,4S-B-D-8U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0267,1314 N VAN NESS AVE,Los Angeles,CA,90028,,,050V,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0268,1848 FRANKLIN ST,San Francisco,CA,,1914,7,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0269,1015 CLINTON ST,Hoboken,NJ,10003,,,4C,5B-14U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0270,29 CONCORD ST,Jersey City,NJ,07306,1890,,4C,4S-B-8U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0271,4115 LINCOLN WY,San Francisco,CA,,1928,13,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0272,5 Everett St,Cambridge,MA,,1890,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0273,3911 CENTRE ST,San Diego,CA,92103,,10,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0274,7072 EASTMAN ST,San Diego,CA,92111,,6,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0275,4091 MORRELL ST,San Diego,CA,92109,,7,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0276,4361 ILLINOIS ST,San Diego,CA,92104,,6,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0277,2736 GRANT ST,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0278,1800 FRANKLIN ST,San Francisco,CA,,1919,17,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0279,90 KENSINGTON AVE.,Jersey City,NJ,07302,1925,,4C,4S-B-A-17U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0280,1215 11TH AV,San Francisco,CA,,1971,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0281,1725 N GOWER ST,Los Angeles,CA,90028,1946,20,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0282,2240 10TH ST,Berkeley,CA,94710,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0283,90 BARTLETT ST,San Francisco,CA,,1986,51,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0284,345 Columbia St,Cambridge,MA,,1920,9,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0285,5255 HARMONY AVE,Los Angeles,CA,91601,,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0286,27 Irving Ter,Cambridge,MA,,1925,29,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0287,404 GRAND ST,Hoboken,NJ,07075,,,4C,4B-7U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0288,75 CLENDENNY AVE.,Jersey City,NJ,11211,,,4C,3S-B-12U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0289,1741 M L KING JR WAY,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0290,21 Forest St,Cambridge,MA,,1880,10,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0291,165 Cambridgepark Dr,Cambridge,MA,,2014,244,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0292,24 Berkshire St,Cambridge,MA,,2019,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0293,1314 NATOMA ST,San Francisco,CA,,1907,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0294,178 Richdale Ave,Cambridge,MA,,1920,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0295,Harvard ST LOT 2A-13,Dorchester,MA,02124,2019,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0296,83-85 MCWHORTER ST,Newark,NJ,07105,,,4C,4SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0297,211-213 SUMMER AVE,Newark,NJ,11205,,,4C,4SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0298,361 Washington St,Cambridge,MA,,1900,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0299,1037 WASHINGTON ST,Hoboken,NJ,10994,,,4C,4B-8U-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0300,36 Trowbridge St,Cambridge,MA,,1920,5,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0301,165 Hampshire St,Cambridge,MA,,1905,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0302,4-6 Clinton St,Cambridge,MA,,1900,8,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0303,188 E 35TH ST,Los Angeles,CA,90011,1909,10,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0304,4541 HAMILTON ST,San Diego,CA,92116,,7,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0305,638 45TH AV,San Francisco,CA,,1908,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0306,335A Harvard St,Cambridge,MA,,1920,17,112,>8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0307,294-296 VAN BUREN ST,Newark,NJ,07512,,,4C,3SB3UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0308,1032 HUDSON ST,Hoboken,NJ,07024,,,4C,5B-11U-H-BA-G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0309,1706 N STANLEY AVE,Los Angeles,CA,90046,1951,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0310,53-55 Ashford ST,Allston,MA,02134,1900,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0311,38-38- SOMME ST,Newark,NJ,07032,,,4C,2.5S.F.,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0312,25 ORLANDO ST,Mattapan,MA,02126,1965,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0313,317-319 W RUNYON ST,Newark,NJ,11205,,,4C,3SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0314,6640 LELAND WAY,Los Angeles,CA,90028,1919,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0315,5233 CARTWRIGHT AVE,Los Angeles,CA,91601,1990,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0316,3978 FLORIDA ST,San Diego,CA,92104,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0317,2233 CHANNING WAY,Berkeley,CA,94704,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0318,2041 FRANCISCO ST,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0319,2315 GRANT ST,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0320,408 MADISON ST,Hoboken,NJ,07030,,,4C,4F-6U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0321,200 NUNDA AVE.,Jersey City,NJ,07306,,,4C,3S-F-D-7U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0322,227 CYPRESS DR,San Ysidro,CA,92173,,31,15,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0323,4627 COMPTON AVE,Los Angeles,CA,90011,1907,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0324,2003 FRANKLIN ST,San Francisco,CA,,1885,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0325,38A GAUTIER AVE.,Jersey City,NJ,07302,1925,,4C,4S-B-A-21U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0326,46 JEFFERSON ST,Newark,NJ,07105,,,4C,4SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0327,1605 N MARTEL AVE,Los Angeles,CA,90046,1954,36,0501,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0328,1845 08TH AV,San Francisco,CA,,1960,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0329,51 MADISON ST,Newark,NJ,07105,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0330,5229 WILLOWCREST AVE,Los Angeles,CA,91601,2018,24,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0331,342-344 IRVINE TURNER BLV,Newark,NJ,11219,1910,,4C,2.5SF4UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0332,26 SONOMA ST,Dorchester,MA,02121,,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0333,3752 33RD ST,San Diego,CA,92104,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0334,2025 FRANCISCO ST,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0335,125 BEMIS ST,San Francisco,CA,,1968,10,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0336,151 North First St,Cambridge,MA,,2020,468,112,MXD >8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0337,66 MONROE ST,Newark,NJ,07032,,,4C,4S.B,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0338,521-523 S 17TH,Newark,NJ,07417,,,4C,3SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0339,124 Berkshire St,Cambridge,MA,,1920,8,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0340,14735 ROSCOE BLVD,Los Angeles,CA,91402,1959,50,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0341,4225 50TH ST,San Diego,CA,92115,,6,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0342,49 Roseland St,Cambridge,MA,,1910,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0343,408-410 5TH ST,Newark,NJ,10997,,,4C,4SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0344,238 & 242 GARFIELD AVE.,Jersey City,NJ,07304,1928,,4C,4S-B-44U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0345,153 W VERNON AVE,Los Angeles,CA,90037,1921,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0346,AUBURN DR,San Diego,CA,92105,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0347,2142 2ND AVE,San Diego,CA,92101,,9,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0348,229 CLINTON ST,Hoboken,NJ,08755,,,4C,4F-7U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0349,2400 DANA ST,Berkeley,CA,94704,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0350,1051 WEST SIDE AVE.,Jersey City,NJ,07446,1900,,4C,3S-B-D-6U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0351,628 HYDE ST,San Francisco,CA,,1907,7,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0352,40-42 MT PROSPECT AVE,Newark,NJ,07083,1900,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0353,1044 E JEFFERSON BLVD,Los Angeles,CA,90011,,,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0354,73 LUBEC ST,East Boston,MA,02128,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0355,10701 AMESTOY AVE,Los Angeles,CA,91344,1986,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0356,16 Brainerd RD,Allston,MA,02134,1930,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0357,173 07TH ST,San Francisco,CA,,1997,29,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0358,717 N 6TH ST,Newark,NJ,07110,,,4C,3SB-2UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0359,925 PARK AVE,Hoboken,NJ,07306,,,4C,5B-10U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0360,140 NEW YORK AVE.,Jersey City,NJ,10977,1924,,4C,3S-B-A-14U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0361,15 Berkshire St,Cambridge,MA,,1915,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0362,368 RIVERWAY ST,Boston,MA,02115,1920,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0363,2451 SHATTUCK AVE,Berkeley,CA,94704,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0364,125 03RD AV,San Francisco,CA,,1964,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0365,3940 IDAHO ST,San Diego,CA,92104,,12,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0366,230 Everett ST,East Boston,MA,02128,2024,,A/120,LUXURY APARTMENT,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0367,219 S 35TH ST,San Diego,CA,92113,,7,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0368,1430 FRANCISCO ST,San Francisco,CA,,1926,12,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0369,3260 CALIFORNIA ST,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0370,2222 TOBERMAN ST,Los Angeles,CA,90007,1924,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0371,76-80 BRUEN ST,Newark,NJ,07105,,,4C,USCB16UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0372,314 SEVENTH ST.,Jersey City,NJ,07302,,,4C,4S-B-D-7U-NH-G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0373,1315 SPRUCE ST,Berkeley,CA,94709,,,7200,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0374,686 S ARDMORE AVE,Los Angeles,CA,90005,1990,15,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0375,1880 FULTON ST,San Francisco,CA,,1921,9,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0376,ST JAMES ST,Roxbury,MA,02119,,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0377,206 BLOOMFIELD ST,Hoboken,NJ,10003,,,4C,5B-14U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0378,4053 IDAHO ST,San Diego,CA,92104,,9,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0379,1336 BRUNNER ST,San Diego,CA,92110,,12,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0380,GREENVILLE ST,Roxbury,MA,02119,,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0381,521-523 MARKET ST,Newark,NJ,07105,,,4C,3S.B.,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0382,119 DAY ST,San Francisco,CA,,1964,10,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0383,1908 CALIFORNIA ST,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0384,21 GUERRERO ST,San Francisco,CA,,1925,7,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0385,1059 UNION ST,San Francisco,CA,,1986,16,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0386,3654 ARIZONA ST,San Diego,CA,92104,,7,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0387,10303 CAMINITO ALVAREZ,San Diego,CA,92126,,152,16,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0388,157-155 CLERK ST.,Jersey City,NJ,07305,,,4C,3S-F-D-6U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0389,923 GARDEN ST,Hoboken,NJ,07068,,,4C,5B-10U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0390,70 DARCY ST,Newark,NJ,07202,,,4C,3S.F.,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0391,265 22ND ST,San Diego,CA,92102,,9,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0392,4545 N 39TH ST,San Diego,CA,92116,,7,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0393,91 JORDAN AVE.,Jersey City,NJ,07081,,,4C,4S-BA-21U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0394,45 RAVINE AVE.,Jersey City,NJ,07302,1912,,4C,3S-B-A-13U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0395,1632 RUSSELL ST,Berkeley,CA,94703,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0396,3244 CLAIREMONT DR,San Diego,CA,92117,,6,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0397,1677 BUSH ST,San Francisco,CA,,1900,21,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0398,890 GREEN ST,San Francisco,CA,,1908,5,TIC,TIC Bldg 4 units or less,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0399,227 WILLOW AVE,Hoboken,NJ,07643,,,4C,4B-9U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0400,174 MT PROSPECT AVE,Newark,NJ,07107,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0401,257 14TH ST,San Francisco,CA,,1908,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0402,2914 LARKIN ST,San Francisco,CA,,1900,5,F5,Flats 5 to 14 units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0403,45 Myrtle ST,Boston,MA,02114,1899,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0404,240 BOWERS ST.,Jersey City,NJ,07603,1900,,4C,3S-F-D-8U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0405,10214 FERNGLEN AVE,Los Angeles,CA,91042,2008,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0406,170 W Springfield ST,Boston,MA,02118,1899,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0407,4188 GREENBUSH AVE,Los Angeles,CA,91423,1964,10,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0408,14375 POLK ST,Los Angeles,CA,91342,1964,23,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0409,4428 GRESHAM ST,San Diego,CA,92109,,5,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0410,319 SUMMIT AVE.,Jersey City,NJ,07306,1920,,4C,4-S-BT-21U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0411,1833 BERKELEY WAY,Berkeley,CA,94703,,,7200,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0412,229-231 GRAFTON AVE,Newark,NJ,07003,,,4C,3SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0413,2209 GRAND AVE,San Diego,CA,92109,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0414,1987 CALIFORNIA ST,San Francisco,CA,,1922,9,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0415,95 WAYNE ST.,Jersey City,NJ,07302,,,4C,4S-B-A-46U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0416,882 PAVONIA AVE.,Jersey City,NJ,10281,,,4C,5S-BT-B-C-21U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0417,4957 CAHUENGA BLVD,Los Angeles,CA,91601,,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0418,221 SIP AVE.,Jersey City,NJ,07009,,,4C,3S-FD-12U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0419,1538 HENRY ST,Berkeley,CA,94709,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0420,4419 CLEVELAND AVE,San Diego,CA,92116,,10,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0421,17106 CHATSWORTH ST   APT 0001,Los Angeles,CA,91344,1964,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0422,21-23 Marion St,Cambridge,MA,,1900,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0423,10 CAMELOT CT,Brighton,MA,02135,1965,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0424,208 JEFFERSON ST,Hoboken,NJ,07030,,,4C,4F-8U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0425,650 POST ST,San Francisco,CA,,1916,23,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0426,1307 COLUSA ST,San Diego,CA,92110,,12,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0427,7665 FOUNTAIN AVE,Los Angeles,CA,90046,1986,15,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0428,312-314 MT PROSPECT AVE,Newark,NJ,07109,,,4C,Apartments (class 4C),NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0429,12 BLACKWOOD ST,Boston,MA,02115,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0430,1950 ADDISON ST,Berkeley,CA,94704,,,7800,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0431,245 EUCLID AVE,San Diego,CA,92114,,5,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0432,14605 RAYEN ST,Los Angeles,CA,91402,1978,23,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0433,720 W 27TH ST,Los Angeles,CA,90007,1964,58,0501,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0434,1225 HYDE ST,San Francisco,CA,,1913,8,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0435,310 MONROE ST,Hoboken,NJ,07632,,,4C,4B-8U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0436,832 WILLOW AVE,Hoboken,NJ,07030,,,4C,5B-6B-25U-H-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0437,2969 SAN MARINO ST,Los Angeles,CA,90006,2004,20,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0438,60-62 CAMBRIDGE AVE,Jersey City,NJ,07430,,,4C,3S-F-A-12U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0439,225 25TH AV,San Francisco,CA,,1988,7,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0440,4042 FULTON ST,San Francisco,CA,,1921,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0441,4017 ILLINOIS ST,San Diego,CA,92104,,6,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0442,7014 LANEWOOD AVE,Los Angeles,CA,90028,1986,18,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0443,3526 FAIRMOUNT AVE,San Diego,CA,92105,,16,15,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0444,231 COMMONWEALTH AV,Boston,MA,02116,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0445,8790 VAN NUYS BLVD,Los Angeles,CA,91402,1977,25,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0446,610 COLUMBUS AV,Boston,MA,02118,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0447,208 CLINTON ST,Hoboken,NJ,07030,,,4C,5B-35U-G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0448,151-153 LAFAYETTE ST,Newark,NJ,07105,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0449,338 CLINTON PL,Newark,NJ,08701,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0450,94 NEPTUNE AVE.,Jersey City,NJ,11211,,,4C,3S-F-D-6U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0451,7300 VALMONT ST,Los Angeles,CA,91042,1989,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0452,1310 N LAS PALMAS AVE,Los Angeles,CA,90028,1952,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0453,11 Carlisle St,Cambridge,MA,,1910,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0454,8944 COLUMBUS AVE,Los Angeles,CA,91343,1959,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0455,78 STEVENS AVE.,Jersey City,NJ,07108,,,4C,4S-B-A-17U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0456,2151 CHATSWORTH BLVD,San Diego,CA,92107,,17,15,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0457,1856 GREEN ST,San Francisco,CA,,1906,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0458,1670 E 48TH PL,Los Angeles,CA,90011,1963,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0459,202 SOUTH ST.,Jersey City,NJ,07423,1915,,4C,3S-F-7U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0460,223-229 SHEPHARD AVE,Newark,NJ,11204,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0461,735 11TH AV,San Francisco,CA,,1923,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0462,128 ST. PAULS AVE.,Jersey City,NJ,11211,1890,,4C,3S-F-D-6U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0463,4 BEECHWOOD ST,Dorchester,MA,02121,2007,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0464,2-98 DABNEY ST,Roxbury,MA,02119,1966,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0465,141 Oxford St,Cambridge,MA,,1915,8,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0466,115 NORWAY ST,Boston,MA,02115,1920,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0467,24 ST ALBANS RD,Boston,MA,02115,1923,,A/125,SUBSD HOUSING S- 8,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0468,13 Shepard St,Cambridge,MA,,1910,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0469,2701 SHATTUCK AVE,Berkeley,CA,94705,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0470,1919 CURTIS ST,Berkeley,CA,94702,,,7700,Alameda County use code (5+ units),Alameda County parcels,2026-10-01T22:50Z
+A0471,332-334 GARDEN ST,Hoboken,NJ,07604,,,4C,4 1/2B-10U-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0472,321 WILLOW AVE,Hoboken,NJ,07030,,,4C,5B-12U-BA,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0473,20 Phillips ST,Boston,MA,02114,1899,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0474,3438 MCKINLEY AVE,Los Angeles,CA,90011,1928,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0475,361 FIRST ST,Hoboken,NJ,07030,,,4C,4B-7U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0476,26-28 COTTAGE ST,Newark,NJ,07840,,,4C,2SF2UG,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0477,2250 MISSION ST,San Francisco,CA,,1975,19,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0478,3860 CHEROKEE AVE,San Diego,CA,92104,,9,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0479,12948 MOORPARK ST,Los Angeles,CA,91604,1990,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0480,4046 N 43RD ST,San Diego,CA,92105,,11,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0481,536 LEAVENWORTH ST,San Francisco,CA,,1925,63,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0482,101 CLIFTON PL.,Jersey City,NJ,10982,,,4C,4S-B-A-25U-H,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0483,1580 MARKET ST,San Francisco,CA,,1917,72,A15,Apartment 15 Units or more,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0484,1801 08TH AV,San Francisco,CA,,1948,5,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0485,296-302 Western Ave,Cambridge,MA,,1920,6,111,4-8-UNIT-APT,Cambridge Property Database FY2026 (waa7-ibdu),2026-10-01T22:50Z
+A0486,2280 MISSION ST,San Francisco,CA,,1910,9,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0487,2118 FILLMORE ST,San Francisco,CA,,1900,11,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0488,197 BEACON ST,Boston,MA,02116,1900,,A/112,APT 7-30 UNITS,Boston Property Assessment FY2026,2026-10-01T22:50Z
+A0489,204 GRAND ST,Hoboken,NJ,06901,2000,,4C,6B-30U-G,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0490,526 ADAMS ST,Hoboken,NJ,07030,,,4C,4F-8U-C/3F-2U,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0491,37 IRVING ST,Newark,NJ,07104,,,4C,3SF,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0492,800 S HARVARD BLVD,Los Angeles,CA,90005,2019,131,0551,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0493,4450 GEARY BL,San Francisco,CA,,1916,10,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0494,2641 FRANKLIN ST,San Francisco,CA,,1923,6,A5,Apartment 5 to 14 Units,DataSF wv5m-vpq2 (2025 roll),2026-10-01T22:50Z
+A0495,230 VAN HORNE ST.,Jersey City,NJ,11219,1895,,4C,3S-B-D-6U-NH,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0496,512 32ND ST,San Diego,CA,92102,,8,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0497,3750 29TH ST,San Diego,CA,92104,,5,14,SANDAG asr_landuse 14-16 (5+ units),SANDAG/SanGIS parcels,2026-10-01T22:50Z
+A0498,684-686 SUMMER AVE,Newark,NJ,07644,,,4C,3SB,NJOGIS Parcels & MOD-IV Composite,2026-10-01T22:50Z
+A0499,8519 WILLIS AVE,Los Angeles,CA,91402,1962,33,0501,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z
+A0500,8811 BURNET AVE,Los Angeles,CA,91343,1954,36,0500,Five or more apartments,LA County eGIS parcels,2026-10-01T22:50Z

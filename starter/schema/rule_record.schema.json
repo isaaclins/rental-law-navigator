@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Rule record (one per rule extracted from the corpus)",
+  "type": "object",
+  "required": [
+    "team_rule_id",
+    "jurisdiction",
+    "level",
+    "category",
+    "status",
+    "title",
+    "requirement",
+    "citation",
+    "source_url",
+    "quoted_span"
+  ],
+  "properties": {
+    "team_rule_id": {
+      "type": "string",
+      "description": "Your own unique id, e.g. 'r-0001'."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "State code ('CA','NJ','MA') or 'City, ST' (e.g. 'San Francisco, CA')."
+    },
+    "level": {
+      "enum": [
+        "state",
+        "city"
+      ]
+    },
+    "category": {
+      "enum": [
+        "rent_increase_limits",
+        "just_cause_eviction",
+        "security_deposits",
+        "application_screening_fees",
+        "screening_restrictions",
+        "algorithmic_rent_setting"
+      ]
+    },
+    "status": {
+      "enum": [
+        "in_force",
+        "not_yet_effective",
+        "pending",
+        "failed"
+      ],
+      "description": "As of the query date (default 2026-10-01). Enacted laws with a future effective date are 'not_yet_effective'."
+    },
+    "title": {
+      "type": "string"
+    },
+    "requirement": {
+      "type": "string",
+      "description": "One or two plain-language sentences."
+    },
+    "key_value": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The headline number or formula, e.g. '1.5 months rent', 'lesser of CPI or 4%'."
+    },
+    "coverage_conditions": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "description": "Who/what is covered: year built or certificate-of-occupancy cutoffs, unit counts, owner type."
+    },
+    "exemptions": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "overrides": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "team_rule_ids this rule supersedes or yields to, with direction in 'interaction'."
+    },
+    "interaction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effective_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
+    },
+    "citation": {
+      "type": "string",
+      "description": "Official cite, e.g. 'Cal. Civ. Code § 1947.12'."
+    },
+    "source_doc_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "doc_id from corpus_manifest.csv."
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "quoted_span": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Exact text copied from the source document that supports the rule."
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "conflict_flag": {
+      "type": "boolean",
+      "default": false
+    },
+    "conflict_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

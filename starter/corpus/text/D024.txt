@@ -1,0 +1,202 @@
+SOURCE: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12
+RETRIEVED: 2026-10-01 22:35 UTC
+
+California Code,  CIV 1947.12
+skip to content
+home
+accessibility
+FAQ
+feedback
+sitemap
+login
+x
+Quick Search:
+Bill Number
+Bill Keyword
+Home
+Bill Information
+California Law
+Publications
+Other Resources
+My Subscriptions
+My Favorites
+California Law
+>>
+>>
+Code Section
+Code Section
+Code:
+Select Code
+CONS
+BPC
+CIV
+CCP
+COM
+CORP
+EDC
+ELEC
+EVID
+FAM
+FIN
+FGC
+FAC
+GOV
+HNC
+HSC
+INS
+LAB
+MVC
+PEN
+PROB
+PCC
+PRC
+PUC
+RTC
+SHC
+UIC
+VEH
+WAT
+WIC
+Article:
+Section:
+Code:
+Select Code
+All
+BPC
+CIV
+CCP
+COM
+CORP
+EDC
+ELEC
+EVID
+FAM
+FIN
+FGC
+FAC
+GOV
+HNC
+HSC
+INS
+LAB
+MVC
+PEN
+PROB
+PCC
+PRC
+PUC
+RTC
+SHC
+UIC
+VEH
+WAT
+WIC
+Section:
+Keyword(s):
+Code Search
+Text Search
+Up^
+<< Previous
+Next >>
+cross-reference chaptered bills
+PDF
+|
+Add To My Favorites
+Search Phrase:
+Code Text
+Civil Code - CIV
+DIVISION 3. OBLIGATIONS [1427 - 3273.91]
+( Heading of Division 3 amended by Stats. 1988, Ch. 160, Sec. 14. )
+PART 4. OBLIGATIONS ARISING FROM PARTICULAR TRANSACTIONS [1738 - 3273.91]
+( Part 4 enacted 1872. )
+TITLE 5. HIRING [1925 - 1997.270]
+( Title 5 enacted 1872. )
+CHAPTER 2. Hiring of Real Property [1940 - 1954.071]
+( Chapter 2 enacted 1872. )
+1947.12.
+(a) (1)   Subject to subdivision (b), an owner of residential real property shall not, over the course of any 12-month period, increase the gross rental rate for a dwelling or a unit more than 5 percent plus the percentage change in the cost of living, or 10 percent, whichever is lower, of the lowest gross rental rate charged for that dwelling or unit at any time during the 12 months prior to the effective date of the increase. In determining the lowest gross rental amount pursuant to this section, any rent discounts, incentives, concessions, or credits offered by the owner of such unit of residential real property and accepted by the tenant shall be excluded. The gross per-month rental rate and any owner-offered discounts, incentives, concessions, or credits shall be separately listed and identified in the lease or rental agreement or any
+amendments to an existing lease or rental agreement.
+(2) If the same tenant remains in occupancy of a unit of residential real property over any 12-month period, the gross rental rate for the unit of residential real property shall not be increased in more than two increments over that 12-month period, subject to the other restrictions of this subdivision governing gross rental rate increase.
+(b) For a new tenancy in which no tenant from the prior tenancy remains in lawful possession of the residential real property, the owner may establish the initial rental rate not subject to subdivision (a). Subdivision (a) is only applicable to subsequent increases after that initial rental rate has been established.
+(c) A tenant of residential real property subject to this section shall not enter into a sublease that results in a total rent for the premises that
+exceeds the allowable rental rate authorized by subdivision (a). Nothing in this subdivision authorizes a tenant to sublet or assign the tenant’s interest where otherwise prohibited.
+(d) This section shall not apply to the following residential real properties:
+(1) Housing restricted by deed, regulatory restriction contained in an agreement with a government agency, or other recorded document as affordable housing for persons and families of very low, low, or moderate income, as defined in Section 50093 of the Health and Safety Code, or subject to an agreement that provides housing subsidies for affordable housing for persons and families of very low, low, or moderate income, as defined in Section 50093 of the Health and Safety Code or comparable federal statutes.
+(2) Dormitories owned and operated by an institution of higher education or a kindergarten
+and grades 1 to 12, inclusive, school.
+(3) Housing subject to rent or price control through a public entity’s valid exercise of its police power consistent with Chapter 2.7 (commencing with Section 1954.50) that restricts annual increases in the rental rate to an amount less than that provided in subdivision (a).
+(4) Housing that has been issued a certificate of occupancy within the previous 15 years, unless the housing is a mobilehome.
+(5) Residential real property that is alienable separate from the title to any other dwelling unit, including a mobilehome, provided that both of the following apply:
+(A) The owner is not any of the following:
+(i) A real estate investment trust, as defined in Section 856 of the Internal Revenue Code.
+(ii) A corporation.
+(iii) A limited liability company in which at least one member is a corporation.
+(iv) Management of a mobilehome park, as defined in Section 798.2.
+(B) (i) The tenants have been provided written notice that the residential real property is exempt from this section using the following statement:
+“This property is not subject to the rent limits imposed by Section 1947.12 of the Civil Code and is not subject to the just cause requirements of Section 1946.2 of the Civil Code. This property meets the requirements of Sections 1947.12 (d)(5) and 1946.2 (e)(8) of the Civil Code and the owner is not any of the following: (1) a real estate investment trust, as defined by Section 856 of the Internal Revenue Code; (2) a corporation; or (3) a limited liability company
+in which at least one member is a corporation.”
+(ii) For a tenancy existing before July 1, 2020, or July 1, 2022, if the lease is for a tenancy in a mobilehome, the notice required under clause (i) may, but is not required to, be provided in the rental agreement.
+(iii) For a tenancy commenced or renewed on or after July 1, 2020, or July 1, 2022, if the lease is for a tenancy in a mobilehome, the notice required under clause (i) must be provided in the rental agreement.
+(iv) Addition of a provision containing the notice required under clause (i) to any new or renewed rental agreement or fixed-term lease constitutes a similar provision for the purposes of subparagraph (E) of paragraph (1) of subdivision (b) of Section 1946.2.
+(6) A property containing two separate dwelling units within a single
+structure in which the owner occupied one of the units as the owner’s principal place of residence at the beginning of the tenancy, so long as the owner continues in occupancy, and neither unit is an accessory dwelling unit or a junior accessory dwelling unit.
+(e) An owner shall provide notice of any increase in the rental rate, pursuant to subdivision (a), to each tenant in accordance with Section 827.
+(f) (1) On or before January 1, 2030, the Legislative Analyst’s Office shall report to the Legislature regarding the effectiveness of this section and Section 1947.13. The report shall include, but not be limited to, the impact of the rental rate cap pursuant to subdivision (a) on the housing market within the state.
+(2) The report required by paragraph (1) shall be submitted in compliance with Section 9795 of the Government Code.
+(g) For the purposes of this section, the following definitions shall apply:
+(1) “Consumer Price Index for All Urban Consumers for All Items” means the following:
+(A) The Consumer Price Index for All Urban Consumers for All Items (CPI-U) for the metropolitan area in which the property is located, as published by the United States Bureau of Labor Statistics, which are as follows:
+(i) The CPI-U for the Los Angeles-Long Beach-Anaheim metropolitan area covering the Counties of Los Angeles and Orange.
+(ii) The CPI-U for the Riverside-San Bernardino-Ontario metropolitan area covering the Counties of Riverside and San Bernardino.
+(iii) The CPI-U for the San Diego-Carlsbad metropolitan area covering the County of San Diego.
+(iv) The CPI-U for the San Francisco-Oakland-Hayward metropolitan area covering the Counties of Alameda, Contra Costa, Marin, San Francisco, and San Mateo.
+(v) Any successor metropolitan area index to any of the indexes listed in clauses (i) to (iv), inclusive.
+(B) If the United States Bureau of Labor Statistics does not publish a CPI-U for the metropolitan area in which the property is located, the California Consumer Price Index for All Urban Consumers for All Items as published by the Department of Industrial Relations.
+(C) On or after January 1, 2021, if the United States Bureau of Labor Statistics publishes a CPI-U index for one or more metropolitan areas not listed in subparagraph (A), that CPI-U index shall apply in those areas with respect to rent increases that take effect on or after August 1 of the calendar year in
+which the 12-month change in that CPI-U, as described in subparagraph (B) of paragraph (3), is first published.
+(2) “Owner” includes any person, acting as principal or through an agent, having the right to offer residential real property for rent, and includes a predecessor in interest to the owner.
+(3) (A) “Percentage change in the cost of living” means the percentage change, computed pursuant to subparagraph (B), in the applicable, as determined pursuant to paragraph (1), Consumer Price Index for All Urban Consumers for All Items.
+(B) (i) For rent increases that take effect before August 1 of any calendar year, the following shall apply:
+(I) The percentage change shall be the percentage change in the amount published for April of the immediately preceding
+calendar year and April of the year before that.
+(II) If there is not an amount published in April for the applicable geographic area, the percentage change shall be the percentage change in the amount published for March of the immediately preceding calendar year and March of the year before that.
+(ii) For rent increases that take effect on or after August 1 of any calendar year, the following shall apply:
+(I) The percentage change shall be the percentage change in the amount published for April of that calendar year and April of the immediately preceding calendar year.
+(II) If there is not an amount published in April for the applicable geographic area, the percentage change shall be the percentage change in the amount published for March of that calendar year and March of the immediately preceding
+calendar year.
+(iii) The percentage change shall be rounded to the nearest one-tenth of 1 percent.
+(4) “Residential real property” means any dwelling or unit that is intended for human habitation, including any dwelling or unit in a mobilehome park.
+(5) “Tenancy” means the lawful occupation of residential real property and includes a lease or sublease.
+(h) (1) This section shall apply to all rent increases subject to subdivision (a) occurring on or after March 15, 2019, except as provided in subdivision (i).
+(2) In the event that an owner has increased the rent by more than the amount permissible under subdivision (a) between March 15, 2019, and January 1, 2020, both of the following shall apply:
+(A) The applicable rent on January 1, 2020, shall be the rent as of March 15, 2019, plus the maximum permissible increase under subdivision (a).
+(B) An owner shall not be liable to the tenant for any corresponding rent overpayment.
+(3) An owner of residential real property subject to subdivision (a) who increased the rental rate on that residential real property on or after March 15, 2019, but prior to January 1, 2020, by an amount less than the rental rate increase permitted by subdivision (a) shall be allowed to increase the rental rate twice, as provided in paragraph (2) of subdivision (a), within 12 months of March 15, 2019, but in no event shall that rental rate increase exceed the maximum rental rate increase permitted by subdivision (a).
+(i) (1) Notwithstanding subdivision (h), this section shall apply
+only to rent increases for a tenancy in a mobilehome subject to subdivision (a) occurring on or after February 18, 2021.
+(2) In the event that an owner has increased the rent for a tenancy in a mobilehome by more than the amount permissible under subdivision (a) between February 18, 2021, and January 1, 2022, both of the following shall apply:
+(A) The applicable rent on January 1, 2022, shall be the rent as of February 18, 2021, plus the maximum permissible increase under subdivision (a).
+(B) An owner shall not be liable to the tenant for any corresponding rent overpayment.
+(3) An owner of residential real property subject to subdivision (a) who increased the rental rate on that residential real property on or after February 18, 2021, but prior to January 1, 2022, by an amount less than the rental rate
+increase permitted by subdivision (a) shall be allowed to increase the rental rate twice, as provided in paragraph (2) of subdivision (a), within 12 months of February 18, 2021, but in no event shall that rental rate increase exceed the maximum rental rate increase permitted by subdivision (a).
+(j) This section shall not apply to a homeowner of a mobilehome, as defined in Section 798.9.
+(k) (1) An owner who demands, accepts, receives, or retains any payment of rent in excess of the maximum rent allowed by this section shall be liable in a civil action to the tenant from whom those payments are demanded, accepted, received, or retained for all of the following:
+(A) Injunctive relief.
+(B) Damages in the amount by which any payment demanded, accepted, received, or retained exceeds the
+maximum allowable rent.
+(C) In the court’s discretion, reasonable attorney’s fees and costs.
+(D) Upon a showing that the owner has acted willfully or with oppression, fraud, or malice, damages up to three times the amount by which any payment demanded, accepted, received, or retained exceeds the maximum allowable rent.
+(2) The Attorney General, in the name of the people of the State of California, and the city attorney or county counsel in the jurisdiction in which the rental unit is located, in the name of the city or county, may do both of the following:
+(A) Enforce the provisions of this section.
+(B) Seek injunctive relief based on violations of this section.
+(3) In an action pursuant to this
+subdivision for injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this section.
+(4) An action pursuant to this subdivision shall not be brought after the date that is three years from the date on which the cause of action accrued.
+(l) Any waiver of the rights under this section shall be void as contrary to public policy.
+(m) (1) The Legislature finds and declares that the unique circumstances of the current housing crisis require a statewide response to address rent gouging by establishing statewide limitations on gross rental rate increases.
+(2) It is the intent of the Legislature that this section should apply only for the limited time needed to address the current statewide housing crisis, as described in paragraph (1). This
+section is not intended to expand or limit the authority of local governments to establish local policies regulating rents consistent with Chapter 2.7 (commencing with Section 1954.50), nor is it a statement regarding the appropriate, allowable rental rate increase when a local government adopts a policy regulating rent that is otherwise consistent with Chapter 2.7 (commencing with Section 1954.50).
+(3) Nothing in this section authorizes a local government to establish limitations on any rental rate increases not otherwise permissible under Chapter 2.7 (commencing with Section 1954.50), or affects the existing authority of a local government to adopt or maintain rent controls or price controls consistent with that chapter.
+(n) This section shall become operative on April 1, 2024.
+(o) This section shall remain in effect until January 1, 2030, and as of that date is repealed.
+(Repealed (in Sec. 3) and added by Stats. 2023, Ch. 290, Sec. 4.   (SB 567)   Effective January 1, 2024.   Operative April 1, 2024, by its own provisions.   Repealed as of January 1, 2030, by its own provisions.)

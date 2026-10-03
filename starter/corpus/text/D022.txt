@@ -1,0 +1,131 @@
+SOURCE: https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB325
+RETRIEVED: 2026-10-01 22:35 UTC
+
+Bill Text - AB-325 Cartwright Act: violations.
+skip to content
+home
+accessibility
+FAQ
+feedback
+sitemap
+login
+x
+Quick Search:
+Bill Number
+Bill Keyword
+Home
+Bill Information
+California Law
+Publications
+Other Resources
+My Subscriptions
+My Favorites
+Bill Information
+>>
+Bill Search
+>>
+Text
+Bill Text
+Bill Information
+PDF2
+Bill PDF
+|
+Add To My Favorites
+|
+Track Bill
+|
+Version:
+10/06/25 - Chaptered
+09/16/25 - Enrolled
+09/05/25 - Amended Senate
+08/29/25 - Amended Senate
+06/19/25 - Amended Senate
+05/29/25 - Amended Assembly
+04/24/25 - Amended Assembly
+04/09/25 - Amended Assembly
+03/10/25 - Amended Assembly
+01/27/25 - Introduced
+AB-325 Cartwright Act: violations.
+(2025-2026)
+Text
+>>
+Votes
+>>
+History
+>>
+Bill Analysis
+>>
+Today's Law As Amended
+>>
+Compare Versions
+>>
+Status
+>>
+Comments To Author
+>>
+Track Bill
+>>
+Add To My Favorites
+>>
+SHARE THIS:
+Date Published: 10/07/2025 10:00 AM
+AB325:v90#DOCUMENT
+Bill Start
+Assembly Bill
+No. 325
+CHAPTER 338
+An act to add Sections 16729 and 16756.1 to the Business and Professions Code, relating to business regulations.
+[
+Approved  by
+Governor
+October 06, 2025.
+Filed with
+Secretary of State
+October 06, 2025.
+]
+LEGISLATIVE COUNSEL'S DIGEST
+AB 325, Aguiar-Curry.
+Cartwright Act: violations.
+Existing law establishes the Attorney General as the head of the Department of Justice, with charge of all legal matters in which the state is interested, except as specified. Existing law imposes various requirements on the Attorney General related to consumer protection, including, among others, the supervision of charitable trusts and the enforcement of antitrust laws. Existing law, commonly known as the Cartwright Act, identifies certain acts that are unlawful restraints of trade and unlawful trusts and prescribes provisions for its enforcement.
+Existing law requires a complaint or cross-complaint to contain, among other things, a statement of facts constituting the cause of action, in ordinary and concise language.
+This bill would instead provide that in a complaint for any violation of the
+Cartwright Act, it is sufficient to contain factual allegations demonstrating that the existence of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce is plausible. The bill would provide that a complaint for any violation of the Cartwright Act is not required to allege facts tending to exclude the possibility of independent action.
+This bill would also make it unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce. The bill would make it unlawful for a person to use or distribute a common pricing algorithm if the person coerces another person to set or adopt a recommended price or commercial term recommended by the common pricing algorithm for the same or similar products or services in the jurisdiction
+of the state. Because the bill would expand the scope of activities prohibited by the Cartwright Act, the violation of which is punishable as a crime, the bill would impose a state-mandated local program.
+The California Constitution requires the state to reimburse local agencies and school districts for certain costs mandated by the state. Statutory provisions establish procedures for making that reimbursement.
+This bill would provide that no reimbursement is required by this act for a specified reason.
+Digest Key
+Vote:
+MAJORITY
+Appropriation:
+NO
+Fiscal Committee:
+YES
+Local Program:
+YES
+Bill Text
+The people of the State of California do enact as follows:
+SECTION 1.
+Section 16729 is added to the Business and Professions Code, to read:
+16729.
+(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.
+(b) It shall be unlawful for a person to use or distribute a common pricing algorithm if the person coerces another person to set or adopt a recommended price or commercial term recommended by the common pricing algorithm for the same or similar products or services in the jurisdiction of this state.
+(c) Nothing in this section shall impair or limit the applicability of antitrust laws.
+(d) For purposes of this section, the following definitions apply:
+(1) “Antitrust laws” means the provisions of this part.
+(2) “Commercial term” includes, without limitation, any of the following:
+(A) Level of service.
+(B) Availability.
+(C) Output, including quantities of products produced or distributed or the amount or level of service provided.
+(3) “Common pricing algorithm” means any
+methodology, including a computer, software, or other technology, used by two or more persons, that uses competitor data to recommend, align, stabilize, set, or otherwise influence a price or commercial
+term.
+(4) “Distribute,” “distribution,” and “distributing” include selling, licensing, providing access to, or otherwise making available by any means, including through a subscription or the sale of a service.
+(5) “Person” has the same meaning as defined in Section 16702 and does not include the end consumer of a product or service.
+(6) “Price” means the amount of money or other thing of value, whether tangible or not, expected, required, or given in payment for any product or service, including compensation paid to an employee or independent contractor for services provided.
+SEC. 2.
+Section 16756.1 is added to the Business and Professions Code, to read:
+16756.1.
+Notwithstanding any other law, in a complaint for any violation of this chapter, it is sufficient to contain factual allegations demonstrating that the existence of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce is plausible, and the complaint shall not be required to allege facts tending to exclude the possibility of independent action.
+SEC. 3.
+No reimbursement is required by this act pursuant to Section 6 of Article XIII B of the California Constitution because the only costs that may be incurred by a local agency or school district will be incurred because this act creates a new crime or infraction, eliminates a crime or infraction, or changes the penalty for a crime or infraction, within the meaning of Section 17556 of the Government Code, or changes the definition of a crime within the meaning of Section 6 of Article XIII B of the California Constitution.

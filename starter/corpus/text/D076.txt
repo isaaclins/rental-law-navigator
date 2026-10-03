@@ -1,0 +1,389 @@
+SOURCE: https://sandiego.gov/sites/default/files/2025-04/automated-rent-price-fixing-prohibition-ordinance-materials.pdf
+RETRIEVED: 2026-10-01 22:37 UTC
+
+            
+The City of San Diego
+Staff Report
+1
+DATE ISSUED: February 27, 2025
+TO: City Council 
+FROM: Council District 9
+SUBJECT: Prohibition of Anti-Competitive Automated Rent Price-Fixing Ordinance
+Primary
+Contact:
+Maya Rosas Phone: 619-236-6699
+Secondary 
+Contact: 
+Molly Weber Phone: 619-236-6699
+Council District(s):     Citywide
+OVERVIEW:
+Complex, AI-driven price-fixing software is used across San Diego to suggest the highest rental pricing 
+that a rental home can yield. The Department of Justice, California Attorney General Rob Bonta, and 
+many Attorneys General across the United States have alleged in numerous complaints that this kind of 
+software is a modern-day price-fixing service that directly and indirectly inflates rent prices, harming 
+millions of Americans.
+Councilmember Sean Elo-Rivera proposes to protect San Diegans from automated rent price-fixing by 
+banning the sale, license, and use of automated rent-setting software that advises or recommends rental 
+rates or occupancy levels. 
+PROPOSED ACTIONS:
+Amend San Diego Municipal Code Chapter 9, Article 8 by adding new Division 11, sections 98.1101, 
+98.1102, 98.1103, and 98.1104, to adopt the proposed Prohibition of Anti-Competitive Automated Rent 
+Price-Fixing Ordinance.
+DISCUSSION OF ITEM:
+Cost of Housing in San Diego
+Exorbitant cost-of-living, including out-of-control housing costs are pushing many San Diegans out of 
+their communities, driving others into homelessness, and making life far too expensive for working 
+families. U.S. News and World Report ranked San Diego as the most expensive city to live in nationally 
+for 2023-2024, with the cost of housing as a major contributor to this ranking.1
+1 San Diego ranks as most expensive US city with LA and Santa Barbara in the top five (October 29, 
+2023). USA Today. https://www.usatoday.com/story/news/nation/2023/10/27/report-ranks-san-diego-
+most-expensive-us-city-see-full-list/71351851007/ 
+2
+The median income for a family of four in San Diego County was $119,500 in 2024.2 With San Diego 
+families needing to make $275,0003 a year to be able to afford a mortgage, renting is a requirement for 
+many to remain housed. Yet the current average rent for all bedroom and property types in San Diego is 
+$3,000.4 
+The housing shortage is a root factor of the City’s affordability crisis, and the City Council has 
+continuously passed initiatives to increase housing supply and other ongoing factors that affect housing 
+stability and affordability. However, a new factor, algorithmic price-fixing, has unfairly contributed to the 
+inflated cost of housing, harming an untold number of San Diego families, as alleged by the Department 
+of Justice.
+Algorithmic Price-Fixing Software
+In 2022, ProPublica published an article5 that put the national spotlight on the impacts of algorithmic 
+price-fixing software on the cost of housing. It explained how a company called RealPage, based in 
+Texas, uses its YieldStar software: 
+To arrive at a recommended rent, the software deploys an algorithm — a set of mathematical 
+rules — to analyze a trove of data RealPage gathers from clients, including private information on 
+what nearby competitors charge.
+For tenants, the system upends the practice of negotiating with apartment building staff. 
+RealPage discourages bargaining with renters and has even recommended that landlords in some 
+cases accept a lower occupancy rate in order to raise rents and make more money.
+One of the algorithm’s developers told ProPublica that leasing agents had “too much empathy” 
+compared to computer generated pricing.
+Four United States Senators asked RealPage to provide them with information about their product, and, 
+dissatisfied with their response, sent a letter to the Department of Justice raising their serious concerns in 
+2023.6 Multiple state Attorneys General filed lawsuits against RealPage and large rental property owners 
+across the country, ultimately leading to the Department of Justice (DOJ) suing RealPage with eight state 
+Attorneys General signing on in August.7 In January 2025, the DOJ amended its complaint to sue six of 
+the nation’s largest landlords for their participation on the alleged price-fixing scheme, announced a 
+2 2024 San Diego Median Income. San Diego Housing Commission. https://sdhc.org/wp-
+content/uploads/2024/01/AMIIncomeLimits-2024.pdf 
+3 San Diego among top 10 ‘impossibly unaffordable' cities: Report (June 17, 2024). NBC San Diego. 
+https://www.nbcsandiego.com/news/local/san-diego-impossibly-unaffordable-report/3543735/ 
+4 San Diego, CA rental market (March 22, 2025). Zillow Rentals. https://www.zillow.com/rental-
+manager/market-trends/san-diego-ca/ 
+5 Rent Going Up? One Company’s Algorithm Could Be Why (October 15,2022). Vogell, Heather; 
+ProPublica https://www.propublica.org/article/yieldstar-rent-increase-realpage-rent 
+6 Senators Had Questions for the Maker of a Rent-Setting Algorithm. The Answers Were “Alarming.” 
+(March 21,2023). Vogell, Heather; ProPublica https://www.propublica.org/article/yieldstar-rent-increase-
+realpage-warren-sanders 
+7 Justice Department Sues RealPage for Algorithmic Pricing Scheme that Harms Millions of American 
+Renters (August 23, 2024). U.S. Department of Justice https://www.justice.gov/archives/opa/pr/justice-
+department-sues-realpage-algorithmic-pricing-scheme-harms-millions-american-renters 
+3
+proposed consent decree with a large landlord to resolve its claims, and announced the addition of two 
+Attorneys General in the suit against RealPage and landlords.8
+In December 2024, the White House Council of Economic Advisers released a report detailing the actual 
+impacts of algorithmic price-fixing software on the cost of living nationally. The analysis “indicates that if 
+price coordination was eliminated, there would be an economically meaningful decrease in price mark-ups 
+for rental units using pricing algorithms.” It also estimates the average cost of price coordination for 
+renters in rentals that utilize RealPage software at $99 per month for the San Diego Metropolitan 
+Statistical Area.9
+Despite this, RealPage continues to offer their automated rent price-fixing software to San Diego rental 
+providers. While the legal action taken by the DOJ and Attorneys General is important, San Diego is able 
+to implement a policy prohibiting this practice while legal actions remain ongoing. 
+The San Francisco Board of Supervisors adopted a similar ban in September, 2024, and the Philadelphia 
+City Council adopted a similar ordinance in October, 2024. 
+Anti-Competitive Automated Rent Price-Fixing Prohibition Ordinance
+The proposed ordinance bans the sale, licensing, and use of an algorithmic device to set rental rates or 
+occupancy levels for residential rental properties. Algorithmic devices are a software or product that uses 
+or incorporates one or more algorithms to perform calculations of nonpublic competitor data concerning 
+rental rates, occupancy levels, or other information regarding the leasing of residential rental property to 
+advise, or recommend to a landlord, rental rates or occupancy levels.
+The proposed ordinance does not ban the use of a software or product that publishes reports regarding 
+rental rates or occupancy levels from existing information available to the general public in an aggregated 
+manner or a software or product used to establish rental rates or income limits in accordance with local, 
+state, or federal affordable housing program guidelines.
+The proposed ordinance provides remedies for violations of the ban.
+City of San Diego Strategic Plan:
+This item directly relates to the City’s Strategic Plan’s Priority Area: Create Homes For All of Us by 
+increasing access to housing and increasing affordability.  
+Fiscal Considerations:
+N/A
+Charter Section 225 Disclosure of Business Interests: 
+N/A
+Environmental Impact:
+This activity, the proposed Prohibition of Anti-Competitive Automated Rent Price-Fixing Ordinance, is 
+not a project pursuant to CEQA Guidelines Section 15378(b)(5), as it is an organizational or 
+administrative activity of government that will not result in any direct or reasonably foreseeable indirect 
+8 Justice Department Sues Six Large Landlords for Algorithmic Pricing Scheme that Harms Millions of 
+American Renters (January 7, 2025). U.S. Department of Justice 
+https://www.justice.gov/archives/opa/pr/justice-department-sues-six-large-landlords-algorithmic-pricing-
+scheme-harms-millions 
+9 The Cost of Anticompetitive Pricing Algorithms in Rental Housing (December 17, 2024). Council of 
+Economic Advisers, The White House. https://bidenwhitehouse.archives.gov/cea/written-
+materials/2024/12/17/the-cost-of-anticompetitive-pricing-algorithms-in-rental-housing/  
+4
+physical changes in the environment. As such, this activity is not subject to CEQA pursuant to CEQA 
+Guidelines Section 15060(c)(3). 
+Climate Action Plan Implementation:
+N/A
+Equal Opportunity Contracting Information (if applicable):
+N/A
+Previous Council and/or Committee Actions: 
+On October 30, 2024, the Rules Committee voted 4-1 to request the City Attorney’s Office work with the 
+Council District 9 Office on drafting an ordinance banning the sale and use of price fixing software and 
+bring the proposed ordinance to the City Council.
+Planning Commission Action:
+N/A
+Key Stakeholders and Community Outreach Efforts:  
+City of San Diego residents and housing providers.
+          
+Maya Rosas, Deputy Chief of Staff Molly Weber, Chief of Staff 
+(O-2025-107)
+-PAGE 1 OF 6-
+ORDINANCE NUMBER O-__________________ (NEW SERIES)
+DATE OF FINAL PASSAGE __________________
+AN ORDINANCE AMENDING CHAPTER 9, ARTICLE 8 OF
+THE SAN DIEGO MUNICIPAL CODE BY ADDING NEW
+DIVISION 11, SECTIONS 98.1101, 98.1102, 98.1103, AND
+98.1104, RELATING TO PROHIBITING ANTI-COMPETITIVE
+AUTOMATED RENT PRICE-FIXING.
+RECITALS
+The Council of the City of San Diego (Council) adopts this Ordinance based on the following:
+A. The high cost of living and housing shortage in the City of San Diego (City) have
+contributed to the City’s unaffordability. According to a March 2024 Zillow report, a family
+must earn $275,000 a year to afford a home mortgage. According to an August 4, 2024, Times of
+San Diego article, the average rental rate for a two-bedroom residential dwelling unit in the City
+is $2,489, almost 65% higher than the national median.
+B. Landlords’ use of algorithmic devices, which perform calculations of nonpublic
+competitor data concerning rental rates, occupancy levels, and other information, to set rental
+rates and occupancy levels has resulted in inflated rental rates and unfair rent increases and
+contributed to the City’s unaffordability for families.
+C. In response to the use of algorithmic devices to set rental rates and occupancy
+levels, in August 2024, the United States Department of Justice (DOJ) filed a lawsuit against
+RealPage, Inc. Eight Attorneys General, including California Attorney General Rob Bonta,
+joined the DOJ’s lawsuit. The DOJ amended its lawsuit in January 2025 to add two Attorneys
+General and name landlords as defendants.
+D. While the litigation is pending, software companies, such as RealPage, Inc.,
+continue providing algorithmic devices to landlords in the City. City families cannot wait for the
+(O-2025-107)
+-PAGE 2 OF 6-
+DOJ lawsuit to run its course and, if successful, provide relief from inflated rental rates and
+unfair rent increases. The Council wishes to provide immediate relief to City families by
+prohibiting the sale, licensing, and use of algorithmic devices that use or incorporate nonpublic
+competitor data to advise a landlord on, or recommend to a landlord, rental rates or occupancy
+levels that may be achieved for residential rental property in the City.
+E. On October 30, 2024, the Council’s Rules Committee requested the City
+Attorney’s Office work with Council District 9 staff to draft this Ordinance and for Council
+District 9 staff to bring this Ordinance to Council for adoption.
+F. San Diego Municipal Code section 11.0205 titled “Validity of Code –
+Severability” shall apply to this Ordinance.
+G. The provisions of Chapter 1, Article 2 of the San Diego Municipal Code,
+including the enforcement of judicial and administrative remedies, shall apply to this Ordinance.
+H. The Office of the City Attorney prepared this Ordinance based on the information
+provided by Council staff, including information provided by affected third parties and verified
+by Council staff, with the understanding that this information is complete and accurate.
+ACTION ITEMS
+Be it ordained by the Council of the City of San Diego:
+Section 1. Chapter 9, Article 8 of the San Diego Municipal Code is amended by
+adding new Division 11, sections 98.1101, 98.1102, 98.1103, and 98.1104, to read as follows:
+Division 11: Prohibition of Anti-Competitive Automated Rent Price-Fixing
+§98.1101  Purpose and Intent
+The purpose and intent of this Division is to protect San Diegans from artificially
+inflated rental rates and unfair rent increases by prohibiting the sale, licensing,
+(O-2025-107)
+-PAGE 3 OF 6-
+and use of algorithmic devices. This Division also provides tenants with remedies
+for violations of this Division.
+§98.1102  Definitions
+For purposes of this Division, defined terms appear in italics. The following
+definitions apply in this Division:
+Algorithmic device means a software or product that uses or incorporates one or
+more algorithms to perform calculations of nonpublic competitor data concerning
+rental rates, occupancy levels, or other information regarding the leasing of
+residential rental property to advise a landlord on, or recommend to a landlord,
+rental rates or occupancy levels that may be achieved for a residential rental
+property in the City of San Diego. Algorithmic device does not include either of
+the following:
+(a) A software or product used by a person to publish reports regarding rental
+rates or occupancy levels from aggregated historical nonpublic competitor
+data that is more than 90 days old, or from information available to the
+general public, and does not recommend rental rates or occupancy levels
+for future residential rental property leases or renewals.
+(b) A software or product used by a person to establish rental rates or income
+limits in accordance with local, state, or federal affordable housing
+program guidelines.
+Landlord has the same meaning as in San Diego Municipal Code section 98.0702,
+as may be amended.
+(O-2025-107)
+-PAGE 4 OF 6-
+Lease has the same meaning as in San Diego Municipal Code section 98.0702, as
+may be amended.
+Nonpublic competitor data means information that is not available to the general
+public, whether the information is attributable to a specific competitor or
+anonymized or whether the information is derived from or otherwise provided by
+another person. Nonpublic competitor data includes information about actual
+rental rates, rental rate changes, residential rental property supply levels,
+occupancy levels, or lease start and end dates.
+Person has the same meaning as in San Diego Municipal Code section 11.0210,
+as may be amended.
+Residential rental property has the same meaning as in San Diego Municipal
+Code section 98.0702, as may be amended.
+Tenant has the same meaning as in San Diego Municipal Code section 98.0702,
+as may be amended.
+§98.1103  Use and Sale of Algorithmic Devices Prohibited
+(a) It is unlawful for a person to sell, license, or otherwise provide an
+algorithmic device to a landlord.
+(b) It is unlawful for a landlord to use an algorithmic device to set rental rates
+or occupancy levels for residential rental property.
+For each month a violation of section 98.1103(b) exists or continues, and
+for each residential rental property a landlord uses an algorithmic device,
+it shall constitute a separate and distinct violation.
+(O-2025-107)
+-PAGE 5 OF 6-
+§98.1104  Remedies
+( a ) A tenant may seek injunctive relief, damages, or civil penalties of up to
+$1,000 per violation of this Division, in a civil action against a landlord.
+In an action brought under this Division, a prevailing tenant shall recover
+costs and reasonable attorney’s fees. A prevailing tenant includes a tenant
+granted an order for injunctive relief. A lease provision that limits a tenant
+from recovering attorney’s fees shall not be enforceable against a tenant’s
+claim for attorney’s fees that arise under this Division.
+(b) The remedies under section 98.1104 are cumulative and are in addition to
+any other remedies in this Division or at law, statute, or ordinance.
+Section 2. The Council dispenses with a full reading of this Ordinance before its
+passage because a written copy of this Ordinance was made available to the Council and the
+public before the date of its passage.
+Section 3. This Ordinance will take effect and be in force on the thirtieth day from
+and after its final passage.
+APPROVED: HEATHER FERBERT, City Attorney
+By
+Justin R. Bargar
+Deputy City Attorney
+JRB:HRM:nja
+November 14, 2024
+Or. Dept: Council District 9
+Doc. No. 3877311
+(O-2025-107)
+-PAGE 6 OF 6-
+I certify that the Council of the City of San Diego adopted this Ordinance at a meeting held on
+______________________________.
+DIANA J.S. FUENTES
+City Clerk
+By_______________________________
+Deputy City Clerk
+Approved:
+(date) TODD GLORIA, Mayor
+Vetoed:
+(date) TODD GLORIA, Mayor
+(O-2025-107)
+-PAGE 1 OF 1-
+CITY ATTORNEY DIGEST
+ORDINANCE NUMBER O-__________________ (NEW SERIES)
+DATE OF FINAL PASSAGE ___________________
+AN ORDINANCE AMENDING CHAPTER 9, ARTICLE 8 OF
+THE SAN DIEGO MUNICIPAL CODE BY ADDING NEW
+DIVISION 11, SECTIONS 98.1101, 98.1102, 98.1103, AND
+98.1104, RELATING TO PROHIBITING ANTI-COMPETITIVE
+AUTOMATED RENT PRICE-FIXING.
+This Ordinance amends San Diego Municipal Code Chapter 9, Article 8 by adding
+Division 11 to prohibit the sale and licensing of algorithmic devices, as that term is defined in the
+Ordinance, that use or incorporate nonpublic competitor data to advise a landlord on, or
+recommend to a landlord, rental rates or occupancy levels that may be achieved for residential
+rental property in the City of San Diego.
+This Ordinance also prohibits a landlord from using an algorithmic device to set rental
+rates or occupancy levels.
+Tenants may seek certain remedies for violations of this Ordinance.
+This Ordinance contains a notice that a full reading of this Ordinance is dispensed with
+before its passage, a written copy having been made available to the Council and the public
+before the day of its passage.
+This Ordinance will take effect and be in force on the thirtieth day from and after its final
+passage.
+A complete copy of this Ordinance is available for inspection in the Office of the City
+Clerk of the City of San Diego, 2nd Floor, City Administration Building, 202 C Street,
+San Diego, CA 92101.
+JRB:HRM:nja
+November 14, 2024
+Or. Dept: Council District 9
+Doc. No. 3877313
+(O-2025-107)
+-PAGE 1 OF 4-
+STRIKEOUT ORDINANCE
+OLD LANGUAGE: Struck Out
+NEW LANGUAGE: Double Underline
+ORDINANCE NUMBER O-__________________ (NEW SERIES)
+DATE OF FINAL PASSAGE __________________
+AN ORDINANCE AMENDING CHAPTER 9, ARTICLE 8 OF
+THE SAN DIEGO MUNICIPAL CODE BY ADDING NEW
+DIVISION 11, SECTIONS 98.1101, 98.1102, 98.1103, AND
+98.1104, RELATING TO PROHIBITING ANTI-COMPETITIVE
+AUTOMATED RENT PRICE-FIXING.
+Division 11: Prohibition of Anti-Competitive Automated Rent Price-Fixing
+§98.1101  Purpose and Intent
+The purpose and intent of this Division is to protect San Diegans from artificially
+inflated rental rates and unfair rent increases by prohibiting the sale, licensing,
+and use of algorithmic devices. This Division also provides tenants with remedies
+for violations of this Division.
+§98.1102  Definitions
+For purposes of this Division, defined terms appear in italics. The following
+definitions apply in this Division:
+Algorithmic device means a software or product that uses or incorporates one or
+more algorithms to perform calculations of nonpublic competitor data concerning
+rental rates, occupancy levels, or other information regarding the leasing of
+residential rental property to advise a landlord on, or recommend to a landlord,
+rental rates or occupancy levels that may be achieved for a residential rental
+(O-2025-107)
+-PAGE 2 OF 4-
+property in the City of San Diego. Algorithmic device does not include either of
+the following:
+(a) A software or product used by a person to publish reports regarding rental
+rates or occupancy levels from aggregated historical nonpublic competitor
+data that is more than 90 days old, or from information available to the
+general public, and does not recommend rental rates or occupancy levels
+for future residential rental property leases or renewals.
+(b) A software or product used by a person to establish rental rates or income
+limits in accordance with local, state, or federal affordable housing
+program guidelines.
+Landlord has the same meaning as in San Diego Municipal Code section 98.0702,
+as may be amended.
+Lease has the same meaning as in San Diego Municipal Code section 98.0702, as
+may be amended.
+Nonpublic competitor data means information that is not available to the general
+public, whether the information is attributable to a specific competitor or
+anonymized or whether the information is derived from or otherwise provided by
+another person. Nonpublic competitor data includes information about actual
+rental rates, rental rate changes, residential rental property supply levels,
+occupancy levels, or lease start and end dates.
+Person has the same meaning as in San Diego Municipal Code section 11.0210,
+as may be amended.
+(O-2025-107)
+-PAGE 3 OF 4-
+Residential rental property has the same meaning as in San Diego Municipal
+Code section 98.0702, as may be amended.
+Tenant has the same meaning as in San Diego Municipal Code section 98.0702,
+as may be amended.
+§98.1103  Use and Sale of Algorithmic Devices Prohibited
+(a) It is unlawful for a person to sell, license, or otherwise provide an
+algorithmic device to a landlord.
+(b) It is unlawful for a landlord to use an algorithmic device to set rental rates
+or occupancy levels for residential rental property.
+For each month a violation of section 98.1103(b) exists or continues, and
+for each residential rental property a landlord uses an algorithmic device,
+it shall constitute a separate and distinct violation.
+§98.1104  Remedies
+( a ) A tenant may seek injunctive relief, damages, or civil penalties of up to
+$1,000 per violation of this Division, in a civil action against a landlord.
+In an action brought under this Division, a prevailing tenant shall recover
+costs and reasonable attorney’s fees. A prevailing tenant includes a tenant
+granted an order for injunctive relief. A lease provision that limits a tenant
+from recovering attorney’s fees shall not be enforceable against a tenant’s
+claim for attorney’s fees that arise under this Division.
+(b) The remedies under section 98.1104 are cumulative and are in addition to
+any other remedies in this Division or at law, statute, or ordinance.
+(O-2025-107)
+-PAGE 4 OF 4-
+JRB:HRM:nja
+November 14, 2024
+Or. Dept: Council District 9
+Doc. No. 3877315

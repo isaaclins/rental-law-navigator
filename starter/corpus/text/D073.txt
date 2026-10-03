@@ -1,0 +1,819 @@
+SOURCE: https://docs.sandiego.gov/municode/municodechapter09/ch09art08division07.pdf
+RETRIEVED: 2026-10-01 22:37 UTC
+
+Ch. Art. Div.  
+9 8 7 1 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+Article 8:  Housing 
+ 
+Division 7:  Residential Tenant Protections 
+(“Tenants’ Right to Know Regulations” added 3–30–2004 by O–19269 N.S.) 
+(Retitled to “Residential Tenant Protections” on 5-25-2023 by O-21647 N.S.;  
+effective 6-24-2023.) 
+ 
+§98.0701 Purpose and Intent 
+The purpose and intent of this Division is to promote stability in the San Diego rental 
+housing market and limit adverse impacts on displaced tenants forced to find 
+replacement housing in the expensive and limited San Diego housing market. This 
+Division protects the rights of tenants by requiring just cause for termination of a 
+tenancy consistent with California Civil Code section 1946.2, limiting the grounds for 
+termination of a tenancy, requiring greater tenant relocation assistance in specified 
+circumstances, and providing additional tenant protections. The rights conferred by 
+this Division are in addition to any existing rights provided to tenants by state or 
+federal law.  
+(“Purpose of Tenants’ Right to Know Regulations” added 3–30–2004 by 
+O-19269 N.S.) 
+(Retitled to “Purpose and Intent” and amended 5-25-2023 by O-21647 N.S.; effective 
+6-24-2023.) 
+ 
+§98.0702 Definitions 
+For the purposes of this Division, defined terms appear in italics. The following 
+definitions apply in this Division: 
+Buyout agreement means an agreement where the landlord pays the tenant money or 
+other consideration to vacate the residential rental property. A buyout agreement 
+does not include an agreement to settle a pending unlawful detainer action. 
+ 
+Buyout offer means any discussion or bargaining, whether oral or written, between a 
+tenant and a landlord regarding the possibility of entering into a buyout agreement. A 
+counteroffer by the tenant does not end discussion or bargaining of a buyout offer. 
+ 
+Commission means the San Diego Housing Commission. 
+ 
+Disabled means any person with a disability as defined in California Government 
+Code section 12955.3, as may be amended.  
+ 
+ 
+ 
+Ch. Art. Div.  
+9 8 7 2 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+Dwelling unit has the same meaning as in San Diego Municipal Code 
+section 113.0103, as may be amended.  
+ 
+Family trust means a revocable living trust or irrevocable trust in which the settlors 
+and beneficiaries of the trust are persons who are related to each other as sibling, 
+spouse, domestic partner, child (by blood or adoption), parent, grandparent, or 
+grandchild (by blood or adoption). 
+ 
+Landlord means an owner and any person, acting as principal or through an agent, 
+who has the right to offer residential rental property for rent, and includes a 
+predecessor in interest to the landlord. 
+ 
+Lease means any lease, sublease, or agreement, written or oral, for the use and 
+occupancy of residential rental property. 
+Natural person includes a natural person who is a settlor or beneficiary of a family 
+trust; or if the residential rental property is owned by a limited liability company or 
+partnership, a natural person with a 25 percent ownership in the residential rental 
+property. 
+Non-profit transitional housing means temporary housing operated by a non-profit 
+organization for up to 24 months with supportive services to individuals and families 
+with the goal of interim stability and support to successfully move to and maintain 
+permanent housing, which may cover housing costs and accompanying supportive 
+services for program participants. 
+Owner means a natural person that has at least a 25 percent recorded ownership 
+interest in the residential rental property; a natural person who has any recorded 
+ownership interest in the residential rental property if 100 percent of the recorded 
+ownership is divided among owners who are related to each other as sibling, spouse, 
+domestic partner, child (by blood or adoption), parent, grandparent, or grandchild (by 
+blood or adoption); or a natural person whose recorded interest in the residential 
+rental property is owned through a limited liability company or partnership. 
+Residential rental property means any dwelling or unit that is intended for human 
+habitation, including any dwelling or unit in a mobilehome park. 
+Retaliation means any threat or any other adverse action against a tenant for 
+exercising or attempting to exercise any right guaranteed under this Division. 
+ 
+Ch. Art. Div.  
+9 8 7 3 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+Section 8 means residential rental property in which the tenant receives tenant-based 
+housing assistance under Section 8 of the United States Housing Act of 1937, also 
+known as the Housing Choice Voucher Program.  
+ 
+Senior means any person 62 years old or older. 
+Tenancy means the lawful right or entitlement of a tenant to continuously use or 
+occupy a residential rental property for more than 30 days. A tenancy does not 
+include a lease for a fixed-term of three months or less, including any extensions or 
+renewals of that lease for a fixed-term of three months or less. 
+Tenant means a tenant, subtenant, lessee, sublessee, or any other natural person 
+entitled to lease any residential rental property. 
+(“When Tenants’ Right to Know Regulations Apply” added 3–30–2004 by 
+O-19269 N.S.) 
+(Retitled to “Definitions” and amended 5-25-2023 by O-21647 N.S.; effective 
+6-24-2023.) 
+(Amended 2-27-2024 by O-21769 N.S.; effective 3-28-2024.) 
+ 
+§98.0703 Exemptions 
+This Division shall not apply to the following types of residential rental properties or 
+residential circumstances: 
+(a) transient and tourist hotel occupancy as defined in California Civil Code 
+section 1940(b), as may be amended; 
+(b) short-term residential occupancy, as defined in and subject to Chapter 5, 
+Article 10, Division 1 of this Code, as may be amended;  
+ 
+(c) housing restricted by deed, regulatory restriction contained in an agreement 
+with a government agency, or other document as affordable housing for 
+persons and families of very low, low, or moderate income, as defined in 
+California Health and Safety Code section 50093, as may be amended;  
+(d)  housing subject to an agreement that provides housing subsidies for affordable 
+housing for persons and families of very low, low, or moderate income, as 
+defined in California Health and Safety Code section 50093, as may be 
+amended, or comparable federal statutes. This exemption shall not include 
+Section 8;  
+Ch. Art. Div.  
+9 8 7 4 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(e) mobilehomes subject to the Mobilehome Residency Law (California Civil 
+Code sections 798-799.11), as may be amended;  
+ 
+(f) housing accommodations in a nonprofit hospital, religious facility, extended 
+care facility, licensed residential care facility for the elderly, as defined in 
+California Health and Safety Code section 1569.2, as may be amended, an 
+adult residential facility, as defined in Title 22, Division 6, Chapter 6 of the 
+Manual of Policies and Procedures published by the California Department of 
+Social Services, as may be amended, or non- profit transitional housing; 
+(g) dormitories owned and operated by an institution of higher education or an 
+institution offering instruction to any grade from kindergarten through 12; 
+(h) residential rental property in which the tenant shares bathroom or kitchen 
+facilities with the landlord who maintains their principal residence at the 
+residential rental property;  
+ 
+(i) single-family residence occupied by the landlord as the landlord’s principal 
+place of residence, including both of the following:  
+ 
+(1) a residence in which the landlord-occupant rents or leases no more 
+than two bedrooms, two accessory dwelling units, or two junior 
+accessory dwelling units, as defined in section 113.0103; and  
+ 
+(2) a mobilehome. 
+(j) a property containing two separate dwelling units within a single structure in 
+which the landlord occupies one of the dwelling units as the landlord’s 
+principal place of residence at the beginning of the tenancy, so long as the 
+landlord continues in occupancy;  
+ 
+(k) housing that has been issued a certificate of occupancy within the previous 
+15 years, unless the housing is a mobilehome; and 
+(l) residential rental property, including a mobilehome, that is alienable separate 
+from the title to any other dwelling unit, provided that both of the following 
+apply: 
+(1) The landlord is not any of the following: 
+(A) a real estate investment trust, as defined in California Internal 
+Revenue Code section 856, as may be amended; 
+Ch. Art. Div.  
+9 8 7 5 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(B) a corporation; 
+(C) a limited liability company in which at least one member is a 
+corporation; or  
+ 
+(D) management of a mobilehome park, as defined in California 
+Civil Code section 798.2, as may be amended. 
+(2) The tenants have been provided written notice that the residential 
+rental property is exempt from this Division using the following 
+statement: 
+This property is not subject to the just cause requirements of 
+Chapter 9, Article 8, Division 7 of the San Diego Municipal 
+Code. This property meets the requirements of San Diego 
+Municipal Code section 98.0703(l) and the landlord is not any 
+of the following: (1) a real estate investment trust, as defined 
+by California Internal Revenue Code section 856; (2) a 
+corporation; (3) a limited liability company in which at least 
+one member is a corporation; or (4) management of a 
+mobilehome park, as defined in California Civil Code 
+section 798.2.  
+ 
+For a tenancy existing before January 1, 2024, the notice required 
+above may be provided in the lease. For a tenancy commenced or 
+renewed on or after January 1, 2024, the notice required above shall be 
+provided in the lease. 
+(“Exemptions” added 5-25-2023 by O-21647 N.S.; effective 6-24-2023.) 
+ 
+§98.0704 Just Cause Required for Termination of Tenancy 
+A landlord shall not terminate a tenancy without just cause. For purposes of this 
+Division, just cause includes at-fault just cause and no-fault just cause. 
+(a) At-Fault Just Cause. At-fault just cause is any of the following: 
+(1) a default in the payment of rent; 
+(2) a breach of a material term of the lease, as described in California 
+Code of Civil Procedure section 1161(3), as may be amended, 
+including violation of a provision of the lease after being issued a 
+written notice to correct the violation; 
+Ch. Art. Div.  
+9 8 7 6 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(3) the maintaining, committing, or permitting the maintenance or 
+commission of a nuisance as described in California Code of Civil 
+Procedure section 1161(4), as may be amended;  
+ 
+(4) the committing of waste as described in California Code of Civil 
+Procedure section 1161(4), as may be amended; 
+(5) where the tenant has a written lease that terminated on or after 
+June 24, 2023 and after receiving a written request or demand from the 
+landlord, the tenant refused to execute a written extension or renewal 
+of the lease for a substantially similar duration and with substantially 
+similar provisions, provided the terms of the extension or renewal do 
+not violate this Division or any other provision of law; 
+(6) criminal activity by the tenant on the residential rental property, 
+including any common areas associated with the residential rental 
+property; 
+(7) a criminal threat, as defined in California Penal Code section 422(a), 
+as may be amended, by the tenant regardless of where made directed 
+at the tenant’s landlord or any other tenant of the residential rental 
+property;  
+ 
+(8) the tenant’s assignment or sublet of the residential rental property in 
+violation of the tenant’s lease, as described in California Code of Civil 
+Procedure section 1161(4), as may be amended;  
+ 
+(9) the tenant’s refusal to allow the landlord to enter the residential rental 
+property as authorized by California Civil Code sections 1101.5 and 
+1954, as may be amended, and California Health and Safety Code 
+sections 13113.7 and 17926.1, as may be amended; 
+(10) the tenant’s use of the residential rental property for an unlawful 
+purpose as described in California Code of Civil Procedure 
+section 1161(4), as may be amended; 
+(11) where the tenant is an employee, agent, or licensee of the landlord and 
+the tenant fails to vacate the residential rental property after their 
+termination as an employee, agent, or licensee as described in 
+California Code of Civil Procedure section 1161(1), as may be 
+amended; and  
+Ch. Art. Div.  
+9 8 7 7 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(12) when the tenant fails to deliver possession of the residential rental 
+property after providing the landlord written notice as provided in 
+California Civil Code section 1946, as may be amended, of the 
+tenant’s intention to terminate the tenancy, or the tenant makes a 
+written offer to surrender the residential rental property that is 
+accepted in writing by the landlord, but fails to deliver possession at 
+the time specified in that written notice as described in California 
+Code of Civil Procedure section 1161(5), as may be amended. 
+(b) No-Fault Just Cause. No-fault just cause is any of the following actions 
+taken by the landlord in good faith, meaning the landlord acts without ulterior 
+motives and with honest intent: 
+(1) The owner seeks to recover possession to occupy the residential rental 
+property for the owner or their spouse, domestic partner, child (by 
+blood or adoption), grandchild (by blood or adoption), parent, or 
+grandparent for a minimum of 12 continuous months as that person’s 
+primary residence. 
+(A) For leases entered into on or after June 24, 2023, section 
+98.0704(b)(1) shall apply only if the tenant agrees to the 
+termination in writing or if the lease expressly allows the 
+owner to terminate the lease if the owner unilaterally decides 
+to occupy the residential rental property for the owner or their 
+spouse, domestic partner, child (by blood or adoption), 
+grandchild (by blood or adoption), parent, or grandparent. 
+(B) For tenancies in effect prior to June 24, 2023, the addition of a 
+provision allowing the owner to terminate the lease as 
+described in section 98.0704(b)(1) to a new lease, renewed 
+lease, or fixed-term lease constitutes a substantially similar 
+provision for the purposes of section 98.0704(a)(5). 
+(C) Section 98.0704(b)(1) does not apply if the intended occupant 
+occupies a rental unit on the property or if a vacancy of a 
+similar unit already exists at the property.  
+ 
+ 
+ 
+ 
+Ch. Art. Div.  
+9 8 7 8 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(D) The written notice terminating a tenancy for just cause under 
+section 98.0704(b)(1) shall contain the name or names and 
+relationship to the owner of the intended occupant. In addition, 
+the written notice shall include notification that the tenant may 
+request proof that the intended occupant is the owner or related 
+to the owner. The owner shall provide tenant the proof upon 
+request, which may include an operating agreement and other 
+non-public documents.  
+(E) Section 98.0704(b)(1) applies only if the intended occupant 
+moves into the residential rental property within 90 days after 
+the tenant vacates and occupies the residential rental property 
+for at least 12 continuous months. 
+(F) If the intended occupant does not occupy the residential rental 
+property within 90 days after the tenant vacates or does not 
+occupy the residential rental property for at least 12 
+continuous months, the owner shall offer the residential rental 
+property to the tenant who vacated it at the same rent and lease 
+terms in effect at the time the tenant vacated and shall 
+reimburse the tenant for reasonable moving expenses incurred 
+in excess of any relocation assistance that was paid to the 
+tenant in connection with the written notice terminating the 
+tenancy. 
+(G) If the intended occupant moves into the residential rental 
+property within 90 days after the tenant vacates, but dies 
+before having occupied the residential rental property as a 
+primary residence for 12 continuous months, this will not be 
+considered a failure to comply with section 98.0704(b)(1) or a 
+violation of section 98.0704(b)(1) by the owner. 
+(H) For a new tenancy commenced during the time periods in 
+section 98.0704(b)(1)(E), the residential rental property shall 
+be offered and rented or leased at the lawful rent in effect at the 
+time any written notice of terminating a tenancy is served.  
+(I) For purposes of section 98.0704(b)(1), intended occupant 
+means the owner or their spouse, domestic partner, child (by 
+blood or adoption), grandchild (by blood or adoption), parent, 
+or grandparent. 
+Ch. Art. Div.  
+9 8 7 9 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(2) The landlord seeks to recover possession to withdraw the residential 
+rental property from the rental market. 
+(3) The landlord seeks to recover possession to comply with any of the 
+following:  
+(A) an order issued by a government agency or court relating to 
+habitability that requires vacating the residential rental 
+property for at least 30 days. An order issued by a government 
+agency or court relating to habitability that requires vacating 
+the residential rental property for fewer than 30 days is not 
+grounds to terminate a tenancy for just cause and a landlord 
+may be required by applicable state or federal law to provide 
+tenant relocation benefits; 
+(B) an order issued by a government agency or court to vacate the 
+residential rental property; or  
+(C) a local ordinance that requires vacating the residential rental 
+property.  
+If any government agency or court determines that the tenant is at fault 
+for the condition or conditions triggering the order or need to vacate 
+under section 98.0704(b)(3), the tenant shall not be entitled to any 
+relocation assistance provided in section 98.0706(c). 
+(4) The landlord seeks to recover possession to demolish or to 
+substantially remodel the residential rental property. 
+(A) For purposes of section 98.0704(b)(4), substantially remodel 
+means either of the following that cannot be reasonably 
+accomplished in a safe manner with the tenant in place and that 
+requires the tenant to vacate the residential rental property for 
+at least 30 continuous days:  
+ 
+(i) the replacement or substantial modification of any 
+structural, electrical, plumbing, or mechanical system 
+that requires a permit from a governmental agency; or  
+(ii) the abatement of hazardous materials, including lead-
+based paint, mold, or asbestos, in accordance with 
+applicable federal, state, and local laws.  
+Ch. Art. Div.  
+9 8 7 10 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(B) For purposes of section 98.0704(b)(4), a tenant is not required 
+to vacate the residential rental property on any days where a 
+tenant could continue living in the residential rental property 
+without violating federal, state, or local laws regarding health, 
+safety, and habitability. Cosmetic improvements alone, 
+including painting, decorating, and minor repairs, or other 
+work that can be performed safely without having the 
+residential rental property vacated, do not qualify as 
+substantial remodel. 
+(C) If permits are required for the demolition or substantial 
+remodel of the residential rental property, landlord shall:  
+(i) post at the residential rental property a copy of the 
+application for the necessary permits within three 
+business days of submittal of the application; and  
+(ii) secure permits necessary for the demolition or 
+substantial remodel of the residential rental property 
+prior to issuing the written notice required in section 
+98.0704(b)(4)(D). 
+(D) A written notice terminating a tenancy for just cause under 
+section 98.0704(b)(4) shall include all the following, certified 
+under penalty of perjury: 
+(i) A statement informing the tenant of the landlord’s 
+intent to demolish or substantially remodel the 
+residential rental property. 
+(ii) The following statement: 
+If the substantial remodel of your unit or demolition of 
+the property as described in this notice of termination is 
+not commenced or completed, the landlord must offer 
+you the opportunity to re-rent your unit with a rental 
+agreement containing the same terms as your most 
+recent rental agreement with the landlord at the rental 
+rate that was in effect at the time you vacated. You 
+must notify the landlord within thirty (30) days of 
+receipt of the offer to re-rent of your acceptance or 
+rejection of the offer, and, if accepted, you must 
+reoccupy the unit within thirty (30) days of notifying 
+the landlord of your acceptance of the offer. 
+Ch. Art. Div.  
+9 8 7 11 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(iii) A description of the substantial remodel to be 
+completed with the approximate expected duration of 
+the substantial remodel or, if the residential rental 
+property is to be demolished, the expected date by 
+which the residential rental property will be 
+demolished, together with the following: 
+(I) a copy of the permits necessary for the 
+demolition or substantial remodel; or 
+(II) only if a notice is issued under section 
+98.0704(b)(4)(A)(ii) and the substantial remodel 
+does not require any permit, a copy of the 
+signed contract with the contractor hired by the 
+landlord to complete the substantial remodel 
+that reasonably details the work that will be 
+undertaken to abate the hazardous materials as 
+described in section 98.0704(b)(4)(A)(ii).  
+(iv) A statement stating why the work cannot be reasonably 
+accomplished in a safe manner with the tenant in place 
+and requires the tenant to vacate the residential rental 
+property for at least 30 continuous days. 
+(v) A notification to tenant in compliance with section 
+98.0706(b)(1)(C). 
+(“Just Cause Required for Termination of Tenancy” added 5-25-2023 by 
+O-21647 N.S.; effective 6-24-2023.) 
+(Amended 2-27-2024 by O-21769 N.S.; effective 3-28-2024.) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ch. Art. Div.  
+9 8 7 12 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+§98.0705 Notice to Tenant of Residential Tenant Protections 
+(a) A landlord of residential rental property subject to this Division shall provide 
+written notice in no less than 12-point font to the tenant, and in a manner that 
+complies with California Civil Code section 1632, as may be amended, that 
+states as follows: 
+California law limits the amount your rent can be increased. See 
+California Civil Code section 1947.12 for more information. Local law 
+also provides that a landlord shall provide a statement of cause in any 
+notice to terminate a tenancy. In some circumstances, tenants who are 
+seniors (62 years or older) or disabled may be entitled to additional 
+tenant protections. See Chapter 9, Article 8, Division 7 of the San 
+Diego Municipal Code for more information. 
+ 
+(b) A landlord of residential rental property subject to this Division shall include 
+a copy of the Tenant Protection Guide with the written notice required by 
+section 98.0705(a). 
+ 
+The Commission shall prepare and make available on the Commission’s 
+website a Tenant Protection Guide, which shall include educational 
+information and resources for the tenant to understand their rights under this 
+Division and state law, including the rights to quiet enjoyment and habitability 
+of the residential rental property. 
+ 
+(c) For a tenancy in a residential rental property subject to this Division existing 
+before June 24, 2023, the notice required by section 98.0705(a) and the 
+Tenant Protection Guide required by section 98.0705(b) shall be provided to 
+the tenant directly or as an addendum to the lease within 90 days of June 24, 
+2023.  
+(d) For a tenancy in a residential rental property subject to this Division 
+commencing or renewed on or after June 24, 2023, the notice required by 
+section 98.0705(a) and the Tenant Protection Guide required by 
+section 98.0705(b) shall be included in the lease, or as a written notice signed 
+by the tenant at the time the lease is signed, with a copy provided to the 
+tenant. 
+(“Notice to Tenant of Residential Tenant Protections” added 5-25-2023 by 
+O-21647 N.S.; effective 6-24-2023.) 
+Ch. Art. Div.  
+9 8 7 13 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+§98.0706 Requirements Upon Termination of Tenancy 
+(a) Requirements Upon Termination of Tenancy for At-Fault Just Cause. If a 
+landlord issues a termination notice for at-fault just cause, the landlord shall 
+do the following:  
+ 
+(1) Notice to Tenant. Before a landlord issues a notice to terminate a 
+tenancy for at-fault just cause that is a curable lease violation, the 
+landlord shall first give written notice of the violation including a 
+description of the violation and an opportunity to cure the violation 
+under California Code of Civil Procedure section 1161(3), as may be 
+amended. If the violation is not cured within the time period in the 
+notice, the landlord may terminate the tenancy without another 
+opportunity to cure by serving a three-day notice to quit. 
+ 
+(2) Notice to Commission. The landlord shall provide written notice to the 
+Commission of the at-fault just cause termination of tenancy under 
+section 98.0704(a) no later than three business days after the date the 
+landlord provided the required notice to tenant. Section 98.0706(a)(2) 
+shall not apply until 30 days after the Commission establishes a 
+submission portal and provides the public notice of its creation.  
+ 
+(b) Requirements Upon Termination of Tenancy for No-Fault Just Cause. If a 
+landlord issues a termination notice for no-fault just cause, the landlord shall 
+do the following: 
+(1) Notice to Tenant. The landlord shall give written notice to the tenant 
+at least 30 or 60 days prior to the proposed date of termination as 
+required by California Civil Code section 1946.1, as may be amended, 
+in no less than 12-point font. The written notice shall contain the 
+following: 
+(A) The landlord shall provide a description of the basis for the 
+termination. 
+(B) The notice shall state the tenant’s right to relocation assistance 
+established in section 98.0706(c) by a direct payment to the 
+tenant or rent waiver.  
+ 
+ 
+Ch. Art. Div.  
+9 8 7 14 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(i) If the landlord elects to provide relocation assistance by 
+a direct payment to the tenant, the notice shall state the 
+amount of relocation assistance available to the tenant 
+and that the landlord shall provide the payment within 
+15 days from the date of the notice.  
+(ii) If the landlord elects to provide relocation assistance by 
+rent waiver, the notice shall state the amount of rent 
+waived and that no rent is due for the final 
+corresponding months of the tenancy. 
+(C) The notice shall state the tenant’s right to receive an offer to 
+renew the tenancy established in section 98.0706(d) and 
+30 days to accept the offer in the event the residential rental 
+property is offered again for rent or lease for residential 
+purposes within five years of the date the tenant was evicted 
+under sections 98.0704(b)(1), (3), or (4), and that to exercise 
+such right, the tenant:   
+(i) shall notify the landlord in writing within 30 days of 
+the termination notice of tenant’s desire to receive an 
+offer to renew the tenancy;  
+(ii) provide the landlord a mailing address or email address 
+for the landlord to send the offer; and  
+ 
+(iii) provide the landlord a change of mailing address or 
+email address.  
+(2) Notice to Commission. The landlord shall provide written notice to the 
+Commission of the no-fault just cause termination of tenancy under 
+section 98.0704(b) no later than three business days after the date the 
+landlord provided the required notice to tenant. Section 98.0706(b)(2) 
+shall not apply until 30 days after the Commission establishes a 
+submission portal and provides the public notice of its creation.   
+(c) Relocation Assistance for Termination of Tenancy for No-Fault Just Cause.  
+(1) The landlord shall, regardless of the tenant’s income or length of 
+tenancy and at the landlord’s option, provide relocation assistance to 
+the tenant by one of the following:  
+Ch. Art. Div.  
+9 8 7 15 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(A) The landlord shall provide a direct payment to the tenant. 
+ 
+(i) Unless section 98.0706(c)(1)(A)(ii) applies, the direct 
+payment to the tenant shall be in an amount equal to 
+two months of actual rent under the tenant’s lease in 
+effect at the date of the notice.  
+ 
+(ii) If the tenant is a senior or disabled, the direct payment 
+to the tenant shall be in an amount equal to three 
+months of actual rent under the tenant’s lease in effect 
+at the date of the notice. 
+(B) The landlord shall waive, and not collect the payment by 
+tenant, of any currently due or future rent under the tenant’s 
+lease at the time of the notice and through the remainder of the 
+tenancy in an amount equal to the applicable direct payment as 
+set forth in section 98.0706(c)(1)(A). 
+(2) When more than one tenant occupies the residential rental property 
+and the landlord elects to provide direct payment of relocation 
+assistance to the tenants, the landlord may make a single direct 
+payment to all the tenants named in the lease. 
+ 
+(3) The relocation assistance required by this Division shall not relieve the 
+landlord’s obligation to, and shall be in addition to, the return of any 
+deposit or security amounts owed to the tenant.  
+ 
+(4) Any relocation assistance required by this Division shall be credited 
+against any other relocation assistance required by any federal, state, 
+or other local law. 
+ 
+(5) If a tenant fails to vacate after the expiration of the notice to terminate 
+the tenancy, the actual amount of any relocation assistance provided 
+under this Division may be recoverable by landlord as damages in an 
+action to recover possession of the residential rental property. 
+(d) Additional Requirement Upon Termination of a Tenancy for No-Fault Just 
+Cause.  
+Ch. Art. Div.  
+9 8 7 16 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+If a residential rental property is offered for rent or lease for residential 
+purposes within five years of the date the tenant was evicted under 
+sections 98.0704(b)(1), (3), or (4), landlord shall first offer to lease the 
+residential rental property in writing to the tenant displaced from that unit by 
+the no-fault just cause termination if the tenant:   
+(1) advised the landlord in writing within 30 days of the termination 
+notice of the tenant’s desire to receive an offer to renew the tenancy; 
+and  
+(2) provided the landlord a mailing address or email address for the 
+landlord to send the offer, including any change of mailing address or 
+email address.  
+The landlord shall have the right to screen the tenant using industry accepted 
+methods and shall communicate the minimum screening criteria in the written 
+offer for the new tenancy. The tenant shall have 30 days from the date of 
+receipt of the offer to accept. 
+(e) In addition to other remedies applicable to landlord’s failure to comply with 
+this Division, a landlord's failure to strictly comply with section 98.0706 shall 
+render void any notice of termination required by section 98.0706. 
+(“Requirements Upon Termination of Tenancy” added 5-25-2023 by O-21647 N.S.; 
+effective 6-24-2023.) 
+ 
+§98.0707 Buyout Agreements 
+It is the purpose and intent of section 98.0707 to regulate buyout agreements to 
+increase the fairness of buyout negotiations and agreements, to ensure that tenants 
+who enter into buyout agreements are aware of their rights, and to prevent landlords 
+from contracting around the legal rights and remedies available to tenants under 
+existing law. 
+(a) Disclosure Prior to Buyout Offers. Prior to making a buyout offer, the landlord 
+shall provide each tenant in a residential rental property a written disclosure 
+that shall include the following: 
+(1) a statement that the tenant has a right not to enter into a buyout 
+agreement; 
+(2) a statement that the tenant may choose to consult with an attorney 
+before entering into a buyout agreement; 
+Ch. Art. Div.  
+9 8 7 17 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(3) a statement that the landlord may not retaliate against the tenant for 
+refusing to enter into or negotiate a buyout agreement; 
+(4) a statement that all tenants of a residential rental property may refuse 
+to receive future buyout offers by providing landlord written notice of 
+their refusal, which shall be effective for six months, and all tenants of 
+a residential rental property may rescind the refusal to receive future 
+buyout offers by providing landlord written notice of the rescission; 
+(5) a statement that the tenant is eligible for relocation assistance and the 
+amount of the required relocation assistance in section 98.0706(c); 
+(6) the names of all people authorized to discuss the buyout offer and enter 
+into a buyout agreement on the landlord’s behalf; 
+(7) a space for each tenant to sign and write the date the landlord 
+provided the tenant with the disclosure; and 
+(8) a space for the landlord to sign and write the date on which the 
+landlord provided the tenant with the disclosure. 
+(b) The landlord shall provide each tenant a fully executed copy of the disclosure 
+form within three days of its execution and retain a copy of each signed 
+disclosure form for five years, along with a record of the date the landlord 
+provided the disclosure to each tenant.  
+ 
+(c) Requirements for Buyout Agreements. The landlord shall comply with the 
+following: 
+(1) The buyout agreement shall be in writing. 
+(2) A copy of the buyout agreement shall be given to each tenant at the 
+time the tenant signs the buyout agreement. 
+(3) The buyout agreement shall include the following statements in bold 
+letters in at least 14-point font in close proximity to the space reserved 
+for the signature of the tenant: 
+(A) You, the tenant, have a right not to enter into this buyout 
+agreement.  
+Ch. Art. Div.  
+9 8 7 18 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(B) If you, the tenant, are entitled to relocation assistance under 
+federal, state, or local law, a buyout agreement for less than the 
+amount of the relocation assistance to which you are entitled 
+violates Chapter 9, Article 8, Division 7 of the San Diego 
+Municipal Code and is void. 
+(C) You, the tenant, may choose to consult with an attorney before 
+signing this agreement. 
+(4) If the tenant primarily negotiates the buyout agreement or lease, orally 
+or in writing, in a non-English language, the landlord shall provide the 
+tenant with an English and a translated version of the buyout 
+agreement at the same time. 
+A buyout agreement that does not strictly comply with all the requirements of 
+section 98.0707(c)(1)-(4) shall be void. 
+(d) Void Buyout Agreements. Buyout agreements must be for an amount that is 
+greater than the amount of relocation assistance available to the tenant in 
+section 98.0706(c). A buyout agreement for less than the amount of relocation 
+assistance owed to the tenant violates this Division and is void. 
+(e) No Waiver. The provisions of section 98.0707 may not be waived by a buyout 
+agreement. Any term of a buyout agreement, lease, contract, or other 
+agreement which purports to waive or limit a tenant's rights under 
+section 98.0707 is contrary to public policy, unenforceable, and void. 
+(“Buyout Agreements” added 5-25-2023 by O-21647 N.S.; effective 6-24-2023.)   
+ 
+§98.0708 Retaliation Prohibited 
+A landlord shall not retaliate against a tenant for exercising any right provided by 
+this Division or seeking the enforcement of this Division. 
+(“Retaliation Prohibited” added 5-25-2023 by O-21647 N.S.; effective 6-24-2023.) 
+§98.0709 Remedies 
+(a) A tenant claiming a violation of this Division may file an action against a 
+landlord in a court of competent jurisdiction. 
+ 
+(b) A tenant may seek injunctive relief, equitable relief, and money damages, 
+including punitive damages, in a civil action against a landlord for a violation 
+of this Division.  
+Ch. Art. Div.  
+9 8 7 19 
+ 
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations   
+(3-2024) 
+ 
+ 
+ 
+(c) A tenant may raise, as an affirmative defense, any violation or noncompliance 
+with this Division in any action by a landlord to recover possession of a 
+residential rental property. 
+ 
+(d) Any attempt by a landlord to recover possession of a residential rental 
+property or any actual recovery of possession of a residential rental property 
+in violation of this Division shall render the landlord liable to the tenant in a 
+civil action for wrongful eviction for damages of not less than three times the 
+actual economic damages. 
+ 
+(e) Any landlord who fails to provide relocation assistance as required by 
+section 98.0706(c) shall be liable to the tenant in a civil action for not less 
+than three times the required relocation assistance and actual economic 
+damages. 
+ 
+(f) In the court's discretion, a landlord who attempts to recover possession of a 
+residential rental property in material violation of this Division shall be liable 
+to the tenant in a civil action for reasonable attorney’s fees and costs. 
+ 
+(g) The remedies under section 98.0709 are cumulative and may be used in 
+addition to any other remedies in this Division or at law, statute, or ordinance. 
+ 
+(h) The City may enforce this Division under Chapter 1, Article 2 of this Code, 
+including civil and criminal remedies. 
+(“Remedies” added 5-25-2023 by O-21647 N.S.; effective 6-24-2023.) 
+(Amended 2-27-2024 by O-21769 N.S.; effective 3-28-2024.) 
+ 
+§98.0710 Failure to Comply with Division 
+In addition to other remedies applicable to landlord’s failure to comply with this 
+Division, a landlord’s failure to comply with any provision of this Division shall 
+render void any notice of termination required by this Division.  
+(“Failure to Comply with Division” added 2-27-2024 by O-21769 N.S.; effective 
+3-28-2024.) 
+ 

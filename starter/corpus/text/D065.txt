@@ -1,0 +1,372 @@
+SOURCE: https://pub.njleg.gov/bills/2020/PL21/110_.HTM
+RETRIEVED: 2026-10-01 22:37 UTC
+
+P.L. 2021, c.110 (S250 3R CC CC)
+CHAPTER 110
+(CORRECTED COPY OF
+CORRECTED COPY)
+An Act
+concerning the housing rights of certain persons with
+criminal records and supplementing
+chapter 8 of Title 46 of the Revised Statutes
+.
+Be It Enacted
+by the Senate and General Assembly of the State of New
+Jersey:
+C.46:8-52  Short title.
+1.    This act shall be known and may be cited as the
+“Fair Chance in Housing Act.”
+C.46:8-53  Findings, declarations regarding housing to those
+with criminal records.
+2.    The Legislature finds and declares that:
+a.     Recent research indicates that New Jersey
+suffers from a tragically high 36-month recidivism rate of over 30 percent;
+b.    Housing instability appears to impact recidivism,
+considering that over one in 10 prisoners in the United States face
+homelessness upon release;
+c.     Research from other states indicates a
+substantial increase in the likelihood of a parolee’s arrest following each
+change in address, further supporting the conclusion that when ex-convicts are
+unable to find stable housing, recidivism becomes more likely and public safety
+is diminished;
+d.    Prior to the 1990s when popular guidance
+documents began advising landlords to conduct criminal background checks on prospective
+tenants, criminal background information was not widely-available and
+convenient to landlords for informing rental decisions, but many landlords were
+nonetheless able to maintain safe and healthy rental properties; and
+e.     It is, therefore, necessary and in the public
+interest for the Legislature to enact legislation for the purpose of
+establishing certain housing rights of persons with criminal records.
+C.46:8-54  Definitions relative to housing to those with
+criminal records.
+3.    As used in this act:
+"Applicant" means any person considered for,
+who requests to be considered for, or who requests to be considered for tenancy
+within a rental dwelling unit.
+“Conditional offer” means an offer to rent or lease a
+rental dwelling unit to an applicant that is contingent on a subsequent inquiry
+into the applicant’s criminal record, or any other eligibility criteria that
+the housing provider may lawfully utilize.
+“Criminal record” means
+information about an individual collected by criminal justice agencies
+consisting of identifiable descriptions and notations of arrests, detentions,
+indictments, criminal complaints, or other formal criminal charges,
+and any disposition arising therefrom, including acquittal,
+sentencing, correctional supervision, release or conviction, including, but not
+limited to, any sentence arising from a verdict or plea of guilty or nolo
+contendere, including a sentence of incarceration, a suspended sentence, a
+sentence of probation, or a sentence of conditional discharge.
+“Director” means the Director of the Division on Civil
+Rights.
+“Division” means the Division on Civil Rights in the
+Department of Law and Public Safety.
+“Housing provider” means a landlord, an owner, lessor,
+sublessor, assignee, or their agent, or any other person receiving or entitled
+to receive rents or benefits for the use or occupancy of any rental dwelling
+unit.
+“Pending criminal accusation” means an existing
+accusation that an individual has committed a crime, lodged by a law
+enforcement agency through an indictment, information, complaint, or other
+formal charge.
+“Rental dwelling unit” means a dwelling unit offered
+for rent by a housing provider for residential purposes,
+other than a dwelling unit in an
+owner-occupied premises of not more than four dwelling units.
+C.46:8-55  Application process.
+4.
+a.  (1)
+A
+housing provider
+shall not require an applicant to
+complete any housing application that includes any inquiries regarding an
+applicant’s criminal record prior to the provision of a conditional offer,
+except that a housing provider may consider whether an applicant has ever been
+convicted of drug-related criminal activity for the manufacture or production
+of methamphetamine on the premises of federally assisted housing, and whether
+the applicant is subject to a lifetime registration requirement under a State
+sex offender registration program.
+(2)
+A housing
+provider
+shall not make any oral or written inquiry
+regarding an applicant’s criminal record prior to making a conditional offer.
+(3)
+An applicant
+may provide evidence to the housing
+provider demonstrating inaccuracies within the applicant's criminal record or
+evidence of rehabilitation or other mitigating factors.
+b.
+Prior to
+accepting any application fee, a housing provider shall disclose in writing to
+the applicant:
+(1)   Whether the eligibility criteria of the housing
+provider include the review and consideration of criminal history; and
+(2)   A statement that the applicant, pursuant to
+subsection a. of this section, may provide evidence demonstrating inaccuracies
+within the applicant's criminal record or evidence of rehabilitation or other
+mitigating factors.
+c.     A housing provider
+shall apply the standards established by this section to each applicant in a
+nondiscriminatory manner.
+C.46:8-56  Housing provider’s consideration of applicant’s
+record.
+5.    a.  A housing provider shall not, either before
+or after the issuance of a conditional offer, evaluate an applicant based on
+any of the following types of criminal records:
+(1)   arrests or charges that have not resulted in a
+criminal conviction;
+(2)   expunged convictions;
+(3)   convictions erased through executive pardon;
+(4)   vacated and otherwise legally nullified
+convictions;
+(5)   juvenile adjudications of delinquency; and
+(6)   records that have been sealed.
+b.    After the issuance of a conditional offer to an
+applicant, a housing provider may only consider a criminal record in the
+applicant’s history that:
+(1)   resulted in a conviction for murder, aggravated
+sexual assault, kidnapping, arson, human trafficking, sexual assault in
+violation of N.J.S.2C:14-2, causing or permitting a child to engage in a
+prohibited sexual act or in the simulation of such an act in violation of
+paragraph (3) of subsection b. of N.J.S.2C:24-4, or any crime that resulted in
+lifetime registration in a state sex offender registry;
+(2)   is for an indictable offense of the first degree
+that was issued, or if the conviction resulted in a prison sentence that
+sentence concluded, within the six years immediately preceding the issuance of
+the conditional offer;
+(3)   is for an indictable offense of the second or
+third degree that was issued, or if the conviction resulted in a prison
+sentence that sentence concluded, within the four years immediately preceding
+the issuance of the conditional offer; or
+(4)   is for an indictable offense of the fourth degree
+that was issued, or if the conviction resulted in a prison sentence that
+sentence concluded, within one year immediately preceding the issuance of the
+conditional offer.
+c.     (1)  A housing provider may withdraw a
+conditional offer based on an applicant's criminal record only if the housing
+provider determines, by preponderance of the evidence, that the withdrawal is
+necessary to fulfill a substantial, legitimate, and nondiscriminatory interest.
+(2)   If a housing provider withdraws a conditional
+offer, the housing provider shall provide the applicant with written
+notification that includes, with specificity, the reason or reasons for the
+withdrawal of the conditional offer and an opportunity to appeal the denial by
+providing evidence to the housing provider demonstrating inaccuracies within
+the applicant's criminal record or evidence of rehabilitation or other
+mitigating factors.
+(3)   The housing provider shall perform an
+individualized assessment of the application in light of the following factors:
+(a)   the nature and severity of the criminal offense;
+(b)   the age of the applicant at the time of the
+occurrence of the criminal offense;
+(c)   the time which has elapsed since the occurrence
+of the criminal offense;
+(d)   any information produced by the applicant, or
+produced on the applicant's behalf, in regard to the applicant's rehabilitation
+and good conduct since the occurrence of the criminal offense;
+(e)   the degree to which the criminal offense, if it
+reoccurred, would negatively impact the safety of the housing provider's other
+tenants or property; and
+(f)   whether the criminal offense occurred on or was
+connected to property that was rented or leased by the applicant.
+d.    (1)  The applicant may request, within 30 days
+after the housing provider's notice of the withdrawal, that the housing
+provider afford the applicant a copy of all information that the housing
+provider relied upon in considering the applicant, including criminal records.
+(2)   A housing provider shall provide the information
+requested under paragraph (1) of this subsection, free of charge, within l0
+days after receipt of a timely request.
+C.46:8-57  Director preparation of model documents.
+6.
+a.  The director shall prepare:
+(1)
+a model disclosure statement as indicated in subsection b.
+of section 4 of this act which provides notice that a housing provider intends
+to review and consider a person’s criminal record in determining eligibility
+for housing or in taking any other adverse housing action against that person.
+The statement shall also provide an explanation of the criminal records that
+may be considered and the manner in which they may be considered, in accordance
+with the provisions of section 5 of this act.  The statement shall also notify
+the person of the right to dispute, within 10 days of receiving such statement,
+the relevance and accuracy of the criminal record and to offer evidence of any
+mitigating facts or circumstances, including but not limited to the person’s
+rehabilitation and good conduct since the criminal offense in question; and
+(2)
+a model notice that provides notice that a housing provider
+has withdrawn a conditional offer or taken an adverse housing action based on a
+person’s criminal record, provides space for the housing provider to identify
+with specificity the reason or reasons for withdrawing the conditional offer or
+taking the adverse housing action.  The notification form shall also notify the
+person of the right to request from the housing provider a copy of all
+information upon which the housing provider relied in reaching its decision,
+including criminal records, and of the right to file a complaint with the
+division, as well as the applicable statute of limitations, and shall include
+such other additional information as the director deems appropriate.
+b.
+The model documents prepared pursuant to this section shall
+be made available on the division’s Internet website, at no cost, and shall be
+in English, Spanish, and in any other language the director deems appropriate.
+C.46:8-58  Discriminatory advertisement by house provider,
+prohibited.
+7.    a.  A housing provider shall not knowingly or
+purposefully publish, or cause to be published, any housing advertisement that
+explicitly provides that the housing provider will not consider any applicant
+who has been arrested or convicted of one or more crimes or offenses, except
+for
+drug-related criminal activity for the
+manufacture or production of methamphetamine on the premises of federally
+assisted housing, and whether the applicant is subject to a lifetime
+registration requirement under a State sex offender registration program.
+b.    A housing provider
+shall not print, publish, circulate, issue, display, post, or mail, or cause to
+be printed, published, circulated, issued, displayed, posted or mailed any
+statement, advertisement, publication or sign, or use any form of application
+for the rental, lease, or sublease of any real property or part or portion
+thereof or make any record or inquiry in connection with the prospective
+rental, lease, or sublease of any real property or part or portion thereof
+which expresses, directly or indirectly, any unlawful limitation, specification
+or discrimination as to criminal record, except as permitted by this act and
+for drug-related criminal activity for the manufacture or production of
+methamphetamine on the premises of federally assisted housing, and whether the
+applicant is subject to a lifetime registration requirement under a State sex
+offender registration program.
+c.     Unless otherwise
+required by law, a housing provider shall not:
+(1)   distribute or
+disseminate an applicant’s criminal record to any person who is not expected to
+use the criminal record for the purpose of evaluating the applicant in a manner
+consistent with this act; or
+(2)   use an applicant’s
+criminal record for a purpose that is not consistent with this act
+.
+C.46:8-59  Immunity.
+8.    a.  To encourage residential landlords to provide
+housing opportunities to formerly incarcerated individuals, landlords subject
+to the provisions of
+this act
+shall be immune
+from liability in any civil action arising as a result of the landlord’s
+decision to rent to individuals with a criminal record or who were otherwise
+convicted of a criminal offense, or as a result of a landlord’s decision to not
+engage in a criminal background screening.
+b.    Nothing in subsection a. of this section shall be
+construed to affect in any way the immunity from liability conferred by law
+upon a landlord who rents an apartment to a person with a conviction for
+murder, aggravated sexual assault, kidnapping, arson, human trafficking, sexual
+assault in violation of N.J.S.2C:14-2, causing or permitting a child to engage
+in a prohibited sexual act or in the simulation of such an act in violation of
+paragraph (3) of subsection b. of N.J.S.2C:24-4, or any crime that resulted in
+lifetime registration in a state sex offender registry.
+C.46:8-60  Drug, alcohol test, drug abuse treatment
+information; requirement by housing provider, prohibited.
+9.    A housing provider shall not require an applicant
+to submit to a drug or alcohol test, or request the applicant’s consent to
+obtain information from a drug abuse treatment facility.
+C.46:8-61  Unlawful acts by housing provider.
+10.  A person shall not interfere with, restrain, or
+deny the exercise of, or the attempt to exercise, any right protected under
+this act.  If the division determines that a housing provider has engaged in
+one or more unlawful actions against a person with the intent of retaliating
+for the person’s filing of an action against the housing provider pursuant to
+section 12 of this act, then each unlawful retaliatory action shall be
+enforced, pursuant to section 12 of this act, as a separate and distinct
+violation of this act.
+C.46:8-62  Complaint data maintenance.
+11.  The division shall maintain data on the number of
+complaints filed pursuant to this act, demographic information on the
+complainants, the identity of the housing providers, the number of
+investigations conducted, and the disposition of every complaint and
+investigation.  The division shall annually publish and post on the division’s
+Internet website, information on substantiated complaints that have resulted in
+the issuance of a monetary penalty pursuant to section 12 of this act.  The
+division shall not publish on the division’s Internet website information
+regarding any complaint against a housing provider for which the housing
+provider is in good faith compliance with the requirements made by the director
+pursuant to subsection a. of section 12 of this act.
+C.46:8-63  Complaints, actions sought against housing
+provider.
+12.  a.  An action that alleges a violation of this act
+shall not be initiated by any person in court.  The director, or an applicant
+or prospective applicant who believes that a housing provider has violated a
+provision of this act with respect to that applicant or prospective applicant,
+may file a complaint with the division.  Upon the filing of a complaint by a
+person other than the director, the division shall make a good faith effort to
+notify the housing provider of the alleged violation and offer the housing
+provider the opportunity to mediate and address the complaint within 14 days of
+receiving the notice.  The division shall not subject a housing provider to any
+penalty pursuant to subsection c. of this section if the complaint is addressed
+pursuant to the process identified in this subsection.
+b.    If the complaint is not resolved in accordance
+with subsection a. of this section, and the division determines following an
+investigation that the complaint is substantiated, the director shall issue a
+monetary penalty against the housing provider and may require the housing
+provider to take one or more of the actions authorized by subsection d. of this
+section.
+(1)   A housing provider may appeal a final decision by
+the director issued pursuant to this section to the Appellate Division of the
+Superior Court.
+(2)   A complainant may appeal, to the Appellate
+Division of the Superior Court, a finding by the director following an
+investigation that the complaint is not substantiated, but the complainant may
+not appeal a decision by the director not to investigate a complaint.
+c.     A housing provider who violates a provision of
+this act shall be liable for the following applicable penalties:
+(1)   an amount not to exceed $1,000 if the housing
+provider has not committed any prior violation within the five-year period
+ending on the date of the filing of the charge;
+(2)   an amount not to exceed $5,000 if the housing
+provider has committed one other violation within the five-year period ending
+on the date of the filing of the charge; and
+(3)   an amount not to exceed $10,000 if the housing
+provider has committed two or more other violations within the seven-year
+period ending on the date of the filing of the charge.
+d.    The director is authorized to require a housing
+provider to take one or more of the following actions upon a finding that the
+housing provider has violated a provision of this act:
+(1)   The director may require a housing provider to
+cease and desist from continuing to violate this act; to communicate in writing
+to the housing provider’s employees and agents their obligations under this
+act; and to report to the director on the manner of compliance for a period not
+to exceed two years provided that the housing provider does not commit future
+violations of the act;
+(2)   If a housing provider has committed at least one
+other violation of this act within the preceding five-year period, the director
+may require the housing provider to make a good faith effort to remedy the
+violation with respect to the applicant when a remedy is possible, by issuing a
+conditional offer, if the violation has resulted in a failure to issue a
+conditional offer, or by providing the same or a similar rental dwelling unit
+to the applicant on the same terms as the prior conditional offer if the same
+or a similar rental dwelling unit is currently or will become available, if the
+violation has resulted in the withdrawal of a conditional offer.
+Notwithstanding any provision of the Anti-Eviction Act, P.L.1974, c.49
+(C.2A:18-61.1 et seq.) to the contrary, if an appeal by a
+housing provider is successful, and the court overturns a final decision of the
+director that resulted in an order under this paragraph, then a determination
+that the housing provider did not violate the provisions of this act as evidenced
+by such successful appeal shall be grounds for the housing provider to evict
+the former applicant if that person resides in a rental dwelling unit owned by
+the housing provider as the result of the director’s order, so long as the
+housing provider provides the applicant with at least 45 days’ notice prior to
+the eviction;
+(3)   Unless housing is provided to the applicant
+pursuant to paragraph (2) of this subsection, the director may require that the
+applicant’s rental application fee be returned; and
+(4)   The director may require that a portion of the
+sum owed by the housing provider pursuant to subsection c. of this section be
+paid to the applicant in an amount not to exceed $1,000.
+e.     Nothing herein contained shall bar, exclude or
+otherwise affect any right or action which may exist independently of any right
+or action created herein, including but not limited to any right or action
+under P.L.1945, c.169 (C.10:5-1 et seq.).
+C.46:8-64  Rules, regulations.
+13.  In accordance with the "Administrative
+Procedure Act," P.L.1968, c.410 (C.52:14B-1 et seq.), the director shall
+adopt the rules and regulations necessary to effectuate the purposes of this
+act on or before the first day of the fifth month next following enactment.
+14.  This act shall take effect on the first day of the
+seventh month next following the date of enactment,
+but the
+division
+may take any anticipatory
+administrative action in advance as shall be necessary for the implementation
+of this act.
+Approved June 18, 2021.

@@ -1,0 +1,13 @@
+SOURCE: https://www.sf.gov/news/new-law-prohibits-algorithmic-devices-used-set-rents-san-francisco
+RETRIEVED: 2026-10-01 22:37 UTC
+
+New law prohibits algorithmic devices used to set rents in San Francisco | SF.gov
+Skip to main content
+news
+New law prohibits algorithmic devices used to set rents in San Francisco
+Rent Board
+New law prohibits the sale or use of algorithmic devices to set rents or manage occupancy levels for residential units in San Francisco.
+October 16, 2024
+Legislation
+adding Section 37.10C to the Rent Ordinance went into effect on October 14, 2024. The law prohibits the sale or use of algorithmic devices to set rents or manage occupancy levels for residential units in San Francisco.
+The term “algorithmic device” means a device such as a software program that uses algorithms to analyze nonpublic competitor rental data for the purposes of providing a landlord recommendations on what rent to charge for a vacant unit. The law prohibits the sale or use of such algorithmic devices and allows a tenant or the City Attorney to bring a civil action if they believe an entity is in violation of the law.

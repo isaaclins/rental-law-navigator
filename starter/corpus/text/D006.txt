@@ -1,0 +1,165 @@
+SOURCE: https://rentboard.berkeleyca.gov/laws-regulations/measure-bb-changes-berkeleys-rent-ordinance
+RETRIEVED: 2026-10-01 22:35 UTC
+
+Measure BB Changes to Berkeley's Rent Ordinance | Berkeley Rent Board
+Skip to main content
+Skip to site search
+City of Berkeley
+Share
+Print
+Measure BB Changes to Berkeley's Rent Ordinance
+Important information on how Measure BB affects Berkeley landlords and tenants.
+Measure BB, a ballot measure passed by Berkeley voters in the November 2024 election, makes several changes to Berkeley’s Rent Ordinance that affect tenant and landlord rights and responsibilities. Read on to learn how Measure BB may affect you.
+OVERVIEW OF MEASURE BB CHANGES
+Measure BB made several substantive changes to Berkeley’s Rent Ordinance. Each of the changes mentioned below is discussed in more detail in the sections that follow. Under the Related Documents section, you’ll find a chart that compares the Measure BB amendments to the prior version of the Ordinance.
+Rental units where the tenant shares kitchen or bath facilities with the landlord are only exempt if the landlord resided at the property prior to the tenants.
+Government-owned or -subsidized rental units become either fully or partially covered by the Rent Ordinance.
+Eviction for nonpayment of rent is no longer permitted for rental debt of less than one month’s Fair Market Rent for a unit of equivalent size.
+A landlord may no longer evict a tenant for failure to sign a new fixed term lease
+In any notice terminating a tenancy for a lease breach, the landlord must clearly describe the alleged breach. The landlord must demonstrate that the tenant’s behavior was unreasonable, and may not evict tenants for lease breaches that do not cause the landlord any actual harm.
+Eviction notices must contain certain information directing tenants to the Rent Board, and copies of eviction notices and eviction lawsuits must be filed with the Rent Board within three business days of serving the tenant.
+Landlords must provide tenants with a Notice of Tenant Rights at the start of a tenancy and post the notice in any indoor common area if the property has one.
+Utility charges must be a set amount incorporated into the base rent at the start of a tenancy unless the utility is separately metered and the account is in the tenant’s name as specified in the lease.
+Tenants have an enforceable right to organize and may petition for a decrease in rent if this right is violated.
+Owners may only petition for rent increases for completed capital improvements, rather than planned capital improvements.
+Owners of partially covered units must now report new tenancies to the Rent Board within 15 days of the tenancy’s start date
+Annual General Adjustments are capped at a maximum of 5%.
+Yearly adjustments to owner move-in eviction relocation assistance payments are now mandatory.
+The Board has the power to adopt fines for any noncompliance with the Ordinance’s registration requirements including failure to report tenancy information in a timely manner.
+CHANGES TO EXEMPTIONS AND RENT ORDINANCE COVERAGE FOR SOME UNITS
+Rental units in Berkeley can be
+fully covered, partially covered, or exempt
+from the Rent Ordinance. Measure BB has changed how the Rent Ordinance applies to some units.
+Units where the tenant shares a kitchen or bath facilities with the landlord
+NEW:
+Where the tenant shares a kitchen or bath facilities with the landlord, the unit will be exempt from the Rent Ordinance only if the landlord lived in a unit on the same property at the start of the tenancy.
+Government-owned or -subsidized rental units like Section 8 and Shelter + Care units are Now Fully or Partially Covered by the Rent Ordinance
+NEW:
+Landlords of government-owned or -subsidized units must
+register them with the Rent Board as either fully or partially covered
+, and pay an annual registration fee. Units that are fully covered will have a rent ceiling, meaning rent increases will be limited by the
+Annual General Adjustment
+set by the Rent Board each year. Whether a unit is fully or partially covered depends on unit type and if Federal law, State law, or administrative regulation exempts the unit from the rent control provisions of Berkeley’s Rent Ordinance. Section 8 and Shelter Plus Care units are the most common types of government subsidies in Berkeley. There are, however, other types of subsidies.
+Units with the following subsidies will be fully or partially covered by the Rent Ordinance depending on unit type (as described in the table that follows the subsidy lists):
+Housing Choice Voucher (Section 8)
+Shelter Plus Care
+VASH Voucher
+LIHTC
+California Community Housing Agency
+HOME
+City of Berkeley Housing Trust Fund
+Mental Health Safety Act
+Units with the following subsidies in projects that DO NOT HAVE mortgages insured or held by HUD will be fully or partially covered depending on the unit type (see table that follows the subsidy list):
+Rent Supplement Program
+Section 8 Loan Management Set Aside
+Project-based Section 8
+Fully Covered Unit Types
+Partially Covered Unit Types
+Most units in multifamily properties built before 1980
+Single-family homes with current tenancies that began prior to 1996
+Single-family homes with five or more rooms rented out individually with separate leases (each room is considered a unit)
+New Construction Units (units with a certificate of occupancy issued after 1980)
+Most single-family homes
+Most condominiums
+Units with the following subsidies will be partially covered by the Rent Ordinance regardless of unit type because Federal law, State law, or administrative regulation prohibits rent control:
+Section 202 Supportive Housing for the Elderly
+Section 811 Supportive Housing for Persons with Disabilities
+Units with the following subsidies in projects
+with mortgages insured or held by HUD
+will be partially covered by the Rent Ordinance regardless of unit type because Federal law, State law, or administrative regulation prohibits rent control:
+Rent Supplement Program
+Section 8 Loan Management Set Aside
+Project-based Section 8
+CHANGES TO GROUNDS FOR EVICTION AND EVICTION NOTICE REQUIREMENTS
+In Berkeley, tenants in units that are fully or partially covered by the Rent Ordinance cannot be evicted unless there is "just cause” (previously called “good cause”). Measure BB has changed some just causes, eliminated one just cause, added new requirements for eviction notices, and shortened the timeline for landlords to file copies of certain eviction-related documents with the Rent Board.
+Eviction for nonpayment of rent is no longer allowed for rental debt less than one month of the Fair Market Rent for the unit
+NEW
+: For a landlord to evict a tenant for nonpayment of rent, the tenant must owe an amount of rental debt equal to or greater than one month of the Fair Market Rent (FMR) value for a unit of equivalent size in the metro area Oakland-Fremont, CA HUD Metro FMR as determined by the US Department of Housing and Urban Development for the fiscal year in which the rent is demanded. See our
+Just Cause & Other Local Requirements webpage
+for a table summarizing the FMR for the current year.
+Tenants can no longer be evicted for failing to sign a substantially similar lease
+NEW:
+A landlord cannot evict a tenant for failing to sign a substantially similar lease upon expiration of a fixed-term lease.
+New requirements to evict tenants for violations of a material term of the lease
+NEW:
+Material lease terms only include mutually agreed upon lease terms.
+The alleged violation must cause substantial, actual damage to the landlord.
+The landlord must demonstrate that the tenant’s behavior was unreasonable.
+The landlord’s notice to the tenant to stop the violation (which is required before the landlord can serve an eviction notice) must specify the lease term, and describe the violation and resulting harm in enough detail for a reasonable person to understand.
+Please note, the Rent Board cannot review a landlord’s notice to stop an alleged lease violation and advise on whether the alleged violation and resulting harm are described with enough detail for a reasonable person to understand. Additionally, the Rent Board cannot advise on whether a tenant’s behavior is unreasonable. These are legal issues for a court to decide if an eviction lawsuit is filed.
+New requirements related to eviction notices and lawsuits
+NEW:
+Any notice terminating a tenancy must contain a statement that advice about the notice is available from the Rent Board, the current phone number for the Rent Board’s Housing counseling services, and the current address of the Rent Board’s website.
+The landlord must file with the Rent Board a copy of any notice to terminate a tenancy, notice to quit, and summons and complaint no later than three business days after the tenant was served with the document.
+NEW NOTICE OF TENANT RIGHTS REQUIREMENTS
+NEW:
+For tenancies started on or after December 20, 2024, landlords must, within fifteen days of the start of the tenancy, give the tenant written notice containing the following information: The existence of and scope of the Rent Ordinance; the tenant’s right to petition against certain rent increases, if applicable; whether the unit is exempt from rent control; and any other partial exemptions which may exist.
+If the property has an interior common area that all tenants have access to, the landlord must post the notice in the common area.
+Landlords must sign the affidavit included on all tenancy registration forms confirming that the tenant was provided the notice.
+The Rent Board has created a
+Notice of Tenant Rights for Fully Covered Units
+and a
+Notice of Tenant Rights for Partially Covered Units
+that landlords can use.
+NEW RULES ABOUT PAYING FOR UTILITIES
+NEW:
+For tenancies starting on or after February 6, 2024, a landlord may charge a tenant in a fully covered unit for utilities only if either: the cost of the  utilities are part of the base rent, or the utility service is separately-metered and the lease requires the tenant to place the utility in the tenant’s name. A landlord who is charging a tenant for utilities separately from rent on or after February 6, 2024, may file a petition with the Rent Board to add the average cost of utilities to the rent ceiling. Rent ceiling increases must be made through the petition process, but the parties can ask to waive the hearing if they agree on the increase, and the agreement and proof submitted with the petition meet certain standards. See our
+Rent Adjustment Petitions page
+for details.
+NEW TENANT RIGHT TO ORGANIZE
+NEW:
+Tenants who live on certain properties now have an enforceable right to create tenant associations, and engage in organizing activities. Landlords and tenant associations are required to confer in good faith in an attempt to address any issues such as: landlord-tenant relations, rent increases, habitability concerns, and other issues of common interest. Please see our
+Tenant Right to Organize page
+for details.
+LANDLORDS CAN NO LONGER FILE A PETITION FOR RENT INCREASES FOR PLANNED CAPITAL IMPROVEMENTS
+NEW:
+Landlords can only file a petition for rent increases for completed capital improvements (they can no longer petition to have rent increases preliminarily authorized for planned capital improvements).
+CHANGE TO TENANCY REPORTING REQUIREMENTS FOR LANDLORDS OF PARTIALLY COVERED UNITS
+NEW:
+Owners of partially covered units must now report new tenancies to the Rent Board within 15 days of the tenancy’s start date. Owners must also update tenancy information annually during the registration billing cycle.
+CHANGES ANNUAL GENERAL ADJUSTMENT (AGA) CAP TO 5%
+The AGA is the amount by which the landlord of a fully-covered rental unit may raise the rent each year. The elected Rent Board sets the AGA by following a formula in the Rent Ordinance that ties the AGA to the Consumer Price Index.
+NEW:
+The maximum AGA is 5%. This means that, if the formula in the Rent Ordinance results in an AGA that is greater than 5%, the AGA approved by the Board for that year can be no more than 5%. This cap does not prevent a landlord who has “banked” (unused) AGAs from previous years from implementing a rent increase that is greater than 5% in order to raise the rent to the rent ceiling. For more information, please see our
+Annual General Adjustments
+webpage.
+THE RENT BOARD IS NOW REQUIRED TO ANNUALLY ADJUST OWNER MOVE-IN EVICTION RELOCATION ASSISTANCE PAYMENTS
+NEW:
+The Rent Board must make inflationary adjustments to owner move-in eviction relocation assistance amounts each year.
+RENT BOARD EMPOWERED TO IMPLEMENT FINES FOR THE FAILURE TO TIMELY REPORT NEW TENANCIES
+NEW:
+Measure BB gives the Rent Board the power to impose fines for failing to report new tenancies within fifteen days of the tenancy start date.
+IMPORTANT:
+While Measure BB gives the Board the power to impose these fines, it does not create a fine system. The elected Board must adopt regulations to impose any fines.
+Related Documents
+Notice of Tenant Rights for Fully Covered Units
+(116.7 KB)
+Notice of Tenant Rights for Partially Covered Units
+(160.21 KB)
+Berkeley's Rent Ordinance Before & After Measure BB
+(187.29 KB)
+Measure BB Newsletter (Dec 2024)
+(1.74 MB)
+Measure BB Landlord Postcard 1
+(752.53 KB)
+Measure BB Landlord Postcard 2
+(693.76 KB)
+Measure BB Landlord Postcard 3
+(672.14 KB)
+Measure BB Tenant Postcard 1
+(354.25 KB)
+Measure BB Tenant Postcard 2
+(304.28 KB)
+Measure BB Tenant Postcard 3
+(571.05 KB)
+News
+Berkeley Rent Board to Host Inaugural Landlord Resource Fair on July 22
+UPDATED: Rent Board Adopts to Extend Amnesty Period for Units Newly Required to Register Under Measure BB
+Need Help in Your Language? Visit Our New Language Access Services Page
+UPDATED: Registration Fees for Fiscal Year (FY) 2026-2027
+More News
+Rent Board Housing Counselor
+Email:
+rent@berkeleyca.gov
+Phone:
+(510) 981-7368 (RENT) Ext. 1

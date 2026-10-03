@@ -1,0 +1,19 @@
+{
+  "as_of": "2026-10-01",
+  "lookups": {
+    "A0001": [
+      {
+        "team_rule_id": "r-0007",
+        "result": "applies",
+        "explanation": "Statewide NJ rule; building has 5+ units so the owner-occupied exemption cannot apply.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0031",
+        "result": "unknown",
+        "explanation": "Rent control coverage depends on a new-construction exemption filing not in the data.",
+        "conflict_flag": false
+      }
+    ]
+  }
+}

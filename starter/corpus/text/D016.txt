@@ -1,0 +1,222 @@
+SOURCE: https://calcivilrights.ca.gov/housing/
+RETRIEVED: 2026-10-01 22:35 UTC
+
+Housing | CRD
+Housing Discrimination
+The California Civil Rights Department (CRD) is responsible for enforcing state fair housing laws that make it illegal to discriminate against or harass someone because of a protected characteristic, such as their gender, race, national origin, sexual orientation, gender identity, or religion. (For a complete list of protected characteristics, see the section below titled “Protected Characteristics”). The law also requires reasonable accommodations for disabilities and prohibits retaliation against someone for exercising their rights. The law applies to landlords, tenant screening companies, property management companies, real estate agents, home sellers, builders, mortgage lenders, housing authorities, and others. The law applies to all aspects of housing and housing-related services, such as renting, leasing, sales, new construction, mortgage lending, insurance, municipal services, shelters, advertising, and restrictive covenants. Additionally, it is unlawful for cities, counties, or any local government agency to make zoning, land-use decisions, or policies that discriminate based on a protected characteristic.
+What Discrimination Looks Like
+Protected
+Characteristics
+Available Remedies
+Complaint Process
+FAQ
+Other Housing Issues
+For Housing Providers
+Housing:
+Guides and
+Fact Sheets
+What Discrimination Looks Like
+California’s Fair Employment and Housing Act (also known as FEHA) applies to most providers of housing and services related to housing such as landlords, tenant screening companies, real estate agents, home sellers, builders, mortgage lenders, and housing authorities. This law prohibits people or entities that provide housing from discriminating against or harassing tenants, homeowners, residents, their guests, housing or mortgage applicants, home buyers, and others.
+Examples of actions that could be discriminatory if based on a person’s protected characteristic:
+Refusal to sell, rent, or lease rooms, apartments, mobile homes, condos, or houses
+Refusal to negotiate for the sale, rental, or lease of housing
+Informing someone that an apartment is not available for inspection, sale, or rental when it is in fact available
+Denial of a home loan or homeowner’s insurance
+Cancellation or termination of a sale or rental agreement
+Refusal to permit, at a disabled tenant’s expense, reasonable modifications – such as adding a ramp, widening a doorway, or installing a safety bar in a shower – when necessary to accommodate a disability
+Refusal to make reasonable accommodations in housing rules, policies, practices, or services where necessary to provide a disabled person equal opportunity to use and enjoy a dwelling
+Rules that restrict only on families with children, such as a prohibition against children using an on-site pool or playing in common areas of an apartment complex
+Refusing to rent to a tenant with a section 8 voucher.
+Not complying with the requirements of a rental assistance or subsidy program (such as section 8) by refusing to complete required forms, sign documents, or allow inspections
+Refusing to rent to anyone with a criminal history
+Screening prospective tenants – including when done by a third-party such as a tenant screening company – in a way that discriminates based on a protected characteristic
+Retaliation against someone because they filed a complaint with CRD, requested a reasonable accommodation for a disability, or otherwise tried to protect their rights to be free from housing discrimination
+California law protects individuals from illegal discrimination and harassment by housing providers based on certain protected characteristics, whether or not someone actually has that characteristic or is perceived to have it. The law also protects against discrimination and harassment that is based on more than one, or intersecting, characteristics. Finally, California law protects people from discrimination and harassment that is based on the protected characteristic of their family member, friend, roommate, or any other associate.
+Protected Characteristics
+Protected characteristics include::
+Race
+Color
+Ancestry
+National origin
+Citizenship
+Immigration status
+Primary language
+Religion
+Disability (mental or physical)
+Sex and gender
+Sexual orientation
+Gender Identity
+Gender Expression
+Genetic information
+Marital status
+Familial status (families with children under 18 or people who are pregnant)
+Source of income
+(including the use of government rental assistance such as a Section 8 Housing Choice voucher)
+Military or veteran status
+Age
+FEHA also provides protections for people and circumstances related to protected characteristics, including:
+the right to operate a licensed family childcare in a provider’s home
+specific protections for people with criminal histories who are searching for housing
+For more information, please see CRD’s
+Fair Housing Factsheet
+and
+Fair Housing Booklet
+Available Remedies
+State law provides for a variety of remedies for victims of housing discrimination, including:
+Recovery of out-of-pocket losses
+An injunction prohibiting the unlawful practice
+Access to housing that the landlord denied you
+Damages for emotional distress
+Civil penalties or punitive damages
+Attorney’s fees
+FAQ
+What types of housing are covered by the Fair Employment and Housing Act?
+The Fair Employment and Housing Act (FEHA) covers the sale, rental, or occupancy of most housing accommodations in California, including single-family homes, multi-family homes, condominiums, apartments, short-term rentals, mobile homes, subsidized housing, dormitories, sober living facilities,  group homes, residential motels,
+emergency shelters, homeless shelters, shelters for survivors of domestic violence
+, recreational vehicles (RVs) used as a home, farmworker housing, and boats used as homes.
+Who must comply with the Fair Employment and Housing Act?
+Most people and entities that are housing providers or who provide services related to housing must comply with the Fair Employment and Housing Act (FEHA). This includes landlords, homeowners, apartment managers, real estate brokers, state or local governments, owners of short-term rentals, appraisers, tenant screening companies, homeowners associations, mortgage lending companies, and public housing authorities.
+When an owner is occupying a home and is renting to one additional person, the owner may exclude applicants based on protected characteristics. However, the owner still cannot make, print, or publish discriminatory statements, notices, or advertisements.
+When sharing a living area in a single dwelling, the owner or occupant may state or imply that the housing is available only to person of one sex.
+Housing specifically for seniors may be limited based on age.
+Under some circumstances, housing for homeless youth may be limited based on age.
+Can a housing provider refuse to rent to families with children?
+Generally, housing providers cannot discriminate against families with children. This is called “familial status” discrimination and protections include:
+Prohibiting landlords and other types of housing providers from refusing to rent to someone because their household includes children.
+Requiring that admission and occupancy requirements  be enforced the same for everyone, including families with children. For example, if a housing provider allows up to four people to live in a one-bedroom unit, they must allow a family of two parents and two children, or a mother or father with three children, to reside in the unit.
+Prohibiting housing providers from having conditions or rules that discriminate against households with children, such as charging a higher security deposit to households with children or excluding children from playing in common areas open to other tenants.
+However, housing that has been specifically designed for senior citizens (persons 55 and older in some cases or 62 and older in others) can exclude people based on age, including families with children. To qualify as “senior housing,” a housing accommodation must meet specific legally defined requirements, which may include a minimum number of units, age-based residency limits, and design features.
+Is it legal to develop and market housing for seniors?
+Yes, but only when the facility or community is:
+Provided under any state or federal program that the Federal Department of Housing and Urban Development has determined to be specifically designed and operated to assist elderly persons
+Designed to meet the physical and social needs of senior citizens; or
+A mobile home park that:
+Is intended for, and solely occupied by, people aged 62 years or older; or
+Is intended and operated for occupancy by people aged 55 years or older and that meets a set of requirements including: at least 80% of the occupied units are intended to be occupied by at least one person who is 55 or older, the park publishes and adheres to policies and procedures demonstrating the intent for occupancy by people 55 or older, and the park complies with HUD’s rules for verification of occupancy.
+What is the definition of a disability?
+The Fair Employment and Housing Act defines a disability as a mental or physical impairment, or condition that limits a major life activity. Examples of major life activities include cooking, cleaning, bathing, working, paying bills, and shopping. For example, if a person has a mental health condition that makes it difficult to shop for groceries and clean their apartment, they would be considered to be disabled under California fair housing law.
+People that are perceived to have a disability (whether or not they are actually disabled) are also protected under the law. For example, if a landlord discriminates against a tenant because they think the tenant has a mental health condition, this would violate the law, even if the person didn’t have a mental health condition.
+Additionally, people who are associated with a person who has a disability are also included in the laws protections. For example, refusing to rent to a tenant that has a family member with a mental health condition that will be visiting the tenant, would violate the law.
+For more information, please see CRD’s
+Disability Discrimination Factsheet
+Are tenants or applicants with disabilities entitled to special treatment?
+Yes. Tenants, residents, and applicants with disabilities are entitled to reasonable accommodations and/or modifications that are necessary to allow them an equal opportunity to use and enjoy housing, including a housing unit and any common areas. The refusal to grant reasonable accommodations and modifications constitutes unlawful discrimination under state and federal law. See below for examples of reasonable accommodations.
+For more information, please see CRD’s
+Disability Discrimination Factsheet
+What is a reasonable accommodation?
+A reasonable accommodation is an exception, change, or adjustment in rules, policies, practices, or services that is necessary to allow a tenant, resident, or applicant with a disability to have an equal opportunity to use and enjoy housing.
+Examples of reasonable accommodations for individuals with disabilities include:
+Reserved parking spaces
+Making exceptions to a no-pets policy
+Changing the date rent is due
+Allowing a third party to cosign the lease or pay the rent
+Allowing a tenant to have a live-in aide
+Delaying an eviction
+Giving someone more time to vacate a unit
+Relocating a tenant to another unit
+Allowing additional time to comply with a rule or policy
+Modifying the terms of a lease
+Providing additional notice to the tenant for inspections or repairs
+Examples of requests that cannot be reasonable accommodations include:
+Reducing the rent
+Permitting the use of illegal drugs
+Something that would cause a direct threat to the health and safety of others, such as allowing an emotional support animal that bites at other tenants
+Something that would cause substantial physical damage to the property of others
+Adding an elevator to a building without one
+When an applicant or tenant requests a reasonable accommodation, does it have to be in writing?
+No. A request for reasonable accommodation does not need to be in writing. The person making the request does not need to use any specific words – including “reasonable accommodation” – to make the request as long as they indicate needing an exception, change, or adjustment to a practice or policy because of a disability.
+When and how should a housing provider respond to a request for reasonable accommodation?
+Requests for accommodations must be considered promptly by the housing provider. The time necessary to respond to a request depends on various factors, including whether the accommodation is needed on an urgent basis. Failure to respond to a request for a reasonable accommodation constitutes unlawful housing discrimination.
+If a housing provider cannot immediately grant a requested accommodation, they must engage in an “interactive process” with the requestor in an effort to come up with a solution. The purpose of the interactive process is to exchange information to identify, evaluate, and implement a reasonable accommodation that allows the individual with a disability equal opportunity to use and enjoy a dwelling or housing opportunity. If the housing provider determines that they cannot grant the request, they must work with the requestor to try to identify if there is another accommodation that is equally effective in meeting their needs. The interactive process should occur in a timely manner and should be negotiated in good faith.
+Can a housing provider ask for documentation to verify the need for a reasonable accommodation or modification?
+Yes. However, if the need for a reasonable accommodation or modification is obvious or known, further inquiry is not necessary. If the need is not obvious, the housing provider may only request information that:
+Is necessary to establish that the individual has a disability
+Describes the needed accommodation or modification
+Is needed to show the relationship between the individual’s disability and how the requested accommodation or modification is necessary to afford the individual with a disability equal opportunity to use and enjoy the housing.
+A housing provider cannot seek information about:
+A particular diagnosis or medical condition
+The severity of the disability
+Medical records
+Medical history
+Other disability or medical issues unrelated to the request
+Does documentation of the need for an accommodation or modification have to be from a doctor?
+No. Documentation can come from any reliable third party who is in a position to know about the individual’s disability or the disability-related need for accommodation, such as a health care provider, therapist, social worker, non-medical service provider, member of a peer support group, parent, child, or other relative. Reliable documentation of an individual’s disability and/or their need for a reasonable accommodation or modification can also be provided by the person making the request. This may include proof of receipt of disability-related benefits, such as SSI or SSDI or the requestor’s own credible statement. The determination of whether a third party is reliable is determined on a case-by-case basis and may take into account how the third party is familiar with the individual’s disability and/or the disability-related need for the accommodation.
+Can a housing provider have a “no pets” rule?
+Yes, but the housing provider must make exceptions to the rule as a reasonable accommodation if it is necessary to allow a person with a disability to have an equal opportunity to enjoy housing. Refusing to allow necessary service animals or emotional-support animals is illegal discrimination. Service animals and emotional-support animals are not subject to breed, size, or weight restrictions ordinarily applied to pets, and tenants cannot be charged pet deposits or pet rent for them.
+What is the difference between an emotional support animal and a service animal?
+An emotional support animal (ESA) is an animal that provides emotional, cognitive, or other similar support to a person with a disability to assist them in managing the symptoms of their disability. ESAs are also referred to as comfort animals or support animals. A service animal refers to an animal trained to perform specific tasks to assist an individual with a disability, including a physical, sensory, psychiatric, intellectual, or other mental disability. For example, guide dogs are service animals that assist people who are blind or have low vision with navigation, and signal dogs are service animals that alert individuals who are deaf or hard-of-hearing to sounds. An ESA is not a service animal because the ESA is not specifically trained to assist a person with a disability.
+For more information, please see CRD’s
+Emotional Support Animals and Fair Housing Law factsheet
+Did Assembly Bill 468 change California fair housing law regarding ESAs?
+No. In 2021, California enacted Assembly Bill 468, which, among other things, requires a
+business selling emotional support dogs and/or ESA vests, tags, or certifications to notify the buyer that an ESA is not specifically trained to be a service dog and is not entitled to the rights and privileges accorded by law to service dogs. AB 468 also places some conditions on health care practitioners providing documentation relating to an individual’s need for an emotional support dog. Importantly, AB 468 expressly does not “restrict or change existing federal and state law related to a person’s rights for reasonable accommodation and equal access to housing,” and the Fair Employment and Housing Act invalidates any state law to the extent it purports to require or permit any unlawful housing discrimination, including the denial of reasonable accommodations. Therefore, housing providers must allow
+reasonable accommodations for ESAs under the rules described in these FAQs. This includes existing rules regarding what type of documentation establishes someone’s disability-related need for a reasonable accommodation to have an ESA.
+For more information, see CRD’s
+Emotional Support Animals and Fair Housing Law factsheet
+.
+What is a reasonable modification?
+A reasonable modification is different from a reasonable accommodation because it is a physical change or alteration to a tenant’s unit or the common areas associated with the unit. A request for a change or alteration is considered to be a reasonable modification if it is necessary to afford the individual with a disability an equal opportunity to use and enjoy their home. Under most circumstances, the refusal by a landlord, HOA, or other housing provider to allow an individual with a disability the opportunity to make a reasonable modification constitutes unlawful housing discrimination. Some examples of reasonable modifications include:
+Installing a grab bar in a bathroom
+Widening doorways to make rooms more accessible for persons in wheelchairs
+Lowering kitchen cabinets to a height suitable for persons in wheelchairs
+Adding a ramp to make a primary entrance so it is accessible for persons in wheelchairs
+Altering a walkway to provide access to a public or common use area
+Installing “blinking” doorbells or emergency alarms to provide alerts to someone who is Deaf, or brailed signage for someone who is Blind.
+If a tenant with a disability needs to modify the rental unit, is the housing provider required to pay for the modification?
+In most instances, the tenant is responsible for all costs connected to the modification. This may include the cost of restoring the premises to the condition that existed before the modification (other than for reasonable wear and tear). However, a housing provider is required to pay for the modification if:
+The housing is government subsidized, such as when the housing provider is a government entity, or the recipient of federal or state funding for affordable housing, or part of a government entity’s program or activities to provide housing
+The modifications are needed because of a failure to maintain the housing, especially of it involves an accessible feature (such as an elevator)
+The accessibility feature was required by building and accessibility codes at the time of construction, but the building/housing provider failed to comply with those codes
+Can a housing provider refuse to rent to someone because of their source of income?
+No. California law protects tenants from discrimination based on how a tenant will be paying rent (“source of income”). This includes the State of California’s COVID-19 Rent Relief Program, Housing Choice (Section 8) vouchers, (SSI) social security disability benefits, or wages earned from a job. Some examples of source of income discrimination include:
+Refusal to comply with the requirements of any public assistance, rental assistance, or housing subsidy program, such as refusing to fill out necessary paperwork or to provide necessary information or documents
+Applying different terms, conditions, and privileges to a tenancy based on the applicant or renter’s source of income, such as charging a higher security deposit for Section 8 applicants or refusing to allow tenants who are using rental assistance from using a pool or other amenities
+Advertising a preference or limitation based on a tenant’s source of income, such as including in an a  “No Section 8.”
+For more information, see CRD’s
+Source of Income Discrimination factsheet
+and
+Source of Income FAQ
+Can a housing provider consider an applicant’s criminal history in deciding whether or not to rent to them?
+Yes.  Generally, a housing provider may check the criminal history of an applicant, but there are some limitations. Housing  providers cannot consider some types of criminal history including arrests that did not lead to a conviction, records that are sealed or expunged, or records or matters processed in the juvenile justice system. Housing providers are also prohibited from having “blanket bans” of all people with a criminal history.
+If a housing provider intends to deny someone’s application based on a criminal conviction, it must be directly-related to someone’s ability to be a good tenant and to not be a threat to the health and safety of others and the property. In determining whether a criminal conviction is directly-related, a housing provider should consider the nature and severity of the crime and the amount of time that has passed since the criminal conduct occurred.
+For more information, please see CRD’s
+Fair Housing and Criminal History factsheet
+and
+Fair Housing and Criminal History FAQ
+Does the law protect tenants from harassment by housing providers and other tenants?
+Yes. California’s fair housing laws prohibit housing providers (including their employees or agents) and other tenants from discriminating against or harassing a tenant, resident, home seeker, applicant, homeowner, and others, because of a protected characteristic. Housing providers have a duty to correct and end discriminatory housing practices, including harassment, committed not only by the housing provider but also by third parties (such as other tenants, other residents, or contractors hired by the housing provider) when the housing provider has the legal responsibility or authority to correct it.
+For more information, see CRD’s
+Housing Harassment Prevention Guide
+and
+Sexual Harassment in Housing factsheet
+Must I be a U.S. citizen or legal permanent resident to file a complaint of housing discrimination?
+No. California’s fair housing laws protect Californians regardless of their citizenship or immigration status. CRD does not inquire about a complainant’s citizenship or immigration status.
+For more information, see CRD’s
+California Protects the Civil Rights of Immigrants factsheet
+What are the time limits for filing a complaint of housing discrimination?
+In general, a complaint of housing discrimination must be filed within one year from the date an alleged discriminatory act occurred.
+If I already filed a complaint with the federal Department of Housing and Urban Development (HUD), can I also file with CRD?
+If a complaint has been filed with HUD, it will automatically be filed with CRD as well. In most cases, HUD will send the complaint to CRD for investigation. If a complaint is filed with CRD and alleges facts that would violate the federal Fair Housing Act, the complaint is automatically filed with HUD, although CRD will investigate.
+Does a person have to file a housing complaint with CRD before filing a complaint in court?
+No. A person may file directly in court without first filing a complaint with CRD. This is different than filing an employment case, which must first be filed with CRD before a person can file a complaint in court. The time limit for filing in court is two years from the date of the alleged discrimination. If a complaint has been filed with CRD, the two-year time period does not include the time CRD spent processing the case.
+Does CRD help people find housing or resolve landlord/tenant problems connected with their current housing?
+CRD does not help people find housing. CRD cannot help with housing issues not related to discrimination, and does not represent tenants in unlawful detainers. When unrelated to discrimination, CRD does not have jurisdiction over:
+Plumbing, heating, or electrical problems
+Failure to make repairs
+Pests or vermin
+Excessive noise
+Entry without enough notice
+Evictions
+Violation of rent-control laws
+Failure to return security deposit
+Other housing issues
+Does CRD help people resolve problems connected with subprime residential mortgage lending?
+Predatory lending is primarily a consumer law issue affecting all borrowers. Consumers can best seek relief under the Unfair Competition Law (UCL) by filing complaints against those businesses with the
+California Attorney General’s Office
+, which enforces the UCL. Consumers can also file complaints against residential mortgage lenders with the California Department of Corporations, which licenses and regulates lenders. However, if residential predatory lending has occurred because of discrimination against a protected category covered by FEHA, CRD has jurisdiction and should be able to assist those aggrieved borrowers.
+651 Bannon Street, Suite 200
+Sacramento, CA 95811
+Regional Offices
+800-884-1684 (voice)
+California's Relay Service at 711
+contact.center@calcivilrights.ca.gov

@@ -1,0 +1,215 @@
+SOURCE: https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM
+RETRIEVED: 2026-10-01 22:56 UTC
+
+P.L. 2026, c.043 (A3497 1R ACS)
+Title
+56
+Chapter
+9 (Rename)
+Antitrust
+Acts
+§§1-7
+C.56:9-20
+to
+56:9-26
+§§8,9
+Note
+P.L.
+2026, CHAPTER 43,
+approved July 20, 2026
+Assembly Committee
+Substitute
+(First Reprint)
+for
+Assembly, No. 3497
+An Act
+concerning residential rental property pricing and supplementing P.L.1970, c.73
+(C.56:9-1 et seq.).
+Be It Enacted
+by the Senate and General
+Assembly of the State of New Jersey:
+1.    This act shall be known and may be cited as the
+“Forbidding the Algorithmic Inflation of Rent (FAIR) Act.”
+2.    The Legislature finds and declares that:
+a.     New Jersey is in the midst of an affordable
+housing crisis, as demonstrated by rental housing industry data showing median
+rent for a three-bedroom apartment increasing by 35 percent in the State from
+2021 through 2024 and a studio in a more urban environment such as Hoboken
+increasing by 61 percent in the same timeframe.
+b.    Data from the United States Census Bureau
+indicates that over 50 percent of renters in New Jersey are deemed “rent
+burdened,” which means an individual spends more than 30 percent of income on
+rent.
+c.     Recent national data indicates that landlords of
+residential rental housing use property management software to collude to
+restrain trade and raise residential rental housing prices, which has contributed
+to recent increases in the State.
+d.    Landlords engaging with the software supply
+real-time prices and additional lease information to companies managing the
+software, who proceed to use algorithms to fix rental prices. As a result,
+competition decreases and rental prices increase.
+e.     A leading property management software company
+in the United States hinted at the outcome of using its software by stating on
+its website that it enables landlords to “outperform the market” by up to seven
+percent, with a company executive publicly stating that the software could be
+responsible for rent increases of up to 14.5 percent.
+f.
+Property management
+software companies and landlords who use algorithmic systems that serve a
+coordinating function have been subject to public and private litigation for
+alleged violation of existing State and federal antitrust law.
+g.
+Although the form of
+restraint of trade has evolved, the vital role of antitrust law in maintaining
+the competitive function of the free market remains.
+h.    New Jersey recognizes housing as a basic human
+need and endeavors to expand access to affordable housing.
+3.    As used in this act:
+“Affordability controls” means a restriction on rent
+price established pursuant to a government program, including but not limited
+to: the federal section 8 Housing Choice Voucher Homeownership Program,
+authorized pursuant to Subpart M of Part 982 of Title 24 of the Code of Federal
+Regulations (24 CFR 982.601 et seq.); P.L.2004, c.140 (C.52:27D-287.1 et seq.);
+the “Fair Housing Act,” P.L.1985, c.222 (C.52:27D-301 et al.); any program
+administered by the New Jersey Housing and Mortgage Finance Agency; a rent
+control or rent leveling ordinance; or other local, State, or federal
+government housing program.
+1
+“
+Algorithmic
+device” means a device that uses one or more algorithms to process or otherwise
+perform calculations of data, including, but not limited to, data concerning
+rental prices, material lease terms, or occupancy levels.  An algorithmic
+device does not include: (1) a spreadsheet that (a) operates without artificial
+intelligence and (b) requires human analysis to process or otherwise perform
+calculations of data; or (2) a database that only uses an algorithm to query
+unprocessed data stored on or within that database
+.
+1
+“Competitively
+sensitive information” means nonpublic information including, but not limited
+to, prices, supply levels, security deposits, ideal occupancy levels, lease
+contract termination, renewal dates of residential dwelling units, or any other
+material lease terms.
+“Coordinating function” means:
+(1)   collecting the competitively sensitive
+information of two or more rental property owners for the purpose of analyzing
+or processing information through the use of an algorithm or other automated
+process, including by using the information to train an algorithm, where the
+algorithm or other automated process is used to set or recommend rental prices,
+material lease terms, or occupancy levels;
+(2)   setting rental prices, material lease terms, or
+occupancy levels pursuant to an underlying algorithm or other automated process
+that analyzes or processes competitively sensitive information of any other
+rental property owner, including by using that competitively sensitive
+information to train an algorithm; or
+(3)   setting for or recommending to two or more rental
+property owners: rental prices, material lease terms, or occupancy levels
+pursuant to the same or a substantially similar underlying algorithm or other
+automated process, that facilitates parallel pricing coordination.
+“Coordinating function” shall not include the following:
+(1)
+providing, using, or collecting competitively sensitive
+information solely for the purpose of conducting
+research, statistical analysis, or testing, where the competitively
+sensitive information is not used in setting or recommending rental prices,
+material lease terms, fees, occupancy rates or levels, or other contract terms
+for current or future leases;
+(2)
+developing an estimated amount of rent that is
+made available to the public at no cost;
+(3)
+the use of a real estate brokerage database that is available on
+equal terms to subscribers that lists properties for rent or sale but does not:
+(a) set or recommend rental prices, material lease
+terms, or occupancy rates or levels; or
+(b) collect competitively sensitive information to set or
+recommend rental prices, material lease terms, or occupancy rates or levels; or
+(4)   a government entity setting or limiting rents or
+sale prices of residential property through affordability controls in
+accordance with the law.
+“Coordinator” means any person who operates
+1
+[
+a software or
+data analytics service
+]
+algorithmic revenue management software or an algorithmic device
+1
+that
+performs a coordinating function for any rental property owner, including a
+rental property owner performing a coordinating function for their own benefit.
+“Coordinator” shall not include a government entity that sets or limits rents
+or sale prices of residential property through affordability controls in
+accordance with law.
+“Nonpublic information” means information that is not
+available to the public at no cost. In instances where the information is
+combined with public information, all combined information shall be deemed
+nonpublic information.
+“Person” means, unless the context requires otherwise,
+any natural person or persons, or any corporation, partnership, company, trust,
+or association of persons.
+“Parallel pricing coordination” means a tacit or
+express agreement between two or more rental property owners to raise, change,
+maintain, or manipulate pricing for the leasing of reasonably interchangeable
+residential dwelling units, unless required to do so in accordance with
+affordability controls.  This includes agreements between a coordinator and
+multiple property owners.
+1
+“Rental
+property owner” means a person that owns, directly or indirectly, one or more
+rental residential dwelling units.  Any person that holds a controlling
+interest in an entity that owns a rental residential dwelling unit shall be
+deemed to constitute a single rental property owner with that entity.
+1
+“Residential dwelling unit” means any house, apartment,
+accessory unit, or other unit intended to be used as a primary residence in the
+State. “Residential dwelling unit” shall not include inpatient medical care,
+licensed long-term care, or detention or correctional facilities.
+“Tacit agreement” means mutual consent demonstrated
+without verbal or written communication.  Mutual consent may, but need not, be
+demonstrated by a pattern of conduct.
+4.    It
+shall be unlawful and a violation of the “New Jersey Antitrust Act,” P.L.1970,
+c.73 (C.56:9-1 et seq.) for:
+a.     a rental property owner, or any agent,
+representative, or subcontractor thereof, to receive, subscribe to, contract
+for, or otherwise exchange any form of consideration in return for the use of,
+the services of a coordinator;
+b.    a coordinator to facilitate a tacit or express
+agreement among rental property owners that restricts competition with respect
+to residential dwelling units, including by performing a coordinating
+function;
+c.     two or more persons to engage in
+1
+or
+otherwise facilitate
+1
+parallel pricing coordination;
+d.    any agent or representative of a coordinator or
+subcontractor thereof to engage in parallel pricing coordination; or
+e.     any person to perform a coordinating function.
+5.    The provisions of this act shall not be construed
+in any manner that limits the application of sections 6 through 17 of P.L.1970,
+c.73 (C.56:9-6 through 9-17) to a violation of section 4 of this act.
+6.    a.  This act shall not authorize or permit any
+conduct already unlawful pursuant to the “New Jersey Antitrust Act,” P.L.1970,
+c.73 (C.56:9-1 et seq.), or any other law, and shall be construed as in
+addition to that act.
+b.    A municipality shall be prohibited from enacting
+an ordinance that conflicts with this act.  This subsection shall not be
+construed to prohibit the enactment of ordinances explicitly authorized or
+required by any other law.
+7.    The Attorney General shall establish, on the
+official website of the Department of Law and Public Safety, a location to
+receive complaints alleging any violation or suspected violation of this act,
+which requirement may be satisfied by establishing or maintaining such a
+location for complaints alleging violations or suspected violations of the “New
+Jersey Antitrust Act” P.L.1970, c.73 (C.56:9-1 et seq.).
+8.    The Attorney General may, pursuant to the
+“Administrative Procedure Act,” P.L.1968, c.410 (C.52:14B-1 et seq.), adopt any
+rules and regulations to effectuate the purposes of this act.
+9.    This act shall take effect on the first day of
+the twelfth month next following the date of enactment.
+Establishes “Forbidding the Algorithmic Inflation of
+Rent (FAIR) Act.”

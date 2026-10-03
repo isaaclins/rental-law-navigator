@@ -1,0 +1,46 @@
+SOURCE: https://cityclerk.lacity.org/onlinedocs/2024/24-1031_misc_9-03-24.pdf
+RETRIEVED: 2026-10-01 22:36 UTC
+
+MOTION
+SEP 0 3 2024
+I THEREFORE MOVE that the City Council instruct the Los Angeles Housing Department to 
+report on the number of ownership and management entities that are using algorithm-based 
+software to establish rents and the feasibility of instituting a ban on the use of this software to set 
+rents in the City.
+mulisom 
+mcatrn
+masanarna 
+exyrs Banserem
+Action is being taken to address the negative impacts caused by algorithm-based software. 
+It is reported that RealPage is currently being investigated by the Department of Justice over a 
+concern that RealPage’s software is “used as a shield for competitors to exchange sensitive pricing 
+data that their rivals would otherwise not be able to access.” Numerous other lawsuits have been 
+filed against RealPage and similar companies, including the District of Columbia Attorney General 
+in November 2023, the Arizona Attorney General in February 2024, and more than 20 private class 
+action lawsuits nationwide. In July 2024, the San Francisco Board of Supervisors approved 
+legislation to ban property owners and managers from using algorithm-based tools that recommend 
+or set rental prices. It is imperative that the City understand the impact that these tools have on its 
+rental stock and its residents, and what measures can be taken to address any negative outcomes.
+The City Council has been working to address the housing affordability crisis through a 
+number of measures. The City has supported the construction of new units, implemented land use 
+measures to support the creation of affordable units, and made a significant financial investment 
+in the expansion of affordable housing. Recent news reports have documented that certain 
+companies are using algorithm-based tools to establish rent prices that increase eviction rates and 
+add fees to inflate rent. Since 60 percent of the City’s housing units are renter-occupied, it is critical 
+that the City take action to support housing stability for its residents.
+One of the companies that provides this software is RealPage, a revenue management 
+company whose rent-setting algorithm is said to hold lease transaction data for more than 13 
+million units across the country It is reported that twenty (20) companies that use RealPage’s rent­
+setting tool in Los Angeles account for more than 52 percent of all rental apartment buildings in 
+the City.
+Recent reports note that some corporate landlords are using Artificial Intelligence and 
+algorithm-based software to estimate supply and demand for their listings, allowing them to 
+maximize rents. The software sets new daily prices for every available unit by drawing from 
+competitor data on the actual rent tenants pay, as opposed to the publicly advertised rent. This tool 
+can be used by companies to stifle rental competition, which is a potential violation of antitrust 
+law.
+SECONDED BYWOTUAXUXXk )
+PRESENTED By.5Ze_K/@
+HEATHER HUTT
+Councilmember, 10th District
+HOUSING & HOMELESSNESS

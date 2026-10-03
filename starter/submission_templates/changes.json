@@ -1,0 +1,18 @@
+{
+  "T1": {
+    "affected_address_ids": [
+      "A0002",
+      "A0010"
+    ],
+    "notes": "..."
+  },
+  "T3": {
+    "affected_address_ids": [
+      "A0001"
+    ],
+    "conflict_flag_address_ids": [
+      "A0001"
+    ],
+    "notes": "..."
+  }
+}
