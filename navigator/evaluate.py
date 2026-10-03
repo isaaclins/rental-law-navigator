@@ -68,6 +68,12 @@ class Facts:
     units_note: str
     use: str
     raw: dict
+    # Facts only a user can supply (any-address lookup, #39); None = unknown, which keeps the sample behaviour.
+    owner_occupied: bool | None = None
+    # certificate-of-occupancy / completion date, breaks cutoff-year ties
+    co_date: dt.date | None = None
+    # sample rows are apartment buildings; a user's address may not be
+    multifamily_assumed: bool = True
 
 
 # ------------------------------------------------------------------ address facts
@@ -207,6 +213,14 @@ def coverage(rule: dict, f: Facts, as_of: dt.date) -> tuple[str, list[str]]:
     if oo:
         if lo is not None and lo > oo:
             why.append(f"owner-occupied exemption (<= {oo} units) cannot apply: {f.units_note}")
+        elif f.owner_occupied is False:
+            why.append(
+                f"not owner-occupied: the owner-occupied exemption (<= {oo} units) does not apply"
+            )
+        elif f.owner_occupied and hi is not None and hi <= oo:
+            worse(NO, f"owner-occupied with {f.units_note}: exempt (<= {oo} units)")
+        elif lo is None and (f.owner_occupied or not f.multifamily_assumed):
+            worse(UNK, f"exempt if owner-occupied with <= {oo} units; {f.units_note}")
         elif lo is None:
             why.append(
                 f"owner-occupied exemption (<= {oo} units) not checkable; sample rows are multifamily buildings"
@@ -222,6 +236,19 @@ def coverage(rule: dict, f: Facts, as_of: dt.date) -> tuple[str, list[str]]:
         basis = (cut.get("basis") or "certificate_of_occupancy").replace("_", " ")
         if d is None:
             pass
+        elif f.co_date is not None and (f.year_built is None or f.year_built == d.year):
+            ci = cut.get("covered_if", "on_or_before")
+            phr = f"{basis} {ci.replace('_', ' ')} {d.isoformat()}"
+            ok = {
+                "on_or_before": f.co_date <= d,
+                "before": f.co_date < d,
+                "on_or_after": f.co_date >= d,
+                "after": f.co_date > d,
+            }.get(ci, f.co_date <= d)
+            if ok:
+                why.append(f"certificate date {f.co_date.isoformat()}: meets the cutoff ({phr})")
+            else:
+                worse(NO, f"certificate date {f.co_date.isoformat()}: outside the cutoff ({phr})")
         elif f.year_built is None:
             worse(
                 UNK,
@@ -248,7 +275,22 @@ def coverage(rule: dict, f: Facts, as_of: dt.date) -> tuple[str, list[str]]:
             else as_of.replace(year=as_of.year - yrs, day=28)
         )
         filing = nce.get("requires_owner_filing")
-        if f.year_built is None:
+        if f.co_date is not None and (f.year_built is None or f.year_built == thr.year):
+            if f.co_date <= thr:
+                why.append(
+                    f"certificate date {f.co_date.isoformat()}: older than the {yrs}-year new-construction exemption"
+                )
+            elif filing:
+                worse(
+                    UNK,
+                    f"certificate date {f.co_date.isoformat()}: may be exempt as new construction (< {yrs} years) if the owner filed for the exemption; filing not in the data",
+                )
+            else:
+                worse(
+                    NO,
+                    f"certificate date {f.co_date.isoformat()}: exempt as new construction (within {yrs} years)",
+                )
+        elif f.year_built is None:
             worse(
                 UNK,
                 f"exempt if newer than {yrs} years ({thr.isoformat()}); year built is not in the data",
