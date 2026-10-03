@@ -45,6 +45,8 @@ from .llm import MAX_PARALLEL, call_llm
 from .prompts import (
     COVERAGE_AUDIT_SCHEMA,
     COVERAGE_AUDIT_SYSTEM,
+    DATE_AUDIT_SCHEMA,
+    DATE_AUDIT_SYSTEM,
     EXTRACT_SCHEMA,
     PROBE_SCHEMA,
     PROBE_SYSTEM,
@@ -54,6 +56,7 @@ from .prompts import (
     SPAN_FIX_SCHEMA,
     SYSTEM,
     coverage_audit_prompt,
+    date_audit_prompt,
     extract_prompt,
     probe_prompt,
     review_prompt,
@@ -432,6 +435,97 @@ def _audit_docs(jur: str, rules_j: list[dict], all_docs: list[Doc]) -> list[Doc]
     return sorted({d.doc_id: d for d in docs}.values(), key=lambda d: d.doc_id)
 
 
+def date_audit(jur: str, rules_j: list[dict], all_docs: list[Doc]) -> None:
+    """Separate when a rule first took effect from when its current version / figure took effect.
+
+    Sets in_force_since (only with a verbatim evidence quote), current_version_effective and amends_existing_law.
+    effective_date itself is left as extracted (the date of the requirement as described, matching the brief's usage)."""
+    enacted = [r for r in rules_j if r.get("legal_status", "enacted") == "enacted"]
+    if not enacted:
+        return
+    docs = _audit_docs(jur, enacted, all_docs)
+    refs = [
+        {
+            "ref": f"r{i}",
+            "category": r["category"],
+            "title": r.get("title"),
+            "citation": r.get("citation"),
+            "key_value": r.get("key_value"),
+            "effective_date": r.get("effective_date"),
+            "effective_date_note": r.get("effective_date_note"),
+            "source_doc_id": r.get("source_doc_id"),
+        }
+        for i, r in enumerate(enacted)
+    ]
+    parsed, meta = call_llm(
+        DATE_AUDIT_SYSTEM,
+        date_audit_prompt(jur, refs, docs),
+        DATE_AUDIT_SCHEMA,
+        tag=f"date-audit:{jur}",
+        timeout=1800,
+    )
+    doc_ids = [d.doc_id for d in docs]
+    results = []
+    for a in parsed.get("dates", []):
+        try:
+            r = enacted[int(str(a.get("rule_ref", "")).lstrip("r"))]
+        except (ValueError, IndexError):
+            continue
+        new = bool(a.get("requirement_is_new"))
+        since = N.date(a.get("in_force_since"))
+        ev = a.get("in_force_since_evidence") or {}
+        verified = bool(
+            since
+            and ev.get("doc_id") in doc_ids
+            and verify_span(ev["doc_id"], ev.get("quoted_span", ""))
+        )
+        cur = N.date(a.get("current_version_effective")) or (
+            None if new else r.get("effective_date")
+        )
+        eff = N.date_floor(r.get("effective_date"))
+        if new:
+            r["amends_existing_law"] = False
+            r["in_force_since"] = r.get("effective_date")
+            r["current_version_effective"] = None
+        else:
+            r["amends_existing_law"] = True
+            # a verified start date must not be later than the extracted date (it would push the rule into the future)
+            r["in_force_since"] = (
+                since if verified and (eff is None or N.date_floor(since) <= eff) else None
+            )
+            r["current_version_effective"] = cur
+        r["prior_version_note"] = a.get("prior_version_note")
+        r["in_force_since_evidence"] = (
+            {"doc_id": ev["doc_id"], "quoted_span": verify_span(ev["doc_id"], ev["quoted_span"])}
+            if verified
+            else None
+        )
+        results.append(
+            {
+                "rule": r.get("citation"),
+                "new": new,
+                "in_force_since": r["in_force_since"],
+                "current_version_effective": r["current_version_effective"],
+                "since_verified": verified,
+                "since_claimed": since,
+            }
+        )
+    audit(
+        {
+            "stage": "date_audit",
+            "jurisdiction": jur,
+            "model": meta["model"],
+            "prompt_hash": meta["prompt_hash"],
+            "cached": meta["cached"],
+            "raw_output": meta["raw"],
+            "validation": results,
+        }
+    )
+    log(
+        f"date audit {jur}: {sum(1 for x in results if not x['new'])} amended/long-standing of {len(results)}"
+    )
+
+
 def _cell_consistency(rules: list[dict], findings: list[dict]) -> list[dict]:
     """A cell the reviewer found to have no rule keeps that finding; situational rules there (coverage turns on facts
     not in the data) are excluded and logged instead of contradicting it."""
@@ -711,14 +805,21 @@ def review_new_doc(
 
 
 # ------------------------------------------------------------------ stage 4
+def start_date(rule: dict) -> dt.date | None:
+    """Date before which the rule did not exist. Amended long-standing laws: their verified start, else unknown (None)."""
+    if rule.get("amends_existing_law"):
+        return N.date_floor(rule.get("in_force_since"))
+    return N.date_floor(rule.get("effective_date"))
+
+
 def status_as_of(rule: dict, as_of: str = DEFAULT_AS_OF) -> str:
     ls = rule.get("legal_status", "enacted")
     if ls == "pending_bill":
         return "pending"
     if ls == "failed":
         return "failed"
-    eff = N.date_floor(rule.get("effective_date"))
-    if eff and eff > dt.date.fromisoformat(as_of):
+    start = start_date(rule)
+    if start and start > dt.date.fromisoformat(as_of):
         return "not_yet_effective"
     return "in_force"
 
@@ -806,6 +907,11 @@ def finalize(rules: list[dict], findings: list[dict], as_of: str = DEFAULT_AS_OF
             "legal_status": r.get("legal_status", "enacted"),
             "penalty": r.get("penalty"),
             "effective_date_note": r.get("effective_date_note"),
+            "in_force_since": r.get("in_force_since"),
+            "current_version_effective": r.get("current_version_effective"),
+            "amends_existing_law": r.get("amends_existing_law"),
+            "prior_version_note": r.get("prior_version_note"),
+            "in_force_since_evidence": r.get("in_force_since_evidence"),
             "enacted_date": r.get("enacted_date"),
             "sunset_date": r.get("sunset_date"),
             "citation_aliases": r.get("citation_aliases") or [],
@@ -970,6 +1076,13 @@ def run(docs: list[Doc] | None = None, review: bool = True, out_path=RULES_JSON)
             fr += rs
             ff += fs
         fr = _cell_consistency(fr, ff)
+        with ThreadPoolExecutor(max_workers=MAX_PARALLEL) as ex:
+            list(
+                ex.map(
+                    lambda j: date_audit(j, [r for r in fr if r["jurisdiction"] == j], all_docs),
+                    jurs,
+                )
+            )
         rules, findings = fr, ff
     (OUTPUT_DIR / "rules_reviewed.json").write_text(
         json.dumps({"rules": rules, "no_rule_findings": findings}, indent=1, ensure_ascii=False),

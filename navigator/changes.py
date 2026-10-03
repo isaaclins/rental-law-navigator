@@ -279,6 +279,7 @@ def ingest_new(
     for j in jurs:
         ctx_existing = [r for r in reviewed["rules"] if r["jurisdiction"] in (j, N.state_of(j))]
         nr, nf = X.review_new_doc(j, cand_r, cand_f, doc, ctx_existing)
+        X.date_audit(j, nr, [doc])
         reviewed["rules"] += nr
         reviewed["no_rule_findings"] += nf
     reviewed_path.write_text(json.dumps(reviewed, indent=1, ensure_ascii=False), encoding="utf-8")

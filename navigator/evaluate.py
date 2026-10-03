@@ -299,10 +299,30 @@ def time_status(rule: dict, as_of: dt.date) -> str | None:
     sunset = N.date_floor(rule.get("sunset_date"))
     if sunset and sunset <= as_of:
         return None
-    eff = N.date_floor(rule.get("effective_date"))
-    if eff and eff > as_of:
+    if rule.get(
+        "amends_existing_law"
+    ):  # long-standing law: only its first effect matters for existence
+        start = N.date_floor(rule.get("in_force_since"))
+    else:
+        start = N.date_floor(rule.get("effective_date"))
+    if start and start > as_of:
         return "not_yet_effective"
     return "in_force"
+
+
+def version_note(rule: dict, as_of: dt.date) -> str:
+    """Explain when the query date falls before the current version / figure of a long-standing law."""
+    cur = N.date_floor(rule.get("current_version_effective"))
+    if rule.get("amends_existing_law") and cur and as_of < cur:
+        since = rule.get("in_force_since")
+        prior = rule.get("prior_version_note")
+        return (
+            f" Earlier version in force on {as_of}"
+            + (f" (since {since})" if since else "")
+            + f"; current version/figure from {rule.get('current_version_effective')}."
+            + (f" {prior}" if prior else "")
+        )
+    return ""
 
 
 def _applies_here(rule: dict, f: Facts) -> bool:
@@ -435,6 +455,8 @@ def evaluate_address(
                         + ", ".join(f"{x['team_rule_id']} ({x['citation']})" for x in unk_local)
                         + " applies (then the state rule yields); local coverage is unknown from the data."
                     )
+        if ts == "in_force":
+            expl += version_note(r, as_of_d)
         if notes:
             expl += " Note: " + " ".join(notes)
         out.append(

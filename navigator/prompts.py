@@ -613,3 +613,76 @@ DOCUMENTS
 {doc_txt}
 
 Return one audit per rule."""
+
+
+# ------------------------------------------------------------------ date audit (first effect vs. current version)
+DATE_AUDIT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "dates": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "rule_ref": {"type": "string"},
+                    "requirement_is_new": {"type": "boolean"},
+                    "in_force_since": {"type": ["string", "null"]},
+                    "in_force_since_evidence": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "doc_id": {"type": "string"},
+                            "quoted_span": {"type": "string"},
+                        },
+                    },
+                    "current_version_effective": {"type": ["string", "null"]},
+                    "prior_version_note": {"type": ["string", "null"]},
+                },
+                "required": [
+                    "rule_ref",
+                    "requirement_is_new",
+                    "in_force_since",
+                    "current_version_effective",
+                ],
+            },
+        }
+    },
+    "required": ["dates"],
+}
+
+DATE_AUDIT_SYSTEM = (
+    SYSTEM
+    + """
+
+YOU ARE NOW AUDITING DATES for the final rules of one jurisdiction. Each record has an effective_date that may be the date the
+rule first took effect OR only the date of a later amendment, re-enactment, annual figure update or rate period of a law that was
+already in force. A date program uses your answer to decide whether the rule existed on a past query date.
+For EACH rule:
+- requirement_is_new: true if nothing of this kind applied before the effective_date given, e.g. a new ban on pricing algorithms
+  added to an older antitrust statute, or a new ordinance. false if an earlier version of the same kind of rule applied before
+  (e.g. a deposit cap lowered by an amendment: a higher cap existed before; a rent ordinance whose annual allowable increase is
+  reset each year; a statute re-enacted or amended with a new operative date).
+- in_force_since: ISO date (or YYYY-MM / YYYY) when the requirement of this kind first applied, if a provided document states it
+  or it is stated by the law's own text (e.g. "applies to rent increases on or after March 15, 2019", an ordinance enacted in 1979).
+  Give in_force_since_evidence: doc_id + a passage copied exactly that states it. Use null when no document states it.
+- current_version_effective: date the current text / current figure took effect (amendment operative date, current rate period
+  start), or null if the rule has not changed since it first took effect.
+- prior_version_note: one sentence on what applied before the current version (e.g. "AB 1482 cap in force since 2020; SB 567
+  re-enacted it operative 2024-04-01"; "annual allowable increase is reset each March 1").
+Never invent dates; null is fine."""
+)
+
+
+def date_audit_prompt(jurisdiction: str, rules: list[dict], docs: list) -> str:
+    doc_txt = "\n\n".join(
+        f'<document id="{d.doc_id}" type="{d.source_type}">\n{d.text}\n</document>' for d in docs
+    )
+    rl = json.dumps(rules, ensure_ascii=False, indent=1)
+    return f"""JURISDICTION: {jurisdiction}
+
+RULES (rule_ref = ref)
+{rl}
+
+DOCUMENTS
+{doc_txt}
+
+Return one entry per rule."""

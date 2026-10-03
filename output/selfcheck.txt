@@ -109,6 +109,13 @@
       state-level rent entries on MA addresses (should be the state bar on rent control only): {'MA-RENT-01 G.L. c. 40P, § 4 -> applies': 110}
 
 ====================================================================================================
+5b. as-of sanity: amended long-standing laws exist before their current version date
+====================================================================================================
+  28 rules marked as amendments/annual updates of an existing law
+  PASS as of 2025-12-31: no amended long-standing rule reported not_yet_effective []
+  PASS as of 2024-01-01: no amended long-standing rule reported not_yet_effective []
+
+====================================================================================================
 6. known open questions (README section 9) surfaced as conflict flags
 ====================================================================================================
   PASS Berkeley algorithmic ban: two effective dates: BER-ALG-01: Two published effective dates: January 2026 (law-firm alert) vs March 1, 2026 (reported as ordinance text, not stated in the provided ordinance document).
