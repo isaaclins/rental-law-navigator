@@ -13,6 +13,9 @@
      ring into a grey rectangle on iPhone Safari; opacity + translate keep the motion */
   *, *::before, *::after { filter: none !important; }
   .table-wrap, .matrix-wrap, .log, .idlist, .doc-text { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+  /* visually hidden .sr labels are position:absolute; without a positioned scroller they escape its
+     overflow clip and widen the page (rules explorer was 604 px wide on a 393 px iPhone) */
+  .table-wrap, .matrix-wrap, .log, .idlist { position: relative; }
 }
 
 /* ------------------------------------------------ phones: portrait, and landscape phones */

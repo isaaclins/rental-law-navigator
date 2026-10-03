@@ -27,6 +27,7 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
+from web.accounts import router as accounts_router
 from web.any_address import router as any_address_router
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -417,6 +418,22 @@ def adjust_for_date(entries: list[dict], as_of: str) -> list[dict]:
     return out
 
 
+def rule_status_at(r: dict, as_of: str | None) -> str | None:
+    """A rule's status on as_of, from the evaluator's time_status (same logic as the address answers, #69)."""
+    if not as_of or r.get("status") == "failed":
+        return r.get("status")
+    try:
+        from navigator.evaluate import time_status
+
+        ts = time_status(r, dt.date.fromisoformat(as_of))
+    except Exception:
+        return r.get("status")
+    if ts:
+        return ts
+    enacted = _norm_date(r.get("enacted_date"))
+    return "not_yet_effective" if enacted and enacted > as_of else r.get("status")
+
+
 def overriders(rule_id: str, present: set[str]) -> list[str]:
     """Rules at this address that override rule_id (either direction of the 'overrides' field)."""
     res = []
@@ -729,7 +746,7 @@ def city_breakdown(ids: list[str]) -> dict:
     )
 
 
-def build_change(t: dict, lang: str) -> dict:
+def build_change(t: dict, lang: str, as_of: str | None = None) -> dict:
     ch = STORE.changes.get(t["test_id"], {})
     rids = rules_for_test(t)
     before = t.get("as_of_before") or t.get("as_of") or STORE.base_as_of
@@ -739,7 +756,10 @@ def build_change(t: dict, lang: str) -> dict:
     return {
         **t,
         "our_rule_ids": rids,
-        "rules": [rule_view(STORE.rules[r], lang) for r in rids],
+        "rules": [
+            {**rule_view(STORE.rules[r], lang), "status": rule_status_at(STORE.rules[r], as_of)}
+            for r in rids
+        ],
         "before_date": before,
         "after_date": after,
         "before": result_counts(rids, before),
@@ -762,6 +782,7 @@ app = FastAPI(
 )
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.include_router(any_address_router)  # POST /api/resolve, /api/evaluate: any address (#39)
+app.include_router(accounts_router)  # sign-in, My properties, alerts, /privacy, /terms (#38)
 
 
 @app.middleware("http")
@@ -870,9 +891,10 @@ def address(address_id: str, as_of: str | None = None, lang: str = "en"):
 
 
 @app.get("/api/rules")
-def rules(lang: str = "en"):
+def rules(lang: str = "en", as_of: str | None = None):
+    d = _as_of(as_of) if as_of else None
     return [
-        rule_view(r, lang)
+        {**rule_view(r, lang), "status": rule_status_at(r, d)}
         for r in sorted(
             STORE.rules.values(),
             key=lambda r: (
@@ -898,11 +920,12 @@ def rule(rule_id: str, lang: str = "en"):
 
 
 @app.get("/api/coverage")
-def coverage():
+def coverage(as_of: str | None = None):
+    d = _as_of(as_of) if as_of else None
     cells = defaultdict(lambda: defaultdict(list))
     for r in STORE.rules.values():
         cells[r.get("jurisdiction")][r.get("category")].append(
-            {"id": r["team_rule_id"], "status": r.get("status"), "title": r.get("title")}
+            {"id": r["team_rule_id"], "status": rule_status_at(r, d), "title": r.get("title")}
         )
     no_rule = STORE.no_rule
     nr_cells = defaultdict(dict)
@@ -923,8 +946,9 @@ def coverage():
 
 
 @app.get("/api/changes")
-def changes(lang: str = "en"):
-    return [build_change(t, lang) for t in STORE.tests]
+def changes(lang: str = "en", as_of: str | None = None):
+    d = _as_of(as_of) if as_of else None
+    return [build_change(t, lang, d) for t in STORE.tests]
 
 
 @app.get("/api/timeline")
