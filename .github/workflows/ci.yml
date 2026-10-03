@@ -30,7 +30,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.2.0
       - name: ruff check
         run: uvx "ruff@${RUFF_VERSION}" check --output-format=github .
       - name: ruff format --check
@@ -42,7 +42,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.2.0
       - name: Validate output/rules.json, lookups.json, changes.json
         # Files that are not on this branch yet are reported as SKIP, not as failures.
         run: uv run --no-project --python 3.12 --with "jsonschema>=4.23" python scripts/validate_outputs.py
@@ -65,7 +65,7 @@ jobs:
           else
             echo "run=true" >> "$GITHUB_OUTPUT"
           fi
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.2.0
         if: steps.detect.outputs.run == 'true'
         with:
           enable-cache: ${{ hashFiles('uv.lock') != '' }}
@@ -108,7 +108,7 @@ jobs:
             echo "::notice title=web smoke test skipped::web/app.py or pyproject.toml is not on this branch yet"
             echo "run=false" >> "$GITHUB_OUTPUT"
           fi
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.2.0
         if: steps.detect.outputs.run == 'true'
         with:
           enable-cache: ${{ hashFiles('uv.lock') != '' }}
