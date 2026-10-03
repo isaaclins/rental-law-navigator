@@ -132,6 +132,19 @@ kbd { font: 500 11px/1 var(--sans); padding: 3px 6px; border-radius: 6px; backgr
 .nav-inner { position: relative; flex-wrap: nowrap; }
 .nav.scrolled .nav-inner::after { content: attr(data-nla); position: absolute; top: calc(100% + 6px); left: 50%; translate: -50% 0; white-space: nowrap; font-size: 11.5px; font-weight: 600; color: var(--wrn); background: rgb(255 255 255 / .95); padding: 2px 10px; border-radius: 999px; box-shadow: 0 0 0 1px var(--line); animation: chip-in .5s var(--ease-out) both; }
 @keyframes chip-in { from { opacity: 0; transform: translateY(-4px) scale(.94); filter: blur(4px); } }
+/* #58: on desktop the scrolled bar stays one row; the disclaimer sits under the wordmark instead of hanging below the bar */
+@media (min-width: 641px) and (min-height: 501px) {
+  .brand { position: relative; }
+  .brand-word { transition: transform var(--t) var(--ease-out); }
+  .nav.scrolled .brand-word { transform: translateY(-7px); }
+  .nav.scrolled .brand::after { content: attr(data-nla); position: absolute; left: 44px; top: calc(50% + 6px); font-size: 11px; line-height: 1.2; font-weight: 600; letter-spacing: .01em; color: var(--wrn); white-space: nowrap; animation: chip-in .5s var(--ease-out) both; }
+  .nav.scrolled .nav-inner::after { content: none; }
+}
+@media (min-width: 981px) and (max-width: 1120px) {
+  /* wordmark hidden here: two short lines beside the mark */
+  .nav.scrolled .brand::after { left: 42px; top: 50%; translate: 0 -50%; width: 52px; white-space: normal; font-size: 10.5px; line-height: 1.15; }
+  html:lang(es) .nav.scrolled .brand::after { width: 90px; }
+}
 .fixture-banner { pointer-events: auto; max-width: calc(var(--container) + 48px); margin: 8px auto 0; text-align: center; font-size: 12.5px; color: var(--unk); background: var(--unk-bg); border-radius: 999px; padding: 6px 14px; font-weight: 560; }
 .progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; background: var(--navy); transform-origin: 0 50%; transform: scaleX(0); opacity: 0; pointer-events: none; z-index: 60; }
 .progress.run { opacity: 1; animation: prog 1.2s var(--ease-out) forwards; }
@@ -486,7 +499,7 @@ details.src[open] .src-body { animation: open-body .45s var(--ease-out) both; }
 .rail-item .d { font-weight: 650; font-variant-numeric: tabular-nums; font-size: 14px; }
 .rail-item .t { font-weight: 560; font-size: 14.5px; }
 .rail-item .j { font-size: 12.5px; color: var(--ink-3); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.tests { display: grid; gap: 18px; }
+.tests { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .test { background: #fff; border-radius: var(--r-lg); box-shadow: var(--shadow-rest); padding: 24px 26px; transition: box-shadow var(--t) var(--ease-std), transform var(--t) var(--ease-out); }
 .test:hover { box-shadow: var(--shadow-lift); }
 .test-head { display: flex; gap: 16px; align-items: flex-start; }
@@ -495,7 +508,7 @@ details.src[open] .src-body { animation: open-body .45s var(--ease-out) both; }
 .test-head h2 { font-size: 19px; font-weight: 650; margin-top: 3px; }
 .test-head .exp { color: var(--ink-2); font-size: 14px; margin-top: 6px; max-width: 80ch; }
 .rchips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
-.rchip { display: inline-flex; align-items: center; gap: 8px; border-radius: 18px; padding: 4px 12px 4px 4px; background: var(--muted); font-size: 13px; line-height: 1.35; }
+.rchip { display: inline-flex; align-items: center; flex-wrap: wrap; min-width: 0; gap: 8px; border-radius: 18px; padding: 4px 12px 4px 4px; background: var(--muted); font-size: 13px; line-height: 1.35; }
 .rchip .mono { white-space: nowrap; }
 .ba { display: grid; grid-template-columns: 1fr 1fr 1.1fr; gap: 12px; margin-top: 16px; }
 .ba > div { border-radius: 20px; background: var(--muted); padding: 16px 18px; }
@@ -594,6 +607,7 @@ table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
 /* ---------------------------------------------------------------- modal, cmdk, toasts */
 .modal, .cmdk { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: rgb(0 12 31 / .32); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); animation: scrim-in .25s var(--ease-std) both; }
 .modal[hidden], .cmdk[hidden] { display: none; }
+html:has(.modal:not([hidden])), html:has(.cmdk:not([hidden])) { overflow: hidden; } /* #66: page behind a dialog stays put */
 .modal.closing, .cmdk.closing { animation: scrim-out .2s var(--ease-std) both; }
 @keyframes scrim-in { from { opacity: 0; } }
 @keyframes scrim-out { to { opacity: 0; } }

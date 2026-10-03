@@ -1,0 +1,42 @@
+{
+  "id": "/",
+  "name": "Clause & Effect · Rental Law Navigator",
+  "short_name": "Clause & Effect",
+  "description": "Which rental housing rules apply at an address today, and what is about to change. Cited answers from public law. Not legal advice.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "categories": ["utilities", "reference", "productivity"],
+  "icons": [
+    { "src": "/static/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/static/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/static/icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/static/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Check an address",
+      "short_name": "Address",
+      "description": "Search the rules at an address",
+      "url": "/?source=pwa&action=search#/",
+      "icons": [{ "src": "/static/icons/shortcut-search.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "What is changing",
+      "short_name": "Changes",
+      "description": "Laws that start, end or are proposed",
+      "url": "/?source=pwa#/changes",
+      "icons": [{ "src": "/static/icons/shortcut-changes.png", "sizes": "96x96", "type": "image/png" }]
+    }
+  ],
+  "screenshots": [
+    { "src": "/static/icons/screen-narrow.webp", "sizes": "780x1688", "type": "image/webp", "form_factor": "narrow", "label": "Search any address" },
+    { "src": "/static/icons/screen-wide.webp", "sizes": "1440x900", "type": "image/webp", "form_factor": "wide", "label": "Which rules apply here today, and what is about to change" }
+  ],
+  "prefer_related_applications": false
+}

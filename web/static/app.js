@@ -197,7 +197,7 @@ function syncHeader(route) {
   document.documentElement.lang = lang;
   $$("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
   $("#cmdk input").placeholder = t("search_ph");
-  $(".nav-inner").dataset.nla = t("nla_chip");
+  $(".nav-inner").dataset.nla = $(".brand").dataset.nla = t("nla_chip");
   const fb = $("#fixture-banner");
   fb.hidden = META?.sources?.["rules.json"]?.kind !== "fixture";
   fb.textContent = t("fixture");
@@ -805,7 +805,7 @@ async function viewRules() {
         <div class="src-meta">${r.source_url ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(host(r.source_url))} ${I.ext}</a>` : ""}<span>${t("retrieved")} ${esc(r.source?.retrieved_at || "n/a")}</span><span class="mono">${esc(r.source_doc_id || "")}</span>${verified(r.quote_check)}${r.source?.has_text ? `<a href="#" data-doc="${esc(r.span_doc_id || r.source_doc_id)}" data-rule="${esc(r.team_rule_id)}">${t("open_doc")} →</a>` : ""}</div>`);
     };
     $("#rt").addEventListener("click", (e) => { const tr = e.target.closest("tr[data-rule]"); if (tr && !e.target.closest("a")) openRule(tr.dataset.rule); });
-    $("#rt").addEventListener("keydown", (e) => { const tr = e.target.closest("tr[data-rule]"); if (tr && e.key === "Enter") openRule(tr.dataset.rule); });
+    $("#rt").addEventListener("keydown", (e) => { const tr = e.target.closest("tr[data-rule]"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openRule(tr.dataset.rule); } });
     sync();
   });
 }
