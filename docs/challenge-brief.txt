@@ -1,0 +1,364 @@
+                       7th Global AI Hackathon
+
+
+
+
+                     C H A L L E N G E
+
+
+
+
+              02         ····················
+
+
+
+
+Rental Housing Law Navigator
+
+   Which rules apply here today, and what is about to change?
+
+
+
+
+                      P O W E R E D        B Y
+                            RENTAL HOUSING LAW NAVIGATOR · RealPage × Hack-Nation · Challenge Brief
+
+
+
+
+Goals and Motivation
+
+Rental Housing Law Navigator is an AI system that reads public housing law and answers one question for any apartment
+address: which rules apply here today, and what is about to change?
+ THE QUESTION                     How might AI turn thousands of pages of state and local housing law into accurate, cited,
+                                  address-level answers that renters, advocates, housing agencies and housing providers can
+                                  trust?
+
+The problem is specific, real and getting harder
+Rental housing in the U.S. is regulated in layers: state statutes, county rules and city ordinances, each with its own coverage
+tests (building age, unit count, owner type), effective dates and exemptions. The answer to “what rules apply to this apartment?”
+depends on the exact address, and it changes often.
+
+
+ 14                                             Jan 2026                                       Jun 2026
+ cities and counties across 8 states have       California’s amended antitrust law on          Massachusetts’ high court removed a
+ enacted local bans on algorithmic rent-        common pricing algorithms (AB 325 / SB         statewide rent-control question from the
+ setting since late 2024, most with             763) took effect, adding a state layer on      November ballot. Proposed changes
+ different definitions and penalties.           top of the local ones.                         don’t always become law, and tools must
+                                                                                               know the difference.
+
+
+
+Today, getting a reliable answer means reading municipal codes, statutes and pending bills by hand. Renters don’t know their
+rights, small housing providers don’t know their obligations, and advocates and agencies can’t see the full picture across
+jurisdictions. The source text is public, but it is unstructured, scattered and constantly changing.
+
+
+Who This Helps
+
+ RENTERS                            Know their rights at their own address: rent increase limits, deposit caps, fee rules, eviction
+                                    protections.
+ ADVOCATES &                        See which protections cover which buildings, and what a pending bill would change.
+ AGENCIES
+ HOUSING PROVIDERS                  Especially small owners without legal teams: understand their obligations before they act.
+
+
+ THE CHALLENGE IN ONE               In 24 hours, build a working system that extracts rules from a provided corpus of real
+ LINE                               housing law, resolves any sample address to the rules that apply to it with citations, and
+                                    shows which addresses a law change affects.
+
+
+What Teams Build – Use the provided data & codebase
+
+From legal text to an address-level answer
+Three required modules plus stretch goals, built on a starter pack we provide so teams spend the 24 hours on AI, not data
+collection. Minimum entry and event rules are under Rules, Submission and Scoring. Click here to download the data &
+code.
+
+ 1. Extract                   2. Resolve                  3. Apply                    4. Explain                  5. Track change
+ Turn statutes and            Geocode an address          Test each rule’s            Return every                Given a new or
+ ordinances into              and build its               coverage conditions         applicable rule with a      pending law, list the
+ structured rule records,     jurisdiction stack:         against building facts:     plain-language              addresses affected
+ using the provided           state, county, city.        year built, units, owner    summary and a               and what changes for
+ schema.                                                  type.                       citation to the source      each.
+                                                                                      text.
+
+
+
+ Module A: Rule extraction          An agent reads each document in the corpus and outputs one record per rule, in the provided
+ Required                           JSON format. Extraction must be automated, not hand-coded: category, jurisdiction, requirement,
+                                    coverage conditions, exemptions, effective date, status (enacted or pending), penalty, source
+                                    citation and quoted span.
+ Module B: Address lookup           Given an address, return the jurisdiction stack and every applicable rule. Where a local rule
+ Required                           overrides a state rule, the system must say so. Where coverage depends on a fact the data does
+                                    not contain, it must say “unknown”, not guess.
+ Module C: Change tracking          Run the provided change test cases. For each one, list affected sample addresses and the
+ Required                           before/after rule set, and support an “as of date” query.
+
+
+                                  Hack-Nation × RealPage · 7th Global AI Hackathon · October 2026 · Page 2
+                             RENTAL HOUSING LAW NAVIGATOR · RealPage × Hack-Nation · Challenge Brief
+
+
+
+Stretch goals
+      •    Renter-facing plain-language view in English and Spanish
+      •    Confidence score and conflict flag for each answer
+      •    Extend to one new jurisdiction live during the event
+
+Illustrative output
+Address lookup · as of Oct 1, 2026 — Sample: 20-unit building in San Francisco, built 1962. Jurisdictions: California › City &
+County of San Francisco
+  RENT INCREASES                       SF Rent Ordinance applies (certificate of occupancy on or before 6/13/1979); the AB 1482 state
+                                       cap yields to it. S.F. Admin. Code ch. 37 · Cal. Civ. Code §1947.12
+  JUST CAUSE                           Eviction only for listed causes. S.F. Admin. Code §37.9 · Cal. Civ. Code §1946.2
+  DEPOSIT                              Capped at one month’s rent (small-landlord exception does not apply at 20 units). Cal. Civ. Code
+                                       §1950.5 (AB 12, eff. 7/1/2024)
+  SCREENING FEE                        Capped at a CPI-adjusted amount; no fee if no unit is available. Cal. Civ. Code §1950.6
+  ALGORITHMIC PRICING                  Local ban on algorithmic devices using nonpublic competitor data, plus state restrictions on
+                                       common pricing algorithms. S.F. Admin. Code §37.10C (Oct 2024) · AB 325 / SB 763 (eff.
+                                       1/1/2026)
+Illustrative only. Teams’ outputs are scored against the answer key, not this mock-up.
+
+
+Scope for 24 Hours
+
+3 states · 10 cities · 6 rule categories
+Small enough to finish, varied enough to be hard. The jurisdictions were chosen to cover state-only rules, layered local rules,
+and recent or failed changes.
+ State                      Cities in scope                             Why it’s in the set
+ California                 Los Angeles, San Francisco, San             Densest layering: statewide rent cap and just cause, local rent control,
+                            Diego, Berkeley, Santa Ana*                 statewide and local algorithmic-pricing rules with different effective
+                                                                        dates.
+ New Jersey                 Jersey City, Hoboken, Newark                Rent control is set city by city; statewide eviction, screening and fee
+                                                                        rules; two local algorithmic-pricing bans and a new statewide FAIR Act
+                                                                        (effective July 2027) that may preempt them.
+ Massachusetts              Boston, Cambridge                           State law bars local rent control; a 2026 ballot question was struck
+                                                                        before the vote; algorithmic-pricing bills are pending. Tests whether
+                                                                        systems avoid reporting rules that don’t exist.
+
+*Santa Ana laws are in the corpus for extraction, but no open parcel data with addresses exists, so the address sample covers the other 9 cities.
+
+Rule categories, with real examples from the corpus
+ Category                         What to capture                         Real examples teams will encounter
+ 1. Rent increase limits          Cap formula, covered buildings,         CA Tenant Protection Act, Civ. Code §1947.12 (5% + CPI, max 10%) ·
+                                  exemptions, local vs. state             SF Rent Ordinance, Admin. Code ch. 37 · LA Rent Stabilization
+                                  precedence                              Ordinance · MA G.L. c.40P (state bar on local rent control)
+ 2. Just-cause eviction           Allowed causes, notice, relocation      CA Civ. Code §1946.2 · NJ Anti-Eviction Act, N.J.S.A. 2A:18-61.1
+                                  assistance, coverage
+ 3. Security deposits             Maximum, exceptions, effective          CA Civ. Code §1950.5 as amended by AB 12 (one month; two for
+                                  date                                    qualifying small landlords; eff. 7/1/2024) · NJ N.J.S.A. 46:8-21.2 (1.5
+                                                                          months) · MA G.L. c.186 §15B (first month’s rent)
+ 4. Application &                 Fee caps, allowed upfront charges,      CA Civ. Code §1950.6 (CPI-adjusted cap) · NJ P.L.2025, c.405 ($50
+ screening fees                   receipts and refunds                    cap, eff. 5/1/2026) · MA G.L. c.186 §15B (upfront charges limited to
+                                                                          first and last month’s rent, deposit, lock) · MA broker-fee rule, G.L.
+                                                                          c.112 §87DDD½ (8/1/2025)
+ 5. Screening restrictions        Limits on criminal-history and          NJ Fair Chance in Housing Act (2021) · CA source-of-income
+                                  income-source screening; timing         protections under FEHA (SB 329)
+                                  rules
+ 6. Algorithmic rent-setting      Definition of covered software,         CA AB 325 / SB 763 (1/1/2026) · San Francisco §37.10C (Oct 2024) ·
+                                  prohibited conduct, penalties,          San Diego §§98.1101–98.1104 (Jun 2025) · Berkeley ch. 13.63 (2026)
+                                  effective date                          · Santa Ana Ord. NS-3090 (Apr 2026) · Jersey City §218-12 (Jun
+                                                                          2025) · Hoboken ch. 158, Art. II (Jul 2025) · NJ FAIR Act, P.L.2026,
+                                                                          c.43 (eff. 7/1/2027) · MA S.2983 / H.5222 (pending)
+
+The answer key holds 58 rules and 19 “no rule at this level” findings; 52 of the 58 rules were verified against public sources as of October 1,
+2026. It has not been reviewed by counsel. This brief summarizes these laws for scoping only and is not legal advice.
+
+
+
+
+                                    Hack-Nation × RealPage · 7th Global AI Hackathon · October 2026 · Page 3
+                          RENTAL HOUSING LAW NAVIGATOR · RealPage × Hack-Nation · Challenge Brief
+
+
+
+
+Test Cases and Starter Pack
+
+Real law changes, packaged data
+Change tracking is tested on real 2025–2027 changes, real pending bills and one fictional ordinance revealed mid-event. To
+make 24 hours realistic, Realpage pre-packages a starter kit from public sources, so teams don’t lose the first day to scraping
+and cleanup. Everything is in one Google Drive folder which you can access here.
+
+Change-tracking test cases
+ Test case                                           What a correct system does
+ T1 · CA AB 325 / SB 763, effective 1/1/2026         “Not yet effective” for CA addresses as of 12/31/2025; “applies” as of 1/2/2026
+ T2 · Hoboken and Jersey City local bans             Each ban only inside its own city limits; neither in Newark
+ T3 · NJ FAIR Act, signed 7/20/2026, effective       “Not yet effective” today, “applies” on 7/2/2027; flags a possible conflict with the two local
+ 7/1/2027                                            bans
+ T4 · MA S.2983 and H.5222 (pending bills)           Reports them as pending, never in force; lists the addresses they would affect
+ T5 · MA rent-control ballot question, struck        Reports no rent cap for Boston or Cambridge; affected set is empty
+ 6/23/2026
+ T6 · Fictional Cambridge ordinance                  Extracts it unaided, lists affected addresses, and gets its future effective date right
+ (released at hour 16)
+
+
+Starter pack provided to teams
+ Item                          Contents                                                                                   Format
+ Law corpus                    87 source documents: official statute, ordinance and bill text as plain text with          Text + manifest CSV
+                               URL and retrieval date; law-firm and news pages as links only
+ Sample addresses              ~500 multifamily properties in 9 cities from public assessor data: street, postal          CSV
+                               city, ZIP, year built, units, use code. No owner names. Teams resolve the legal
+                               jurisdiction themselves.
+ Rule schema                   Required fields for every rule record, the 6 categories, and a worked sample               JSON Schema
+                               record
+ Dev answer key                10 rules and expected results for 20 addresses, for self-testing                           JSON
+ Held-out answer key           The full key (58 rules, 19 “no rule” findings) and expected results for 100 of the         Held by judges
+                               500 addresses
+ Change test cases             The 6 tests above; expected affected addresses held by judges                              JSON
+ Scoring script                The exact script judges use: extraction, address coverage, citations, change               Python
+                               tracking (see Scoring)
+
+
+
+Data
+
+Everything is public
+Every source below is publicly available and free. Teams can go beyond the starter pack using these. No customer, pricing or
+proprietary data is used.
+
+Public sources teams may use directly
+ Source                           What it provides                                                  Access & terms
+ State codes                      Official statute text: CA Legislative Information · NJ            Free, public websites
+                                  Legislature · MA General Laws (malegislature.gov)
+ Municipal codes                  Ordinance text for each city: city sites; hosted by               Free to read; bulk scraping often restricted by
+                                  publishers such as American Legal, Municode,                      site terms. Use the starter corpus.
+                                  eCode360
+ LegiScan API                     Bills, status, full text, votes for all 50 states                 Free key; 10,000 queries/month; CC BY 4.0;
+                                                                                                    weekly bulk datasets
+ Open States API v3 (Plural)      Bills, sponsors, events by state                                  Free key
+ Census Geocoder                  Address → coordinates, state, county, county                      No key; batch up to 10,000 addresses
+                                  subdivision, incorporated place
+ Census TIGER/Line                City and county boundary shapefiles                               Free download
+ Parcel data                      Building facts: year built, units, use code. MassGIS              Free public data. Gaps: no year built for San
+                                  Property Tax Parcels · NJ Parcels & MOD-IV Composite              Diego; no year built or units for Berkeley; no
+                                  · LA County and SF assessor open data                             open data for Santa Ana
+ Local program lookups            Spot-check rent-control coverage for a property: LA               Public websites, for validation only
+                                  Housing Dept. RSO lookup · SF Rent Board
+
+
+
+
+                                Hack-Nation × RealPage · 7th Global AI Hackathon · October 2026 · Page 4
+                           RENTAL HOUSING LAW NAVIGATOR · RealPage × Hack-Nation · Challenge Brief
+
+
+
+ LSC Eviction Laws Database       Coded eviction laws, all 50 states plus 30 local           Free Excel download. Current only as of
+                                  jurisdictions                                              1/1/2021: use for methods, not as current
+                                                                                             truth.
+
+
+
+ NOT PROVIDED, NOT                     No customer or resident data, no rent or pricing data, no internal legal analysis, and no scraping
+ ALLOWED                               that violates a site’s terms of use.
+
+
+Responsible AI by Design
+
+Build for transparency, not legal verdicts
+The system should make the law easier to see and understand, without pretending to be a lawyer or helping anyone work
+around the rules.
+
+  THE SOLUTION SHOULD                                                    THE SOLUTION MUST NOT
+  • Cite the source text and retrieval date for every rule it            • Present output as legal advice or a compliance
+    reports.                                                               certification.
+  • Show an “as of” date on every answer and separate                    • Suggest ways to avoid, structure around or evade a rule.
+    enacted from pending law.                                            • Invent rules or citations where the source text is silent.
+  • Say “unknown” when coverage depends on facts it                      • Use customer, resident, pricing or other non-public data.
+    doesn’t have.
+                                                                         • Scrape sites in violation of their terms of use.
+  • Flag conflicts and low-confidence answers for human
+    review.
+  • Explain rules in plain language that a renter can act on.
+  • Keep an auditable log of sources, model outputs and
+    changes.
+
+
+24-hour plan – after 16 h we will release an ad
+ Hours          Activity                                                 Hours         Activity
+ Hr 0–1         Kickoff, starter-pack walkthrough, mentor intros         Hr 16–20      Change tracking; synthetic ordinance test data
+                                                                                       released at hour 16 here, we like you to react to
+                                                                                       it!
+ Hr 1–6         Rule extraction against the corpus; self-check on the    Hr 20–23      Scoring run, fixes, demo prep
+                dev key
+ Hr 6–11        Geocoding, jurisdiction stacks, coverage logic           Hr 23–24      Demos and judging
+ Hr 11–16       Address lookup with citations and plain-language
+                view
+
+
+
+From Hackathon to Impact
+
+The strongest teams may be considered for follow-on prototyping, talent conversations, and a potential open public-good
+release of the rule dataset with Realpage and housing partners.
+ THE INTENDED                       Show that responsible AI can make housing law visible at the level that matters, a single
+ OUTCOME                            address, so renters know their rights, providers know their obligations, and everyone can
+                                    see what is changing, with every answer traceable to the source.
+
+
+Rules, Submission and Scoring
+
+How the event works
+The participant guide in the starter pack has the full detail. These are the rules every team needs on day one.
+
+  RULES OF THE EVENT                                                     WHAT TEAMS SUBMIT
+  • Minimum viable entry: Modules A and B, scored on the                 • rules.json: rule records in the provided format, with
+    dev set.                                                               citation and quoted source text
+  • Automated extraction only. The hour-16 ordinance                     • lookups.json: for all 500 addresses, each rule’s result:
+    and a live rerun in the demo check this.                               applies, unknown, superseded, not yet effective, or
+  • “Unknown” is a valid answer when coverage depends                      pending
+    on facts not in the data, and it earns credit.                       • changes.json: affected addresses (and conflict flags)
+  • No non-public data; no scraping against a site’s terms.                for each test
+  • Every interface says “not legal advice.”                             • Three short videos which need to include your scores
+
+
+
+                                 Hack-Nation × RealPage · 7th Global AI Hackathon · October 2026 · Page 5
+                             RENTAL HOUSING LAW NAVIGATOR · RealPage × Hack-Nation · Challenge Brief
+
+
+
+Additional submission deatils
+
+     •     Team video: introduce your team.
+
+     •     Demo video: show your tool in use.
+
+     •     Technical video: walk through how your system works.
+
+     •     GitHub repository: your code, a README explaining how to run it, and your output files (rules.json, lookups.json,
+           changes.json).
+
+     •     Live demo link: a working link to your tool.
+Report your test score results in your videos
+
+     •     Run score.py on the dev set and show the full score report on screen.
+
+     •     Show your results for change tests T1–T6.
+
+     •     Show your system processing the hour-16 ordinance test dataset – you will receive this 16 h into the hackathon via the
+           Google Drive folder
+
+Scoring
+ Component                                Points                How it’s measured
+ Extraction accuracy                      25 · auto             Team rules matched to the held-out key by jurisdiction, category and citation;
+                                                                field accuracy on date, status, key value, citation
+ Address coverage                         20 · auto             Results on 100 held-out addresses; missing a rule that applies costs twice as
+                                                                much as other errors; “unknown” earns partial credit
+ Citations                                15 · auto             Share of “applies” answers backed by a source and a quoted span found in the
+                                                                corpus
+ Change tracking                          15 · auto             Overlap with the expected affected-address sets for T1–T6, plus conflict flags on
+                                                                T3
+ Plain language and usability             10 · judges           Demo
+ Responsible design                       10 · judges           Uncertainty, audit trail, guardrails
+ Scalability path                         5 · judges            How the approach extends to new jurisdictions
+
+Teams self-test with the same script against the dev key. Full matching and partial-credit rules are in the participant guide.
+
+
+
+
+                                    Hack-Nation × RealPage · 7th Global AI Hackathon · October 2026 · Page 6
+
