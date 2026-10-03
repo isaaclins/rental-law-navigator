@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 import time
@@ -40,6 +41,21 @@ def key(s: str) -> str:
     return hashlib.sha1(s.encode()).hexdigest()[:16]
 
 
+def plain_expected(s: str | None) -> str:
+    """Change-test 'expected' text for people: no JSON rule maps, no snake_case status tokens (#73)."""
+    s = re.sub(r"Key rules -> ours: \{.*?\}\.\s*", "", s or "")
+    s = re.sub(r"\b[a-z]+(?:_[a-z]+)+\b", lambda m: m.group(0).replace("_", " "), s)
+    s = s.replace("not yet effective", "not yet in effect").strip()
+    return s[:1].upper() + s[1:]
+
+
+TEST_FILES = (
+    "starter/dev/change_tests.json",
+    "output/new_tests.json",
+    "new_docs/change_tests.json",
+)
+
+
 def load(name: str):
     for d in (ROOT / "output", ROOT / "web" / "fixtures"):
         p = d / name
@@ -59,6 +75,11 @@ def collect() -> list[str]:
         for f in ("title", "requirement", "key_value", "conflict_note", "interaction"):
             if isinstance(r.get(f), str) and r[f].strip():
                 texts.append(r[f])
+    for f in TEST_FILES:  # change-test titles and expected behaviour (#74)
+        if (ROOT / f).exists():
+            for t in json.loads((ROOT / f).read_text()):
+                texts += [t.get("title") or "", plain_expected(t.get("expected_behavior"))]
+    texts = [t for t in texts if t]
     lk = load("lookups.json") or {"lookups": {}}
     for entries in lk["lookups"].values():
         for e in entries:

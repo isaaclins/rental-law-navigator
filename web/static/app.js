@@ -66,6 +66,8 @@ const EN = {
   fixture: "Preview data: the extraction pipeline output is not generated yet, so the app shows schema-identical fixture records.",
   toast_asof: "Answers now as of {d}", toast_lang: "Language: English", g_examples: "Examples", g_results: "Addresses", g_pages: "Pages",
   not_found: "Address not found.", sample_addresses: "Sample addresses", error: "Something went wrong loading this view.",
+  f_level: "Level", f_coverage: "Coverage", f_exemptions: "Exemptions", f_overrides: "Overrides / yields to", f_interaction: "Interaction", f_citation: "Citation", f_conflict_note: "Conflict note",
+  p_ingest: "Ingest", p_ingest_d: "{n} official documents, each with URL and date.", p_extract: "Extract", p_extract_d: "AI turns each text into rule records with exact quotes.", p_resolve: "Resolve", p_resolve_d: "US Census finds each address's legal city.", p_apply: "Apply", p_apply_d: "Code checks every rule against each building.", p_track: "Track", p_track_d: "Any date re-evaluated; changes listed per address.", s1_t: "1 · Add sources", s1: "Drop official text into the corpus with its URL and date. No code changes.", s2_t: "2 · Extract", s2: "Same prompts and schema; quotes checked; results cached by prompt hash.", s3_t: "3 · Resolve", s3: "The Census covers every US address; a new city needs only its place name.", s4_t: "4 · Re-run", s4: "Coverage and change tracking re-run in seconds for any date.", a_spans: "{a} / {b} quoted spans found in the source text", a_notfound: "{n} not found (flagged)", a_notext: "{n} sources have no offline text", col_address: "Address", col_mailing: "Mailing", col_legal: "Legal city", col_method: "Method", col_doc: "Doc", col_source: "Source", col_type: "Type", col_rules: "Rules", col_text: "Text", l_text: "text", l_link: "link only", outside: "outside scope",
 };
 let ES = {};
 let lang = localStorage.getItem("lang") || "en";
@@ -143,6 +145,7 @@ const io = "IntersectionObserver" in window ? new IntersectionObserver((entries)
 }, { rootMargin: "0px 0px -6% 0px", threshold: 0 }) : null;
 function swap(html, after) {
   // Plain cross-fade of <main> (no View Transitions API: a stalled transition froze old snapshots on screen).
+  main.classList.remove("still"); delete main.dataset.addr;
   main.innerHTML = html; after?.(); armReveals();
   if (firstPaint) { firstPaint = false; return Promise.resolve(); }
   if (!RM.matches) { main.classList.remove("fade-in"); void main.offsetWidth; main.classList.add("fade-in"); }
@@ -189,6 +192,21 @@ function moveTabInk() {
   if (tabs.scrollWidth > tabs.clientWidth) tabs.scrollTo({ left: cur.offsetLeft - (tabs.clientWidth - cur.offsetWidth) / 2, behavior: RM.matches ? "auto" : "smooth" });
 }
 addEventListener("resize", moveTabInk);
+// Compact the desktop header step by step until it fits on one row (tabs and labels vary by language/features).
+function fitHeader() {
+  const navEl = $("#nav"), inner = $(".nav-inner");
+  if (!navEl || !inner) return;
+  navEl.classList.remove("fit-1", "fit-2", "fit-3", "fit-4");
+  if (innerWidth <= 980) return;
+  const over = () => inner.scrollWidth > inner.clientWidth + 1 || $(".nav-tools").getBoundingClientRect().right > inner.getBoundingClientRect().right + 1;
+  for (let k = 1; k <= 4 && over(); k++) navEl.classList.add("fit-" + k);
+  moveTabInk();
+}
+let fitRaf = 0;
+const queueFit = () => { cancelAnimationFrame(fitRaf); fitRaf = requestAnimationFrame(fitHeader); };
+addEventListener("resize", queueFit);
+document.fonts?.ready.then(queueFit);
+new MutationObserver(queueFit).observe($(".tabs"), { childList: true, subtree: true, characterData: true });
 function syncHeader(route) {
   $$(".tabs a").forEach((a) => { if (a.dataset.route === route) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
   $("#asof").value = asOf;
@@ -202,6 +220,7 @@ function syncHeader(route) {
   fb.hidden = META?.sources?.["rules.json"]?.kind !== "fixture";
   fb.textContent = t("fixture");
   requestAnimationFrame(moveTabInk);
+  queueFit();
 }
 const ASOF_MIN = "2020-01-01", ASOF_MAX = "2030-12-31";
 $("#asof").addEventListener("blur", (e) => { if (!e.target.value) e.target.value = asOf; });
@@ -292,7 +311,7 @@ function closeLayer(el) {
   if (back && document.contains(back)) setTimeout(() => back.focus({ preventScroll: true }), 0);
   if (RM.matches) { el.hidden = true; return; }
   el.classList.add("closing");
-  setTimeout(() => { el.hidden = true; el.classList.remove("closing"); }, 190);
+  clearTimeout(el._closeT); el._closeT = setTimeout(() => { el.hidden = true; el.classList.remove("closing"); }, 190);
 }
 cIn.addEventListener("input", cmdkRender);
 cIn.addEventListener("keydown", (e) => {
@@ -459,6 +478,7 @@ function initHome(ex) {
     } else if (e.key === "Escape") close();
   });
   list.addEventListener("mousedown", (e) => { const li = e.target.closest("[data-id]"); if (li) { e.preventDefault(); go(li.dataset.id); } });
+  list.addEventListener("mousemove", (e) => { const li = e.target.closest("[data-id]"); if (!li) return; const i = $$(".opt", list).indexOf(li); if (i !== sel) { sel = i; $$(".opt", list).forEach((x, k) => x.setAttribute("aria-selected", k === sel)); input.setAttribute("aria-activedescendant", "o-" + sel); } }); // #83: hover moves the one selection
   form.addEventListener("submit", (e) => { e.preventDefault(); const q = input.value.trim(); if (!q) return go(ex[idx].id); if (items[sel]) go(items[sel].id); });
 }
 
@@ -579,7 +599,9 @@ async function viewAddress(id) {
   const p = api(url);
   const quick = await Promise.race([p.then((x) => x, () => null), new Promise((r) => setTimeout(() => r(null), 140))]);
   if (quick) d = quick;
-  else { await swap(addressSkeleton()); progress(true); try { d = await p; } catch { progress(false); return viewNotFound("address"); } progress(false); }
+  const same = main.dataset.addr === id && !!$(".addr-layout", main); // #92: as-of / language change on this address: update in place
+  if (!quick && same) { progress(true); try { d = await p; } catch { progress(false); return viewNotFound("address"); } progress(false); }
+  else if (!quick) { await swap(addressSkeleton()); progress(true); try { d = await p; } catch { progress(false); return viewNotFound("address"); } progress(false); }
   const a = d.address, j = d.jurisdiction;
   const fact = (k, label) => `<dt>${label}</dt><dd>${a[k] ? esc(a[k]) : `<span class="missing">${t("not_in_data")}</span>`}</dd>`;
   const methodLabel = t("m_" + j.method).startsWith("m_") ? j.method : t("m_" + j.method);
@@ -610,8 +632,10 @@ async function viewAddress(id) {
     </section>
   </div>`;
   const render = () => { main.innerHTML = html; armReveals(); $$(".addr-side.stagger > *").forEach((el, i) => el.style.setProperty("--i", i)); };
-  if (quick) await swap(html, () => $$(".addr-side.stagger > *").forEach((el, i) => el.style.setProperty("--i", i)));
+  if (same) { main.classList.add("still"); main.innerHTML = html; $$(".reveal", main).forEach((el) => el.classList.add("in")); }
+  else if (quick) await swap(html, () => $$(".addr-side.stagger > *").forEach((el, i) => el.style.setProperty("--i", i)));
   else render();
+  main.dataset.addr = id;
   document.title = `${titleCase(a.street_address)}, ${a.postal_city} · Clause & Effect`;
 }
 
@@ -620,8 +644,8 @@ function openModal(title, body) {
   const m = $("#modal");
   $("#modal-title").textContent = title;
   $(".modal-body", m).innerHTML = body;
-  if (m.hidden) lastFocus = document.activeElement;
-  m.classList.remove("closing"); m.hidden = false;
+  if (m.hidden || m.classList.contains("closing")) lastFocus = document.activeElement;
+  clearTimeout(m._closeT); m.classList.remove("closing"); m.hidden = false; // a pending close must not hide the new modal (#76)
   $("[data-close]", m).focus();
 }
 function closeModal() { const m = $("#modal"); if (!m.hidden) closeLayer(m); }
@@ -662,14 +686,14 @@ function cityBars(obj) {
 }
 function testCard(x, i) {
   const dated = x.type === "as_of" || x.type === "new_law";
-  const chips = x.rules.map((r) => `<span class="rchip">${badge(r.status)}<span class="mono">${esc(r.team_rule_id)}</span> ${esc(r.title)}</span>`).join("") || `<span class="muted">${t("no_match_rule")}</span>`;
+  const chips = x.rules.map((r) => `<span class="rchip">${badge(r.status)}<span class="mono">${esc(r.team_rule_id)}</span> ${esc(r.title_display || r.title)}</span>`).join("") || `<span class="muted">${t("no_match_rule")}</span>`;
   const left = dated
     ? `<div><h3>${t("before")} <b>${esc(fmtDate(x.before_date))}</b></h3><div class="rr">${x.our_rule_ids.map((r) => bars(x.before[r], r)).join("")}</div></div>
        <div><h3>${t("after")} <b>${esc(fmtDate(x.after_date))}</b></h3><div class="rr">${x.our_rule_ids.map((r) => bars(x.after[r], r)).join("")}</div></div>`
     : `<div style="grid-column: span 2"><h3>${t("rule_reach")} <b>${esc(fmtDate(x.after_date))}</b></h3><div class="rr">${x.our_rule_ids.map((r) => bars(x.after[r], r)).join("") || `<p class="muted">${t("none_level")}</p>`}</div></div>`;
   const ids = x.affected_address_ids;
   return `<article class="test reveal" style="--i:${Math.min(i, 2)}" id="test-${esc(x.test_id)}">
-    <div class="test-head"><div class="test-id">${esc(x.test_id)}</div><div><div class="type-tag">${esc(t("t_" + x.type))}</div><h2>${esc(x.title)}</h2></div></div>
+    <div class="test-head"><div class="test-id">${esc(x.test_id)}</div><div><div class="type-tag">${esc(t("t_" + x.type))}</div><h2>${esc(x.title_display || x.title)}</h2></div></div>
     <div class="rchips">${chips}</div>
     <div class="ba">${left}
       <div><h3>${t("affected")}</h3><div class="big-num" data-count="${x.affected_count}">${x.affected_count}</div>
@@ -677,8 +701,7 @@ function testCard(x, i) {
         ${cityBars(x.affected_by_city)}</div>
     </div>
     <details class="src more" style="margin-top:14px"><summary>${I.chev}${t("details")}</summary><div class="src-body">
-      <p class="test-foot"><b>${t("expected")}:</b> ${esc(x.expected_behavior)}</p>
-      ${x.notes ? `<p class="test-foot">${esc(x.notes)}</p>` : ""}
+      <p class="test-foot"><b>${t("expected")}:</b> ${esc(x.expected_display || x.expected_behavior)}</p>
       ${ids.length ? `<div class="idlist">${ids.map((id) => `<a class="chip" href="#/a/${id}">${id}</a>`).join("")}</div>` : ""}
     </div></details>
   </article>`;
@@ -764,9 +787,9 @@ async function viewRules() {
       <tbody>${cov.jurisdictions.map((j) => `<tr class="${j.length === 2 ? "state" : "city"}"><th>${esc(j)}</th>${cov.categories.map((c) => {
         const cell = cov.cells[j]?.[c.id] || [];
         const nr = cov.no_rule_cells?.[j]?.[c.id];
-        return `<td>${cell.length ? `<button type="button" data-j="${esc(j)}" data-c="${c.id}" title="${esc(cell.map((x) => x.id + ": " + x.title).join("\n"))}">${cell.map((x) => `<span class="dot ${x.status}"></span>`).join("")} ${cell.length}</button>` : nr ? `<span class="none finding" title="${esc(t("finding") + ": " + nr.finding + " (" + (nr.citation || "") + ")")}">∅<span class="sr"> ${t("finding")}</span></span>` : `<span class="none" title="${esc(t("none_level"))}">·<span class="sr"> ${t("none_level")}</span></span>`}</td>`;
+        return `<td>${cell.length ? `<button type="button" data-j="${esc(j)}" data-c="${c.id}" title="${esc(cell.map((x) => x.id + ": " + x.title).join("\n"))}">${cell.map((x) => `<span class="dot ${x.status}"></span>`).join("")} ${cell.length}</button>` : nr ? `<button type="button" class="none finding" data-nr="${esc(nr.id)}" aria-label="${esc(t("finding") + ": " + nr.finding)}">∅</button>` : `<span class="none" title="${esc(t("none_level"))}">—<span class="sr"> ${t("none_level")}</span></span>`}</td>`;
       }).join("")}</tr>`).join("")}</tbody></table>
-      <div class="legend" style="justify-content:flex-start;padding:12px 16px 8px;margin:0">${["in_force", "not_yet_effective", "pending", "failed"].map((s) => `<span><span class="dot ${s}"></span>${esc(resLabel(s))}</span>`).join("")}<span><span class="none finding">∅</span>${esc(t("legend_nr"))}</span><span>·&nbsp;${esc(t("none_level"))}</span></div>
+      <div class="legend" style="justify-content:flex-start;padding:12px 16px 8px;margin:0">${["in_force", "not_yet_effective", "pending", "failed"].map((s) => `<span><span class="dot ${s}"></span>${esc(resLabel(s))}</span>`).join("")}<span><span class="none finding">∅</span>${esc(t("legend_nr"))}</span><span><span class="none">—</span>${esc(t("none_level"))}</span></div>
     </section>
     <details class="card table-card reveal" id="rules-table"${RT_OPEN ? " open" : ""}><summary class="table-sum">${I.chev}<span>${t("show_table").replace("{n}", rules.length)}</span></summary>
     <div style="padding:4px 18px 8px">
@@ -799,11 +822,17 @@ async function viewRules() {
     $("#f-s").onchange = (e) => { RF.status = e.target.value; draw(); };
     $("#f-q").oninput = (e) => { RF.q = e.target.value; draw(); };
     $("#f-x").onchange = (e) => { RF.conflicts = e.target.checked; draw(); };
-    $$(".matrix button").forEach((b) => b.onclick = () => { RF.jur = b.dataset.j; RF.cat = b.dataset.c; sync(); $("#rules-table").open = true; $("#rules-table").scrollIntoView({ behavior: RM.matches ? "auto" : "smooth", block: "start" }); });
+    $$(".matrix button[data-nr]").forEach((b) => b.onclick = () => { // no-rule finding: readable by click, tap or keyboard (#75)
+      const f = cov.no_rule_findings.find((x) => x.finding_id === b.dataset.nr);
+      openModal(`${f.jurisdiction} · ${catLabel[f.category] || f.category}`, `<div class="rule-top">${badge("no_rule")}<span class="lvl-tag">${esc(t("legend_nr"))}</span></div>
+        <p class="req" style="margin:6px 0 18px;font-size:17px">${esc(f.finding)}</p>${f.quoted_span ? `<blockquote class="quote">${esc(f.quoted_span)}</blockquote>` : ""}
+        <div class="src-meta">${f.citation ? `<span class="cite">${esc(f.citation)}</span>` : ""}${f.source_url ? `<a href="${esc(f.source_url)}" target="_blank" rel="noopener">${esc(host(f.source_url))} ${I.ext}</a>` : ""}<span class="mono">${esc(f.finding_id)} · ${esc(f.quoted_span_doc_id || f.source_doc_id || "")}</span></div>`);
+    });
+    $$(".matrix button[data-j]").forEach((b) => b.onclick = () => { RF.jur = b.dataset.j; RF.cat = b.dataset.c; sync(); $("#rules-table").open = true; $("#rules-table").scrollIntoView({ behavior: RM.matches ? "auto" : "smooth", block: "start" }); });
     const openRule = (id) => {
       const r = rules.find((x) => x.team_rule_id === id);
       const cc = r.coverage_conditions && typeof r.coverage_conditions === "object" ? JSON.stringify(r.coverage_conditions) : r.coverage_conditions;
-      const fields = [[t("jurisdiction"), r.jurisdiction], ["Level", r.level], [t("category"), catLabel[r.category]], [t("status"), resLabel(r.status)], [t("effective"), r.effective_date], [t("key_value"), r.key_value_display || r.key_value], ["Coverage", cc], ["Exemptions", r.exemptions], ["Overrides / yields to", (r.overrides || []).join(", ")], ["Interaction", r.interaction_display || r.interaction], ["Citation", r.citation], [t("confidence"), r.confidence != null ? pctOf(r.confidence) + "%" : null], ["Conflict note", r.conflict_note_display || r.conflict_note], [t("sample_addresses"), r.addresses_count]];
+      const fields = [[t("jurisdiction"), r.jurisdiction], [t("f_level"), r.level === "state" ? t("state") : r.level === "city" ? t("city") : r.level], [t("category"), catLabel[r.category]], [t("status"), resLabel(r.status)], [t("effective"), r.effective_date], [t("key_value"), r.key_value_display || r.key_value], [t("f_coverage"), cc], [t("f_exemptions"), r.exemptions], [t("f_overrides"), (r.overrides || []).join(", ")], [t("f_interaction"), r.interaction_display || r.interaction], [t("f_citation"), r.citation], [t("confidence"), r.confidence != null ? pctOf(r.confidence) + "%" : null], [t("f_conflict_note"), r.conflict_note_display || r.conflict_note], [t("sample_addresses"), r.addresses_count]];
       openModal(`${r.team_rule_id} · ${r.title_display || r.title}`, `<div class="rule-top">${badge(r.status)}${r.conflict_flag ? `<span class="badge conflict">${t("conflict")}</span>` : ""}${levelTag(r)}</div>
         <p class="req" style="margin:6px 0 18px;font-size:17px">${esc(r.requirement_display || r.requirement)}</p>
         <dl class="kv">${fields.filter((f) => f[1] != null && f[1] !== "").map((f) => `<dt>${esc(f[0])}</dt><dd>${esc(f[1])}</dd>`).join("")}</dl>
@@ -822,13 +851,7 @@ async function viewAudit() {
   const d = await api("/api/audit", { fresh: true });
   progress(false);
   const ver = d.verification, vt = Object.values(ver).reduce((a, b) => a + b, 0);
-  const steps = [
-    ["Ingest", `${d.documents.length} official documents, each with URL and date.`],
-    ["Extract", "AI turns each text into rule records with exact quotes."],
-    ["Resolve", "US Census finds each address's legal city."],
-    ["Apply", "Code checks every rule against each building."],
-    ["Track", "Any date re-evaluated; changes listed per address."],
-  ];
+  const steps = ["ingest", "extract", "resolve", "apply", "track"].map((k) => [t("p_" + k), t(`p_${k}_d`).replace("{n}", d.documents.length)]);
   const geoTotal = Object.values(d.geocoding).reduce((a, b) => a + b, 0);
   const verifiedN = (ver.exact || 0) + (ver.normalized || 0);
   const html = `
@@ -843,18 +866,15 @@ async function viewAudit() {
     <div class="stack-details">
     <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_scale")}</span></summary><div class="apanel" style="padding-top:4px">
       <div class="scal">
-        <div><h3>1 · Add sources</h3><p>Drop official text into the corpus with its URL and date. No code changes.</p></div>
-        <div><h3>2 · Extract</h3><p>Same prompts and schema; quotes checked; results cached by prompt hash.</p></div>
-        <div><h3>3 · Resolve</h3><p>The Census covers every US address; a new city needs only its place name.</p></div>
-        <div><h3>4 · Re-run</h3><p>Coverage and change tracking re-run in seconds for any date.</p></div>
+        ${[1, 2, 3, 4].map((n) => `<div><h3>${esc(t(`s${n}_t`))}</h3><p>${esc(t("s" + n))}</p></div>`).join("")}
       </div></div></details>
     <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_files")}</span></summary><div class="apanel" style="padding-top:4px"><div class="files">${Object.entries(d.sources).map(([n, src]) => `<div><span class="mono">${esc(n)}</span><span>${src.kind === "pipeline" ? `<span class="badge applies">pipeline</span>` : src.kind === "fixture" ? `<span class="badge unknown">fixture</span>` : `<span class="badge failed">missing</span>`} <span class="muted" style="font-size:12px">${esc(src.modified || "")}</span></span></div>`).join("")}</div>
-      <p style="font-size:14px;margin-top:14px">${verifiedN} / ${vt} quoted spans found in the source text${ver.not_found ? `; <b style="color:var(--wrn)">${ver.not_found} not found (flagged)</b>` : ""}${ver.no_text ? `; ${ver.no_text} sources have no offline text` : ""}.</p></div></details>
+      <p style="font-size:14px;margin-top:14px">${esc(t("a_spans").replace("{a}", verifiedN).replace("{b}", vt))}${ver.not_found ? `; <b style="color:var(--wrn)">${esc(t("a_notfound").replace("{n}", ver.not_found))}</b>` : ""}${ver.no_text ? `; ${esc(t("a_notext").replace("{n}", ver.no_text))}` : ""}.</p></div></details>
     <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_geo")}</span></summary><div class="apanel" style="padding-top:4px"><div class="files">${Object.entries(d.geocoding).map(([k, v]) => `<div><span>${esc(t("m_" + k).startsWith("m_") ? k : t("m_" + k))}</span><b>${v}</b></div>`).join("")}</div>
-        <div class="table-wrap" style="max-height:320px;overflow:auto;margin-top:12px"><table class="rtable"><thead><tr><th>ID</th><th>Address</th><th>Mailing</th><th>Legal city</th><th>Method</th></tr></thead><tbody>${d.geocoding_notes.map((g) => `<tr><td class="mono"><a href="#/a/${g.id}">${g.id}</a></td><td>${esc(g.street)}</td><td>${esc(g.postal_city)}</td><td><b>${esc(g.city || "outside scope")}</b></td><td class="s" title="${esc(g.note)}">${esc(g.method)}</td></tr>`).join("")}</tbody></table></div></div></details>
+        <div class="table-wrap" style="max-height:320px;overflow:auto;margin-top:12px"><table class="rtable"><thead><tr><th>ID</th><th>${t("col_address")}</th><th>${t("col_mailing")}</th><th>${t("col_legal")}</th><th>${t("col_method")}</th></tr></thead><tbody>${d.geocoding_notes.map((g) => `<tr><td class="mono"><a href="#/a/${g.id}">${g.id}</a></td><td>${esc(g.street)}</td><td>${esc(g.postal_city)}</td><td><b>${esc(g.city || t("outside"))}</b></td><td class="s" title="${esc(g.note)}">${esc(g.method)}</td></tr>`).join("")}</tbody></table></div></div></details>
     <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_docs").replace("{n}", d.documents.length)}</span></summary><div class="apanel" style="padding-top:4px">
-      <div class="table-wrap" style="max-height:440px;overflow:auto"><table class="rtable"><thead><tr><th>Doc</th><th>${t("jurisdiction")}</th><th>Source</th><th>Type</th><th>${t("retrieved")}</th><th>Rules</th><th><span class="sr">Text</span></th></tr></thead><tbody>
-      ${d.documents.map((x) => `<tr><td class="mono">${esc(x.doc_id)}</td><td class="nw">${esc(x.jurisdictions)}</td><td style="max-width:380px;word-break:break-all"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 64))}</a></td><td class="s">${esc(x.source_type)}${x.capture !== "yes" ? ` · ${esc(x.capture)}` : ""}</td><td class="s nw">${esc(x.retrieved_at || "—")}</td><td>${x.rules_extracted || ""}</td><td>${x.text_available ? `<a href="#" data-doc="${esc(x.doc_id)}">text</a>` : `<span class="s">link only</span>`}</td></tr>`).join("")}
+      <div class="table-wrap" style="max-height:440px;overflow:auto"><table class="rtable"><thead><tr><th>${t("col_doc")}</th><th>${t("jurisdiction")}</th><th>${t("col_source")}</th><th>${t("col_type")}</th><th>${t("retrieved")}</th><th>${t("col_rules")}</th><th><span class="sr">${t("col_text")}</span></th></tr></thead><tbody>
+      ${d.documents.map((x) => `<tr><td class="mono">${esc(x.doc_id)}</td><td class="nw">${esc(x.jurisdictions)}</td><td style="max-width:380px;word-break:break-all"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 64))}</a></td><td class="s">${esc(x.source_type)}${x.capture !== "yes" ? ` · ${esc(x.capture)}` : ""}</td><td class="s nw">${esc(x.retrieved_at || "—")}</td><td>${x.rules_extracted || ""}</td><td>${x.text_available ? `<a href="#" data-doc="${esc(x.doc_id)}">${t("l_text")}</a>` : `<span class="s">${t("l_link")}</span>`}</td></tr>`).join("")}
       </tbody></table></div></div></details>
     <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_log").replace("{n}", d.audit_total)}</span></summary><div class="apanel" style="padding-top:4px">
       <div class="filters"><input type="search" id="lq" placeholder="${t("q_filter")}" aria-label="${t("q_filter")}"></div>

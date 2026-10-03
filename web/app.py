@@ -29,6 +29,7 @@ from fastapi.staticfiles import StaticFiles
 
 from web.accounts import router as accounts_router
 from web.any_address import router as any_address_router
+from web.translate import plain_expected
 
 ROOT = Path(__file__).resolve().parent.parent
 WEB = ROOT / "web"
@@ -756,6 +757,8 @@ def build_change(t: dict, lang: str, as_of: str | None = None) -> dict:
     return {
         **t,
         "our_rule_ids": rids,
+        "title_display": STORE.t(t.get("title"), lang),
+        "expected_display": STORE.t(plain_expected(t.get("expected_behavior")), lang),
         "rules": [
             {**rule_view(STORE.rules[r], lang), "status": rule_status_at(STORE.rules[r], as_of)}
             for r in rids
