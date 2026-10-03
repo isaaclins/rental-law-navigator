@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-01",
- "generated_at": "2026-10-03T20:14:22",
+ "generated_at": "2026-10-03T20:21:19",
  "disclaimer": "Not legal advice. Automated extraction from the supplied corpus; verify against the cited source.",
  "rules": [
   {
@@ -64,6 +64,7 @@
    },
    "enacted_date": null,
    "sunset_date": "2030-01-01",
+   "sunset_kind": "repeal",
    "citation_aliases": [
     "SB 567",
     "Stats. 2023, ch. 290",
@@ -142,6 +143,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": "2030-01-01",
+   "sunset_kind": "repeal",
    "citation_aliases": [
     "AB 1529",
     "AB 1482",
@@ -204,6 +206,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "AB 12",
     "AB 414",
@@ -264,6 +267,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "AB 1170 (Stats. 2025, Ch. 67)"
    ],
@@ -326,6 +330,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "SB 329",
     "SB 267",
@@ -395,6 +400,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Fair Employment and Housing Act (FEHA)",
     "Civil Rights Council criminal history regulations"
@@ -457,6 +463,7 @@
    },
    "enacted_date": "2025-10-06",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "AB 325",
     "SB 763",
@@ -521,6 +528,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "2026-10-01T22:37Z",
    "source_type": "official",
@@ -576,6 +584,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "N.J.S.A. 2A:50-70",
     "N.J.S.A. 2A:50-71(b)"
@@ -641,6 +650,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "N.J.S.A. 2A:18-61.1 to 61.12",
     "N.J.S.A. 2A:18-53",
@@ -712,6 +722,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "N.J.S.A. 46:8-19",
     "N.J.S.A. 46:8-19.1",
@@ -781,6 +792,7 @@
    },
    "enacted_date": "2026-01-20",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "N.J.S.A. 46:8-18.1",
     "A4899"
@@ -843,6 +855,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "N.J.S.A. 10:5-12(g)-(h)",
     "N.J.S.A. 10:5-5(n)",
@@ -909,6 +922,7 @@
    },
    "enacted_date": "2021-06-18",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "P.L.2021, c.110",
     "S250",
@@ -978,6 +992,7 @@
    },
    "enacted_date": "2026-07-20",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "A3497 1R ACS",
     "FAIR Act",
@@ -1033,6 +1048,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "G.L. c. 40P"
    ],
@@ -1096,6 +1112,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Cella v. Attorney General, SJC-13893",
     "Keep Massachusetts Home petition"
@@ -1150,6 +1167,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "2026-10-01T22:37Z",
    "source_type": "official",
@@ -1203,6 +1221,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "2026-10-01T22:37Z",
    "source_type": "official",
@@ -1253,6 +1272,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "2026-10-01T22:37Z",
    "source_type": "official",
@@ -1303,6 +1323,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "2026-10-01T22:54Z",
    "source_type": "official",
@@ -1356,6 +1377,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "M.G.L. c. 186 § 15B"
    ],
@@ -1408,6 +1430,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "St. 2025, c. 9, § 43"
    ],
@@ -1463,6 +1486,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "M.G.L. c. 186 § 15B"
    ],
@@ -1519,6 +1543,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "G.L. c. 151B, § 4(10)"
    ],
@@ -1571,6 +1596,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "H.5222 (194th General Court)",
     "H1564"
@@ -1624,6 +1650,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Senate, No. 2983",
     "S.994",
@@ -1694,6 +1721,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Los Angeles Rent Stabilization Ordinance",
     "RSO",
@@ -1763,6 +1791,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "LAMC 151.09.C.9",
     "LAMC 165.05.B.5",
@@ -1838,6 +1867,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Just Cause Ordinance",
     "JCO"
@@ -1902,6 +1932,7 @@
    },
    "enacted_date": "2025-02-11",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Resident Protections Ordinance",
     "RPO"
@@ -1967,6 +1998,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "LAMC 151.09.A.8",
     "LAMC 165.03.H",
@@ -2036,6 +2068,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "LARSO"
    ],
@@ -2103,6 +2136,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": "2027-02-28",
+   "sunset_kind": "figure_period_end",
    "citation_aliases": [
     "SF Rent Ordinance"
    ],
@@ -2166,6 +2200,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "SF Rent Ordinance",
     "S.F. Admin. Code ch. 37"
@@ -2226,6 +2261,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "SF Rent Ordinance Section 37.9C"
    ],
@@ -2284,6 +2320,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "SF Rent Board security deposit interest rate"
    ],
@@ -2343,6 +2380,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "2026-10-01T22:37Z",
    "source_type": "official",
@@ -2401,6 +2439,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "SF Rent Ordinance Section 37.10C"
    ],
@@ -2474,6 +2513,7 @@
    },
    "enacted_date": "2023-05-25",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "San Diego Mun. Code ch. 9, art. 8, div. 7",
     "O-21647 N.S.",
@@ -2536,6 +2576,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Prohibition of Discrimination Based on a Tenant's Source of Income"
    ],
@@ -2593,6 +2634,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "O-2025-107",
     "Prohibition of Anti-Competitive Automated Rent Price-Fixing Ordinance",
@@ -2668,6 +2710,7 @@
    "in_force_since_evidence": null,
    "enacted_date": "2024-11",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Berkeley Mun. Code ch. 13.76",
     "Measure BB",
@@ -2737,6 +2780,7 @@
    "in_force_since_evidence": null,
    "enacted_date": "2024-11",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Measure BB"
    ],
@@ -2801,6 +2845,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Berkeley Rent Ordinance"
    ],
@@ -2859,6 +2904,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Berkeley Mun. Code ch. 13.78",
     "Berkeley Mun. Code § 13.78.016"
@@ -2923,6 +2969,7 @@
    "in_force_since_evidence": null,
    "enacted_date": "2020-04-14",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "BMC 13.106"
    ],
@@ -2980,6 +3027,7 @@
    "in_force_since_evidence": null,
    "enacted_date": "2025-12-02",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Berkeley Mun. Code § 13.63.030",
     "Ordinance No. 7,992-N.S."
@@ -3051,6 +3099,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "santa-ana.gov/renterprotections"
    ],
@@ -3123,6 +3172,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "santa-ana.gov/renterprotections"
    ],
@@ -3186,6 +3236,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Santa Ana Ordinance No. NS-3090"
    ],
@@ -3251,6 +3302,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Jersey City Rent Control Ordinance, Chapter 260"
    ],
@@ -3310,6 +3362,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "2026-10-03 17:12 UTC",
    "source_type": "secondary (law firm / news / mirror)",
@@ -3374,6 +3427,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Hoboken Rent Control Ordinance"
    ],
@@ -3432,6 +3486,7 @@
    },
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Hoboken City Code, ch. 158-2"
    ],
@@ -3492,6 +3547,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "",
    "source_type": "code publisher (link-only, text not captured)",
@@ -3538,6 +3594,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "H3744",
     "H5035"
@@ -3602,6 +3659,7 @@
    },
    "enacted_date": "2020-10",
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Housing Stability Notification Act",
     "HSNA"
@@ -3661,6 +3719,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [],
    "retrieved_at": "2026-10-01T22:35Z",
    "source_type": "official",
@@ -3718,6 +3777,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Boston DND Fair Chance Tenant Selection Policy"
    ],
@@ -3779,6 +3839,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Tenants Rights and Resources Ordinance",
     "Cambridge Mun. Code § 8.71.070"
@@ -3836,6 +3897,7 @@
    "in_force_since_evidence": null,
    "enacted_date": null,
    "sunset_date": null,
+   "sunset_kind": null,
    "citation_aliases": [
     "Cambridge Fair Housing Ordinance"
    ],

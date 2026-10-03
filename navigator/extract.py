@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import re
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
@@ -805,6 +806,62 @@ def review_new_doc(
 
 
 # ------------------------------------------------------------------ stage 4
+_REPEAL_TERMS = re.compile(
+    r"repeal|remain in effect until|remains in effect until|in effect only until|expire|sunset|terminate|cease to (?:be|have) effect"
+    r"|shall become inoperative|no longer (?:be )?in effect",
+    re.I,
+)
+_MONTH_NAMES = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
+
+
+def _date_variants(iso: str) -> list[str]:
+    d = N.date_floor(iso)
+    if not d or len(iso) < 10:
+        return [iso] if iso else []
+    m = _MONTH_NAMES[d.month - 1]
+    return [
+        iso,
+        f"{m} {d.day}, {d.year}",
+        f"{m[:3]}. {d.day}, {d.year}",
+        f"{m[:3]} {d.day}, {d.year}",
+        f"{d.month}/{d.day}/{d.year}",
+        f"{d.month}/{d.day}/{str(d.year)[2:]}",
+    ]
+
+
+def sunset_kind(rule: dict) -> str | None:
+    """Classify an end date from the documents: "repeal" only when the date is stated next to repeal / expiry language
+    (e.g. "shall remain in effect until January 1, 2030, and as of that date is repealed"); otherwise the date is the end
+    of the period of the rule's current key figure (an annual rate window) and the law itself does not end."""
+    sd = rule.get("sunset_date")
+    if not sd:
+        return None
+    for doc_id in dict.fromkeys([rule.get("span_doc_id"), rule.get("source_doc_id")]):
+        d = get_doc(doc_id) if doc_id else None
+        if not d:
+            continue
+        text = " ".join(d.text.split())
+        for v in _date_variants(sd):
+            for m in re.finditer(re.escape(v), text):
+                window = text[max(0, m.start() - 250) : m.end() + 120]
+                if _REPEAL_TERMS.search(window):
+                    return "repeal"
+    return "figure_period_end"
+
+
 def start_date(rule: dict) -> dt.date | None:
     """Date before which the rule did not exist. Amended long-standing laws: their verified start, else unknown (None)."""
     if rule.get("amends_existing_law"):
@@ -914,6 +971,7 @@ def finalize(rules: list[dict], findings: list[dict], as_of: str = DEFAULT_AS_OF
             "in_force_since_evidence": r.get("in_force_since_evidence"),
             "enacted_date": r.get("enacted_date"),
             "sunset_date": r.get("sunset_date"),
+            "sunset_kind": sunset_kind(r),
             "citation_aliases": r.get("citation_aliases") or [],
             "retrieved_at": retrieved,
             "source_type": stype,
