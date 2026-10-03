@@ -1,0 +1,153 @@
+SOURCE: https://www.lassd.org/resource/city-of-san-diego-tenant-protection-ordinance/
+RETRIEVED: 2026-10-03 17:13 UTC
+SOURCE_TYPE: secondary (law firm / news / mirror) (link-only in starter corpus; fetched by team)
+
+Updated: September 21, 2023
+WHAT TENANTS AND LANDLORDS NEED TO KNOW
+This document is intended only to provide clarity for the public regarding existing requirements under the law or agency policies. This Fact Sheet is intended to provide accurate, general information regarding legal rights relating to housing in San Diego, California. Yet because laws and legal procedures are subject to frequent change and differing interpretations, Legal Aid Society of San Diego, Inc. cannot ensure the information in this Fact Sheet is current nor be responsible for any use to which it is put. Do not rely on this information without consulting an attorney or the appropriate agency about your rights in your particular situation. Please do not hesitate to call us to obtain the most up to date information regarding your situation.
+This FAQ was funded in whole or in part by San Diego Housing Commission’s Eviction Prevention Program.
+The purpose of the Ordinance is to require Just Cause for termination of residential tenancies consistent with California Civil Code section 1946.2, to limit the reasons for termination of a residential tenancy, to require greater tenant relocation assistance in specified circumstances and to provide additional tenant protections.
+The Ordinance goes into effect June 24, 2023.
+It is indefinite, unless amended by the City Council of San Diego.
+The San Diego Housing Commission is establishing a submission portal for landlords to provide written notice to SDHC for both “at fault” and “no fault” evictions per section 98.0706(a)(2). This regulation will be effective 30 days after they provide the public notice of the portal creation.
+Further, SDHC created the tenant protection guide which must be included with the notice of residential protections required under section 98.0705 of the Ordinance.
+Any person, acting as principal or through an agent, having the right to offer residential rental property for rent, and includes a predecessor in interest to the landlord.
+Dwelling unit that is intended for human habitation, including rented dwellings in a mobilehome park.
+Any person 62 years or older.
+Any person with a disability as defined in California Government Code Section 12955.3, as may be amended.
+The lawful right to continuously use/occupy a residential rental property for more than 30 days. A tenancy does NOT include a fixed term lease of three (3) months or less, including an extension or renewal of a fixed term lease of 3 months or less.
+*The ordinance ONLY applies to a Tenancy as defined by the ordinance.
+A. A tenant of a transient and tourist hotel;
+B. Any residential occupancy by reason of concession, permit, right of access, license or other agreement for a period of 30 consecutive days or less;
+Example: An AirBNB or VRBO is exempt from the Ordinance.
+C. Housing restricted by deed (LITHC), regulatory restriction contained in an agreement with a government agency, or other recorded document as affordable housing for individuals and families of very low, low, or moderate income;
+D. Housing that is subject to an agreement that provides housing subsidies for affordable housing for the same individuals previously described. This exclusion does NOT apply to a Tenant with a Section 8 Housing Choice Voucher;
+E. Mobilehomes subject to the MRL;
+Example: Owner residing in mobilehome and renting space not the mobilehome itself.
+F. Housing accommodations in nonprofit hospital, religious facility, extended care facility, licensed residential care facility for the elderly, or non-profit transitional housing;
+a. Non-profit Transitional housing means housing operated by a non-profit organization for up to 24 months with supportive services to individuals and families with the goal of interim stability and support to successfully move to and maintain permanent housing, which may cover housing costs and accompanying supportive services for program participants.
+G. Dormitories owned and operated by institution of higher education (school- owned housing);
+H. Housing in which tenant shares the bathroom or kitchen facilities with the Owner who maintains their principal residence at the Residential Rental Unit.
+I. Single-family owner-occupied residencies, including mobile homes, where the Owner-occupant rents or leases no more than two (2) units or bedrooms, including, but not limited to, an accessory dwelling unit or junior accessory dwelling unit.
+Example:
+i. Exempt: A tenancy in a single-family home or mobile home where the owner lives in one room and rents out 1 or 2 other rooms to tenants, collecting rent from them monthly.
+ii. Not Exempt: A tenancy in a single-family home or mobile home where the owner lives in one room and rents out 3 or more rooms to 3 or more tenants, collecting rent from them monthly.
+J. A property containing two separate dwelling units within a single structure in which the Owner occupies one of the units as the Owner’s principal place of residence at the beginning of the Tenancy, so long as the Owner continues in occupancy, and neither unit is an accessory dwelling unit or junior accessory dwelling unit.
+Example:
+i. Exempt: A tenancy in a duplex in which the owner lives in one rental unit and the tenant lives in the other, the owner collects rent from the tenant monthly.
+ii. Not Exempt:
+1. Tenancies in a property with 3 or more rental units in which the owner lives in one rental unit and the tenants live in the other units, the owner collects rent from the tenants monthly.
+2. Tenancies in a duplex in which the owner DOES NOT live in one of the two rental units and the owner collects rent from the tenants monthly.
+K. A Residential Rental Unit, including a mobilehome that is alienable separate from the title to any other dwelling unit, provided that both (A & B) of the following apply:
+a. The Landlord is NOT any of the following:
+i. A real estate investment trust, as defined in Section 856 of the Internal Revenue Code;
+ii. A corporation;
+iii. A limited liability company(LLC) in which at least one member is a corporation;
+iv. Management of a mobilehome park, as defined in Section 798.2 of the Civil Code.
+b. The Tenants have been provided written notice that the Residential Rental Unit is exempt from this section.
+Example: A tenancy in a condominium that is owned by person as an individual and the property%E2%80%99s deed is in that individual%E2%80%99s name, is exempt from the Ordinance so long as the Landlord as provided notice of the exemption to the Tenant(s).
+L. Housing that has been issued a certificate of occupancy within the previous 15 years, unless the dwelling is a mobilehome.
+A Landlord cannot retaliate against a Tenant because of the Tenant’s rights exercised under the Ordinance and Buyout Agreement protections.
+There are two kinds of “Just Cause” or valid reasons to terminate a tenancy: (A) At Fault Just Cause and (B) No-Fault Just Cause as detailed below:
+A. At Fault Just Cause
+1. Failure to pay rent;
+2. A breach of material term of the lease, including, but not limited to, violation of a provision of the lease after being issued a written notice to correct the violation.
+3. Maintaining, committing, or permitting the maintenance or commission of a nuisance;
+Examples: Constantly having loud parties during quiet hours after warnings have been provided or repeated harassment of neighbors/other tenants on the property.
+4. Committing waste;
+Examples: Tenant damaging the unit and causing the unit to be worth a lot less or failure to report needed repairs to landlord that cause ongoing damage to the unit such as failing to report a plumbing leak that caused ongoing damage to the unit.
+5. The Tenant had a written lease that terminated on or after June 24, 2023, and after a written request, the Tenant has refused to execute a written extension or renewal of the lease for an additional term of similar duration with similar provisions;
+6. Criminal activity in the unit or common areas associated with the Residential Rental Property;
+7. Criminal threats, as defined in California Penal Code 422(a), regardless of where made or directed at the Landlord or other tenants;
+8. Assigning or subletting the premises in violation of the Tenant’s lease;
+9. The Tenant’s refusal to allow the Landlord to enter the Residential Rental Property when the Landlord is requesting to enter for lawful purposes;
+10. Using the premises for an unlawful purpose;
+11. The employee, agent, or licensee, who is provided 100% of their housing as part of employment, fails to vacate after their termination as an employee agent, or a licensee.
+Exception: Property Managers/ Agents who get a partial rent discount for their employment and pay the remainder of rent cannot be terminated under this section. The termination of employment terminates the rent discount, and the former employee is now a tenant responsible for 100% of the rent.
+12. When the Tenant fails to deliver possession of the Residential Rental Property after providing the Owner written notice of the Tenant’s intention to move out or making a written agreement with the Landlord to move out which is accepted by the Landlord in writing, but tenant fails to timely move out.
+B. No-Fault Just Cause is any of the following actions taken by a Landlord in good faith meaning without ulterior motives and with honest intent:
+1. The Landlord intends to occupy the unit including the Landlord’s spouse, domestic partner, child, grandchild, parent, or grandparent;
+Note: For leases entered into on or after June 24, 2023, Intent toOccupy by Landlord shall only be a basis for termination if theTenant agrees, in writing, to the termination, or if a provision ofthe lease allows the Landlord to terminate the lease if theLandlord unilaterally decides to occupy the residential realproperty.
+For leases entered prior to June 24, 2023, the addition of aprovision allowing Landlord to terminate for Landlord’s Intent toOccupy the unit for a new lease, renewed lease, or fixed termlease constitutes a substantially similar provision for thepurposes of At Fault Just Cause based on Tenant’s refusal toenter into new lease.
+2. The Tenancy is terminated because of the Landlord’s decision to withdraw the Residential Rental Unit from the rental market.
+3. Tenancy is terminated because of Owner’s compliance with any of the following: An order issued by a (1) government agency, (2) court order, or (3) a local ordinance that necessitates vacating the Residential Rental Unit for at least 30 days based on habitability.
+Note: If a government agency or court determines the Tenant is at fault for the condition triggering the need to vacate, tenant is not entitled to relocation assistance.
+4. The Tenancy is terminated because of the Landlord’s decision to Substantially Remodel or completely demolish the Residential Rental Unit.
+Substantial Remodel under the Ordinance is the replacement or substantialmodification of any structural, electrical, plumbing, or mechanical system thatrequires a permit from a governmental agency, or the abatement of hazardousmaterials, including lead-based paint, mold, asbestos, in accordance withapplicable federal, state, and local laws, that cannot be reasonably accomplished ina safe manner with the tenant in place and requires tenant to vacate for at least 30days. Substantially remodeling does NOT include cosmetic improvements alone, such as painting, decorating, and minor repairs, or other work that can beperformed safely without vacating the tenant.
+A Landlord seeking to evict Tenants to demolish or substantially remodel must complete ALL of the following:
+a. Post the application for the necessary permits within three (3) business days of submittal of the permit application at the residential rental property; AND
+b. Secure permits necessary for the demolition or substantial remodel; AND
+c. Serve a copy of ALL OF THE FOLLOWING:
+1. The necessary permits with a written termination notice, certified under penalty of perjury, stating the reason for termination,
+2. The type and scope of the work to be performed,
+3. Why the work cannot be reasonably accomplished in a safe manner with the tenant in place, AND
+4. Why the work requires the tenant to vacate the residential rental property for at least 30 days.
+Yes, an Owner of a Residential Rental Property subject to The Ordinance must provide written notice in no less than 12-point type to the Tenant as follows:
+“California law limits the amount your rent can be increased. See California Civil Code section 1947.12 for more information. Local law also provides that a landlord shall provide a statement of cause in any notice to terminate a tenancy. In some circumstances, tenants who are seniors (62 years or older) or disabled may be entitled to additional tenant protections. See Chapter 9, Article 8, Division 7 of the San Diego Municipal Code for more information.”
+The Landlord must also include a copy of the Tenant Protection Guide with the written notice above. The guide is available on SDHC’s website.
+Note: For a Tenancy in a Residential Rental Property subject to the Ordinance existing before June 24, 2023, the notice required above must be provided to the Tenant directly or as an addendum to the lease or rental agreement within 90 days (September 22, 2023) of the ordinance going into effect.
+For a Tenancy in a Residential Rental Property subject to this Ordinance that commenced or renewed on or after June 24, 2023, the notice required above must be included as an addendum to the lease or rental agreement, or as a written notice signed by the Tenant, with a copy provided to the Tenant.
+Notice to the Commission (SDHC): The Landlord must provide written notice to SDHC no later than 3 business days after the date the landlord provided the notice to tenant. This does not apply until 30 days after SDHC establishes a submission portal and provides the public notice of its creation. (REQUIREMENT CURRENTLY NOT IN EFFECT)
+Note: Estimate date of portal launch is July 2024
+Curable Lease Violations: If the Landlord is terminating the tenancy for a curable lease violation, the Landlord must first give the Tenant a written notice of the alleged violation. The written notice of the violation must include a description of the violation(s) and an opportunity to cure (fix) the violation.
+Note: If the violation is not cured within the time period set forth in the notice, a 3- day Notice to Quit without an opportunity to cure (fix) the violation may be served to terminate the tenancy.
+Example: If a tenant has failed to pay his utilities according to the lease agreement, the Landlord must serve him with a Notice to Perform Covenants or Quit to give the tenant an opportunity to make the payment, before serving a Notice to Quit for the same violation.
+A Landlord must give written notice at least 30 or 60 days prior to proposed termination date pursuant to CC 1946.1 and it must contain the following:
+a. Basis of Termination;
+b. Tenant's right to relocation assistance as established below (See FAQ #18) by direct payment or waiver;
+i. If a Landlord elects to provide a direct payment, the notice must state amount of relocation assistance and that the landlord shall provide payment within 15 days from the date of the notice;
+ii. If a Landlord elects to waive rent, the notice must state the amount of rent waived and that no rent is due for final corresponding months of the tenancy.
+c. Tenants right to receive an offer to renew the tenancy and 30 days to accept the offer if rental property is offered again for rent/lease for residential purposes within five (5) years of date tenant was evicted (does not include Withdrawal from Rental Market no-fault evictions) (see FAQ #19 below for more details) if Tenant does the following:
+i. Notify the Landlord in writing within 30 days of the termination notice of the tenant’s desire to receive an offer to renew the tenancy; AND
+ii. Provided the Landlord a mailing address or email address for the landlord to send the offer; AND
+iii. Including any change of mailing address or email address.
+d. The Landlord must provide written notice to SDHC no later than 3 business days after the date the landlord provided the notice to tenant. This does not apply until 30 days after SDHC establishes a submission portal and provides the public notice of its creation. REQUIREMENT CURRENTLY NOT IN EFFECT
+Note: Estimate date of portal launch is July 2024
+Regardless of tenant’s income or length of tenancy, Landlord must provide relocation assistance to the tenant by (1) direct payment to the tenant OR (2) waiver of the final months of rent due.
+The Landlord must provide Relocation Assistance to the Tenants in one of the following ways: A direct payment equal to two (2) months of the actual rent (contract rent) OR Waive in writing or not collect two (2) months of the actual rent (contract rent).
+If the Tenant is Elderly or Disabled (for definitions see FAQ 7 & 8), the Landlord must provide Relocation Assistance to the Tenants in one of the following ways: A direct payment equal to three (3) months of the actual rent (contract rent) OR Waive in writing or not collect three (3) months of the actual rent (contract rent)
+Note: If Tenant fails to vacate after expiration of notice, the actual amount of relocation assistance provided may be recoverable by the Landlord as damages in unlawful detainer action if the Landlord prevails.
+If the Residential Rental Property is offered for rent or lease for residential purposes within 5 years of the date the Tenant was evicted for no-fault, the Landlord shall first offer to lease the property in writing to the Tenant displaced from that unit IF the Tenant:
+a. Notified Landlord in writing within 30 days of the termination notice of the Tenant’s desire to receive an offer to renew the tenancy; AND
+b. Provided the Landlord a mailing address or email address for the Landlord to send the offer; AND
+c. Including any change of mailing address or email address.
+Note: A Landlords failure to comply with the above shall render any notice of termination void (does not include Withdrawal from Rental Market).
+A buyout agreement is essentially a cash for keys agreement. The purpose is to increase the fairness of buyout negotiations and agreements, to ensure that Tenants who enter into buyout agreements are aware of their rights and to prevent Landlords from contracting around legal rights and remedies available to Tenants under existing law.
+A Landlord shall provide each tenant the following written disclosures and statements prior to making a buyout offer:
+a. Tenant has a right not to enter into a buyout agreement;
+b. Tenant may choose to consult with an attorney before entering into a buyout agreement;
+c. Landlord may not retaliate against the Tenant for refusing to enter into ornegotiate a buyout agreement;
+d. All Tenants of a residential rental property may refuse to receive future buyoutoffers by providing Landlord written notice of their refusal, which shall beeffective for 6 months, and all Tenants of a residential rental property mayrescind the refusal to receive future buyout offers by providing Landlord writtennotice of the rescission;
+e. Tenant is eligible for relocation assistance and the amount of the relocationassistance;
+f. Names of all people authorized to discuss the buyout offer and enter into abuyout agreement on the Landlord’s behalf;
+g. Space for each Tenant to sign and write the date the Landlord provided theTenant with the disclosure; and
+h. Space for the Landlord to sign and write the date on which the Landlordprovided the Tenant with the disclosure.
+A Landlord shall provide each Tenant a fully executed copy of the disclosure form within three (3) days of its execution and retain a copy for five (5) years, along with a record of the date the Landlord provided the disclosure to each Tenant.
+A Landlord must strictly comply with the following or it shall be void:
+a. Agreement must be in writing;
+b. Copy of the agreement must be given to each Tenant at the time the Tenant signs the agreement;
+c. Agreement must include the following statements in bold letters in at least 14- point font in close proximity to the Tenant’s signature line:
+1. You, the tenant, have a right not to enter into this buyout agreement.
+2. If you, the tenant, are entitled to relocation assistance under federal, state, or local law, a buyout agreement for less than the amount of the relocation assistance to which you are entitled violates Chapter 9, Article 8, Division 7 of the San Diego Municipal Code and is void.
+3. You, the tenant, may choose to consult with an attorney before signing this agreement.
+d. If Tenant primarily negotiates the agreement or lease (orally or in writing) in a non-English language, Landlord shall provide the Tenant with an English AND a translated version of the agreement at the same time.
+Buyout agreements for amounts less than the amount of relocation assistance available to Tenant is void. Buyout agreements which attempt to waive or limit a Tenant’s rights under this Ordinance are contrary to public policy and void.
+a. Tenant claiming a violation of this Division may file an action again Landlord.
+b. Tenant may seek injunctive relief, equitable relief, and money damages,including punitive damages.
+c. Tenant may raise an affirmative defense for violation or noncompliance inUnlawful Detainer.
+d. Landlord attempt or actual recovery of possession in violation of ordinance isliable to Tenant in civil action for wrongful eviction for damages of at least 3x theactual economic damages.
+e. If Landlord fails to provide relocation assistance under § 98.0706(c), Landlord isliable to the Tenant in a civil action of at least 3x the required relocation assistanceAND actual economic damages.
+f. Reasonable Attorney’s fees and costs in civil action that is NOT an unlawfuldetainer action.
+g. Remedies under this section are cumulative and may be used with otherremedies in this Division, law, statute, or other ordinance.
+Yes, a violation of the Ordinance may be asserted as an affirmative defense in an unlawful detainer or other civil action.
+It will not apply to termination notices that have already been adjudicated (judgement entered) in the courts. For tenancy termination notices that have not been adjudicated, we currently do not know how the court will rule on this issue.
+The Legal Aid Society is open for in person or over the phone intakes Monday – Friday, 9:00 a.m. to 5:00 p.m. Call us at: 877-LEGAL-AID (877-534-2524)
+Midtown San Diego Office
+1764 San Diego Avenue, Suite 100
+San Diego, CA 92110
+Trolley: Washington Street
+Bus: Washington St. & India
+North County Office
+100 E. San Marcos Blvd, Suite 308
+San Marcos, CA 92069
+Transit: San Marcos Civic Center

@@ -1,0 +1,4675 @@
+{
+ "T1": {
+  "affected_address_ids": [
+   "A0001",
+   "A0004",
+   "A0005",
+   "A0007",
+   "A0014",
+   "A0016",
+   "A0018",
+   "A0019",
+   "A0021",
+   "A0022",
+   "A0023",
+   "A0025",
+   "A0027",
+   "A0030",
+   "A0031",
+   "A0033",
+   "A0035",
+   "A0037",
+   "A0038",
+   "A0041",
+   "A0045",
+   "A0050",
+   "A0055",
+   "A0058",
+   "A0060",
+   "A0061",
+   "A0062",
+   "A0066",
+   "A0067",
+   "A0069",
+   "A0072",
+   "A0074",
+   "A0079",
+   "A0080",
+   "A0081",
+   "A0084",
+   "A0085",
+   "A0088",
+   "A0091",
+   "A0092",
+   "A0094",
+   "A0097",
+   "A0100",
+   "A0103",
+   "A0105",
+   "A0106",
+   "A0107",
+   "A0109",
+   "A0111",
+   "A0112",
+   "A0113",
+   "A0114",
+   "A0115",
+   "A0117",
+   "A0121",
+   "A0122",
+   "A0126",
+   "A0127",
+   "A0133",
+   "A0135",
+   "A0138",
+   "A0141",
+   "A0142",
+   "A0145",
+   "A0147",
+   "A0150",
+   "A0152",
+   "A0153",
+   "A0154",
+   "A0156",
+   "A0157",
+   "A0158",
+   "A0162",
+   "A0164",
+   "A0165",
+   "A0167",
+   "A0170",
+   "A0172",
+   "A0173",
+   "A0178",
+   "A0179",
+   "A0180",
+   "A0183",
+   "A0184",
+   "A0188",
+   "A0189",
+   "A0192",
+   "A0193",
+   "A0196",
+   "A0197",
+   "A0200",
+   "A0201",
+   "A0202",
+   "A0205",
+   "A0206",
+   "A0207",
+   "A0210",
+   "A0212",
+   "A0213",
+   "A0215",
+   "A0216",
+   "A0219",
+   "A0222",
+   "A0224",
+   "A0225",
+   "A0228",
+   "A0229",
+   "A0231",
+   "A0234",
+   "A0235",
+   "A0236",
+   "A0237",
+   "A0238",
+   "A0239",
+   "A0240",
+   "A0246",
+   "A0247",
+   "A0248",
+   "A0251",
+   "A0252",
+   "A0253",
+   "A0255",
+   "A0257",
+   "A0259",
+   "A0260",
+   "A0262",
+   "A0263",
+   "A0267",
+   "A0268",
+   "A0271",
+   "A0273",
+   "A0274",
+   "A0275",
+   "A0276",
+   "A0277",
+   "A0278",
+   "A0280",
+   "A0281",
+   "A0282",
+   "A0283",
+   "A0285",
+   "A0289",
+   "A0293",
+   "A0303",
+   "A0304",
+   "A0305",
+   "A0309",
+   "A0314",
+   "A0315",
+   "A0316",
+   "A0317",
+   "A0318",
+   "A0319",
+   "A0322",
+   "A0323",
+   "A0324",
+   "A0327",
+   "A0328",
+   "A0330",
+   "A0333",
+   "A0334",
+   "A0335",
+   "A0340",
+   "A0341",
+   "A0345",
+   "A0346",
+   "A0347",
+   "A0349",
+   "A0351",
+   "A0353",
+   "A0355",
+   "A0357",
+   "A0363",
+   "A0364",
+   "A0365",
+   "A0367",
+   "A0368",
+   "A0369",
+   "A0370",
+   "A0373",
+   "A0374",
+   "A0375",
+   "A0378",
+   "A0379",
+   "A0382",
+   "A0383",
+   "A0384",
+   "A0385",
+   "A0386",
+   "A0387",
+   "A0391",
+   "A0392",
+   "A0395",
+   "A0396",
+   "A0397",
+   "A0398",
+   "A0401",
+   "A0402",
+   "A0405",
+   "A0407",
+   "A0408",
+   "A0409",
+   "A0411",
+   "A0413",
+   "A0414",
+   "A0417",
+   "A0419",
+   "A0420",
+   "A0421",
+   "A0425",
+   "A0426",
+   "A0427",
+   "A0430",
+   "A0431",
+   "A0432",
+   "A0433",
+   "A0434",
+   "A0437",
+   "A0439",
+   "A0440",
+   "A0441",
+   "A0442",
+   "A0443",
+   "A0445",
+   "A0451",
+   "A0452",
+   "A0454",
+   "A0456",
+   "A0457",
+   "A0458",
+   "A0461",
+   "A0469",
+   "A0470",
+   "A0474",
+   "A0477",
+   "A0478",
+   "A0479",
+   "A0480",
+   "A0481",
+   "A0483",
+   "A0484",
+   "A0486",
+   "A0487",
+   "A0492",
+   "A0493",
+   "A0494",
+   "A0496",
+   "A0497",
+   "A0499",
+   "A0500"
+  ],
+  "conflict_flag_address_ids": [],
+  "notes": "California AB 325 / SB 763 takes effect. Key rules -> ours: {\"CA-ALG-01\": [\"CA-ALG-01 Cal. Bus. & Prof. Code § 16729 [in_force]\"]}. 250 affected addresses (Berkeley, CA: 40, Los Angeles, CA: 80, San Diego, CA: 50, San Francisco, CA: 80); 0 with conflict flags. Expected: not_yet_effective before, applies after, for every CA address.",
+  "rule_mapping": {
+   "CA-ALG-01": [
+    "CA-ALG-01"
+   ]
+  },
+  "per_address": {
+   "A0001": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0004": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0005": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0007": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0014": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0016": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0018": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0019": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0021": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0022": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0023": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0025": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0027": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0030": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0031": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0033": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0035": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0037": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0038": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0041": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0045": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0050": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0055": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0058": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0060": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0061": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0062": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0066": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0067": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0069": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0072": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0074": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0079": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0080": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0081": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0084": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0085": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0088": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0091": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0092": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0094": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0097": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0100": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0103": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0105": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0106": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0107": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0109": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0111": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0112": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0113": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0114": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0115": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0117": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0121": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0122": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0126": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0127": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0133": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0135": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0138": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0141": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0142": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0145": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0147": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0150": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0152": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0153": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0154": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0156": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0157": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0158": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0162": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0164": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0165": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0167": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0170": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0172": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0173": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0178": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0179": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0180": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0183": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0184": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0188": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0189": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0192": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0193": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0196": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0197": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0200": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0201": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0202": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0205": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0206": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0207": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0210": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0212": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0213": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0215": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0216": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0219": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0222": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0224": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0225": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0228": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0229": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0231": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0234": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0235": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0236": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0237": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0238": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0239": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0240": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0246": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0247": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0248": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0251": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0252": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0253": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0255": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0257": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0259": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0260": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0262": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0263": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0267": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0268": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0271": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0273": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0274": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0275": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0276": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0277": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0278": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0280": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0281": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0282": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0283": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0285": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0289": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0293": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0303": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0304": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0305": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0309": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0314": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0315": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0316": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0317": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0318": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0319": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0322": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0323": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0324": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0327": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0328": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0330": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0333": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0334": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0335": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0340": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0341": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0345": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0346": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0347": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0349": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0351": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0353": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0355": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0357": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0363": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0364": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0365": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0367": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0368": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0369": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0370": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0373": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0374": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0375": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0378": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0379": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0382": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0383": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0384": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0385": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0386": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0387": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0391": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0392": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0395": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0396": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0397": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0398": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0401": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0402": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0405": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0407": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0408": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0409": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0411": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0413": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0414": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0417": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0419": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0420": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0421": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0425": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0426": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0427": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0430": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0431": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0432": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0433": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0434": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0437": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0439": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0440": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0441": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0442": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0443": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0445": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0451": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0452": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0454": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0456": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0457": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0458": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0461": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0469": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0470": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0474": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0477": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0478": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0479": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0480": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0481": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0483": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0484": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0486": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0487": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0492": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0493": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0494": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0496": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0497": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0499": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   },
+   "A0500": {
+    "before": {
+     "CA-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "CA-ALG-01": "applies"
+    }
+   }
+  }
+ },
+ "T2": {
+  "affected_address_ids": [
+   "A0002",
+   "A0008",
+   "A0012",
+   "A0017",
+   "A0026",
+   "A0032",
+   "A0040",
+   "A0042",
+   "A0047",
+   "A0049",
+   "A0051",
+   "A0078",
+   "A0087",
+   "A0089",
+   "A0099",
+   "A0101",
+   "A0102",
+   "A0108",
+   "A0116",
+   "A0119",
+   "A0125",
+   "A0131",
+   "A0136",
+   "A0139",
+   "A0160",
+   "A0161",
+   "A0163",
+   "A0168",
+   "A0171",
+   "A0177",
+   "A0181",
+   "A0182",
+   "A0185",
+   "A0186",
+   "A0187",
+   "A0208",
+   "A0223",
+   "A0227",
+   "A0241",
+   "A0243",
+   "A0244",
+   "A0250",
+   "A0254",
+   "A0256",
+   "A0261",
+   "A0265",
+   "A0266",
+   "A0269",
+   "A0270",
+   "A0279",
+   "A0287",
+   "A0288",
+   "A0299",
+   "A0308",
+   "A0320",
+   "A0321",
+   "A0325",
+   "A0344",
+   "A0348",
+   "A0350",
+   "A0359",
+   "A0360",
+   "A0372",
+   "A0377",
+   "A0388",
+   "A0389",
+   "A0393",
+   "A0394",
+   "A0399",
+   "A0404",
+   "A0410",
+   "A0415",
+   "A0416",
+   "A0418",
+   "A0424",
+   "A0435",
+   "A0436",
+   "A0438",
+   "A0447",
+   "A0450",
+   "A0455",
+   "A0459",
+   "A0462",
+   "A0471",
+   "A0472",
+   "A0475",
+   "A0482",
+   "A0489",
+   "A0490",
+   "A0495"
+  ],
+  "conflict_flag_address_ids": [
+   "A0002",
+   "A0008",
+   "A0012",
+   "A0017",
+   "A0026",
+   "A0032",
+   "A0040",
+   "A0042",
+   "A0047",
+   "A0049",
+   "A0051",
+   "A0078",
+   "A0087",
+   "A0089",
+   "A0099",
+   "A0101",
+   "A0102",
+   "A0108",
+   "A0116",
+   "A0119",
+   "A0125",
+   "A0131",
+   "A0136",
+   "A0139",
+   "A0160",
+   "A0161",
+   "A0163",
+   "A0168",
+   "A0171",
+   "A0177",
+   "A0181",
+   "A0182",
+   "A0185",
+   "A0186",
+   "A0187",
+   "A0208",
+   "A0223",
+   "A0227",
+   "A0241",
+   "A0243",
+   "A0244",
+   "A0250",
+   "A0254",
+   "A0256",
+   "A0261",
+   "A0265",
+   "A0266",
+   "A0269",
+   "A0270",
+   "A0279",
+   "A0287",
+   "A0288",
+   "A0299",
+   "A0308",
+   "A0320",
+   "A0321",
+   "A0325",
+   "A0344",
+   "A0348",
+   "A0350",
+   "A0359",
+   "A0360",
+   "A0372",
+   "A0377",
+   "A0388",
+   "A0389",
+   "A0393",
+   "A0394",
+   "A0399",
+   "A0404",
+   "A0410",
+   "A0415",
+   "A0416",
+   "A0418",
+   "A0424",
+   "A0435",
+   "A0436",
+   "A0438",
+   "A0447",
+   "A0450",
+   "A0455",
+   "A0459",
+   "A0462",
+   "A0471",
+   "A0472",
+   "A0475",
+   "A0482",
+   "A0489",
+   "A0490",
+   "A0495"
+  ],
+  "notes": "Hoboken vs Jersey City local algorithmic bans. Key rules -> ours: {\"HOB-ALG-01\": [\"HOB-ALG-01 Hoboken City Code ch. 158, Art. II [in_force]\"], \"JC-ALG-01\": [\"JC-ALG-01 Jersey City Code § 218-12 [in_force]\"]}. 90 affected addresses (Hoboken, NJ: 40, Jersey City, NJ: 50); 90 with conflict flags. Expected: HOB-ALG-01 only for Hoboken addresses; JC-ALG-01 only for Jersey City addresses; neither for Newark.",
+  "rule_mapping": {
+   "HOB-ALG-01": [
+    "HOB-ALG-01"
+   ],
+   "JC-ALG-01": [
+    "JC-ALG-01"
+   ]
+  },
+  "per_address": {
+   "A0002": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0008": {
+    "JC-ALG-01": "applies"
+   },
+   "A0012": {
+    "JC-ALG-01": "applies"
+   },
+   "A0017": {
+    "JC-ALG-01": "applies"
+   },
+   "A0026": {
+    "JC-ALG-01": "applies"
+   },
+   "A0032": {
+    "JC-ALG-01": "applies"
+   },
+   "A0040": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0042": {
+    "JC-ALG-01": "applies"
+   },
+   "A0047": {
+    "JC-ALG-01": "applies"
+   },
+   "A0049": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0051": {
+    "JC-ALG-01": "applies"
+   },
+   "A0078": {
+    "JC-ALG-01": "applies"
+   },
+   "A0087": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0089": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0099": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0101": {
+    "JC-ALG-01": "applies"
+   },
+   "A0102": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0108": {
+    "JC-ALG-01": "applies"
+   },
+   "A0116": {
+    "JC-ALG-01": "applies"
+   },
+   "A0119": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0125": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0131": {
+    "JC-ALG-01": "applies"
+   },
+   "A0136": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0139": {
+    "JC-ALG-01": "applies"
+   },
+   "A0160": {
+    "JC-ALG-01": "applies"
+   },
+   "A0161": {
+    "JC-ALG-01": "applies"
+   },
+   "A0163": {
+    "JC-ALG-01": "applies"
+   },
+   "A0168": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0171": {
+    "JC-ALG-01": "applies"
+   },
+   "A0177": {
+    "JC-ALG-01": "applies"
+   },
+   "A0181": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0182": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0185": {
+    "JC-ALG-01": "applies"
+   },
+   "A0186": {
+    "JC-ALG-01": "applies"
+   },
+   "A0187": {
+    "JC-ALG-01": "applies"
+   },
+   "A0208": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0223": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0227": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0241": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0243": {
+    "JC-ALG-01": "applies"
+   },
+   "A0244": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0250": {
+    "JC-ALG-01": "applies"
+   },
+   "A0254": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0256": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0261": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0265": {
+    "JC-ALG-01": "applies"
+   },
+   "A0266": {
+    "JC-ALG-01": "applies"
+   },
+   "A0269": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0270": {
+    "JC-ALG-01": "applies"
+   },
+   "A0279": {
+    "JC-ALG-01": "applies"
+   },
+   "A0287": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0288": {
+    "JC-ALG-01": "applies"
+   },
+   "A0299": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0308": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0320": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0321": {
+    "JC-ALG-01": "applies"
+   },
+   "A0325": {
+    "JC-ALG-01": "applies"
+   },
+   "A0344": {
+    "JC-ALG-01": "applies"
+   },
+   "A0348": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0350": {
+    "JC-ALG-01": "applies"
+   },
+   "A0359": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0360": {
+    "JC-ALG-01": "applies"
+   },
+   "A0372": {
+    "JC-ALG-01": "applies"
+   },
+   "A0377": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0388": {
+    "JC-ALG-01": "applies"
+   },
+   "A0389": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0393": {
+    "JC-ALG-01": "applies"
+   },
+   "A0394": {
+    "JC-ALG-01": "applies"
+   },
+   "A0399": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0404": {
+    "JC-ALG-01": "applies"
+   },
+   "A0410": {
+    "JC-ALG-01": "applies"
+   },
+   "A0415": {
+    "JC-ALG-01": "applies"
+   },
+   "A0416": {
+    "JC-ALG-01": "applies"
+   },
+   "A0418": {
+    "JC-ALG-01": "applies"
+   },
+   "A0424": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0435": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0436": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0438": {
+    "JC-ALG-01": "applies"
+   },
+   "A0447": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0450": {
+    "JC-ALG-01": "applies"
+   },
+   "A0455": {
+    "JC-ALG-01": "applies"
+   },
+   "A0459": {
+    "JC-ALG-01": "applies"
+   },
+   "A0462": {
+    "JC-ALG-01": "applies"
+   },
+   "A0471": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0472": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0475": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0482": {
+    "JC-ALG-01": "applies"
+   },
+   "A0489": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0490": {
+    "HOB-ALG-01": "applies"
+   },
+   "A0495": {
+    "JC-ALG-01": "applies"
+   }
+  }
+ },
+ "T3": {
+  "affected_address_ids": [
+   "A0002",
+   "A0003",
+   "A0008",
+   "A0011",
+   "A0012",
+   "A0013",
+   "A0017",
+   "A0020",
+   "A0026",
+   "A0028",
+   "A0029",
+   "A0032",
+   "A0040",
+   "A0042",
+   "A0044",
+   "A0047",
+   "A0049",
+   "A0051",
+   "A0057",
+   "A0059",
+   "A0076",
+   "A0078",
+   "A0087",
+   "A0089",
+   "A0090",
+   "A0099",
+   "A0101",
+   "A0102",
+   "A0104",
+   "A0108",
+   "A0110",
+   "A0116",
+   "A0119",
+   "A0120",
+   "A0125",
+   "A0129",
+   "A0130",
+   "A0131",
+   "A0132",
+   "A0136",
+   "A0137",
+   "A0139",
+   "A0146",
+   "A0148",
+   "A0159",
+   "A0160",
+   "A0161",
+   "A0163",
+   "A0168",
+   "A0171",
+   "A0177",
+   "A0181",
+   "A0182",
+   "A0185",
+   "A0186",
+   "A0187",
+   "A0190",
+   "A0204",
+   "A0208",
+   "A0223",
+   "A0227",
+   "A0241",
+   "A0243",
+   "A0244",
+   "A0249",
+   "A0250",
+   "A0254",
+   "A0256",
+   "A0261",
+   "A0264",
+   "A0265",
+   "A0266",
+   "A0269",
+   "A0270",
+   "A0279",
+   "A0287",
+   "A0288",
+   "A0296",
+   "A0297",
+   "A0299",
+   "A0307",
+   "A0308",
+   "A0311",
+   "A0313",
+   "A0320",
+   "A0321",
+   "A0325",
+   "A0326",
+   "A0329",
+   "A0331",
+   "A0337",
+   "A0338",
+   "A0343",
+   "A0344",
+   "A0348",
+   "A0350",
+   "A0352",
+   "A0358",
+   "A0359",
+   "A0360",
+   "A0371",
+   "A0372",
+   "A0377",
+   "A0381",
+   "A0388",
+   "A0389",
+   "A0390",
+   "A0393",
+   "A0394",
+   "A0399",
+   "A0400",
+   "A0404",
+   "A0410",
+   "A0412",
+   "A0415",
+   "A0416",
+   "A0418",
+   "A0424",
+   "A0428",
+   "A0435",
+   "A0436",
+   "A0438",
+   "A0447",
+   "A0448",
+   "A0449",
+   "A0450",
+   "A0455",
+   "A0459",
+   "A0460",
+   "A0462",
+   "A0471",
+   "A0472",
+   "A0475",
+   "A0476",
+   "A0482",
+   "A0489",
+   "A0490",
+   "A0491",
+   "A0495",
+   "A0498"
+  ],
+  "conflict_flag_address_ids": [
+   "A0002",
+   "A0008",
+   "A0012",
+   "A0017",
+   "A0026",
+   "A0032",
+   "A0040",
+   "A0042",
+   "A0047",
+   "A0049",
+   "A0051",
+   "A0078",
+   "A0087",
+   "A0089",
+   "A0099",
+   "A0101",
+   "A0102",
+   "A0108",
+   "A0116",
+   "A0119",
+   "A0125",
+   "A0131",
+   "A0136",
+   "A0139",
+   "A0160",
+   "A0161",
+   "A0163",
+   "A0168",
+   "A0171",
+   "A0177",
+   "A0181",
+   "A0182",
+   "A0185",
+   "A0186",
+   "A0187",
+   "A0208",
+   "A0223",
+   "A0227",
+   "A0241",
+   "A0243",
+   "A0244",
+   "A0250",
+   "A0254",
+   "A0256",
+   "A0261",
+   "A0265",
+   "A0266",
+   "A0269",
+   "A0270",
+   "A0279",
+   "A0287",
+   "A0288",
+   "A0299",
+   "A0308",
+   "A0320",
+   "A0321",
+   "A0325",
+   "A0344",
+   "A0348",
+   "A0350",
+   "A0359",
+   "A0360",
+   "A0372",
+   "A0377",
+   "A0388",
+   "A0389",
+   "A0393",
+   "A0394",
+   "A0399",
+   "A0404",
+   "A0410",
+   "A0415",
+   "A0416",
+   "A0418",
+   "A0424",
+   "A0435",
+   "A0436",
+   "A0438",
+   "A0447",
+   "A0450",
+   "A0455",
+   "A0459",
+   "A0462",
+   "A0471",
+   "A0472",
+   "A0475",
+   "A0482",
+   "A0489",
+   "A0490",
+   "A0495"
+  ],
+  "notes": "NJ FAIR Act: enacted, not yet effective; possible preemption. Key rules -> ours: {\"NJ-ALG-01\": [\"NJ-ALG-01 P.L.2026, c.43 [not_yet_effective]\"]}. 140 affected addresses (Hoboken, NJ: 40, Jersey City, NJ: 50, Newark, NJ: 50); 90 with conflict flags. Expected: not_yet_effective on 2026-10-01, applies on 2027-07-02 for every NJ address; Jersey City and Hoboken addresses carry a conflict flag for human review.",
+  "rule_mapping": {
+   "NJ-ALG-01": [
+    "NJ-ALG-01"
+   ]
+  },
+  "per_address": {
+   "A0002": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0003": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0008": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0011": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0012": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0013": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0017": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0020": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0026": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0028": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0029": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0032": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0040": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0042": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0044": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0047": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0049": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0051": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0057": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0059": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0076": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0078": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0087": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0089": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0090": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0099": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0101": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0102": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0104": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0108": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0110": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0116": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0119": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0120": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0125": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0129": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0130": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0131": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0132": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0136": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0137": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0139": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0146": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0148": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0159": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0160": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0161": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0163": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0168": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0171": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0177": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0181": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0182": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0185": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0186": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0187": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0190": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0204": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0208": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0223": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0227": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0241": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0243": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0244": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0249": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0250": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0254": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0256": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0261": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0264": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0265": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0266": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0269": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0270": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0279": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0287": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0288": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0296": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0297": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0299": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0307": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0308": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0311": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0313": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0320": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0321": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0325": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0326": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0329": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0331": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0337": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0338": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0343": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0344": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0348": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0350": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0352": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0358": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0359": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0360": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0371": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0372": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0377": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0381": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0388": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0389": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0390": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0393": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0394": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0399": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0400": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0404": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0410": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0412": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0415": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0416": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0418": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0424": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0428": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0435": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0436": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0438": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0447": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0448": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0449": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0450": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0455": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0459": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0460": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0462": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0471": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0472": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0475": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0476": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0482": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0489": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0490": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0491": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0495": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   },
+   "A0498": {
+    "before": {
+     "NJ-ALG-01": "not_yet_effective"
+    },
+    "after": {
+     "NJ-ALG-01": "applies"
+    }
+   }
+  }
+ },
+ "T4": {
+  "affected_address_ids": [
+   "A0006",
+   "A0009",
+   "A0010",
+   "A0015",
+   "A0024",
+   "A0034",
+   "A0036",
+   "A0039",
+   "A0043",
+   "A0046",
+   "A0048",
+   "A0052",
+   "A0053",
+   "A0054",
+   "A0056",
+   "A0063",
+   "A0064",
+   "A0065",
+   "A0068",
+   "A0070",
+   "A0071",
+   "A0073",
+   "A0075",
+   "A0077",
+   "A0082",
+   "A0083",
+   "A0086",
+   "A0093",
+   "A0095",
+   "A0096",
+   "A0098",
+   "A0118",
+   "A0123",
+   "A0124",
+   "A0128",
+   "A0134",
+   "A0140",
+   "A0143",
+   "A0144",
+   "A0149",
+   "A0151",
+   "A0155",
+   "A0166",
+   "A0169",
+   "A0174",
+   "A0175",
+   "A0176",
+   "A0191",
+   "A0194",
+   "A0195",
+   "A0198",
+   "A0199",
+   "A0203",
+   "A0209",
+   "A0211",
+   "A0214",
+   "A0217",
+   "A0218",
+   "A0220",
+   "A0221",
+   "A0226",
+   "A0230",
+   "A0232",
+   "A0233",
+   "A0242",
+   "A0245",
+   "A0258",
+   "A0272",
+   "A0284",
+   "A0286",
+   "A0290",
+   "A0291",
+   "A0292",
+   "A0294",
+   "A0295",
+   "A0298",
+   "A0300",
+   "A0301",
+   "A0302",
+   "A0306",
+   "A0310",
+   "A0312",
+   "A0332",
+   "A0336",
+   "A0339",
+   "A0342",
+   "A0354",
+   "A0356",
+   "A0361",
+   "A0362",
+   "A0366",
+   "A0376",
+   "A0380",
+   "A0403",
+   "A0406",
+   "A0422",
+   "A0423",
+   "A0429",
+   "A0444",
+   "A0446",
+   "A0453",
+   "A0463",
+   "A0464",
+   "A0465",
+   "A0466",
+   "A0467",
+   "A0468",
+   "A0473",
+   "A0485",
+   "A0488"
+  ],
+  "conflict_flag_address_ids": [],
+  "notes": "Massachusetts pending bills S.2983 and H.5222. Key rules -> ours: {\"MA-ALG-P1\": [\"MA-ALG-P1 H.5222 [pending]\", \"MA-ALG-P2 S.2983 [pending]\"], \"MA-ALG-P2\": [\"MA-ALG-P1 H.5222 [pending]\", \"MA-ALG-P2 S.2983 [pending]\"]}. 110 affected addresses (Boston, MA: 60, Cambridge, MA: 50); 0 with conflict flags. Expected: Reported as pending (not in force) for every Boston and Cambridge address; affected set = all MA addresses if enacted.",
+  "rule_mapping": {
+   "MA-ALG-P1": [
+    "MA-ALG-P1",
+    "MA-ALG-P2"
+   ],
+   "MA-ALG-P2": [
+    "MA-ALG-P1",
+    "MA-ALG-P2"
+   ]
+  },
+  "per_address": {
+   "A0006": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0009": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0010": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0015": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0024": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0034": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0036": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0039": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0043": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0046": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0048": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0052": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0053": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0054": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0056": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0063": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0064": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0065": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0068": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0070": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0071": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0073": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0075": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0077": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0082": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0083": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0086": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0093": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0095": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0096": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0098": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0118": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0123": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0124": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0128": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0134": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0140": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0143": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0144": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0149": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0151": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0155": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0166": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0169": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0174": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0175": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0176": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0191": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0194": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0195": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0198": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0199": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0203": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0209": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0211": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0214": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0217": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0218": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0220": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0221": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0226": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0230": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0232": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0233": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0242": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0245": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0258": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0272": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0284": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0286": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0290": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0291": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0292": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0294": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0295": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0298": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0300": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0301": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0302": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0306": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0310": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0312": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0332": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0336": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0339": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0342": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0354": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0356": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0361": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0362": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0366": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0376": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0380": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0403": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0406": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0422": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0423": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0429": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0444": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0446": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0453": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0463": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0464": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0465": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0466": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0467": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0468": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0473": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0485": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   },
+   "A0488": {
+    "MA-ALG-P1": "pending",
+    "MA-ALG-P2": "pending"
+   }
+  }
+ },
+ "T5": {
+  "affected_address_ids": [],
+  "conflict_flag_address_ids": [],
+  "notes": "Massachusetts rent-control ballot question struck. Key rules -> ours: {\"MA-RENT-P1\": [\"MA-RENT-P1 Initiative Petition 25-21 [failed]\"]}. 0 affected addresses (none); 0 with conflict flags. Expected: No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty.",
+  "rule_mapping": {
+   "MA-RENT-P1": [
+    "MA-RENT-P1"
+   ]
+  },
+  "per_address": {}
+ }
+}

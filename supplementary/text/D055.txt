@@ -1,0 +1,39 @@
+SOURCE: https://massrealestatelawblog.com/tag/cella-v-attorney-general/
+RETRIEVED: 2026-10-03 17:12 UTC
+SOURCE_TYPE: secondary (law firm / news / mirror) (link-only in starter corpus; fetched by team)
+
+Court Rules Religious Exemption Is Unconstitutional
+In a major decision affecting the future of Massachusetts housing policy, the Supreme Judicial Court today has ruled that the proposed statewide rent control ballot initiative may not appear on the November 2026 ballot. This is a huge victory for housing providers across the state, and a staggering defeat for rent control proponents.
+The case, Cella v. Attorney General, SJC-13893 (embedded below), involved Initiative Petition 25-21, titled “An Initiative Petition to Protect Tenants by Limiting Rent Increases.” The petition would have repealed the Commonwealth’s existing statutory ban on rent control, G.L. c. 40P, and replaced it with a statewide cap on annual rent increases for most residential rental units.
+Under the proposed law, annual rent increases would have been limited to the lesser of the annual increase in the Consumer Price Index or 5%. The petition included several exemptions, including owner-occupied buildings with four or fewer units, newly constructed units less than 10 years old, certain publicly regulated units, short-term rentals, and dwelling units in facilities operated solely for educational, religious, or nonprofit purposes.
+That last religious exemption proved fatal, according to the SJC justices.
+Article 48 Bars Initiative Petitions Relating To Religion
+Article 48 of the Massachusetts Constitution gives voters the power to propose laws by initiative petition. But that power is not unlimited. Certain subjects are excluded from the initiative process altogether. One of those excluded subjects is any measure that “relates to religion, religious practices or religious institutions.”
+The SJC held that the rent control petition crossed that constitutional line because it expressly exempted dwelling units in facilities operated solely for religious purposes. Although rent control itself is a secular subject, the Court ruled that the petition made religion a factor in the law’s application.
+Justice Gaziano, writing for the Court, explained that enforcement of the proposed law would require government officials to determine whether a facility was operated solely for religious purposes.” That inquiry, the Court reasoned, would necessarily require the government to make enforcement decisions based on a facility’s religious purpose or lack of religious purpose. Because of that religious exemption, the Court concluded that the petition “relates to religion, religious practices or religious institutions” and therefore cannot be placed on the ballot.
+The Court Rejected The “Main Purpose” Argument
+The Attorney General argued that the petition’s main purpose was rent control, not religion, and therefore should not be excluded from the ballot.
+The SJC rejected that argument.
+The Court distinguished cases involving other excluded matters, such as petitions affecting the powers of the courts, where a “main purpose” test may apply. The Court declined to apply that test to the religion exclusion. Instead, it held that if an initiative petition by its own terms deals with religion, religious practices, or religious institutions, it is excluded from the initiative process.
+In practical terms, the Court held that proponents could have avoided the problem by drafting the petition without language expressly turning on religious status or religious purpose.
+Justice Kafker’s Narrower Concurrence
+Justice Kafker concurred in the result, but wrote separately to emphasize narrower grounds.
+In his view, the problem was not merely that the petition mentioned religion. Rather, the specific phrase “operated solely for . . . religious . . . purposes” would invite an intrusive inquiry into the internal affairs, motives, beliefs, practices, and finances of religious institutions.
+Justice Kafker suggested that a different exemption, such as one based simply on nonprofit status rather than religious purpose, may have presented a different constitutional question.
+Is Rent Control Dead in Massachusetts?
+Not necessarily — and this is the part where I want to be direct with housing providers about the road ahead.
+Rent control advocates are already signaling they see today’s ruling as a procedural problem, not a substantive defeat. The chair of the Keep Massachusetts Home campaign said the issue raised by the court is “easily fixable.” And she’s not wrong — from a pure drafting standpoint, removing the religious exemption and re-filing would address today’s constitutional holding.
+The compromises being negotiated between industry groups and tenant advocates — with Governor Healey and Lt. Gov. Driscoll personally involved — appear to have collapsed with this ruling. The real estate industry’s incentive to negotiate is dramatically reduced now that the electoral threat is gone.
+My prediction: the real estate industry should not rush back to the negotiating table. Rent control is a failed policy. The way to address Massachusetts’s housing affordability crisis is to build more housing — streamlining permitting, reducing regulatory barriers to development, and encouraging housing production across all income levels. That’s a conversation worth having at the State House. A statewide rent control mandate is not.
+The Bigger Picture: A Busy SJC Ballot Season
+Today’s ruling is the last word from the SJC on the November 2026 ballot cycle — and what a cycle it’s been. The Court has now weighed in on multiple initiative petitions, including:
+- Blocking a question that would have cut the state income tax to 4% (AG’s summary was found constitutionally deficient)
+- Allowing a question to repeal recreational marijuana legalization to proceed
+- Allowing a question to overhaul the state’s primary election structure to proceed
+Nine ballot questions now remain in the mix for November — equaling the largest total since 1994, the same year voters passed the original rent control ban.
+Bottom Line
+Today is a win — a significant one — for Massachusetts housing providers, property owners, and everyone who understands that the way out of a housing crisis is more housing, not price controls that have been proven to reduce supply.
+Cella v. Attorney General is a textbook example of why constitutional safeguards on the initiative petition process matter. The SJC did its job today, and the Commonwealth is better off for it.
+I’ll continue to monitor any legislative developments on rent control at the State House, and I’ll keep you posted here as things develop. If you have questions about how any of this affects your rental properties, leases, or investment strategy, feel free to reach out.
+Cella v. Attorney General Mass. SJC-13893 | Rent Control Ballot Initiative by Richard Vetstein
+{ 0 comments }

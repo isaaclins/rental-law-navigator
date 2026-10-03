@@ -1,0 +1,216 @@
+
+====================================================================================================
+1. rules.json: schema + verbatim quoted spans
+====================================================================================================
+  PASS 62 rules validate against rule_record.schema.json (0 errors)
+  PASS team_rule_ids are unique
+  PASS every quoted_span found verbatim (whitespace-normalised) in its document; failures: []
+  spans from starter corpus/new docs: 58; from fetched link-only secondary sources: 4
+  PASS 29 no-rule findings (29 with a quote), every quote verbatim; failures: []
+
+====================================================================================================
+2. coverage matrix (jurisdiction x category): F=in force, N=not yet effective, P=pending, X=failed, U=unverified, - = no-rule finding
+====================================================================================================
+                            RENT      EVIC       DEP       FEE       SCR       ALG
+  CA                           F         F         F         F        FF         F
+  NJ                           -       FFF         F         F        FF         N
+  MA                          FX      FFFF         F        FF         F       PP-
+  Los Angeles, CA              F      FFFF         F         -         .         -
+  San Francisco, CA            F        FF         F         -         F         F
+  San Diego, CA                -         F         -         -         U         F
+  Berkeley, CA                 F         F         F         F         F         F
+  Santa Ana, CA                F         F         -         -         -         F
+  Jersey City, NJ              F         -         -         -         -         F
+  Hoboken, NJ                  U         .         -         -         -         F
+  Newark, NJ                   U         .         -         -         .         -
+  Boston, MA                  X-         F         -         -        FF         -
+  Cambridge, MA                -         F         -         -         F         -
+  totals: 62 rules {'in_force': 57, 'not_yet_effective': 1, 'failed': 2, 'pending': 2}; 29 no-rule findings; empty cells: 4
+
+====================================================================================================
+3. recall vs. the brief's example list (sanity check only)
+====================================================================================================
+  ok   CA                 RENT  1947.12                -> CA-RENT-01 Cal. Civ. Code § 1947.12
+  ok   San Francisco, CA  RENT  37                     -> SF-RENT-01 S.F. Admin. Code ch. 37
+  ok   Los Angeles, CA    RENT  151                    -> LA-RENT-01 L.A. Mun. Code § 151.00 et seq
+  ok   MA                 RENT  40p                    -> MA-RENT-01 G.L. c. 40P, § 4
+  ok   CA                 EVIC  1946.2                 -> CA-EVIC-01 Cal. Civ. Code § 1946.2
+  ok   NJ                 EVIC  2a:18-61.1             -> NJ-EVIC-03 N.J.S.A. 2A:18-61.1
+  ok   CA                 DEP   1950.5                 -> CA-DEP-01 Cal. Civ. Code § 1950.5
+  ok   NJ                 DEP   46:8-21.2              -> NJ-DEP-01 N.J.S.A. 46:8-21.2
+  ok   MA                 DEP   15b                    -> MA-DEP-01 G.L. c. 186, § 15B
+  ok   CA                 FEE   1950.6                 -> CA-FEE-01 Cal. Civ. Code § 1950.6
+  ok   NJ                 FEE   405                    -> NJ-FEE-01 P.L.2025, c.405
+  ok   MA                 FEE   15b                    -> MA-FEE-02 G.L. c. 186, § 15B(1)(b)
+  ok   MA                 FEE   87ddd                  -> MA-FEE-01 G.L. c. 112, § 87DDD½
+  ok   NJ                 SCR   fair chance|46:8-52|110 -> NJ-SCR-02 N.J.S.A. 46:8-52 to 46:8-64
+  ok   CA                 SCR   12955                  -> CA-SCR-01 Cal. Gov. Code § 12955
+  ok   CA                 ALG   16729|325              -> CA-ALG-01 Cal. Bus. & Prof. Code § 16729
+  ok   San Francisco, CA  ALG   37.10c                 -> SF-ALG-01 S.F. Admin. Code § 37.10C
+  ok   San Diego, CA      ALG   98.110                 -> SD-ALG-01 San Diego Mun. Code §§ 98.1101-98.1104
+  ok   Berkeley, CA       ALG   13.63                  -> BER-ALG-01 Berkeley Mun. Code ch. 13.63
+  ok   Santa Ana, CA      ALG   ns-3090|3090           -> SA-ALG-01 Santa Ana Ord. NS-3090
+  ok   Jersey City, NJ    ALG   218                    -> JC-ALG-01 Jersey City Code § 218-12
+  ok   Hoboken, NJ        ALG   158                    -> HOB-ALG-01 Hoboken City Code ch. 158, Art. II
+  ok   NJ                 ALG   c.43|56:9              -> NJ-ALG-01 P.L.2026, c.43
+  ok   MA                 ALG   2983                   -> MA-ALG-P2 S.2983
+  ok   MA                 ALG   5222                   -> MA-ALG-P1 H.5222
+  PASS all 25 brief examples found
+
+====================================================================================================
+4. lookups.json
+====================================================================================================
+  PASS covers all addresses (500)
+  PASS all result values valid
+  PASS all team_rule_ids exist in rules.json
+  PASS explanation + conflict_flag on every entry
+  results: {'superseded': 265, 'applies': 4545, 'not_yet_effective': 140, 'unknown': 626, 'pending': 220}; entries per address: 11.6
+  citation proxy: 4545/4545 applies answers carry a verified span; 4455/4545 (98.0%) quote the starter corpus text itself
+  per city (applies/unknown/superseded/nye/pending per address, mean):
+    Los Angeles, CA    n= 80 applies=9.3 unknown=0.6 superseded=1.5 not_yet_effective=0.0 pending=0.0
+    San Francisco, CA  n= 80 applies=10.0 unknown=1.1 superseded=1.9 not_yet_effective=0.0 pending=0.0
+    San Diego, CA      n= 50 applies=6.0 unknown=4.0 superseded=0.0 not_yet_effective=0.0 pending=0.0
+    Berkeley, CA       n= 40 applies=10.0 unknown=3.0 superseded=0.0 not_yet_effective=0.0 pending=0.0
+    Jersey City, NJ    n= 50 applies=8.6 unknown=0.4 superseded=0.0 not_yet_effective=1.0 pending=0.0
+    Hoboken, NJ        n= 40 applies=7.8 unknown=1.1 superseded=0.0 not_yet_effective=1.0 pending=0.0
+    Newark, NJ         n= 50 applies=7.0 unknown=1.0 superseded=0.0 not_yet_effective=1.0 pending=0.0
+    Boston, MA         n= 60 applies=11.0 unknown=1.0 superseded=0.0 not_yet_effective=0.0 pending=2.0
+    Cambridge, MA      n= 50 applies=11.0 unknown=0.0 superseded=0.0 not_yet_effective=0.0 pending=2.0
+
+====================================================================================================
+5. change tests T1-T5
+====================================================================================================
+  T1: affected=250 conflict_flags=0 mapping={'CA-ALG-01': ['CA-ALG-01']}
+      California AB 325 / SB 763 takes effect. Key rules -> ours: {"CA-ALG-01": ["CA-ALG-01 Cal. Bus. & Prof. Code § 16729 [in_force]"]}. 250 affected addresses (Berkeley, CA: 40, Los Angeles, CA: 80, San Diego, CA: 50, San Francisco, CA: 80); 0 with conflict flags. Expected: not_yet_effective before, applies after, for every CA address.
+  T2: affected=90 conflict_flags=90 mapping={'HOB-ALG-01': ['HOB-ALG-01'], 'JC-ALG-01': ['JC-ALG-01']}
+      Hoboken vs Jersey City local algorithmic bans. Key rules -> ours: {"HOB-ALG-01": ["HOB-ALG-01 Hoboken City Code ch. 158, Art. II [in_force]"], "JC-ALG-01": ["JC-ALG-01 Jersey City Code § 218-12 [in_force]"]}. 90 affected addresses (Hoboken, NJ: 40, Jersey City, NJ: 50); 90 with conflict flags. Expected: HOB-ALG-01 only for Hoboken addresses; JC-ALG-01 only for Jersey City addresses; neither for Ne
+  T3: affected=140 conflict_flags=90 mapping={'NJ-ALG-01': ['NJ-ALG-01']}
+      NJ FAIR Act: enacted, not yet effective; possible preemption. Key rules -> ours: {"NJ-ALG-01": ["NJ-ALG-01 P.L.2026, c.43 [not_yet_effective]"]}. 140 affected addresses (Hoboken, NJ: 40, Jersey City, NJ: 50, Newark, NJ: 50); 90 with conflict flags. Expected: not_yet_effective on 2026-10-01, applies on 2027-07-02 for every NJ address; Jersey City and Hoboken addresses carry a conflict flag for huma
+  T4: affected=110 conflict_flags=0 mapping={'MA-ALG-P1': ['MA-ALG-P1', 'MA-ALG-P2'], 'MA-ALG-P2': ['MA-ALG-P1', 'MA-ALG-P2']}
+      Massachusetts pending bills S.2983 and H.5222. Key rules -> ours: {"MA-ALG-P1": ["MA-ALG-P1 H.5222 [pending]", "MA-ALG-P2 S.2983 [pending]"], "MA-ALG-P2": ["MA-ALG-P1 H.5222 [pending]", "MA-ALG-P2 S.2983 [pending]"]}. 110 affected addresses (Boston, MA: 60, Cambridge, MA: 50); 0 with conflict flags. Expected: Reported as pending (not in force) for every Boston and Cambridge address; affected set =
+  T5: affected=0 conflict_flags=0 mapping={'MA-RENT-P1': ['MA-RENT-P1']}
+      Massachusetts rent-control ballot question struck. Key rules -> ours: {"MA-RENT-P1": ["MA-RENT-P1 Initiative Petition 25-21 [failed]"]}. 0 affected addresses (none); 0 with conflict flags. Expected: No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty.
+  PASS T1 affected == all CA addresses (250/250)
+  PASS T1 not_yet_effective on 2025-12-31 -> applies on 2026-01-02
+  PASS T2 both local bans resolved ({'HOB-ALG-01'}, {'JC-ALG-01'})
+  PASS T2 HOB ban only in Hoboken
+  PASS T2 JC ban only in Jersey City
+  PASS T2 neither ban in Newark
+  PASS T2 every JC/Hoboken address covered (90/90)
+  PASS T3 affected == all NJ addresses (140/140)
+  PASS T3 not_yet_effective on 2026-10-01 -> applies on 2027-07-02
+  PASS T3 conflict flags == Jersey City + Hoboken (90/90)
+  PASS T4 affected == all MA addresses (110/110)
+  PASS T4 both pending bills resolved
+  PASS T4 bills reported as pending (never in force) in lookups
+  PASS T5 affected set empty
+  PASS T5 ballot question recorded as failed: ['MA-RENT-P1 Initiative Petition 25-21']
+  PASS T5 no local rent cap reported for any Boston/Cambridge address (0 found)
+      state-level rent entries on MA addresses (should be the state bar on rent control only): {'MA-RENT-01 G.L. c. 40P, § 4 -> applies': 110}
+
+====================================================================================================
+6. known open questions (README section 9) surfaced as conflict flags
+====================================================================================================
+  PASS Berkeley algorithmic ban: two effective dates: BER-ALG-01: Two published effective dates: January 2026 (law-firm alert) vs March 1, 2026 (reported as ordinance text, not stated in the provided ordinance document).
+  PASS NJ FAIR Act may preempt JC/Hoboken bans: NJ-ALG-01: Section 6(b) prohibits conflicting municipal ordinances, so once effective it may preempt Jersey City and Hoboken algorithmic rent ordinances; flag for review. ; JC-ALG-01: NJ FAIR Act (P.L.2026, c.43, eff. 7/1/2027) may preempt this ordinance once in effect; not described in this document. State rule NJ-ALG-01 (P.L.2026, c.43) may; HOB-ALG-01: NJ FAIR Act (P.L.2026, c.43) may preempt this ordinance once it takes effect. State rule NJ-ALG-01 (P.L.2026, c.43) may preempt this ordinance once effective (2
+  PASS LA RSO formula: two effective dates: LA-RENT-01: Two effective dates published for the new formula: 2026-02-02 (LAHD) and 2026-01-24 (landlord association). LAHD date used.
+  PASS CA screening-fee cap: no single official 2026 figure: CA-FEE-01: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).
+
+====================================================================================================
+7. rules list
+====================================================================================================
+  CA-RENT-01   in_force          2024-04-01 Cal. Civ. Code § 1947.12                      | 5% + CPI, max 10%
+  CA-EVIC-01   in_force          2024-04-01 Cal. Civ. Code § 1946.2                       | Just cause after 12 months; relocation = 1 month's rent for 
+  CA-DEP-01    in_force          2024-07-01 Cal. Civ. Code § 1950.5                       | 1 month's rent (2 months for qualifying small landlords)
+  CA-FEE-01    in_force          2026-01-01 Cal. Civ. Code § 1950.6                       | $30 base per applicant, CPI-adjusted annually since 1998 ($6  [CONFLICT]
+  CA-SCR-01    in_force          2020-01-01 Cal. Gov. Code § 12955                        | Source of income (incl. vouchers) is a protected characteris
+  CA-SCR-02    in_force          2020-01-01 California FEHA criminal history protections  | No blanket bans; no arrests without conviction, sealed/expun
+  CA-ALG-01    in_force          2026-01-01 Cal. Bus. & Prof. Code § 16729                | ban on common pricing algorithms using competitor data in re
+  NJ-EVIC-01   in_force          None       N.J.S.A. 2A:42-10.10                          | Ban on retaliatory eviction, lease alteration or non-renewal
+  NJ-EVIC-02   in_force          None       N.J.S.A. 2A:50-69 et seq                      | 90-day notice to quit; notice within 10 business days of sal
+  NJ-EVIC-03   in_force          1974       N.J.S.A. 2A:18-61.1                           | Good cause required; Notice to Quit 3 days to 3 years depend
+  NJ-DEP-01    in_force          None       N.J.S.A. 46:8-21.2                            | 1.5 months' rent; annual increase max 10%; return within 30 
+  NJ-FEE-01    in_force          2026-05-01 P.L.2025, c.405                               | $50 per application, CPI-adjusted annually
+  NJ-SCR-01    in_force          None       N.J.S.A. 10:5-12                              | Ban on source-of-income discrimination (incl. Section 8 vouc
+  NJ-SCR-02    in_force          2022-01-01 N.J.S.A. 46:8-52 to 46:8-64                   | No criminal-history inquiry before conditional offer; look-b
+  NJ-ALG-01    not_yet_effective 2027-07-01 P.L.2026, c.43                                | Ban on algorithmic rent-setting coordination using nonpublic  [CONFLICT]
+  MA-RENT-01   in_force          None       G.L. c. 40P, § 4                              | state bar on local rent control
+  MA-RENT-P1   failed            None       Initiative Petition 25-21                     | Lesser of CPI or 5% (never took effect)  [secondary_source]
+  MA-EVIC-01   in_force          None       G.L. c. 186, § 11                             | 14 days' written notice to quit for nonpayment
+  MA-EVIC-02   in_force          None       G.L. c. 186, § 12                             | 3 months' notice; 14 days for nonpayment with 10-day cure ri
+  MA-EVIC-03   in_force          None       G.L. c. 186, § 18                             | 1–3 months' rent damages; 6-month presumption
+  MA-EVIC-04   in_force          None       G.L. c. 186, § 31                             | State form required with nonpayment notice to quit
+  MA-DEP-01    in_force          None       G.L. c. 186, § 15B                            | Max = first month's rent; separate interest-bearing account;
+  MA-FEE-01    in_force          2025-08-01 G.L. c. 112, § 87DDD½                         | Broker fee paid only by party who hired the broker
+  MA-FEE-02    in_force          2025-08-01 G.L. c. 186, § 15B(1)(b)                      | First, last, security deposit, lock/key only
+  MA-SCR-01    in_force          None       G.L. c. 151B, § 4                             | ban on discrimination based on public assistance / housing s
+  MA-ALG-P1    pending           None       H.5222                                        | pending bill; no operative text shown
+  MA-ALG-P2    pending           None       S.2983                                        | pending bill prohibiting algorithmic rent setting
+  LA-RENT-01   in_force          2026-02-02 L.A. Mun. Code § 151.00 et seq                | Once per 12 months; annual percentage set by LAHD (3% for 7/  [CONFLICT]
+  LA-EVIC-01   in_force          None       L.A. Mun. Code § 151.09                       | Listed causes only; LAHD filing within 3 business days; no-f
+  LA-EVIC-02   in_force          None       L.A. Mun. Code § 165.03                       | Just cause required; relocation assistance for no-fault evic
+  LA-EVIC-03   in_force          2025-02-11 L.A. Ord. Nos. 188481 and 188482              | $87,450–$115,480 for lower-income households
+  LA-EVIC-04   in_force          2026-07-01 L.A. Mun. Code §§ 151.09, 165.06              | $11,000–$27,400 per unit (7/1/2026–6/30/2027); payment withi
+  LA-DEP-01    in_force          1990-11-01 L.A. Mun. Code § 151.06.02                    | Annual City-set interest rate (4.320% for 2025); paid monthl
+  SF-RENT-01   in_force          2026-03-01 S.F. Admin. Code ch. 37                       | 1.6% (3/1/2026–2/28/2027)
+  SF-EVIC-01   in_force          None       S.F. Admin. Code § 37.9(a)                    | 17 just causes; dominant motive required
+  SF-EVIC-02   in_force          2026-03-01 S.F. Admin. Code § 37.9C                      | $8,245 per tenant; max $24,733 per unit; +$5,497 (notices 3/
+  SF-DEP-01    in_force          2026-03-01 S.F. Admin. Code ch. 37                       | 4.2% interest (3/1/2026–2/28/2027)
+  SF-SCR-01    in_force          None       San Francisco Fair Chance Ordinance           | protection for arrest/conviction history in affordable housi
+  SF-ALG-01    in_force          2024-10-14 S.F. Admin. Code § 37.10C                     | ban on algorithmic devices using nonpublic competitor data; 
+  SD-EVIC-01   in_force          2023-06-24 San Diego Mun. Code §§ 98.0701-98.0710        | Just cause required; no-fault relocation = 2 months' rent (3
+  SD-SCR-01    in_force          None       San Diego Mun. Code ch. 9, art. 8, div. 8     | ban on source-of-income (incl. housing voucher) discriminati  [CONFLICT]  [unverified_link_only]
+  SD-ALG-01    in_force          2025-06    San Diego Mun. Code §§ 98.1101-98.1104        | ban on algorithmic devices using nonpublic competitor data; 
+  BER-RENT-01  in_force          2024-12    Berkeley Mun. Code § 13.76.110                | AGA = 65% of CPI, max 5%; 2026 AGA 1.0%
+  BER-EVIC-01  in_force          2024-11    Berkeley Mun. Code ch. 13.76                  | Just cause required; no eviction for rent debt under 1 month
+  BER-DEP-01   in_force          None       Berkeley Mun. Code ch. 13.76                  | annual interest on deposit, prorated at move-out
+  BER-FEE-01   in_force          None       Berkeley Mun. Code § 13.78.010                | Disclosure of fee rights and state cap ($68.96 for 2026); no
+  BER-SCR-01   in_force          2020-04-14 Berkeley Mun. Code ch. 13.106                 | ban on criminal-history inquiries and use in tenant selectio
+  BER-ALG-01   in_force          2026-01    Berkeley Mun. Code ch. 13.63                  | ban on coordinated pricing algorithms using nonpublic compet  [CONFLICT]
+  SA-RENT-01   in_force          2021-11-19 Santa Ana Rent Stabilization Ordinance        | Lesser of 3% or 80% of CPI change; 2.87% for 9/1/2026-8/31/2
+  SA-EVIC-01   in_force          2021-11-19 Santa Ana Just Cause Eviction Ordinance       | Just cause required after 30 days; 3 months relocation assis
+  SA-ALG-01    in_force          2026-04-02 Santa Ana Ord. NS-3090                        | Ban on algorithmic devices using nonpublic competitor data;   [secondary_source]
+  JC-RENT-01   in_force          None       Jersey City Code ch. 260                      | Rent control for buildings with 5+ units
+  JC-ALG-01    in_force          2025-06    Jersey City Code § 218-12                     | ban on algorithmic rent coordination services; fines up to $  [CONFLICT]  [secondary_source]
+  HOB-RENT-01  in_force          None       Hoboken City Code ch. 155                     | Municipal rent control limits annual rent increases  [CONFLICT]  [unverified_link_only]
+  HOB-ALG-01   in_force          2025-07    Hoboken City Code ch. 158, Art. II            | ban on software/algorithms/data-sharing platforms to coordin  [CONFLICT]  [secondary_source]
+  NWK-RENT-01  in_force          None       Newark Rent Control Ordinance (Newark Mun. Co |   [CONFLICT]  [unverified_link_only]
+  BOS-RENT-P1  failed            None       H.3744 (193rd General Court)                  | home-rule petition sent to study order (not enacted)
+  BOS-EVIC-01  in_force          2020-11-06 Boston City Code § 10-11.7                    | Notice of Tenants' Rights and Resources with notice to quit;
+  BOS-SCR-01   in_force          None       Boston Fair Housing Regulations (Boston Fair  | ban on refusing rental assistance/vouchers
+  BOS-SCR-02   in_force          2017-02    Boston Fair Chance Tenant Selection Policy (D | No blanket criminal-history bans; no convictions older than 
+  CAM-EVIC-01  in_force          2020-10-14 Cambridge Mun. Code ch. 8.71                  | Guide required at tenancy start and at termination; $300 per
+  CAM-SCR-01   in_force          None       Cambridge Mun. Code ch. 14.04                 | No source-of-income discrimination (incl. Section 8); unifor
+
+  no-rule findings:
+  NR-01  NJ                 RENT  New Jersey has no state law that establishes, governs or caps rents; rent control is left to municipal ordinan
+  NR-02  MA                 ALG   No Massachusetts statute on algorithmic rent setting is enacted; bills S.2983 and H.5222 are pending.
+  NR-03  Los Angeles, CA    FEE   No City of Los Angeles ordinance on application/screening fees appears in the documents. The state cap in Cal.
+  NR-04  Los Angeles, CA    ALG   The 2024 council motion only asks LAHD to report on algorithmic rent-setting software and the feasibility of a
+  NR-05  San Francisco, CA  FEE   None of the provided San Francisco documents describe a local application or screening fee ordinance. The Rent
+  NR-06  San Diego, CA      RENT  No San Diego local rent cap appears in the documents; the city's own tenant-protection notice points to the st
+  NR-07  San Diego, CA      DEP   No San Diego local security-deposit ordinance appears in the documents. The state deposit law (one month's ren
+  NR-08  San Diego, CA      FEE   No San Diego local application-screening-fee ordinance appears in the documents. The state rule (Cal. Civ. Cod
+  NR-09  Santa Ana, CA      DEP   No Santa Ana local security-deposit ordinance appears in the documents. The state rule, Cal. Civ. Code § 1950.
+  NR-10  Santa Ana, CA      FEE   No Santa Ana local application-fee ordinance appears in the documents. The state rule, Cal. Civ. Code § 1950.6
+  NR-11  Santa Ana, CA      SCR   No Santa Ana local screening-restriction ordinance appears in the documents. State law (FEHA, Cal. Gov. Code §
+  NR-12  Jersey City, NJ    EVIC  No Jersey City ordinance on just-cause eviction appears in the documents. The city office only administers ren
+  NR-13  Jersey City, NJ    DEP   No Jersey City ordinance on security deposits appears in the documents. The state Security Deposit Law governs
+  NR-14  Jersey City, NJ    FEE   No Jersey City ordinance on application fees appears in the documents. The state fee cap in P.L.2025, c.405 ap
+  NR-15  Jersey City, NJ    SCR   No Jersey City ordinance on tenant screening appears in the documents. The state Fair Chance in Housing Act an
+  NR-16  Hoboken, NJ        DEP   Security deposits are governed by the state Security Deposit Law; no Hoboken-specific deposit ordinance is sho
+  NR-17  Hoboken, NJ        FEE   The $50 application fee cap is a state law (P.L.2025, c.405); no separate Hoboken fee rule is shown.
+  NR-18  Hoboken, NJ        SCR   Criminal-history and source-of-income screening limits come from state law (Fair Chance in Housing Act, LAD); 
+  NR-19  Newark, NJ         DEP   Security deposits are governed by the state Security Deposit Law. The documents show no Newark-specific deposi
+  NR-20  Newark, NJ         FEE   Application fees are capped by the state law, P.L.2025, c.405. The documents show no Newark local application-
+  NR-21  Newark, NJ         ALG   No Newark local algorithmic rent-setting ordinance appears in the documents. The state FAIR Act covers this ca
+  NR-22  Boston, MA         RENT  The Boston rent stabilization home-rule petition H.3744 accompanied a study order and died, so no Boston rent 
+  NR-23  Boston, MA         DEP   The documents show no Boston-specific security deposit ordinance. Deposits in Boston are governed by the state
+  NR-24  Boston, MA         FEE   The documents show no Boston-specific application or screening fee rule. Upfront charges in Boston are limited
+  NR-25  Boston, MA         ALG   The documents show no Boston ordinance on algorithmic rent setting. The only measures are the pending state bi
+  NR-26  Cambridge, MA      RENT  Massachusetts law (G.L. c. 40P, § 4) bars cities and towns from enacting or maintaining rent control, so Cambr
+  NR-27  Cambridge, MA      DEP   No Cambridge-specific security deposit ordinance appears in the documents. Deposits are governed at state leve
+  NR-28  Cambridge, MA      FEE   No Cambridge-specific application or screening fee ordinance appears in the documents. Upfront charges are lim
+  NR-29  Cambridge, MA      ALG   Cambridge has only passed a policy order directing the city manager to draft options or ordinance language on 
+
+SELFCHECK: OK

@@ -1,0 +1,37 @@
+SOURCE: https://masslandlords.net/can-massachusetts-landlords-charge-an-application-fee/
+RETRIEVED: 2026-10-03 17:12 UTC
+SOURCE_TYPE: secondary (law firm / news / mirror) (link-only in starter corpus; fetched by team)
+
+Can Massachusetts Landlords Charge an Application Fee?
+| . Posted in laws, News - 22 Comments
+Application fees are one of those areas where inexperienced landlords follow common sense instead of the law, and pay penalties as a result.
+The law for property owners and managers is clear. It states that prior to the beginning of a tenancy, no lessor may require payment for anything except first, last, security, and locks (MGL Ch 186 Section 15B).
+Application fees, pet fees, cleaning fees, amenity fees, and all other charges are forbidden. But wait.
+Largely because the realtors have a better lobby than we do, brokers can charge application fees (254 CMR 7). This means even though both landlords and brokers may incur costs in screening tenants, only brokers can charge for credit checks or other background searches. As landlords, we are legally obligated not to charge directly. We are free to recoup the cost of tenant screening with rent collected.
+This substantially muddies the waters, because the average renter doesn’t know the difference between a lessor and a broker. Renters ask everyone if they charge an application fee, as if it were okay for everyone to do so. Landlords are not brokers, so we cannot charge a fee.
+What about when the tenant pays for their credit report?
+Some tenant screening services allow a tenant to log into a website, pay for their credit score, and have it sent to the landlord. Surely this is okay, because the landlord doesn’t collect the fee? No.
+The law has been in effect since the 1970s. As of June 2017, according to research conducted by Record Title, the law office of Stanley Komack, there had not been case law in MA about tenant screening services where the tenant was asked to pay an online service that sent credit information to the landlord.
+However, in the opinion of Attorney Komack and five other attorneys on his local bench-bar at that time, operating in the Western Division of the Housing Court, landlords would be putting themselves at risk if they require (rather than request) that a tenant use such a screening service where the applicant pays. As of when we last updated this article, we think this is still the case.
+Landlords should not require their applicants to pay a third party.
+What if I reject the applicant so I'm technically not a lessor?
+While that might be technically how the law reads, consider that the courts have equity powers. This means whatever the law says, a judge can decide against you if they think you are being unfair. It seems unfair to us to charge people for an apartment they aren't even getting. Better to conduct the free screens first, and only pay for a third party background check once it appears that the applicants will qualify. The cost of the report is the cost of doing business.
+What if I’m my own broker?
+We are not aware of case law that permits a landlord who is also a realtor to act as their own broker. The court would probably enforce the least favorable interpretation of the law, which is that a landlord-realtor is a landlord first and may not charge an application fee.
+The law is very clearly negative against lessors. It says "no lessor shall charge." So it doesn't matter which other hats you wear. But if you want more detail, read on.
+Essay on Massachusetts Rental Application Fees for Landlords and Brokers
+This section by Peter Vickery, Esq., Legislative Affairs Counsel
+Massachusetts landlord tenant law spells out the list of charges that landlords may ask tenants to pay at the start of a tenancy: first month’s rent, last month’s rent, security deposit, and lock-change fee. M.G.L. c. 186, §15B. That is all. Landlords are not allowed to request additional charges. What about an application fee?
+Although it is not a state court ruling, landlords should take note of the federal district court decision in Perry v Equity Residential Management, LLC, a 2014 case about the legality of up-front application fees. The tenants alleged that the fee was unlawful. The judge found in favor of the tenants and awarded them treble damages and attorney’s fees.
+Attorney Richard D. Vetstein’s Massachusetts Real Estate Law Blog describes the case clearly and discusses its implications for landlords: “Application fees are very much widespread, and I would counsel landlords and property managers to think twice about charging them under any circumstance.”
+Licensed brokers
+But what about brokers, the people who help connect property owners with would-be renters? May brokers charge application fees? Yes, so long as they are licensed. The law provides that “no person shall engage in the business of finding dwelling accommodations for prospective tenants for a fee unless such person is a licensed broker or salesman.”
+The licensing requirement is important. In 2007, the Superior Court allowed a class action to go forward against a management company that hired a broker whose license had expired. The tenants claimed it was illegal for the management company to charge them a fee for the services of an unlicensed broker (Woodruff v. Niles Co., Inc.). So landlords beware: If you employ the services of a broker, make sure that the license is up to date.
+What if you, the landlord, are also a licensed broker? In a helpful overview of the subject, the Greater Boston Real Estate Board refers to the 1983 case of Samia v. McElaney in which the Housing Court held that a broker could charge a fee so long as it was “separate bona fide business operation” and not simply the landlord wearing a different hat.
+As with the Perry v. Residential Equity case, Samia v. McElaney is not an appellate state court decision and not a binding precedent. But it likely influences the way judges think about (and rule on) disputes about broker’s fees. So landlords should take it into account in deciding whether to wear two hats: landlord and broker.
+Broker regulations
+Like other licensed professionals, brokers have their own governing body called the board of registration. The board’s regulations set out certain detailed requirements, including the steps that a licensed broker must take when dealing with prospective tenants (254 C.M.R. 7).
+In addition to holding a valid license, the broker has to tell the applicant in writing the amount of the broker’s fee, the time and manner of payment, and whether it is contingent on the owner and applicant actually entering into a lease or rental agreement. The applicant needs to sign the written notice. If the tenant refuses, the broker has to record the refusal on the notice. This has to happen “at the first personal meeting between the broker... and the prospective tenant.”
+Summary
+Licensed brokers can charge fees to prospective tenants so long as the brokers comply with the board of registration’s regulations. Can landlords who are also licensed brokers do so? Although there is no Massachusetts appellate decision that answers with a definitive “no,” prudent landlords might well prefer to err on the side of caution.
+Members can ask experienced landlords for advice over email and Facebook message boards, and can search our directory for attorney referrals.
