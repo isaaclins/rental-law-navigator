@@ -15,7 +15,7 @@ and dev key were not shipped in the starter pack:
                            (T6 / hour-16 data is not in the starter pack: 3 points per test T1-T5)
 
 Usage:
-  python3 qa/score.py                       # score navigator/output/{rules,lookups,changes}.json
+  python3 qa/score.py                       # score output/{rules,lookups,changes}.json
   python3 qa/score.py --rules R --lookups L --changes C [--report qa/report.md] [--json out.json]
   python3 qa/score.py --self-test           # score a perfect submission built from the key (sanity check)
 
@@ -35,9 +35,9 @@ from pathlib import Path
 
 QA = Path(__file__).resolve().parent
 ROOT = QA.parent
-NAV_OUT = Path("/home/steward/hacknation/realpage/navigator/output")
+NAV_OUT = ROOT / "output"
 CORPUS_DIR = ROOT / "starter/corpus/text"
-SUPP_DIR = Path("/home/steward/hacknation/realpage/navigator/supplementary/text")
+SUPP_DIR = ROOT / "supplementary/text"
 
 TIER_W_EXTRACT = {"core": 1.0, "probable": 0.75, "possible": 0.4}
 TIER_W_ADDR = {"core": 1.0, "probable": 0.5, "possible": 1.0}
