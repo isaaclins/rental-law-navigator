@@ -354,6 +354,22 @@ def _body(fails: list) -> None:
             f"      state-level rent entries on MA addresses (should be the state bar on rent control only): {dict(st_rent)}"
         )
 
+    _hdr("5b. as-of sanity: amended long-standing laws exist before their current version date")
+    amended = {r["team_rule_id"]: r for r in rules if r.get("amends_existing_law")}
+    print(f"  {len(amended)} rules marked as amendments/annual updates of an existing law")
+    for past in ("2025-12-31", "2024-01-01"):
+        bad = set()
+        for f in addrs:
+            for e in E.evaluate_address(f, rules, past):
+                r = amended.get(e["team_rule_id"])
+                if r and e["result"] == "not_yet_effective" and not r.get("in_force_since"):
+                    bad.add(e["team_rule_id"])
+        _check(
+            not bad,
+            f"as of {past}: no amended long-standing rule reported not_yet_effective {sorted(bad)}",
+            fails,
+        )
+
     _hdr("6. known open questions (README section 9) surfaced as conflict flags")
     checks = [
         (
