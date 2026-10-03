@@ -15,7 +15,7 @@ and dev key were not shipped in the starter pack:
                            (T6 / hour-16 data is not in the starter pack: 3 points per test T1-T5)
 
 Usage:
-  python3 qa/score.py                       # score navigator/output/{rules,lookups,changes}.json
+  python3 qa/score.py                       # score output/{rules,lookups,changes}.json
   python3 qa/score.py --rules R --lookups L --changes C [--report qa/report.md] [--json out.json]
   python3 qa/score.py --self-test           # score a perfect submission built from the key (sanity check)
 
@@ -35,9 +35,9 @@ from pathlib import Path
 
 QA = Path(__file__).resolve().parent
 ROOT = QA.parent
-NAV_OUT = Path("/home/steward/hacknation/realpage/navigator/output")
+NAV_OUT = ROOT / "output"
 CORPUS_DIR = ROOT / "starter/corpus/text"
-SUPP_DIR = Path("/home/steward/hacknation/realpage/navigator/supplementary/text")
+SUPP_DIR = ROOT / "supplementary/text"
 
 TIER_W_EXTRACT = {"core": 1.0, "probable": 0.75, "possible": 0.4}
 TIER_W_ADDR = {"core": 1.0, "probable": 0.5, "possible": 1.0}
@@ -916,7 +916,15 @@ def main():
         "sanity": sanity(key, team_rules, team_lookups, exp, ext),
         "audit": full_audit(key, team_rules, team_lookups, ext),
     }
-    paths = {"rules": a.rules, "lookups": a.lookups, "changes": a.changes, "report": a.report}
+
+    def shown(p):  # repo-relative in the report, so reruns from any checkout give the same file
+        try:
+            return str(Path(p).resolve().relative_to(ROOT))
+        except ValueError:
+            return str(p)
+
+    paths = {k: shown(getattr(a, k)) for k in ("rules", "lookups", "changes")}
+    paths["report"] = a.report
     color = sys.stdout.isatty() and not a.no_color and not os.environ.get("NO_COLOR")
     total = print_summary(res, key, exp, paths, color)
     write_report(res, key, exp, paths, total)
