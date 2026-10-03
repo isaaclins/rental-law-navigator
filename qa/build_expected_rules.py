@@ -155,7 +155,7 @@ rules = [
  # ---------------- Massachusetts (state) ----------------
  R('MA-RENT-01','MA',RI,'in_force','Rent Control Prohibition Act (state bar on local rent control)','G.L. c. 40P, § 4',[r'40P'],'D048',
    'No city or town may enact, maintain or enforce rent control of any kind',
-   kv='No local rent control (narrow voluntary exception)', kvpat=[r'no|bar|prohibit'],
+   kv='No local rent control (narrow voluntary exception)', kvpat=[r'\bno\b|bar|ban|prohibit|preclud'],
    notes='A bar, not a cap: lookups must never report a rent cap for Boston/Cambridge.'),
  R('MA-RENT-P1','MA',RI,'failed','Initiative Petition 25-21 (statewide rent control) struck by SJC','Initiative Petition 25-21 (Cella v. Attorney General, SJC-13893)',[r'25-21|Cella|ballot|Initiative'],'D059',
    None, eff=None, kv='Would have capped increases at lesser of CPI or 5% - never in force', kvpat=[],

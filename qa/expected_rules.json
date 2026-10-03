@@ -982,7 +982,7 @@
    "effective_date_accept": [],
    "key_value": "No local rent control (narrow voluntary exception)",
    "key_value_patterns": [
-    "no|bar|prohibit"
+    "\\bno\\b|bar|ban|prohibit|preclud"
    ],
    "coverage_conditions": null,
    "tier": "core",

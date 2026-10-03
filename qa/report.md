@@ -6,15 +6,15 @@ Inputs: `/home/steward/hacknation/realpage/navigator/output/rules.json`, `/home/
 
 | Component | Score | Max |
 |---|---:|---:|
-| Extraction accuracy | 22.8 | 25 |
+| Extraction accuracy | 23.1 | 25 |
 | Address coverage | 19.7 | 20 |
 | Citations | 13.6 | 15 |
 | Change tracking (T1-T5) | 15.0 | 15 |
-| **Auto-scored total** | **71.1** | **75** |
+| **Auto-scored total** | **71.4** | **75** |
 
 ## 1. Extraction
 
-Weighted recall credit 90.1%, precision 98.2%; core rules matched 36/36.
+Weighted recall credit 91.5%, precision 98.2%; core rules matched 36/36.
 
 ### Missing / citation-mismatched key rules (by points at stake)
 
@@ -24,7 +24,6 @@ Weighted recall credit 90.1%, precision 98.2%; core rules matched 36/36.
 | HOB-RENT-01 | probable | Hoboken, NJ | rent_increase_limits | Hoboken City Code ch. 155 | in_force | none |
 | BOS-RENT-P1 | probable | Boston, MA | rent_increase_limits | Mass. H.3744 (193rd General Court) | failed | none |
 | BOS-SCR-02 | probable | Boston, MA | screening_restrictions | Boston City Code ch. 10-3 (Fair Housing) | in_force | none |
-| CA-SCR-02 | probable | CA | screening_restrictions | Cal. Code Regs. tit. 2, § 12264 et seq. (FEHA) | in_force | CA-SCR-02 cites `California Civil Rights Council housing criminal history regulations (FEHA regulations)` |
 | MA-SCR-02 | possible | MA | screening_restrictions | 803 CMR 5.00 | in_force | none |
 | SF-JC-02 | possible | San Francisco, CA | just_cause_eviction | S.F. Admin. Code § 37.9C | in_force | none |
 
@@ -36,7 +35,6 @@ Weighted recall credit 90.1%, precision 98.2%; core rules matched 36/36.
 | BRK-RENT-01 | BER-RENT-01 | effective_date | 2026-01-01 or 1980 or 2024-12 | None |
 | BRK-SCR-01 | BER-SCR-01 | effective_date | 2020 | None |
 | NJ-JC-01 | NJ-EVIC-01 | effective_date | 1974 | None |
-| MA-RENT-01 | MA-RENT-01 | key_value | No local rent control (narrow voluntary exception) (needs /no|bar|prohibit/) | Statewide ban on local rent control |
 
 ### Team rules not in the key (possible false positives, or gaps in our key)
 
