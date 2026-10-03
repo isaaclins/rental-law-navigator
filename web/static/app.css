@@ -153,6 +153,7 @@ kbd { font: 500 11px/1 var(--sans); padding: 3px 6px; border-radius: 6px; backgr
 
 main { max-width: calc(var(--container) + 2 * var(--inset)); margin: 0 auto; padding: 24px var(--inset) 96px; min-height: 100vh; outline: none; } /* #81: footer starts below the fold until the view renders */
 main:focus, main:focus-visible { outline: none; }
+main.still *, main.still *::before, main.still *::after { animation: none !important; } /* #92: in-place re-render, no entrance replay */
 
 /* ---------------------------------------------------------------- motion primitives */
 .stagger > * { animation: stagger-in .9s var(--ease-entrance) backwards; animation-delay: calc(var(--i, 0) * var(--step, 90ms) + var(--start, 0ms)); }
@@ -206,7 +207,7 @@ main:focus, main:focus-visible { outline: none; }
 .suggest[hidden] { display: none; }
 @keyframes pop-down { from { opacity: 0; transform: translateY(-6px) scale(.98); } }
 .opt { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 16px; cursor: pointer; transition: background .15s var(--ease-std); }
-.opt[aria-selected="true"], .opt:hover { background: var(--tint); }
+.opt[aria-selected="true"] { background: var(--tint); } /* #83: hover sets the selection in JS, so only one row is ever highlighted */
 .opt .pin { width: 36px; height: 36px; border-radius: 12px; background: var(--muted); display: grid; place-items: center; color: var(--navy); flex: none; box-shadow: inset 0 0 0 1px var(--line-2); }
 .opt .addr { font-weight: 600; font-size: 15px; }
 .opt .sub { font-size: 12.5px; color: var(--ink-3); }
@@ -228,7 +229,7 @@ main:focus, main:focus-visible { outline: none; }
 .preview-head .t { font: 400 24px/1.1 var(--serif); letter-spacing: -0.015em; }
 .preview-head .s { font-size: 12.5px; color: var(--ink-3); text-align: right; }
 .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.pv { border-radius: 16px; background: var(--muted); padding: 11px 12px; display: grid; gap: 6px; min-height: 72px; transition: background var(--t) var(--ease-std); }
+.pv { border-radius: 16px; background: var(--muted); padding: 11px 12px; display: grid; align-content: start; gap: 6px; min-height: 72px; transition: background var(--t) var(--ease-std); }
 .pv .badge { justify-self: start; }
 .pv .c { font-size: 12px; font-weight: 600; color: var(--ink-2); display: flex; gap: 6px; align-items: center; }
 .pv .c .ico { width: 14px; height: 14px; color: var(--navy); }
@@ -503,14 +504,14 @@ details.src[open] .src-body { animation: open-body .45s var(--ease-out) both; }
 .test { background: #fff; border-radius: var(--r-lg); box-shadow: var(--shadow-rest); padding: 24px 26px; transition: box-shadow var(--t) var(--ease-std), transform var(--t) var(--ease-out); }
 .test:hover { box-shadow: var(--shadow-lift); }
 .test-head { display: flex; gap: 16px; align-items: flex-start; }
-.test-id { font: 400 22px/1 var(--serif); background: var(--navy); color: #fff; border-radius: 16px; width: 52px; height: 52px; display: grid; place-items: center; flex: none; box-shadow: 0 8px 18px rgb(0 38 100 / .22); }
+.test-id { font: 650 19px/1 var(--sans); font-variant-numeric: tabular-nums; background: var(--navy); color: #fff; border-radius: 16px; width: 52px; height: 52px; display: grid; place-items: center; flex: none; box-shadow: 0 8px 18px rgb(0 38 100 / .22); }
 .type-tag { font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); font-weight: 650; }
 .test-head h2 { font-size: 19px; font-weight: 650; margin-top: 3px; }
 .test-head .exp { color: var(--ink-2); font-size: 14px; margin-top: 6px; max-width: 80ch; }
 .rchips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
 .rchip { display: inline-flex; align-items: center; flex-wrap: wrap; min-width: 0; gap: 8px; border-radius: 18px; padding: 4px 12px 4px 4px; background: var(--muted); font-size: 13px; line-height: 1.35; }
 .rchip .mono { white-space: nowrap; }
-.ba { display: grid; grid-template-columns: 1fr 1fr 1.1fr; gap: 12px; margin-top: 16px; }
+.ba { display: grid; grid-template-columns: 1fr 1fr 1.1fr; align-items: start; gap: 12px; margin-top: 16px; }
 .ba > div { border-radius: 20px; background: var(--muted); padding: 16px 18px; }
 .ba h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); font-weight: 650; margin-bottom: 10px; display: flex; justify-content: space-between; gap: 8px; }
 .ba h3 b { color: var(--ink); text-transform: none; letter-spacing: 0; font-size: 13px; }
@@ -528,7 +529,7 @@ details.src[open] .src-body { animation: open-body .45s var(--ease-out) both; }
 .citybars .b { height: 7px; background: var(--navy); border-radius: 99px; transform-origin: 0 50%; animation: meter-in 1s var(--ease-out) .2s both; }
 .citybars .n { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
 .test-foot { margin-top: 14px; font-size: 13px; color: var(--ink-2); }
-.idlist { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; max-height: 220px; overflow: auto; padding: 2px; }
+.idlist { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; max-height: 220px; overflow: auto; padding: 6px 4px 4px; }
 .idlist .chip { font-family: var(--mono); font-size: 12px; padding: 4px 10px; }
 
 /* ---------------------------------------------------------------- rules explorer */
@@ -561,6 +562,11 @@ table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
 .matrix td .none { color: var(--ink-3); font-size: 12px; white-space: nowrap; }
 .matrix td .none { font-size: 16px; color: var(--ink-4); cursor: help; padding: 0 8px; }
 .none.finding { display: inline-grid; place-items: center; width: 26px; height: 26px; color: var(--ink-2); font-weight: 600; font-size: 13px; border: 1px dashed var(--sup-ln); border-radius: 999px; padding: 0; cursor: help; }
+.matrix td .none { font-size: 14px; color: var(--ink-3); cursor: default; }
+.matrix td .none.finding, .legend .none.finding { color: var(--ink); font-size: 13.5px; background: #fff; box-shadow: none; border: 1.5px dashed var(--ink-3); padding: 0; cursor: pointer; }
+.matrix td .none.finding:hover { border-color: var(--ink-2); }
+@media (max-width: 640px) { .matrix td .none.finding { width: 36px; height: 36px; } }
+.legend .none { display: inline-grid; place-items: center; color: var(--ink-3); }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
 .filters select, .filters input[type=search] { font: 500 13.5px var(--sans); border: 0; box-shadow: inset 0 0 0 1px var(--line); border-radius: 999px; padding: 9px 14px; background: #fff; color: var(--ink); transition: box-shadow var(--t) var(--ease-std); }
 .filters select:hover, .filters input[type=search]:hover { box-shadow: inset 0 0 0 1px var(--ink-4); }
@@ -608,7 +614,7 @@ table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
 .modal, .cmdk { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: rgb(0 12 31 / .32); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); animation: scrim-in .25s var(--ease-std) both; }
 .modal[hidden], .cmdk[hidden] { display: none; }
 html:has(.modal:not([hidden])), html:has(.cmdk:not([hidden])) { overflow: hidden; } /* #66: page behind a dialog stays put */
-.modal.closing, .cmdk.closing { animation: scrim-out .2s var(--ease-std) both; }
+.modal.closing, .cmdk.closing { animation: scrim-out .2s var(--ease-std) both; pointer-events: none; }
 @keyframes scrim-in { from { opacity: 0; } }
 @keyframes scrim-out { to { opacity: 0; } }
 .modal-card { background: #fff; border-radius: 28px; width: min(980px, 100%); max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 40px 100px rgb(0 12 31 / .3); animation: card-in .45s var(--ease-drawer) both; }
@@ -670,6 +676,19 @@ html:has(.modal:not([hidden])), html:has(.cmdk:not([hidden])) { overflow: hidden
 }
 @media (max-width: 1120px) {
   .brand-word { display: none; }
+}
+/* measured fit (app.js fitHeader): extra compaction steps when tabs/labels are wider (more tabs, Spanish) */
+.asof-pill > span { white-space: nowrap; }
+@media (min-width: 981px) {
+  .nav.fit-1 .st-label, .nav.fit-1 .search-trigger kbd { display: none; }
+  .nav.fit-1 .search-trigger { padding: 8px 11px; }
+  .nav.fit-1 .nav-inner { gap: 12px; }
+  .nav.fit-2 .asof-pill > span { display: none; }
+  .nav.fit-2 .asof-pill { padding: 4px; }
+  .nav.fit-2 .tabs a { padding: 7px 11px; font-size: 13.5px; }
+  .nav.fit-3 .brand-word { display: none; }
+  .nav.fit-4 .tabs a { padding: 6px 9px; font-size: 13px; }
+  .nav.fit-4 .nav-inner { gap: 8px; }
 }
 @media (max-width: 1180px) {
   .addr-layout { grid-template-columns: 300px minmax(0, 1fr); gap: 28px; }

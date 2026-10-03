@@ -198,6 +198,8 @@
   .asof-pill { min-height: 40px; padding: 2px; background: none; }
   .asof-pill input { height: 36px; width: 112px; padding: 0 4px; text-align: center; box-shadow: inset 0 0 0 1px var(--line); background: #fff; -webkit-appearance: none; appearance: none; }
   .asof-pill input::-webkit-date-and-time-value { text-align: center; }
+  /* tapping the field opens the native picker on phones; the icon only cost width */
+  .asof-pill input::-webkit-calendar-picker-indicator { display: none; }
   .seg { padding: 2px; }
   .seg button { min-width: 32px; min-height: 36px; padding: 0 6px; font-size: 12.5px; }
   .seg-ink { top: 2px; bottom: 2px; left: 2px; width: calc(50% - 2px); }
@@ -224,10 +226,27 @@
   .hero .chips .chip:active { background: var(--muted); }
   .live-demo { margin-top: 48px; }
 }
-@media (max-width: 640px) and (pointer: coarse) {
-  .asof-pill input::-webkit-calendar-picker-indicator { display: none; }
-}
 @media (max-width: 385px) {
   .brand-word { display: none; }
 }
 
+
+/* touch screens: hover lifts stick after a tap on iOS, so give press feedback instead */
+@media (hover: none) {
+  .brand:hover .brand-mark, .go:hover, .circle-btn:hover, .chip:hover, .matrix td button:hover, .tl-ev:hover, .test:hover { transform: none; }
+  .circle-btn:hover, .chip:hover { box-shadow: var(--shadow-rest); }
+  .preview:hover, .test:hover { box-shadow: var(--shadow-float), 0 0 0 1px var(--line-2); }
+  .test:hover { box-shadow: var(--shadow-rest); }
+  .rule:hover, .rail-item:hover, .matrix tbody tr:hover { background: none; }
+  .go:active, .circle-btn:active, .chip:active, .matrix td button:active { transform: scale(.96); }
+  .rail-item:active, .rule:active { background: var(--muted); }
+}
+
+/* landscape notches: keep page content out of the side safe areas */
+@media (max-width: 980px) and (orientation: landscape) {
+  main, .footer-inner { padding-left: max(var(--inset), env(safe-area-inset-left)); padding-right: max(var(--inset), env(safe-area-inset-right)); }
+}
+@media (max-width: 640px) {
+  .pwa-nudge .icon-btn { position: relative; }
+  .pwa-nudge .icon-btn::after { content: ""; position: absolute; inset: -6px; }
+}
