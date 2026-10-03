@@ -1,0 +1,7180 @@
+{
+ "about": "QA oracle for address results (README semantics) and change tests. Jurisdictions from navigator/data/addresses_resolved.csv (24 spot-checked via the Census geocoder: 19 matched with 0 mismatches, 5 had no Census match and use plausible fallbacks).",
+ "as_of": "2026-10-01",
+ "lookups": {
+  "A0001": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "1927",
+   "units": "32",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1927: before the RSO cutoff (CO on/before 1978-10-01)"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "32 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0004": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "1964",
+   "units": "39",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1964: before the RSO cutoff (CO on/before 1978-10-01)"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "39 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0107": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "1978",
+   "units": "20",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "built 1978: RSO cutoff year (CO on/before 1978-10-01) -> unknown"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: built 1978: RSO cutoff year (CO on/before 1978-10-01) -> unknown"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "20 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0432": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "1978",
+   "units": "23",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "built 1978: RSO cutoff year (CO on/before 1978-10-01) -> unknown"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: built 1978: RSO cutoff year (CO on/before 1978-10-01) -> unknown"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "23 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0445": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "1977",
+   "units": "25",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1977: before the RSO cutoff (CO on/before 1978-10-01)"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "25 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0023": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "1987",
+   "units": "33",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 1987: after the RSO cutoff"
+    },
+    "CA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1987: older than 15 years"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "33 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0405": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "2008",
+   "units": "6",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2008: after the RSO cutoff"
+    },
+    "CA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 2008: older than 15 years"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "6 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0022": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "2012",
+   "units": "5",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2012: after the RSO cutoff"
+    },
+    "CA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2012: certificate of occupancy within the last 15 years -> exempt"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      null
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "5 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0330": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "2018",
+   "units": "24",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2018: after the RSO cutoff"
+    },
+    "CA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2018: certificate of occupancy within the last 15 years -> exempt"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      null
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "24 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0200": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": null,
+   "units": "5",
+   "use": "0500 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "RSO depends on CO on/before 1978-10-01; no year built"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: RSO depends on CO on/before 1978-10-01; no year built"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "5 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0235": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": null,
+   "units": null,
+   "use": "050V Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "RSO depends on CO on/before 1978-10-01; no year built"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: RSO depends on CO on/before 1978-10-01; no year built"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "unit count missing but use code says 5+ units"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0492": {
+   "city": "Los Angeles",
+   "state": "CA",
+   "postal_city": "Los Angeles",
+   "year_built": "2019",
+   "units": "131",
+   "use": "0551 Five or more apartments",
+   "expected": {
+    "LA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2019: after the RSO cutoff"
+    },
+    "CA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2019: certificate of occupancy within the last 15 years -> exempt"
+    },
+    "LA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "LA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "Resident Protections Ordinance (demolition for new construction)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      null
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "131 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "LA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": true,
+     "why": "RSO deposit interest"
+    }
+   }
+  },
+  "A0016": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "1926",
+   "units": "21",
+   "use": "A15 Apartment 15 Units or more",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1926: CO on/before 1979-06-13"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "21 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0072": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "1973",
+   "units": "6",
+   "use": "A5 Apartment 5 to 14 Units",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1973: CO on/before 1979-06-13"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "6 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0477": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "1975",
+   "units": "19",
+   "use": "A15 Apartment 15 Units or more",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1975: CO on/before 1979-06-13"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "19 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0050": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "1986",
+   "units": "49",
+   "use": "A15 Apartment 15 Units or more",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 1986: after the SF rent-control cutoff (just cause still applies)"
+    },
+    "CA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1986: older than 15 years"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "49 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0081": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "2005",
+   "units": "69",
+   "use": "A15 Apartment 15 Units or more",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2005: after the SF rent-control cutoff (just cause still applies)"
+    },
+    "CA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 2005: older than 15 years"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "69 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0105": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "2019",
+   "units": "7",
+   "use": "A5 Apartment 5 to 14 Units",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2019: after the SF rent-control cutoff (just cause still applies)"
+    },
+    "CA-RENT-01": {
+     "expected": null,
+     "accept": [
+      null
+     ],
+     "optional": false,
+     "why": "built 2019: certificate of occupancy within the last 15 years -> exempt"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      null
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "7 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0106": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": null,
+   "units": "60",
+   "use": "A15 Apartment 15 Units or more",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "SF rent limits depend on CO on/before 1979-06-13; no year built"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: SF rent limits depend on CO on/before 1979-06-13; no year built"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "60 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0398": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "1908",
+   "units": "5",
+   "use": "TIC TIC Bldg 4 units or less",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1908: CO on/before 1979-06-13"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "TIC building '4 units or less' vs units=5: small-landlord exception not excludable"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0384": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "1925",
+   "units": "7",
+   "use": "A5 Apartment 5 to 14 Units",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1925: CO on/before 1979-06-13"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "7 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0156": {
+   "city": "San Francisco",
+   "state": "CA",
+   "postal_city": "San Francisco",
+   "year_built": "1927",
+   "units": "9",
+   "use": "A5 Apartment 5 to 14 Units",
+   "expected": {
+    "SF-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1927: CO on/before 1979-06-13"
+    },
+    "CA-RENT-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local rent control applies and is stricter (1947.12(d)(3))"
+    },
+    "SF-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "local just cause covers every multifamily unit (RSO/JCO; SF 37.9 incl. post-1979 units)"
+    },
+    "SF-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "relocation payments for no-fault evictions (37.9C)"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "9 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SF-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since 2024-10-14"
+    },
+    "SF-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance Ordinance covers affordable housing only; not in data"
+    },
+    "SF-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest"
+    }
+   }
+  },
+  "A0019": {
+   "city": "San Diego",
+   "state": "CA",
+   "postal_city": "San Diego",
+   "year_built": null,
+   "units": "16",
+   "use": "15 SANDAG asr_landuse 14-16 (5+ units)",
+   "expected": {
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "San Diego has no year built: 15-year exemption untestable"
+    },
+    "SD-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "SD TPO exempts CO within 15 years; no year built"
+    },
+    "CA-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "SD TPO governs if covered; both exempt new construction; no year built"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "16 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SD-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since June 2025"
+    },
+    "SD-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "citywide source-of-income ordinance (text link-only)"
+    }
+   }
+  },
+  "A0094": {
+   "city": "San Diego",
+   "state": "CA",
+   "postal_city": "San Diego",
+   "year_built": null,
+   "units": "88",
+   "use": "16 SANDAG asr_landuse 14-16 (5+ units)",
+   "expected": {
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "San Diego has no year built: 15-year exemption untestable"
+    },
+    "SD-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "SD TPO exempts CO within 15 years; no year built"
+    },
+    "CA-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "SD TPO governs if covered; both exempt new construction; no year built"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "88 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SD-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since June 2025"
+    },
+    "SD-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "citywide source-of-income ordinance (text link-only)"
+    }
+   }
+  },
+  "A0322": {
+   "city": "San Diego",
+   "state": "CA",
+   "postal_city": "San Ysidro",
+   "year_built": null,
+   "units": "31",
+   "use": "15 SANDAG asr_landuse 14-16 (5+ units)",
+   "expected": {
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "San Diego has no year built: 15-year exemption untestable"
+    },
+    "SD-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "SD TPO exempts CO within 15 years; no year built"
+    },
+    "CA-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "SD TPO governs if covered; both exempt new construction; no year built"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "31 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SD-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since June 2025"
+    },
+    "SD-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "citywide source-of-income ordinance (text link-only)"
+    }
+   }
+  },
+  "A0346": {
+   "city": "San Diego",
+   "state": "CA",
+   "postal_city": "San Diego",
+   "year_built": null,
+   "units": "8",
+   "use": "14 SANDAG asr_landuse 14-16 (5+ units)",
+   "expected": {
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "San Diego has no year built: 15-year exemption untestable"
+    },
+    "SD-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "SD TPO exempts CO within 15 years; no year built"
+    },
+    "CA-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "SD TPO governs if covered; both exempt new construction; no year built"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "8 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SD-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since June 2025"
+    },
+    "SD-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "citywide source-of-income ordinance (text link-only)"
+    }
+   }
+  },
+  "A0150": {
+   "city": "San Diego",
+   "state": "CA",
+   "postal_city": "San Diego",
+   "year_built": null,
+   "units": "9",
+   "use": "14 SANDAG asr_landuse 14-16 (5+ units)",
+   "expected": {
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "San Diego has no year built: 15-year exemption untestable"
+    },
+    "SD-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "SD TPO exempts CO within 15 years; no year built"
+    },
+    "CA-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "SD TPO governs if covered; both exempt new construction; no year built"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "9 units: small-landlord 2-month exception cannot apply"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "SD-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide since June 2025"
+    },
+    "SD-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "citywide source-of-income ordinance (text link-only)"
+    }
+   }
+  },
+  "A0005": {
+   "city": "Berkeley",
+   "state": "CA",
+   "postal_city": "Berkeley",
+   "year_built": null,
+   "units": null,
+   "use": "7700 Alameda County use code (5+ units)",
+   "expected": {
+    "BRK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Berkeley fully covered only if built before 1980; no year built in the data"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: Berkeley fully covered only if built before 1980; no year built in the data"
+    },
+    "BRK-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "fully and partially covered units have just cause; 5+ unit use code"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "unit count missing but use code says 5+ units"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "BRK-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force (2026-03-01 per ordinance / Jan 2026 per law-firm alert)"
+    },
+    "BRK-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance; owner-occupied 1-3 unit exemption cannot apply to 5+ units"
+    },
+    "BRK-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide screening-fee rules"
+    },
+    "BRK-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest for covered units"
+    }
+   }
+  },
+  "A0018": {
+   "city": "Berkeley",
+   "state": "CA",
+   "postal_city": "Berkeley",
+   "year_built": null,
+   "units": null,
+   "use": "7200 Alameda County use code (5+ units)",
+   "expected": {
+    "BRK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Berkeley fully covered only if built before 1980; no year built in the data"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: Berkeley fully covered only if built before 1980; no year built in the data"
+    },
+    "BRK-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "fully and partially covered units have just cause; 5+ unit use code"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "unit count missing but use code says 5+ units"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "BRK-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force (2026-03-01 per ordinance / Jan 2026 per law-firm alert)"
+    },
+    "BRK-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance; owner-occupied 1-3 unit exemption cannot apply to 5+ units"
+    },
+    "BRK-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide screening-fee rules"
+    },
+    "BRK-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest for covered units"
+    }
+   }
+  },
+  "A0025": {
+   "city": "Berkeley",
+   "state": "CA",
+   "postal_city": "Berkeley",
+   "year_built": null,
+   "units": null,
+   "use": "7700 Alameda County use code (5+ units)",
+   "expected": {
+    "BRK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Berkeley fully covered only if built before 1980; no year built in the data"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: Berkeley fully covered only if built before 1980; no year built in the data"
+    },
+    "BRK-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "fully and partially covered units have just cause; 5+ unit use code"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "unit count missing but use code says 5+ units"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "BRK-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force (2026-03-01 per ordinance / Jan 2026 per law-firm alert)"
+    },
+    "BRK-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance; owner-occupied 1-3 unit exemption cannot apply to 5+ units"
+    },
+    "BRK-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide screening-fee rules"
+    },
+    "BRK-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest for covered units"
+    }
+   }
+  },
+  "A0091": {
+   "city": "Berkeley",
+   "state": "CA",
+   "postal_city": "Berkeley",
+   "year_built": null,
+   "units": null,
+   "use": "7700 Alameda County use code (5+ units)",
+   "expected": {
+    "BRK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Berkeley fully covered only if built before 1980; no year built in the data"
+    },
+    "CA-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "superseded"
+     ],
+     "optional": false,
+     "why": "depends on whether local rent control covers the unit: Berkeley fully covered only if built before 1980; no year built in the data"
+    },
+    "BRK-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "fully and partially covered units have just cause; 5+ unit use code"
+    },
+    "CA-JC-01": {
+     "expected": "superseded",
+     "accept": [
+      "superseded",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "local just-cause ordinance governs (1946.2(i))"
+    },
+    "CA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "unit count missing but use code says 5+ units"
+    },
+    "CA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide"
+    },
+    "CA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide FEHA"
+    },
+    "CA-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force since 2026-01-01 (AB 325)"
+    },
+    "CA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "statewide FEHA regulations"
+    },
+    "BRK-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "in force (2026-03-01 per ordinance / Jan 2026 per law-firm alert)"
+    },
+    "BRK-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance; owner-occupied 1-3 unit exemption cannot apply to 5+ units"
+    },
+    "BRK-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "citywide screening-fee rules"
+    },
+    "BRK-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "deposit interest for covered units"
+    }
+   }
+  },
+  "A0008": {
+   "city": "Jersey City",
+   "state": "NJ",
+   "postal_city": "Jersey City",
+   "year_built": null,
+   "units": null,
+   "use": "4C 10S-B-A-151U-HE",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "JC-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Jersey City ban in force since June 2025 (T2)"
+    },
+    "JC-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "no year built (30-year new-construction exemption) and no unit count (1-4 units exempt)"
+    }
+   }
+  },
+  "A0012": {
+   "city": "Jersey City",
+   "state": "NJ",
+   "postal_city": "Jersey City",
+   "year_built": "1900",
+   "units": null,
+   "use": "4C 3S-F-D-6U",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "JC-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Jersey City ban in force since June 2025 (T2)"
+    },
+    "JC-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1900; unit count missing (1-4 unit exemption), description '3S-F-D-6U'"
+    }
+   }
+  },
+  "A0026": {
+   "city": "Jersey City",
+   "state": "NJ",
+   "postal_city": "Jersey City",
+   "year_built": "1901",
+   "units": null,
+   "use": "4C 4S-B-D-8U-NH",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "JC-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Jersey City ban in force since June 2025 (T2)"
+    },
+    "JC-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1901; unit count missing (1-4 unit exemption), description '4S-B-D-8U-NH'"
+    }
+   }
+  },
+  "A0139": {
+   "city": "Jersey City",
+   "state": "NJ",
+   "postal_city": "Jersey City",
+   "year_built": "1910",
+   "units": null,
+   "use": "4C 3S-F-5U-NH",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "JC-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Jersey City ban in force since June 2025 (T2)"
+    },
+    "JC-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1910; unit count missing (1-4 unit exemption), description '3S-F-5U-NH'"
+    }
+   }
+  },
+  "A0344": {
+   "city": "Jersey City",
+   "state": "NJ",
+   "postal_city": "Jersey City",
+   "year_built": "1928",
+   "units": null,
+   "use": "4C 4S-B-44U",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "JC-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Jersey City ban in force since June 2025 (T2)"
+    },
+    "JC-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "built 1928; unit count missing (1-4 unit exemption), description '4S-B-44U'"
+    }
+   }
+  },
+  "A0017": {
+   "city": "Jersey City",
+   "state": "NJ",
+   "postal_city": "Jersey City",
+   "year_built": null,
+   "units": null,
+   "use": "4C 3S-F-D-6U-NH",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "JC-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Jersey City ban in force since June 2025 (T2)"
+    },
+    "JC-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown"
+     ],
+     "optional": false,
+     "why": "no year built (30-year new-construction exemption) and no unit count (1-4 units exempt)"
+    }
+   }
+  },
+  "A0002": {
+   "city": "Hoboken",
+   "state": "NJ",
+   "postal_city": "Hoboken",
+   "year_built": "2001",
+   "units": null,
+   "use": "4C 6B-20U-G",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "HOB-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Hoboken ban in force since July 2025 (T2)"
+    },
+    "HOB-RENT-01": {
+     "expected": null,
+     "accept": [
+      null,
+      "unknown"
+     ],
+     "optional": false,
+     "why": "built 2001: new construction exempt from rent control for 30 years"
+    }
+   }
+  },
+  "A0227": {
+   "city": "Hoboken",
+   "state": "NJ",
+   "postal_city": "Hoboken",
+   "year_built": "2010",
+   "units": "2",
+   "use": "4C 13B-93U-2C-G",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "units=2 in the data (description says 93U): owner-occupied small-premises exemption cannot be excluded"
+    },
+    "NJ-DEP-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "units=2 in the data (description says 93U): owner-occupied small-premises exemption cannot be excluded"
+    },
+    "NJ-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "units=2 in the data (description says 93U): owner-occupied small-premises exemption cannot be excluded"
+    },
+    "NJ-FEE-01": {
+     "expected": null,
+     "accept": [
+      null,
+      "unknown"
+     ],
+     "optional": false,
+     "why": "units=2: one-/two-family dwellings exempt"
+    },
+    "NJ-SCR-02": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD exempts a unit in an owner-occupied two-family dwelling; units=2"
+    },
+    "NJ-JC-02": {
+     "expected": "unknown",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "HOB-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Hoboken ban in force since July 2025 (T2)"
+    },
+    "HOB-RENT-01": {
+     "expected": null,
+     "accept": [
+      null,
+      "unknown"
+     ],
+     "optional": false,
+     "why": "built 2010: new construction exempt from rent control for 30 years"
+    }
+   }
+  },
+  "A0168": {
+   "city": "Hoboken",
+   "state": "NJ",
+   "postal_city": "Hoboken",
+   "year_built": "2007",
+   "units": null,
+   "use": "4C 5B-64U/5B-64U-G",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "HOB-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Hoboken ban in force since July 2025 (T2)"
+    },
+    "HOB-RENT-01": {
+     "expected": null,
+     "accept": [
+      null,
+      "unknown"
+     ],
+     "optional": false,
+     "why": "built 2007: new construction exempt from rent control for 30 years"
+    }
+   }
+  },
+  "A0049": {
+   "city": "Hoboken",
+   "state": "NJ",
+   "postal_city": "Hoboken",
+   "year_built": null,
+   "units": null,
+   "use": "4C 3S-6U-AFFORDABL",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "HOB-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Hoboken ban in force since July 2025 (T2)"
+    },
+    "HOB-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "no year built: 30-year new-construction exemption untestable"
+    }
+   }
+  },
+  "A0119": {
+   "city": "Hoboken",
+   "state": "NJ",
+   "postal_city": "Hoboken",
+   "year_built": null,
+   "units": null,
+   "use": "4C 2F-4U/2F-2U",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "HOB-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Hoboken ban in force since July 2025 (T2)"
+    },
+    "HOB-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "no year built: 30-year new-construction exemption untestable"
+    }
+   }
+  },
+  "A0040": {
+   "city": "Hoboken",
+   "state": "NJ",
+   "postal_city": "Hoboken",
+   "year_built": null,
+   "units": null,
+   "use": "4C 3B-7U/4B-24U-G",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "HOB-ALG-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Hoboken ban in force since July 2025 (T2)"
+    },
+    "HOB-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "no year built: 30-year new-construction exemption untestable"
+    }
+   }
+  },
+  "A0003": {
+   "city": "Newark",
+   "state": "NJ",
+   "postal_city": "Newark",
+   "year_built": null,
+   "units": null,
+   "use": "4C 4SB",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "NWK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "no year built / unit count for Newark"
+    }
+   }
+  },
+  "A0020": {
+   "city": "Newark",
+   "state": "NJ",
+   "postal_city": "Newark",
+   "year_built": null,
+   "units": null,
+   "use": "4C Apartments (class 4C)",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "NWK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "no year built / unit count for Newark"
+    }
+   }
+  },
+  "A0104": {
+   "city": "Newark",
+   "state": "NJ",
+   "postal_city": "Newark",
+   "year_built": null,
+   "units": null,
+   "use": "4C 3SB",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "NWK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "no year built / unit count for Newark"
+    }
+   }
+  },
+  "A0331": {
+   "city": "Newark",
+   "state": "NJ",
+   "postal_city": "Newark",
+   "year_built": "1910",
+   "units": null,
+   "use": "4C 2.5SF4UG",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "NWK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "no year built / unit count for Newark"
+    }
+   }
+  },
+  "A0338": {
+   "city": "Newark",
+   "state": "NJ",
+   "postal_city": "Newark",
+   "year_built": null,
+   "units": null,
+   "use": "4C 3SF",
+   "expected": {
+    "NJ-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Anti-Eviction Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Security Deposit Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "Fair Chance in Housing Act: class 4C apartment building; owner-occupied small-premises exemption cannot apply"
+    },
+    "NJ-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "$50 cap in force since 2026-05-01; class 4C is not a 1-2 family dwelling"
+    },
+    "NJ-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "LAD source of lawful income"
+    },
+    "NJ-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "reprisal protection"
+    },
+    "NJ-ALG-01": {
+     "expected": "not_yet_effective",
+     "accept": [
+      "not_yet_effective"
+     ],
+     "optional": false,
+     "why": "FAIR Act effective 2027-07-01"
+    },
+    "NWK-RENT-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "no year built / unit count for Newark"
+    }
+   }
+  },
+  "A0036": {
+   "city": "Boston",
+   "state": "MA",
+   "postal_city": "South Boston",
+   "year_built": "2019",
+   "units": null,
+   "use": "A/112 APT 7-30 UNITS",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "BOS-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "HSNA notice"
+    },
+    "BOS-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "only DND-funded / IDP housing"
+    },
+    "BOS-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Boston fair housing"
+    }
+   }
+  },
+  "A0048": {
+   "city": "Boston",
+   "state": "MA",
+   "postal_city": "Brighton",
+   "year_built": "1899",
+   "units": null,
+   "use": "A/112 APT 7-30 UNITS",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "BOS-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "HSNA notice"
+    },
+    "BOS-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "only DND-funded / IDP housing"
+    },
+    "BOS-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Boston fair housing"
+    }
+   }
+  },
+  "A0065": {
+   "city": "Boston",
+   "state": "MA",
+   "postal_city": "Dorchester",
+   "year_built": null,
+   "units": null,
+   "use": "A/120 LUXURY APARTMENT",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "BOS-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "HSNA notice"
+    },
+    "BOS-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "only DND-funded / IDP housing"
+    },
+    "BOS-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Boston fair housing"
+    }
+   }
+  },
+  "A0093": {
+   "city": "Boston",
+   "state": "MA",
+   "postal_city": "Jamaica Plain",
+   "year_built": "2004",
+   "units": null,
+   "use": "A/118 ELDERLY HOME",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "BOS-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "HSNA notice"
+    },
+    "BOS-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "only DND-funded / IDP housing"
+    },
+    "BOS-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Boston fair housing"
+    }
+   }
+  },
+  "A0098": {
+   "city": "Boston",
+   "state": "MA",
+   "postal_city": "Dorchester",
+   "year_built": null,
+   "units": null,
+   "use": "A/125 SUBSD HOUSING S- 8",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "BOS-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "HSNA notice"
+    },
+    "BOS-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "only DND-funded / IDP housing"
+    },
+    "BOS-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Boston fair housing"
+    }
+   }
+  },
+  "A0123": {
+   "city": "Boston",
+   "state": "MA",
+   "postal_city": "East Boston",
+   "year_built": "2013",
+   "units": null,
+   "use": "A/125 SUBSD HOUSING S- 8",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "BOS-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "HSNA notice"
+    },
+    "BOS-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "only DND-funded / IDP housing"
+    },
+    "BOS-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Boston fair housing"
+    }
+   }
+  },
+  "A0362": {
+   "city": "Boston",
+   "state": "MA",
+   "postal_city": "Boston",
+   "year_built": "1920",
+   "units": null,
+   "use": "A/112 APT 7-30 UNITS",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "BOS-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "HSNA notice"
+    },
+    "BOS-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "only DND-funded / IDP housing"
+    },
+    "BOS-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Boston fair housing"
+    }
+   }
+  },
+  "A0006": {
+   "city": "Boston",
+   "state": "MA",
+   "postal_city": "Boston",
+   "year_built": "1900",
+   "units": null,
+   "use": "A/125 SUBSD HOUSING S- 8",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "BOS-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "HSNA notice"
+    },
+    "BOS-SCR-01": {
+     "expected": "unknown",
+     "accept": [
+      "unknown",
+      "applies"
+     ],
+     "optional": false,
+     "why": "only DND-funded / IDP housing"
+    },
+    "BOS-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Boston fair housing"
+    }
+   }
+  },
+  "A0199": {
+   "city": "Cambridge",
+   "state": "MA",
+   "postal_city": "Cambridge",
+   "year_built": "2012",
+   "units": "5",
+   "use": "111 4-8-UNIT-APT",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "CAM-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice ordinance"
+    },
+    "CAM-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Cambridge fair housing"
+    }
+   }
+  },
+  "A0291": {
+   "city": "Cambridge",
+   "state": "MA",
+   "postal_city": "Cambridge",
+   "year_built": "2014",
+   "units": "244",
+   "use": "112 >8-UNIT-APT",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "CAM-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice ordinance"
+    },
+    "CAM-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Cambridge fair housing"
+    }
+   }
+  },
+  "A0336": {
+   "city": "Cambridge",
+   "state": "MA",
+   "postal_city": "Cambridge",
+   "year_built": "2020",
+   "units": "468",
+   "use": "112 MXD >8-UNIT-APT",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "CAM-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice ordinance"
+    },
+    "CAM-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Cambridge fair housing"
+    }
+   }
+  },
+  "A0071": {
+   "city": "Cambridge",
+   "state": "MA",
+   "postal_city": "Cambridge",
+   "year_built": "1900",
+   "units": "5",
+   "use": "111 4-8-UNIT-APT",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "CAM-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice ordinance"
+    },
+    "CAM-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Cambridge fair housing"
+    }
+   }
+  },
+  "A0306": {
+   "city": "Cambridge",
+   "state": "MA",
+   "postal_city": "Cambridge",
+   "year_built": "1920",
+   "units": "17",
+   "use": "112 >8-UNIT-APT",
+   "expected": {
+    "MA-DEP-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B"
+    },
+    "MA-FEE-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "statewide c.186 15B(1)(b)"
+    },
+    "MA-FEE-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "broker-fee rule in force since 2025-08-01"
+    },
+    "MA-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": false,
+     "why": "c.151B 4(10)"
+    },
+    "MA-ALG-P1": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "S.2983 pending (T4)"
+    },
+    "MA-ALG-P2": {
+     "expected": "pending",
+     "accept": [
+      "pending"
+     ],
+     "optional": false,
+     "why": "H.5222 pending (T4)"
+    },
+    "MA-RENT-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "c.40P bar on local rent control (never a cap)"
+    },
+    "MA-SCR-02": {
+     "expected": "applies",
+     "accept": [
+      "applies",
+      "unknown"
+     ],
+     "optional": true,
+     "why": "CORI regs"
+    },
+    "MA-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice-to-quit rules (c.186 11-12)"
+    },
+    "MA-JC-02": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "reprisal protection (c.186 18)"
+    },
+    "MA-JC-03": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": true,
+     "why": "nonpayment notice-to-quit form (c.186 31)"
+    },
+    "CAM-JC-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "notice ordinance"
+    },
+    "CAM-SCR-01": {
+     "expected": "applies",
+     "accept": [
+      "applies"
+     ],
+     "optional": false,
+     "why": "Cambridge fair housing"
+    }
+   }
+  }
+ },
+ "changes": {
+  "T1": {
+   "affected": [
+    "A0001",
+    "A0004",
+    "A0005",
+    "A0007",
+    "A0014",
+    "A0016",
+    "A0018",
+    "A0019",
+    "A0021",
+    "A0022",
+    "A0023",
+    "A0025",
+    "A0027",
+    "A0030",
+    "A0031",
+    "A0033",
+    "A0035",
+    "A0037",
+    "A0038",
+    "A0041",
+    "A0045",
+    "A0050",
+    "A0055",
+    "A0058",
+    "A0060",
+    "A0061",
+    "A0062",
+    "A0066",
+    "A0067",
+    "A0069",
+    "A0072",
+    "A0074",
+    "A0079",
+    "A0080",
+    "A0081",
+    "A0084",
+    "A0085",
+    "A0088",
+    "A0091",
+    "A0092",
+    "A0094",
+    "A0097",
+    "A0100",
+    "A0103",
+    "A0105",
+    "A0106",
+    "A0107",
+    "A0109",
+    "A0111",
+    "A0112",
+    "A0113",
+    "A0114",
+    "A0115",
+    "A0117",
+    "A0121",
+    "A0122",
+    "A0126",
+    "A0127",
+    "A0133",
+    "A0135",
+    "A0138",
+    "A0141",
+    "A0142",
+    "A0145",
+    "A0147",
+    "A0150",
+    "A0152",
+    "A0153",
+    "A0154",
+    "A0156",
+    "A0157",
+    "A0158",
+    "A0162",
+    "A0164",
+    "A0165",
+    "A0167",
+    "A0170",
+    "A0172",
+    "A0173",
+    "A0178",
+    "A0179",
+    "A0180",
+    "A0183",
+    "A0184",
+    "A0188",
+    "A0189",
+    "A0192",
+    "A0193",
+    "A0196",
+    "A0197",
+    "A0200",
+    "A0201",
+    "A0202",
+    "A0205",
+    "A0206",
+    "A0207",
+    "A0210",
+    "A0212",
+    "A0213",
+    "A0215",
+    "A0216",
+    "A0219",
+    "A0222",
+    "A0224",
+    "A0225",
+    "A0228",
+    "A0229",
+    "A0231",
+    "A0234",
+    "A0235",
+    "A0236",
+    "A0237",
+    "A0238",
+    "A0239",
+    "A0240",
+    "A0246",
+    "A0247",
+    "A0248",
+    "A0251",
+    "A0252",
+    "A0253",
+    "A0255",
+    "A0257",
+    "A0259",
+    "A0260",
+    "A0262",
+    "A0263",
+    "A0267",
+    "A0268",
+    "A0271",
+    "A0273",
+    "A0274",
+    "A0275",
+    "A0276",
+    "A0277",
+    "A0278",
+    "A0280",
+    "A0281",
+    "A0282",
+    "A0283",
+    "A0285",
+    "A0289",
+    "A0293",
+    "A0303",
+    "A0304",
+    "A0305",
+    "A0309",
+    "A0314",
+    "A0315",
+    "A0316",
+    "A0317",
+    "A0318",
+    "A0319",
+    "A0322",
+    "A0323",
+    "A0324",
+    "A0327",
+    "A0328",
+    "A0330",
+    "A0333",
+    "A0334",
+    "A0335",
+    "A0340",
+    "A0341",
+    "A0345",
+    "A0346",
+    "A0347",
+    "A0349",
+    "A0351",
+    "A0353",
+    "A0355",
+    "A0357",
+    "A0363",
+    "A0364",
+    "A0365",
+    "A0367",
+    "A0368",
+    "A0369",
+    "A0370",
+    "A0373",
+    "A0374",
+    "A0375",
+    "A0378",
+    "A0379",
+    "A0382",
+    "A0383",
+    "A0384",
+    "A0385",
+    "A0386",
+    "A0387",
+    "A0391",
+    "A0392",
+    "A0395",
+    "A0396",
+    "A0397",
+    "A0398",
+    "A0401",
+    "A0402",
+    "A0405",
+    "A0407",
+    "A0408",
+    "A0409",
+    "A0411",
+    "A0413",
+    "A0414",
+    "A0417",
+    "A0419",
+    "A0420",
+    "A0421",
+    "A0425",
+    "A0426",
+    "A0427",
+    "A0430",
+    "A0431",
+    "A0432",
+    "A0433",
+    "A0434",
+    "A0437",
+    "A0439",
+    "A0440",
+    "A0441",
+    "A0442",
+    "A0443",
+    "A0445",
+    "A0451",
+    "A0452",
+    "A0454",
+    "A0456",
+    "A0457",
+    "A0458",
+    "A0461",
+    "A0469",
+    "A0470",
+    "A0474",
+    "A0477",
+    "A0478",
+    "A0479",
+    "A0480",
+    "A0481",
+    "A0483",
+    "A0484",
+    "A0486",
+    "A0487",
+    "A0492",
+    "A0493",
+    "A0494",
+    "A0496",
+    "A0497",
+    "A0499",
+    "A0500"
+   ],
+   "why": "AB 325: not_yet_effective 2025-12-31 -> applies 2026-01-02 for every CA address"
+  },
+  "T2": {
+   "affected": [
+    "A0002",
+    "A0008",
+    "A0012",
+    "A0017",
+    "A0026",
+    "A0032",
+    "A0040",
+    "A0042",
+    "A0047",
+    "A0049",
+    "A0051",
+    "A0078",
+    "A0087",
+    "A0089",
+    "A0099",
+    "A0101",
+    "A0102",
+    "A0108",
+    "A0116",
+    "A0119",
+    "A0125",
+    "A0131",
+    "A0136",
+    "A0139",
+    "A0160",
+    "A0161",
+    "A0163",
+    "A0168",
+    "A0171",
+    "A0177",
+    "A0181",
+    "A0182",
+    "A0185",
+    "A0186",
+    "A0187",
+    "A0208",
+    "A0223",
+    "A0227",
+    "A0241",
+    "A0243",
+    "A0244",
+    "A0250",
+    "A0254",
+    "A0256",
+    "A0261",
+    "A0265",
+    "A0266",
+    "A0269",
+    "A0270",
+    "A0279",
+    "A0287",
+    "A0288",
+    "A0299",
+    "A0308",
+    "A0320",
+    "A0321",
+    "A0325",
+    "A0344",
+    "A0348",
+    "A0350",
+    "A0359",
+    "A0360",
+    "A0372",
+    "A0377",
+    "A0388",
+    "A0389",
+    "A0393",
+    "A0394",
+    "A0399",
+    "A0404",
+    "A0410",
+    "A0415",
+    "A0416",
+    "A0418",
+    "A0424",
+    "A0435",
+    "A0436",
+    "A0438",
+    "A0447",
+    "A0450",
+    "A0455",
+    "A0459",
+    "A0462",
+    "A0471",
+    "A0472",
+    "A0475",
+    "A0482",
+    "A0489",
+    "A0490",
+    "A0495"
+   ],
+   "why": "JC-ALG-01 only Jersey City, HOB-ALG-01 only Hoboken, neither Newark",
+   "per_rule": {
+    "JC-ALG-01": [
+     "A0008",
+     "A0012",
+     "A0017",
+     "A0026",
+     "A0032",
+     "A0042",
+     "A0047",
+     "A0051",
+     "A0078",
+     "A0101",
+     "A0108",
+     "A0116",
+     "A0131",
+     "A0139",
+     "A0160",
+     "A0161",
+     "A0163",
+     "A0171",
+     "A0177",
+     "A0185",
+     "A0186",
+     "A0187",
+     "A0243",
+     "A0250",
+     "A0265",
+     "A0266",
+     "A0270",
+     "A0279",
+     "A0288",
+     "A0321",
+     "A0325",
+     "A0344",
+     "A0350",
+     "A0360",
+     "A0372",
+     "A0388",
+     "A0393",
+     "A0394",
+     "A0404",
+     "A0410",
+     "A0415",
+     "A0416",
+     "A0418",
+     "A0438",
+     "A0450",
+     "A0455",
+     "A0459",
+     "A0462",
+     "A0482",
+     "A0495"
+    ],
+    "HOB-ALG-01": [
+     "A0002",
+     "A0040",
+     "A0049",
+     "A0087",
+     "A0089",
+     "A0099",
+     "A0102",
+     "A0119",
+     "A0125",
+     "A0136",
+     "A0168",
+     "A0181",
+     "A0182",
+     "A0208",
+     "A0223",
+     "A0227",
+     "A0241",
+     "A0244",
+     "A0254",
+     "A0256",
+     "A0261",
+     "A0269",
+     "A0287",
+     "A0299",
+     "A0308",
+     "A0320",
+     "A0348",
+     "A0359",
+     "A0377",
+     "A0389",
+     "A0399",
+     "A0424",
+     "A0435",
+     "A0436",
+     "A0447",
+     "A0471",
+     "A0472",
+     "A0475",
+     "A0489",
+     "A0490"
+    ]
+   }
+  },
+  "T3": {
+   "affected": [
+    "A0002",
+    "A0003",
+    "A0008",
+    "A0011",
+    "A0012",
+    "A0013",
+    "A0017",
+    "A0020",
+    "A0026",
+    "A0028",
+    "A0029",
+    "A0032",
+    "A0040",
+    "A0042",
+    "A0044",
+    "A0047",
+    "A0049",
+    "A0051",
+    "A0057",
+    "A0059",
+    "A0076",
+    "A0078",
+    "A0087",
+    "A0089",
+    "A0090",
+    "A0099",
+    "A0101",
+    "A0102",
+    "A0104",
+    "A0108",
+    "A0110",
+    "A0116",
+    "A0119",
+    "A0120",
+    "A0125",
+    "A0129",
+    "A0130",
+    "A0131",
+    "A0132",
+    "A0136",
+    "A0137",
+    "A0139",
+    "A0146",
+    "A0148",
+    "A0159",
+    "A0160",
+    "A0161",
+    "A0163",
+    "A0168",
+    "A0171",
+    "A0177",
+    "A0181",
+    "A0182",
+    "A0185",
+    "A0186",
+    "A0187",
+    "A0190",
+    "A0204",
+    "A0208",
+    "A0223",
+    "A0227",
+    "A0241",
+    "A0243",
+    "A0244",
+    "A0249",
+    "A0250",
+    "A0254",
+    "A0256",
+    "A0261",
+    "A0264",
+    "A0265",
+    "A0266",
+    "A0269",
+    "A0270",
+    "A0279",
+    "A0287",
+    "A0288",
+    "A0296",
+    "A0297",
+    "A0299",
+    "A0307",
+    "A0308",
+    "A0311",
+    "A0313",
+    "A0320",
+    "A0321",
+    "A0325",
+    "A0326",
+    "A0329",
+    "A0331",
+    "A0337",
+    "A0338",
+    "A0343",
+    "A0344",
+    "A0348",
+    "A0350",
+    "A0352",
+    "A0358",
+    "A0359",
+    "A0360",
+    "A0371",
+    "A0372",
+    "A0377",
+    "A0381",
+    "A0388",
+    "A0389",
+    "A0390",
+    "A0393",
+    "A0394",
+    "A0399",
+    "A0400",
+    "A0404",
+    "A0410",
+    "A0412",
+    "A0415",
+    "A0416",
+    "A0418",
+    "A0424",
+    "A0428",
+    "A0435",
+    "A0436",
+    "A0438",
+    "A0447",
+    "A0448",
+    "A0449",
+    "A0450",
+    "A0455",
+    "A0459",
+    "A0460",
+    "A0462",
+    "A0471",
+    "A0472",
+    "A0475",
+    "A0476",
+    "A0482",
+    "A0489",
+    "A0490",
+    "A0491",
+    "A0495",
+    "A0498"
+   ],
+   "conflict_flags": [
+    "A0002",
+    "A0008",
+    "A0012",
+    "A0017",
+    "A0026",
+    "A0032",
+    "A0040",
+    "A0042",
+    "A0047",
+    "A0049",
+    "A0051",
+    "A0078",
+    "A0087",
+    "A0089",
+    "A0099",
+    "A0101",
+    "A0102",
+    "A0108",
+    "A0116",
+    "A0119",
+    "A0125",
+    "A0131",
+    "A0136",
+    "A0139",
+    "A0160",
+    "A0161",
+    "A0163",
+    "A0168",
+    "A0171",
+    "A0177",
+    "A0181",
+    "A0182",
+    "A0185",
+    "A0186",
+    "A0187",
+    "A0208",
+    "A0223",
+    "A0227",
+    "A0241",
+    "A0243",
+    "A0244",
+    "A0250",
+    "A0254",
+    "A0256",
+    "A0261",
+    "A0265",
+    "A0266",
+    "A0269",
+    "A0270",
+    "A0279",
+    "A0287",
+    "A0288",
+    "A0299",
+    "A0308",
+    "A0320",
+    "A0321",
+    "A0325",
+    "A0344",
+    "A0348",
+    "A0350",
+    "A0359",
+    "A0360",
+    "A0372",
+    "A0377",
+    "A0388",
+    "A0389",
+    "A0393",
+    "A0394",
+    "A0399",
+    "A0404",
+    "A0410",
+    "A0415",
+    "A0416",
+    "A0418",
+    "A0424",
+    "A0435",
+    "A0436",
+    "A0438",
+    "A0447",
+    "A0450",
+    "A0455",
+    "A0459",
+    "A0462",
+    "A0471",
+    "A0472",
+    "A0475",
+    "A0482",
+    "A0489",
+    "A0490",
+    "A0495"
+   ],
+   "why": "FAIR Act applies 2027-07-02 to every NJ address; JC+Hoboken flagged (possible preemption of local bans)"
+  },
+  "T4": {
+   "affected": [
+    "A0006",
+    "A0009",
+    "A0010",
+    "A0015",
+    "A0024",
+    "A0034",
+    "A0036",
+    "A0039",
+    "A0043",
+    "A0046",
+    "A0048",
+    "A0052",
+    "A0053",
+    "A0054",
+    "A0056",
+    "A0063",
+    "A0064",
+    "A0065",
+    "A0068",
+    "A0070",
+    "A0071",
+    "A0073",
+    "A0075",
+    "A0077",
+    "A0082",
+    "A0083",
+    "A0086",
+    "A0093",
+    "A0095",
+    "A0096",
+    "A0098",
+    "A0118",
+    "A0123",
+    "A0124",
+    "A0128",
+    "A0134",
+    "A0140",
+    "A0143",
+    "A0144",
+    "A0149",
+    "A0151",
+    "A0155",
+    "A0166",
+    "A0169",
+    "A0174",
+    "A0175",
+    "A0176",
+    "A0191",
+    "A0194",
+    "A0195",
+    "A0198",
+    "A0199",
+    "A0203",
+    "A0209",
+    "A0211",
+    "A0214",
+    "A0217",
+    "A0218",
+    "A0220",
+    "A0221",
+    "A0226",
+    "A0230",
+    "A0232",
+    "A0233",
+    "A0242",
+    "A0245",
+    "A0258",
+    "A0272",
+    "A0284",
+    "A0286",
+    "A0290",
+    "A0291",
+    "A0292",
+    "A0294",
+    "A0295",
+    "A0298",
+    "A0300",
+    "A0301",
+    "A0302",
+    "A0306",
+    "A0310",
+    "A0312",
+    "A0332",
+    "A0336",
+    "A0339",
+    "A0342",
+    "A0354",
+    "A0356",
+    "A0361",
+    "A0362",
+    "A0366",
+    "A0376",
+    "A0380",
+    "A0403",
+    "A0406",
+    "A0422",
+    "A0423",
+    "A0429",
+    "A0444",
+    "A0446",
+    "A0453",
+    "A0463",
+    "A0464",
+    "A0465",
+    "A0466",
+    "A0467",
+    "A0468",
+    "A0473",
+    "A0485",
+    "A0488"
+   ],
+   "why": "pending bills would affect every Boston and Cambridge address"
+  },
+  "T5": {
+   "affected": [],
+   "why": "ballot question struck: no rent cap anywhere in MA"
+  }
+ }
+}
