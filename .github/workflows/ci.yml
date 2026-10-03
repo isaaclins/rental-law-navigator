@@ -1,0 +1,152 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  RUFF_VERSION: "0.16.10"
+  # CI never talks to a language model. The extractor only reads cached responses;
+  # NAVIGATOR_OFFLINE=1 tells the pipeline to stay offline, and the `claude` / `codex`
+  # binaries are replaced by stubs that fail loudly (see "Block LLM calls" below).
+  NAVIGATOR_OFFLINE: "1"
+  NAVIGATOR_LLM: "offline"
+  ANTHROPIC_API_KEY: ""
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  lint:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+      - name: ruff check
+        run: uvx "ruff@${RUFF_VERSION}" check --output-format=github .
+      - name: ruff format --check
+        run: uvx "ruff@${RUFF_VERSION}" format --check --diff .
+
+  validate:
+    name: Validate outputs (schema, spans, coverage)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+      - name: Validate output/rules.json, lookups.json, changes.json
+        # Files that are not on this branch yet are reported as SKIP, not as failures.
+        run: uv run --no-project --python 3.12 --with "jsonschema>=4.23" python scripts/validate_outputs.py
+
+  selfcheck:
+    name: Navigator selfcheck (offline)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - name: Detect navigator package and outputs
+        id: detect
+        run: |
+          if [ ! -f navigator/__main__.py ] || [ ! -f pyproject.toml ]; then
+            echo "::notice title=selfcheck skipped::navigator/ package or pyproject.toml is not on this branch yet"
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          elif [ ! -f output/rules.json ]; then
+            echo "::notice title=selfcheck skipped::output/rules.json is not on this branch yet"
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: astral-sh/setup-uv@v10.2.0
+        if: steps.detect.outputs.run == 'true'
+        with:
+          enable-cache: ${{ hashFiles('uv.lock') != '' }}
+      - name: Block LLM calls
+        if: steps.detect.outputs.run == 'true'
+        run: |
+          mkdir -p "$RUNNER_TEMP/no-llm"
+          for bin in claude codex; do
+            printf '#!/bin/sh\necho "%s: LLM calls are disabled in CI (NAVIGATOR_OFFLINE=1)" >&2\nexit 1\n' "$bin" \
+              > "$RUNNER_TEMP/no-llm/$bin"
+            chmod +x "$RUNNER_TEMP/no-llm/$bin"
+          done
+          echo "$RUNNER_TEMP/no-llm" >> "$GITHUB_PATH"
+      - name: Install dependencies
+        if: steps.detect.outputs.run == 'true'
+        run: uv sync $( [ -f uv.lock ] && echo --locked )
+      - name: python -m navigator selfcheck
+        if: steps.detect.outputs.run == 'true'
+        run: uv run python -m navigator selfcheck
+      - name: Upload selfcheck report
+        if: always() && steps.detect.outputs.run == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: selfcheck-report
+          path: output/selfcheck.txt
+          if-no-files-found: ignore
+
+  web-smoke:
+    name: Web smoke test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Detect web app
+        id: detect
+        run: |
+          if [ -f web/app.py ] && [ -f pyproject.toml ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice title=web smoke test skipped::web/app.py or pyproject.toml is not on this branch yet"
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: astral-sh/setup-uv@v10.2.0
+        if: steps.detect.outputs.run == 'true'
+        with:
+          enable-cache: ${{ hashFiles('uv.lock') != '' }}
+      - name: Install dependencies
+        if: steps.detect.outputs.run == 'true'
+        run: uv sync $( [ -f uv.lock ] && echo --locked )
+      - name: Start uvicorn
+        if: steps.detect.outputs.run == 'true'
+        run: |
+          nohup uv run uvicorn web.app:app --host 127.0.0.1 --port 8765 > "$RUNNER_TEMP/uvicorn.log" 2>&1 &
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:8765/api/health > /dev/null 2>&1; then
+              echo "server up after ${i}s"; exit 0
+            fi
+            sleep 1
+          done
+          echo "::error title=web smoke test::server did not answer /api/health within 60s"
+          cat "$RUNNER_TEMP/uvicorn.log"
+          exit 1
+      - name: Curl main endpoints
+        if: steps.detect.outputs.run == 'true'
+        run: |
+          set -euo pipefail
+          base=http://127.0.0.1:8765
+          addr=$(sed -n '2p' starter/data/sample_addresses.csv | cut -d, -f1)
+          fail=0
+          for path in / /api/health /api/meta /api/addresses "/api/address/${addr}" \
+                      /api/rules /api/coverage /api/changes /api/timeline; do
+            code=$(curl -sS -o "$RUNNER_TEMP/body" -w '%{http_code}' "$base$path" || echo 000)
+            size=$(wc -c < "$RUNNER_TEMP/body" 2>/dev/null || echo 0)
+            echo "$code  ${size}B  $path"
+            if [ "$code" != "200" ]; then
+              echo "::error title=web smoke test::GET $path returned $code"
+              fail=1
+            fi
+          done
+          curl -fsS "$base/api/health" | python3 -m json.tool
+          exit $fail
+      - name: Server log
+        if: always() && steps.detect.outputs.run == 'true'
+        run: cat "$RUNNER_TEMP/uvicorn.log" || true

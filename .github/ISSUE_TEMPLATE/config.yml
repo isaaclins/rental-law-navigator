@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Challenge guide (starter pack)
+    url: https://github.com/isaaclins/rental-law-navigator/blob/main/starter/README.md
+    about: Task, submission format, change tests T1-T5 and known open questions.

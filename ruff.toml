@@ -1,0 +1,11 @@
+# Ruff config (lint + format). Kept separate from pyproject.toml, which the product package owns.
+# Run locally: uvx ruff check . && uvx ruff format --check .
+line-length = 100
+target-version = "py312"
+extend-exclude = ["starter", "supplementary", "cache", "output"]
+
+[lint]
+# pycodestyle, pyflakes, isort, bugbear, pyupgrade
+select = ["E", "W", "F", "I", "B", "UP"]
+# E501: line length is left to the formatter. E741: short names like `l` are fine in small scopes.
+ignore = ["E501", "E741"]
