@@ -174,8 +174,40 @@ def _order_key(item: dict):
     )
 
 
+# "Feb 2027" in a row answer is read with the full month name
+MONTHS = {
+    "en": {
+        "jan": "January",
+        "feb": "February",
+        "mar": "March",
+        "apr": "April",
+        "jun": "June",
+        "jul": "July",
+        "aug": "August",
+        "sep": "September",
+        "oct": "October",
+        "nov": "November",
+        "dec": "December",
+    },
+    "es": {
+        "ene": "enero",
+        "feb": "febrero",
+        "mar": "marzo",
+        "abr": "abril",
+        "may": "mayo",
+        "jun": "junio",
+        "jul": "julio",
+        "ago": "agosto",
+        "sep": "septiembre",
+        "oct": "octubre",
+        "nov": "noviembre",
+        "dic": "diciembre",
+    },
+}
+
+
 def topic_line(c: dict, lang: str) -> str:
-    """The topic's one-line answer, as on the address page (top rule's key value), made speakable."""
+    """The topic's one-line answer, as on the address page (web/headlines.py), made speakable."""
     w = WORDS[lang]
     items = sorted(c.get("enacted") or [], key=_order_key)
     if items:
@@ -185,7 +217,19 @@ def topic_line(c: dict, lang: str) -> str:
             f = MISSING_ES.get(f, MISSING_ES[next(iter(MISSING_ES))]) if lang == "es" else f.lower()
             return cap(w["depends"].format(f=f))
         line = spoken(
-            r.get("key_value_display") or r.get("key_value") or r.get("title_display") or "", lang
+            top.get("headline")  # web/headlines.py, the same line the address page shows
+            or r.get("key_value_display")
+            or r.get("key_value")
+            or r.get("title_display")
+            or "",
+            lang,
+        )
+        line = re.sub(
+            r"\b([A-Za-z]{3})\.? (\d{4})\b",
+            lambda m: (
+                f"{MONTHS[lang].get(m.group(1).lower(), m.group(1))}{' de' if lang == 'es' and m.group(1).lower() in MONTHS['es'] else ''} {m.group(2)}"
+            ),
+            line,
         )
         eff = r.get("effective_date_norm")
         if top["result"] == "not_yet_effective" and eff:

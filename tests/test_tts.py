@@ -46,7 +46,9 @@ def test_summary_text_en_es():
     en = T.summary_text("A0016", "2026-10-01", "en")
     es = T.summary_text("A0016", "2026-10-01", "es")
     assert en.startswith("3515 Fillmore St, San Francisco. As of October 1, 2026.")
-    assert "Rent increases: 1.6%." in en and en.endswith("This is not legal advice.")
+    assert "Rent increases: Up to 1.6% until February 2027." in en and en.endswith(
+        "This is not legal advice."
+    )
     assert "1 de octubre de 2026" in es and es.endswith("Esto no es asesoría legal.")
     assert len(en) < T.MAX_TEXT and len(es) < T.MAX_TEXT
     assert "(" not in en  # parentheticals and date ranges are not read aloud

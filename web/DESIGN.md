@@ -1,44 +1,36 @@
 # Clause & Effect: design language
 
-Redesigned 2026-10-03 after Isaac's review ("way too bloated", "looks like AI slop"). The goal is how Apple would
-ship it: the answer first, once, in plain words; every detail one tap away; nothing decorative.
-Checklist this follows: `~/share/hacknation/qa/anti-slop-checklist.md` (not in the repo).
+Two passes on 2026-10-03. First the decluttering (Isaac: "way too bloated", "looks like AI slop"): the answer first,
+once, in plain words; every detail one tap away. Then Isaac's correction ("too Apple-like"): keep that thinking, but in
+our own look: Instrument Serif display, Inter text, navy on warm whites (america.gov-inspired), the § mark.
+Checklist: `~/share/hacknation/qa/anti-slop-checklist.md` (not in the repo).
 
 ## Principles
 - **One question per screen.** The address page answers "which rules apply here?" with one row per topic: the topic,
-  a one-line answer (the governing rule's key figure), the place it comes from, and a status word.
-- **Say it once.** The key figure appears in the row. The opened row shows the rule in plain words, then *Source*
-  (verbatim quote, citation, link, "Read in full text"), *Why it applies* (the engine's facts as bullets),
-  *Changes*, *Overrides* and *Open question*. The engine explanation is split into those pieces (`parseWhy` in
-  `app.js`), so no sentence is repeated. Other rules of the topic sit under "Also at this address", collapsed.
-- **Progressive disclosure:** `<details>` rows inline on every screen size. Dialogs only for full source texts and the
-  rule table.
-- **Quiet chrome.** Header: wordmark, text links (active = semibold ink, no pill), search icon, one as-of control
-  ("As of Oct 1, 2026 ▾", accent-coloured with a × reset when it is not the default), EN/ES as two words.
-  Phones get a bottom tab bar instead of the links.
+  a one-line answer (`web/headlines.py`, shared with Compare and Listen), the place it comes from, and a status pill
+  only when the status is unusual (unknown, starts later, exempt, no rule, no limit). "Applies" is the norm and silent.
+- **Say it once.** The opened row shows only what the quote doesn't already say, then the quote with one citation line
+  (citation, effective date, source link, full text), then *Why it applies* and *Changes* / *Open question*. The engine
+  explanation is split into those pieces (`parseWhy` in `app.js`). Other rules of the topic sit under "Also at this
+  address", collapsed.
+- **Progressive disclosure:** `<details>` rows inline on every screen size. Sheets only for source texts, the rule
+  table and "How we found this address".
 
-## Typography
-System stack: `-apple-system, BlinkMacSystemFont, "SF Pro Text", InterVariable, system-ui` (Inter is bundled for
-non-Apple systems). Hierarchy comes from weight, not colour. Sizes: 48 (home headline only), 32 page titles, 17 body
-and rows, 14 secondary text. Phones: 34 / 28 / 17 / 14. No serif, no uppercase eyebrows, no italics for emphasis.
-
-## Colour
-| Token | Value | Use |
-|---|---|---|
-| `--label` / `--label-2` / `--label-3` | `#1d1d1f` / `#6e6e73` / `#8e8e93` | text, secondary text, tertiary |
-| `--sep` / `--sep-2` / `--fill` | `#d2d2d7` / `#e8e8ed` / `#f5f5f7` | input borders, hairlines, footer and skeletons |
-| `--accent` | `#0066cc` | links and the primary action only |
-| `--applies` / `--unknown` / `--soon` / `--pending` | green / orange / indigo / purple | status words and dots only |
-
-Status is a coloured word (`.badge.st-<result>`), never a tinted pill. Superseded, failed, no rule and exempt are grey.
-
-## Shape, depth, spacing
-Hairline rows (`.group`, `.topic`, `.kv`) instead of cards. No nested boxes. Shadows only on floating layers
-(dialogs, search suggestions, the account menu). Radius 10-14px. 8-pt spacing; content column 760px, page 980px.
-
-## Motion
-Opacity and short translate only: main fades in (180 ms), dialogs rise 8px. No blur, no stagger, no count-ups, no
-auto-advancing carousel, no pulsing dots. `prefers-reduced-motion` shortens every animation to ~0.
+## Identity
+- **Type:** Instrument Serif (`--display`) for the wordmark, page and address titles, section titles and big numbers;
+  Inter (`--font`) for everything else. Sizes: `--fs-xl` home headline, `--fs-l` page/address titles, `--fs-h2`
+  section titles, 16 body, 14 secondary.
+- **Colour:** ink `#000c1f` with alpha greys; navy `#002664` (`--accent`) for primary actions, the active nav item and
+  focus; links `#0a3a8c`; warm surfaces `#f2f3f5` (hero) and `#fbfbfb` (footer). Status: applies green, unknown amber,
+  starts later blue, pending violet, the rest slate, as tinted pills with a dot, used sparingly.
+- **Header:** § tile + serif wordmark, text nav with one navy pill for the active page, search, one as-of control
+  ("As of Oct 1, 2026 ▾", navy when changed, × to reset), EN/ES. Below 900 px the nav becomes a bottom tab bar.
+- **Surfaces:** one level only: the topic list and the example list are white cards (radius 22, hairline + soft
+  shadow); everything inside is hairline rows. No cards in cards, no icon tiles, no uppercase eyebrows.
+- **Motion:** the page rises in (opacity + 10 px, 0.45 s), topic rows follow with a short stagger; opacity/transform
+  only, no blur; `prefers-reduced-motion` shortens everything to ~0.
+- **Chart tokens** for feature modules: `--status-in-force`, `--status-soon`, `--status-pending`, `--status-failed`,
+  `--chart-grid`.
 
 ## Responsible design kept
 - "Not legal advice": one line next to every set of answers ("As of Oct 1, 2026. Not legal advice.") and in the
@@ -73,10 +65,12 @@ Events on `document`:
 
 Rules for feature markup:
 - Use the shared classes: `page-head`, `block`, `group` (hairline list), `kv`, `btn` / `btn primary`, `linkish`,
-  `badge st-<status>`, `addr-meta`. Old names (`pill primary|line|ghost`) still render as buttons.
+  `badge st-<status>`, `addr-meta`. Old names (`pill primary|line|ghost`) still render as buttons. Use the tokens
+  (`--label`, `--accent`, `--display`, `--fill`, `--warm`, `--shadow-card`), never fixed colours.
 - Entry points go into the slots, as plain text links: `[data-slot="address-actions"]` (under the address header),
   `.topic-actions[data-slot="topic-actions"][data-cat=<id>]` (end of each opened topic), `[data-tour-slot="home"]`
-  (under the home examples) and `[data-tour-slot="footer"]` (in the footer links). No new nav items.
+  (under the home examples), `[data-tour-slot="footer"]` (in the footer links) and `[data-slot="changes-top"]` (top of
+  Changes). No new nav items. While Listen reads a topic it sets `.topic.is-speaking` (navy rule on the left).
 - Stable hooks for the tour: `data-tour="search|answer|rule|source|asof|changes|properties"`; topic rows carry
   `data-cat`, rule rows `data-rule`.
 - Mobile layout lives in `mobile.css`.

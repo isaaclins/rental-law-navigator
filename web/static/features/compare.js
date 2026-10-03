@@ -75,75 +75,15 @@ const t = (k) => (lang() === "es" ? ES : EN)[k];
 const CATS = Object.keys(EN.cats);
 
 // ------------------------------------------------------------------ one-line answers --
-// rule id -> [priority, en, es, until?, en_after?, es_after?]. Priority 1 leads the line; a second phrase with
-// priority <= 1.5 is appended; priority 2 is shown only when nothing else applies. Figures tied to a period end
-// at `until`; after that date the general phrase is shown instead.
-const S = {
-  "CA-RENT-01": [1, "5% + CPI, max 10%/yr", "5% + IPC, máx. 10%/año"],
-  "LA-RENT-01": [1, "Yearly % set by the city", "% anual fijado por la ciudad"],
-  "SF-RENT-01": [1, "1.6%/yr", "1.6%/año", "2027-02-28", "Yearly % set by the city", "% anual fijado por la ciudad"],
-  "BER-RENT-01": [1, "1.0%/yr", "1.0%/año", "2026-12-31", "65% of CPI, max 5%/yr", "65% del IPC, máx. 5%/año"],
-  "SA-RENT-01": [1, "Max 3%/yr", "Máx. 3%/año"],
-  "JC-RENT-01": [1, "City rent control", "Control de alquiler municipal"],
-  "HOB-RENT-01": [1, "City rent control", "Control de alquiler municipal"],
-  "NWK-RENT-01": [1, "City rent control", "Control de alquiler municipal"],
-  "MA-RENT-01": [1, "No cap (rent control banned)", "Sin tope (control prohibido)"],
-  "CA-EVIC-01": [1, "Just cause after 12 months", "Causa justa tras 12 meses"],
-  "LA-EVIC-01": [1, "Just cause required", "Se exige causa justa"],
-  "LA-EVIC-02": [1, "Just cause required", "Se exige causa justa"],
-  "LA-EVIC-03": [2, "Relocation pay on demolition", "Pago de reubicación por demolición"],
-  "LA-EVIC-04": [2, "Relocation pay for no-fault", "Pago de reubicación sin culpa"],
-  "SF-EVIC-01": [1, "Just cause required", "Se exige causa justa"],
-  "SF-EVIC-02": [2, "Relocation pay for no-fault", "Pago de reubicación sin culpa"],
-  "SD-EVIC-01": [1, "Just cause required", "Se exige causa justa"],
-  "BER-EVIC-01": [1, "Just cause required", "Se exige causa justa"],
-  "SA-EVIC-01": [1, "Just cause after 30 days", "Causa justa tras 30 días"],
-  "NJ-EVIC-03": [1, "Just cause required", "Se exige causa justa"],
-  "NJ-EVIC-01": [2, "No retaliation", "Sin represalias"],
-  "NJ-EVIC-02": [2, "90 days' notice after a sale", "90 días de aviso tras una venta"],
-  "MA-EVIC-02": [1, "No just cause; 3 months' notice", "Sin causa justa; 3 meses de aviso"],
-  "MA-EVIC-01": [2, "14 days' notice for unpaid rent", "14 días de aviso por impago"],
-  "MA-EVIC-03": [2, "No retaliation", "Sin represalias"],
-  "MA-EVIC-04": [2, "State form with the notice", "Formulario estatal con el aviso"],
-  "BOS-EVIC-01": [2, "Rights notice required", "Aviso de derechos obligatorio"],
-  "CAM-EVIC-01": [2, "Rights notice required", "Aviso de derechos obligatorio"],
-  "CA-DEP-01": [1, "Max 1 month's rent", "Máx. 1 mes de alquiler"],
-  "LA-DEP-01": [1.5, "Earns interest", "Genera intereses"],
-  "SF-DEP-01": [1.5, "4.2% interest", "4.2% de interés", "2027-02-28", "Earns interest", "Genera intereses"],
-  "BER-DEP-01": [1.5, "Earns interest", "Genera intereses"],
-  "NJ-DEP-01": [1, "Max 1.5 months' rent", "Máx. 1.5 meses de alquiler"],
-  "MA-DEP-01": [1, "Max 1 month's rent", "Máx. 1 mes de alquiler"],
-  "CA-FEE-01": [1, "Max $68.96 per applicant", "Máx. $68.96 por solicitante", "2026-12-31", "Max $30 + CPI per applicant", "Máx. $30 + IPC por solicitante"],
-  "BER-FEE-01": [1.5, "No renewal fees", "Sin cargos por renovación"],
-  "NJ-FEE-01": [1, "Max $50 + CPI per application", "Máx. $50 + IPC por solicitud"],
-  "MA-FEE-02": [1, "No application fee", "Sin cargo de solicitud"],
-  "MA-FEE-01": [2, "Broker fee paid by who hired", "Comisión a cargo de quien contrató"],
-  "CA-SCR-01": [1, "Vouchers protected", "Vales protegidos"],
-  "CA-SCR-02": [1.5, "Criminal-history limits", "Límites a antecedentes penales"],
-  "SF-SCR-01": [2, "Fair chance in affordable housing", "Oportunidad justa en vivienda asequible"],
-  "SD-SCR-01": [1, "Vouchers protected", "Vales protegidos"],
-  "BER-SCR-01": [1.2, "No criminal-history checks", "Sin revisar antecedentes penales"],
-  "NJ-SCR-01": [1, "Vouchers protected", "Vales protegidos"],
-  "NJ-SCR-02": [1.5, "Criminal-history limits", "Límites a antecedentes penales"],
-  "MA-SCR-01": [1, "Vouchers protected", "Vales protegidos"],
-  "BOS-SCR-01": [1, "Vouchers protected", "Vales protegidos"],
-  "BOS-SCR-02": [2, "No credit scores", "Sin puntaje de crédito"],
-  "CAM-SCR-01": [1, "Vouchers protected", "Vales protegidos"],
-  "CA-ALG-01": [1.8, "Collusive pricing banned", "Precios colusorios prohibidos"],
-  "SF-ALG-01": [1, "Banned", "Prohibido"],
-  "SD-ALG-01": [1, "Banned", "Prohibido"],
-  "BER-ALG-01": [1, "Banned", "Prohibido"],
-  "SA-ALG-01": [1, "Banned", "Prohibido"],
-  "NJ-ALG-01": [1, "Banned", "Prohibido"],
-  "JC-ALG-01": [1, "Banned", "Prohibido"],
-  "HOB-ALG-01": [1, "Banned", "Prohibido"],
-};
+// The compact cell text comes from the API (web/headlines.py, the single source shared with the address page and
+// Listen): headline_short, headline_priority (1 leads the line; a second phrase with priority <= 1.5 is appended;
+// 2 only when nothing else applies) and headline_short_until/after for figures tied to a period.
 const firstClause = (s) => String(s || "").split(/[;(]/)[0].trim();
 function short(item) {
-  const r = item.rule, e = S[r.team_rule_id], es = lang() === "es";
-  if (!e) return { p: 1.9, s: firstClause(r.key_value_display || r.key_value) || r.title_display || r.title };
-  const after = e[3] && asOf() > e[3];
-  return { p: e[0], s: after ? e[es ? 5 : 4] : e[es ? 2 : 1] };
+  const r = item.rule;
+  if (!r.headline_short) return { p: 1.9, s: firstClause(r.key_value_display || r.key_value) || r.title_display || r.title };
+  const after = r.headline_short_until && asOf() > r.headline_short_until;
+  return { p: r.headline_priority ?? 1, s: after ? r.headline_short_after : r.headline_short };
 }
 function dependsOn(item) {
   const need = item.needs_fact || [];
@@ -167,7 +107,7 @@ function answer(cat) {
   const nye = en.filter((i) => i.result === "not_yet_effective")
     .sort((a, b) => String(a.rule.effective_date_norm || a.rule.effective_date).localeCompare(String(b.rule.effective_date_norm || b.rule.effective_date)))[0];
   if (nye) {
-    const s = S[nye.rule.team_rule_id] ? short(nye).s : t("new_rule");
+    const s = nye.rule.headline_short ? short(nye).s : t("new_rule");
     return t("from")(s, CE.fmtDate(nye.rule.effective_date_norm || nye.rule.effective_date));
   }
   const none = t("none")[cat.id];
