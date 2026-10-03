@@ -23,7 +23,7 @@
   .nav { padding: 4px max(10px, env(safe-area-inset-right)) 0 max(10px, env(safe-area-inset-left)); }
   .nav-inner { flex-wrap: wrap; gap: 6px 8px; padding: 6px 6px 6px 8px; border-radius: 24px; }
   /* backdrop-filter would make the nav the containing block of the fixed tab bar */
-  .nav.scrolled .nav-inner { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgb(255 255 255 / .97); }
+  .nav.scrolled .nav-inner { backdrop-filter: none; -webkit-backdrop-filter: none; background: #fff; }
   .nav.scrolled .nav-inner::after { margin: -2px 0 0; font-size: 11px; }
   .brand-mark { width: 36px; height: 36px; font-size: 22px; border-radius: 11px; }
   .brand { min-height: 44px; }
@@ -32,7 +32,7 @@
   .search-trigger kbd, .search-trigger .st-label { display: none; }
   .asof-pill { padding: 3px; min-height: 44px; }
   .asof-pill > span { display: none; }
-  .asof-pill input { font-size: 16px; height: 38px; padding: 0 10px; min-width: 0; max-width: 150px; }
+  .asof-pill input { font-size: 16px; height: 38px; padding: 0 8px; min-width: 0; width: 136px; }
   .seg { padding: 3px; }
   .seg button { min-width: 38px; min-height: 38px; padding: 0 7px; font-size: 13px; }
   .asof-pill input::-webkit-calendar-picker-indicator { margin: 0; padding: 0; }
@@ -58,7 +58,7 @@
   }
   .tabs a::after { font-size: 11.5px; font-weight: 620; letter-spacing: .005em; }
   .tabs a:hover, .tabs a[aria-current="page"]:hover { background: none; }
-  .tabs a[aria-current="page"], .tabs a[aria-current="page"]:hover { color: var(--navy); }
+  .tabs a[aria-current="page"], .tabs a[aria-current="page"]:hover { color: var(--navy); background: none; box-shadow: none; transform: none; }
   .tabs a:active::before { transform: scale(.88); }
   .tabs a[data-route="lookup"] { --tab-ico: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z'/><circle cx='12' cy='9.5' r='2.5'/></svg>"); }
   .tabs a[data-route="changes"] { --tab-ico: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='8.5'/><path d='M12 7.5V12l3 2'/></svg>"); }
@@ -77,6 +77,7 @@
   .tab-ink::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 60px; margin-left: -30px; border-radius: 999px; background: var(--tint-2); }
 
   /* room for the tab bar */
+  main { padding-bottom: calc(var(--tabbar-h) + 40px + env(safe-area-inset-bottom)); }
   .footer-inner { padding-bottom: calc(var(--tabbar-h) + 28px + env(safe-area-inset-bottom)); }
   .toasts { bottom: calc(var(--tabbar-h) + 14px + env(safe-area-inset-bottom)); width: calc(100% - 32px); }
   .toast { max-width: 100%; white-space: normal; }
@@ -120,6 +121,9 @@
   .idlist .chip { padding: 8px 12px; }
   .back { min-height: 44px; }
   .chip { min-height: 40px; }
+  .seg button { position: relative; }
+  .seg button::after { content: ""; position: absolute; inset: -3px; }
+  .rtable td.mono a { display: inline-block; padding: 12px 6px; margin: -12px -6px; }
 
   /* timeline slider: a finger-sized track */
   .tl-range { top: 9px; height: 46px; touch-action: pan-y; }
@@ -143,6 +147,7 @@
   .kpi span { margin-top: 4px; font-size: 13px; }
 
   /* readable small print */
+  .src-meta .mono, .meta .mono, .rtable td.mono { font-size: 12px; }
   .tile { font-size: 11px; }
   .kv-line span, .lvl-tag, .missing, .type-tag { font-size: 12px; }
 

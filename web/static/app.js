@@ -27,7 +27,7 @@ const EN = {
   f1_t: "The mailing city is not the legal city.", f1: "“Van Nuys” is Los Angeles. We ask the US Census which city an address is really in.", f1_l: "How addresses were resolved",
   f2_t: "Tested, never guessed.", f2: "Building age, units and dates are checked in code. Missing data means “unknown”.", f2_l: "Explore all rules",
   f3_t: "Read the sentence behind it.", f3: "Every rule links to the exact words in the official text.", f3_l: "Open the audit trail",
-  try: "Try:", stat_rules: "rules extracted by AI", stat_sources: "source documents read", stat_addr: "sample addresses", stat_cities: "cities in 3 states",
+  try: "Try:", stat_rules: "rules extracted by AI", stat_sources: "source documents read", stat_addr: "sample addresses", stat_cities: "cities with sample addresses",
   r_applies: "Applies", r_unknown: "Unknown", r_superseded: "Superseded", r_not_yet_effective: "Not yet in effect", r_pending: "Pending bill", r_failed: "Failed · not law", r_in_force: "In force", r_no_rule: "No rule",
   d_applies: "In force and covers this building", d_unknown: "Depends on a fact the data does not have", d_superseded: "Covered, but a stricter rule governs", d_not_yet_effective: "Enacted, starts later", d_pending: "Proposed, not law",
   jurisdiction: "Jurisdiction", how_resolved: "How we found it", confidence: "Confidence", building: "Building facts",
@@ -45,7 +45,7 @@ const EN = {
   before: "Before", after: "After", affected: "Affected addresses", conflict_flags: "with conflict flag", show_ids: "Show address IDs",
   rule_reach: "Where each rule applies", expected: "Expected", notes: "Notes", no_match_rule: "No matching extracted rule found",
   t_as_of: "Date change", t_boundary: "City boundary", t_pending: "Pending bill", t_negative: "Failed proposal", t_new: "New ordinance", t_new_law: "New ordinance",
-  rules_kicker: "Module A", rules_title: "Rules explorer", rules_lead: "Every rule the AI found, by place and topic.",
+  rules_kicker: "Module A", rules_title: "Rules explorer", rules_lead: "Every rule the AI found, by place and topic.", col_rule: "Rule", col_quote: "Quote", col_addresses: "Addresses",
   coverage: "Coverage: jurisdiction × category", none_level: "no rule", finding: "no-rule finding", all: "All", only_conflicts: "Only flagged for review", category: "Category", status: "Status", rules_n: "rules",
   audit_kicker: "Responsible AI", audit_title: "Audit & sources", audit_lead: "Where each answer comes from, and how it was checked.",
   cat_rent_increase_limits: "Rent increases", q_rent_increase_limits: "How much can the rent go up?",
@@ -61,6 +61,7 @@ const EN = {
   engine_live: "Evaluated live by the deterministic rule engine", engine_precomputed: "From the precomputed lookup run", "engine_precomputed+as_of": "Precomputed lookups, shifted by effective dates",
   show_dates: "Show all {n} dates", details: "Details", show_table: "Show all {n} rules as a table", k_docs: "source documents", k_quotes: "quotes verified", k_geo: "addresses resolved", k_log: "log entries",
   a_scale: "Adding a new city", a_files: "Output files and citation check", a_geo: "How addresses were resolved", a_docs: "All {n} source documents", a_log: "Extraction log ({n} entries)",
+  asof_range: "Pick a date between {a} and {b}.", nf_title: "We couldn't find that address", nf_page: "Page not found", nf_body: "Search the 500 sample addresses, or start from an example.", tagline_short: "Which rules apply here?",
   legend_nr: "documented: no rule at this level", no_rule_found: "No rule at this level", why_source: "Why & source", depends_on: "Depends on:", overridden_by: "Overridden by", no_rule_short: "No rule found for this address.", q_filter: "Filter…",
   fixture: "Preview data: the extraction pipeline output is not generated yet, so the app shows schema-identical fixture records.",
   toast_asof: "Answers now as of {d}", toast_lang: "Language: English", g_examples: "Examples", g_results: "Addresses", g_pages: "Pages",
@@ -164,10 +165,11 @@ function progress(on) {
   else if (prog.classList.contains("run")) { prog.className = "progress done"; }
 }
 function toast(msg) {
-  const el = document.createElement("div");
-  el.className = "toast"; el.innerHTML = `${I.check}<span>${esc(msg)}</span>`;
-  $("#toasts").append(el);
-  setTimeout(() => { el.classList.add("out"); el.addEventListener("animationend", () => el.remove(), { once: true }); }, 2600);
+  // One toast at a time: a new message updates the visible pill in place (no stack on repeated changes).
+  let el = $("#toasts .toast:not(.out)");
+  if (el) { $("span", el).textContent = msg; clearTimeout(el._t); }
+  else { el = document.createElement("div"); el.className = "toast"; el.innerHTML = `${I.check}<span>${esc(msg)}</span>`; $("#toasts").append(el); }
+  el._t = setTimeout(() => { el.classList.add("out"); el.addEventListener("animationend", () => el.remove(), { once: true }); }, 2600);
 }
 function countUp(el, to) {
   if (RM.matches) { el.textContent = to; return; }
@@ -201,16 +203,23 @@ function syncHeader(route) {
   fb.textContent = t("fixture");
   requestAnimationFrame(moveTabInk);
 }
+const ASOF_MIN = "2020-01-01", ASOF_MAX = "2030-12-31";
+$("#asof").addEventListener("blur", (e) => { if (!e.target.value) e.target.value = asOf; });
 $("#asof").addEventListener("change", (e) => {
-  if (!e.target.value || e.target.value === asOf) return;
+  const v = e.target.value;
+  if (!v) { e.target.value = asOf; return; }
+  if (v < ASOF_MIN || v > ASOF_MAX) { e.target.value = asOf; toast(t("asof_range").replace("{a}", fmtDate(ASOF_MIN)).replace("{b}", fmtDate(ASOF_MAX))); return; }
+  if (v === asOf) return;
   asOf = e.target.value; sessionStorage.setItem("asof", asOf);
   toast(t("toast_asof").replace("{d}", fmtDate(asOf))); route({ keepScroll: true });
+  document.dispatchEvent(new CustomEvent("ce:asof", { detail: { asOf } }));
 });
 $$(".seg button").forEach((b) => b.addEventListener("click", async () => {
   if (lang === b.dataset.lang) return;
   lang = b.dataset.lang; localStorage.setItem("lang", lang);
   if (lang === "es" && !Object.keys(ES).length) ES = await api("/api/i18n/es").catch(() => ({}));
   toast(t("toast_lang")); route({ keepScroll: true });
+  document.dispatchEvent(new CustomEvent("ce:lang", { detail: { lang } }));
 }));
 document.addEventListener("click", (e) => {
   if (e.target.closest("[data-nla-open]")) openNla();
@@ -264,9 +273,23 @@ function cmdkMove(d) {
   cIn.setAttribute("aria-activedescendant", "o-" + cSel);
 }
 function cmdkPick(i) { const it = cItems[i]; if (!it) return; closeCmdk(); if (it.a) go(it.id); else location.hash = it.href; }
-function openCmdk() { cmdk.hidden = false; cmdk.classList.remove("closing"); cIn.value = ""; cmdkRender(); setTimeout(() => cIn.focus(), 10); }
+function openCmdk() { if (cmdk.hidden) lastFocus = document.activeElement; cmdk.hidden = false; cmdk.classList.remove("closing"); cIn.value = ""; cmdkRender(); setTimeout(() => cIn.focus(), 10); }
 function closeCmdk() { if (cmdk.hidden) return; closeLayer(cmdk); }
+let lastFocus = null;
+function trapFocus(e) {
+  const layer = [$("#cmdk"), $("#modal")].find((l) => !l.hidden);
+  if (!layer || e.key !== "Tab") return;
+  const f = $$('a[href], button:not([disabled]), input, select, textarea, summary, [tabindex]:not([tabindex="-1"])', layer).filter((x) => x.offsetParent !== null);
+  if (!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if (!layer.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+  else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+document.addEventListener("keydown", trapFocus);
 function closeLayer(el) {
+  const back = lastFocus; lastFocus = null;
+  if (back && document.contains(back)) setTimeout(() => back.focus({ preventScroll: true }), 0);
   if (RM.matches) { el.hidden = true; return; }
   el.classList.add("closing");
   setTimeout(() => { el.hidden = true; el.classList.remove("closing"); }, 190);
@@ -519,23 +542,52 @@ function addressSkeleton() {
     ${line("40%", 12, 0)}${line("90%", 44)}${line("60%", 16)}${line("100%", 150, 22)}${line("100%", 120, 14)}</aside>
     <section>${line("50%", 36, 0)}${[0, 1, 2].map(() => line("100%", 190, 16)).join("")}</section></div>`;
 }
+function answersHTML(d) {
+  let k = 0;
+  const proposals = d.categories.flatMap((c) => [...(c.pending || []), ...(c.not_law || [])]);
+  return `
+      <div class="answer-head">
+        <div><h2>${t("rules_here")}</h2></div>
+        <div><span class="asof-tag" title="${esc(t("engine_" + d.engine))}">${I.cal}${t("answers_as_of")} ${esc(fmtDate(d.as_of))}</span></div>
+      </div>
+      <nav class="jump" aria-label="${t("summary")}">${d.categories.map((c) => `<a href="#h-${c.id}" data-jump="h-${c.id}">${I.cat[c.id]}<span>${esc(t("cat_" + c.id))}</span><span class="dots-mini">${(c.enacted.length ? c.enacted.map((i) => i.result) : c.no_rule_findings?.length ? ["superseded"] : []).slice(0, 4).map((r) => `<i class="dot ${r}"></i>`).join("")}</span></a>`).join("")}</nav>
+      ${lang !== "en" ? `<p class="tr-note">${I.globe}${t("machine_tr")}</p>` : ""}
+      <div class="cats">
+        ${d.categories.map((c, ci) => `<section class="cat reveal" style="--i:${Math.min(ci, 3)}" aria-labelledby="h-${c.id}">
+          <header class="cat-head"><span class="cat-ico">${I.cat[c.id]}</span><div><h3 id="h-${c.id}">${esc(t("q_" + c.id))}</h3><p class="q">${esc(t("cat_" + c.id))}</p></div>
+            <div class="count">${c.enacted.map((i) => `<span class="dot ${i.result}" title="${esc(resLabel(i.result))}"></span>`).join("")}</div></header>
+          <div class="rules-list">${c.enacted.length ? c.enacted.map((it) => ruleBlock(it, k++ % 4)).join("") : c.no_rule_findings?.length ? c.no_rule_findings.map(noRuleBlock).join("") : `<div class="norule">${I.info}<span>${t("no_rule_short")}${c.pending.length ? ` · ${c.pending.length} ${t("no_rule_pending")}` : ""}</span></div>`}</div>
+        </section>`).join("")}
+      </div>
+      ${proposals.length ? `<section class="proposals reveal"><div class="inner">
+        <header class="cat-head"><span class="cat-ico">${I.info}</span><div><h3>${t("proposals")}</h3><p class="q">${t("proposals_intro")}</p></div></header>
+        <div class="rules-list">${proposals.map((i, n) => ruleBlock(i, n)).join("")}</div>
+      </div></section>` : ""}`;
+}
+
+function viewNotFound(kind) {
+  const ex = examplePicks().slice(0, 3);
+  document.title = `${t("nf_title")} · Clause & Effect`;
+  return swap(`<section class="notfound"><h1>${esc(t(kind === "address" ? "nf_title" : "nf_page"))}</h1><p>${esc(t("nf_body"))}</p>
+    <button class="pill primary" type="button" data-cmdk>${I.search}${esc(t("search_ph"))}</button>
+    <div class="chips">${ex.map((a) => `<a class="chip" href="#/a/${a.id}">${I.pin}${esc(titleCase(a.street))}<span class="k">${esc(a.city || a.postal_city)}</span></a>`).join("")}</div></section>`);
+}
 async function viewAddress(id) {
+  if (ADDR.length && !ADDR.some((a) => a.id === id)) return viewNotFound("address");
   const url = addrUrl(id);
   let d = null;
   const p = api(url);
   const quick = await Promise.race([p.then((x) => x, () => null), new Promise((r) => setTimeout(() => r(null), 140))]);
   if (quick) d = quick;
-  else { await swap(addressSkeleton()); progress(true); try { d = await p; } catch { progress(false); main.innerHTML = `<div class="empty">${t("not_found")}</div>`; return; } progress(false); }
+  else { await swap(addressSkeleton()); progress(true); try { d = await p; } catch { progress(false); return viewNotFound("address"); } progress(false); }
   const a = d.address, j = d.jurisdiction;
   const fact = (k, label) => `<dt>${label}</dt><dd>${a[k] ? esc(a[k]) : `<span class="missing">${t("not_in_data")}</span>`}</dd>`;
   const methodLabel = t("m_" + j.method).startsWith("m_") ? j.method : t("m_" + j.method);
   const sumOrder = ["applies", "unknown", "superseded", "not_yet_effective", "pending"];
-  const proposals = d.categories.flatMap((c) => [...c.pending, ...c.not_law]);
   const tiles = j.stack.map((s) => {
     const code = s.level === "state" ? s.code : s.level === "county" ? I.globe : I.building;
     return `<div class="trow"${s.note ? ` title="${esc(t(s.note))}"` : ""}><span class="tile ${s.level === "city" ? "navy" : ""}">${code}</span><div><div class="l1">${esc(t(s.name))}</div><div class="l2">${esc(t(s.level))}</div></div></div>`;
   }).join("");
-  let k = 0;
   const factPill = (ico, label, v) => `<div class="fact ${v ? "" : "miss"}">${ico}<div><b>${v ? esc(v) : esc(t("not_in_data"))}</b><span>${esc(label)}</span></div></div>`;
   const html = `
   <div class="crumbs"><a class="pill line back" href="#/">${I.back}${t("back")}</a><button class="pill ghost" type="button" data-cmdk>${I.search}<span>${t("search_ph")}</span><kbd>/</kbd></button></div>
@@ -554,23 +606,7 @@ async function viewAddress(id) {
       </div></details>
     </aside>
     <section>
-      <div class="answer-head">
-        <div><h2>${t("rules_here")}</h2></div>
-        <div><span class="asof-tag" title="${esc(t("engine_" + d.engine))}">${I.cal}${t("answers_as_of")} ${esc(fmtDate(d.as_of))}</span></div>
-      </div>
-      <nav class="jump" aria-label="${t("summary")}">${d.categories.map((c) => `<a href="#h-${c.id}" data-jump="h-${c.id}">${I.cat[c.id]}<span>${esc(t("cat_" + c.id))}</span><span class="dots-mini">${(c.enacted.length ? c.enacted.map((i) => i.result) : c.no_rule_findings?.length ? ["superseded"] : []).slice(0, 4).map((r) => `<i class="dot ${r}"></i>`).join("")}</span></a>`).join("")}</nav>
-      ${lang !== "en" ? `<p class="tr-note">${I.globe}${t("machine_tr")}</p>` : ""}
-      <div class="cats">
-        ${d.categories.map((c, ci) => `<section class="cat reveal" style="--i:${Math.min(ci, 3)}" aria-labelledby="h-${c.id}">
-          <header class="cat-head"><span class="cat-ico">${I.cat[c.id]}</span><div><h3 id="h-${c.id}">${esc(t("q_" + c.id))}</h3><p class="q">${esc(t("cat_" + c.id))}</p></div>
-            <div class="count">${c.enacted.map((i) => `<span class="dot ${i.result}" title="${esc(resLabel(i.result))}"></span>`).join("")}</div></header>
-          <div class="rules-list">${c.enacted.length ? c.enacted.map((it) => ruleBlock(it, k++ % 4)).join("") : c.no_rule_findings?.length ? c.no_rule_findings.map(noRuleBlock).join("") : `<div class="norule">${I.info}<span>${t("no_rule_short")}${c.pending.length ? ` · ${c.pending.length} ${t("no_rule_pending")}` : ""}</span></div>`}</div>
-        </section>`).join("")}
-      </div>
-      ${proposals.length ? `<section class="proposals reveal"><div class="inner">
-        <header class="cat-head"><span class="cat-ico">${I.info}</span><div><h3>${t("proposals")}</h3><p class="q">${t("proposals_intro")}</p></div></header>
-        <div class="rules-list">${proposals.map((i, n) => ruleBlock(i, n)).join("")}</div>
-      </div></section>` : ""}
+      ${answersHTML(d)}
     </section>
   </div>`;
   const render = () => { main.innerHTML = html; armReveals(); $$(".addr-side.stagger > *").forEach((el, i) => el.style.setProperty("--i", i)); };
@@ -584,6 +620,7 @@ function openModal(title, body) {
   const m = $("#modal");
   $("#modal-title").textContent = title;
   $(".modal-body", m).innerHTML = body;
+  if (m.hidden) lastFocus = document.activeElement;
   m.classList.remove("closing"); m.hidden = false;
   $("[data-close]", m).focus();
 }
@@ -736,7 +773,7 @@ async function viewRules() {
         <label class="chk"><input type="checkbox" id="f-x"> ${t("only_conflicts")}</label>
       </div>
       <p class="count-note" id="rc"></p>
-      <div class="table-wrap"><table class="rtable"><thead><tr><th>ID</th><th>${t("jurisdiction")}</th><th>${t("category")}</th><th>Rule</th><th>${t("key_value")}</th><th>${t("status")}</th><th>${t("effective")}</th><th>${t("confidence")}</th><th>Quote</th><th>${t("addresses")}</th></tr></thead><tbody id="rt"></tbody></table></div>
+      <div class="table-wrap"><table class="rtable"><thead><tr><th>ID</th><th>${t("jurisdiction")}</th><th>${t("category")}</th><th>${t("col_rule")}</th><th>${t("key_value")}</th><th>${t("status")}</th><th>${t("effective")}</th><th>${t("confidence")}</th><th>${t("col_quote")}</th><th>${t("col_addresses")}</th></tr></thead><tbody id="rt"></tbody></table></div>
     </div></details>`;
   await swap(html, () => {
     $$(".page-head.stagger > *").forEach((el, i) => el.style.setProperty("--i", i));
@@ -747,7 +784,7 @@ async function viewRules() {
       $("#rt").innerHTML = list.map((r) => `<tr class="clickable" data-rule="${esc(r.team_rule_id)}" tabindex="0">
         <td class="mono nw">${esc(r.team_rule_id)}</td><td class="nw">${esc(r.jurisdiction)}</td><td class="s">${esc(catLabel[r.category] || r.category)}</td>
         <td><div class="t">${esc(r.title_display || r.title)}</div><div class="s">${esc(r.citation)}</div>${r.conflict_flag ? `<span class="badge conflict" style="margin-top:6px">${t("conflict")}</span>` : ""}</td>
-        <td>${esc(r.key_value_display || r.key_value || "—")}</td><td>${badge(r.status)}</td><td class="s nw">${esc(r.effective_date || "—")}</td>
+        <td>${esc(r.key_value_display || r.key_value || "—").replace(/\//g, "/<wbr>")}</td><td>${badge(r.status)}</td><td class="s nw">${esc(r.effective_date || "—")}</td>
         <td>${r.confidence != null ? pctOf(r.confidence) + "%" : "—"}</td><td>${r.quote_check?.status === "exact" || r.quote_check?.status === "normalized" ? `<span class="verified" title="${esc(r.quote_check.label)}">${I.check}</span>` : r.quote_check?.status === "not_found" ? `<span class="verified no" title="${esc(r.quote_check.label)}">${I.alert}</span>` : '<span class="s">n/a</span>'}</td><td>${r.addresses_count}</td></tr>`).join("") || `<tr><td colspan="10" class="empty">—</td></tr>`;
     };
     const sync = () => { $("#f-j").value = RF.jur; $("#f-c").value = RF.cat; $("#f-s").value = RF.status; $("#f-q").value = RF.q; $("#f-x").checked = RF.conflicts; draw(); };
@@ -847,6 +884,7 @@ async function viewAudit() {
 
 // ------------------------------------------------------------------ router --
 let routing = 0;
+const ROUTES = new Map();
 async function route({ keepScroll = false } = {}) {
   const my = ++routing;
   cleanup.forEach((f) => f()); cleanup = [];
@@ -854,28 +892,80 @@ async function route({ keepScroll = false } = {}) {
   const name = view === "a" ? "lookup" : view || "lookup";
   syncHeader(name);
   closeModal(); closeCmdk();
-  document.title = "Clause & Effect · Rental Housing Law Navigator";
+  const titles = { changes: "nav_changes", rules: "nav_rules", audit: "nav_audit" };
+  document.title = titles[view] ? `${t(titles[view])} · Clause & Effect` : `Clause & Effect · ${t("tagline_short")}`;
   const y = scrollY;
   try {
-    if (view === "a" && arg) await viewAddress(arg.toUpperCase());
+    if (ROUTES.has(view)) { await ROUTES.get(view)(main, arg ? decodeURIComponent(arg) : undefined); armReveals(); }
+    else if (view === "a" && arg) await viewAddress(arg.toUpperCase());
     else if (view === "changes") await viewChanges();
     else if (view === "rules") await viewRules();
     else if (view === "audit") await viewAudit();
-    else await viewHome();
+    else if (!view) await viewHome();
+    else { location.replace("#/"); return; }
   } catch (e) {
     progress(false);
     if (my === routing) main.innerHTML = `<div class="empty">${t("error")} ${esc(e.message)}</div>`;
     console.error(e);
   }
   if (my !== routing) return;
+  document.dispatchEvent(new CustomEvent("ce:route", { detail: { view: name, arg } }));
   if (keepScroll) scrollTo({ top: y, behavior: "instant" }); else scrollTo({ top: 0, behavior: "instant" });
-  main.focus({ preventScroll: true });
+  if (!firstRoute) main.focus({ preventScroll: true });
+  firstRoute = false;
 }
+let firstRoute = true;
 addEventListener("hashchange", () => route());
 document.addEventListener("click", (e) => { const a = e.target.closest(".tabs a, .footer-links a"); if (a) setTimeout(() => a.blur(), 0); });
+
+
+// ------------------------------------------------------------------ public API for feature modules --
+// Documented in web/DESIGN.md ("window.CE"). Keep these signatures stable.
+const CATS = ["rent_increase_limits", "just_cause_eviction", "security_deposits", "application_screening_fees", "screening_restrictions", "algorithmic_rent_setting"];
+function normalizeLookup(res) {
+  if (res && Array.isArray(res.categories)) return res; // /api/address/<id> shape
+  const results = res?.results || res?.lookups || (Array.isArray(res) ? res : []);
+  const cats = CATS.map((id) => ({ id, enacted: [], pending: [], not_law: [], no_rule_findings: [] }));
+  const byId = Object.fromEntries(cats.map((c) => [c.id, c]));
+  for (const e of results) {
+    const rule = e.rule || { ...e, title_display: e.title, requirement_display: e.requirement, key_value_display: e.key_value,
+      quote_check: typeof e.verification === "object" ? e.verification : null, source: { retrieved_at: e.retrieved_at, has_text: !!e.source_doc_id } };
+    const item = { result: e.result, explanation: e.explanation, conflict_flag: !!e.conflict_flag, missing_fact: e.missing_fact, superseded_by: e.superseded_by, overrides_here: e.overrides_here, rule };
+    const c = byId[rule.category] || byId[e.category];
+    if (!c) continue;
+    (e.result === "pending" ? c.pending : e.result === "failed" ? c.not_law : c.enacted).push(item);
+  }
+  for (const f of res?.no_rule_findings || []) byId[f.category]?.no_rule_findings.push(f);
+  return { as_of: res?.as_of || asOf, engine: res?.engine || "live", categories: cats };
+}
+window.CE = Object.freeze({
+  version: 1,
+  /** Render the answer cards (as-of tag, category chips, cards, pending/failed panel) into `container`. */
+  renderAnswers(container, lookupResult) {
+    const el = typeof container === "string" ? $(container) : container;
+    el.innerHTML = answersHTML(normalizeLookup(lookupResult));
+    armReveals(el);
+    return el;
+  },
+  navigate(routeOrHash) { location.hash = routeOrHash.startsWith("#") ? routeOrHash : "#/" + String(routeOrHash).replace(/^\/+/, ""); },
+  /** Register a view at #/<name>[/<arg>]: render(mainEl, arg) may be async. */
+  addRoute(name, render) { ROUTES.set(name, render); if (location.hash.replace(/^#\/?/, "").split("/")[0] === name) route(); },
+  toast,
+  t,
+  api,
+  asOf: () => asOf,
+  lang: () => lang,
+  badge: (result) => badge(result),
+  icons: I,
+  escape: esc,
+  openModal,
+  openSearch: () => openCmdk(),
+  fmtDate,
+});
 
 (async function init() {
   [META, ADDR] = await Promise.all([api("/api/meta"), api("/api/addresses")]);
   if (lang === "es") ES = await api("/api/i18n/es").catch(() => ({}));
-  route();
+  await route();
+  document.dispatchEvent(new CustomEvent("ce:ready", { detail: { version: 1 } }));
 })();

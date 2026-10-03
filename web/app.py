@@ -27,6 +27,8 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
+from web.any_address import router as any_address_router
+
 ROOT = Path(__file__).resolve().parent.parent
 WEB = ROOT / "web"
 STATIC = WEB / "static"
@@ -759,6 +761,7 @@ app = FastAPI(
     description="Address-level rental housing rules with citations. Not legal advice.",
 )
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+app.include_router(any_address_router)  # POST /api/resolve, /api/evaluate: any address (#39)
 
 
 @app.middleware("http")

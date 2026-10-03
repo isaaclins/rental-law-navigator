@@ -109,3 +109,35 @@ animation. Content still appears immediately and nothing is hidden.
 - No framework and no build step. The fonts are about 0.4 MB total, preloaded.
 - Animations use `transform`, `opacity` and `filter` only.
 - The IntersectionObserver is shared, and reveal classes are removed after they run.
+
+## `window.CE`: API for feature modules
+Feature modules (`web/static/features/*`) reuse the app shell through `window.CE` instead of copying markup.
+`app.js` sets it up before the first render. When everything is ready it fires `document` event `ce:ready`.
+Signatures are stable (`CE.version === 1`).
+
+| Member | What it does |
+|---|---|
+| `CE.renderAnswers(container, lookupResult)` | Renders the answer column into `container` (element or selector): as-of tag, category chips, cards grouped in the 6 categories, and the separate "Not law" panel for pending and failed proposals. It accepts either shape:<br>• the `/api/address/<id>` response (`{as_of, categories: [...]}`);<br>• a flat lookup `{as_of, results: [{team_rule_id, result, explanation, conflict_flag, category, title, requirement, key_value, citation, quoted_span, source_url, ...}], no_rule_findings?}`, i.e. the shape of `navigator.api.lookup()`.<br>Returns the container. |
+| `CE.addRoute(name, render)` | Registers a view at `#/<name>[/<arg>]`. `render(mainEl, arg)` may be async; reveal animations are armed after it runs. |
+| `CE.navigate(route)` | `CE.navigate("a/A0016")` or `CE.navigate("#/changes")`. |
+| `CE.toast(msg)` | Pill toast at the bottom (above the mobile tab bar). |
+| `CE.openModal(title, html)` / `CE.openSearch()` | Shared dialog / ⌘K address palette. |
+| `CE.api(path)` | Cached `fetch(...).json()`. |
+| `CE.t(key)`, `CE.lang()`, `CE.asOf()`, `CE.fmtDate(d)` | i18n (EN/ES), current language, current as-of date, localized dates. |
+| `CE.badge(result)`, `CE.icons`, `CE.escape(s)` | Status badge HTML, the SVG icon set, HTML escaping. |
+
+Events on `document`:
+- `ce:ready`
+- `ce:route` (`{view, arg}`)
+- `ce:asof` (`{asOf}`)
+- `ce:lang` (`{lang}`)
+
+Rules for feature markup:
+- Use the existing classes (`card`, `panel`, `pill primary|ghost|line`, `chip`, `badge <status>`, `reveal`, `page-head`, `kpis`/`kpi`, `table-card`). Feature pages then match the rest of the app automatically.
+- Keep "Not legal advice" visible. The shell already shows it on every route.
+- Mobile layout lives in `mobile.css`.
+
+## Mobile navigation (≤ 640px)
+- On phones, `mobile.css` turns `.tabs` into the fixed bottom tab bar. It has icons, safe-area padding, and exactly one active tab (navy icon and label on a light pill).
+- The desktop navy pill is switched off there.
+- The footer and toasts get `--tabbar-h` of bottom room, so content is never covered.

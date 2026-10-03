@@ -80,4 +80,7 @@ addresses and writes the test (default `T6`) with before/after results using the
 `load_rules()`, `get_rule(id)`, `no_rule_findings()`, `address_ids()`, `lookup(address_id_or_dict, as_of)`,
 `changes(test_id)`, `run_change_test(test_dict)`, `extensions()`, `extension_lookup(slug, address_id, as_of)`
 (jurisdictions added with `navigator extend`; the web app serves them at `/api/extensions` and
-`/api/extension/{slug}/address/{id}`).
+`/api/extension/{slug}/address/{id}`), `lookup_user(state, jurisdiction, facts, as_of)` (any geocoded address with
+user-supplied year built / units / owner occupancy / certificate date; every `unknown` carries `needs_fact`, found by
+re-running the evaluator with probe values per missing fact, `navigator/user_facts.py`; served by `web/any_address.py`
+at `POST /api/resolve` and `POST /api/evaluate`, #39).

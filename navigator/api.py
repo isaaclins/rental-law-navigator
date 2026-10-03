@@ -8,6 +8,8 @@ api.changes("T3")                         -> affected addresses / conflict flags
 api.address_ids(), api.get_rule(id), api.no_rule_findings()
 api.extensions()                          -> jurisdictions added with `navigator extend` (docs/NEW_JURISDICTION.md)
 api.extension_lookup("santa-monica", "SM001", as_of="2026-10-01")   -> same shape as lookup(), extension data
+api.lookup_user("CA", "Los Angeles, CA", {"year_built": 1962, "units": 8}, as_of="2026-10-01")
+                                          -> any geocoded address + user facts; unknowns carry needs_fact (#39)
 """
 
 from __future__ import annotations
@@ -170,6 +172,15 @@ def extension_lookup(slug: str, address_id: str, as_of: str = DEFAULT_AS_OF) -> 
     out = _lookup(facts[address_id], rules, findings, as_of)
     out["extension"] = slug
     return out
+
+
+def lookup_user(
+    state: str, jurisdiction: str | None, facts: dict, as_of: str = DEFAULT_AS_OF
+) -> dict:
+    """Any address (#39): live-geocoded state/city + building facts the user supplies (navigator/user_facts.py)."""
+    from . import user_facts
+
+    return user_facts.evaluate_user(state, jurisdiction, facts, as_of)
 
 
 def changes(test_id: str | None = None) -> dict:
