@@ -9,4 +9,4 @@ Built for the RealPage challenge at the Hack-Nation 7th Global AI Hackathon (Oct
 
 > **Not legal advice.** Outputs summarize public law for a research prototype.
 
-Work in progress: see the [project board](../../projects) and [issues](../../issues).
+Work in progress: see the [project board](https://github.com/users/isaaclins/projects/6) and [issues](../../issues).
