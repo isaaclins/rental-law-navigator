@@ -444,7 +444,7 @@ def test_send_mail_uses_resend_smtp(monkeypatch, env):
         ("connect", "smtp.resend.com", 587),
         ("starttls",),
         ("login", "resend", "re_test_key"),
-        ("send", "Clause & Effect <contact@isaaclins.com>", "me@example.com"),
+        ("send", A.MAIL_FROM, "me@example.com"),
     ]
 
 
@@ -490,3 +490,95 @@ def test_safe_next():
     assert A.safe_next("/#/properties/3") == "/#/properties/3"
     for bad in ("https://evil.example", "//evil.example", "/\\evil", None):
         assert A.safe_next(bad) == "/#/properties"
+
+
+# ------------------------------------------------------------------ email digests (send-digests)
+import datetime as _dt  # noqa: E402
+
+HOBOKEN = {
+    "label": "Brownstone",
+    "address": "323 Bloomfield St, Hoboken, NJ",
+    "place": {"state": "NJ", "jurisdiction": "Hoboken, NJ"},
+}
+FAIR_DAY = _dt.date(2027, 6, 15)  # NJ FAIR Act takes effect 2027-07-01, within 30 days
+
+
+def _digest_user(email="me@example.com", sub="sub-d", on=True):
+    c, h = signed_in(email, sub)
+    assert c.post("/api/properties", json=HOBOKEN, headers=h).status_code == 201
+    c.put("/api/alerts", json={"email_digest": on}, headers=h)
+    return c, h
+
+
+def _capture(monkeypatch):
+    sent = []
+    monkeypatch.setattr(
+        A,
+        "send_mail",
+        lambda to, subject, text, html=None, headers=None: sent.append(
+            (to, subject, text, html, headers)
+        ),
+    )
+    return sent
+
+
+def test_digest_sends_once_and_dedupes(monkeypatch):
+    sent = _capture(monkeypatch)
+    _digest_user()
+    s1 = A.send_digests(FAIR_DAY)
+    assert s1["emails"] == 1 and s1["items"] >= 1
+    to, subject, text, html, headers = sent[0]
+    assert to == "me@example.com" and "rule change" in subject
+    assert "323 Bloomfield St, Hoboken, NJ" in text and "Jul 1, 2027" in text
+    assert (
+        "/#/properties/" in text and "/alerts/unsubscribe?t=" in text and "Not legal advice" in text
+    )
+    assert "List-Unsubscribe" in headers and "<table" in html
+    assert "test" not in (subject + text).lower()
+    # same day and the next days: nothing new, nothing sent
+    assert A.send_digests(FAIR_DAY)["emails"] == 0
+    assert A.send_digests(FAIR_DAY + _dt.timedelta(days=20))["emails"] == 0
+    assert len(sent) == 1
+
+
+def test_digest_catches_changes_since_last_digest(monkeypatch):
+    sent = _capture(monkeypatch)
+    _digest_user()
+    assert A.send_digests(_dt.date(2027, 5, 1))["emails"] == 0  # FAIR Act is 61 days away
+    # a missed window: 2027-07-01 already passed when the next run happens
+    s = A.send_digests(_dt.date(2027, 7, 3))
+    assert s["emails"] == 1 and "Since Jul 1, 2027" in sent[0][2]
+
+
+def test_digest_skips_demo_and_opted_out(monkeypatch):
+    sent = _capture(monkeypatch)
+    _digest_user("off@example.com", "sub-off", on=False)
+    with A.db() as c:  # even if the demo account were opted in, it must never be mailed
+        c.execute("UPDATE alert_prefs SET email_digest = 1 WHERE user_id = ?", (A.demo_user_id(),))
+    s = A.send_digests(FAIR_DAY)
+    assert s["emails"] == 0 and sent == []
+
+
+def test_digest_dry_run_sends_and_records_nothing(monkeypatch, capsys):
+    sent = _capture(monkeypatch)
+    _digest_user()
+    assert A.main(["send-digests", "--dry-run", "--today", FAIR_DAY.isoformat()]) == 0
+    out = capsys.readouterr().out
+    assert '"dry_run": true' in out and '"emails": 1' in out and "me@example.com" not in out
+    assert sent == []
+    with A.db() as c:
+        assert c.execute("SELECT COUNT(*) FROM digest_log").fetchone()[0] == 0
+    assert A.send_digests(FAIR_DAY)["emails"] == 1  # the real run still sends it
+
+
+def test_unsubscribe_link_turns_digest_off(monkeypatch):
+    sent = _capture(monkeypatch)
+    c, h = _digest_user()
+    A.send_digests(FAIR_DAY)
+    link = next(x for x in sent[0][2].split() if "/alerts/unsubscribe?t=" in x)
+    path = link.split("navigator.isaaclins.com", 1)[1]
+    r = client().get(path)
+    assert r.status_code == 200 and "unsubscribed" in r.text
+    assert c.get("/api/alerts").json()["email_digest"] is False
+    assert client().get("/alerts/unsubscribe?t=forged.token").status_code == 400
+    assert client().post(path).status_code == 200  # RFC 8058 one-click
