@@ -297,7 +297,9 @@ def time_status(rule: dict, as_of: dt.date) -> str | None:
     if enacted and enacted > as_of:
         return None
     sunset = N.date_floor(rule.get("sunset_date"))
-    if sunset and sunset <= as_of:
+    if (
+        sunset and sunset <= as_of and _sunset_is_repeal(rule)
+    ):  # a key-figure period ending does not end the law
         return None
     if rule.get(
         "amends_existing_law"
@@ -308,6 +310,26 @@ def time_status(rule: dict, as_of: dt.date) -> str | None:
     if start and start > as_of:
         return "not_yet_effective"
     return "in_force"
+
+
+def _sunset_is_repeal(rule: dict) -> bool:
+    kind = rule.get("sunset_kind")
+    if kind is None and rule.get("sunset_date"):
+        from .extract import sunset_kind
+
+        kind = sunset_kind(rule)
+    return kind == "repeal"
+
+
+def figure_note(rule: dict, as_of: dt.date) -> str:
+    """After the period of the current key figure ends, the law still applies; the next figure may not be published yet."""
+    end = N.date_floor(rule.get("sunset_date"))
+    if end and end < as_of and not _sunset_is_repeal(rule):
+        return (
+            f" The figure above covers the period ending {rule['sunset_date']}; the law continues after that date,"
+            f" but the next periodic figure is not yet published in the corpus - check the current rate."
+        )
+    return ""
 
 
 def version_note(rule: dict, as_of: dt.date) -> str:
@@ -456,7 +478,7 @@ def evaluate_address(
                         + " applies (then the state rule yields); local coverage is unknown from the data."
                     )
         if ts == "in_force":
-            expl += version_note(r, as_of_d)
+            expl += version_note(r, as_of_d) + figure_note(r, as_of_d)
         if notes:
             expl += " Note: " + " ".join(notes)
         out.append(

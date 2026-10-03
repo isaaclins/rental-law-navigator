@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+import datetime as dt
 import io
 import json
 from collections import Counter
 from contextlib import redirect_stdout
 
 from . import evaluate as E
+from . import normalize as N
 from .config import (
     CATEGORIES,
     CHANGES_JSON,
@@ -367,6 +369,40 @@ def _body(fails: list) -> None:
         _check(
             not bad,
             f"as of {past}: no amended long-standing rule reported not_yet_effective {sorted(bad)}",
+            fails,
+        )
+
+    _hdr("5c. future as-of: laws do not vanish when a key-figure period ends (#30)")
+    base = {
+        f.address_id: {
+            e["team_rule_id"]: e["result"] for e in E.evaluate_address(f, rules, "2026-10-01")
+        }
+        for f in addrs
+    }
+    for fut in ("2027-07-02", "2028-01-01"):
+        fd = dt.date.fromisoformat(fut)
+        gone, flipped = set(), set()
+        for f in addrs:
+            now = {e["team_rule_id"]: e["result"] for e in E.evaluate_address(f, rules, fut)}
+            for rid, res in base[f.address_id].items():
+                r = by_id[rid]
+                repealed = (
+                    r.get("sunset_kind") == "repeal"
+                    and r.get("sunset_date")
+                    and (N.date_floor(r["sunset_date"]) or fd) <= fd
+                )
+                if res in ("applies", "superseded", "unknown") and rid not in now and not repealed:
+                    gone.add(rid)
+                if res == "superseded" and now.get(rid) == "applies" and not repealed:
+                    flipped.add(rid)
+        _check(
+            not gone,
+            f"as of {fut}: no in-force rule disappears without a repeal date {sorted(gone)}",
+            fails,
+        )
+        _check(
+            not flipped,
+            f"as of {fut}: no superseded state rule flips to applies {sorted(flipped)}",
             fails,
         )
 
