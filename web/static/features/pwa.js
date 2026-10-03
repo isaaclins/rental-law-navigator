@@ -296,18 +296,8 @@ function fitNav() {
   if (Math.abs(tools.getBoundingClientRect().top - base) > 4) navBtn.classList.add("pwa-nofit");
 }
 addEventListener("resize", () => { clearTimeout(fitNav.t); fitNav.t = setTimeout(fitNav, 150); });
-// home: a quiet "Install the app" link under the example chips
-function mountHero() {
-  const chips = $("#main .hero .chips");
-  if (!chips || $(".pwa-hero", chips.parentElement)) return;
-  const b = document.createElement("button");
-  b.type = "button";
-  b.className = "pwa-hero rise";
-  b.style.setProperty("--d", "900ms");
-  b.dataset.pwaInstall = "hero";
-  chips.after(b);
-  sync();
-}
+// home: no install link in the hero (redesign); install lives in the footer and in one card after the first answer
+function mountHero() {}
 function mountEntry() {
   const tools = $(".nav-tools");
   if (tools && !navBtn) {
@@ -357,11 +347,12 @@ let nudge = null, nudgeTimer = 0;
 const DAY = 864e5;
 function maybeNudge() {
   if (!canInstall() || sheet || nudge) return;
-  if (st.installed || (st.dismissedAt && Date.now() - st.dismissedAt < 14 * DAY) || (st.nudges || 0) >= 3) return;
+  if (st.installed || (st.dismissedAt && Date.now() - st.dismissedAt < 14 * DAY) || (st.nudges || 0) >= 1) return;
+  if (!matchMedia("(max-width: 640px), (pointer: coarse)").matches) return; // desktop: footer link only
   if (sessionStorage.getItem("ce.pwa.nudged")) return;
   clearTimeout(nudgeTimer);
   nudgeTimer = setTimeout(() => {
-    if (!$("#main .answer-head") || sheet || nudge) return;
+    if (!$("#main .answers-head") || sheet || nudge) return;
     sessionStorage.setItem("ce.pwa.nudged", "1");
     save({ nudges: (st.nudges || 0) + 1 });
     nudge = document.createElement("div");
@@ -476,7 +467,7 @@ new MutationObserver(sync).observe(document.documentElement, { attributes: true,
 function boot() {
   mountEntry();
   const main = $("#main");
-  if (main) new MutationObserver(() => { mountHero(); if ($(".answer-head", main)) maybeNudge(); }).observe(main, { childList: true });
+  if (main) new MutationObserver(() => { mountHero(); if ($(".answers-head", main)) maybeNudge(); }).observe(main, { childList: true });
   mountHero();
   const q = new URLSearchParams(location.search);
   if (isStandalone()) {

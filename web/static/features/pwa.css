@@ -1,6 +1,7 @@
 /* Clause & Effect · installable app (#44). Uses the tokens from app.css (--navy, --ink-*, --ease-*, --shadow-*). */
 
 /* ---------------------------------------------------------------- entry points */
+.pwa-nav { display: none !important; } /* redesign: no header install button; footer link + one card on phones */
 .pwa-nav { padding: 0; width: 38px; height: 38px; justify-content: center; position: relative; flex: none; }
 .pwa-nav .ico { width: 19px; height: 19px; }
 .pwa-nav-l { display: none; }
@@ -21,16 +22,16 @@
 html.pwa-lock { overflow: hidden; }
 
 /* ---------------------------------------------------------------- sheet */
-.pwa-sheet { position: fixed; inset: 0; z-index: 130; display: grid; place-items: center; padding: 24px; background: rgb(0 12 31 / 0); backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); transition: background .3s var(--ease-std), backdrop-filter .3s var(--ease-std); }
-.pwa-sheet.open { background: rgb(0 12 31 / .32); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.pwa-card { position: relative; width: min(420px, 100%); background: #fff; border-radius: 28px; padding: 22px 22px 18px; box-shadow: var(--shadow-float), 0 30px 80px rgb(1 14 36 / .18); outline: none;
-  opacity: 0; transform: translateY(24px) scale(.97); filter: blur(8px); transition: opacity .45s var(--ease-drawer), transform .5s var(--ease-drawer), filter .45s var(--ease-drawer); }
-.pwa-sheet.open .pwa-card { opacity: 1; transform: none; filter: none; }
+.pwa-sheet { position: fixed; inset: 0; z-index: 130; display: grid; place-items: center; padding: 24px; background: rgb(0 0 0 / 0); transition: background .25s ease; }
+.pwa-sheet.open { background: rgb(0 0 0 / .32); }
+.pwa-card { position: relative; width: min(420px, 100%); background: #fff; border-radius: 14px; padding: 22px 22px 18px; box-shadow: 0 24px 64px rgb(0 0 0 / .2); outline: none;
+  opacity: 0; transform: translateY(24px) scale(.97); transition: opacity .45s var(--ease-drawer), transform .5s var(--ease-drawer); }
+.pwa-sheet.open .pwa-card { opacity: 1; transform: none; }
 .pwa-sheet.closing .pwa-card { opacity: 0; transform: translateY(16px) scale(.98); transition-duration: .25s; }
 .pwa-grab { display: none; }
 .pwa-x { position: absolute; top: 14px; right: 14px; }
 .pwa-head { display: flex; align-items: center; gap: 12px; padding-right: 40px; }
-.pwa-head h2 { font: 400 26px/1.05 var(--serif); letter-spacing: -.02em; margin: 0; }
+.pwa-head h2 { font: 600 20px/1.2 var(--font); letter-spacing: -.02em; margin: 0; }
 .pwa-head p { margin: 3px 0 0; font-size: 12.5px; color: var(--ink-3); }
 .pwa-app { width: 40px; height: 40px; border-radius: 11px; flex: none; display: block; box-shadow: 0 4px 12px rgb(0 38 100 / .22); }
 .pwa-app.lg { width: 56px; height: 56px; border-radius: 15px; }
@@ -47,15 +48,15 @@ html.pwa-lock { overflow: hidden; }
 
 .pwa-stage { position: relative; height: 372px; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
 .pwa-slide, .pwa-done { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; text-align: center;
-  opacity: 0; transform: translateX(28px); filter: blur(6px); pointer-events: none; transition: opacity .4s var(--ease-out), transform .55s var(--ease-out), filter .4s var(--ease-out); }
+  opacity: 0; transform: translateX(28px); pointer-events: none; transition: opacity .4s var(--ease-out), transform .55s var(--ease-out); }
 .pwa-slide.past { transform: translateX(-28px); }
-.pwa-slide.on { opacity: 1; transform: none; filter: none; pointer-events: auto; }
+.pwa-slide.on { opacity: 1; transform: none; pointer-events: auto; }
 .pwa-slide h3, .pwa-done h3 { display: flex; align-items: center; gap: 10px; margin: 18px 0 4px; font: 600 18px/1.25 var(--sans); letter-spacing: -.01em; }
 .pwa-slide p, .pwa-done p { margin: 0; font-size: 13.5px; color: var(--ink-3); max-width: 30ch; }
 .pwa-n { width: 24px; height: 24px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 13px; display: grid; place-items: center; flex: none; }
 .pwa-copy { margin: 10px auto 0; padding: 7px 14px; font-size: 13px; }
 .pwa-copy .ico { width: 15px; height: 15px; }
-.pwa-art { height: 278px; width: 100%; display: grid; place-items: center; border-radius: 22px; background: radial-gradient(120% 90% at 50% 0%, var(--hero), #fff 75%); box-shadow: inset 0 0 0 1px var(--line-2); overflow: hidden; }
+.pwa-art { height: 278px; width: 100%; display: grid; place-items: center; border-radius: 22px; background: var(--fill); overflow: hidden; }
 
 .pwa-foot { display: flex; justify-content: space-between; gap: 10px; margin-top: 14px; }
 .pwa-foot .pill { padding: 11px 18px; }
@@ -64,8 +65,8 @@ html.pwa-lock { overflow: hidden; }
 .pwa-foot [data-pwa-next] { padding-right: 14px; min-width: 116px; justify-content: center; }
 
 /* success */
-.pwa-sheet.success .pwa-slide { opacity: 0; transform: scale(.96); filter: blur(6px); pointer-events: none; }
-.pwa-sheet.success .pwa-done { opacity: 1; transform: none; filter: none; justify-content: center; }
+.pwa-sheet.success .pwa-slide { opacity: 0; transform: scale(.96); pointer-events: none; }
+.pwa-sheet.success .pwa-done { opacity: 1; transform: none; justify-content: center; }
 .pwa-done-ico { position: relative; }
 .pwa-done-ico::before { content: ""; position: absolute; inset: -14px; border-radius: 34px; border: 2px solid var(--ok-ln); opacity: 0; }
 .pwa-done-ico > b { position: absolute; right: -10px; bottom: -10px; width: 34px; height: 34px; border-radius: 50%; background: var(--ok); color: #fff; display: grid; place-items: center; box-shadow: 0 0 0 4px #fff; transform: scale(0); }
@@ -73,7 +74,7 @@ html.pwa-lock { overflow: hidden; }
 .pwa-sheet.success .pwa-done-ico .pwa-app { animation: pwa-pop .7s var(--ease-pop) both; }
 .pwa-sheet.success .pwa-done-ico > b { animation: pwa-pop-s .5s .35s var(--ease-pop) both; }
 .pwa-sheet.success .pwa-done-ico::before { animation: pwa-burst .9s .3s var(--ease-out) both; }
-.pwa-done h3 { font: 400 40px/1 var(--serif); letter-spacing: -.03em; margin-top: 26px; }
+.pwa-done h3 { font: 600 28px/1.1 var(--font); letter-spacing: -.03em; margin-top: 26px; }
 @keyframes pwa-pop { from { transform: scale(.4) rotate(-10deg); opacity: 0; } }
 @keyframes pwa-pop-s { to { transform: scale(1); } }
 @keyframes pwa-burst { 0% { opacity: .9; transform: scale(.8); } 100% { opacity: 0; transform: scale(1.35); } }
@@ -81,7 +82,7 @@ html.pwa-lock { overflow: hidden; }
 /* mobile: bottom sheet */
 @media (max-width: 640px) {
   .pwa-sheet { place-items: end stretch; padding: 0; }
-  .pwa-card { width: 100%; border-radius: 28px 28px 0 0; padding: 12px 18px calc(16px + env(safe-area-inset-bottom)); transform: translateY(100%); filter: none; opacity: 1; transition: transform .5s var(--ease-drawer); }
+  .pwa-card { width: 100%; border-radius: 14px 14px 0 0; padding: 12px 18px calc(16px + env(safe-area-inset-bottom)); transform: translateY(100%); opacity: 1; transition: transform .5s var(--ease-drawer); }
   .pwa-sheet.closing .pwa-card { transform: translateY(100%); opacity: 1; }
   .pwa-grab { display: block; width: 38px; height: 5px; border-radius: 5px; background: var(--ink-4); margin: 0 auto 12px; opacity: .6; }
   .pwa-x { top: 22px; }
@@ -186,8 +187,8 @@ b.pm-hit { width: 34px; height: 34px; }
 
 /* ---------------------------------------------------------------- nudge (after the first answer) */
 .pwa-nudge { position: fixed; z-index: 115; left: 50%; bottom: calc(var(--tabbar-h, 0px) + 14px + env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(440px, calc(100% - 24px));
-  display: flex; align-items: center; gap: 12px; padding: 10px 10px 10px 12px; background: rgb(255 255 255 / .92); backdrop-filter: blur(25px) saturate(1.4); -webkit-backdrop-filter: blur(25px) saturate(1.4);
-  border-radius: 22px; box-shadow: 0 0 0 1px var(--line), var(--shadow-float), 0 24px 60px rgb(1 14 36 / .14); animation: pwa-nudge-in .6s var(--ease-pop) both; }
+  display: flex; align-items: center; gap: 12px; padding: 10px 10px 10px 12px; background: #fff;
+  border-radius: 14px; box-shadow: 0 0 0 1px var(--sep-2), 0 12px 32px rgb(0 0 0 / .14); animation: pwa-nudge-in .25s ease-out both; }
 .pwa-nudge.out { animation: pwa-nudge-out .28s cubic-bezier(.4, 0, 1, 1) both; }
 .pwa-nudge-t { flex: 1; min-width: 0; display: grid; }
 .pwa-nudge-t b { font-size: 14.5px; font-weight: 640; letter-spacing: -.01em; }
@@ -195,16 +196,16 @@ b.pm-hit { width: 34px; height: 34px; }
 .pwa-nudge .pill { padding: 9px 16px; }
 .pwa-nudge .icon-btn { width: 32px; height: 32px; background: transparent; }
 .pwa-nudge .icon-btn .ico { width: 16px; height: 16px; }
-@keyframes pwa-nudge-in { from { opacity: 0; transform: translate(-50%, 30px) scale(.94); filter: blur(8px); } }
-@keyframes pwa-nudge-out { to { opacity: 0; transform: translate(-50%, 20px) scale(.96); filter: blur(6px); } }
-@media (min-width: 981px) { .pwa-nudge { left: auto; right: 24px; transform: none; width: 380px; } @keyframes pwa-nudge-in { from { opacity: 0; transform: translateY(30px) scale(.94); filter: blur(8px); } } }
+@keyframes pwa-nudge-in { from { opacity: 0; transform: translate(-50%, 30px) scale(.94); } }
+@keyframes pwa-nudge-out { to { opacity: 0; transform: translate(-50%, 20px) scale(.96); } }
+@media (min-width: 981px) { .pwa-nudge { left: auto; right: 24px; transform: none; width: 380px; } @keyframes pwa-nudge-in { from { opacity: 0; transform: translateY(30px) scale(.94); } } }
 
 /* ---------------------------------------------------------------- offline banner */
 .pwa-net { display: flex; justify-content: center; padding: 10px var(--inset) 0; animation: pwa-net-in .45s var(--ease-out) both; }
 .pwa-net-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 560; background: var(--unk-bg); color: var(--unk); box-shadow: inset 0 0 0 1px var(--unk-ln); }
 .pwa-net-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
 .pwa-net[data-kind="online"] .pwa-net-pill { background: var(--ok-bg); color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok-ln); }
-@keyframes pwa-net-in { from { opacity: 0; transform: translateY(-8px); filter: blur(6px); } }
+@keyframes pwa-net-in { from { opacity: 0; } }
 
 /* ---------------------------------------------------------------- toasts */
 .pwa-update { padding-right: 6px; }

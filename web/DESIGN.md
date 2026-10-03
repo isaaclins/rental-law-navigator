@@ -1,114 +1,52 @@
 # Clause & Effect: design language
 
-Visual language borrowed from **america.gov**. Interaction feel borrowed from **Luma** (luma.com).
-Studied on 2026-10-03:
-- america.gov: the live site serves a bot challenge to headless browsers, so we studied the Internet Archive
-  snapshot of 2026-10-02. That covered desktop and mobile screenshots, 250 ms load frames, scroll frames, and the
-  compiled CSS and JS (tokens, keyframes, easing).
-- Luma: /zurich and an event page, captured live with Playwright.
+Redesigned 2026-10-03 after Isaac's review ("way too bloated", "looks like AI slop"). The goal is how Apple would
+ship it: the answer first, once, in plain words; every detail one tap away; nothing decorative.
+Checklist this follows: `~/share/hacknation/qa/anti-slop-checklist.md` (not in the repo).
 
-We imitate **style, not identity**. This is not a government site, and it must never look like one:
-- no seals, flags, agency badges or the "official website" banner;
-- none of their photos, illustrations, logo or copy text.
-
-The fonts are openly licensed (SIL OFL) and bundled locally in `static/fonts/`, so no CDN is used.
+## Principles
+- **One question per screen.** The address page answers "which rules apply here?" with one row per topic: the topic,
+  a one-line answer (the governing rule's key figure), the place it comes from, and a status word.
+- **Say it once.** The key figure appears in the row. The opened row shows the rule in plain words, then *Source*
+  (verbatim quote, citation, link, "Read in full text"), *Why it applies* (the engine's facts as bullets),
+  *Changes*, *Overrides* and *Open question*. The engine explanation is split into those pieces (`parseWhy` in
+  `app.js`), so no sentence is repeated. Other rules of the topic sit under "Also at this address", collapsed.
+- **Progressive disclosure:** `<details>` rows inline on every screen size. Dialogs only for full source texts and the
+  rule table.
+- **Quiet chrome.** Header: wordmark, text links (active = semibold ink, no pill), search icon, one as-of control
+  ("As of Oct 1, 2026 ▾", accent-coloured with a × reset when it is not the default), EN/ES as two words.
+  Phones get a bottom tab bar instead of the links.
 
 ## Typography
-| Role | america.gov | Ours (OFL) | Why |
-|---|---|---|---|
-| Display (H1, section titles, wordmark, big numbers) | Rhymes Display 400, tight tracking, line-height ~1 | **Instrument Serif 400** (`InstrumentSerif-*.woff2`) | High-contrast editorial serif. It gives the "civic, trustworthy, calm" voice that a grotesk alone lacks. |
-| UI, body, labels | Helvetica Now Text / Display (they also ship an `--font-inter` token) | **Inter Variable** | Neutral, very legible at 13-16px, tabular numbers for dates and counts. |
-| Code, ids | system mono | system mono | Rule ids and doc ids only. |
-
-The type scale follows their fluid `clamp()` tokens:
-- `--fs-hero: clamp(3rem, 2.1rem + 3.6vw, 5.5rem)`, tracking -0.035em, line-height 0.98.
-- `--fs-h1: clamp(2.25rem, 1.7rem + 2.2vw, 3.75rem)`. Serif page titles.
-- `--fs-h2: clamp(1.5rem, 1.3rem + .8vw, 2rem)`. Serif section titles.
-- Inter body is 15-17px. Secondary text uses **alpha on the ink colour** (Luma) instead of separate grey hexes.
+System stack: `-apple-system, BlinkMacSystemFont, "SF Pro Text", InterVariable, system-ui` (Inter is bundled for
+non-Apple systems). Hierarchy comes from weight, not colour. Sizes: 48 (home headline only), 32 page titles, 17 body
+and rows, 14 secondary text. Phones: 34 / 28 / 17 / 14. No serif, no uppercase eyebrows, no italics for emphasis.
 
 ## Colour
-Tokens are taken from their compiled CSS:
-- **Ink:** `#000c1f` (their `--color-blue-900`). Text and borders are alpha mixes of it:
-  - secondary `/.65`, tertiary `/.45`;
-  - hairline `/.10`, quaternary `/.05`.
-- **Accent:** federal navy `#002664` (`--color-blue-700`). Used for primary pills, the submit arrow, focus and the
-  active nav item. Links use `#0066c5`.
-- **Surfaces:**
-  - the canvas is pure white;
-  - the hero panel is a soft radial grey (`#f2f3f4` → white), like their `--page-top-color`;
-  - muted panels are `#f7f7f7`; the footer is `#fbfbfb`.
-- **Status:** these are the only other hues, and each one carries a meaning:
-  - applies = green;
-  - unknown = amber;
-  - superseded = slate;
-  - not yet effective = blue;
-  - pending = violet;
-  - failed = grey;
-  - flagged for review = orange.
+| Token | Value | Use |
+|---|---|---|
+| `--label` / `--label-2` / `--label-3` | `#1d1d1f` / `#6e6e73` / `#8e8e93` | text, secondary text, tertiary |
+| `--sep` / `--sep-2` / `--fill` | `#d2d2d7` / `#e8e8ed` / `#f5f5f7` | input borders, hairlines, footer and skeletons |
+| `--accent` | `#0066cc` | links and the primary action only |
+| `--applies` / `--unknown` / `--soon` / `--pending` | green / orange / indigo / purple | status words and dots only |
 
-  They appear only as tinted pills with a dot (Luma's "LIVE" and "Waitlist" chips), never as large fills.
+Status is a coloured word (`.badge.st-<result>`), never a tinted pill. Superseded, failed, no rule and exempt are grey.
 
-## Shape and depth
-- **Corner radius:** pills are `9999px`. Cards are 20-28px. The hero panel is 48px on desktop and 32px on mobile.
-  Their radius tokens are multiplied by `--corner-scale: 1.194`; we use the scaled values.
-- **Shadows** are long, soft and low-alpha:
-  - america.gov's elevation is `0 10px 40px #010e2414`;
-  - Luma cards use a layered stack (`0 0 0 1px ink/.06, 0 3px 3px ink/.03, 0 8px 7px ink/.04, 0 17px 14px ink/.05`).
-
-  Resting cards get the hairline plus a faint stack. Hover lifts them 2px and deepens the stack.
-- **Spacing** uses a 4px base and their 24/48/96 section rhythm. The container is 1200px, with a 24px page inset
-  (16px on mobile).
+## Shape, depth, spacing
+Hairline rows (`.group`, `.topic`, `.kv`) instead of cards. No nested boxes. Shadows only on floating layers
+(dialogs, search suggestions, the account menu). Radius 10-14px. 8-pt spacing; content column 760px, page 980px.
 
 ## Motion
-Tokens:
-- `--ease-out-quint: cubic-bezier(.22,1,.36,1)`. Entrances and reveals (america.gov's main curve).
-- `--ease-entrance: cubic-bezier(.16,1,.3,1)`. Staggered entrances, 0.9 s (their `.stagger-entrance`).
-- `--ease-standard: cubic-bezier(.4,0,.2,1)`. Hover and colour changes, 200-300 ms (Luma's `--transition-fn`).
-- `--ease-drawer: cubic-bezier(.32,.72,0,1)`. Command palette and sheet open.
-- `--ease-pop: cubic-bezier(.34,1.56,.64,1)`. Toast pill-in only (their `toast-pill-in`); everything else has no
-  overshoot.
-- `--press-scale: .98`. The `:active` scale on every pressable (their `--scale-press`).
+Opacity and short translate only: main fades in (180 ms), dialogs rise 8px. No blur, no stagger, no count-ups, no
+auto-advancing carousel, no pulsing dots. `prefers-reduced-motion` shortens every animation to ~0.
 
-Patterns:
-1. **Staggered blur-in entrance** (america.gov `stagger-entrance-in`): opacity 0 → 1, blur 12px → 0,
-   translateY 24px → 0, scale .97 → 1, 0.9 s, 80-150 ms per item.
-   - Used for the hero words, the landing sections, rule cards and timeline items.
-   - Below-the-fold items are revealed by an IntersectionObserver as they scroll in.
-2. **Rotating prompt** (their "Try 'How do I…'" marquee): the search placeholder cycles real sample addresses with a
-   vertical slide and blur. The preview card behind the search cross-fades to that address's live verdicts.
-3. **View transitions:** route changes use the View Transitions API (cross-fade plus an 8px rise, 280 ms). Browsers
-   without it get a CSS fade-in of `<main>`.
-4. **Command search** (Luma ⌘K): `/` or ⌘K opens a centred palette from anywhere, with a drawer ease, a scrim with a
-   12px backdrop blur, and keyboard navigation.
-5. **Skeleton loading:** shimmer placeholders (`text-shimmer`, 1.6 s linear) while an address loads.
-6. **Toasts:** a pill toast at the bottom when the as-of date or language changes, with pill-in and blur-out
-   (their `toast-pill-in` and `toast-pill-out`).
-7. **Status badges:** the dot pops in, and dots on "applies" and "pending" breathe softly once. Badges stagger with
-   their card.
-8. **As-of timeline:** the fill bar eases to the date, and event nodes light up in sequence as the date passes them.
-   The big date counter cross-fades.
-9. **Micro-interactions:** card hover lift (translateY -2px, deeper shadow, 300 ms standard). Pills tint on hover and
-   scale .98 on press. Focus is a 3px navy ring with a 2px offset.
-10. **Scroll-aware header:** the nav becomes a frosted floating pill once you scroll (backdrop blur 25px, their
-    `--blur-frost`).
-
-`prefers-reduced-motion: reduce` turns all of this off: no transforms, no blur, no stagger and no view-transition
-animation. Content still appears immediately and nothing is hidden.
-
-## Responsible-design constraints kept
-- "Not legal advice" stays visible on every view:
-  - a top strip in the place where america.gov shows its official-site notice;
-  - a chip in the sticky nav;
-  - the footer.
-- Every answer shows its as-of date. Enacted and pending law stay visually separated, with pending shown on a dashed
-  violet panel.
-- Colour is never the only signal: every badge has a text label.
-- Motion never delays content by more than about 300 ms, and it is never needed to understand the answer.
-
-## Performance
-- No framework and no build step. The fonts are about 0.4 MB total, preloaded.
-- Animations use `transform`, `opacity` and `filter` only.
-- The IntersectionObserver is shared, and reveal classes are removed after they run.
+## Responsible design kept
+- "Not legal advice": one line next to every set of answers ("As of Oct 1, 2026. Not legal advice.") and in the
+  footer of every page, with "About this information" opening the full note.
+- Every answer shows its as-of date; enacted law and "Not law" (pending, failed) are separate lists.
+- "Unknown" always names the missing fact. Exempt buildings say which local rule exists and why it doesn't cover them.
+- Low-confidence extractions are flagged next to the source; the method (LLM extraction, verbatim quote check,
+  deterministic engine) is explained on Sources.
 
 ## `window.CE`: API for feature modules
 Feature modules (`web/static/features/*`) reuse the app shell through `window.CE` instead of copying markup.
@@ -117,14 +55,15 @@ Signatures are stable (`CE.version === 1`).
 
 | Member | What it does |
 |---|---|
-| `CE.renderAnswers(container, lookupResult)` | Renders the answer column into `container` (element or selector): as-of tag, category chips, cards grouped in the 6 categories, and the separate "Not law" panel for pending and failed proposals. It accepts either shape:<br>• the `/api/address/<id>` response (`{as_of, categories: [...]}`);<br>• a flat lookup `{as_of, results: [{team_rule_id, result, explanation, conflict_flag, category, title, requirement, key_value, citation, quoted_span, source_url, ...}], no_rule_findings?}`, i.e. the shape of `navigator.api.lookup()`.<br>Returns the container. |
-| `CE.addRoute(name, render)` | Registers a view at `#/<name>[/<arg>]`. `render(mainEl, arg)` may be async; reveal animations are armed after it runs. |
+| `CE.renderAnswers(container, lookupResult)` | Renders the answers into `container` (element or selector): the as-of note, one row per topic (the one-line answer, its status word, details one tap away) and the separate "Not law" list for pending and failed proposals. It accepts either shape:<br>• the `/api/address/<id>` response (`{as_of, categories: [...]}`);<br>• a flat lookup `{as_of, results: [{team_rule_id, result, explanation, conflict_flag, category, title, requirement, key_value, citation, quoted_span, source_url, ...}], no_rule_findings?}`, i.e. the shape of `navigator.api.lookup()`.<br>Returns the container. |
+| `CE.addRoute(name, render)` | Registers a view at `#/<name>[/<arg>]`. `render(mainEl, arg)` may be async. |
 | `CE.navigate(route)` | `CE.navigate("a/A0016")` or `CE.navigate("#/changes")`. |
-| `CE.toast(msg)` | Pill toast at the bottom (above the mobile tab bar). |
+| `CE.toast(msg)` | Short toast at the bottom (above the mobile tab bar). |
+| `CE.setAsOf("YYYY-MM-DD")` | Sets the as-of date like the header control: re-renders the view and fires `ce:asof`. `#asof` stays an `<input type="date">` with a `change` listener too. |
 | `CE.openModal(title, html)` / `CE.openSearch()` | Shared dialog / ⌘K address palette. |
 | `CE.api(path)` | Cached `fetch(...).json()`. |
 | `CE.t(key)`, `CE.lang()`, `CE.asOf()`, `CE.fmtDate(d)` | i18n (EN/ES), current language, current as-of date, localized dates. |
-| `CE.badge(result)`, `CE.icons`, `CE.escape(s)` | Status badge HTML, the SVG icon set, HTML escaping. |
+| `CE.badge(result, label?)`, `CE.icons`, `CE.escape(s)` | Status word in its status colour, the SVG icon set, HTML escaping. |
 
 Events on `document`:
 - `ce:ready`
@@ -133,11 +72,18 @@ Events on `document`:
 - `ce:lang` (`{lang}`)
 
 Rules for feature markup:
-- Use the existing classes (`card`, `panel`, `pill primary|ghost|line`, `chip`, `badge <status>`, `reveal`, `page-head`, `kpis`/`kpi`, `table-card`). Feature pages then match the rest of the app automatically.
-- Keep "Not legal advice" visible. The shell already shows it on every route.
+- Use the shared classes: `page-head`, `block`, `group` (hairline list), `kv`, `btn` / `btn primary`, `linkish`,
+  `badge st-<status>`, `addr-meta`. Old names (`pill primary|line|ghost`) still render as buttons.
+- Entry points go into the slots, as plain text links: `[data-slot="address-actions"]` (under the address header),
+  `.topic-actions[data-slot="topic-actions"][data-cat=<id>]` (end of each opened topic), `[data-tour-slot="home"]`
+  (under the home examples) and `[data-tour-slot="footer"]` (in the footer links). No new nav items.
+- Stable hooks for the tour: `data-tour="search|answer|rule|source|asof|changes|properties"`; topic rows carry
+  `data-cat`, rule rows `data-rule`.
 - Mobile layout lives in `mobile.css`.
 
 ## Mobile navigation (≤ 640px)
-- On phones, `mobile.css` turns `.tabs` into the fixed bottom tab bar. It has icons, safe-area padding, and exactly one active tab (navy icon and label on a light pill).
-- The desktop navy pill is switched off there.
+- `.tabs` becomes the fixed bottom tab bar (icons from CSS masks per `data-route`, short labels via `data-short`),
+  with safe-area padding and exactly one active tab (accent icon and label).
+- The header must never get `transform`, `filter`, `backdrop-filter` or `will-change`: the bar is `position: fixed`
+  inside it. Its own blur lives on the bar.
 - The footer and toasts get `--tabbar-h` of bottom room, so content is never covered.
