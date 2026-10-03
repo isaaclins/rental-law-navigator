@@ -1,0 +1,33 @@
+name: Bug
+description: Something produces a wrong answer, crashes or breaks CI
+title: "fix: "
+labels: ["type:bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Include the address id, rule id, test id or endpoint involved.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen
+      description: Cite the source text if the expected answer comes from the law.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      placeholder: |
+        uv run python -m navigator lookup A0001 --as-of 2026-10-01
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output / logs
+      render: text
