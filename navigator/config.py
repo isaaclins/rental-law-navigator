@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -21,7 +23,20 @@ NEW_DOCS_DIR = ROOT / "new_docs"  # documents ingested later (e.g. the hour-16 o
 DATA_DIR = ROOT / "data"
 RESOLVED_CSV = DATA_DIR / "addresses_resolved.csv"
 CACHE_DIR = ROOT / "cache" / "llm"
-OUTPUT_DIR = ROOT / "output"
+BASE_OUTPUT_DIR = ROOT / "output"
+OUTPUT_DIR = BASE_OUTPUT_DIR
+
+# Extension mode (docs/NEW_JURISDICTION.md): NAVIGATOR_EXTENSION=new_docs/<slug> adds the jurisdictions listed in
+# new_docs/<slug>/jurisdiction.json, reads that folder's manifest.csv / addresses.csv and writes every output to
+# output/extension/<slug>/. Without the variable nothing below changes.
+EXTENSION_DIR: Path | None = None
+EXTENSION: dict = {}
+if os.environ.get("NAVIGATOR_EXTENSION"):
+    EXTENSION_DIR = (ROOT / os.environ["NAVIGATOR_EXTENSION"]).resolve()
+    EXTENSION = json.loads((EXTENSION_DIR / "jurisdiction.json").read_text(encoding="utf-8"))
+    OUTPUT_DIR = BASE_OUTPUT_DIR / "extension" / EXTENSION_DIR.name
+    RESOLVED_CSV = OUTPUT_DIR / "addresses_resolved.csv"
+    SAMPLE_ADDRESSES = EXTENSION_DIR / "addresses.csv"
 RULES_JSON = OUTPUT_DIR / "rules.json"
 RAW_RULES_JSON = OUTPUT_DIR / "rules_raw.json"
 LOOKUPS_JSON = OUTPUT_DIR / "lookups.json"
@@ -62,6 +77,8 @@ CITIES = {
     "Boston, MA": ("MA", "BOS"),
     "Cambridge, MA": ("MA", "CAM"),
 }
+for _j in EXTENSION.get("jurisdictions", []):
+    CITIES[_j["name"]] = (_j["state"], _j["code"])
 JURISDICTIONS = STATES + list(CITIES)
 JUR_CODE = {s: s for s in STATES} | {j: c for j, (_, c) in CITIES.items()}
 

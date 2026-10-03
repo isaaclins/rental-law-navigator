@@ -1,0 +1,80 @@
+{
+ "wall_seconds_this_run": 0.3,
+ "llm_calls": 9,
+ "llm_calls_by_stage": {
+  "extract": 6,
+  "review": 1,
+  "coverage_audit": 1,
+  "probe": 1
+ },
+ "llm_calls_served_from_cache_this_run": 9,
+ "llm_seconds_when_first_run": 176.8,
+ "llm_cost_usd_when_first_run": 1.6239,
+ "llm_calls_without_cost_record": 0,
+ "prompt_chars_total": 817620,
+ "rules": 6,
+ "rules_by_category_status": {
+  "rent_increase_limits:in_force": 1,
+  "just_cause_eviction:in_force": 1,
+  "just_cause_eviction:pending": 2,
+  "security_deposits:in_force": 1,
+  "algorithmic_rent_setting:in_force": 1
+ },
+ "no_rule_findings": 2,
+ "verbatim_spans": "6/6",
+ "span_verification": {
+  "verbatim": 6
+ },
+ "verification": {
+  "primary_source": 5,
+  "secondary_source": 1
+ },
+ "addresses": 40,
+ "lookup_results": {
+  "applies": 345,
+  "pending": 43,
+  "superseded": 66,
+  "unknown": 15
+ },
+ "jurisdictions": [
+  "Santa Monica, CA"
+ ],
+ "rule_id_codes": {
+  "Santa Monica, CA": "SMO"
+ },
+ "documents": [
+  {
+   "doc_id": "SM01",
+   "url": "https://www.santamonica.gov/media/Document%20Library/Detail/Rent%20Control%20Charter%20Amendment%20%26%20Regulations/00%2C%20CharterAmndmntComplete.pdf",
+   "source_type": "official",
+   "chars": 62201
+  },
+  {
+   "doc_id": "SM02",
+   "url": "https://santamonica.gov/media/Document%20Library/Detail/Rent%20Control%20Charter%20Amendment%20&%20Regulations/14,%20Security%20Deposits.pdf",
+   "source_type": "official",
+   "chars": 5747
+  },
+  {
+   "doc_id": "SM03",
+   "url": "https://santamonica.gov/media/Document%20Library/Process%20Explainers/How%20to%20Complete%20the%20Notice%20of%20Change%20in%20Terms%20of%20Tenancy/General%20Adjustment%20History%20&%20Surcharges.pdf",
+   "source_type": "official",
+   "chars": 7095
+  },
+  {
+   "doc_id": "SM04",
+   "url": "https://www.santamonica.gov/elections/2026-11-02/measures/measure-rent-control-eviction-protections",
+   "source_type": "official",
+   "chars": 23261
+  },
+  {
+   "doc_id": "SM05",
+   "url": "https://www.smdp.com/santa-monica-bans-algorithmic-rental-pricing-software-after-wildfire-crisis/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "chars": 4089
+  }
+ ],
+ "addresses_file": "output/extension/santa-monica/addresses_resolved.csv",
+ "schema_errors": [],
+ "generated_at": "2026-10-03T20:14:24"
+}

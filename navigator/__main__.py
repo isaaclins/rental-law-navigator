@@ -43,6 +43,10 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser(
         "selfcheck", help="schema, verbatim spans, coverage matrix, T1-T5 and open questions"
     )
+    sub.add_parser(
+        "extend",
+        help="add a jurisdiction: NAVIGATOR_EXTENSION=new_docs/<slug> -> output/extension/<slug>/",
+    )
     sub.add_parser("fetch-supplementary", help="one-time polite fetch of link-only sources")
     sub.add_parser("run-all", help="extract (cached) + evaluate + changes + selfcheck")
 
@@ -75,6 +79,10 @@ def main(argv: list[str] | None = None) -> int:
         from . import selfcheck
 
         return selfcheck.run()
+    elif a.cmd == "extend":
+        from . import extend
+
+        extend.run()
     elif a.cmd == "fetch-supplementary":
         from .supplementary import fetch_all
 

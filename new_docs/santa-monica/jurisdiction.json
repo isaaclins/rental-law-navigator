@@ -1,0 +1,14 @@
+{
+ "jurisdictions": [
+  {
+   "name": "Santa Monica, CA",
+   "state": "CA",
+   "code": "SMO",
+   "census_place": "Santa Monica city",
+   "county": "Los Angeles County",
+   "postal_cities": ["Santa Monica"]
+  }
+ ],
+ "added": "2026-10-03",
+ "note": "Extension jurisdiction added live during Hack-Nation 7: documents in manifest.csv, addresses in addresses.csv (LA County eGIS parcels)."
+}

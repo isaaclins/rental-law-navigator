@@ -1,0 +1,41 @@
+address_id,street_address,postal_city,state,zip,year_built,units,use_code,use_description,source_dataset,retrieved_at
+SM001,3223 WILSHIRE BLVD,Santa Monica,CA,90403,2024,53,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM002,1211 BERKELEY ST,Santa Monica,CA,90404,1948,14,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM003,1229 PRINCETON ST,Santa Monica,CA,90404,1977,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM004,2914 ARIZONA AVE,Santa Monica,CA,90404,1972,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM005,1427 BERKELEY ST,Santa Monica,CA,90404,1988,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM006,1437 HARVARD ST   NO 4,Santa Monica,CA,90404,1956,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM007,1527 PRINCETON ST   APT 0001,Santa Monica,CA,90404,1964,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM008,2929 COLORADO AVE,Santa Monica,CA,90404,1963,18,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM009,1660 BERKELEY ST,Santa Monica,CA,90404,1972,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM010,2255 29TH ST,Santa Monica,CA,90405,1990,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM011,2608 28TH ST,Santa Monica,CA,90405,1951,12,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM012,2201 OAK ST,Santa Monica,CA,90405,,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM013,2319 OAK ST,Santa Monica,CA,90405,1962,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM014,2122 PICO BLVD   UNIT   D,Santa Monica,CA,90405,1957,8,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM015,1801 OCEAN PARK BLVD,Santa Monica,CA,90405,1971,23,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM016,2701 KANSAS AVE,Santa Monica,CA,90404,,10,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM017,2636 KANSAS AVE,Santa Monica,CA,90404,1959,18,0501,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM018,1843 17TH ST,Santa Monica,CA,90404,1963,9,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM019,2009 19TH ST,Santa Monica,CA,90404,,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM020,1922 CLOVERFIELD BLVD,Santa Monica,CA,90404,1954,24,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM021,1455 24TH ST,Santa Monica,CA,90404,1957,16,0501,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM022,1523 18TH ST,Santa Monica,CA,90404,1976,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM023,1143 22ND ST,Santa Monica,CA,90403,1975,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM024,1123 17TH ST,Santa Monica,CA,90403,1955,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM025,1247 22ND ST,Santa Monica,CA,90404,1956,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM026,1338 18TH ST,Santa Monica,CA,90404,1962,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM027,843 19TH ST   NO B,Santa Monica,CA,90403,1961,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM028,920 18TH ST,Santa Monica,CA,90403,1972,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM029,960 21ST ST,Santa Monica,CA,90403,1961,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM030,1015 18TH ST,Santa Monica,CA,90403,1968,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM031,711 9TH ST,Santa Monica,CA,90402,1967,6,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM032,1022 17TH ST   APT 0001,Santa Monica,CA,90403,1966,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM033,960 16TH ST,Santa Monica,CA,90403,1998,10,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM034,945 14TH ST,Santa Monica,CA,90403,1954,7,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM035,1321 CALIFORNIA AVE,Santa Monica,CA,90403,1976,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM036,831 EUCLID ST,Santa Monica,CA,90403,1927,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM037,1044 EUCLID ST,Santa Monica,CA,90403,1959,11,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM038,1034 12TH ST,Santa Monica,CA,90403,1921,5,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM039,821 11TH ST,Santa Monica,CA,90403,1958,10,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z
+SM040,1037 10TH ST,Santa Monica,CA,90403,1968,11,0500,Five or more apartments,LA County eGIS parcels,2026-10-03T18:03Z

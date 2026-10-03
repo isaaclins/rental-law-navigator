@@ -59,6 +59,13 @@ def jurisdiction(j: str | None) -> str | None:
         st = low.split(",")[1].strip().upper() if "," in low else cand[-2:]
         st = _STATE_NAMES.get(st.lower(), st)
         return cand if cand.endswith(st) else None
+    for name in (
+        CITIES
+    ):  # cities without an alias entry (e.g. extension jurisdictions): "<name>" / "city of <name>"
+        n = name.split(",")[0].lower()
+        if city in (n, f"city of {n}"):
+            st = low.split(",")[1].strip() if "," in low else name[-2:].lower()
+            return name if _STATE_NAMES.get(st, st.upper()) == name[-2:] else None
     return None
 
 
