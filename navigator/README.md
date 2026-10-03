@@ -13,6 +13,7 @@ uv run python -m navigator changes        # Module C -> output/changes.json (T1-
 uv run python -m navigator ingest-new path/to/new_ordinance.txt --jurisdiction "Cambridge, MA"   # hour-16 test (T6)
 uv run python -m navigator lookup A0001 --as-of 2027-07-02
 uv run python -m navigator selfcheck      # -> output/selfcheck.txt, exit 1 if a check fails
+NAVIGATOR_EXTENSION=new_docs/santa-monica uv run python -m navigator extend   # new jurisdiction -> output/extension/santa-monica/ (docs/NEW_JURISDICTION.md)
 ```
 
 LLM backend: `claude -p --model sonnet --output-format json --json-schema ...` (default), `codex exec` (fallback),
@@ -77,4 +78,6 @@ addresses and writes the test (default `T6`) with before/after results using the
 ## API for the web layer (`api.py`)
 
 `load_rules()`, `get_rule(id)`, `no_rule_findings()`, `address_ids()`, `lookup(address_id_or_dict, as_of)`,
-`changes(test_id)`, `run_change_test(test_dict)`.
+`changes(test_id)`, `run_change_test(test_dict)`, `extensions()`, `extension_lookup(slug, address_id, as_of)`
+(jurisdictions added with `navigator extend`; the web app serves them at `/api/extensions` and
+`/api/extension/{slug}/address/{id}`).

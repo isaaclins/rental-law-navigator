@@ -845,6 +845,22 @@ def addresses():
     ]
 
 
+@app.get("/api/extensions")
+def extensions():
+    """Jurisdictions added live with `navigator extend` (docs/NEW_JURISDICTION.md); separate from the main 500."""
+    api = _live_api()
+    return api.extensions() if api and hasattr(api, "extensions") else []
+
+
+@app.get("/api/extension/{slug}/address/{address_id}")
+def extension_address(slug: str, address_id: str, as_of: str | None = None):
+    api = _live_api()
+    try:
+        return api.extension_lookup(slug, address_id.upper(), _as_of(as_of))
+    except (AttributeError, FileNotFoundError, KeyError):
+        raise HTTPException(404, f"no extension address {slug}/{address_id}") from None
+
+
 @app.get("/api/address/{address_id}")
 def address(address_id: str, as_of: str | None = None, lang: str = "en"):
     return build_address(address_id.upper(), _as_of(as_of), lang)

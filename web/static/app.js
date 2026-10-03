@@ -136,7 +136,7 @@ const verified = (v) => !v ? "" : v.status === "exact" || v.status === "normaliz
 // ------------------------------------------------------------------ motion helpers --
 const io = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
   for (const e of entries) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-}, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }) : null;
+}, { rootMargin: "0px 0px -6% 0px", threshold: 0 }) : null;
 function armReveals(root = main) {
   $$(".reveal", root).forEach((el) => { if (RM.matches || !io) el.classList.add("in"); else io.observe(el); });
 }
@@ -186,6 +186,7 @@ function syncHeader(route) {
   document.documentElement.lang = lang;
   $$("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
   $("#cmdk input").placeholder = t("search_ph");
+  $(".nav-inner").dataset.nla = t("nla_chip");
   const fb = $("#fixture-banner");
   fb.hidden = META?.sources?.["rules.json"]?.kind !== "fixture";
   fb.textContent = t("fixture");
@@ -586,15 +587,15 @@ function testCard(x, i) {
   const dated = x.type === "as_of" || x.type === "new_law";
   const chips = x.rules.map((r) => `<span class="rchip">${badge(r.status)}<span class="mono">${esc(r.team_rule_id)}</span> ${esc(r.title)}</span>`).join("") || `<span class="muted">${t("no_match_rule")}</span>`;
   const left = dated
-    ? `<div><h4>${t("before")} <b>${esc(fmtDate(x.before_date))}</b></h4><div class="rr">${x.our_rule_ids.map((r) => bars(x.before[r], r)).join("")}</div></div>
-       <div><h4>${t("after")} <b>${esc(fmtDate(x.after_date))}</b></h4><div class="rr">${x.our_rule_ids.map((r) => bars(x.after[r], r)).join("")}</div></div>`
-    : `<div style="grid-column: span 2"><h4>${t("rule_reach")} <b>${esc(fmtDate(x.after_date))}</b></h4><div class="rr">${x.our_rule_ids.map((r) => bars(x.after[r], r)).join("") || `<p class="muted">${t("none_level")}</p>`}</div></div>`;
+    ? `<div><h3>${t("before")} <b>${esc(fmtDate(x.before_date))}</b></h3><div class="rr">${x.our_rule_ids.map((r) => bars(x.before[r], r)).join("")}</div></div>
+       <div><h3>${t("after")} <b>${esc(fmtDate(x.after_date))}</b></h3><div class="rr">${x.our_rule_ids.map((r) => bars(x.after[r], r)).join("")}</div></div>`
+    : `<div style="grid-column: span 2"><h3>${t("rule_reach")} <b>${esc(fmtDate(x.after_date))}</b></h3><div class="rr">${x.our_rule_ids.map((r) => bars(x.after[r], r)).join("") || `<p class="muted">${t("none_level")}</p>`}</div></div>`;
   const ids = x.affected_address_ids;
   return `<article class="test reveal" style="--i:${Math.min(i, 2)}" id="test-${esc(x.test_id)}">
-    <div class="test-head"><div class="test-id">${esc(x.test_id)}</div><div><div class="type-tag">${esc(t("t_" + x.type))}</div><h3>${esc(x.title)}</h3><p class="exp"><b>${t("expected")}:</b> ${esc(x.expected_behavior)}</p></div></div>
+    <div class="test-head"><div class="test-id">${esc(x.test_id)}</div><div><div class="type-tag">${esc(t("t_" + x.type))}</div><h2>${esc(x.title)}</h2><p class="exp"><b>${t("expected")}:</b> ${esc(x.expected_behavior)}</p></div></div>
     <div class="rchips">${chips}</div>
     <div class="ba">${left}
-      <div><h4>${t("affected")}</h4><div class="big-num" data-count="${x.affected_count}">${x.affected_count}</div>
+      <div><h3>${t("affected")}</h3><div class="big-num" data-count="${x.affected_count}">${x.affected_count}</div>
         ${x.conflict_flag_address_ids.length ? `<div style="margin-top:8px"><span class="badge conflict">${x.conflict_flag_address_ids.length} ${t("conflict_flags")}</span></div>` : ""}
         ${cityBars(x.affected_by_city)}</div>
     </div>
@@ -613,10 +614,9 @@ async function viewChanges() {
       <div class="tl-top"><div><div class="panel-title">${t("timeline")}</div><div class="tl-date"><span id="tl-date"></span></div></div><div class="tl-sum" id="tl-sum"></div></div>
       <div class="tl-track"><div class="tl-line"></div><div class="tl-fill" id="tl-fill"></div>
         ${shown.map((e) => `<button type="button" class="tl-ev ${pct(e.date) > 62 ? "r" : pct(e.date) < 18 ? "l" : ""}" data-date="${e.date}" style="left:${pct(e.date)}%" aria-label="${esc(fmtDate(e.date))}: ${esc(e.title)}"><span class="tip">${esc(fmtDate(e.date))} · ${esc(e.title)}</span></button>`).join("")}
-        <div class="tl-thumb" id="tl-thumb"></div>
+        <input type="range" class="tl-range" id="tl-range" min="0" max="${TL_MAX}" value="${dayIdx(asOf)}" aria-label="${t("as_of")}">
         <div class="tl-years">${[2024, 2025, 2026, 2027, 2028].map((y) => `<span style="left:${pct(y + "-01-01")}%">${y}</span>`).join("")}</div>
       </div>
-      <input type="range" class="tl-range" id="tl-range" min="0" max="${TL_MAX}" value="${dayIdx(asOf)}" aria-label="${t("as_of")}">
       <div class="rail" id="rail">
         ${older.length ? `<div class="rail-item past" data-date="${older[older.length - 1].date}"><span class="d">${esc(older[0].date.slice(0, 4))}–${esc(older[older.length - 1].date.slice(0, 4))}</span><div><div class="t">${older.length} ${t("earlier")}</div><div class="j">${older.map((e) => esc(e.title)).join(" · ")}</div></div><span></span></div>` : ""}
         ${shown.map((e) => `<div class="rail-item" data-date="${e.date}"><span class="d">${esc(fmtDate(e.date))}</span><div><div class="t">${esc(e.title)}</div><div class="j">${esc(e.jurisdiction)} · ${e.addresses} ${t("addresses")} · <span class="mono">${esc(e.id)}</span></div></div><span class="st"></span></div>`).join("")}
@@ -636,7 +636,6 @@ async function viewChanges() {
         setTimeout(() => { dateEl.textContent = label; dateEl.classList.remove("flip"); }, 120);
       } else dateEl.textContent = label;
       $("#tl-fill").style.transform = `scaleX(${pct(d) / 100})`;
-      $("#tl-thumb").style.left = pct(d) + "%";
       $$(".tl-ev").forEach((b) => {
         const was = b.classList.contains("past"), now = b.dataset.date <= d;
         b.classList.toggle("past", now);
@@ -675,7 +674,7 @@ async function viewRules() {
   const html = `
     <div class="page-head stagger"><span class="kicker">${t("rules_kicker")}</span><h1>${t("rules_title")}</h1><p>${t("rules_lead")}</p></div>
     <section class="card matrix-wrap reveal"><h2>${t("coverage")}</h2>
-      <table class="matrix"><thead><tr><th></th>${cov.categories.map((c) => `<th>${esc(catLabel[c.id])}</th>`).join("")}</tr></thead>
+      <table class="matrix"><thead><tr><th><span class="sr">${t("jurisdiction")}</span></th>${cov.categories.map((c) => `<th>${esc(catLabel[c.id])}</th>`).join("")}</tr></thead>
       <tbody>${cov.jurisdictions.map((j) => `<tr class="${j.length === 2 ? "state" : "city"}"><th>${esc(j)}</th>${cov.categories.map((c) => {
         const cell = cov.cells[j]?.[c.id] || [];
         const nr = cov.no_rule_cells?.[j]?.[c.id];
@@ -744,7 +743,7 @@ async function viewAudit() {
   ];
   const html = `
     <div class="page-head stagger"><span class="kicker">${t("audit_kicker")}</span><h1>${t("audit_title")}</h1><p>${t("audit_lead")}</p></div>
-    <section class="pipeline stagger" style="--step:80ms;--start:200ms">${steps.map((s, i) => `<div class="step" style="--i:${i}"><div class="n">0${i + 1}</div><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div>`).join("")}</section>
+    <section class="pipeline stagger" style="--step:80ms;--start:200ms">${steps.map((s, i) => `<div class="step" style="--i:${i}"><div class="n">0${i + 1}</div><h2>${esc(s[0])}</h2><p>${esc(s[1])}</p></div>`).join("")}</section>
     <section class="card apanel reveal" style="margin-bottom:22px"><h2>Adding a jurisdiction</h2>
       <div class="scal">
         <div><h3>1 · Add sources</h3><p>Drop official ordinance or statute text into the corpus with its URL and retrieval date. No code changes.</p></div>
@@ -761,7 +760,7 @@ async function viewAudit() {
         <div class="table-wrap" style="max-height:300px;overflow:auto;margin-top:8px"><table class="rtable"><thead><tr><th>ID</th><th>Address</th><th>Mailing</th><th>Legal city</th><th>Method</th></tr></thead><tbody>${d.geocoding_notes.map((g) => `<tr><td class="mono"><a href="#/a/${g.id}">${g.id}</a></td><td>${esc(g.street)}</td><td>${esc(g.postal_city)}</td><td><b>${esc(g.city || "outside scope")}</b></td><td class="s" title="${esc(g.note)}">${esc(g.method)}</td></tr>`).join("")}</tbody></table></div></div></details></div>
     </section>
     <section class="card apanel reveal" style="margin-bottom:22px"><h2>Source documents</h2>
-      <div class="table-wrap" style="max-height:440px;overflow:auto"><table class="rtable"><thead><tr><th>Doc</th><th>${t("jurisdiction")}</th><th>Source</th><th>Type</th><th>${t("retrieved")}</th><th>Rules</th><th></th></tr></thead><tbody>
+      <div class="table-wrap" style="max-height:440px;overflow:auto"><table class="rtable"><thead><tr><th>Doc</th><th>${t("jurisdiction")}</th><th>Source</th><th>Type</th><th>${t("retrieved")}</th><th>Rules</th><th><span class="sr">Text</span></th></tr></thead><tbody>
       ${d.documents.map((x) => `<tr><td class="mono">${esc(x.doc_id)}</td><td class="nw">${esc(x.jurisdictions)}</td><td style="max-width:380px;word-break:break-all"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 64))}</a></td><td class="s">${esc(x.source_type)}${x.capture !== "yes" ? ` · ${esc(x.capture)}` : ""}</td><td class="s nw">${esc(x.retrieved_at || "—")}</td><td>${x.rules_extracted || ""}</td><td>${x.text_available ? `<a href="#" data-doc="${esc(x.doc_id)}">text</a>` : `<span class="s">link only</span>`}</td></tr>`).join("")}
       </tbody></table></div></section>
     <section class="card apanel reveal"><h2>Extraction &amp; change log <span class="muted" style="font-weight:500;font-size:13px">(${d.audit_total} entries, newest first)</span></h2>

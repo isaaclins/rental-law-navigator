@@ -124,10 +124,11 @@ def _call_claude(system: str, prompt: str, schema: dict | None, timeout: int):
     if env.get("is_error"):
         raise LLMError(f"claude error: {str(env)[:800]}")
     model = ",".join(k for k in (env.get("modelUsage") or {}) if "haiku" not in k) or CLAUDE_MODEL
+    extra = {"cost_usd": env.get("total_cost_usd"), "usage": env.get("usage")}
     if env.get("structured_output") is not None:
-        return env["structured_output"], json.dumps(env["structured_output"]), model
+        return env["structured_output"], json.dumps(env["structured_output"]), model, extra
     raw = env.get("result", "")
-    return _extract_json(raw), raw, model
+    return _extract_json(raw), raw, model, extra
 
 
 def _call_codex(system: str, prompt: str, schema: dict | None, timeout: int):
@@ -143,7 +144,7 @@ def _call_codex(system: str, prompt: str, schema: dict | None, timeout: int):
         cmd.append("-")
         _run(cmd, f"{system}\n\n{prompt}\n\nReturn only the JSON object.", timeout)
         raw = open(last, encoding="utf-8").read()
-    return _extract_json(raw), raw, _model_name("codex")
+    return _extract_json(raw), raw, _model_name("codex"), {}
 
 
 def _strict_schema(s):
@@ -181,7 +182,7 @@ def _call_api(system: str, prompt: str, schema: dict | None, timeout: int):
     with urllib.request.urlopen(req, timeout=timeout) as r:
         env = json.loads(r.read())
     raw = "".join(b.get("text", "") for b in env.get("content", []) if b.get("type") == "text")
-    return _extract_json(raw), raw, env.get("model", API_MODEL)
+    return _extract_json(raw), raw, env.get("model", API_MODEL), {"usage": env.get("usage")}
 
 
 _CALLERS = {"claude": _call_claude, "codex": _call_codex, "api": _call_api}
@@ -217,7 +218,7 @@ def call_llm(
             try:
                 with _sem:
                     t0 = time.time()
-                    parsed, raw, model = _CALLERS[backend](system, prompt, schema, timeout)
+                    parsed, raw, model, extra = _CALLERS[backend](system, prompt, schema, timeout)
                 rec = {
                     "parsed": parsed,
                     "raw": raw,
@@ -226,6 +227,8 @@ def call_llm(
                     "tag": tag,
                     "seconds": round(time.time() - t0, 1),
                     "created": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "prompt_chars": len(system) + len(prompt),
+                    **extra,
                 }
                 tmp = cpath.with_suffix(".tmp")
                 tmp.write_text(json.dumps(rec, ensure_ascii=False), encoding="utf-8")

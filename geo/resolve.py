@@ -19,6 +19,9 @@ Pipeline (every raw response is cached under cache/geo/ so reruns are offline):
 
 Output: data/addresses_resolved.csv = all original columns + resolution columns.
 Run:   python3 geo/resolve.py            (stdlib only)
+       python3 geo/resolve.py --extension new_docs/<slug>   (extension jurisdiction, docs/NEW_JURISDICTION.md:
+       reads <slug>/addresses.csv, adds the cities of <slug>/jurisdiction.json to the in-scope places and writes
+       output/extension/<slug>/addresses_resolved.csv)
 """
 
 from __future__ import annotations
@@ -508,7 +511,22 @@ COLUMNS_EXTRA = [
 ]
 
 
+def use_extension(ext_dir: Path) -> None:
+    """Point the resolver at an extension jurisdiction's addresses and add its cities to the in-scope places."""
+    global SRC, OUT
+    ext = json.loads((ext_dir / "jurisdiction.json").read_text())
+    for j in ext["jurisdictions"]:
+        city = j["name"].split(",")[0]
+        IN_SCOPE[(j["state"], j["census_place"])] = city
+        for pc in j.get("postal_cities", [city]):
+            FALLBACK_CITY[(j["state"], pc)] = (city, j.get("county", ""))
+    SRC = ext_dir / "addresses.csv"
+    OUT = ROOT / "output" / "extension" / ext_dir.name / "addresses_resolved.csv"
+
+
 def main():
+    if "--extension" in sys.argv:
+        use_extension((ROOT / sys.argv[sys.argv.index("--extension") + 1]).resolve())
     out = resolve()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     orig = list(csv.DictReader(SRC.open()).fieldnames)

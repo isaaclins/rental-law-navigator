@@ -8,7 +8,7 @@ import re
 from dataclasses import dataclass, field
 from functools import lru_cache
 
-from .config import CORPUS_TEXT, LINKS_ONLY_CSV, MANIFEST_CSV, NEW_DOCS_DIR, SUPP_DIR
+from .config import CORPUS_TEXT, EXTENSION_DIR, LINKS_ONLY_CSV, MANIFEST_CSV, NEW_DOCS_DIR, SUPP_DIR
 
 CHUNK_LIMIT = 60_000  # characters; longer documents are split
 CHUNK_SIZE = 45_000
@@ -51,6 +51,14 @@ def new_doc_rows() -> list[dict]:
     return list(csv.DictReader(open(p, encoding="utf-8"))) if p.exists() else []
 
 
+def extension_doc_rows() -> list[dict]:
+    """Documents of the extension jurisdiction (NAVIGATOR_EXTENSION), same columns as the corpus manifest."""
+    p = EXTENSION_DIR / "manifest.csv" if EXTENSION_DIR else None
+    if not p or not p.exists():
+        return []
+    return [r for r in csv.DictReader(open(p, encoding="utf-8")) if r.get("status") == "ok"]
+
+
 def load_docs(include_supplementary: bool = True, include_new: bool = True) -> list[Doc]:
     docs: list[Doc] = []
     for doc_id, r in manifest().items():
@@ -89,8 +97,10 @@ def load_docs(include_supplementary: bool = True, include_new: bool = True) -> l
                 )
             )
     if include_new:
-        for r in new_doc_rows():
-            p = NEW_DOCS_DIR / r["text_file"]
+        for base, r in [(NEW_DOCS_DIR, r) for r in new_doc_rows()] + [
+            (EXTENSION_DIR, r) for r in extension_doc_rows()
+        ]:
+            p = base / r["text_file"]
             if p.exists():
                 t = p.read_text(encoding="utf-8")
                 docs.append(

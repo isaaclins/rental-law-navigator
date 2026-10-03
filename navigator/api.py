@@ -6,16 +6,19 @@ api.lookup("A0001", as_of="2026-10-01")   -> jurisdiction stack + rule results w
 api.lookup({"state": "CA", "resolved_city": "San Francisco", "year_built": 1962, "units": 20, ...})
 api.changes("T3")                         -> affected addresses / conflict flags for a change test
 api.address_ids(), api.get_rule(id), api.no_rule_findings()
+api.extensions()                          -> jurisdictions added with `navigator extend` (docs/NEW_JURISDICTION.md)
+api.extension_lookup("santa-monica", "SM001", as_of="2026-10-01")   -> same shape as lookup(), extension data
 """
 
 from __future__ import annotations
 
+import csv
 import json
 from functools import lru_cache
 
 from . import changes as C
 from . import evaluate as E
-from .config import CHANGES_JSON, CITIES, DEFAULT_AS_OF, RULES_JSON
+from .config import BASE_OUTPUT_DIR, CHANGES_JSON, CITIES, DEFAULT_AS_OF, RULES_JSON
 
 DISCLAIMER = E.DISCLAIMER
 
@@ -70,7 +73,10 @@ def _facts_from_dict(d: dict) -> E.Facts:
 
 def lookup(address: str | dict, as_of: str = DEFAULT_AS_OF) -> dict:
     f = _addresses()[address] if isinstance(address, str) else _facts_from_dict(address)
-    rules = load_rules()
+    return _lookup(f, load_rules(), no_rule_findings(), as_of)
+
+
+def _lookup(f: E.Facts, rules: list[dict], all_findings: list[dict], as_of: str) -> dict:
     by_id = {r["team_rule_id"]: r for r in rules}
     results = E.evaluate_address(f, rules, as_of)
     for e in results:
@@ -96,7 +102,7 @@ def lookup(address: str | dict, as_of: str = DEFAULT_AS_OF) -> dict:
     stack = [{"level": "state", "name": f.state}] + (
         [{"level": "city", "name": f.city}] if f.city else []
     )
-    findings = [n for n in no_rule_findings() if n["jurisdiction"] in (f.state, f.city)]
+    findings = [n for n in all_findings if n["jurisdiction"] in (f.state, f.city)]
     return {
         "address_id": f.address_id,
         "as_of": as_of,
@@ -114,6 +120,56 @@ def lookup(address: str | dict, as_of: str = DEFAULT_AS_OF) -> dict:
         "results": results,
         "no_rule_findings": findings,
     }
+
+
+# ------------------------------------------------------------------ extension jurisdictions (navigator extend)
+EXTENSION_ROOT = BASE_OUTPUT_DIR / "extension"
+
+
+def extensions() -> list[dict]:
+    """Jurisdictions added live with `navigator extend`, with their measured numbers (summary.json)."""
+    out = []
+    for p in sorted(EXTENSION_ROOT.glob("*/summary.json")):
+        s = json.loads(p.read_text(encoding="utf-8"))
+        out.append(
+            {
+                "slug": p.parent.name,
+                "label": f"extension: {', '.join(s['jurisdictions'])}, added live",
+                "address_ids": list(_extension(p.parent.name)[2]),
+                **s,
+            }
+        )
+    return out
+
+
+@lru_cache(maxsize=8)
+def _extension(slug: str) -> tuple[list[dict], list[dict], dict[str, E.Facts]]:
+    d = EXTENSION_ROOT / slug
+    doc = json.loads((d / "rules.json").read_text(encoding="utf-8"))
+    cities = {r["jurisdiction"] for r in doc["rules"] if r["level"] == "city"}
+    facts = {}
+    for r in csv.DictReader(open(d / "addresses_resolved.csv", encoding="utf-8")):
+        st, city = r.get("resolved_state") or r["state"], r.get("resolved_city") or ""
+        lo, hi, note = E.unit_range(r)
+        facts[r["address_id"]] = E.Facts(
+            r["address_id"],
+            st,
+            f"{city}, {st}" if f"{city}, {st}" in cities else None,
+            E._int(r.get("year_built")),
+            lo,
+            hi,
+            note,
+            f"{r.get('use_code')} {r.get('use_description')}".strip(),
+            r,
+        )
+    return doc["rules"], doc.get("no_rule_findings", []), facts
+
+
+def extension_lookup(slug: str, address_id: str, as_of: str = DEFAULT_AS_OF) -> dict:
+    rules, findings, facts = _extension(slug)
+    out = _lookup(facts[address_id], rules, findings, as_of)
+    out["extension"] = slug
+    return out
 
 
 def changes(test_id: str | None = None) -> dict:

@@ -1,0 +1,3370 @@
+{
+ "as_of": "2026-10-01",
+ "disclaimer": "Not legal advice. Automated reading of public law as of the stated date; verify with the cited source.",
+ "jurisdiction_source": "addresses_resolved.csv",
+ "lookups": {
+  "SM001": [
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P2",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XXIII, § 2304(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XXIII, § 2304(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM002": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 14 units (assessor); built 1948: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 14 units (assessor); built 1948: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 14 units (assessor); built 1948: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM003": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1977: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1977: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1977: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM004": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM005": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1947.12 applies in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 7 units (assessor); built 1988: older than the 15-year new-construction exemption. Rule: 5% + CPI, max 10%.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1946.2 applies in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 7 units (assessor); built 1988: older than the 15-year new-construction exemption. Rule: Just cause after 12 months; relocation = 1 month's rent for no-fault.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P2",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XXIII, § 2304(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XXIII, § 2304(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM006": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1956: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1956: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1956: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM007": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1964: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1964: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1964: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM008": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 18 units (assessor); built 1963: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 18 units (assessor); built 1963: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 18 units (assessor); built 1963: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM009": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM010": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1947.12 applies in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 6 units (assessor); built 1990: older than the 15-year new-construction exemption. Rule: 5% + CPI, max 10%.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1946.2 applies in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 6 units (assessor); built 1990: older than the 15-year new-construction exemption. Rule: Just cause after 12 months; relocation = 1 month's rent for no-fault.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P2",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XXIII, § 2304(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XXIII, § 2304(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM011": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 12 units (assessor); built 1951: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 12 units (assessor); built 1951: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 12 units (assessor); built 1951: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM012": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "unknown",
+    "explanation": "Cal. Civ. Code § 1947.12 may apply in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 6 units (assessor); exempt if newer than 15 years (2011-10-01); year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "unknown",
+    "explanation": "Cal. Civ. Code § 1946.2 may apply in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 6 units (assessor); exempt if newer than 15 years (2011-10-01); year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "unknown",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "unknown",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P2",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XXIII, § 2304(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XXIII, § 2304(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "unknown",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM013": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1962: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1962: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1962: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM014": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 8 units (assessor); built 1957: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 8 units (assessor); built 1957: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 8 units (assessor); built 1957: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM015": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 23 units (assessor); built 1971: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 23 units (assessor); built 1971: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 23 units (assessor); built 1971: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM016": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "unknown",
+    "explanation": "Cal. Civ. Code § 1947.12 may apply in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 10 units (assessor); exempt if newer than 15 years (2011-10-01); year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "unknown",
+    "explanation": "Cal. Civ. Code § 1946.2 may apply in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 10 units (assessor); exempt if newer than 15 years (2011-10-01); year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "unknown",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 10 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "unknown",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 10 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P2",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XXIII, § 2304(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XXIII, § 2304(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "unknown",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 10 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM017": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 18 units (assessor); built 1959: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 18 units (assessor); built 1959: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 18 units (assessor); built 1959: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM018": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 9 units (assessor); built 1963: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 9 units (assessor); built 1963: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 9 units (assessor); built 1963: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM019": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "unknown",
+    "explanation": "Cal. Civ. Code § 1947.12 may apply in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 7 units (assessor); exempt if newer than 15 years (2011-10-01); year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "unknown",
+    "explanation": "Cal. Civ. Code § 1946.2 may apply in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 7 units (assessor); exempt if newer than 15 years (2011-10-01); year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "unknown",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "unknown",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P2",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XXIII, § 2304(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XXIII, § 2304(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "unknown",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 may apply in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); coverage depends on construction completed on or before 1979-04-10; year built is not in the data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM020": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 24 units (assessor); built 1954: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 24 units (assessor); built 1954: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 24 units (assessor); built 1954: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM021": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 16 units (assessor); built 1957: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 16 units (assessor); built 1957: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 16 units (assessor); built 1957: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM022": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1976: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1976: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1976: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM023": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1975: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1975: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1975: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM024": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1955: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1955: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1955: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM025": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1956: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1956: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1956: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM026": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1962: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1962: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1962: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM027": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1961: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1961: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1961: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM028": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1972: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM029": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1961: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1961: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1961: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM030": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1968: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1968: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1968: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM031": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1967: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1967: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 6 units (assessor); built 1967: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM032": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1966: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1966: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1966: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM033": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1947.12 applies in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 10 units (assessor); built 1998: older than the 15-year new-construction exemption. Rule: 5% + CPI, max 10%.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1946.2 applies in Santa Monica, CA (CA statewide rule): owner-occupied exemption (<= 2 units) cannot apply: 10 units (assessor); built 1998: older than the 15-year new-construction exemption. Rule: Just cause after 12 months; relocation = 1 month's rent for no-fault.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P2",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XXIII, § 2304(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XXIII, § 2304(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM034": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1954: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1954: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 7 units (assessor); built 1954: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM035": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1976: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1976: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1976: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM036": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1927: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1927: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1927: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM037": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 11 units (assessor); built 1959: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 11 units (assessor); built 1959: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 11 units (assessor); built 1959: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM038": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1921: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1921: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 5 units (assessor); built 1921: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM039": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 10 units (assessor); built 1958: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 10 units (assessor); built 1958: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 10 units (assessor); built 1958: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ],
+  "SM040": [
+   {
+    "team_rule_id": "CA-RENT-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1947.12 would cover this address, but local SMO-RENT-01 (Santa Monica City Charter art. XVIII, § 1805) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1947.12"
+   },
+   {
+    "team_rule_id": "CA-EVIC-01",
+    "result": "superseded",
+    "explanation": "Cal. Civ. Code § 1946.2 would cover this address, but local SMO-EVIC-01 (Santa Monica City Charter art. XVIII, § 1806) governs here; the state rule yields to it.",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1946.2"
+   },
+   {
+    "team_rule_id": "CA-DEP-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.5 applies in Santa Monica, CA (CA statewide rule). Rule: 1 month's rent (2 months for qualifying small landlords).",
+    "conflict_flag": false,
+    "citation": "Cal. Civ. Code § 1950.5"
+   },
+   {
+    "team_rule_id": "CA-FEE-01",
+    "result": "applies",
+    "explanation": "Cal. Civ. Code § 1950.6 applies in Santa Monica, CA (CA statewide rule). Rule: $30 base per applicant, CPI-adjusted annually since 1998 ($68.96 for 2026 per Berkeley Rent Board). Note: open question: No single official 2026 CPI-adjusted dollar figure appears in the statute; the $68.96 figure comes from the Berkeley Rent Board page (D005).",
+    "conflict_flag": true,
+    "citation": "Cal. Civ. Code § 1950.6"
+   },
+   {
+    "team_rule_id": "CA-SCR-01",
+    "result": "applies",
+    "explanation": "Cal. Gov. Code § 12955 applies in Santa Monica, CA (CA statewide rule). Rule: Source of income (incl. vouchers) is a protected characteristic.",
+    "conflict_flag": false,
+    "citation": "Cal. Gov. Code § 12955"
+   },
+   {
+    "team_rule_id": "CA-SCR-02",
+    "result": "applies",
+    "explanation": "California FEHA criminal history protections (Civil Rights Council regulations) applies in Santa Monica, CA (CA statewide rule). Rule: No blanket bans; no arrests without conviction, sealed/expunged or juvenile records.",
+    "conflict_flag": false,
+    "citation": "California FEHA criminal history protections (Civil Rights Council regulations)"
+   },
+   {
+    "team_rule_id": "CA-ALG-01",
+    "result": "applies",
+    "explanation": "Cal. Bus. & Prof. Code § 16729 applies in Santa Monica, CA (CA statewide rule). Rule: ban on common pricing algorithms using competitor data in restraint of trade or with coercion.",
+    "conflict_flag": false,
+    "citation": "Cal. Bus. & Prof. Code § 16729"
+   },
+   {
+    "team_rule_id": "SMO-RENT-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1805 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 11 units (assessor); built 1968: meets the cutoff (construction completed on or before 1979-04-10). Rule: 75% of CPI, min 0%, max 3% annual general adjustment.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1805"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-01",
+    "result": "applies",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 11 units (assessor); built 1968: meets the cutoff (construction completed on or before 1979-04-10). Rule: Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806"
+   },
+   {
+    "team_rule_id": "SMO-EVIC-P1",
+    "result": "pending",
+    "explanation": "Santa Monica City Charter art. XVIII, § 1806(a)(1) is a pending bill, not law, as of 2026-10-01. If enacted it would cover this address in Santa Monica, CA.",
+    "conflict_flag": false,
+    "citation": "Santa Monica City Charter art. XVIII, § 1806(a)(1)"
+   },
+   {
+    "team_rule_id": "SMO-DEP-01",
+    "result": "applies",
+    "explanation": "Santa Monica Rent Control Regulations § 14002 applies in Santa Monica, CA: owner-occupied exemption (<= 3 units) cannot apply: 11 units (assessor); built 1968: meets the cutoff (construction completed on or before 1979-04-10). Rule: 1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account.",
+    "conflict_flag": false,
+    "citation": "Santa Monica Rent Control Regulations § 14002"
+   },
+   {
+    "team_rule_id": "SMO-ALG-01",
+    "result": "applies",
+    "explanation": "Santa Monica algorithmic rental pricing ordinance applies in Santa Monica, CA. Rule: ban on sale and use of algorithmic devices using competitor data.",
+    "conflict_flag": false,
+    "citation": "Santa Monica algorithmic rental pricing ordinance"
+   }
+  ]
+ }
+}

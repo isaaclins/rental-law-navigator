@@ -1,0 +1,184 @@
+{
+ "X1": {
+  "affected_address_ids": [
+   "SM001",
+   "SM002",
+   "SM003",
+   "SM004",
+   "SM005",
+   "SM006",
+   "SM007",
+   "SM008",
+   "SM009",
+   "SM010",
+   "SM011",
+   "SM012",
+   "SM013",
+   "SM014",
+   "SM015",
+   "SM016",
+   "SM017",
+   "SM018",
+   "SM019",
+   "SM020",
+   "SM021",
+   "SM022",
+   "SM023",
+   "SM024",
+   "SM025",
+   "SM026",
+   "SM027",
+   "SM028",
+   "SM029",
+   "SM030",
+   "SM031",
+   "SM032",
+   "SM033",
+   "SM034",
+   "SM035",
+   "SM036",
+   "SM037",
+   "SM038",
+   "SM039",
+   "SM040"
+  ],
+  "conflict_flag_address_ids": [],
+  "notes": "Pending local measures. Key rules -> ours: {\"SMO-EVIC-P1\": [\"SMO-EVIC-P1 Santa Monica City Charter art. XVIII, § 1806(a)(1) [pending]\", \"SMO-EVIC-P2 Santa Monica City Charter art. XXIII, § 2304(a)(1) [pending]\"], \"SMO-EVIC-P2\": [\"SMO-EVIC-P1 Santa Monica City Charter art. XVIII, § 1806(a)(1) [pending]\", \"SMO-EVIC-P2 Santa Monica City Charter art. XXIII, § 2304(a)(1) [pending]\"]}. 40 affected addresses (Santa Monica, CA: 40); 0 with conflict flags. Expected: ",
+  "rule_mapping": {
+   "SMO-EVIC-P1": [
+    "SMO-EVIC-P1",
+    "SMO-EVIC-P2"
+   ],
+   "SMO-EVIC-P2": [
+    "SMO-EVIC-P1",
+    "SMO-EVIC-P2"
+   ]
+  },
+  "per_address": {
+   "SM001": {
+    "SMO-EVIC-P2": "pending"
+   },
+   "SM002": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM003": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM004": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM005": {
+    "SMO-EVIC-P2": "pending"
+   },
+   "SM006": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM007": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM008": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM009": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM010": {
+    "SMO-EVIC-P2": "pending"
+   },
+   "SM011": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM012": {
+    "SMO-EVIC-P1": "pending",
+    "SMO-EVIC-P2": "pending"
+   },
+   "SM013": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM014": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM015": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM016": {
+    "SMO-EVIC-P1": "pending",
+    "SMO-EVIC-P2": "pending"
+   },
+   "SM017": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM018": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM019": {
+    "SMO-EVIC-P1": "pending",
+    "SMO-EVIC-P2": "pending"
+   },
+   "SM020": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM021": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM022": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM023": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM024": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM025": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM026": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM027": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM028": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM029": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM030": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM031": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM032": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM033": {
+    "SMO-EVIC-P2": "pending"
+   },
+   "SM034": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM035": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM036": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM037": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM038": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM039": {
+    "SMO-EVIC-P1": "pending"
+   },
+   "SM040": {
+    "SMO-EVIC-P1": "pending"
+   }
+  },
+  "title": "Pending local measures"
+ }
+}

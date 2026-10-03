@@ -1,0 +1,176 @@
+SOURCE: https://www.santamonica.gov/elections/2026-11-02/measures/measure-rent-control-eviction-protections
+RETRIEVED: 2026-10-03 18:04 UTC
+
+General Election 2026
+Measure RR
+- Election Date
+- Nov 3, 2026
+English
+Shall the City Charter be amended to prohibit evictions based on non-payment of rent when a tenant owes less than one month of the average of fair market rents, set annually by the U.S. Department of Housing and Urban Development, for ZIP codes in Santa Monica?
+Click here for a staff report on this measure.
+Text of Measure
+Section 1806(a)(1) of Article XVIII of the City Charter shall be amended to read as follows:
+1806 Evictions.
+(a) No landlord shall take action to terminate any tenancy including, but not limited, to making a demand for possession of a rental unit, threatening to terminate a tenancy, serving any notice to quit or other eviction notice or bringing any action to recover possession or be granted recovery of possession of a controlled rental unit except on one of the following grounds:
+(1) The tenant has failed to pay the rent to which the landlord is entitled under the rental housing agreement and this Article, provided that the amount due exceeds the average of the Small Area Fair Market Rents set annually by the U.S. Department of Housing and Urban Development for equivalent sized rental units in the residential ZIP Codes located wholly or partially within the City of Santa Monica, rounded to the nearest dollar, and the written notice to the tenant terminating tenancy states the number of bedrooms in the tenant’s rental unit and the applicable average Small Area Fair Market Rent amount for an equivalent sized rental unit.
+Section 2304(a)(1) of Article XXIII of the City Charter shall be amended to read as follows:
+2304 Just cause for evictions—Notices to cease.
+(a) No landlord shall take action to terminate a tenancy in a nonrentcontrolled rental unit including, but not limited to, making a demand for possession of a rental unit, threatening to terminate a tenancy, serving any notice to quit or other eviction notice or 25 bringing any action to recover possession or be granted recovery of possession of the unit except on one of the following grounds:
+(1) The tenant has failed to pay the rent to which the landlord is entitled under the rental housing agreement, provided that the amount due exceeds the average of the Small Area Fair Market Rents set annually by the U.S. Department of Housing and Urban Development for equivalent sized rental units in the residential ZIP Codes located wholly or partially within the City of Santa Monica, rounded to the nearest dollar, and the written notice to the tenant terminating tenancy states the number of bedrooms in the tenant’s rental unit and the applicable average Small Area Fair Market Rent amount for an equivalent sized rental unit.
+Impartial Analysis
+CITY ATTORNEY’S IMPARTIAL ANALYSIS OF MEASURE RR
+Measure RR amends the Santa Monica Rent Control Law, Article XVIII of the Santa Monica City Charter (“RCCA”) and the City’s “Housing Policies” eviction protections, Article XXIII of the Santa Monica City Charter (“HPCA”) by limiting evictions based on non-payment of rent when a tenant owes less than a threshold amount of rent. Measure RR was placed on the ballot by the Santa Monica City Council.
+Both the RCCA and the HPCA (together, “RCCA-HPCA”) prohibit evictions except as provided by law. The RCCA does so for rent-controlled units and the HPCA does so for other units, excluding single-unit dwellings and condominiums.
+The RCCA-HPCA allow landlords to evict tenants when a tenant owes any amount of rent. Measure RR amends the RCCA-HPCA to prohibit evictions based on non-payment of rent unless (1) the tenant owes more than the average of the Small Area Fair Market Rents set annually by the U.S. Department of Housing and Urban Development for equivalent sized rental units in the five ZIP Codes located wholly or partially within the City of Santa Monica and (2) the written notice demanding the tenant pay the unpaid rent or move out states the number of bedrooms in the tenant’s rental unit and the average Small Area Fair Market Rent amount for an equivalent sized rental unit.
+Measure RR does not affect a landlord’s right to collect unpaid rental debt from a tenant through means other than eviction
+Heidi von Tongeln
+City Attorney
+Argument in Favor
+No one should lose their home over a small amount of rent after an unexpected hardship. A medical emergency, a lost job, a delayed paycheck, or a family crisis shouldn't push a working family, a senior, or a veteran on a fixed income onto the street.
+Measure RR sets a reasonable, common-sense threshold. Before a landlord can evict a tenant for nonpayment, a tenant has to owe more than one month's fair market rent, a figure the federal government sets every year. This gives renters a meaningful window to catch up or secure rental assistance, while still needing to pay all of the rent owed. Landlords keep every existing right to be paid and to evict for a debt that exceeds one month’s rent.
+Why does Santa Monica need this? Because displacement is already happening here. Records filed with the City show tenants are getting eviction notices over debts as low as $73.87 and eviction lawsuits over debts as low as $405.67. That's not back rent. That's the cost of a car repair or a doctor's visit. No one should lose their home over it.
+This can happen to anyone. The Federal Reserve found more than a third of adults are one $400 setback away from missing a bill. A single bad month shouldn't cost a family the home they've kept up for years.
+This isn't a radical idea. Los Angeles, LA County, Oakland, and Berkeley already protect renters this way. Santa Monica has led on tenant protection since 1979, let’s not fall behind.
+An eviction is expensive, permanent, and often the first step toward homelessness. Keeping a neighbor housed costs far less than the alternative.
+Vote YES on RR to stop unnecessary evictions and keep families home.
+Caroline M. Torosis, Mayor, City of Santa Monica
+Kay Ambriz, Rent Control Board Vice Chair
+Ellis Raskin, City Councilmember
+Jennifer Kennedy
+Irma Carranza
+Argument Against
+No argument against this measure was submitted.
+Español
+Texto De Medida
+Se añadirá la Sección 1801(o) al Artículo XVIII de la Carta Constitutiva de la ciudad, de la siguiente manera:
+1801 Definiciones.
+Las siguientes palabras o frases utilizadas en este Artículo tendrán los siguientes significados:
+. . .
+(o) Restricción en la escritura para viviendas asequibles. Una restricción en la escritura, una restricción reglamentaria contenida en un acuerdo con una entidad gubernamental u otro documento inscrito que restrinja una unidad de vivienda de alquiler para su uso y ocupación como vivienda asequible por personas y familias de ingresos extremadamente bajos, muy bajos, bajos o moderados, o un acuerdo que proporcione subsidios de vivienda para viviendas asequibles destinadas a personas y familias de ingresos extremadamente bajos, muy bajos, bajos o moderados, según se definen en este Código o en leyes estatales o federales comparables.
+La Sección 1803(e) del Artículo XVIII de la Carta Constitutiva de la ciudad se modificará para que disponga lo siguiente:
+1803 Junta permanente de control de alquileres.
+(e)       Duración
+del mandato. Los comisionados serán elegidos para ejercer mandatos de
+cuatro (4) años, que comenzarán el primer martes siguiente a su elección. Ninguna persona podrá ejercer más de tres mandatos como comisionado,
+ya sean consecutivos o no. A los efectos de esta sección, un mandato parcial de
+más de dos años se contará como un mandato. Estos límites de mandato se
+aplicarán tanto a los mandatos por nombramiento como a los mandatos por
+elección. salvo que, de los primeros cinco (5) comisionados
+elegidos de conformidad con la Sección 1803(d), los dos (2) comisionados que
+reciban el mayor número de votos ejercerán sus cargos hasta el 15 de abril de
+1985 y los tres (3) comisionados restantes
+ejercerán sus cargos hasta el 18 de abril de 1983. Los comisionados podrán
+ejercer un máximo de dos mandatos completos.
+La Sección 1803(n) del Artículo XVIII de la Carta Constitutiva de la ciudad se modificará para que disponga lo siguiente:
+1803 Junta permanente de control de alquileres.
+(n) Financiamiento de las operaciones de la Junta. La Junta financiará sus gastos razonables y necesarios mediante cuotas anuales de registro y otras fuentes de financiamiento disponibles, según lo dispuesto en esta subsección.
+(1) Facultad para establecer la cuota de registro. La Junta podrá cobrar a los arrendadores una cuota anual de registro por cada unidad de alquiler sujeta a control. El monto de la cuota de registro será determinado por la Junta.
+(2) Cuota máxima permitida. La cuota de registro establecida por la Junta no excederá la cuota máxima anual de registro permitida conforme a esta subsección, fijada inicialmente en doscientos ochenta y ocho dólares ($288) por cada unidad de alquiler sujeta a control. La cuota máxima anual de registro permitida conforme a esta subsección establece un límite y no determina por sí misma el monto de la cuota que se cobrará.
+(3) Fuentes adicionales de financiamiento. La Junta también podrá solicitar y recibir, cuando sea necesario, financiamiento de cualquier fuente disponible para cubrir sus gastos razonables y necesarios.
+(4) Ajuste de la cuota máxima permitida. A partir del año calendario 2028, la cuota máxima anual de registro permitida conforme a esta subsección se ajustará anualmente para reflejar el cambio porcentual en el Índice de Precios al Consumidor para Todos los Consumidores Urbanos (CPI-U) de la región de Los Ángeles, publicado por la Oficina de Estadísticas Laborales de los Estados Unidos, correspondiente al año calendario anterior. Ningún ajuste dará lugar a una disminución de la cuota máxima anual de registro permitida conforme a esta subsección ni podrá exceder del cinco por ciento (5 %) en un solo año.
+(5) Aviso de ajuste. La Junta anunciará cualquier ajuste de la cuota máxima annual de registro permitida conforme a esta subsección a más tardar el 15 de marzo de cado año en que se efectúe un ajuste.
+(6) Facultad discrecional de la Junta. Nada de lo dispuesto en esta subsección se interpretará en el sentido de exigir que la Junta cobre la cuota máxima anual de registro permitida conforme a esta subsección en ningún año.
+Financiamiento. La Junta
+financiará sus gastos razonables y necesarios mediante el cobro a los
+arrendadores de cuotas anuales de registro por los montos que la Junta
+considere razonables, con una cuota máxima anual de registro de hasta
+doscientos ochenta y ocho dólares ($288.00) por cada unidad sujeta a control.
+El cincuenta por ciento (50 %) del monto de las cuotas de registro podrá
+trasladarse de los arrendadores a los inquilinos, y la Junta podrá establecer
+las condiciones y los procedimientos aplicables que rijan dicho traslado. La
+Junta también estará facultada para solicitar y recibir, cuando sea necesario,
+financiamiento de cualquier fuente disponible para cubrir sus gastos razonables
+y necesarios.
+La Sección 1805(d)(12) del Artículo XVIII de la Carta Constitutiva de la ciudad se modificará para que disponga lo siguiente:
+1805 Ajuste individual y general de los límites de los alquileres permitidos.
+(d) Procedimiento de audiencia. La Junta promulgará normas y reglamentos que rijan las audiencias y apelaciones relativas al ajuste individual de los límites de los alquileres permitidos, que incluirán lo siguiente:
+...
+(12) Plazo para la decisión. Las normas y los reglamentos adoptados por la Junta dispondrán que se adopte una decisión definitiva sobre cualquier petición de ajuste individual del alquiler dentro de los ciento veinte (120) días siguientes a la fecha de presentación de dicha petición, permitiéndose prórrogas de dicho plazo por causa justificada.
+Se añadirán las Secciones 1806(a)(11) y 1806(a)(12) al Artículo XVIII de la Carta Constitutiva de la ciudad, de la siguiente manera:
+1806 Desalojo.
+(a) Ningún arrendador tomará medidas para poner fin a un arrendamiento, incluidas, entre otras, exigir la posesión de una unidad de alquiler, amenazar con poner fin a un arrendamiento, entregar cualquier aviso de desocupación u otro aviso de desalojo, o entablar cualquier acción para recuperar la posesión u obtener la restitución de la posesión de una unidad de alquiler sujeta a control, salvo por uno de los siguientes motivos:
+...
+(11) El inquilino no reúne los requisitos para ocupar la unidad de alquiler conforme a los términos de una restricción aplicable en la escritura para viviendas asequibles, o está provocando el incumplimiento de dicha restricción, y el arrendador procura de buena fe recuperar la posesión de la unidad de alquiler a fin de cumplir con la restricción aplicable en la escritura para viviendas asequibles, los reglamentos o las pautas, siempre que el arrendador cumpla con todos los reglamentos y las pautas aplicables.
+(12) El inquilino de una unidad de alquiler sujeta a una restricción en la escritura para viviendas asequibles no ha proporcionado, o se ha negado a proporcionar, comprobantes de ingresos u otra documentación que acredite que reúne los requisitos para ocupar la unidad de alquiler, después de recibir un aviso por escrito en el que se soliciten dichos comprobantes o documentación, cuando una restricción aplicable en la escritura para viviendas asequibles o las leyes, los reglamentos o las pautas aplicables exijan que el inquilino presente comprobantes de ingresos u otra documentación que acredite que reúne los requisitos para residir en la unidad.
+La Sección 1806(b) del Artículo XVIII de la Carta Constitutiva de la ciudad se modificará para que disponga lo siguiente:
+1806 Desalojo.
+(b)              
+Todo aviso por escrito descrito en
+las Subsecciones (a)(2), (3), (6) o (12) será entregado por el
+arrendador con una antelación razonable antes de entregar un aviso de
+terminación del arrendamiento e informará al inquilino que, si no subsana el
+incumplimiento, podrán iniciarse procedimientos de desalojo. La Junta podrá
+promulgar reglamentos relativos a lo que constituye un plazo razonable de
+notificación.
+Se añadirá la Sección 1822 al Artículo XVIII de la Carta Constitutiva de la ciudad, de la siguiente manera:
+1822 Determinación relativa a la Ley de Protección de Inquilinos.
+Considerando que este Artículo limita los motivos para poner fin a un arrendamiento residencial de conformidad con las disposiciones de la sección 1946.2 del Código Civil de California; limita aún más los motivos para poner fin a un arrendamiento residencial, en mayor medida que la sección 1946.2 del Código Civil de California; establece (junto con las disposiciones de aplicación del Código Municipal de Santa Mónica) montos de asistencia para la reubicación superiores a los previstos en la sección 1946.2 del Código Civil de California; y establece protecciones adicionales para los inquilinos que no están prohibidas por ninguna otra disposición legal; se determina que este Artículo brinda mayor protección que las disposiciones de la sección 1946.2 del Código Civil de California, por lo que toda unidad de alquiler sujeta a este Artículo no estará sujeta a la sección 1946.2 del Código Civil de California.
+Se añadirá la Sección 2302(h) al Artículo XXIII de la Carta Constitutiva de la ciudad, de la siguiente manera:
+2302 Definiciones.
+Las siguientes palabras o frases utilizadas en este Artículo tendrán los siguientes significados:
+. . .
+(h) Restricción en la escritura para viviendas
+asequibles. Una restricción en la escritura,
+una restricción reglamentaria contenida en un acuerdo con una entidad
+gubernamental u otro documento inscrito que restrinja una unidad de vivienda de
+alquiler para su uso y ocupación como vivienda asequible por personas y
+familias de ingresos extremadamente bajos, muy bajos, bajos o moderados, o un
+acuerdo que proporcione subsidios de vivienda para viviendas asequibles
+destinadas a personas y familias de ingresos extremadamente bajos, muy bajos,
+bajos o moderados, según se definen en este Código o en leyes estatales o
+federales comparables.
+Se añadirán las Secciones 2304(a)(10) y 2304(a)(11) al Artículo XXIII de la Carta Constitutiva de la ciudad, de la siguiente manera:
+2304 Causa justificada para desalojos—Avisos para que cese el incumplimiento.
+(a) Ningún arrendador tomará medidas para poner fin a un arrendamiento de una unidad de alquiler no sujeta a control, incluidas, entre otras, exigir la posesión de una unidad de alquiler, amenazar con poner fin a un arrendamiento, entregar cualquier aviso de desocupación u otro aviso de desalojo, o entablar una acción para recuperar la posesión u obtener la restitución de la posesión de una unidad de alquiler sujeta a control, salvo por uno de los siguientes motivos:
+…
+(10) El inquilino no reúne los requisitos para ocupar la unidad de alquiler conforme a los términos de una restricción aplicable en la escritura para viviendas asequibles, o está provocando el incumplimiento de dicha restricción, y el arrendador procura de buena fe recuperar la posesión de la unidad de alquiler a fin de cumplir con la restricción aplicable en la escritura para viviendas asequibles, los reglamentos o las pautas, siempre que el arrendador cumpla con todos los reglamentos y las pautas aplicables.
+(11) El inquilino de una unidad de alquiler sujeta a una restricción en la escritura para viviendas asequibles no ha proporcionado, o se ha negado a proporcionar, comprobantes de ingresos u otra documentación que acredite que reúne los requisitos para ocupar la unidad de alquiler, después de recibir un aviso por escrito en el que se soliciten dichos comprobantes o documentación, cuando una restricción aplicable en la escritura para viviendas asequibles o las leyes, los reglamentos o las pautas aplicables exijan que el inquilino presente comprobantes de ingresos u otra documentación que acredite que reúne los requisitos para residir en la unidad.
+La Sección 2304(b) del Artículo XXIII de la Carta Constitutiva de la ciudad se modificará para que disponga lo siguiente:
+2304 Causa justificada para desalojos—Avisos para que cese el incumplimiento.
+ (b)                       
+Todo aviso por escrito descrito en
+las Subsecciones (a)(2), (3), (6) o (11) será entregado por el
+arrendador con una antelación razonable antes de entregar un aviso de
+terminación del arrendamiento e informará al inquilino que, si no subsana el
+incumplimiento, podrán iniciarse procedimientos de desalojo.
+Se añadirá la Sección 2310 al Artículo XXIII de la Carta Constitutiva de la ciudad, de la siguiente manera:
+2310 Determinación relativa a la Ley de Protección de Inquilinos.
+Considerando que este Artículo limita los motivos para poner fin a un arrendamiento residencial de conformidad con las disposiciones de la sección 1946.2 del Código Civil de California; limita aún más los motivos para poner fin a un arrendamiento residencial, en mayor medida que la sección 1946.2 del Código Civil de California; establece (junto con las disposiciones de aplicación del Código Municipal de Santa Mónica) montos de asistencia para la reubicación superiores a los previstos en la sección 1946.2 del Código Civil de California; y establece protecciones adicionales para los inquilinos que no están prohibidas por ninguna otra disposición legal; se determina que este Artículo brinda mayor protección que las disposiciones de la sección 1946.2 del Código Civil de California, por lo que toda unidad de alquiler sujeta a este Artículo no estará sujeta a la sección 1946.2 del Código Civil de California.
+Anexo 2
+La Sección 1806(a)(1) del Artículo XVIII de la Carta Constitutiva de la ciudad se modificará para que disponga lo siguiente:
+1806 Desalojos.
+(a) Ningún arrendador tomará medidas para poner fin a un arrendamiento, incluidas, entre otras, exigir la posesión de una unidad de alquiler, amenazar con poner fin a un arrendamiento, entregar cualquier aviso de desocupación u otro aviso de desalojo, o entablar cualquier acción para recuperar la posesión u obtener la restitución de la posesión de una unidad de alquiler sujeta a control, salvo por uno de los siguientes motivos:
+(1)              
+El inquilino no ha pagado el
+alquiler al que tiene derecho el arrendador conforme al contrato de alquiler de
+vivienda y este Artículo, siempre que el monto adeudado exceda el promedio
+de los Alquileres Justos de Mercado de Áreas Pequeñas establecidos anualmente
+por el Departamento de Vivienda y Desarrollo Urbano de los Estados Unidos para
+unidades de alquiler de tamaño equivalente en los códigos postales
+residenciales ubicados total o parcialmente dentro de la ciudad de Santa
+Mónica, redondeado al dólar más cercano, y que el aviso por escrito al
+inquilino mediante el cual se pone fin al arrendamiento indique el número de
+dormitorios de la unidad de alquiler del inquilino y el monto promedio
+aplicable del Alquiler Justo de Mercado de Áreas Pequeñas correspondiente a una
+unidad de alquiler de tamaño equivalente.
+La Sección 2304(a)(1) del Artículo XXIII de la Carta Constitutiva de la ciudad se modificará para que disponga lo siguiente:
+2304 Causa justificada para desalojos—Avisos para que cese el incumplimiento.
+(a) Ningún arrendador tomará medidas para poner fin al arrendamiento de una unidad de alquiler no sujeta al control de alquileres, incluidas, entre otras, exigir la posesión de una unidad de alquiler, amenazar con poner fin a un arrendamiento, entregar cualquier aviso de desocupación u otro aviso de desalojo, o entablar cualquier acción para recuperar la posesión u obtener la restitución de la posesión de la unidad, salvo por uno de los siguientes motivos:
+(1) El inquilino no ha pagado el alquiler al que tiene derecho el arrendador conforme al contrato de alquiler de vivienda y este Artículo, siempre que el monto adeudado exceda el promedio de los Alquileres Justos de Mercado de Áreas Pequeñas establecidos anualmente por el Departamento de Vivienda y Desarrollo Urbano de los Estados Unidos para unidades de alquiler de tamaño equivalente en los códigos postales residenciales ubicados total o parcialmente dentro de la ciudad de Santa Mónica, redondeado al dólar más cercano, y que el aviso por escrito al inquilino mediante el cual se pone fin al arrendamiento indique el número de dormitorios de la unidad de alquiler del inquilino y el monto promedio aplicable del Alquiler Justo de Mercado de Áreas Pequeñas correspondiente a una unidad de alquiler de tamaño equivalente.
+Election Events
+- Oct 3, 2026
+- VAP/Pico Farmer's Market Outreach
+- Oct 5, 2026
+- LA County Registrar-Recorder/County Clerk: First day to mail Vote by Mail ballots
+- Oct 19, 2026
+- Register to Vote - Last day to register to be mailed a Vote by Mail ballot.
+- Oct 20, 2026
+- Nomination Filing Period - Last day for write-in candidates to file nomination papers at City Clerk's Office.
+- Nov 3, 2026
+- Election Day (Vote Center hours 7 a.m. - 8 p.m.)
+- Dec 8, 2026
+- Council meeting to install new officers in Council Chambers (Tentative).
+- Feb 1, 2027
+- Semi-Annual Campaign Disclosure Statements due
+Resources
+Los Angeles County Registrar-Recorder/County Clerk
