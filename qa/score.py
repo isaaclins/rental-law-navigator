@@ -916,7 +916,15 @@ def main():
         "sanity": sanity(key, team_rules, team_lookups, exp, ext),
         "audit": full_audit(key, team_rules, team_lookups, ext),
     }
-    paths = {"rules": a.rules, "lookups": a.lookups, "changes": a.changes, "report": a.report}
+
+    def shown(p):  # repo-relative in the report, so reruns from any checkout give the same file
+        try:
+            return str(Path(p).resolve().relative_to(ROOT))
+        except ValueError:
+            return str(p)
+
+    paths = {k: shown(getattr(a, k)) for k in ("rules", "lookups", "changes")}
+    paths["report"] = a.report
     color = sys.stdout.isatty() and not a.no_color and not os.environ.get("NO_COLOR")
     total = print_summary(res, key, exp, paths, color)
     write_report(res, key, exp, paths, total)
