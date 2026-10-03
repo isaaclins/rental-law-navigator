@@ -7,10 +7,11 @@ rule that applies there, each with a citation and a verbatim quote from the law.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/demo-navigator.isaaclins.com-002664)](https://navigator.isaaclins.com/)
 
-**Live demo: <https://navigator.isaaclins.com/>** · [Architecture](docs/ARCHITECTURE.md) · [QA report](qa/report.md) ·
+**Live demo: <https://navigator.isaaclins.com/>** · [Method note](docs/METHOD_NOTE.md) ([PDF](docs/METHOD_NOTE.pdf)) ·
+[Architecture](docs/ARCHITECTURE.md) ·
 [Project board](https://github.com/users/isaaclins/projects/6)
 
-[![Address lookup for 3515 Fillmore St, San Francisco: jurisdiction stack, building facts, and the rent rules that apply, each with a citation and a verified quote](docs/img/address-lookup.png)](https://navigator.isaaclins.com/#/a/A0016)
+[![Address lookup for 3515 Fillmore St, San Francisco: jurisdiction stack, building facts and a one-line answer per topic, as of Oct 1, 2026](docs/img/address-lookup.png)](https://navigator.isaaclins.com/#/a/A0016)
 
 An LLM reads the public housing law of 3 states and 10 cities (87 source documents) and turns it into structured rule
 records. Every quoted span is checked against the source text by code. Each of 500 sample addresses is then resolved
@@ -22,9 +23,31 @@ pick. Built in 24 hours for the RealPage challenge at the
 > **Not legal advice.** This is a research prototype. It summarises public law from a fixed corpus (as of
 > 2026-10-01) and is not a compliance check. Every answer links to the source; read it before you rely on it.
 
+## Features
+
+<img src="docs/img/address-lookup-phone.png" alt="The same address on a 390 px phone: one-line answers per topic, Listen and Compare links, tab bar" width="220" align="right">
+
+- **Address lookup** with a plain one-line answer per topic; the rules, quotes and sources are one tap away.
+- **As-of date** on every answer: pick any date and every page is re-evaluated for it.
+- **What's changing:** a timeline of laws taking effect, with the addresses each one affects.
+- **Rules explorer:** every rule by place and topic, with coverage, status and conflict flags.
+- **Sources and method:** the audit log, the source texts and how each address was geocoded.
+- **English and Spanish.** Citations and quoted law stay in the original English.
+- **Any US address:** the live Census geocoder finds the legal city; you add the building facts (year built, units)
+  that the answer depends on.
+- **Check a rent increase** (#40): deterministic verdicts for a rent increase, deposit, fee or notice, each with the
+  deciding quote.
+- **Compare two addresses** side by side (#48).
+- **Listen** (#49): the answer read aloud with an ElevenLabs voice, budgeted and cached, with a browser-voice fallback.
+- **My properties:** Google sign-in, saved buildings, an ICS calendar feed and email alerts before a law change
+  (daily digest, one-click unsubscribe).
+- **Installable app (PWA)** that keeps recent answers readable offline.
+
+<br clear="right">
+
 ## Contents
 
-[What it answers](#what-it-answers) · [Results](#results) · [How it works](#how-it-works) ·
+[Features](#features) · [What it answers](#what-it-answers) · [Results](#results) · [How it works](#how-it-works) ·
 [Quickstart](#quickstart) · [Output files](#output-files) · [Responsible design](#responsible-design) ·
 [Scalability path](#scalability-path) · [Repository layout](#repository-layout) ·
 [How it was built](#how-it-was-built) · [Limitations](#limitations) · [License](#license)
@@ -55,25 +78,13 @@ and `conflict_note`.
 
 ## Results
 
-### Auto-scored components (independent QA key)
+### Independent QA key
 
-The official `score.py` and held-out key were not in the starter pack. We therefore wrote our own answer key: 59 rules,
+The official scorer and held-out key are not public. As a regression test we wrote our own answer key: 59 rules,
 19 no-rule findings and 61 sampled addresses, each with a verbatim quote, built from the corpus separately from the
-pipeline ([`qa/`](qa/)). Then we wrote a scorer that follows the brief's scoring rules. Run `python3 qa/score.py`:
-
-| Component | Score | Max | Detail |
-|---|---:|---:|---|
-| Extraction accuracy | 24.7 | 25 | core rules 36/36, all rules 58/59, precision 98% |
-| Address coverage | 20.0 | 20 | 968/968 weighted points; 0 missed "applies", 0 false positives |
-| Citations | 14.7 | 15 | 4455/4545 "applies" answers quote the starter corpus verbatim; the other 90 quote fetched secondary pages ([Limitations](#limitations)) |
-| Change tracking (T1-T5) | 15.0 | 15 | Jaccard 1.00 on every test; T3 conflict flags 90/90 |
-| **Auto-scored total** | **74.4** | **75** | |
-
-> [!NOTE]
-> This is **our** key, not the official one. We wrote it from the same corpus, with no access to the held-out 58 rules
-> or 100 addresses. It cannot catch blind spots that the key and the pipeline share. We also fixed the defects it found:
-> the first scored run was 71.4, and part of the gap to 74.4 is fit to this key. Expect the official score to be lower.
-> The full per-rule and per-address breakdown is in [`qa/report.md`](qa/report.md).
+pipeline ([`qa/`](qa/)). It is **our** key, not the official one, and it cannot catch blind spots that the key and the
+pipeline share. 4455 of 4545 "applies" answers quote the starter corpus verbatim; the other 90 quote fetched secondary
+pages ([Limitations](#limitations)).
 
 ### Change tests
 
@@ -157,7 +168,7 @@ uv sync
 
 # Reproduce rules.json, lookups.json, changes.json offline from recorded model responses (~5 s)
 uv run python -m navigator run-all          # extract (cached) + evaluate + changes + selfcheck -> "SELFCHECK: OK"
-python3 qa/score.py                          # score against the independent QA key -> 74.4 / 75
+python3 qa/score.py                          # regression test against the independent QA key
 
 # Ask questions
 uv run python -m navigator lookup A0016                      # one address, as of 2026-10-01
@@ -193,7 +204,7 @@ uv run python -m navigator ingest-new path/to/ordinance.txt --jurisdiction "Camb
 ```
 
 This copies the text into `new_docs/`, extracts and consolidates it against the existing rules (2 model calls), writes
-the new rules to `rules.json`, re-evaluates all 500 addresses and adds a `new_law` change test (id `T6` by default, `--test-id` to change) to `changes.json`. That test holds the
+the new rules to `rules.json`, re-evaluates all 500 addresses and adds a `new_law` change test (`--test-id` sets its id) to `changes.json`. That test holds the
 affected addresses and the before/after results around the extracted effective date.
 
 **Checks** (the same ones CI runs, see [CONTRIBUTING.md](CONTRIBUTING.md)):
@@ -230,11 +241,11 @@ next to the rules, never among them, and are never evaluated against addresses.
 | Say "unknown" instead of guessing | Coverage runs as code against parcel facts. When a needed fact is missing (no year built, no unit count, "only affordable housing"), the answer is `unknown`: 626 answers in total, never silently dropped. When the choice is between omitting a rule and `unknown`, the evaluator picks `unknown`. | `lookups.json`, the evaluator ([`navigator/evaluate.py`](navigator/evaluate.py)) |
 | Flag conflicts and low confidence for human review | 9 rules carry a conflict flag, which marks 721 address answers. The four open questions from the starter README are all surfaced: Berkeley's two effective dates, NJ FAIR Act preemption of the Jersey City and Hoboken bans, LA's two RSO dates, and no official 2026 CA screening-fee figure. Rules found only in sources we could not read are capped at confidence 0.4 and always evaluate as `unknown`. | `conflict_note` on each rule, selfcheck section 6 |
 | An "as of" date on every answer; keep enacted and pending law apart | Every lookup and every page shows its as-of date. `pending` and `not_yet_effective` are their own results, never `applies`. Failed measures (IP 25-21, Boston H.3744) are kept as records but never applied. | T1, T3, T4, T5 |
-| Cite the source and retrieval date | Every rule carries a citation, source URL, `retrieved_at` and a quote checked by code. Secondary sources (law-firm and news pages) are labelled `secondary_source`. | the "Quote verified" badge in the app |
-| Keep an auditable log | `audit.jsonl` logs every model call: prompt hash, model, raw output, cache hit, dropped and restored candidates. `cache/llm/` stores every response. The app's *Audit & sources* page shows the log and each address's geocoding. | [`output/audit.jsonl`](output/audit.jsonl), `/api/audit` |
+| Cite the source and retrieval date | Every rule carries a citation, source URL, `retrieved_at` and a quote checked by code. Secondary sources (law-firm and news pages) are labelled `secondary_source`. | the "Quote found in source" mark in the app |
+| Keep an auditable log | `audit.jsonl` logs every model call: prompt hash, model, raw output, cache hit, dropped and restored candidates. `cache/llm/` stores every response. The app's *Sources and method* page shows the log and each address's geocoding. | [`output/audit.jsonl`](output/audit.jsonl), `/api/audit` |
 | No invented rules | No rule is hand-coded. A quote that is not in the source drops the record. 29 no-rule findings record the places where the law is silent. | selfcheck sections 1-2 |
 | No non-public data, no scraping against terms | Only the starter corpus, public assessor data, the US Census Geocoder and OpenStreetMap Nominatim (1 request/s, cached). The 33 link-only pages were each requested once, one at a time with a 2 s delay; 14 could be read. Pages that refused automated access (code publishers) were skipped, not worked around. No owner, resident, rent or pricing data. | [`navigator/supplementary.py`](navigator/supplementary.py), [`geo/resolve.py`](geo/resolve.py) |
-| Not legal advice; no evasion help | "Not legal advice" appears on every page (top strip, nav chip, footer), in every API response (also an `X-Not-Legal-Advice` header) and in `rules.json` and `lookups.json`. There is no free-form chat: answers are extracted rule summaries, so the system has no channel for suggesting ways around a rule. The app points renters to tenant organisations, housing agencies or attorneys. | the web app |
+| Not legal advice; no evasion help | "Not legal advice" appears on every page (answer header, footer), in every API response (also an `X-Not-Legal-Advice` header) and in `rules.json` and `lookups.json`. There is no free-form chat: answers are extracted rule summaries, so the system has no channel for suggesting ways around a rule. The app points renters to tenant organisations, housing agencies or attorneys. | the web app |
 | Plain language for renters | Each rule has a plain-language requirement and a key figure. A Spanish view translates summaries, while citations and quoted law stay in the original English. | the EN / ES toggle in the app |
 
 ## Scalability path
@@ -280,7 +291,7 @@ cache/       recorded LLM and geocoder responses for offline, reproducible runs
 data/        addresses_resolved.csv (sample addresses + legal city, county, method, confidence)
 supplementary/text/   link-only sources fetched once (secondary, flagged as such)
 starter/     the organisers' starter pack, unmodified
-docs/        challenge brief (prompt context), architecture, screenshots
+docs/        method note, challenge brief (prompt context), architecture, screenshots
 ```
 
 ## How it was built
@@ -299,13 +310,12 @@ extraction fixes.
 | | |
 |---|---|
 | ![Home](docs/img/home.png) | ![What's changing](docs/img/changes.png) |
-| ![Rules explorer](docs/img/rules.png) | ![Audit & sources](docs/img/audit.png) |
+| ![Rules explorer](docs/img/rules.png) | ![Sources and method](docs/img/audit.png) |
 
 ## Limitations
 
 - **Jersey City and Hoboken algorithmic bans are only in secondary sources.** The corpus links to the ordinances but
-  has no text for them, so the rules quote law-firm or news pages. Those 90 "applies" answers are the citation points
-  we leave on the table.
+  has no text for them, so the rules quote law-firm or news pages. That affects 90 "applies" answers.
 - **Unverified link-only rules evaluate as `unknown`.** Hoboken and Newark rent control and San Diego's source-of-income
   ordinance live on code-publisher sites that refuse automated access. We record them as `unverified_link_only`
   (confidence ≤ 0.4, flagged) and answer `unknown`, not `applies`.
@@ -318,8 +328,7 @@ extraction fixes.
 - **Some old statutes have no effective date in the text** (for example N.J.S.A. 2A:18-61.1), so the field stays empty
   rather than guessed.
 - **The corpus is frozen at 2026-10-01.** Change tracking covers documents you ingest; it does not monitor legislatures.
-- **Our scores come from our own key,** which no lawyer reviewed, and neither did the starter pack's. Treat 74.4 / 75 as
-  a regression test, not a grade.
+- **Our QA key is our own,** and no lawyer reviewed it (nor the starter pack's). It is a regression test, not a grade.
 
 ## License
 
