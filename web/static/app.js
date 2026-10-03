@@ -10,23 +10,23 @@ const RM = matchMedia("(prefers-reduced-motion: reduce)");
 // ------------------------------------------------------------------ i18n --
 const EN = {
   skip: "Skip to content", nla: "Not legal advice.", nla_chip: "Not legal advice",
-  nla_strip: "Information about public law, with citations to the official text.",
+  nla_strip: "Public law, with citations.",
   nla_body: "Information about public law, drawn from official sources and shown with citations. It is not a compliance check and not legal advice. For your situation, contact a tenant organisation, housing agency or attorney.",
   nla_title: "About this information",
   nav_lookup: "Address lookup", nav_changes: "What's changing", nav_rules: "Rules explorer", nav_audit: "Audit & sources",
   search_short: "Search", as_of: "As of", k_move: "move", k_open: "open", k_scope: "500 sample addresses in 9 cities",
-  footer_body: "Answers are generated from a fixed corpus of statutes, ordinances and bills (retrieved 2026-10-01) by an AI extraction pipeline with deterministic coverage checks. They may be incomplete or wrong. Always read the cited source.",
+  footer_body: "AI summaries of official texts retrieved 2026-10-01. They can be incomplete or wrong: always check the cited source.",
   footer_meta: "Hack-Nation 2026 · RealPage challenge prototype · Public data only: no customer, resident or pricing data.",
   answers_as_of: "Answers as of",
-  hero_kicker: "3 states · 10 cities · 6 kinds of rules",
+  hero_kicker: "3 states · 10 cities · 6 kinds of rules", live_title: "What an answer looks like",
   hero_title: "Which rules apply here *today*, and what is *about to change?*",
   hero_lead: "Enter an apartment address. See rent caps, eviction protections, deposit and fee limits, screening rules and algorithmic rent-setting bans, each quoted from the law it comes from.",
   search_ph: "Search by street, city or ID", try_q: "Try", preview_for: "Live answer for", preview_open: "Open full answer",
   pause: "Pause examples", play: "Play examples", prev: "Previous example", next: "Next example",
   man_1: "Every answer quotes", man_2: "the official text, carries its date", man_3: "and says", man_4: "unknown", man_5: "when the data can't tell.",
-  f1_t: "The mailing city is not the legal city.", f1: "“Van Nuys” is Los Angeles. “Dorchester” is Boston. We geocode every address with the US Census and use the city it actually lies in.", f1_l: "See how addresses were resolved",
-  f2_t: "Every rule is tested, never guessed.", f2: "Coverage depends on building age, unit count and dates. Each test runs as code against the building facts. A missing fact gives “unknown”.", f2_l: "Explore all rules",
-  f3_t: "Read the sentence the answer rests on.", f3: "Each rule links to the exact span in the official text, with its retrieval date. The quote is checked word for word against the source.", f3_l: "Open the audit trail",
+  f1_t: "The mailing city is not the legal city.", f1: "“Van Nuys” is Los Angeles. We ask the US Census which city an address is really in.", f1_l: "How addresses were resolved",
+  f2_t: "Tested, never guessed.", f2: "Building age, units and dates are checked in code. Missing data means “unknown”.", f2_l: "Explore all rules",
+  f3_t: "Read the sentence behind it.", f3: "Every rule links to the exact words in the official text.", f3_l: "Open the audit trail",
   try: "Try:", stat_rules: "rules extracted by AI", stat_sources: "source documents read", stat_addr: "sample addresses", stat_cities: "cities in 3 states",
   r_applies: "Applies", r_unknown: "Unknown", r_superseded: "Superseded", r_not_yet_effective: "Not yet in effect", r_pending: "Pending bill", r_failed: "Failed · not law", r_in_force: "In force", r_no_rule: "No rule",
   d_applies: "In force and covers this building", d_unknown: "Depends on a fact the data does not have", d_superseded: "Covered, but a stricter rule governs", d_not_yet_effective: "Enacted, starts later", d_pending: "Proposed, not law",
@@ -34,20 +34,20 @@ const EN = {
   year_built: "Year built", units: "Units", use: "Use", zip: "ZIP", not_in_data: "Not in data", data_from: "Building data:",
   state: "State", county: "County", city: "City", back: "New search",
   rules_here: "Rules at this address", no_rule: "No enacted rule in this category was found at the state or city level for this address in our corpus.",
-  no_rule_pending: "pending proposal listed below", key_value: "Key figure", why: "Why:", missing_fact: "Missing fact:",
+  no_rule_pending: "pending, see below", key_value: "Key figure", why: "Why:", missing_fact: "Missing fact:",
   superseded_by: "A stricter rule governs here:", overrides_here: "Takes precedence over", conflict: "Flagged for human review",
   takes_effect: "Takes effect", effective: "Effective", show_source: "Show the source", retrieved: "Retrieved",
   open_doc: "Open full document", quote_ok: "Quote verified", quote_bad: "Quote not found in source", quote_from: "quote from",
   proposals: "Not law: pending bills and failed proposals", proposals_intro: "Listed so you can see what may change. None of these is in force.",
-  summary: "At a glance", machine_tr: "Machine-translated summary. The legal text and citation stay in English.",
-  changes_kicker: "Change tracking", changes_title: "What's changing", changes_lead: "Laws that start, end or are proposed, and which sample addresses each change touches. Drag the date to see the rules in force on any day.",
+  summary: "At a glance", machine_tr: "Machine-translated. Legal text stays in English.",
+  changes_kicker: "Change tracking", changes_title: "What's changing", changes_lead: "Drag the date to see which laws are in force, and which addresses each change touches.",
   timeline: "Effective-date timeline", in_effect: "in effect", not_yet: "not yet in effect", addresses: "addresses", earlier: "earlier rules, in force before 2024",
   before: "Before", after: "After", affected: "Affected addresses", conflict_flags: "with conflict flag", show_ids: "Show address IDs",
   rule_reach: "Where each rule applies", expected: "Expected", notes: "Notes", no_match_rule: "No matching extracted rule found",
   t_as_of: "Date change", t_boundary: "City boundary", t_pending: "Pending bill", t_negative: "Failed proposal", t_new: "New ordinance", t_new_law: "New ordinance",
-  rules_kicker: "Module A", rules_title: "Rules explorer", rules_lead: "Every rule the pipeline extracted from the corpus, with coverage by jurisdiction and category. Dashed cells are documented findings that no rule exists at that level; “no rule” means nothing was found in the corpus.",
+  rules_kicker: "Module A", rules_title: "Rules explorer", rules_lead: "Every rule the AI found, by place and topic.",
   coverage: "Coverage: jurisdiction × category", none_level: "no rule", finding: "no-rule finding", all: "All", only_conflicts: "Only flagged for review", category: "Category", status: "Status", rules_n: "rules",
-  audit_kicker: "Responsible AI", audit_title: "Audit & sources", audit_lead: "Where every answer comes from: the source documents, the model's extraction log and how each address was resolved.",
+  audit_kicker: "Responsible AI", audit_title: "Audit & sources", audit_lead: "Where each answer comes from, and how it was checked.",
   cat_rent_increase_limits: "Rent increases", q_rent_increase_limits: "How much can the rent go up?",
   cat_just_cause_eviction: "Eviction protections", q_just_cause_eviction: "Does the landlord need a reason to end the tenancy?",
   cat_security_deposits: "Security deposit", q_security_deposits: "How large can the deposit be?",
@@ -59,7 +59,9 @@ const EN = {
   m_census_batch: "US Census batch geocoder", m_census_oneline: "US Census single-line geocoder", "m_osm_nominatim+census_coords": "OpenStreetMap + Census place",
   "m_osm_street_level+census_coords": "Street-level point + Census place", m_postal_city_fallback: "Postal city (fallback)",
   engine_live: "Evaluated live by the deterministic rule engine", engine_precomputed: "From the precomputed lookup run", "engine_precomputed+as_of": "Precomputed lookups, shifted by effective dates",
-  no_rule_found: "No rule at this level", q_filter: "Filter…",
+  show_dates: "Show all {n} dates", details: "Details", show_table: "Show all {n} rules as a table", k_docs: "source documents", k_quotes: "quotes verified", k_geo: "addresses resolved", k_log: "log entries",
+  a_scale: "Adding a new city", a_files: "Output files and citation check", a_geo: "How addresses were resolved", a_docs: "All {n} source documents", a_log: "Extraction log ({n} entries)",
+  legend_nr: "documented: no rule at this level", no_rule_found: "No rule at this level", why_source: "Why & source", depends_on: "Depends on:", overridden_by: "Overridden by", no_rule_short: "No rule found for this address.", q_filter: "Filter…",
   fixture: "Preview data: the extraction pipeline output is not generated yet, so the app shows schema-identical fixture records.",
   toast_asof: "Answers now as of {d}", toast_lang: "Language: English", g_examples: "Examples", g_results: "Addresses", g_pages: "Pages",
   not_found: "Address not found.", sample_addresses: "Sample addresses", error: "Something went wrong loading this view.",
@@ -314,13 +316,12 @@ function heroTitle() {
 function viewHome() {
   const c = META.counts, ex = examplePicks();
   const cities = Object.keys(c.cities).filter((x) => x !== "(outside)").length;
+  const chip = (a) => `<a class="chip" href="#/a/${a.id}">${I.pin}${esc(titleCase(a.street))}<span class="k">${esc(a.city || a.postal_city)}</span></a>`;
   const html = `
   <section class="hero">
-    <div class="hero-eyebrow rise" style="--d:0ms"><span class="eyebrow-pill"><b>AI</b>${esc(t("hero_kicker"))}</span></div>
     <h1>${heroTitle()}</h1>
-    <p class="lead rise" style="--d:520ms">${esc(t("hero_lead"))}</p>
     <div class="hero-stage">
-      <form class="big-search rise" style="--d:640ms" role="search" autocomplete="off">
+      <form class="big-search rise" style="--d:560ms" role="search" autocomplete="off">
         <div class="box">
           <div class="field">
             <input id="hq" type="text" role="combobox" aria-expanded="false" aria-controls="hs" aria-autocomplete="list" spellcheck="false" aria-label="${esc(t("search_ph"))}">
@@ -330,17 +331,21 @@ function viewHome() {
         </div>
         <ul class="suggest" id="hs" role="listbox" hidden></ul>
       </form>
-      <a class="preview" id="pv" href="#/a/${ex[0]?.id}" aria-live="polite">
-        <div class="preview-head swap"><div class="t"></div><div class="s"></div></div>
-        <div class="preview-grid swap"></div>
-      </a>
-      <div class="hero-controls rise" style="--d:900ms">
-        <button class="circle-btn" type="button" data-pv="-1" aria-label="${esc(t("prev"))}">${I.left}</button>
-        <button class="circle-btn" type="button" id="pv-pause" aria-label="${esc(t("pause"))}">${I.pause}</button>
-        <button class="circle-btn" type="button" data-pv="1" aria-label="${esc(t("next"))}">${I.chev}</button>
-      </div>
-      <div class="dots rise" style="--d:1000ms">${ex.map((a, i) => `<button type="button" data-dot="${i}" aria-label="${esc(titleCase(a.street))}"></button>`).join("")}</div>
+      <div class="chips rise" style="--d:760ms">${ex.slice(0, 3).map(chip).join("")}</div>
     </div>
+  </section>
+  <section class="live-demo reveal">
+    <h2 class="sec-title">${esc(t("live_title"))}</h2>
+    <a class="preview" id="pv" href="#/a/${ex[0]?.id}" aria-live="polite">
+      <div class="preview-head swap"><div class="t"></div><div class="s"></div></div>
+      <div class="preview-grid swap"></div>
+    </a>
+    <div class="hero-controls">
+      <button class="circle-btn" type="button" data-pv="-1" aria-label="${esc(t("prev"))}">${I.left}</button>
+      <button class="circle-btn" type="button" id="pv-pause" aria-label="${esc(t("pause"))}">${I.pause}</button>
+      <button class="circle-btn" type="button" data-pv="1" aria-label="${esc(t("next"))}">${I.chev}</button>
+    </div>
+    <div class="dots">${ex.map((a, i) => `<button type="button" data-dot="${i}" aria-label="${esc(titleCase(a.street))}"></button>`).join("")}</div>
   </section>
   <p class="manifesto reveal">${esc(t("man_1"))} <span class="ic">${'<svg viewBox="0 0 24 24"><path d="M7 4h10M7 20h10M12 4v16"/></svg>'}</span> ${esc(t("man_2"))} <span class="ic">${'<svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16"/></svg>'}</span> ${esc(t("man_3"))} <span class="ic u"><svg viewBox="0 0 24 24"><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17v.01"/></svg></span> <span class="soft">“${esc(t("man_4"))}”</span> ${esc(t("man_5"))}</p>
   <section class="features">
@@ -356,15 +361,14 @@ function viewHome() {
       <div><h2>${esc(t("f2_t"))}</h2><p>${esc(t("f2"))}</p><a class="more" href="#/rules">${esc(t("f2_l"))} ${I.arrow}</a></div>
     </div>
     <div class="feature reveal">
-      <div class="art"><div class="quoteart">… the owner shall not, over the course of any 12-month period, increase the gross rental rate <mark>more than 5 percent plus the percentage change in the cost of living, or 10 percent, whichever is lower</mark> …
-        <div class="src">Cal. Civ. Code § 1947.12 · leginfo.legislature.ca.gov <span class="verified">${I.check}${t("quote_ok")}</span></div></div></div>
+      <div class="art"><div class="quoteart">… shall not … increase the gross rental rate <mark>more than 5 percent plus the percentage change in the cost of living, or 10 percent, whichever is lower</mark> …
+        <div class="src">Cal. Civ. Code § 1947.12 <span class="verified">${I.check}${t("quote_ok")}</span></div></div></div>
       <div><h2>${esc(t("f3_t"))}</h2><p>${esc(t("f3"))}</p><a class="more" href="#/audit">${esc(t("f3_l"))} ${I.arrow}</a></div>
     </div>
   </section>
   <section class="stats">
     ${[[c.rules, "stat_rules"], [c.documents, "stat_sources"], [c.addresses, "stat_addr"], [cities, "stat_cities"]].map(([n, k], i) => `<div class="stat reveal" style="--i:${i}"><b data-count="${n}">${n}</b><span>${esc(t(k))}</span></div>`).join("")}
-  </section>
-  <div class="legend reveal">${["applies", "unknown", "superseded", "not_yet_effective", "pending"].map((r) => `<span>${badge(r)} ${esc(t("d_" + r))}</span>`).join("")}</div>`;
+  </section>`;
   return swap(html, () => initHome(ex));
 }
 function initHome(ex) {
@@ -449,31 +453,64 @@ function srcBlock(r, extraMeta = "") {
         ${extraMeta}
       </div></div></details>`;
 }
+const firstSentence = (txt) => {
+  const m = String(txt || "").match(/^(.{20,}?[.!?])(\s+[A-Z(“"]|$)/s);
+  return m ? m[1] : String(txt || "");
+};
+function hintChip(item) {
+  const r = item.rule;
+  if (item.result === "unknown") return `<span class="hint unknown">${I.q}${t("depends_on")} ${esc(item.missing_fact || t("not_in_data"))}</span>`;
+  if (item.result === "superseded" && item.superseded_by?.length) return `<span class="hint superseded">${I.layers}${t("overridden_by")} ${esc(item.superseded_by[0].title)}</span>`;
+  if (item.result === "not_yet_effective") return `<span class="hint nye">${I.cal}${t("takes_effect")} ${esc(fmtDate(r.effective_date_norm || r.effective_date))}</span>`;
+  return "";
+}
 function ruleBlock(item, i = 0) {
   const r = item.rule, res = item.result;
+  const full = r.requirement_display || r.requirement || "";
+  const short = firstSentence(full);
   let callouts = "";
   if (res === "unknown") callouts += `<div class="callout unknown">${I.q}<div><b>${t("missing_fact")}</b> ${esc(item.missing_fact || "")}. ${esc(item.explanation || "")}</div></div>`;
-  if (res === "superseded" && item.superseded_by?.length) callouts += `<div class="callout superseded">${I.layers}<div><b>${t("superseded_by")}</b> ${item.superseded_by.map((s) => `${esc(s.title)} <span class="mono">${esc(s.id)}</span>`).join(", ")}. ${esc(r.interaction_display || r.interaction || "")}</div></div>`;
-  if (item.overrides_here?.length) callouts += `<div class="callout superseded">${I.layers}<div>${t("overrides_here")} ${item.overrides_here.map((s) => `${esc(s.title)} <span class="mono">${esc(s.id)}</span>`).join(", ")}.</div></div>`;
-  if (res === "not_yet_effective") callouts += `<div class="callout nye">${I.cal}<div><b>${t("takes_effect")} ${esc(fmtDate(r.effective_date_norm || r.effective_date))}.</b> ${esc(item.explanation || "")}</div></div>`;
+  if (res === "superseded" && item.superseded_by?.length) callouts += `<div class="callout superseded">${I.layers}<div><b>${t("superseded_by")}</b> ${item.superseded_by.map((x) => `${esc(x.title)} <span class="mono">${esc(x.id)}</span>`).join(", ")}. ${esc(r.interaction_display || r.interaction || "")}</div></div>`;
+  if (item.overrides_here?.length) callouts += `<div class="callout superseded">${I.layers}<div>${t("overrides_here")} ${item.overrides_here.map((x) => `${esc(x.title)} <span class="mono">${esc(x.id)}</span>`).join(", ")}.</div></div>`;
+  if (res === "not_yet_effective" && item.explanation) callouts += `<div class="callout nye">${I.cal}<div>${esc(item.explanation)}</div></div>`;
   if (item.conflict_flag) callouts += `<div class="callout conflict">${I.alert}<div><b>${t("conflict")}.</b> ${esc(r.conflict_note_display || r.conflict_note || "Possible conflict between rules or sources.")}</div></div>`;
   const why = ["applies", "superseded", "pending", "failed"].includes(res) && item.explanation ? `<p class="why"><b>${t("why")}</b> ${esc(item.explanation)}</p>` : "";
   const live = res === "applies" || res === "pending" ? " live" : "";
+  const src = r.source || {};
   return `<article class="rule ${esc(res)}">
-    <div class="rule-top">${badge(res, "anim" + live, i)}${item.conflict_flag ? `<span class="badge conflict anim" style="--i:${i}">${t("conflict")}</span>` : ""}${levelTag(r)}</div>
+    <div class="rule-top">${badge(res, "anim" + live, i)}${item.conflict_flag ? `<span class="flag" title="${esc(t("conflict"))}">${I.alert}<span class="sr">${esc(t("conflict"))}</span></span>` : ""}<span class="lvl-tag">${esc(r.level === "state" ? r.jurisdiction : String(r.jurisdiction).replace(/, ..$/, ""))}</span></div>
     <h4 class="rule-title">${esc(r.title_display || r.title)}</h4>
-    <p class="req">${esc(r.requirement_display || r.requirement)}</p>
-    ${r.key_value ? `<div class="kv-line"><span>${t("key_value")}</span><b>${esc(r.key_value_display || r.key_value)}</b></div>` : ""}
-    ${why}${callouts}
-    <div class="meta"><span class="cite">${esc(r.citation)}</span>${r.effective_date ? `<span>${t("effective")} ${esc(fmtDate(r.effective_date))}</span>` : ""}${confMeter(r.confidence)}${verified(r.quote_check)}<span class="mono">${esc(r.team_rule_id)}</span></div>
-    ${srcBlock(r)}
+    <p class="req">${esc(short)}</p>
+    ${r.key_value ? `<p class="kfig">${esc(r.key_value_display || r.key_value)}</p>` : ""}
+    ${hintChip(item)}
+    <details class="src more"><summary>${I.chev}${t("why_source")}</summary><div class="src-body">
+      ${short !== full ? `<p class="req-full">${esc(full)}</p>` : ""}
+      ${why}${callouts}
+      <blockquote class="quote">${esc(r.quoted_span)}</blockquote>
+      <div class="src-meta">
+        <span class="cite">${esc(r.citation)}</span>
+        ${r.effective_date ? `<span>${t("effective")} ${esc(fmtDate(r.effective_date))}</span>` : ""}
+        ${confMeter(r.confidence)}${verified(r.quote_check)}
+      </div>
+      <div class="src-meta">
+        ${r.source_url ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(host(r.source_url))} ${I.ext}</a>` : ""}
+        <span>${t("retrieved")} ${esc(src.retrieved_at || r.retrieved_at || "n/a")}</span>
+        ${src.secondary ? `<span class="badge unknown">${t("secondary")}</span>` : ""}
+        ${src.has_text ? `<a href="#" data-doc="${esc(r.span_doc_id || r.quoted_span_doc_id || r.source_doc_id)}" data-rule="${esc(r.team_rule_id || "")}">${t("open_doc")} →</a>` : ""}
+        <span class="mono">${esc(r.team_rule_id)} · ${esc(r.source_doc_id || "")}</span>
+      </div>
+    </div></details>
   </article>`;
 }
 function noRuleBlock(f) {
-  return `<article class="rule"><div class="rule-top">${badge("no_rule")}<span class="lvl-tag">${esc(f.jurisdiction)} · ${esc(t(f.level || "state"))}</span></div>
-    <p class="req">${esc(f.finding_display || f.finding)}</p>
-    <div class="meta">${f.citation ? `<span class="cite">${esc(f.citation)}</span>` : ""}${confMeter(f.confidence)}${verified(f.quote_check)}</div>
-    ${f.quoted_span ? srcBlock({ ...f, span_doc_id: f.quoted_span_doc_id }, `<span class="mono">${esc(f.finding_id || "")}</span>`) : ""}
+  return `<article class="rule"><div class="rule-top">${badge("no_rule")}<span class="lvl-tag">${esc(f.jurisdiction)}</span></div>
+    <p class="req">${esc(firstSentence(f.finding_display || f.finding))}</p>
+    ${f.quoted_span ? `<details class="src more"><summary>${I.chev}${t("why_source")}</summary><div class="src-body">
+      <p class="req-full">${esc(f.finding_display || f.finding)}</p>
+      <blockquote class="quote">${esc(f.quoted_span)}</blockquote>
+      <div class="src-meta">${f.citation ? `<span class="cite">${esc(f.citation)}</span>` : ""}${confMeter(f.confidence)}${verified(f.quote_check)}</div>
+      <div class="src-meta">${f.source_url ? `<a href="${esc(f.source_url)}" target="_blank" rel="noopener">${esc(host(f.source_url))} ${I.ext}</a>` : ""}<span>${t("retrieved")} ${esc(f.source?.retrieved_at || "n/a")}</span><span class="mono">${esc(f.finding_id || "")} · ${esc(f.quoted_span_doc_id || f.source_doc_id || "")}</span></div>
+    </div></details>` : ""}
   </article>`;
 }
 function addressSkeleton() {
@@ -496,41 +533,38 @@ async function viewAddress(id) {
   const proposals = d.categories.flatMap((c) => [...c.pending, ...c.not_law]);
   const tiles = j.stack.map((s) => {
     const code = s.level === "state" ? s.code : s.level === "county" ? I.globe : I.building;
-    return `<div class="trow"><span class="tile ${s.level === "city" ? "navy" : ""}">${code}</span><div><div class="l1">${esc(t(s.name))}</div><div class="l2">${esc(t(s.level))}${s.note ? " · " + esc(t(s.note)) : ""}</div></div></div>`;
+    return `<div class="trow"${s.note ? ` title="${esc(t(s.note))}"` : ""}><span class="tile ${s.level === "city" ? "navy" : ""}">${code}</span><div><div class="l1">${esc(t(s.name))}</div><div class="l2">${esc(t(s.level))}</div></div></div>`;
   }).join("");
   let k = 0;
+  const factPill = (ico, label, v) => `<div class="fact ${v ? "" : "miss"}">${ico}<div><b>${v ? esc(v) : esc(t("not_in_data"))}</b><span>${esc(label)}</span></div></div>`;
   const html = `
   <div class="crumbs"><a class="pill line back" href="#/">${I.back}${t("back")}</a><button class="pill ghost" type="button" data-cmdk>${I.search}<span>${t("search_ph")}</span><kbd>/</kbd></button></div>
   <div class="addr-layout">
     <aside class="addr-side stagger" style="--step:70ms">
-      <div class="addr-title"><div class="eyebrow">${esc(a.address_id)} · ${esc(a.source_dataset || "")}</div><h1>${esc(titleCase(a.street_address))}</h1><p>${esc(a.postal_city)}, ${esc(a.state)} ${esc(a.zip || "")}</p></div>
+      <div class="addr-title"><h1>${esc(titleCase(a.street_address))}</h1><p>${esc(a.postal_city)}, ${esc(a.state)} ${esc(a.zip || "")}</p></div>
       <div class="tile-rows" aria-label="${t("jurisdiction")}">${tiles}</div>
-      <section class="panel"><h2>${t("how_resolved")}</h2>
-        <div class="resolve-note"><b>${esc(methodLabel)}</b>${j.postal_differs ? ` · <b>${esc(t("mailing_to_legal").replace("{p}", a.postal_city).replace("{c}", j.city))}</b>` : ""}</div>
+      <div class="factrow">${factPill(I.cal, t("year_built"), a.year_built)}${factPill(I.building, t("units"), a.units)}</div>
+      ${a.missing.includes("year_built") || a.missing.includes("units") ? `<p class="src-line">${esc(t("missing_note"))}</p>` : ""}
+      <details class="src more side-more"><summary>${I.chev}${t("how_resolved")}</summary><div class="src-body">
+        <div class="resolve-note"><b>${esc(methodLabel)}</b>${j.postal_differs ? ` · ${esc(t("mailing_to_legal").replace("{p}", a.postal_city).replace("{c}", j.city))}` : ""}</div>
         <div class="resolve-note muted" style="margin-top:6px;font-size:12.5px">${esc(j.note)}</div>
-        <div class="meta" style="margin-top:10px"><span class="conf">${t("confidence")} <span class="meter"><i style="width:${pctOf(j.confidence)}%"></i></span> ${pctOf(j.confidence)}%</span>
-        ${j.lat ? `<a href="https://www.openstreetmap.org/?mlat=${j.lat}&mlon=${j.lon}#map=17/${j.lat}/${j.lon}" target="_blank" rel="noopener">${I.pin} ${(+j.lat).toFixed(4)}, ${(+j.lon).toFixed(4)}</a>` : ""}</div>
-      </section>
-      <section class="panel"><h2>${t("building")}</h2>
-        <dl class="facts">${fact("year_built", t("year_built"))}${fact("units", t("units"))}<dt>${t("use")}</dt><dd>${a.use_description ? esc(a.use_description) : `<span class="missing">${t("not_in_data")}</span>`}</dd></dl>
-        ${a.missing.includes("year_built") || a.missing.includes("units") ? `<p class="src-line">${esc(t("missing_note"))}</p>` : ""}
-      </section>
-      <section class="panel"><h2>${t("summary")}</h2>
-        <div class="sum-row">${sumOrder.filter((r) => d.summary[r]).map((r, i) => `<span class="badge ${r} anim" style="--i:${i}">${d.summary[r]} · ${esc(resLabel(r))}</span>`).join("")}${d.conflicts ? `<span class="badge conflict anim" style="--i:5">${d.conflicts} · ${t("conflict")}</span>` : ""}</div>
-      </section>
+        <div class="src-meta"><span class="conf">${t("confidence")} <span class="meter"><i style="width:${pctOf(j.confidence)}%"></i></span> ${pctOf(j.confidence)}%</span>
+        ${j.lat ? `<a href="https://www.openstreetmap.org/?mlat=${j.lat}&mlon=${j.lon}#map=17/${j.lat}/${j.lon}" target="_blank" rel="noopener">${(+j.lat).toFixed(4)}, ${(+j.lon).toFixed(4)} ${I.ext}</a>` : ""}</div>
+        <dl class="facts" style="margin-top:12px"><dt>${t("use")}</dt><dd>${esc(a.use_description || "—")}</dd><dt>ID</dt><dd class="mono">${esc(a.address_id)}</dd><dt>${t("data_from")}</dt><dd>${esc(a.source_dataset || "")}</dd></dl>
+      </div></details>
     </aside>
     <section>
       <div class="answer-head">
-        <div><div class="stack-line">${j.stack.map((s) => `<b>${esc(t(s.name))}</b>`).join(" › ")}</div><h2>${t("rules_here")}</h2></div>
-        <div><span class="asof-tag">${I.cal}${t("answers_as_of")} ${esc(fmtDate(d.as_of))}</span><div class="engine">${esc(t("engine_" + d.engine))}</div></div>
+        <div><h2>${t("rules_here")}</h2></div>
+        <div><span class="asof-tag" title="${esc(t("engine_" + d.engine))}">${I.cal}${t("answers_as_of")} ${esc(fmtDate(d.as_of))}</span></div>
       </div>
       <nav class="jump" aria-label="${t("summary")}">${d.categories.map((c) => `<a href="#h-${c.id}" data-jump="h-${c.id}">${I.cat[c.id]}<span>${esc(t("cat_" + c.id))}</span><span class="dots-mini">${(c.enacted.length ? c.enacted.map((i) => i.result) : c.no_rule_findings?.length ? ["superseded"] : []).slice(0, 4).map((r) => `<i class="dot ${r}"></i>`).join("")}</span></a>`).join("")}</nav>
-      ${lang !== "en" ? `<div class="callout nye" style="margin:0 0 14px">${I.globe}<div>${t("machine_tr")}</div></div>` : ""}
+      ${lang !== "en" ? `<p class="tr-note">${I.globe}${t("machine_tr")}</p>` : ""}
       <div class="cats">
         ${d.categories.map((c, ci) => `<section class="cat reveal" style="--i:${Math.min(ci, 3)}" aria-labelledby="h-${c.id}">
-          <header class="cat-head"><span class="cat-ico">${I.cat[c.id]}</span><div><h3 id="h-${c.id}">${esc(t("cat_" + c.id))}</h3><p class="q">${esc(t("q_" + c.id))}</p></div>
+          <header class="cat-head"><span class="cat-ico">${I.cat[c.id]}</span><div><h3 id="h-${c.id}">${esc(t("q_" + c.id))}</h3><p class="q">${esc(t("cat_" + c.id))}</p></div>
             <div class="count">${c.enacted.map((i) => `<span class="dot ${i.result}" title="${esc(resLabel(i.result))}"></span>`).join("")}</div></header>
-          <div class="rules-list">${c.enacted.length ? c.enacted.map((it) => ruleBlock(it, k++ % 4)).join("") : c.no_rule_findings?.length ? c.no_rule_findings.map(noRuleBlock).join("") : `<div class="norule">${I.info}<span>${t("no_rule")}${c.pending.length ? ` (${c.pending.length} ${t("no_rule_pending")})` : ""}</span></div>`}</div>
+          <div class="rules-list">${c.enacted.length ? c.enacted.map((it) => ruleBlock(it, k++ % 4)).join("") : c.no_rule_findings?.length ? c.no_rule_findings.map(noRuleBlock).join("") : `<div class="norule">${I.info}<span>${t("no_rule_short")}${c.pending.length ? ` · ${c.pending.length} ${t("no_rule_pending")}` : ""}</span></div>`}</div>
         </section>`).join("")}
       </div>
       ${proposals.length ? `<section class="proposals reveal"><div class="inner">
@@ -598,15 +632,18 @@ function testCard(x, i) {
     : `<div style="grid-column: span 2"><h3>${t("rule_reach")} <b>${esc(fmtDate(x.after_date))}</b></h3><div class="rr">${x.our_rule_ids.map((r) => bars(x.after[r], r)).join("") || `<p class="muted">${t("none_level")}</p>`}</div></div>`;
   const ids = x.affected_address_ids;
   return `<article class="test reveal" style="--i:${Math.min(i, 2)}" id="test-${esc(x.test_id)}">
-    <div class="test-head"><div class="test-id">${esc(x.test_id)}</div><div><div class="type-tag">${esc(t("t_" + x.type))}</div><h2>${esc(x.title)}</h2><p class="exp"><b>${t("expected")}:</b> ${esc(x.expected_behavior)}</p></div></div>
+    <div class="test-head"><div class="test-id">${esc(x.test_id)}</div><div><div class="type-tag">${esc(t("t_" + x.type))}</div><h2>${esc(x.title)}</h2></div></div>
     <div class="rchips">${chips}</div>
     <div class="ba">${left}
       <div><h3>${t("affected")}</h3><div class="big-num" data-count="${x.affected_count}">${x.affected_count}</div>
         ${x.conflict_flag_address_ids.length ? `<div style="margin-top:8px"><span class="badge conflict">${x.conflict_flag_address_ids.length} ${t("conflict_flags")}</span></div>` : ""}
         ${cityBars(x.affected_by_city)}</div>
     </div>
-    ${x.notes ? `<details class="src" style="margin-top:14px"><summary>${I.chev}${t("notes")}</summary><div class="src-body"><p class="test-foot">${esc(x.notes)}</p></div></details>` : ""}
-    ${ids.length ? `<details class="src"><summary>${I.chev}${t("show_ids")} (${ids.length})</summary><div class="src-body"><div class="idlist">${ids.map((id) => `<a class="chip" href="#/a/${id}">${id}</a>`).join("")}</div></div></details>` : ""}
+    <details class="src more" style="margin-top:14px"><summary>${I.chev}${t("details")}</summary><div class="src-body">
+      <p class="test-foot"><b>${t("expected")}:</b> ${esc(x.expected_behavior)}</p>
+      ${x.notes ? `<p class="test-foot">${esc(x.notes)}</p>` : ""}
+      ${ids.length ? `<div class="idlist">${ids.map((id) => `<a class="chip" href="#/a/${id}">${id}</a>`).join("")}</div>` : ""}
+    </div></details>
   </article>`;
 }
 async function viewChanges() {
@@ -623,10 +660,10 @@ async function viewChanges() {
         <input type="range" class="tl-range" id="tl-range" min="0" max="${TL_MAX}" value="${dayIdx(asOf)}" aria-label="${t("as_of")}">
         <div class="tl-years">${[2024, 2025, 2026, 2027, 2028].map((y) => `<span style="left:${pct(y + "-01-01")}%">${y}</span>`).join("")}</div>
       </div>
-      <div class="rail" id="rail">
+      <details class="src rail-more"><summary>${I.chev}${t("show_dates").replace("{n}", tl.length)}</summary><div class="src-body"><div class="rail" id="rail">
         ${older.length ? `<div class="rail-item past" data-date="${older[older.length - 1].date}"><span class="d">${esc(older[0].date.slice(0, 4))}–${esc(older[older.length - 1].date.slice(0, 4))}</span><div><div class="t">${older.length} ${t("earlier")}</div><div class="j">${older.map((e) => esc(e.title)).join(" · ")}</div></div><span></span></div>` : ""}
         ${shown.map((e) => `<div class="rail-item" data-date="${e.date}"><span class="d">${esc(fmtDate(e.date))}</span><div><div class="t">${esc(e.title)}</div><div class="j">${esc(e.jurisdiction)} · ${e.addresses} ${t("addresses")} · <span class="mono">${esc(e.id)}</span></div></div><span class="st"></span></div>`).join("")}
-      </div>
+      </div></div></details>
     </section>
     <div class="tests">${tests.map(testCard).join("")}</div>`;
   await swap(html, () => {
@@ -679,16 +716,18 @@ async function viewRules() {
   const catLabel = Object.fromEntries(cov.categories.map((c) => [c.id, t("cat_" + c.id)]));
   const html = `
     <div class="page-head stagger"><span class="kicker">${t("rules_kicker")}</span><h1>${t("rules_title")}</h1><p>${t("rules_lead")}</p></div>
+    <section class="kpis reveal">${[[rules.length, t("rules_n"), ""], [rules.filter((r) => r.status === "in_force").length, resLabel("in_force"), "in_force"], [rules.filter((r) => r.status === "not_yet_effective").length, resLabel("not_yet_effective"), "not_yet_effective"], [rules.filter((r) => r.status === "pending").length, resLabel("pending"), "pending"], [rules.filter((r) => r.conflict_flag).length, t("conflict"), "conflict"]].map(([n, l, c]) => `<div class="kpi"><b>${n}</b><span>${c ? `<i class="dot ${c === "conflict" ? "unknown" : c}"></i>` : ""}${esc(l)}</span></div>`).join("")}</section>
     <section class="card matrix-wrap reveal"><h2>${t("coverage")}</h2>
       <table class="matrix"><thead><tr><th><span class="sr">${t("jurisdiction")}</span></th>${cov.categories.map((c) => `<th>${esc(catLabel[c.id])}</th>`).join("")}</tr></thead>
       <tbody>${cov.jurisdictions.map((j) => `<tr class="${j.length === 2 ? "state" : "city"}"><th>${esc(j)}</th>${cov.categories.map((c) => {
         const cell = cov.cells[j]?.[c.id] || [];
         const nr = cov.no_rule_cells?.[j]?.[c.id];
-        return `<td>${cell.length ? `<button type="button" data-j="${esc(j)}" data-c="${c.id}" title="${esc(cell.map((x) => x.id + ": " + x.title).join("\n"))}">${cell.map((x) => `<span class="dot ${x.status}"></span>`).join("")} ${cell.length}</button>` : nr ? `<span class="none finding" title="${esc(nr.finding + " (" + (nr.citation || "") + ")")}">∅ ${t("finding")}</span>` : `<span class="none">— ${t("none_level")}</span>`}</td>`;
+        return `<td>${cell.length ? `<button type="button" data-j="${esc(j)}" data-c="${c.id}" title="${esc(cell.map((x) => x.id + ": " + x.title).join("\n"))}">${cell.map((x) => `<span class="dot ${x.status}"></span>`).join("")} ${cell.length}</button>` : nr ? `<span class="none finding" title="${esc(t("finding") + ": " + nr.finding + " (" + (nr.citation || "") + ")")}">∅<span class="sr"> ${t("finding")}</span></span>` : `<span class="none" title="${esc(t("none_level"))}">·<span class="sr"> ${t("none_level")}</span></span>`}</td>`;
       }).join("")}</tr>`).join("")}</tbody></table>
-      <div class="legend" style="justify-content:flex-start;padding:12px 16px 8px;margin:0">${["in_force", "not_yet_effective", "pending", "failed"].map((s) => `<span><span class="dot ${s}"></span>${esc(resLabel(s))}</span>`).join("")}</div>
+      <div class="legend" style="justify-content:flex-start;padding:12px 16px 8px;margin:0">${["in_force", "not_yet_effective", "pending", "failed"].map((s) => `<span><span class="dot ${s}"></span>${esc(resLabel(s))}</span>`).join("")}<span><span class="none finding">∅</span>${esc(t("legend_nr"))}</span><span>·&nbsp;${esc(t("none_level"))}</span></div>
     </section>
-    <section class="card reveal" style="padding:18px 18px 8px">
+    <details class="card table-card reveal" id="rules-table"><summary class="table-sum">${I.chev}<span>${t("show_table").replace("{n}", rules.length)}</span></summary>
+    <div style="padding:4px 18px 8px">
       <div class="filters">
         <select id="f-j" aria-label="${t("jurisdiction")}"><option value="">${t("jurisdiction")}: ${t("all")}</option>${cov.jurisdictions.map((j) => `<option>${esc(j)}</option>`).join("")}</select>
         <select id="f-c" aria-label="${t("category")}"><option value="">${t("category")}: ${t("all")}</option>${cov.categories.map((c) => `<option value="${c.id}">${esc(catLabel[c.id])}</option>`).join("")}</select>
@@ -698,7 +737,7 @@ async function viewRules() {
       </div>
       <p class="count-note" id="rc"></p>
       <div class="table-wrap"><table class="rtable"><thead><tr><th>ID</th><th>${t("jurisdiction")}</th><th>${t("category")}</th><th>Rule</th><th>${t("key_value")}</th><th>${t("status")}</th><th>${t("effective")}</th><th>${t("confidence")}</th><th>Quote</th><th>${t("addresses")}</th></tr></thead><tbody id="rt"></tbody></table></div>
-    </section>`;
+    </div></details>`;
   await swap(html, () => {
     $$(".page-head.stagger > *").forEach((el, i) => el.style.setProperty("--i", i));
     const draw = () => {
@@ -717,7 +756,7 @@ async function viewRules() {
     $("#f-s").onchange = (e) => { RF.status = e.target.value; draw(); };
     $("#f-q").oninput = (e) => { RF.q = e.target.value; draw(); };
     $("#f-x").onchange = (e) => { RF.conflicts = e.target.checked; draw(); };
-    $$(".matrix button").forEach((b) => b.onclick = () => { RF.jur = b.dataset.j; RF.cat = b.dataset.c; sync(); $("#rt").closest(".card").scrollIntoView({ behavior: RM.matches ? "auto" : "smooth", block: "start" }); });
+    $$(".matrix button").forEach((b) => b.onclick = () => { RF.jur = b.dataset.j; RF.cat = b.dataset.c; sync(); $("#rules-table").open = true; $("#rules-table").scrollIntoView({ behavior: RM.matches ? "auto" : "smooth", block: "start" }); });
     const openRule = (id) => {
       const r = rules.find((x) => x.team_rule_id === id);
       const cc = r.coverage_conditions && typeof r.coverage_conditions === "object" ? JSON.stringify(r.coverage_conditions) : r.coverage_conditions;
@@ -741,37 +780,43 @@ async function viewAudit() {
   progress(false);
   const ver = d.verification, vt = Object.values(ver).reduce((a, b) => a + b, 0);
   const steps = [
-    ["Ingest", `${d.documents.length} documents: official text with URL, retrieval date and SHA-256; secondary and link-only sources marked.`],
-    ["Extract (LLM)", "An LLM reads each document and emits rule records in the challenge schema. Every quoted span must be found verbatim in the source."],
-    ["Resolve", "US Census Geocoder (batch) → incorporated place, county, state. The mailing city is never trusted alone."],
-    ["Apply (code)", "Coverage tests (year built, units, dates, overrides) run as code, not by the model. Missing fact → unknown."],
-    ["Track change", "Any as-of date is re-evaluated. Change tests list affected addresses and conflict flags."],
+    ["Ingest", `${d.documents.length} official documents, each with URL and date.`],
+    ["Extract", "AI turns each text into rule records with exact quotes."],
+    ["Resolve", "US Census finds each address's legal city."],
+    ["Apply", "Code checks every rule against each building."],
+    ["Track", "Any date re-evaluated; changes listed per address."],
   ];
+  const geoTotal = Object.values(d.geocoding).reduce((a, b) => a + b, 0);
+  const verifiedN = (ver.exact || 0) + (ver.normalized || 0);
   const html = `
     <div class="page-head stagger"><span class="kicker">${t("audit_kicker")}</span><h1>${t("audit_title")}</h1><p>${t("audit_lead")}</p></div>
-    <section class="pipeline stagger" style="--step:80ms;--start:200ms">${steps.map((s, i) => `<div class="step" style="--i:${i}"><div class="n">0${i + 1}</div><h2>${esc(s[0])}</h2><p>${esc(s[1])}</p></div>`).join("")}</section>
-    <section class="card apanel reveal" style="margin-bottom:22px"><h2>Adding a jurisdiction</h2>
-      <div class="scal">
-        <div><h3>1 · Add sources</h3><p>Drop official ordinance or statute text into the corpus with its URL and retrieval date. No code changes.</p></div>
-        <div><h3>2 · Extract</h3><p>The same prompts and schema extract its rules. Quotes are checked against the text. Results are cached by prompt hash.</p></div>
-        <div><h3>3 · Resolve</h3><p>The Census Geocoder covers every US address, so a new city only needs its Census place name.</p></div>
-        <div><h3>4 · Re-run</h3><p>Coverage tests and change tracking are deterministic code, re-run in seconds for all addresses and any date.</p></div>
-      </div></section>
-    <section class="grid2">
-      <div class="card apanel reveal"><h2>Output files</h2><div class="files">${Object.entries(d.sources).map(([n, s]) => `<div><span class="mono">${esc(n)}</span><span>${s.kind === "pipeline" ? `<span class="badge applies">pipeline</span>` : s.kind === "fixture" ? `<span class="badge unknown">fixture</span>` : `<span class="badge failed">missing</span>`} <span class="muted" style="font-size:12px">${esc(s.modified || "")}</span></span></div>`).join("")}</div>
-        <h2 style="margin-top:20px">Citation check</h2>
-        <p style="font-size:14px"><span class="big-num" style="font-size:40px">${(ver.exact || 0) + (ver.normalized || 0)}</span> <span class="muted">/ ${vt}</span> quoted spans found in the source text${ver.not_found ? `; <b style="color:var(--wrn)">${ver.not_found} not found (flagged)</b>` : ""}${ver.no_text ? `; ${ver.no_text} sources have no offline text` : ""}.</p></div>
-      <div class="card apanel reveal" style="--i:1"><h2>Address resolution</h2><div class="files">${Object.entries(d.geocoding).map(([k, v]) => `<div><span>${esc(t("m_" + k).startsWith("m_") ? k : t("m_" + k))}</span><b>${v}</b></div>`).join("")}</div>
-        <details class="src" style="margin-top:14px"><summary>${I.chev}Mailing city ≠ legal city, and non-standard matches (${d.geocoding_notes.length})</summary><div class="src-body">
-        <div class="table-wrap" style="max-height:300px;overflow:auto;margin-top:8px"><table class="rtable"><thead><tr><th>ID</th><th>Address</th><th>Mailing</th><th>Legal city</th><th>Method</th></tr></thead><tbody>${d.geocoding_notes.map((g) => `<tr><td class="mono"><a href="#/a/${g.id}">${g.id}</a></td><td>${esc(g.street)}</td><td>${esc(g.postal_city)}</td><td><b>${esc(g.city || "outside scope")}</b></td><td class="s" title="${esc(g.note)}">${esc(g.method)}</td></tr>`).join("")}</tbody></table></div></div></details></div>
+    <section class="kpis reveal">
+      <div class="kpi"><b>${d.documents.length}</b><span>${esc(t("k_docs"))}</span></div>
+      <div class="kpi"><b>${verifiedN}/${vt}</b><span><i class="dot applies"></i>${esc(t("k_quotes"))}</span></div>
+      <div class="kpi"><b>${geoTotal}</b><span>${esc(t("k_geo"))}</span></div>
+      <div class="kpi"><b>${d.audit_total}</b><span>${esc(t("k_log"))}</span></div>
     </section>
-    <section class="card apanel reveal" style="margin-bottom:22px"><h2>Source documents</h2>
+    <section class="pipeline stagger" style="--step:80ms;--start:200ms">${steps.map((x, i) => `<div class="step" style="--i:${i}"><div class="n">0${i + 1}</div><h2>${esc(x[0])}</h2><p>${esc(x[1])}</p></div>`).join("")}</section>
+    <div class="stack-details">
+    <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_scale")}</span></summary><div class="apanel" style="padding-top:4px">
+      <div class="scal">
+        <div><h3>1 · Add sources</h3><p>Drop official text into the corpus with its URL and date. No code changes.</p></div>
+        <div><h3>2 · Extract</h3><p>Same prompts and schema; quotes checked; results cached by prompt hash.</p></div>
+        <div><h3>3 · Resolve</h3><p>The Census covers every US address; a new city needs only its place name.</p></div>
+        <div><h3>4 · Re-run</h3><p>Coverage and change tracking re-run in seconds for any date.</p></div>
+      </div></div></details>
+    <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_files")}</span></summary><div class="apanel" style="padding-top:4px"><div class="files">${Object.entries(d.sources).map(([n, src]) => `<div><span class="mono">${esc(n)}</span><span>${src.kind === "pipeline" ? `<span class="badge applies">pipeline</span>` : src.kind === "fixture" ? `<span class="badge unknown">fixture</span>` : `<span class="badge failed">missing</span>`} <span class="muted" style="font-size:12px">${esc(src.modified || "")}</span></span></div>`).join("")}</div>
+      <p style="font-size:14px;margin-top:14px">${verifiedN} / ${vt} quoted spans found in the source text${ver.not_found ? `; <b style="color:var(--wrn)">${ver.not_found} not found (flagged)</b>` : ""}${ver.no_text ? `; ${ver.no_text} sources have no offline text` : ""}.</p></div></details>
+    <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_geo")}</span></summary><div class="apanel" style="padding-top:4px"><div class="files">${Object.entries(d.geocoding).map(([k, v]) => `<div><span>${esc(t("m_" + k).startsWith("m_") ? k : t("m_" + k))}</span><b>${v}</b></div>`).join("")}</div>
+        <div class="table-wrap" style="max-height:320px;overflow:auto;margin-top:12px"><table class="rtable"><thead><tr><th>ID</th><th>Address</th><th>Mailing</th><th>Legal city</th><th>Method</th></tr></thead><tbody>${d.geocoding_notes.map((g) => `<tr><td class="mono"><a href="#/a/${g.id}">${g.id}</a></td><td>${esc(g.street)}</td><td>${esc(g.postal_city)}</td><td><b>${esc(g.city || "outside scope")}</b></td><td class="s" title="${esc(g.note)}">${esc(g.method)}</td></tr>`).join("")}</tbody></table></div></div></details>
+    <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_docs").replace("{n}", d.documents.length)}</span></summary><div class="apanel" style="padding-top:4px">
       <div class="table-wrap" style="max-height:440px;overflow:auto"><table class="rtable"><thead><tr><th>Doc</th><th>${t("jurisdiction")}</th><th>Source</th><th>Type</th><th>${t("retrieved")}</th><th>Rules</th><th><span class="sr">Text</span></th></tr></thead><tbody>
       ${d.documents.map((x) => `<tr><td class="mono">${esc(x.doc_id)}</td><td class="nw">${esc(x.jurisdictions)}</td><td style="max-width:380px;word-break:break-all"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 64))}</a></td><td class="s">${esc(x.source_type)}${x.capture !== "yes" ? ` · ${esc(x.capture)}` : ""}</td><td class="s nw">${esc(x.retrieved_at || "—")}</td><td>${x.rules_extracted || ""}</td><td>${x.text_available ? `<a href="#" data-doc="${esc(x.doc_id)}">text</a>` : `<span class="s">link only</span>`}</td></tr>`).join("")}
-      </tbody></table></div></section>
-    <section class="card apanel reveal"><h2>Extraction &amp; change log <span class="muted" style="font-weight:500;font-size:13px">(${d.audit_total} entries, newest first)</span></h2>
+      </tbody></table></div></div></details>
+    <details class="card table-card reveal"><summary class="table-sum">${I.chev}<span>${t("a_log").replace("{n}", d.audit_total)}</span></summary><div class="apanel" style="padding-top:4px">
       <div class="filters"><input type="search" id="lq" placeholder="${t("q_filter")}" aria-label="${t("q_filter")}"></div>
-      <div class="log" id="log"></div></section>`;
+      <div class="log" id="log"></div></div></details>
+    </div>`;
   await swap(html, () => {
     $$(".page-head.stagger > *").forEach((el, i) => el.style.setProperty("--i", i));
     const LOG_MAIN = ["ts", "stage", "doc_id", "chunk", "n_chunks", "model", "prompt_version", "cached", "n_rules", "doc_summary", "idx", "raw_chars", "validation_items", "prompt_hash"];
