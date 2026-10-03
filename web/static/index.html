@@ -13,6 +13,7 @@
 <meta name="apple-mobile-web-app-title" content="Clause &amp; Effect">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preload" href="/static/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/static/app.css">
 <link rel="stylesheet" href="/static/mobile.css">
 <link rel="stylesheet" href="/static/features/any-address.css">
@@ -28,7 +29,7 @@
 
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a class="brand" href="#/" aria-label="Clause and Effect, home">Clause &amp; Effect</a>
+    <a class="brand" href="#/" aria-label="Clause and Effect, home"><span class="brand-mark" aria-hidden="true">§</span><span class="brand-word">Clause <i>&amp;</i> Effect</span></a>
     <nav class="tabs" aria-label="Main">
       <a href="#/" data-route="lookup" data-i18n="nav_lookup">Lookup</a>
       <a href="#/changes" data-route="changes" data-tour="changes" data-i18n="nav_changes">Changes</a>
@@ -43,7 +44,7 @@
         <span class="asof-l" id="asof-label"></span><svg class="ico caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
         <input type="date" id="asof" min="2020-01-01" max="2030-12-31" aria-label="Answers as of">
       </label>
-      <button type="button" class="tool asof-reset" id="asof-reset" hidden></button>
+      <button type="button" class="tool asof-reset off" id="asof-reset" tabindex="-1" aria-hidden="true">×</button>
       <div class="seg" role="group" aria-label="Language">
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="es" aria-pressed="false">ES</button>
@@ -66,7 +67,7 @@
       <a href="#/audit" data-i18n="nav_audit">Sources</a>
       <span class="tour-slot-f" data-tour-slot="footer"></span>
     </nav>
-    <p class="footer-meta"><span>Clause &amp; Effect</span> · <span data-i18n="footer_meta">Public data only. No customer, resident or pricing data.</span></p>
+    <p class="footer-meta"><span class="fw">Clause <i>&amp;</i> Effect</span> <span data-i18n="footer_meta">Public data only. No customer, resident or pricing data.</span></p>
   </div>
 </footer>
 

@@ -22,6 +22,8 @@ const NICE = [
   "/static/icons/icon-192.png",
   "/static/icons/apple-touch-icon.png",
   "/static/fonts/InterVariable.woff2",
+  "/static/fonts/InstrumentSerif-Regular.woff2",
+  "/static/fonts/InstrumentSerif-Italic.woff2",
   "/api/meta",
   "/api/addresses",
 ];

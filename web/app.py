@@ -27,6 +27,7 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
+from web import headlines as H
 from web.accounts import router as accounts_router
 from web.any_address import router as any_address_router
 from web.check import router as check_router
@@ -511,6 +512,7 @@ def rule_view(r: dict, lang: str) -> dict:
         "source": src,
         "addresses_count": STORE.rule_addr_counts.get(r["team_rule_id"], 0),
         "low_confidence": (r.get("confidence") is not None and r.get("confidence") < 0.7),
+        **H.view(r["team_rule_id"], lang),
     }
 
 
@@ -632,6 +634,23 @@ def excluded_rules(
     return out
 
 
+def category_headline(enacted: list[dict]) -> str | None:
+    """The governing rule's row answer: same order as the address page (result, takes precedence, state first)."""
+    rank = {"applies": 0, "unknown": 1, "not_yet_effective": 2, "superseded": 3}
+    ordered = sorted(
+        enacted,
+        key=lambda i: (
+            rank.get(i["result"], 9),
+            0 if i.get("overrides_here") else 1,
+            0 if i["rule"].get("level") == "state" else 1,
+        ),
+    )
+    top = ordered[0] if ordered else None
+    if not top or top["result"] == "unknown":
+        return None
+    return top.get("headline") or top["rule"].get("headline_display")
+
+
 def build_address(address_id: str, as_of: str, lang: str) -> dict:
     a = STORE.addresses.get(address_id)
     if not a:
@@ -679,6 +698,7 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
                     ]
             if e["result"] == "unknown":
                 item["missing_fact"] = missing_fact(e.get("explanation", ""))
+            item["headline"] = H.headline(r["team_rule_id"], lang, as_of)
             (pending if e["result"] == "pending" else enacted).append(item)
         # failed proposals in this address's jurisdictions: show as "not law"
         for r in STORE.rules.values():
@@ -722,6 +742,7 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
                 "no_rule": not enacted,
                 "no_rule_findings": findings,
                 "excluded": excluded_rules(address_id, cid, present, stack_j, as_of, lang),
+                "headline": category_headline(enacted),
             }
         )
     return {
@@ -1040,9 +1061,9 @@ def audit(limit: int = Query(300, le=5000), q: str = ""):
             }
         )
     entries = list(enumerate(STORE.audit))
-    if q:
-        ql = q.lower()
-        entries = [(i, e) for i, e in entries if ql in json.dumps(e).lower()]
+    words = q.lower().split()
+    if words:  # every word must match (#120)
+        entries = [(i, e) for i, e in entries if all(w in json.dumps(e).lower() for w in words)]
     ver = Counter(STORE.verify(r)["status"] for r in STORE.rules.values())
     ver_src = Counter(
         r.get("verification")

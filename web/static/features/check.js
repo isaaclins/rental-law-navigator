@@ -62,7 +62,7 @@ const EN = {
   assume: "Assumes no other increase in the past 12 months.",
   nla: "Not legal advice.", nla_body: "Read the cited source. A local rent board or tenant organization can help.",
   state_only: "Only state law was checked here: local rules for this address are not in our sources.",
-  e_rent: "Enter the current and the new rent.", e_dates: "The increase cannot take effect before the notice.", e_err: "Something went wrong. Try again.",
+  e_rent: "Enter the current and the new rent.", e_dates: "The increase cannot take effect before the notice.", e_err: "Something went wrong. Try again.", e_invalid: "Check the amounts: enter rents and fees as positive numbers.",
   e_nomatch: "We could not find this address. Add the city and state.", e_out: "This address is outside California, New Jersey and Massachusetts.",
   e_busy: "Too many checks. Wait a minute.", results: "Result",
 };
@@ -116,7 +116,7 @@ const ES = {
   assume: "Supone que no hubo otro aumento en los últimos 12 meses.",
   nla: "No es asesoría legal.", nla_body: "Lea la fuente citada. Una junta de rentas local o una organización de inquilinos puede ayudar.",
   state_only: "Aquí solo se revisó la ley estatal: las normas locales de esta dirección no están en nuestras fuentes.",
-  e_rent: "Indique la renta actual y la nueva.", e_dates: "El aumento no puede entrar en vigor antes del aviso.", e_err: "Algo salió mal. Inténtelo de nuevo.",
+  e_rent: "Indique la renta actual y la nueva.", e_dates: "El aumento no puede entrar en vigor antes del aviso.", e_err: "Algo salió mal. Inténtelo de nuevo.", e_invalid: "Revise los montos: indique rentas y cargos como números positivos.",
   e_nomatch: "No encontramos esta dirección. Agregue la ciudad y el estado.", e_out: "Esta dirección está fuera de California, Nueva Jersey y Massachusetts.",
   e_busy: "Demasiadas consultas. Espere un minuto.", results: "Resultado",
 };
@@ -333,7 +333,7 @@ async function submit(main, any) {
   const form = $(".ck-form", main), err = $(".ck-err", main), out = $(".ck-result", main), btn = $("button[type=submit]", form);
   const v = readForm(form);
   S.values = v;
-  const show = (m) => { err.textContent = m; err.hidden = !m; };
+  const show = (m) => { err.textContent = m; err.hidden = !m; if (m) { out.innerHTML = ""; S.result = null; } }; // an error never sits above an old result (#137)
   show("");
   const body = payload(v);
   const anyItem = body.current_rent || body.new_rent || body.increase_pct != null || body.deposit != null || body.application_fee != null || body.termination !== "none";
@@ -352,7 +352,7 @@ async function submit(main, any) {
     out.innerHTML = resultHtml(S.result);
     if (matchMedia("(max-width: 640px)").matches) out.scrollIntoView({ block: "start", behavior: "smooth" });
   } catch (e) {
-    show(e.user ? e.message : e.status === 429 ? t("e_busy") : e.status === 422 && /notice/.test(e.message) ? t("e_dates") : t("e_err"));
+    show(e.user ? e.message : e.status === 429 ? t("e_busy") : e.status === 422 && /notice/.test(e.message) ? t("e_dates") : e.status === 422 || e.status === 400 ? t("e_invalid") : t("e_err"));
   } finally {
     btn.disabled = false; btn.textContent = t("go");
   }

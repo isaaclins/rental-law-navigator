@@ -343,32 +343,38 @@ document.addEventListener("click", (e) => {
 });
 
 // gentle prompt after the first successful answer (once per 14 days after a dismissal, at most 3 times)
-let nudge = null, nudgeTimer = 0;
+let nudge = null;
 const DAY = 864e5;
 function maybeNudge() {
   if (!canInstall() || sheet || nudge) return;
   if (st.installed || (st.dismissedAt && Date.now() - st.dismissedAt < 14 * DAY) || (st.nudges || 0) >= 1) return;
   if (!matchMedia("(max-width: 640px), (pointer: coarse)").matches) return; // desktop: footer link only
   if (sessionStorage.getItem("ce.pwa.nudged")) return;
-  clearTimeout(nudgeTimer);
-  nudgeTimer = setTimeout(() => {
-    if (!$("#main .answers-head") || sheet || nudge) return;
-    sessionStorage.setItem("ce.pwa.nudged", "1");
-    save({ nudges: (st.nudges || 0) + 1 });
-    nudge = document.createElement("div");
-    nudge.className = "pwa-nudge";
-    nudge.setAttribute("role", "dialog");
-    nudge.setAttribute("aria-label", t("install"));
-    nudge.innerHTML = `${appIco()}<div class="pwa-nudge-t"><b></b><span></span></div>
-      <button type="button" class="pill primary" data-pwa-install="nudge">${t("install_short")}</button>
-      <button type="button" class="icon-btn" data-pwa-nudge-x aria-label="${t("not_now")}">${I.close}</button>`;
-    nudge.querySelector("[data-pwa-nudge-x]").onclick = () => { save({ dismissedAt: Date.now() }); hideNudge(); };
-    document.body.append(nudge);
-    sync();
-  }, 2200);
+  // shown once, after the reader has scrolled past the answers, so it never covers one
+  removeEventListener("scroll", nudgeWatch);
+  addEventListener("scroll", nudgeWatch, { passive: true });
+}
+function nudgeWatch() {
+  const lists = document.querySelectorAll("#main .answers .topics");
+  const last = lists[lists.length - 1];
+  if (!last || last.getBoundingClientRect().bottom > innerHeight - 200) return;
+  removeEventListener("scroll", nudgeWatch);
+  if (sheet || nudge || sessionStorage.getItem("ce.pwa.nudged")) return;
+  sessionStorage.setItem("ce.pwa.nudged", "1");
+  save({ nudges: (st.nudges || 0) + 1 });
+  nudge = document.createElement("div");
+  nudge.className = "pwa-nudge";
+  nudge.setAttribute("role", "dialog");
+  nudge.setAttribute("aria-label", t("install"));
+  nudge.innerHTML = `${appIco()}<div class="pwa-nudge-t"><b></b><span></span></div>
+    <button type="button" class="pill primary" data-pwa-install="nudge">${t("install_short")}</button>
+    <button type="button" class="icon-btn" data-pwa-nudge-x aria-label="${t("not_now")}">${I.close}</button>`;
+  nudge.querySelector("[data-pwa-nudge-x]").onclick = () => { save({ dismissedAt: Date.now() }); hideNudge(); };
+  document.body.append(nudge);
+  sync();
 }
 function hideNudge() {
-  clearTimeout(nudgeTimer);
+  removeEventListener("scroll", nudgeWatch);
   if (!nudge) return;
   const n = nudge; nudge = null;
   n.classList.add("out");
