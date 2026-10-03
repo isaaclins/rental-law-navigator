@@ -1,0 +1,8 @@
+/* Listen to the answer (#49): a quiet text button in the address actions slot, like the other links there. */
+.ce-listen { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; font-size: 14px; line-height: 20px; color: var(--accent, #0066cc); cursor: pointer; }
+.ce-listen .ico { width: 16px; height: 16px; vertical-align: 0; }
+.ce-listen:hover { text-decoration: none; }
+.ce-listen:hover span { text-decoration: underline; text-underline-offset: 2px; }
+.ce-listen:focus-visible { outline: 2px solid var(--accent, #0066cc); outline-offset: 4px; border-radius: 4px; }
+.ce-listen[aria-busy] { opacity: .6; }
+@media (pointer: coarse) { .ce-listen { min-height: 44px; } }

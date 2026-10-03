@@ -11,11 +11,11 @@ const lang = () => localStorage.getItem("lang") || "en";
 const asOf = () => sessionStorage.getItem("asof") || "2026-10-01";
 
 const EN = {
-  opt_t: "Check this address", opt_s: "Any address in CA, NJ or MA · live lookup",
-  kicker: "Any address · live", title: "Check any address", ph: "Street, city, state", go: "Check",
+  opt_t: "Look up this address", opt_s: "Any address in California, New Jersey or Massachusetts",
+  title: "Look up an address", ph: "Street, city, state", go: "Look up",
   locating: "Finding the legal jurisdiction…", evaluating: "Checking the rules…",
   nla: "Not legal advice.", nla_body: "Public law with citations, for information only. Check the cited source.",
-  covered: "In our corpus", not_covered: "Not in our corpus", state: "State", county: "County", city: "City",
+  covered: "Covered", not_covered: "Not covered", state: "State", county: "County", city: "City",
   facts: "Building facts", facts_lead: "Only what the public data can't tell us. Nothing is stored.",
   year_built: "Year built", units: "Units", owner_occupied: "Owner lives there", certificate_of_occupancy_date: "Certificate of occupancy",
   yes: "Yes", no: "No", unsure: "Not sure",
@@ -23,18 +23,18 @@ const EN = {
   prompt: (f, n) => `Add the ${f.toLowerCase()} to resolve ${n} unknown answer${n === 1 ? "" : "s"}.`,
   all_clear: "Every answer is definite for these facts.",
   answers: "Answers as of", out_title: "Outside our coverage", out_body: "We cover state law in California, New Jersey and Massachusetts, and local law in these cities:",
-  state_only: "Only state law was checked. Local ordinances here are not in our corpus.",
+  state_only: "Only state law was checked. Local ordinances here are not covered yet.",
   nomatch: "We could not find this address.", busy: "Too many lookups. Please wait a minute.", down: "The US Census geocoder did not answer. Try again in a moment.",
   r_applies: "Applies", r_unknown: "Unknown", r_superseded: "Superseded", r_not_yet_effective: "Not yet in effect", r_pending: "Pending bill", r_failed: "Failed · not law",
   depends_on: "Depends on:", why_source: "Why & source", no_rule: "No rule found for this address.", proposals: "Not law: pending bills and failed proposals",
   close: "Close", matched: "Census match", source: "US Census Geocoder", eg: "e.g.",
 };
 const ES = {
-  opt_t: "Consultar esta dirección", opt_s: "Cualquier dirección en CA, NJ o MA · consulta en vivo",
-  kicker: "Cualquier dirección · en vivo", title: "Consultar cualquier dirección", ph: "Calle, ciudad, estado", go: "Consultar",
+  opt_t: "Consultar esta dirección", opt_s: "Cualquier dirección en California, Nueva Jersey o Massachusetts",
+  title: "Consultar una dirección", ph: "Calle, ciudad, estado", go: "Consultar",
   locating: "Buscando la jurisdicción legal…", evaluating: "Revisando las normas…",
   nla: "No es asesoría legal.", nla_body: "Leyes públicas con citas, solo informativo. Verifique la fuente citada.",
-  covered: "En nuestro corpus", not_covered: "Fuera de nuestro corpus", state: "Estado", county: "Condado", city: "Ciudad",
+  covered: "Cubierta", not_covered: "No cubierta", state: "Estado", county: "Condado", city: "Ciudad",
   facts: "Datos del edificio", facts_lead: "Solo lo que los datos públicos no dicen. No se guarda nada.",
   year_built: "Año de construcción", units: "Unidades", owner_occupied: "El dueño vive allí", certificate_of_occupancy_date: "Certificado de ocupación",
   yes: "Sí", no: "No", unsure: "No sé",
@@ -42,7 +42,7 @@ const ES = {
   prompt: (f, n) => `Indique ${f.toLowerCase()} para resolver ${n} respuesta${n === 1 ? "" : "s"} desconocida${n === 1 ? "" : "s"}.`,
   all_clear: "Todas las respuestas son definitivas con estos datos.",
   answers: "Respuestas al", out_title: "Fuera de nuestra cobertura", out_body: "Cubrimos la ley estatal de California, Nueva Jersey y Massachusetts, y la ley local de estas ciudades:",
-  state_only: "Solo se revisó la ley estatal. Las ordenanzas locales de aquí no están en nuestro corpus.",
+  state_only: "Solo se revisó la ley estatal. Las ordenanzas locales de aquí aún no están cubiertas.",
   nomatch: "No encontramos esta dirección.", busy: "Demasiadas consultas. Espere un minuto.", down: "El geocodificador del Censo no respondió. Inténtelo de nuevo.",
   r_applies: "Aplica", r_unknown: "Desconocido", r_superseded: "Reemplazada", r_not_yet_effective: "Aún no vigente", r_pending: "Proyecto de ley", r_failed: "Fallida · no es ley",
   depends_on: "Depende de:", why_source: "Por qué y fuente", no_rule: "No se encontró ninguna norma para esta dirección.", proposals: "No es ley: proyectos pendientes y propuestas fallidas",
@@ -121,15 +121,15 @@ function open(q) {
     sheet.className = "aa-scrim";
     sheet.innerHTML = `<section class="aa-sheet" role="dialog" aria-modal="true" aria-labelledby="aa-title">
       <header class="aa-head">
-        <div><span class="aa-kicker">${I.globe}<span data-t="kicker"></span></span><h2 id="aa-title" data-t="title"></h2></div>
+        <h2 id="aa-title" data-t="title"></h2>
         <button type="button" class="aa-x" data-aa-close>${I.close}</button>
       </header>
       <form class="aa-search" role="search" autocomplete="off">
         <input type="text" name="q" spellcheck="false" maxlength="200" required>
-        <button class="pill primary" type="submit"><span data-t="go"></span>${I.arrow}</button>
+        <button class="btn primary" type="submit"><span data-t="go"></span></button>
       </form>
       <div class="aa-body" aria-live="polite"></div>
-      <footer class="aa-nla">${I.info}<span><b data-t="nla"></b> <span data-t="nla_body"></span></span></footer>
+      <footer class="aa-nla"><b data-t="nla"></b> <span data-t="nla_body"></span></footer>
     </section>`;
     document.body.append(sheet);
     sheet.addEventListener("mousedown", (e) => { if (e.target === sheet) close(); });
@@ -187,16 +187,14 @@ function coveredHtml(cov) {
   return `<div class="aa-covered">${Object.entries(cov).map(([st, cities]) => `<div><b>${esc(names[st] || st)}</b><div class="aa-cities">${cities.map((c) => `<span class="aa-city">${esc(c.replace(/, ..$/, ""))}</span>`).join("")}</div></div>`).join("")}</div>`;
 }
 function placeHtml(d) {
-  const rows = d.stack.map((s) => {
-    const tile = s.level === "state" ? esc(s.code || "") : s.level === "county" ? I.globe : I.building;
-    const tag = s.level === "county" ? "" : `<span class="aa-tag ${s.covered ? "ok" : "no"}">${s.covered ? I.check : ""}${esc(t(s.covered ? "covered" : "not_covered"))}</span>`;
-    return `<div class="trow"><span class="tile ${s.level === "city" && s.covered ? "navy" : ""}">${tile}</span><div><div class="l1">${esc(s.name)}</div><div class="l2">${esc(t(s.level))}${s.note ? " · " + esc(s.note) : ""}</div></div>${tag}</div>`;
-  }).join("");
+  const names = [...d.stack].reverse().map((s) => `<span class="${s.level === "county" ? "" : s.covered ? "on" : "off"}">${esc(s.name)}</span>`).join(" · ");
+  const cov = d.stack.filter((s) => s.level !== "county").map((s) => `${esc(s.name)}: ${esc(t(s.covered ? "covered" : "not_covered"))}`).join(" · ");
   return `<section class="aa-place">
-    <div class="aa-addr"><span class="aa-eyebrow">${esc(t("matched"))}</span><h3>${esc(titleCase(d.matched_address || state.q))}</h3>
-      <a class="aa-src" href="https://www.openstreetmap.org/?mlat=${d.lat}&mlon=${d.lon}#map=17/${d.lat}/${d.lon}" target="_blank" rel="noopener">${esc(t("source"))} · ${(+d.lat).toFixed(4)}, ${(+d.lon).toFixed(4)}</a></div>
-    <div class="tile-rows">${rows}</div>
-    ${d.scope === "state" ? `<div class="callout unknown">${I.info}<div>${esc(d.message)}</div></div>` : ""}
+    <h3>${esc(titleCase(d.matched_address || state.q))}</h3>
+    <p class="addr-meta">${names}</p>
+    <p class="addr-meta">${cov}</p>
+    <p class="addr-meta"><a href="https://www.openstreetmap.org/?mlat=${d.lat}&mlon=${d.lon}#map=17/${d.lat}/${d.lon}" target="_blank" rel="noopener">${esc(t("source"))} · ${(+d.lat).toFixed(4)}, ${(+d.lon).toFixed(4)}</a></p>
+    ${d.scope === "state" ? `<p class="aa-scope">${esc(d.message)}</p>` : ""}
   </section>`;
 }
 const titleCase = (s) => String(s || "").toLowerCase().replace(/\b\w/g, (m) => m.toUpperCase()).replace(/\b(Ca|Nj|Ma|Dc|Nw|Ne|Sw|Se)\b/g, (m) => m.toUpperCase());
@@ -264,15 +262,9 @@ function renderFacts(d) {
   $("[data-co]", box).hidden = !(f.certificate_of_occupancy_date || d.fact_counts?.certificate_of_occupancy_date);
 }
 function summaryHtml(d) {
-  const order = ["applies", "unknown", "superseded", "not_yet_effective", "pending"];
   const counts = d.fact_counts || {};
   const top = Object.entries(counts).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])[0];
-  const lbl = top ? t(top[0]) : "";
-  return `<div class="aa-sum">
-    <span class="asof-tag">${I.cal}${esc(t("answers"))} ${esc(fmtDate(d.as_of))}</span>
-    <div class="sum-row">${order.filter((r) => d.summary[r]).map((r, i) => `<span class="badge ${r} anim" style="--i:${i}">${d.summary[r]} · ${esc(t("r_" + r))}</span>`).join("")}</div>
-  </div>
-  ${top ? `<p class="aa-prompt">${I.q}<span>${esc(t("prompt")(lbl, top[1]))}</span></p>` : d.unknowns ? "" : `<p class="aa-prompt ok">${I.check}<span>${esc(t("all_clear"))}</span></p>`}
+  return `${top ? `<p class="aa-prompt">${esc(t("prompt")(t(top[0]), top[1]))}</p>` : d.unknowns ? "" : `<p class="aa-prompt ok">${esc(t("all_clear"))}</p>`}
   ${d.scope_note ? `<p class="aa-scope">${esc(t("state_only"))}</p>` : ""}`;
 }
 const fmtDate = (d) => { const x = new Date(d + "T12:00:00"); return isNaN(x) ? d : x.toLocaleDateString(lang() === "es" ? "es-US" : "en-US", { month: "short", day: "numeric", year: "numeric" }); };

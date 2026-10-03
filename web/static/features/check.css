@@ -1,0 +1,44 @@
+/* Check a rent increase (#40). Built on the shared classes (page-head, block, group, topic, rd, quote, rd-cite,
+   badge st-*, btn primary, linkish, addr-meta; web/DESIGN.md). Only what they do not cover lives here:
+   the form rows (label left, value right) and the one status colour the app has no class for (over the limit). */
+
+.ck { max-width: var(--col); margin: 0 auto; }
+.ck-back { display: inline-flex; align-items: center; gap: 2px; min-height: 32px; margin: 0 0 12px -4px; font-size: var(--fs-s); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ck-back .ico { width: 16px; height: 16px; }
+
+/* form: one hairline row per field */
+.ck-row { display: flex; align-items: center; gap: 16px; min-height: 52px; cursor: text; }
+.ck-l { flex: 1 1 auto; min-width: 0; }
+.ck-row input, .ck-row select {
+  flex: 0 1 220px; width: 220px; min-width: 0; height: 44px; padding: 0; border: 0; background: none; outline: none;
+  font-size: var(--fs-m); text-align: right; font-variant-numeric: tabular-nums;
+}
+.ck-row input[name="address"] { flex-basis: 360px; width: 360px; }
+.ck-row input::placeholder { color: var(--label-3); }
+.ck-row input[type="date"] { -webkit-appearance: none; appearance: none; display: flex; justify-content: flex-end; }
+.ck-row input[type="date"]::-webkit-date-and-time-value { text-align: right; }
+.ck-row select { -webkit-appearance: none; appearance: none; cursor: pointer; text-align-last: right; color: var(--accent); }
+.ck-row:focus-within .ck-l { color: var(--accent); }
+.group > li:focus-within { border-bottom-color: var(--accent); }
+
+.ck-more { margin-top: 24px; }
+.ck-more > summary { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; color: var(--accent); font-size: var(--fs-s); }
+.ck-more > summary .chev { color: inherit; }
+.ck-more > .group { margin-top: 4px; }
+.ck-actions { margin-top: 24px; }
+.ck-actions .btn { min-width: 120px; }
+.ck-err { margin-top: 16px; color: var(--danger); font-size: var(--fs-s); }
+
+/* result */
+.ck-result:empty { display: none; }
+.badge.st-over { color: var(--danger); }
+.ck-v .rd-plain .linkish { margin-left: 4px; }
+.ck-v .quote { margin-top: 10px; }
+.ck-result .addr-meta strong { color: var(--label); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .ck-row { gap: 12px; }
+  .ck-row input, .ck-row select { flex-basis: 50%; width: 50%; }
+  .ck-row input[name="address"] { flex-basis: 65%; width: 65%; }
+  .ck-actions .btn { width: 100%; min-height: 48px; }
+}

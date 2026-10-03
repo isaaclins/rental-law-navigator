@@ -1,4 +1,4 @@
-// My properties (#38). Self-contained feature module: sign in with Google (or the read-only demo landlord), save
+// My properties (#38). Self-contained feature module: sign in with Google (or open the read-only example portfolio), save
 // buildings with the facts public data lacks, see per building which rules apply today and what is about to change,
 // and get every upcoming date in a calendar feed. Routes: #/properties (sign-in or list), #/properties/<id> (detail),
 // registered with window.CE.addRoute; answers render with CE.renderAnswers (web/DESIGN.md). Reuses #39: POST
@@ -15,10 +15,10 @@ const asOf = () => CE.asOf();
 
 // ------------------------------------------------------------------ i18n --
 const EN = {
-  nav: "My properties", kicker: "My properties",
-  out_title: "Your buildings, *watched.*",
-  out_lead: "Save an address and the facts only you know. See which rules apply today, and get a heads-up before anything changes.",
-  google: "Sign in with Google", demo: "Try demo landlord account",
+  nav: "My properties", nav_short: "Mine", kicker: "My properties",
+  out_title: "My properties",
+  out_lead: "Save the buildings you own, manage or rent. See which rules apply to each one, and get an email before a change takes effect.",
+  google: "Sign in with Google", demo: "See an example portfolio",
   fine: "We store your email, your name and the buildings you save. Delete anytime.",
   how1_t: "Your facts fill the gaps", how1: "Year built, units, owner-occupied: what public data lacks turns “unknown” into answers.",
   how2_t: "Every change, dated", how2: "Effective dates, new figures and pending bills, per building.",
@@ -28,14 +28,14 @@ const EN = {
   add: "Add a property", add_demo: "Sign in to add your own",
   apply: "apply", unknown: "unknown", changes: "changes coming", change: "change coming", no_changes: "No dated change ahead",
   state_only: "State law only", city_state: "City + state rules",
-  demo_banner: "You are in the read-only demo landlord account.", demo_cta: "Sign in to save your own",
-  signout: "Sign out", delete_acct: "Delete account", demo_badge: "Demo · read-only",
+  demo_banner: "This is an example portfolio. It can't be changed.", demo_cta: "Sign in to save your own",
+  signout: "Sign out", delete_acct: "Delete account", demo_badge: "Example",
   answers_as_of: "Answers as of",
   cal_t: "Calendar feed", cal: "Every upcoming date for your buildings. Updates daily.",
   cal_google: "Google Calendar", cal_apple: "Apple · Outlook", cal_copy: "Copy link", cal_copied: "Calendar link copied",
   cal_private: "Private link: anyone who has it sees your building names and dates.", cal_new: "New link", cal_rotated: "New calendar link. The old one no longer works.",
-  mail_t: "Email alerts", mail_digest: "Email digest before a change takes effect", mail_note: "Opt-in. During the hackathon we only send the test alert you ask for.",
-  mail_test: "Send me a test alert", mail_sent: (e) => `Test alert sent to ${e}`, mail_demo: "The demo account has no mailbox.",
+  mail_t: "Email alerts", mail_digest: "Email me before a law change affects one of my properties", mail_note: (e) => `We email ${e} about 30 days before a change takes effect. Every email has a one-click unsubscribe.`,
+  mail_demo: "The example portfolio doesn't send email.", n_apply: (n) => `${n} ${n === 1 ? "rule applies" : "rules apply"}`, n_unknown: (n) => `${n} unknown`, next: "Next", where_facts: "Facts", del_prop: "Delete this property",
   back: "My properties", edit: "Edit facts", del: "Delete", whats_changing: "What’s changing",
   facts: "Building facts", year_built: "Year built", units: "Units", owner_occupied: "Owner lives there", certificate_of_occupancy_date: "Certificate of occupancy",
   yes: "Yes", no: "No", unsure: "Not sure", not_given: "Not given",
@@ -63,10 +63,10 @@ const EN = {
   cat_application_screening_fees: "Application & move-in fees", cat_screening_restrictions: "Tenant screening", cat_algorithmic_rent_setting: "Algorithmic rent-setting",
 };
 const ES = {
-  nav: "Mis propiedades", kicker: "Mis propiedades",
-  out_title: "Sus edificios, *vigilados.*",
-  out_lead: "Guarde una dirección y los datos que solo usted conoce. Vea qué normas aplican hoy y reciba un aviso antes de que algo cambie.",
-  google: "Acceder con Google", demo: "Probar la cuenta demo de arrendador",
+  nav: "Mis propiedades", nav_short: "Mías", kicker: "Mis propiedades",
+  out_title: "Mis propiedades",
+  out_lead: "Guarde los edificios que posee, administra o alquila. Vea qué normas aplican a cada uno y reciba un correo antes de que un cambio entre en vigor.",
+  google: "Acceder con Google", demo: "Ver una cartera de ejemplo",
   fine: "Guardamos su correo, su nombre y los edificios que guarde. Puede borrarlo todo cuando quiera.",
   how1_t: "Sus datos completan lo que falta", how1: "Año, unidades, si el dueño vive allí: lo que falta en los datos públicos convierte “desconocido” en respuestas.",
   how2_t: "Cada cambio, con fecha", how2: "Fechas de vigencia, nuevas cifras y proyectos de ley, por edificio.",
@@ -76,14 +76,14 @@ const ES = {
   add: "Agregar propiedad", add_demo: "Acceda para agregar las suyas",
   apply: "aplican", unknown: "desconocidas", changes: "cambios por venir", change: "cambio por venir", no_changes: "Sin cambios con fecha",
   state_only: "Solo ley estatal", city_state: "Normas de ciudad y estado",
-  demo_banner: "Está en la cuenta demo de arrendador (solo lectura).", demo_cta: "Acceda para guardar las suyas",
-  signout: "Cerrar sesión", delete_acct: "Eliminar cuenta", demo_badge: "Demo · solo lectura",
+  demo_banner: "Esta es una cartera de ejemplo. No se puede modificar.", demo_cta: "Acceda para guardar las suyas",
+  signout: "Cerrar sesión", delete_acct: "Eliminar cuenta", demo_badge: "Ejemplo",
   answers_as_of: "Respuestas al",
   cal_t: "Calendario", cal: "Cada fecha próxima de sus edificios. Se actualiza a diario.",
   cal_google: "Google Calendar", cal_apple: "Apple · Outlook", cal_copy: "Copiar enlace", cal_copied: "Enlace copiado",
   cal_private: "Enlace privado: quien lo tenga ve los nombres de sus edificios y las fechas.", cal_new: "Nuevo enlace", cal_rotated: "Nuevo enlace. El anterior ya no funciona.",
-  mail_t: "Alertas por correo", mail_digest: "Resumen por correo antes de cada cambio", mail_note: "Opcional. Durante el hackathon solo enviamos la alerta de prueba que pida.",
-  mail_test: "Enviarme una alerta de prueba", mail_sent: (e) => `Alerta de prueba enviada a ${e}`, mail_demo: "La cuenta demo no tiene correo.",
+  mail_t: "Alertas por correo", mail_digest: "Avisarme por correo antes de que un cambio legal afecte a una de mis propiedades", mail_note: (e) => `Escribimos a ${e} unos 30 días antes de que un cambio entre en vigor. Cada correo permite darse de baja con un clic.`,
+  mail_demo: "La cartera de ejemplo no envía correos.", n_apply: (n) => `${n} ${n === 1 ? "norma aplica" : "normas aplican"}`, n_unknown: (n) => `${n} ${n === 1 ? "desconocida" : "desconocidas"}`, next: "Próximo", where_facts: "Datos", del_prop: "Eliminar esta propiedad",
   back: "Mis propiedades", edit: "Editar datos", del: "Eliminar", whats_changing: "Qué va a cambiar",
   facts: "Datos del edificio", year_built: "Año de construcción", units: "Unidades", owner_occupied: "El dueño vive allí", certificate_of_occupancy_date: "Certificado de ocupación",
   yes: "Sí", no: "No", unsure: "No sé", not_given: "Sin dato",
@@ -156,12 +156,6 @@ const G_LOGO = `<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335"
 const gsiButton = () => `<a class="gsi" href="/auth/google/login?next=${encodeURIComponent("/#/properties")}">${G_LOGO}<span>${esc(t("google"))}</span></a>`;
 const badge = (r, label, i = null) => `<span class="badge ${esc(r)}${i != null ? " anim" : ""}"${i != null ? ` style="--i:${i}"` : ""}>${esc(label ?? t("r_" + r))}</span>`;
 const KIND_BADGE = { takes_effect: "not_yet_effective", ends: "superseded", figure: "in_force", changes: "superseded", pending: "pending" };
-const cityCode = (p) => {
-  const c = (p.jurisdiction || "").replace(/, ..$/, "");
-  if (!c) return p.state;
-  const w = c.split(/\s+/);
-  return w.length > 1 ? w.map((x) => x[0]).join("").slice(0, 3).toUpperCase() : c.slice(0, 3).toUpperCase();
-};
 const where = (p) => p.jurisdiction || `${p.place ? p.place + ", " : ""}${p.state}`;
 
 // ------------------------------------------------------------------ api --
@@ -192,9 +186,8 @@ function openSheet(title, body, after) {
 const closeSheet = () => $("#modal [data-close]")?.click();
 const skeleton = () => {
   const line = (w, h, m = 12) => `<div class="sk" style="width:${w};height:${h}px;margin-top:${m}px"></div>`;
-  return `<div class="mp-skel">${line("140px", 14, 0)}${line("min(420px,80%)", 54)}<div class="mp-grid">${[0, 1, 2].map(() => `<div class="sk" style="height:210px;border-radius:24px"></div>`).join("")}</div></div>`;
+  return `<div class="mp-skel">${line("40%", 32, 0)}${line("60%", 16)}${line("100%", 220, 32)}</div>`;
 };
-const italics = (s) => esc(s).replace(/\*([^*]+)\*/g, "<em>$1</em>");
 
 // ------------------------------------------------------------------ routing --
 let seq = 0;
@@ -212,6 +205,7 @@ function navLink() {
     foot.append(a);
   }
   $$('.tabs a[data-route="properties"], .footer-links a[href="#/properties"]').forEach((a) => { a.textContent = t("nav"); });
+  $$('.tabs a[data-route="properties"]').forEach((a) => { a.dataset.short = t("nav_short"); a.dataset.tour = "properties"; });
 }
 async function render(_main, arg) {
   const my = ++seq;
@@ -238,26 +232,10 @@ function paint(html, title) {
 
 // ------------------------------------------------------------------ signed out --
 function paintSignedOut() {
-  const ghost = `<div class="mp-card ghost" aria-hidden="true">
-      <span class="mp-ex">${esc(t("example"))}</span>
-      <div class="mp-card-top"><span class="mp-tile">HOB</span><div><h3>Bloomfield brownstone</h3><p>323 Bloomfield St, Hoboken, NJ</p></div></div>
-      <div class="mp-stats"><div class="mp-stat applies"><b>7</b><span>${esc(t("apply"))}</span></div><div class="mp-stat unknown"><b>2</b><span>${esc(t("unknown"))}</span></div><div class="mp-stat nye"><b>1</b><span>${esc(t("change"))}</span></div></div>
-      <div class="mp-next">${I.cal}<b>${esc(fmtDate("2027-07-01"))}</b><span>NJ FAIR Act: ${esc(t("k_takes_effect").toLowerCase())}</span></div>
-    </div>`;
-  paint(`<section class="mp-hero">
-      <div class="mp-hero-copy stagger" style="--step:90ms">
-        <span class="mp-kicker" style="--i:0">${esc(t("kicker"))}</span>
-        <h1 style="--i:1">${italics(t("out_title"))}</h1>
-        <p class="mp-lead" style="--i:2">${esc(t("out_lead"))}</p>
-        <div class="mp-cta" style="--i:3">${ME?.google ? gsiButton() : ""}<button type="button" class="pill line mp-demo">${I.key}<span>${esc(t("demo"))}</span></button></div>
-        <p class="mp-fine" style="--i:4">${esc(t("fine"))} <a href="/privacy">${esc(t("privacy"))}</a> · <a href="/terms">${esc(t("terms"))}</a></p>
-      </div>
-      <div class="mp-hero-art">${ghost}</div>
-    </section>
-    <section class="mp-how">
-      ${[["how1", I.building], ["how2", I.cal], ["how3", I.mail]].map(([k, ico], i) => `<div class="mp-how-item" style="--i:${i}"><span class="mp-tile soft">${ico}</span><div><h2>${esc(t(k + "_t"))}</h2><p>${esc(t(k))}</p></div></div>`).join("")}
-    </section>
-    <p class="mp-nla"><b>${esc(t("nla"))}</b> ${esc(t("nla_body"))}</p>`, t("nav"));
+  paint(`<header class="page-head"><h1>${esc(t("out_title"))}</h1><p>${esc(t("out_lead"))}</p></header>
+    <div class="mp-cta">${ME?.google ? gsiButton() : ""}<button type="button" class="btn mp-demo">${esc(t("demo"))}</button></div>
+    <p class="mp-small">${esc(t("fine"))} <a href="/privacy">${esc(t("privacy"))}</a> · <a href="/terms">${esc(t("terms"))}</a></p>
+    <section class="features">${["how1", "how2", "how3"].map((k) => `<div><h2>${esc(t(k + "_t"))}</h2><p>${esc(t(k))}</p></div>`).join("")}</section>`, t("nav"));
   $(".mp-demo", main).addEventListener("click", async (e) => {
     const b = e.currentTarget; b.disabled = true;
     try { await j("/auth/demo", { method: "POST" }); rerender(); } catch (err) { b.disabled = false; toast(err.message); }
@@ -267,64 +245,52 @@ function paintSignedOut() {
 // ------------------------------------------------------------------ list --
 function accountBar(demo) {
   const u = ME.user;
-  const initial = (u.name || u.email || "?").trim()[0].toUpperCase();
-  return `<div class="mp-acct">
-    ${demo ? `<span class="badge pending">${esc(t("demo_badge"))}</span>` : ""}
-    <details class="mp-menu"><summary class="pill line" aria-label="${esc(u.email)}"><span class="mp-av">${esc(initial)}</span><span class="mp-email">${esc(demo ? u.name : u.email)}</span>${I.chev}</summary>
+  return `<details class="mp-menu"><summary class="tool" aria-label="${esc(u.email)}"><span class="mp-email">${esc(demo ? t("demo_badge") : u.email)}</span><span class="chev">${I.chev}</span></summary>
       <div class="mp-pop">
-        <button type="button" data-signout>${I.back}<span>${esc(t("signout"))}</span></button>
-        ${demo ? "" : `<button type="button" class="danger" data-delacct>${I.trash}<span>${esc(t("delete_acct"))}</span></button>`}
+        <button type="button" data-signout>${esc(t("signout"))}</button>
+        ${demo ? "" : `<button type="button" class="danger" data-delacct>${esc(t("delete_acct"))}</button>`}
         <a href="/privacy">${esc(t("privacy"))}</a>
-      </div></details></div>`;
+      </div></details>`;
 }
-function card(p, i) {
+function row(p) {
   const s = p.summary, c = s.counts || {};
-  const n = s.changes;
-  return `<a class="mp-card" href="#/properties/${p.id}" style="--i:${i}">
-    <div class="mp-card-top"><span class="mp-tile">${esc(cityCode(p))}</span><div><h3>${esc(p.label)}</h3><p>${esc(p.address)}</p></div><span class="mp-go">${I.arrow}</span></div>
-    <div class="mp-stats">
-      <div class="mp-stat applies"><b>${c.applies || 0}</b><span>${esc(t("apply"))}</span></div>
-      <div class="mp-stat unknown${c.unknown ? "" : " zero"}"><b>${c.unknown || 0}</b><span>${esc(t("unknown"))}</span></div>
-      <div class="mp-stat nye${n ? "" : " zero"}"><b>${n}</b><span>${esc(t(n === 1 ? "change" : "changes"))}</span></div>
-    </div>
-    ${s.next ? `<div class="mp-next">${I.cal}<b>${esc(fmtDate(s.next.date))}</b><span>${esc(s.next.title)}</span></div>` : `<div class="mp-next none">${I.check}<span>${esc(t("no_changes"))}</span></div>`}
-    <div class="mp-juris"><span>${esc(where(p))}</span><span>${esc(t(p.jurisdiction ? "city_state" : "state_only"))}</span></div>
-  </a>`;
+  const facts = [t("n_apply")(c.applies || 0), c.unknown ? t("n_unknown")(c.unknown) : ""].filter(Boolean).join(" · ");
+  return `<li><a class="mp-row-a" href="#/properties/${p.id}">
+    <span class="mp-row-main"><span class="mp-row-t">${esc(p.label)}</span><span class="mp-row-s">${esc(p.address)}</span>
+      <span class="mp-row-s">${esc(facts)}</span>
+      ${s.next ? `<span class="mp-row-n">${esc(t("next"))}: ${esc(fmtDate(s.next.date))} · ${esc(s.next.title)}</span>` : ""}</span>
+    <span class="chev">${I.chev}</span></a></li>`;
 }
 async function paintList(my) {
   const [list, alerts] = await Promise.all([j(`/api/properties?as_of=${asOf()}`), j("/api/alerts")]);
   if (my !== seq) return;
   const demo = list.demo, props = list.properties;
-  const addCard = demo
-    ? (ME.google ? `<a class="mp-add" href="/auth/google/login?next=${encodeURIComponent("/#/properties")}" style="--i:${props.length}">${G_LOGO}<span>${esc(t("add_demo"))}</span></a>` : "")
-    : `<button type="button" class="mp-add" data-add style="--i:${props.length}"><span class="mp-plus">${I.plus}</span><span>${esc(t("add"))}</span></button>`;
+  const add = demo
+    ? (ME.google ? `<li><a class="mp-row-a mp-add" href="/auth/google/login?next=${encodeURIComponent("/#/properties")}">${esc(t("add_demo"))}</a></li>` : "")
+    : `<li><button type="button" class="mp-row-a mp-add" data-add>${esc(t("add"))}</button></li>`;
   const cal = alerts.calendar;
-  paint(`<header class="mp-head stagger" style="--step:80ms">
-      <div style="--i:0"><span class="mp-kicker">${esc(t("kicker"))}</span><h1>${esc(props.length ? t("n_props")(props.length) : t("empty_t"))}</h1></div>
-      <div style="--i:1">${accountBar(demo)}</div>
+  paint(`<header class="mp-head">
+      <div class="page-head"><h1>${esc(props.length ? t("n_props")(props.length) : t("empty_t"))}</h1><p>${esc(t("answers_as_of"))} ${esc(fmtDate(list.as_of))}</p></div>
+      ${accountBar(demo)}
     </header>
-    ${demo ? `<div class="mp-banner">${I.info}<span>${esc(t("demo_banner"))}</span>${ME.google ? `<a class="pill primary" href="/auth/google/login?next=${encodeURIComponent("/#/properties")}">${esc(t("demo_cta"))}</a>` : ""}</div>` : ""}
-    <div class="mp-asof"><span class="asof-tag">${I.cal}${esc(t("answers_as_of"))} ${esc(fmtDate(list.as_of))}</span></div>
+    ${demo ? `<p class="mp-banner">${esc(t("demo_banner"))}${ME.google ? ` <a href="/auth/google/login?next=${encodeURIComponent("/#/properties")}">${esc(t("demo_cta"))}</a>` : ""}</p>` : ""}
     ${props.length ? "" : `<p class="mp-empty">${esc(t("empty"))}</p>`}
-    <section class="mp-grid">${props.map(card).join("")}${addCard}</section>
-    <section class="mp-alerts">
-      <div class="mp-panel" style="--i:0">
-        <header><span class="mp-tile soft">${I.cal}</span><div><h2>${esc(t("cal_t"))}</h2><p>${esc(t("cal"))}</p></div></header>
-        <div class="mp-row">
-          <a class="pill primary" href="${esc(cal.google)}" target="_blank" rel="noopener">${esc(t("cal_google"))}</a>
-          <a class="pill line" href="${esc(cal.webcal)}">${esc(t("cal_apple"))}</a>
-          <button type="button" class="pill ghost" data-copy="${esc(cal.url)}">${I.copy}<span>${esc(t("cal_copy"))}</span></button>
-        </div>
-        <p class="mp-small">${esc(t("cal_private"))}${demo ? "" : ` <button type="button" class="mp-link" data-rotate>${esc(t("cal_new"))}</button>`}</p>
+    <ul class="group mp-list">${props.map(row).join("")}${add}</ul>
+    <section class="block mp-alerts">
+      <h2>${esc(t("cal_t"))}</h2>
+      <p class="block-lead">${esc(t("cal"))}</p>
+      <div class="mp-btns">
+        <a class="btn" href="${esc(cal.google)}" target="_blank" rel="noopener">${esc(t("cal_google"))}</a>
+        <a class="btn" href="${esc(cal.webcal)}">${esc(t("cal_apple"))}</a>
+        <button type="button" class="btn" data-copy="${esc(cal.url)}">${esc(t("cal_copy"))}</button>
       </div>
-      <div class="mp-panel" style="--i:1">
-        <header><span class="mp-tile soft">${I.mail}</span><div><h2>${esc(t("mail_t"))}</h2><p>${esc(demo ? t("mail_demo") : alerts.email)}</p></div></header>
-        <label class="mp-switch"><input type="checkbox" data-digest ${alerts.email_digest ? "checked" : ""} ${demo ? "disabled" : ""}><span class="mp-knob" aria-hidden="true"></span><span>${esc(t("mail_digest"))}</span></label>
-        <p class="mp-small">${esc(t("mail_note"))}</p>
-        <div class="mp-row"><button type="button" class="pill line" data-testmail ${demo ? "disabled" : ""}>${I.mail}<span>${esc(t("mail_test"))}</span></button></div>
-      </div>
+      <p class="mp-small">${esc(t("cal_private"))}${demo ? "" : ` <button type="button" class="linkish" data-rotate>${esc(t("cal_new"))}</button>`}</p>
     </section>
-    <p class="mp-nla"><b>${esc(t("nla"))}</b> ${esc(t("nla_body"))} <a href="/privacy">${esc(t("privacy"))}</a> · <a href="/terms">${esc(t("terms"))}</a></p>`, t("nav"));
+    <section class="block mp-alerts">
+      <h2>${esc(t("mail_t"))}</h2>
+      <label class="mp-switch"><span>${esc(t("mail_digest"))}</span><input type="checkbox" role="switch" data-digest ${alerts.email_digest ? "checked" : ""} ${demo ? "disabled" : ""}><span class="mp-knob" aria-hidden="true"></span></label>
+      <p class="mp-small">${esc(demo ? t("mail_demo") : t("mail_note")(alerts.email))}</p>
+    </section>`, t("nav"));
   wireAccount();
   $("[data-add]", main)?.addEventListener("click", () => addSheet());
   $("[data-copy]", main)?.addEventListener("click", async (e) => {
@@ -335,11 +301,6 @@ async function paintList(my) {
   });
   $("[data-digest]", main)?.addEventListener("change", async (e) => {
     try { await j("/api/alerts", { method: "PUT", body: { email_digest: e.target.checked } }); toast(t("saved")); } catch (err) { e.target.checked = !e.target.checked; toast(err.message); }
-  });
-  $("[data-testmail]", main)?.addEventListener("click", async (e) => {
-    const b = e.currentTarget; b.disabled = true; b.classList.add("busy");
-    try { const r = await j("/api/alerts/test-email", { method: "POST" }); toast(t("mail_sent")(r.sent_to)); } catch (err) { toast(err.message); }
-    b.disabled = false; b.classList.remove("busy");
   });
 }
 function wireAccount() {
@@ -460,11 +421,12 @@ function timelineHtml(ch, cal) {
   const item = (it) => {
     const label = t("k_" + it.kind);
     const sub = it.kind === "figure" ? t("fig_note")(fmtDate(it.period_end)) : it.kind === "changes" ? `${t("r_" + it.from)} → ${t("r_" + it.to)}` : it.key_value || "";
-    return `<div class="mp-ev-item">${badge(KIND_BADGE[it.kind] || "superseded", label)}<div><b>${esc(it.title)}</b><span class="mp-cite">${esc(it.citation || "")} · ${esc(String(it.jurisdiction || "").replace(/, ..$/, ""))}</span>${sub ? `<p>${esc(sub)}</p>` : ""}</div></div>`;
+    return `<div class="mp-ev-item"><span class="mp-ev-t">${esc(it.title)}</span>${CE.badge(KIND_BADGE[it.kind] || "superseded", label)}
+      <span class="mp-ev-s">${esc([it.citation, String(it.jurisdiction || "").replace(/, ..$/, "")].filter(Boolean).join(" · "))}</span>${sub ? `<span class="mp-ev-s">${esc(sub)}</span>` : ""}</div>`;
   };
-  return `<ol class="mp-tl">${ev.length ? ev.map((e, i) => `<li class="mp-ev" style="--i:${i}"><div class="mp-when"><b>${esc(fmtDate(e.date))}</b><span>${esc(relTime(e.date))}</span></div><div class="mp-what">${e.items.map(item).join("")}</div></li>`).join("") : `<li class="mp-ev none"><div class="mp-what"><p class="mp-small">${esc(t("nothing_ahead"))}</p></div></li>`}</ol>
-    ${pend.length ? `<div class="mp-pending"><h3>${esc(t("pending_t"))}</h3><p class="mp-small">${esc(t("pending_n"))}</p>${pend.map(item).join("")}</div>` : ""}
-    ${ev.length && cal ? `<a class="mp-link mp-calink" href="${esc(cal.google)}" target="_blank" rel="noopener">${I.cal}<span>${esc(t("in_cal"))}</span></a>` : ""}`;
+  return `<ul class="group mp-tl">${ev.length ? ev.map((e) => `<li class="mp-ev"><div class="mp-when"><b>${esc(fmtDate(e.date))}</b><span>${esc(relTime(e.date))}</span></div><div class="mp-what">${e.items.map(item).join("")}</div></li>`).join("") : `<li class="mp-ev none"><p class="mp-small">${esc(t("nothing_ahead"))}</p></li>`}</ul>
+    ${pend.length ? `<div class="mp-pending"><h3>${esc(t("pending_t"))}</h3><p class="mp-small">${esc(t("pending_n"))}</p><ul class="group mp-tl">${pend.map((x) => `<li class="mp-ev"><div class="mp-what">${item(x)}</div></li>`).join("")}</ul></div>` : ""}
+    ${ev.length && cal ? `<p class="mp-calink"><a href="${esc(cal.google)}" target="_blank" rel="noopener">${esc(t("in_cal"))}</a></p>` : ""}`;
 }
 let CUR = null; // the property shown in the detail view
 async function paintDetail(id, my) {
@@ -473,30 +435,29 @@ async function paintDetail(id, my) {
   const v = p.view, f = p.facts, demo = p.demo;
   const top = Object.entries(v.fact_counts || {}).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])[0];
   const fv = (k) => (f[k] == null || f[k] === "" ? null : k === "owner_occupied" ? t(f[k] ? "yes" : "no") : k === "certificate_of_occupancy_date" ? fmtDate(f[k]) : String(f[k]));
-  const factPill = (k, ico) => `<div class="fact ${fv(k) ? "" : "miss"}">${ico}<div><b>${esc(fv(k) || t("not_given"))}</b><span>${esc(t(k))}</span></div></div>`;
-  const order = ["applies", "unknown", "superseded", "not_yet_effective", "pending"];
-  paint(`<div class="crumbs"><a class="pill line back" href="#/properties">${I.back}${esc(t("back"))}</a></div>
-    <div class="mp-detail">
-      <aside class="mp-side stagger" style="--step:70ms">
-        <div class="addr-title"><span class="mp-kicker">${esc(where(p))}</span><h1>${esc(p.label)}</h1><p>${esc(p.address)}</p></div>
-        <div class="mp-sum">${order.filter((r) => v.summary[r]).map((r, i) => badge(r, `${v.summary[r]} · ${t("r_" + r)}`, i)).join("")}</div>
-        <div class="mp-facts"><div class="factrow">${factPill("year_built", I.cal)}${factPill("units", I.building)}</div>${factPill("owner_occupied", I.user)}${f.certificate_of_occupancy_date || v.fact_counts?.certificate_of_occupancy_date ? factPill("certificate_of_occupancy_date", I.cal) : ""}</div>
-        ${top ? `<p class="mp-hintline">${I.q}<span>${esc(t("prompt")(t(top[0]), top[1]))}</span></p>` : v.unknowns ? "" : `<p class="mp-hintline ok">${I.check}<span>${esc(t("all_clear"))}</span></p>`}
+  const fact = (k) => `<div><dt>${esc(t(k))}</dt><dd class="${fv(k) ? "" : "miss"}">${esc(fv(k) || t("not_given"))}</dd></div>`;
+  const c = v.summary || {};
+  paint(`<p class="mp-back"><a href="#/properties">${I.back}${esc(t("back"))}</a></p>
+    <article class="addr mp-detail">
+      <header class="addr-head">
+        <h1>${esc(p.label)}</h1>
+        <p class="addr-sub">${esc(p.address)}</p>
+        <p class="addr-meta">${esc(where(p))} · ${esc([t("n_apply")(c.applies || 0), c.unknown ? t("n_unknown")(c.unknown) : ""].filter(Boolean).join(" · "))}</p>
+      </header>
+      <section class="block mp-facts"><h2>${esc(t("facts"))}</h2>
+        <dl class="kv">${fact("year_built")}${fact("units")}${fact("owner_occupied")}${f.certificate_of_occupancy_date || v.fact_counts?.certificate_of_occupancy_date ? fact("certificate_of_occupancy_date") : ""}</dl>
+        ${top ? `<p class="mp-hintline">${esc(t("prompt")(t(top[0]), top[1]))}</p>` : v.unknowns ? "" : `<p class="mp-hintline ok">${esc(t("all_clear"))}</p>`}
         ${v.scope_note ? `<p class="mp-small">${esc(v.scope_note)}</p>` : ""}
-        ${demo ? "" : `<div class="mp-row"><button type="button" class="pill line" data-edit>${I.pen}<span>${esc(t("edit"))}</span></button><button type="button" class="pill ghost danger-t" data-del>${I.trash}<span>${esc(t("del"))}</span></button></div>`}
-      </aside>
-      <section class="mp-main">
-        <div class="mp-sec"><h2>${esc(t("whats_changing"))}</h2>${timelineHtml(p.changes, alerts?.calendar)}</div>
-        <div class="mp-sec mp-answers"></div>
+        ${demo ? "" : `<p class="mp-btns"><button type="button" class="btn" data-edit>${esc(t("edit"))}</button></p>`}
       </section>
-    </div>
-    <p class="mp-nla"><b>${esc(t("nla"))}</b> ${esc(t("nla_body"))}</p>`, p.label);
-  $$(".mp-side.stagger > *", main).forEach((el, i) => el.style.setProperty("--i", i));
-  const box = $(".mp-answers", main);
-  CE.renderAnswers(box, v);
+      <section class="block"><h2>${esc(t("whats_changing"))}</h2>${timelineHtml(p.changes, alerts?.calendar)}</section>
+      <section class="answers mp-answers"></section>
+      ${demo ? "" : `<p class="mp-del"><button type="button" class="linkish danger-t" data-del>${esc(t("del_prop"))}</button></p>`}
+    </article>`, p.label);
+  CE.renderAnswers($(".mp-answers", main), v);
   CUR = p;
   $("[data-del]", main)?.addEventListener("click", () => {
-    openSheet(t("del_t")(p.label), `<p class="mp-confirm">${esc(t("del_b"))}</p><div class="mp-row end"><button type="button" class="pill line" data-close>${esc(t("cancel"))}</button><button type="button" class="pill danger" data-go>${I.trash}<span>${esc(t("del"))}</span></button></div>`, (b) => {
+    openSheet(t("del_t")(p.label), `<p class="mp-confirm">${esc(t("del_b"))}</p><div class="mp-row end"><button type="button" class="btn" data-close>${esc(t("cancel"))}</button><button type="button" class="btn danger" data-go>${esc(t("del"))}</button></div>`, (b) => {
       $("[data-go]", b).addEventListener("click", async () => {
         try { await j(`/api/properties/${p.id}`, { method: "DELETE" }); closeSheet(); toast(t("deleted")); location.hash = "#/properties"; } catch (err) { toast(err.message); }
       });

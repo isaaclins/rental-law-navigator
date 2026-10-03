@@ -29,7 +29,9 @@ from fastapi.staticfiles import StaticFiles
 
 from web.accounts import router as accounts_router
 from web.any_address import router as any_address_router
+from web.check import router as check_router
 from web.translate import plain_expected
+from web.tts import router as tts_router
 
 ROOT = Path(__file__).resolve().parent.parent
 WEB = ROOT / "web"
@@ -589,6 +591,47 @@ def jurisdiction(a: dict) -> dict:
     }
 
 
+def excluded_rules(
+    address_id: str, cid: str, present: set[str], stack_j: set, as_of: str, lang: str
+) -> list[dict]:
+    """In-force rules of this address's jurisdictions that the evaluator rules out for this building (#85),
+    e.g. a city rent ordinance with a new-construction exemption. Read-only use of navigator.evaluate."""
+    try:
+        from navigator import api as NA
+        from navigator import evaluate as NE
+
+        f = NA._addresses()[address_id]
+        day = dt.date.fromisoformat(as_of)
+    except Exception:
+        return []
+    out = []
+    for r in STORE.rules.values():
+        if (
+            r.get("category") != cid
+            or r["team_rule_id"] in present
+            or r.get("jurisdiction") not in stack_j
+        ):
+            continue
+        try:
+            if NE.time_status(r, day) != "in_force":
+                continue
+            verdict, why = NE.coverage(r, f, day)
+        except Exception:
+            continue
+        if verdict == NE.NO:
+            out.append(
+                {
+                    "id": r["team_rule_id"],
+                    "title": STORE.t(r.get("title"), lang),
+                    "jurisdiction": r.get("jurisdiction"),
+                    "level": r.get("level"),
+                    "citation": r.get("citation"),
+                    "reasons": why,
+                }
+            )
+    return out
+
+
 def build_address(address_id: str, as_of: str, lang: str) -> dict:
     a = STORE.addresses.get(address_id)
     if not a:
@@ -678,6 +721,7 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
                 "not_law": notlaw,
                 "no_rule": not enacted,
                 "no_rule_findings": findings,
+                "excluded": excluded_rules(address_id, cid, present, stack_j, as_of, lang),
             }
         )
     return {
@@ -786,6 +830,8 @@ app = FastAPI(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.include_router(any_address_router)  # POST /api/resolve, /api/evaluate: any address (#39)
 app.include_router(accounts_router)  # sign-in, My properties, alerts, /privacy, /terms (#38)
+app.include_router(tts_router)  # POST /api/tts: listen to the answer, EN/ES (#49)
+app.include_router(check_router)  # POST /api/check: rent increase, deposit, fee, notice (#40)
 
 
 @app.middleware("http")

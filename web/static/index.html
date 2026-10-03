@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Clause &amp; Effect · Rental Housing Law Navigator</title>
-<meta name="description" content="Which rental housing rules apply here today, and what is about to change? Cited, address-level answers from public law. Not legal advice.">
+<meta name="description" content="Which rental housing rules apply at an address today, and what is about to change. Plain-language answers, each quoted from the law. Not legal advice.">
 <meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
@@ -13,48 +13,38 @@
 <meta name="apple-mobile-web-app-title" content="Clause &amp; Effect">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preload" href="/static/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/static/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/static/app.css?v=3">
+<link rel="stylesheet" href="/static/app.css">
 <link rel="stylesheet" href="/static/mobile.css">
 <link rel="stylesheet" href="/static/features/any-address.css">
 <link rel="stylesheet" href="/static/features/pwa.css">
 <link rel="stylesheet" href="/static/features/properties.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%23002664'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' text-anchor='middle' fill='white'%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/features/listen.css">
+<link rel="stylesheet" href="/static/features/check.css">
+<link rel="stylesheet" href="/static/features/compare.css">
+<link rel="icon" href="/static/icons/favicon-32.png" type="image/png">
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-<aside class="nla-strip" aria-label="Not legal advice">
-  <span><strong data-i18n="nla">Not legal advice.</strong> <span data-i18n="nla_strip">Information about public law, with citations to the official text.</span></span>
-  <button type="button" class="nla-more" data-nla-open aria-label="About this information">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
-  </button>
-</aside>
-
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a class="brand" href="#/" aria-label="Clause and Effect, home">
-      <span class="brand-mark" aria-hidden="true">§</span>
-      <span class="brand-word">Clause <i>&amp;</i> Effect</span>
-    </a>
+    <a class="brand" href="#/" aria-label="Clause and Effect, home">Clause &amp; Effect</a>
     <nav class="tabs" aria-label="Main">
-      <span class="tab-ink" aria-hidden="true"></span>
-      <a href="#/" data-route="lookup" data-i18n="nav_lookup">Address lookup</a>
-      <a href="#/changes" data-route="changes" data-i18n="nav_changes">What's changing</a>
-      <a href="#/rules" data-route="rules" data-i18n="nav_rules">Rules explorer</a>
-      <a href="#/audit" data-route="audit" data-i18n="nav_audit">Audit &amp; sources</a>
+      <a href="#/" data-route="lookup" data-i18n="nav_lookup">Lookup</a>
+      <a href="#/changes" data-route="changes" data-tour="changes" data-i18n="nav_changes">Changes</a>
+      <a href="#/rules" data-route="rules" data-i18n="nav_rules">Rules</a>
+      <a href="#/audit" data-route="audit" data-i18n="nav_audit">Sources</a>
     </nav>
     <div class="nav-tools">
-      <button type="button" class="pill ghost search-trigger" data-cmdk aria-label="Search addresses">
+      <button type="button" class="tool search-trigger" data-cmdk aria-label="Search addresses">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <span class="st-label" data-i18n="search_short">Search</span><kbd>/</kbd>
       </button>
-      <label class="asof-pill" title="As-of date for every answer">
-        <span data-i18n="as_of">As of</span>
-        <input type="date" id="asof" min="2020-01-01" max="2030-12-31">
+      <label class="tool asof" id="asof-ctl" data-tour="asof">
+        <span class="asof-l" id="asof-label"></span><svg class="ico caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+        <input type="date" id="asof" min="2020-01-01" max="2030-12-31" aria-label="Answers as of">
       </label>
+      <button type="button" class="tool asof-reset" id="asof-reset" hidden></button>
       <div class="seg" role="group" aria-label="Language">
-        <span class="seg-ink" aria-hidden="true"></span>
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="es" aria-pressed="false">ES</button>
       </div>
@@ -68,19 +58,15 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-nla"><strong data-i18n="nla">Not legal advice.</strong> <span data-i18n="footer_body">Answers are generated from a fixed corpus of statutes, ordinances and bills (retrieved 2026-10-01) by an AI extraction pipeline with deterministic coverage checks. They may be incomplete or wrong. Always read the cited source.</span></p>
-      </div>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="#/" data-i18n="nav_lookup">Address lookup</a>
-        <a href="#/changes" data-i18n="nav_changes">What's changing</a>
-        <a href="#/rules" data-i18n="nav_rules">Rules explorer</a>
-        <a href="#/audit" data-i18n="nav_audit">Audit &amp; sources</a>
-      </nav>
-    </div>
-    <p class="wordmark" aria-hidden="true">Clause <i>&amp;</i> Effect</p>
-    <p class="footer-meta" data-i18n="footer_meta">Hack-Nation 2026 · RealPage challenge prototype · Public data only: no customer, resident or pricing data.</p>
+    <p class="footer-nla"><strong data-i18n="nla">Not legal advice.</strong> <span data-i18n="footer_body">Plain-language summaries of official texts retrieved Oct 1, 2026. They can be incomplete or wrong, so always check the cited source.</span> <button type="button" class="linkish" data-nla-open data-i18n="nla_more">More</button></p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#/" data-i18n="nav_lookup">Lookup</a>
+      <a href="#/changes" data-i18n="nav_changes">Changes</a>
+      <a href="#/rules" data-i18n="nav_rules">Rules</a>
+      <a href="#/audit" data-i18n="nav_audit">Sources</a>
+      <span class="tour-slot-f" data-tour-slot="footer"></span>
+    </nav>
+    <p class="footer-meta"><span>Clause &amp; Effect</span> · <span data-i18n="footer_meta">Public data only. No customer, resident or pricing data.</span></p>
   </div>
 </footer>
 
@@ -96,17 +82,19 @@
     <div class="cmdk-input">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input type="text" role="combobox" aria-expanded="true" aria-controls="cmdk-list" aria-autocomplete="list" autocomplete="off" spellcheck="false">
-      <kbd>esc</kbd>
+      <button type="button" class="linkish cmdk-x" data-cmdk-close data-i18n="cancel">Cancel</button>
     </div>
     <ul id="cmdk-list" class="cmdk-list" role="listbox"></ul>
-    <div class="cmdk-foot"><span><kbd>↑</kbd><kbd>↓</kbd> <span data-i18n="k_move">move</span></span><span><kbd>↵</kbd> <span data-i18n="k_open">open</span></span><span class="muted" data-i18n="k_scope">500 sample addresses in 9 cities</span></div>
   </div>
 </div>
 
 <div id="toasts" class="toasts" aria-live="polite"></div>
-<script data-cfasync="false" src="/static/app.js?v=3" type="module"></script>
+<script data-cfasync="false" src="/static/app.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/any-address.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/pwa.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/properties.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/listen.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/check.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/compare.js" type="module"></script>
 </body>
 </html>
