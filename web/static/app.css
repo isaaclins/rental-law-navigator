@@ -95,7 +95,7 @@ kbd { font: 500 11px/1 var(--sans); padding: 3px 6px; border-radius: 6px; backgr
   padding: 10px 12px 10px 18px; border-radius: 999px; background: rgb(255 255 255 / 0); box-shadow: 0 0 0 1px transparent;
   transition: background var(--t) var(--ease-std), box-shadow var(--t) var(--ease-std), backdrop-filter var(--t) var(--ease-std), padding var(--t) var(--ease-std);
 }
-.nav.scrolled .nav-inner { background: rgb(255 255 255 / .95); backdrop-filter: saturate(1.6) blur(25px); -webkit-backdrop-filter: saturate(1.6) blur(25px); box-shadow: 0 0 0 1px var(--line), var(--shadow-float); }
+.nav.scrolled .nav-inner { border-radius: 28px; background: rgb(255 255 255 / .95); backdrop-filter: saturate(1.6) blur(25px); -webkit-backdrop-filter: saturate(1.6) blur(25px); box-shadow: 0 0 0 1px var(--line), var(--shadow-float); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); white-space: nowrap; }
 .brand:hover { color: var(--ink); }
 .brand-mark { width: 34px; height: 34px; border-radius: 11px; background: var(--navy); color: #fff; display: grid; place-items: center; font: 400 22px/1 var(--serif); padding-bottom: 2px; transition: transform var(--t) var(--ease-out); }
@@ -104,7 +104,9 @@ kbd { font: 500 11px/1 var(--sans); padding: 3px 6px; border-radius: 6px; backgr
 .brand-word i, .wordmark i { font-style: italic; color: var(--navy); }
 .tabs { position: relative; display: flex; gap: 2px; margin-left: auto; padding: 4px; border-radius: 999px; background: var(--tint); }
 .tabs a { position: relative; z-index: 1; padding: 7px 14px; border-radius: 999px; color: var(--ink-2); text-decoration: none; font-weight: 520; font-size: 14px; white-space: nowrap; transition: color var(--t) var(--ease-std); }
-.tabs a:hover { color: var(--ink); }
+.tabs a:hover { color: var(--ink); background: rgb(255 255 255 / .7); }
+.tabs a[aria-current="page"]:hover { background: transparent; color: #fff; }
+@media (hover: none) { .tabs a:hover { background: transparent; } }
 .tabs a[aria-current="page"] { color: #fff; }
 .tab-ink { position: absolute; z-index: 0; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 999px; background: var(--navy); box-shadow: 0 4px 12px rgb(0 38 100 / .25); transition: transform .45s var(--ease-out), width .45s var(--ease-out), opacity .2s; opacity: 0; }
 .nav-tools { display: flex; align-items: center; gap: 8px; }
@@ -126,9 +128,8 @@ kbd { font: 500 11px/1 var(--sans); padding: 3px 6px; border-radius: 6px; backgr
 .seg button[aria-pressed="true"] { color: var(--ink); }
 .seg-ink { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); border-radius: 999px; background: #fff; box-shadow: 0 1px 3px rgb(0 12 31 / .12); transition: transform .4s var(--ease-out); }
 .seg[data-active="es"] .seg-ink { transform: translateX(100%); }
-.nla-chip { display: none; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--wrn); background: var(--wrn-bg); padding: 6px 11px; border-radius: 999px; white-space: nowrap; cursor: help; }
-.nla-chip .d { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-.nav.scrolled .nla-chip { display: inline-flex; animation: chip-in .5s var(--ease-out) both; }
+.nav-inner { flex-wrap: wrap; }
+.nav.scrolled .nav-inner::after { content: "Not legal advice"; content: attr(data-nla); order: 9; flex-basis: 100%; text-align: center; font-size: 11.5px; font-weight: 600; color: var(--wrn); margin: -6px 0 -4px; animation: chip-in .5s var(--ease-out) both; }
 @keyframes chip-in { from { opacity: 0; transform: translateY(-4px) scale(.94); filter: blur(4px); } }
 .fixture-banner { pointer-events: auto; max-width: calc(var(--container) + 48px); margin: 8px auto 0; text-align: center; font-size: 12.5px; color: var(--unk); background: var(--unk-bg); border-radius: 999px; padding: 6px 14px; font-weight: 560; }
 .progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; background: var(--navy); transform-origin: 0 50%; transform: scaleX(0); opacity: 0; pointer-events: none; z-index: 60; }
@@ -151,13 +152,6 @@ main:focus, main:focus-visible { outline: none; }
 .reveal.in { animation: stagger-in .75s var(--ease-entrance) both; animation-delay: calc(var(--i, 0) * 60ms); }
 .fade-in { animation: fade-in .45s var(--ease-out) both; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } }
-::view-transition-old(root) { animation: vt-out .18s var(--ease-std) both; }
-::view-transition-new(root) { animation: vt-in .38s var(--ease-out) both; }
-@keyframes vt-out { to { opacity: 0; } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
-.nav { view-transition-name: nav; }
-.nla-strip { view-transition-name: nla; }
-::view-transition-old(nav), ::view-transition-new(nav), ::view-transition-old(nla), ::view-transition-new(nla) { animation: none; }
 
 /* ---------------------------------------------------------------- home: hero */
 .hero {
@@ -618,8 +612,6 @@ table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
   .tabs { order: 3; width: 100%; margin-left: 0; overflow-x: auto; scrollbar-width: none; }
   .tabs::-webkit-scrollbar { display: none; }
   .nav-tools { margin-left: auto; }
-  .nav.scrolled .nla-chip { display: none; }
-  .nav.scrolled .nav-inner::after { content: "⚠ " attr(data-nla); order: 4; flex-basis: 100%; text-align: center; font-size: 11.5px; font-weight: 650; color: var(--wrn); margin-top: -4px; animation: chip-in .5s var(--ease-out) both; }
   .addr-layout { grid-template-columns: 1fr; }
   .addr-side { position: static; }
   .feature { grid-template-columns: 1fr; gap: 28px; }
@@ -671,5 +663,4 @@ table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
   *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; filter: none; transform: none; }
   .stagger > *, .rise, .reveal.in, .hero h1 .w { filter: none !important; transform: none !important; }
-  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
 }

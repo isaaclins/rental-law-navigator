@@ -134,23 +134,28 @@ const verified = (v) => !v ? "" : v.status === "exact" || v.status === "normaliz
   : v.status === "not_found" ? `<span class="verified no" title="${esc(v.label)}">${I.alert}${t("quote_bad")}</span>` : "";
 
 // ------------------------------------------------------------------ motion helpers --
+let firstPaint = true;
 const io = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
   for (const e of entries) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
 }, { rootMargin: "0px 0px -6% 0px", threshold: 0 }) : null;
-function armReveals(root = main) {
-  $$(".reveal", root).forEach((el) => { if (RM.matches || !io) el.classList.add("in"); else io.observe(el); });
-}
 function swap(html, after) {
-  const apply = () => { main.innerHTML = html; after?.(); armReveals(); };
-  if (firstPaint) { firstPaint = false; apply(); return Promise.resolve(); }
-  if (document.startViewTransition && !RM.matches) {
-    const vt = document.startViewTransition(apply);
-    return vt.updateCallbackDone.catch(() => {});
-  }
-  apply();
-  main.classList.remove("fade-in"); void main.offsetWidth; main.classList.add("fade-in");
+  // Plain cross-fade of <main> (no View Transitions API: a stalled transition froze old snapshots on screen).
+  main.innerHTML = html; after?.(); armReveals();
+  if (firstPaint) { firstPaint = false; return Promise.resolve(); }
+  if (!RM.matches) { main.classList.remove("fade-in"); void main.offsetWidth; main.classList.add("fade-in"); }
   return Promise.resolve();
 }
+function armReveals(root = main) {
+  const els = $$(".reveal:not(.in)", root);
+  els.forEach((el) => { if (RM.matches || !io) el.classList.add("in"); else io.observe(el); });
+  // Safety net: never leave content hidden if the observer does not fire (background tab, odd layouts).
+  clearTimeout(armReveals.t);
+  armReveals.t = setTimeout(() => $$(".reveal:not(.in)").forEach((el) => {
+    const r = el.getBoundingClientRect();
+    if (r.top < innerHeight * 1.5) el.classList.add("in");
+  }), 1600);
+}
+addEventListener("scroll", () => { clearTimeout(armReveals.s); armReveals.s = setTimeout(() => $$(".reveal:not(.in)").forEach((el) => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in"); }), 250); }, { passive: true });
 const prog = $("#progress");
 function progress(on) {
   if (on) { prog.className = "progress"; void prog.offsetWidth; prog.className = "progress run"; }
@@ -176,6 +181,8 @@ function moveTabInk() {
   const ink = $(".tab-ink"), cur = $(".tabs a[aria-current='page']");
   if (!cur) { ink.style.opacity = 0; return; }
   ink.style.opacity = 1; ink.style.width = cur.offsetWidth + "px"; ink.style.transform = `translateX(${cur.offsetLeft}px)`;
+  const tabs = cur.parentElement;
+  if (tabs.scrollWidth > tabs.clientWidth) tabs.scrollTo({ left: cur.offsetLeft - (tabs.clientWidth - cur.offsetWidth) / 2, behavior: RM.matches ? "auto" : "smooth" });
 }
 addEventListener("resize", moveTabInk);
 function syncHeader(route) {
@@ -206,7 +213,6 @@ $$(".seg button").forEach((b) => b.addEventListener("click", async () => {
 document.addEventListener("click", (e) => {
   if (e.target.closest("[data-nla-open]")) openNla();
 });
-$(".nla-chip").addEventListener("keydown", (e) => { if (e.key === "Enter") openNla(); });
 function openNla() {
   openModal(t("nla_title"), `<p class="req" style="font-size:17px"><strong>${t("nla")}</strong> ${esc(t("nla_body"))}</p><p class="muted" style="margin-top:14px;font-size:14px">${esc(t("footer_body"))}</p>`);
 }
@@ -796,7 +802,6 @@ async function viewAudit() {
 
 // ------------------------------------------------------------------ router --
 let routing = 0;
-let firstPaint = true;
 async function route({ keepScroll = false } = {}) {
   const my = ++routing;
   cleanup.forEach((f) => f()); cleanup = [];
@@ -822,6 +827,7 @@ async function route({ keepScroll = false } = {}) {
   main.focus({ preventScroll: true });
 }
 addEventListener("hashchange", () => route());
+document.addEventListener("click", (e) => { const a = e.target.closest(".tabs a, .footer-links a"); if (a) setTimeout(() => a.blur(), 0); });
 
 (async function init() {
   [META, ADDR] = await Promise.all([api("/api/meta"), api("/api/addresses")]);
