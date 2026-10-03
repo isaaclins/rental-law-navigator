@@ -685,7 +685,7 @@ function testCard(x, i) {
 }
 async function viewChanges() {
   progress(true);
-  const [tests, tl] = await Promise.all([api(`/api/changes?lang=${lang}`), api("/api/timeline")]);
+  const [tests, tl] = await Promise.all([api(`/api/changes?lang=${lang}&as_of=${asOf}`), api("/api/timeline")]);
   progress(false);
   const shown = tl.filter((e) => e.date >= "2024-01-01"), older = tl.filter((e) => e.date < "2024-01-01");
   const html = `
@@ -693,7 +693,7 @@ async function viewChanges() {
     <section class="tl-card reveal" aria-label="${t("timeline")}">
       <div class="tl-top"><div><div class="panel-title">${t("timeline")}</div><div class="tl-date"><span id="tl-date"></span></div></div><div class="tl-sum" id="tl-sum"></div></div>
       <div class="tl-track"><div class="tl-line"></div><div class="tl-fill" id="tl-fill"></div>
-        ${shown.map((e) => `<button type="button" class="tl-ev ${pct(e.date) > 62 ? "r" : pct(e.date) < 18 ? "l" : ""}" data-date="${e.date}" style="left:${pct(e.date)}%" aria-label="${esc(fmtDate(e.date))}: ${esc(e.title)}"><span class="tip">${esc(fmtDate(e.date))} · ${esc(e.title)}</span></button>`).join("")}
+        ${[...new Set(shown.map((e) => e.date))].map((d) => { const evs = shown.filter((e) => e.date === d); return `<button type="button" class="tl-ev" data-date="${d}" style="left:${pct(d)}%" aria-label="${esc(fmtDate(d))}: ${esc(evs.map((e) => e.title).join("; "))}"><span class="tip"><b>${esc(fmtDate(d))}</b>${evs.map((e) => `<span>${esc(e.title)}</span>`).join("")}</span></button>`; }).join("")}
         <input type="range" class="tl-range" id="tl-range" min="0" max="${TL_MAX}" value="${dayIdx(asOf)}" aria-label="${t("as_of")}">
         <div class="tl-years">${[2024, 2025, 2026, 2027, 2028].map((y) => `<span style="left:${pct(y + "-01-01")}%">${y}</span>`).join("")}</div>
       </div>
@@ -734,6 +734,11 @@ async function viewChanges() {
     range.addEventListener("input", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => paint(idxDay(+range.value), false)); });
     const commit = (d) => { if (d === asOf) return; asOf = d; sessionStorage.setItem("asof", asOf); $("#asof").value = asOf; toast(t("toast_asof").replace("{d}", fmtDate(asOf))); };
     range.addEventListener("change", () => commit(idxDay(+range.value)));
+    const fitTip = (b) => { // keep the tooltip inside the card (#60); hovered markers are scaled 1.25
+      const k = b.matches(":hover") ? 1.25 : 1, w = $(".tip", b).offsetWidth * k, c = $(".tl-card").getBoundingClientRect(), r = b.getBoundingClientRect(), x = r.left + r.width / 2 - w / 2;
+      b.style.setProperty("--dx", `${Math.round((Math.max(c.left + 10, Math.min(x, c.right - 10 - w)) - x) / k)}px`);
+    };
+    $$(".tl-ev").forEach((b) => { b.addEventListener("pointerenter", () => fitTip(b)); b.addEventListener("focus", () => fitTip(b)); });
     $$(".tl-ev").forEach((b) => b.addEventListener("click", () => {
       const target = dayIdx(b.dataset.date), from = +range.value;
       if (RM.matches) { range.value = target; paint(b.dataset.date); commit(b.dataset.date); return; }
@@ -745,10 +750,10 @@ async function viewChanges() {
 }
 
 // ------------------------------------------------------------------ rules explorer --
-let RF = { jur: "", cat: "", status: "", q: "", conflicts: false };
+let RF = { jur: "", cat: "", status: "", q: "", conflicts: false }, RT_OPEN = false;
 async function viewRules() {
   progress(true);
-  const [rules, cov] = await Promise.all([api(`/api/rules?lang=${lang}`), api("/api/coverage")]);
+  const [rules, cov] = await Promise.all([api(`/api/rules?lang=${lang}&as_of=${asOf}`), api(`/api/coverage?as_of=${asOf}`)]);
   progress(false);
   const catLabel = Object.fromEntries(cov.categories.map((c) => [c.id, t("cat_" + c.id)]));
   const html = `
@@ -763,7 +768,7 @@ async function viewRules() {
       }).join("")}</tr>`).join("")}</tbody></table>
       <div class="legend" style="justify-content:flex-start;padding:12px 16px 8px;margin:0">${["in_force", "not_yet_effective", "pending", "failed"].map((s) => `<span><span class="dot ${s}"></span>${esc(resLabel(s))}</span>`).join("")}<span><span class="none finding">∅</span>${esc(t("legend_nr"))}</span><span>·&nbsp;${esc(t("none_level"))}</span></div>
     </section>
-    <details class="card table-card reveal" id="rules-table"><summary class="table-sum">${I.chev}<span>${t("show_table").replace("{n}", rules.length)}</span></summary>
+    <details class="card table-card reveal" id="rules-table"${RT_OPEN ? " open" : ""}><summary class="table-sum">${I.chev}<span>${t("show_table").replace("{n}", rules.length)}</span></summary>
     <div style="padding:4px 18px 8px">
       <div class="filters">
         <select id="f-j" aria-label="${t("jurisdiction")}"><option value="">${t("jurisdiction")}: ${t("all")}</option>${cov.jurisdictions.map((j) => `<option>${esc(j)}</option>`).join("")}</select>
@@ -788,6 +793,7 @@ async function viewRules() {
         <td>${r.confidence != null ? pctOf(r.confidence) + "%" : "—"}</td><td>${r.quote_check?.status === "exact" || r.quote_check?.status === "normalized" ? `<span class="verified" title="${esc(r.quote_check.label)}">${I.check}</span>` : r.quote_check?.status === "not_found" ? `<span class="verified no" title="${esc(r.quote_check.label)}">${I.alert}</span>` : '<span class="s">n/a</span>'}</td><td>${r.addresses_count}</td></tr>`).join("") || `<tr><td colspan="10" class="empty">—</td></tr>`;
     };
     const sync = () => { $("#f-j").value = RF.jur; $("#f-c").value = RF.cat; $("#f-s").value = RF.status; $("#f-q").value = RF.q; $("#f-x").checked = RF.conflicts; draw(); };
+    $("#rules-table").addEventListener("toggle", (e) => { RT_OPEN = e.target.open; });
     $("#f-j").onchange = (e) => { RF.jur = e.target.value; draw(); };
     $("#f-c").onchange = (e) => { RF.cat = e.target.value; draw(); };
     $("#f-s").onchange = (e) => { RF.status = e.target.value; draw(); };
@@ -964,6 +970,8 @@ window.CE = Object.freeze({
 });
 
 (async function init() {
+  const v0 = location.hash.replace(/^#\/?/, "").split("/")[0];
+  syncHeader(v0 === "a" || !v0 ? "lookup" : v0); // #81: date + active pill in the first frame
   [META, ADDR] = await Promise.all([api("/api/meta"), api("/api/addresses")]);
   if (lang === "es") ES = await api("/api/i18n/es").catch(() => ({}));
   await route();
