@@ -84,17 +84,10 @@ pipeline ([`qa/`](qa/)). Then we wrote a scorer that follows the brief's scoring
 | **T3** NJ FAIR Act (eff. 2027-07-01) | `not_yet_effective` today, `applies` on 2027-07-02; flags a conflict with the local bans | 140/140 NJ addresses flip; 90/90 Jersey City and Hoboken addresses carry a preemption flag |
 | **T4** MA S.2983 / H.5222 | Pending, never in force; list the addresses they would affect | Both bills `pending`; 110/110 Boston and Cambridge addresses |
 | **T5** MA ballot question struck | No rent cap for Boston or Cambridge; affected set empty | Initiative Petition 25-21 recorded as `failed`; affected set empty |
-| **T6** Fictional Cambridge ordinance | Extract it unaided, list affected addresses, get the future effective date right | hour-16 ordinance: [see below](#t6-the-hour-16-ordinance) |
 
 `uv run python -m navigator selfcheck` re-checks all of this in CI on every pull request ([`output/selfcheck.txt`](output/selfcheck.txt)):
 schema, verbatim spans, the jurisdiction × category coverage matrix, all 25 examples from the brief, T1-T5 and the four
 known open questions.
-
-### T6: the hour-16 ordinance
-
-*To be filled in when the organisers release the ordinance at hour 16.* It goes through the same command a judge would
-run, `uv run python -m navigator ingest-new <file> --jurisdiction "Cambridge, MA"`. The section will record the extracted
-rule, its effective date, the affected addresses and the before/after results.
 
 ## How it works
 
@@ -115,7 +108,7 @@ flowchart TB
     J --> E["deterministic evaluator<br/>time, coverage, precedence"]
   end
   subgraph CC["Module C: track change"]
-    T[("change tests T1-T5<br/>+ ingest-new for T6")] --> D["as-of diffs, boundaries,<br/>pending, negative tests"]
+    T[("change tests T1-T5<br/>+ ingest-new for new laws")] --> D["as-of diffs, boundaries,<br/>pending, negative tests"]
   end
   F --> RJ[/"rules.json"/]
   RJ --> E
@@ -193,14 +186,14 @@ NAVIGATOR_LLM=codex uv run python -m navigator run-all                       # o
 At most 3 calls run in parallel (`NAVIGATOR_MAX_PARALLEL`), each under `nice -n 19`. A cold run is about 106 model
 calls (see [Scalability path](#scalability-path)).
 
-**Ingest a new law** (the hour-16 test, or any new ordinance):
+**Ingest a new law** (any new ordinance or bill, extracted unaided):
 
 ```bash
 uv run python -m navigator ingest-new path/to/ordinance.txt --jurisdiction "Cambridge, MA" --url https://...
 ```
 
 This copies the text into `new_docs/`, extracts and consolidates it against the existing rules (2 model calls), writes
-the new rules to `rules.json`, re-evaluates all 500 addresses and adds test `T6` to `changes.json`. That test holds the
+the new rules to `rules.json`, re-evaluates all 500 addresses and adds a `new_law` change test (id `T6` by default, `--test-id` to change) to `changes.json`. That test holds the
 affected addresses and the before/after results around the extracted effective date.
 
 **Checks** (the same ones CI runs, see [CONTRIBUTING.md](CONTRIBUTING.md)):

@@ -12,7 +12,12 @@ Routes
   PATCH  /api/properties/{id}, DELETE /api/properties/{id}
   GET    /api/alerts, PUT /api/alerts calendar feed links, email digest opt-in
   POST   /api/alerts/calendar/rotate  new secret calendar URL (the old one stops working)
-  POST   /api/alerts/test-email       one test alert to the signed-in user's own address (Resend SMTP)
+  POST   /api/alerts/test-email       one test alert to the signed-in user's own address (internal; Resend SMTP)
+  GET/POST /alerts/unsubscribe?t=...  signed link from every digest: turns the email digest off (POST = RFC 8058)
+
+CLI (run by a systemd timer): uv run python -m web.accounts send-digests [--dry-run] [--today YYYY-MM-DD]
+  One email per opted-in user listing changes at their saved properties that take effect within 30 days or took
+  effect since their last digest. Every sent item is recorded in digest_log, so nothing is mailed twice.
   DELETE /api/account                 wipes the user, the properties and the preferences
   GET    /cal/{token}.ics             every upcoming effective date for the user's properties (#42)
   GET    /privacy, /terms
@@ -187,6 +192,19 @@ CREATE TABLE IF NOT EXISTS alert_prefs (
   user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
   email_digest INTEGER NOT NULL DEFAULT 0,
   last_test_email_at TEXT
+);
+CREATE TABLE IF NOT EXISTS digest_state (
+  user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  last_sent_on TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS digest_log (
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  property_id INTEGER NOT NULL REFERENCES properties(id) ON DELETE CASCADE,
+  event_date TEXT NOT NULL,
+  rule_id TEXT NOT NULL,
+  kind TEXT NOT NULL,
+  sent_at TEXT NOT NULL,
+  PRIMARY KEY (user_id, property_id, event_date, rule_id, kind)
 );
 """
 # Public sample buildings (starter data); facts chosen to show a definite answer set, an upcoming change and one
@@ -1131,7 +1149,13 @@ def calendar_feed(token: str, request: Request):
     )
 
 
-def send_mail(to: str, subject: str, text: str, html_body: str | None = None) -> None:
+def send_mail(
+    to: str,
+    subject: str,
+    text: str,
+    html_body: str | None = None,
+    headers: dict[str, str] | None = None,
+) -> None:
     """One message through Resend SMTP (STARTTLS). The API key is read from its mode-600 file per send."""
     key = cfg_path("resend").read_text().strip()
     msg = EmailMessage()
@@ -1139,6 +1163,8 @@ def send_mail(to: str, subject: str, text: str, html_body: str | None = None) ->
     msg["To"] = to
     msg["Subject"] = subject
     msg["Message-ID"] = make_msgid(domain="isaaclins.com")
+    for k, v in (headers or {}).items():
+        msg[k] = v
     msg.set_content(text)
     if html_body:
         msg.add_alternative(html_body, subtype="html")
@@ -1172,7 +1198,7 @@ def test_alert(user: sqlite3.Row, base: str, today: dt.date) -> tuple[str, str, 
         f"Open My properties: {base}/#/properties",
         "",
         NLA,
-        "You get this email because you pressed 'Send me a test alert'. We send nothing else.",
+        "You get this email because you asked for a test alert.",
     ]
     body = (
         '<div style="font:15px/1.55 -apple-system,Segoe UI,Arial,sans-serif;color:#000c1f;max-width:560px">'
@@ -1186,7 +1212,7 @@ def test_alert(user: sqlite3.Row, base: str, today: dt.date) -> tuple[str, str, 
         + f'<p><a href="{html.escape(base)}/#/properties" style="display:inline-block;background:#002664;color:#fff;'
         'padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600">Open My properties</a></p>'
         f'<p style="color:#5a6372;font-size:12.5px;margin-top:22px"><b>Not legal advice.</b> Information about public law with citations; check the cited source.<br>'
-        "You get this email because you pressed &lsquo;Send me a test alert&rsquo;. We send nothing else.</p></div>"
+        "You get this email because you asked for a test alert.</p></div>"
     )
     return subject, "\n".join(text), body
 
@@ -1213,6 +1239,251 @@ def send_test_email(request: Request):
         )
     log("test email sent")
     return {"ok": True, "sent_to": user["email"]}
+
+
+# ------------------------------------------------------------------ email digests (CLI: send-digests)
+PUBLIC_BASE = os.environ.get("NAVIGATOR_PUBLIC_BASE", "https://navigator.isaaclins.com").rstrip("/")
+DIGEST_AHEAD_DAYS = 30
+UNSUB_TTL = 400 * 86400
+DIGEST_VERB = {
+    "takes_effect": "takes effect",
+    "ends": "ends",
+    "figure": "a new figure applies",
+    "changes": "changes for this building",
+}
+
+
+def unsubscribe_url(uid: int, base: str = PUBLIC_BASE) -> str:
+    return f"{base}/alerts/unsubscribe?t=" + urllib.parse.quote(
+        sign("unsub", {"uid": uid}, UNSUB_TTL)
+    )
+
+
+def _plain_summary(rule_id: str, jurisdiction: str | None) -> str:
+    """One plain sentence: the first sentence of the rule's requirement."""
+    rules, _, _ = U.rules_for(jurisdiction)
+    r = next((x for x in rules if x.get("team_rule_id") == rule_id), None)
+    txt = (r or {}).get("requirement") or ""
+    m = re.match(r"(.{20,}?[.!?])(\s|$)", txt, re.S)
+    return (m.group(1) if m else txt).strip()
+
+
+def digest_items(uid: int, today: dt.date, c: sqlite3.Connection) -> list[dict]:
+    """Changes not yet mailed: effective within DIGEST_AHEAD_DAYS, or since the last digest run (first run: today)."""
+    st = c.execute("SELECT last_sent_on FROM digest_state WHERE user_id = ?", (uid,)).fetchone()
+    start = dt.date.fromisoformat(st["last_sent_on"]) if st else today - dt.timedelta(days=1)
+    # at most 30 days back (e.g. alerts were off for a while), and never later than yesterday
+    start = max(
+        min(start, today - dt.timedelta(days=1)), today - dt.timedelta(days=DIGEST_AHEAD_DAYS)
+    )
+    end = today + dt.timedelta(days=DIGEST_AHEAD_DAYS)
+    sent = {
+        (r["property_id"], r["event_date"], r["rule_id"], r["kind"])
+        for r in c.execute("SELECT * FROM digest_log WHERE user_id = ?", (uid,))
+    }
+    props = c.execute("SELECT * FROM properties WHERE user_id = ? ORDER BY id", (uid,)).fetchall()
+    out = []
+    for p in props:
+        for ev in property_changes(p, start.isoformat())["events"]:
+            d = dt.date.fromisoformat(ev["date"])
+            if not (start < d <= end):
+                continue
+            for it in ev["items"]:
+                k = (p["id"], ev["date"], it["rule_id"], it["kind"])
+                if k in sent:
+                    continue
+                out.append(
+                    {
+                        "property_id": p["id"],
+                        "label": p["label"],
+                        "address": p["address"],
+                        "date": ev["date"],
+                        "past": d <= today,
+                        "rule_id": it["rule_id"],
+                        "kind": it["kind"],
+                        "title": it["title"],
+                        "citation": it.get("citation") or "",
+                        "source_url": it.get("source_url") or "",
+                        "key_value": it.get("key_value") or "",
+                        "summary": _plain_summary(it["rule_id"], p["jurisdiction"]),
+                    }
+                )
+    return sorted(out, key=lambda x: (x["date"], x["property_id"], x["rule_id"]))
+
+
+def _fmt_day(d: str) -> str:
+    return dt.date.fromisoformat(d).strftime("%b %d, %Y").replace(" 0", " ")
+
+
+def build_digest(
+    user: sqlite3.Row, items: list[dict], base: str = PUBLIC_BASE
+) -> tuple[str, str, str]:
+    n = len(items)
+    subject = f"{n} rule change{'s' if n != 1 else ''} for your properties"
+    unsub = unsubscribe_url(user["id"], base)
+    hi = f"Hi {user['name'].split()[0]}," if user["name"] else "Hi,"
+    text = [hi, "", "These rules change at your saved properties:", ""]
+    blocks = []
+    for it in items:
+        when = ("Since " if it["past"] else "On ") + _fmt_day(it["date"])
+        link = f"{base}/#/properties/{it['property_id']}"
+        text += [
+            f"{it['address']}",
+            f"  {when}: {it['title']} {DIGEST_VERB[it['kind']]}.",
+        ]
+        if it["summary"]:
+            text.append(f"  {it['summary']}")
+        cite = it["citation"] + (f" ({it['source_url']})" if it["source_url"] else "")
+        text += [f"  Source: {cite}", f"  Details: {link}", ""]
+        e = html.escape
+        blocks.append(
+            '<tr><td style="padding:12px 0;border-top:1px solid #e6e8ec">'
+            f'<div style="color:#5a6372;font-size:13px">{e(it["address"])}</div>'
+            f'<div style="margin:2px 0"><b style="color:#002664">{e(when)}</b> &middot; '
+            f"<b>{e(it['title'])}</b> {e(DIGEST_VERB[it['kind']])}.</div>"
+            + (f"<div>{e(it['summary'])}</div>" if it["summary"] else "")
+            + '<div style="font-size:13px;margin-top:4px">'
+            + (
+                f'<a href="{e(it["source_url"])}" style="color:#0066c5">{e(it["citation"])}</a>'
+                if it["source_url"]
+                else e(it["citation"])
+            )
+            + f' &middot; <a href="{e(link)}" style="color:#0066c5">Open the property</a></div></td></tr>'
+        )
+    text += [NLA, "", f"Stop these emails: {unsub}"]
+    body = (
+        '<div style="font:15px/1.55 -apple-system,Segoe UI,Arial,sans-serif;color:#000c1f;max-width:560px">'
+        '<p style="font:26px/1.1 Georgia,serif;margin:0 0 12px">Clause <i>&amp;</i> Effect</p>'
+        f"<p>{html.escape(hi)} these rules change at your saved properties:</p>"
+        f'<table style="border-collapse:collapse;width:100%">{"".join(blocks)}</table>'
+        '<p style="color:#5a6372;font-size:12.5px;margin-top:22px"><b>Not legal advice.</b> Information about public '
+        "law with citations; check the cited source.<br>"
+        f'<a href="{html.escape(unsub)}" style="color:#5a6372">Stop these emails</a></p></div>'
+    )
+    return subject, "\n".join(text), body
+
+
+def _mark_digest(uid: int, today: dt.date) -> None:
+    with db() as c:
+        c.execute(
+            "INSERT INTO digest_state (user_id, last_sent_on) VALUES (?, ?) "
+            "ON CONFLICT(user_id) DO UPDATE SET last_sent_on = excluded.last_sent_on",
+            (uid, today.isoformat()),
+        )
+
+
+def send_digests(today: dt.date, dry_run: bool = False, base: str = PUBLIC_BASE) -> dict:
+    """One email per opted-in, non-demo user with unsent changes. Returns counts (no addresses or emails)."""
+    stats = {"users": 0, "emails": 0, "items": 0, "failed": 0, "dry_run": dry_run}
+    with db() as c:
+        users = c.execute(
+            "SELECT u.* FROM users u JOIN alert_prefs a ON a.user_id = u.id "
+            "WHERE a.email_digest = 1 AND u.is_demo = 0 ORDER BY u.id"
+        ).fetchall()
+    for u in users:
+        stats["users"] += 1
+        with db() as c:
+            items = digest_items(u["id"], today, c)
+        if not items:
+            if (
+                not dry_run
+            ):  # checked up to today: a later run only looks at what happens after this
+                _mark_digest(u["id"], today)
+            continue
+        subject, text, body = build_digest(u, items, base)
+        if dry_run:
+            print(f"[dry-run] user {u['id']}: {len(items)} item(s): {subject}")
+            stats["emails"] += 1
+            stats["items"] += len(items)
+            continue
+        try:
+            send_mail(
+                u["email"],
+                subject,
+                text,
+                body,
+                headers={
+                    "List-Unsubscribe": f"<{unsubscribe_url(u['id'], base)}>",
+                    "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+                },
+            )
+        except (OSError, smtplib.SMTPException) as e:
+            log(f"digest failed for user {u['id']}: {type(e).__name__}")
+            stats["failed"] += 1
+            continue
+        ts = now_iso()
+        with db() as c:
+            c.executemany(
+                "INSERT OR IGNORE INTO digest_log (user_id, property_id, event_date, rule_id, kind, sent_at) "
+                "VALUES (?,?,?,?,?,?)",
+                [
+                    (u["id"], i["property_id"], i["date"], i["rule_id"], i["kind"], ts)
+                    for i in items
+                ],
+            )
+        _mark_digest(u["id"], today)
+        stats["emails"] += 1
+        stats["items"] += len(items)
+    log(f"digests: {stats}")
+    return stats
+
+
+UNSUB_PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>{title} · Clause &amp; Effect</title>
+<style>body{{font:16px/1.55 -apple-system,Segoe UI,Arial,sans-serif;color:#000c1f;max-width:520px;margin:12vh auto;
+padding:0 24px}}h1{{font:400 34px/1.1 Georgia,serif}}a{{color:#0066c5}}</style></head>
+<body><h1>{title}</h1><p>{body}</p><p><a href="/#/properties">My properties</a></p></body></html>"""
+
+
+def _unsubscribe(t: str | None) -> tuple[int, str]:
+    d = unsign("unsub", t)
+    if not d:
+        return 400, UNSUB_PAGE.format(
+            title="Link expired",
+            body="This unsubscribe link is not valid. Turn email alerts off in My properties.",
+        )
+    with db() as c:
+        c.execute("UPDATE alert_prefs SET email_digest = 0 WHERE user_id = ?", (int(d["uid"]),))
+    log("digest unsubscribe")
+    return 200, UNSUB_PAGE.format(
+        title="You're unsubscribed",
+        body="We won't email you about rule changes any more. You can turn alerts back on in My properties.",
+    )
+
+
+@router.get("/alerts/unsubscribe", response_class=HTMLResponse)
+def unsubscribe_get(t: str | None = None):
+    code, page = _unsubscribe(t)
+    return HTMLResponse(page, status_code=code)
+
+
+@router.post("/alerts/unsubscribe", response_class=HTMLResponse)
+def unsubscribe_post(t: str | None = None):
+    """RFC 8058 one-click unsubscribe (mail clients POST to the List-Unsubscribe URL)."""
+    code, page = _unsubscribe(t)
+    return HTMLResponse(page, status_code=code)
+
+
+def main(argv: list[str] | None = None) -> int:
+    import argparse
+
+    ap = argparse.ArgumentParser(prog="python -m web.accounts")
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    sd = sub.add_parser(
+        "send-digests", help="email each opted-in user the rule changes at their properties"
+    )
+    sd.add_argument(
+        "--dry-run", action="store_true", help="print what would be sent; send and record nothing"
+    )
+    sd.add_argument(
+        "--today", type=dt.date.fromisoformat, default=None, help="YYYY-MM-DD (default: today)"
+    )
+    a = ap.parse_args(argv)
+    if a.cmd == "send-digests":
+        stats = send_digests(a.today or dt.date.today(), dry_run=a.dry_run)
+        print(json.dumps(stats))
+        return 1 if stats["failed"] else 0
+    return 2
 
 
 # ------------------------------------------------------------------ privacy + terms (linked from Google's consent screen)
@@ -1244,7 +1515,8 @@ the address lookup without an account. An account is only needed for <b>My prope
 no calendar, no photos.</li>
 <li>What you save: a label and the address of each property, the city and state it belongs to, and the building facts
 you enter (year built, number of units, whether the owner lives there).</li>
-<li>Your alert settings, a secret calendar link, and when you last asked for a test email.</li></ul>
+<li>Your alert settings, a secret calendar link, and which change alerts we already emailed you (so you never get
+one twice).</li></ul>
 <p>We do not store names of tenants, rents or anything about the people who live in a building. We do not ask for it.</p>
 <h2>Cookies</h2>
 <p>One cookie keeps you signed in (30 days). A second, short-lived cookie protects the sign-in step. No tracking,
@@ -1252,7 +1524,8 @@ analytics or advertising cookies.</p>
 <h2>Who else sees data</h2>
 <ul><li><b>Google</b>, to sign you in.</li>
 <li><b>US Census Geocoder</b>: the address you type is sent there once to find its city and state.</li>
-<li><b>Resend</b> delivers an email only when you press &ldquo;Send me a test alert&rdquo;.</li></ul>
+<li><b>Resend</b> delivers the alert emails, only if you turn on email alerts. Every email has a one-click
+unsubscribe link.</li></ul>
 <p>We never sell or share your data, and we do not use it for anything except showing you your properties.</p>
 <h2>Delete anytime</h2>
 <p>In My properties, open the account menu and choose <b>Delete account</b>. Your account, properties and settings are
@@ -1287,3 +1560,7 @@ def privacy():
 @router.get("/terms", response_class=HTMLResponse)
 def terms():
     return PAGE.format(title="Terms", body=TERMS)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
