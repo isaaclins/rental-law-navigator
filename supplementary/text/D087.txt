@@ -1,0 +1,19 @@
+SOURCE: https://www.publicceo.com/2026/02/santa-ana-city-council-continues-to-strengthen-tenant-protections-by-banning-anticompetitive-rent-setting-software/
+RETRIEVED: 2026-10-03 17:13 UTC
+SOURCE_TYPE: secondary (law firm / news / mirror) (link-only in starter corpus; fetched by team)
+
+The Santa Ana City Council is taking another step to protect renters with a new ordinance banning rent-setting computer software that can artificially inflate rents.
+The ordinance, approved on Tuesday, Feb. 17, for a first reading and set for a final vote on March 3, prohibits the sale, licensing, provision and use of certain algorithmic rent-setting software for residential rental properties. It addresses the growing use of algorithmic devices that set rental rates in the private housing market using nonpublic competitor data, including real-time rents, lease renewals and occupancy levels.
+“This ordinance is about protecting renters and keeping our housing market fair,” Mayor Valerie Amezcua said. “By prohibiting the sale and use of these rent-setting systems, we’re standing up for working families, promoting accountability, and ensuring our housing market works for residents — not just profit margins.”
+National analyses and federal lawsuits suggest that such algorithmic tools may contribute to double-digit rent increases, higher eviction rates and artificial housing scarcity. The City’s review of local rental market conditions, along with findings from federal investigations and national research, indicates that algorithmic rent-setting tools pose a risk to housing affordability in Santa Ana.
+A 2023 survey by the U.S. Census Bureau found that more than 55 percent of the 79,691 occupied homes in Santa Ana are rented rather than owned, and about 53 percent of renters spend more than 30 percent of their income on housing. At the same time, the median household income in Santa Ana has not increased as fast as the growth in rental housing prices, which puts extra financial pressure on low-income and working-class families.
+This is the City of Santa Ana’s latest measure to protect and support tenants. The City was the first in Orange County to approve a rent stabilization ordinance limiting rent increases for certain types of residential properties and creating new protections against eviction.
+Key Provisions of the Ordinance
+The new algorithmic rent-setting ordinance is limited to residential rental property and does not apply to pricing software that relies solely on publicly available data, aggregate historical data, or tools used to comply with affordable housing program requirements.
+It is structured to operate alongside existing and proposed state antitrust laws while providing stronger local protections, as it:
+- Defines a limited scope, covering residential rental property within Santa Ana city limits;
+- Provides tenants with direct enforcement authority through civil action; and
+- Eases the burden of proof for tenants by only needing to prove the landlord is using prohibited technology, instead of having to prove there was intentional collusion by the landlord.
+Under the ordinance, a tenant affected by a violation may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation, plus attorney’s fees.
+About Santa Ana
+Santa Ana is downtown for the world-famous Orange County, California. It is the County Seat, headquarters to national corporations including a Fortune 500 company, and home to a vibrant evening scene and arts community. Over 1,700 City of Santa Ana employees work hard every day to deliver efficient public services in partnership with our community to ensure public safety, a prosperous economic environment, opportunities for our youth, and a high quality of life for residents. Learn more at www.santa-ana.org.

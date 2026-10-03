@@ -1,0 +1,23 @@
+SOURCE: https://www.ocbj.com/real-estate/santa-ana-bans-landlords-from-using-ai-apartment-rent-pricing-software/
+RETRIEVED: 2026-10-03 17:13 UTC
+SOURCE_TYPE: secondary (law firm / news / mirror) (link-only in starter corpus; fetched by team)
+
+To protect renters, city leaders have approved a new ordinance that stops apartment owners and landlords from using automated AI software to set rental prices.
+“The purpose and intent of this [ordinance] is to protect the residents of Santa Ana from artificially inflated rental rates and unfair rent increases by prohibiting the sale, licensing and use of Algorithmic Devices,” according to a staff report.
+Landlords caught using the banned software could be fined $1,000. The measure passed its first vote on Feb. 17, and Tuesday’s vote was the final step to officially put the ordinance into effect.
+The ordinance comes as states and cities grapple with housing affordability and the rising cost of living for many of their residents.
+Cities like San Francisco, San Diego and Berkeley have already banned similar software that uses algorithms to analyze private competitor data to set monthly rents.
+“The Santa Ana City Council voted on a matter for which it lacked clear understanding – how residential property management software really works,” David Cordero, executive director of the Apartment Association of Orange County, told the Business Journal. “The ordinance adopted by the Santa Ana City Council is performative, at best, and exposes the city to legal liabilities at worst. Here in California, cities would be better served to allow the recently adopted state regulations to do their job rather than rushing to create a hodgepodge of local regulations that will be questionably effective and enforceable.”
+A Closer Look at Price Fixing
+A typical price fixing scenario: While searching for an apartment in Santa Ana, a renter might come across Class A (newer, modern), Class B (mid-tier) and Class C (older) buildings in different areas. But what they find is that the monthly rent is often similar, regardless of the building’s quality, location or amenities.
+Apartment owners and managers often rely on automated systems like RealPage to analyze market data, suggest rental prices, screen tenants and manage revenue.
+RealPage, based in Texas, offers revenue management software and services for the rental housing industry. It handles marketing, leasing, operations, and finances for more than 24 million rental units worldwide.
+However, the U.S. Department of Justice said in a recent lawsuit against RealPage that many landlords and property managers have used AI software to access private data from other companies, including vacancy rates and lease terms, to collaborate and artificially raise rents.
+Rather than operating in a free market, where landlords compete, they are allowing AI software to dictate their rental strategies, according to the federal agency.
+The DOJ lawsuit was settled last year. RealPage did not admit any wrongdoing but agreed not to use competitors’ private data to set rental prices.
+“The proposed settlement would help restore free market competition in rental markets for millions of American renters,” the DOJ said in November.
+Protecting Santa Ana Renters
+Santa Ana officials say the new policy banning landlords from using this software is designed to protect renters in a city where housing costs keep rising.
+According to the staff report, Santa Ana leaders cited data showing the average rent in the city is about $2,293 per month, roughly 40% higher than the national median, while rising housing costs continue to strain many residents. More than half of Santa Ana’s residents live in an apartment.
+“In the center of Santa Ana, a one-bedroom apartment is going for $2,100. That’s the mortgage of my house, a three-bedroom on a 6,000 square foot lot,” said Councilman Benjamin Vasquez. “So this is very much necessary because of how rent has gone up extremely in the city of Santa Ana.”
+City officials said they will mostly use the existing code enforcement system to enforce the new rule.

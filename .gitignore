@@ -1,6 +1,6 @@
 .venv/
 __pycache__/
 *.pyc
-cache/
 .env
 node_modules/
+docs/*.pdf

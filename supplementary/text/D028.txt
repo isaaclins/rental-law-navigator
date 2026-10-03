@@ -1,0 +1,56 @@
+SOURCE: https://www.clearygottlieb.com/news-and-insights/publication-listing/californias-antitrust-law-amendments-kick-in-targeting-algorithmic-pricing
+RETRIEVED: 2026-10-03 17:12 UTC
+SOURCE_TYPE: secondary (law firm / news / mirror) (link-only in starter corpus; fetched by team)
+
+California’s Antitrust Law Amendments Kick In, Targeting Algorithmic Pricing
+January 6, 2026
+As of January 1, 2026, businesses are subject to the Cartwright Act’s latest amendments, including an express prohibition on certain usages of pricing algorithms.
+Key Takeaways
+- The Cartwright Act now expressly prohibits (1) using or distributing common algorithms to collude on pricing, and (2) coercing users to adopt algorithmic recommendations. Common pricing algorithms include any technology with two or more users that use competitor information to influence prices or commercial terms.
+- Businesses should review their use of common pricing algorithms to ensure compliance. Note that single-firm algorithms using only a business’s own data are not covered by the law.
+- For claims brought under the Cartwright Act, the pleading standard is now that plaintiffs need only allege facts that make their claims plausible. At the motion to dismiss phase, it is not necessary to have alleged facts tending to exclude the possibility of independent action.
+- The amendments also introduce new and greater civil and criminal penalties. Criminal fines rise to more than $6 million for businesses and $1 million for individuals, and businesses and individuals may now be subject to civil fines of up to $1 million in cases brought by the Attorney General or a district attorney.
+I. The Cartwright Act
+Enacted in 1907, the Cartwright Act is California’s principal antitrust law and is similar in reach to Section 1 of the Sherman Act. Both prohibit agreements between two or more entities in restraint of trade, including price fixing, bid rigging, market allocation, and output restriction.
+Last October, California Governor Newsom signed into law Assembly Bill 325 (AB 325) and Senate Bill 763 (SB 763), amending the Act.[1] These laws, described below, took effect on January 1, 2026.
+II. Regulating Algorithmic Pricing
+Who Is Impacted? The new law targets users and distributors of common pricing algorithms. A pricing algorithm is “common” if it has two or more users and uses competitor data in setting pricing or commercial terms.[2]
+The law does not affect a business that uses proprietary algorithms utilizing only the business’s own data.
+Certain industries have been targets of recent federal algorithmic price fixing claims, including apartment rental companies,[3] hotels,[4] and healthcare insurers.[5] Businesses in these industries should expect possible scrutiny under state law, but any business relying on a common pricing algorithm could be a target.
+What Is Prohibited? Businesses are expressly prohibited from using or distributing common pricing algorithms as part of an agreement to restrain trade. Defendants will argue that this does not really expand the scope of liability, but additional scrutiny and legal arguments by claimants seem inevitable. Separately, businesses are also prohibited from using or offering common pricing algorithms if they coerce users to adopt the algorithm’s recommendations on pricing or other commercial terms within California for the same or similar products or services.[6] What may constitute “coercion” has been left open for the courts.[7]
+Importantly, the prohibition is not limited to pricing algorithms fed by private data. “Pricing algorithms” means any methodology, including a computer, software, or other technology that uses “competitor data” to recommend or influence prices or other competitive terms.[8] The statute does not expressly exempt the use of non-confidential competitor data, though defendants may argue that liability is inappropriate if publicly available data is used.
+The law also targets algorithmic pricing with respect to compensation. “Price” is defined broadly to include not only the value exchanged for a product or service, but “compensation paid to an employee or independent contractor.”[9]
+What Must Be Shown? Similar to federal law, price fixing is a per se illegal violation in California, meaning that proof of an algorithmic price fixing arrangement will be sufficient for liability without requiring proof of anticompetitive effects.[10]
+How Should Businesses Respond? Businesses should start the new year with a review of their antitrust compliance programs and evaluate any common pricing algorithms currently in use, or any that they distribute, sell, license, or otherwise provide access to. Counsel should ask questions about pricing algorithms like:
+- What competitive data does it use, and how does it use it?
+- Does the business know if competitors use the same algorithm?
+- Has the business ever spoken with competitors about the algorithm?
+- What do internal emails and documents say about the algorithm?
+- What does the provider’s marketing materials say about the relevance of competitive data and competitors’ usage of the algorithm?
+To the extent that a business already uses or distributes a common pricing algorithm or plans to in the future, we strongly encourage the creation of internal guidance and updated trainings for any employees who use or make decisions about these tools.
+III. Pleading Standards
+What Has Changed? The Cartwright Act prohibits agreements that restrain trade. As of January 1, a complaint need not allege facts that tend to exclude the possibility of independent action. Instead, a plaintiff must only allege facts making their claims plausible.[11]
+What Does It Mean in Practice? While California’s Senate Judiciary Committee explained that the new pleading standard is a rejection of federal law’s heightened pleading requirements, and specifically, its requirement of “plus factors,” it is unclear how much this change actually deviates from federal law.[12] Plaintiffs will argue that they now face a lower pleading standard under the Cartwright Act, while defendants will argue that little has changed.
+IV. New and Increased Financial Penalties for Antitrust Violations
+What Are the New Penalties? The new laws also introduce civil financial penalties for cases brought by the Attorney General or a district attorney, and increase criminal financial penalties for both individuals and businesses.[13]
+Any fines accrued under the Act are also cumulative to each other and to those imposed under other state statutes.[14] Of course, treble damages, injunctive relief and attorneys’ fees continue to be available in private litigation.
+Changes to Cartwright Act Criminal and Civil Fines
+| Type | Target | Prior Fine (per violation) | New Fine (per violation) | 
+| Criminal | Corporation | Greater of up to $1 million or twice the gain or loss | Greater of up to $6 million or twice the gain or loss | 
+| Criminal | Individual | Greater of up to $250,000 or twice the gain or loss | Greater of up to $1 million or twice the gain or loss | 
+| Civil | Corporation or Individual | None | Up to $1 million based on statutory factors [15] | 
+[1] Cartwright Act: Violations, A.B. 325, 2025-2026 Reg. Sess., (Cal. 2025), available at https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB325; Conspiracy Against Trade: Punishment, S.B. 763, 2025-2026 Reg. Sess., (Cal. 2025), available at https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB763.
+[2] Cal. Bus. & Prof. Code §16729(a), (b), (d)(3) (2026).
+[3] See Complaint, Duffy v. Yardi Systems, Inc.,No. 23-cv-01391 (W. D. Wash. Nov. 3, 2023); Complaint, U.S. v. RealPage, Inc., No. 24-cv-00710 (M.D.N.C. Aug. 23, 2024).
+[4] See Complaint, Gibson v. Cendyn Group, LLC, No. 23-cv-00140 (D. Nev. Jan. 25, 2023).
+[5] See Complaint, In re MultiPlan Health Ins. Provider Litig., No. 24-cv-06795 (N.D. Ill. July 31, 2024).
+[6] Cal. Bus. & Prof. Code §16729(a), (b) (2026).
+[7] In its comments to A.B. 325, California’s Senate Judiciary Committee described coercion as arising when “the person imposes negative consequences for failing to accept the desired price or commercial term.” Cal. Senate Judiciary Committee Analysis, A.B. 325, 2025-2026 Reg. Sess., at 9 (June 19, 2025), available at https://sjud.senate.ca.gov/system/files/2025-06/ab-325-aguiar-curry-sjud-analysis.pdf [hereinafter Cal. Senate Judiciary Committee Comments].
+[8] Cal. Bus. & Prof. Code §16729(d)(3) (2026).
+[9] Id. at §16729(d)(6).
+[10] See Oakland-Alameda Cnty. Builders’ Exch. v. F.P. Lathrop Constr. Co., 4 Cal. 3d 354, 364 (1971); AT&T Mobility LLC v. AU Optronics Corp., 707 F.3d 1106, 1110 (9th Cir. 2013).
+[11] Cal. Bus. & Prof. Code §16756.1 (2026).
+[12] Cal. Senate Judiciary Committee Comments at 10-11.
+[13] Cal. Bus. & Prof. Code §16755(a)(1), (2); §16755.1 (2026).
+[14] Id. at §16762.
+[15] Courts and juries must consider seven factors in assessing a civil penalty, including the nature, seriousness, duration, and willfulness of the defendant’s conduct. Id. at 16755.1(b).
