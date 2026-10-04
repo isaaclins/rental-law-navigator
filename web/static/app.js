@@ -9,35 +9,36 @@ const RM = matchMedia("(prefers-reduced-motion: reduce)");
 
 // ------------------------------------------------------------------ i18n --
 const EN = {
-  skip: "Skip to content", strip: "Housing law from official sources, quoted word for word. Not legal advice.", strip_more: "About this information", strip_s: "Official sources, quoted. Not legal advice.", nla: "Not legal advice.", nla_more: "About this information", cancel: "Cancel",
-  nla_body: "Information about public law, drawn from official sources and shown with citations. It is not a compliance check and not legal advice. For your situation, contact a tenant organisation, housing agency or attorney.",
+  skip: "Skip to content", strip: "Housing law, quoted word for word from its sources. Not legal advice.", strip_more: "About this information", strip_s: "Quoted word for word. Not legal advice.", strip_ab: "About", strip_xs: "Quoted sources. Not legal advice.", nla: "Not legal advice.", nla_more: "About this information", cancel: "Cancel",
+  nla_body: "Information about public law, drawn from public sources (mostly official texts; summaries are labelled) and shown with citations. It is not a compliance check and not legal advice. For your situation, contact a tenant organisation, housing agency or attorney.",
   nla_title: "About this information",
   nav_more: "More", nav_lookup: "Lookup", nav_changes: "Changes", nav_rules: "Rules", nav_audit: "Sources",
   t_lookup: "Address lookup", t_changes: "What's changing", t_rules: "Rules", t_audit: "Sources and method",
   as_of: "As of", asof_aria: "Answers as of", asof_reset: "Back to {d}",
-  footer_body: "Plain-language summaries of official texts retrieved Oct 1, 2026. They can be incomplete or wrong, so always check the cited source.",
+  footer_body: "Plain-language summaries of the law, from sources retrieved Oct 1, 2026. They can be incomplete or wrong, so always check the cited source.",
+  footer_s: "Plain summaries. Always check the cited source.",
   footer_meta: "Public data only. No customer, resident or pricing data.",
   hero_title: "Rental law, for your address.",
-  hero_lead: "Rent limits, eviction rules, deposits, fees and screening, each quoted from the law. And what is about to change.",
+  hero_lead: "Rent limits, eviction rules, deposits, fees and screening, each quoted from its source. And what is about to change.",
   hero_meta: "California, New Jersey and Massachusetts · 10 cities",
   search_ph: "Address, city or ZIP", search_go: "Look up", examples: "Examples",
   f1_t: "The mailing city is not always the legal city.", f1: "A Van Nuys address is in the City of Los Angeles. We ask the US Census which city each address is really in.", f1_l: "How addresses are resolved",
   f2_t: "Unknown, never a guess.", f2: "Building age, unit count and dates are checked in code. When the data can't tell, the answer says so.", f2_l: "Browse all rules",
-  f3_t: "Every answer quotes the law.", f3: "Each rule links to the exact sentence in the official text, with the date it was retrieved.", f3_l: "Sources and method",
+  f3_t: "Every answer quotes its source.", f3: "Each rule links to the exact sentence in its source, with the date it was retrieved.", f3_l: "Sources and method",
   // home (look 3)
-  hero_nla: "Official sources, quoted word for word.", hero_a: "Rental law,", hero_b: "for your address.", search_try: "Try ‘3515 Fillmore St’ or 07030",
+  hero_nla: "Every rule quoted word for word from its source.", hero_a: "Rental law,", hero_b: "for your address.", search_try: "Try ‘3515 Fillmore St’ or 07030",
   car_aria: "Buildings in the covered cities", car_prev: "Previous building", car_next: "Next building", car_pause: "Pause", car_play: "Play",
-  st_html: "Clause & Effect {chip0} reads {chip1} the housing law of {s} states and {c} cities {chip2}, answers for {a} sample addresses, and quotes {chip3} each of its {r} rules word for word {chip5} from {d} official sources. When the data can’t tell, it says {chip4} unknown instead of guessing.",
+  st_html: "Clause & Effect {chip0} reads {chip1} the housing law of {s} states and {c} cities{chip2}, answers for {a} sample addresses, and quotes {chip3} each of its {r} rules word for word {chip5} from {d} sources, {o} of them official texts. When the data can’t tell, it says {chip4} unknown instead of guessing.",
   b_check_l: "Check a rent increase", b_cmp_l: "Compare two addresses", b_chg_l: "See what's changing", b_src_l: "See how it works", hero_chip: "{c} cities in {s} states", hero_chip_b: "{n} rules",
   bs_addr: "Address", bs_asof: "Answers as of",
   map_h: "Pick a city", map_aria: "Map of the covered cities", city_addr: "sample addresses", city_rules: "city rules", state_rules: "{s} rules",
   city_rent: "Rent increases at {a}:", city_go: "Open {a}", city_none: "No sample address here yet.", city_rules_go: "See the {c} rules", city_state_only: "State rules only",
-  st_addr: "addresses resolved to their legal city", st_cities: "cities in California, New Jersey and Massachusetts", st_rules: "rules, each with a verbatim quote", st_docs: "official source documents",
+  st_addr: "addresses resolved to their legal city", st_cities: "cities in California, New Jersey and Massachusetts", st_rules: "rules, each with a verbatim quote", st_docs: "source documents",
   b_h: "Everything the law says about one address.", b_p: "One plain answer per topic. The exact sentence from the law is one tap away.", b_go: "Try an example",
-  b_check: "Check a rent increase", b_check_p: "Enter the old and new rent. See whether it is within the cap, by how much, and which law decides.",
+  b_check: "Check a rent increase", b_check_p: "Enter the old and new rent. See whether it is within the cap, by how much, and which law decides.", b_check_ps: "Enter the old and new rent. See whether it is within the cap.",
   b_cmp: "Compare two addresses", b_cmp_p: "Two places side by side, topic by topic, before you sign a lease.",
   b_chg: "What's changing", b_chg_p: "Laws taking effect, and the addresses each one reaches.",
-  b_src: "Sources and method", b_src_p: "{n} official texts. Every quote is checked word for word.",
+  b_src: "Sources and method", b_src_p: "{n} sources. Every quote is checked word for word.",
   b_rules: "All rules", b_rules_p: "Every rule by place and topic, with open questions flagged.",
   // address (look 3)
   f_built: "Built", f_units: "Units", f_city: "Legal city", built_l: "built {y}", units_l: "{n} units", f_rules: "Rules in {n} topics", f_quotes: "Quotes checked",
@@ -45,7 +46,7 @@ const EN = {
   ls_title: "Looking up this address", ls_1: "Finding the legal city", ls_2: "Applying the rules", ls_3: "Checking the quotes",
   ls_1d: "Found: {c}", ls_2d: "{n} rules apply on {d}", ls_3d: "{a} of {b} quotes found word for word", ls_3n: "Quotes linked to their sources",
   r_applies: "Applies", r_unknown: "Unknown", r_superseded: "Replaced", r_not_yet_effective: "Not yet in effect", r_pending: "Pending bill", r_failed: "Failed", r_in_force: "In force", r_no_rule: "No rule", r_exempt: "Exempt",
-  how_resolved: "How we found this address", confidence: "Confidence", method: "Method", note_en: "Geocoder note (English)",
+  how_resolved: "How we found this address", confidence: "Confidence", method: "Method", note_en: "Geocoder note (English)", a_home: "Clause and Effect, home", a_main: "Main", a_lang: "Language", a_footer: "Footer", a_close: "Close", geo_note: "Geocoder note",
   year_built: "Year built", units: "Units", use: "Use", not_in_data: "not in data", data_from: "Building data",
   built_y: "Built {y}", units_n: "{n} units", units_min: "{n}+ units (from the use code)", year_unknown: "Year built unknown", units_unknown: "Unit count unknown",
   mailing_legal: "Mailing city {p}, legally in {c}.", county: "County",
@@ -58,7 +59,7 @@ const EN = {
   no_rule_short: "No state or city rule found.", exempt_line: "{t} exists, but this building is exempt.",
   exempt_body: "{t} ({c}) is in force here, but it does not cover this building:",
   sec_why: "Why it applies", sec_why_unknown: "Why it's unknown", sec_why_not: "Why it doesn't apply", sec_changes: "Changes", sec_review: "Open question",
-  read_full: "Read in full text", doc_all: "Show the whole document", src_missing: "The full text of this source is not stored here. Use the source link instead.", src_error: "The source could not be loaded. Please try again in a moment.", low_conf: "Low extraction confidence ({n}%): check the source", quote_ok: "Quote found in source", quote_bad: "Quote not found in source", retrieved: "Retrieved {d}", secondary: "Secondary source",
+  read_full: "Read in full text", doc_all: "Show the whole document", src_missing: "The full text of this source is not stored here. Use the source link instead.", src_error: "The source could not be loaded. Please try again in a moment.", src_title: "Source", src_retry: "Try again", src_open: "Open the official source", low_conf: "Low extraction confidence ({n}%): check the source", quote_ok: "Quote found in source", quote_bad: "Quote not found in source", retrieved: "Retrieved {d}", secondary: "Secondary source",
   yields_to: "Yields to {r}, which governs here.",
   w_statewide: "Statewide rule: covers every rental in {s}.", w_city: "Covers rentals in {c}; no building-age or size conditions.",
   w_local_not_yet: "The stricter local rule is not in effect on this date, so this rule governs.",
@@ -66,9 +67,10 @@ const EN = {
   ch_since: "In effect since {d}.", ch_starts: "Takes effect {d}.", ch_effective: "Effective {d}.",
   ch_version: "On {a}, an earlier version applied. The text and figure shown apply from {b}.",
   ch_figure_end: "The figure shown covers the period ending {d}. The law continues; check the current figure.",
+  ch_figure_gone: "The last yearly figure in our sources ({f}) ended on {d}. The law continues; check the current figure.",
   not_law: "Not law yet", not_law_note: "Pending bills and failed proposals. None of these is in force.",
   // changes
-  ch_h: "What's changing for you, and when?", ch_lead: "New laws by date, in plain words. Pick your place.", ch_next: "In the next 12 months", ch_later: "Later", ch_recent: "In the last 12 months", ch_earlier: "Earlier",
+  ch_h: "What's changing for you, and when?", ch_lead: "New laws by date, in plain words.", ch_next: "In the next 12 months", ch_later: "Later", ch_recent: "In the last 12 months", ch_earlier: "Earlier",
   ch_none: "No dated change here.", ch_reach: "Reaches {n} of our sample addresses.", ch_big: "The bigger picture", ch_big_s: "How protections spread across the 10 cities, and a slider to move through time.",
   changes_title: "What's changing", changes_lead: "New laws by date, in plain words. Pick your place; open a change to read it.", ch_place: "Place", ch_see: "See answers on {d}",
   in_effect: "{n} dated laws in force", upcoming: "{n} upcoming", addresses_n: "{n} addresses", earlier: "{n} earlier rules, in force before 2024",
@@ -83,17 +85,17 @@ const EN = {
   f_level: "Level", f_coverage: "Coverage", f_exemptions: "Exemptions", f_overrides: "Overrides / yields to", f_interaction: "Interaction", f_citation: "Citation", f_conflict_note: "Open question", sample_addresses: "Addresses covered",
   state: "State", city: "City", q_filter: "Filter",
   // audit
-  src_h: "Every answer comes from the law itself.", src_lead: "Official texts, quoted word for word, with the date we read them. Here is where each one comes from.",
+  src_h: "Every answer comes from a quoted source.", src_lead: "Every quote is word for word from its source, with the date we read it. Law-firm and news summaries are labelled. Here is where each one comes from.",
   f3_docs: "source texts, {n} of them official", f3_quotes: "quotes checked word for word in the source", f3_when: "when we read them",
   how_h: "How it works", how_read: "Read the law", how_read_d: "We collect {n} texts, {o} from official sites, and turn each into plain rules, keeping the exact sentence.",
-  how_check: "Check every quote", how_check_d: "Code searches each of the {q} quotes in the official text, word for word. A miss is flagged.",
+  how_check: "Check every quote", how_check_d: "Code finds each of the {q} quotes word for word in its source. A miss is flagged.",
   how_apply: "Apply to your building", how_apply_d: "Fixed rules decide what covers your building on any date. No guessing: unknown stays unknown.",
   srcs_h: "The sources", srcs_find: "Find a source, a city or a website", srcs_none: "No source matches.", srcs_n: "{n} sources · {k} with a checked quote", state_law: "{s} state law", page_on: "Page on {h}",
   sb_checked: "Quote checked", sb_text: "Text on file", sb_link: "Link only", sb_secondary: "secondary source",
   rev_h: "For reviewers", rev_s: "Flags, confidence, change checks, files and the extraction log", rev_flags: "Flagged for review ({n})", rev_ask: "Audit log: every Ask answer, its sources and what the checks removed",
   audit_title: "Sources and method", audit_lead: "Where each answer comes from, and how it was checked.",
   k_docs: "source documents", k_quotes: "quotes found verbatim", k_geo: "addresses resolved", k_log: "extraction steps logged",
-  method_t: "Method", p_ingest: "Collect", p_ingest_d: "{n} official documents, each with its URL and retrieval date.", p_extract: "Extract", p_extract_d: "A language model turns each text into rule records with exact quotes; every quote is then searched for verbatim in the source.", p_resolve: "Resolve", p_resolve_d: "The US Census geocoder finds each address's legal city.", p_apply: "Apply", p_apply_d: "Deterministic code checks every rule against each building's facts.", p_track: "Track", p_track_d: "Any date can be re-evaluated; changes are listed per address.",
+  method_t: "Method", p_ingest: "Collect", p_ingest_d: "{n} source documents, each with its URL and retrieval date.", p_extract: "Extract", p_extract_d: "A language model turns each text into rule records with exact quotes; every quote is then searched for verbatim in the source.", p_resolve: "Resolve", p_resolve_d: "The US Census geocoder finds each address's legal city.", p_apply: "Apply", p_apply_d: "Deterministic code checks every rule against each building's facts.", p_track: "Track", p_track_d: "Any date can be re-evaluated; changes are listed per address.",
   checks_t: "Change checks", checks_lead: "Scenarios re-run on every build: a date change, a city boundary, a pending bill, a failed proposal and a new ordinance.",
   before: "Before", after: "After", affected: "Affected addresses", rule_reach: "Where each rule applies", expected: "Expected", conflict_flags: "{n} with an open question", no_match_rule: "No matching rule",
   t_as_of: "Date change", t_boundary: "City boundary", t_pending: "Pending bill", t_negative: "Failed proposal", t_new: "New ordinance", t_new_law: "New ordinance",
@@ -107,14 +109,14 @@ const EN = {
   // misc
   toast_asof: "Answers as of {d}", toast_lang: "English", asof_range: "Pick a date between {a} and {b}.",
   g_examples: "Examples", g_results: "Addresses", g_pages: "Pages", no_match: "No matching address", no_match_q: "No address matches “{q}”", no_match_hint: "Try a street and number, a city or a ZIP code in California, New Jersey or Massachusetts.",
-  nf_title: "We couldn't find that address", nf_page: "Page not found", nf_body: "Search for an address, or start from an example.", tagline_short: "Which rules apply here?",
+  nf_title: "We couldn't find that address", nf_cta: "Search an address", nf_page: "Page not found", nf_body: "Search for an address, or start from an example.", nf_page_body: "This link doesn't lead to a page. Look up an address, ask a question, or start from an example.", nf_lookup: "Look up an address", nf_ask: "Ask a question", tagline_short: "Which rules apply here?",
   error: "Something went wrong loading this view.", loading: "Loading…", details: "Details",
   fixture: "Preview data: answers come from schema-identical fixture records.",
   pq_rent_increase_limits: "Can they raise my rent?", pq_just_cause_eviction: "Can they make me move out?", pq_security_deposits: "How big can the deposit be?",
-  pq_application_screening_fees: "What can they charge me to apply?", pq_screening_restrictions: "Can they turn me down for a voucher?", pq_algorithmic_rent_setting: "Can a computer set my rent?",
+  pq_application_screening_fees: "What can they charge me to apply?", pq_screening_restrictions: "Can they turn me down for a voucher or a record?", pq_algorithmic_rent_setting: "Can a computer set my rent?",
   why_city: "{p} has its own law for this, and it covers your building.", why_state: "A {p} law covers your building.", why_replaces: "It is stricter than the state rule, so it wins.",
   why_later: "A new law starts on {d}.", why_nolimit: "{p} law sets no limit here.", why_exempt: "There is a rule, but your building does not fall under it.", why_none: "We found no state or city law on this.",
-  why_unknown: "It depends on {f}. Public records don't say.", why_unknown_other: "It depends on a fact we can't see in public records.", why_place: "Whether it covers you depends on {f}.", why_else: "If it doesn't, state law: {o}", why_new: "Your building is too new for the cap (built {y}).",
+  why_unknown: "It depends on {f}. Public records don't say.", why_unknown_other: "It depends on a fact we can't see in public records.", why_place: "Whether it covers you depends on {f}.", why_place_other: "Our sources don't say which buildings it covers.", why_else: "If it doesn't, state law: {o}", why_new: "Your building is too new for the cap (built {y}).",
   also_rules: "Also here", tr_note: "Translated by machine. The law's words stay in English.", why_ask: "Answer one question and you'll know.", pf_year: "when your building was built", pf_units: "how many homes are in your building", pf_owner: "whether the owner lives there", pf_tenancy: "how long you have lived there", pf_other: "a fact we can't see in public records",
   ask_year: "Was your building built before {y}?", ask_units: "Does your building have {n} or more homes?", ask_owner: "Does the owner live in the building?",
   ask_other: "Ask your landlord or your city's housing office. They can tell you.", ask_unsure_year: "Ask your manager or check your lease.", ask_unsure_units: "Count the mailboxes or doorbells, or ask your landlord.",
@@ -126,6 +128,7 @@ const EN = {
   conf_l: "Our confidence in this reading: {n}%.", note_unread: "We couldn't read this law's own text yet, so the details may be off.", flag_l: "Flagged for review: {n}", flag_none: "No conflict flagged.", official_site: "Official site", src_secondary: "Source: {h} (summary, not the official text)", checked_on: "Quote found word for word in this source (retrieved {d}).",
   sd_ok: "There is a limit or protection", sd_check: "Double-check this one", sd_dep: "Depends on your building", sd_ask: "We need one answer from you", sd_none: "No limit or rule", sd_later: "Starts later",
   kw_pick: "Pick your city to see: {q}", kw_ex: "Example: {a}", ex_banner: "Example address in {q}. Your building may differ.", ex_enter: "Enter your street",
+  date_bad: "That date doesn't exist or isn't complete.",
   calc_rent: "My rent now", calc_max: "Most they can ask: {v} a month.", calc_upto: "Up to {v} ({p}%), likely less.", calc_dep: "Most deposit they can ask: {v}.",
   ask_when: "When was your building built?", ask_b_before: "Before {y}", ask_b_after: "{y} or later", ask_year_f: "If it was built during {y}, choose Not sure.",
   ask_units2: "How many homes are in your building?", ask_5plus: "5 or more", ask_pre: "If yes: {y}. If no: {n}.", open_page: "Open the official page",
@@ -138,7 +141,7 @@ const EN = {
   cat_application_screening_fees: "Application and move-in fees", q_application_screening_fees: "What can be charged to apply or move in?",
   cat_screening_restrictions: "Tenant screening", q_screening_restrictions: "What may a landlord ask about or consider?",
   cat_algorithmic_rent_setting: "Rent-setting software", q_algorithmic_rent_setting: "Can software be used to set the rent?",
-  "Year built / certificate-of-occupancy date": "Year built or certificate-of-occupancy date", "Owner type": "Owner type", "Number of units": "Number of units",
+  "Year built / certificate-of-occupancy date": "Year built or certificate-of-occupancy date", "Owner type": "Owner type", "Owner occupancy": "Whether the owner lives there", "City funding or income-restricted housing": "City funding or income-restricted housing", "Number of units": "Number of units",
   "Exemption filing / registration status": "Exemption filing or registration", "Length of tenancy": "Length of tenancy", "A fact not contained in the public data": "A fact the public data doesn't contain",
 };
 let ES = {};
@@ -217,8 +220,12 @@ const badge = (r, cls = "", _i = null, label = null) => `<span class="badge st-$
 const pctOf = (c) => Math.round(c * 100);
 
 // ------------------------------------------------------------------ small helpers --
+let swapTop = false; // set by route() for a fresh page: the first swap (steps, skeleton or the page) scrolls to the top
 function swap(html, after, { quick = false } = {}) {
+  // first render over the pre-rendered home shell (index.html): patch it in place, so nothing on screen changes
+  if (main.dataset.view === "home" && main.querySelector(":scope > [data-shell='home']")) { morphInto(main, html); after?.(); return Promise.resolve(); }
   main.innerHTML = html; after?.();
+  if (swapTop) { swapTop = false; scrollTo({ top: 0, behavior: "instant" }); } // a new page starts at its top from its first (loading) paint
   if (!RM.matches) { main.classList.remove("fade-in", "fade-quick"); void main.offsetWidth; main.classList.add(quick ? "fade-quick" : "fade-in"); }
   return Promise.resolve();
 }
@@ -244,6 +251,7 @@ function syncHeader(route) {
   $("#asof-ctl").classList.toggle("changed", changed);
   document.documentElement.classList.toggle("asof-changed", changed);
   $("#asof").setAttribute("aria-label", t("asof_aria"));
+  dateName($("#asof"));
   const rs = $("#asof-reset");
   rs.classList.toggle("off", !changed); // keeps its space: the tools never jump (#134)
   rs.tabIndex = changed ? 0 : -1;
@@ -256,11 +264,30 @@ function syncHeader(route) {
   $$("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
   $("#cmdk input").placeholder = t("search_ph");
   $(".search-trigger").setAttribute("aria-label", t("search_ph"));
+  for (const [sel, k] of [[".brand", "a_home"], [".tabs", "a_main"], [".seg", "a_lang"], [".footer-links", "a_footer"], ["#modal [data-close]", "a_close"], [".strip-i", "strip_more"], ["#cmdk", "search_ph"]]) $(sel)?.setAttribute("aria-label", t(k));
   fitSoon();
   const fb = $("#fixture-banner");
   fb.hidden = META?.sources?.["rules.json"]?.kind !== "fixture";
   fb.textContent = t("fixture");
 }
+// Tab icons are inline SVG (CSS mask icons sometimes never painted on a WebKit cold load). Other modules set a tab's
+// label with textContent, which drops the icon; the observer puts it back.
+const TAB_ICO = {
+  lookup: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+  ask: '<path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z"/><path d="M9 10.5h6M9 13.5h4"/>',
+  changes: '<rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/>',
+  rules: '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1" fill="currentColor"/><circle cx="4.5" cy="12" r="1" fill="currentColor"/><circle cx="4.5" cy="18" r="1" fill="currentColor"/>',
+  audit: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
+  properties: '<path d="M4 21V5l8-2v18M12 8l8 2v11M2 21h20"/>',
+};
+function tabIcons() {
+  for (const a of document.querySelectorAll(".tabs > a[data-route]")) {
+    if (a.firstElementChild?.classList.contains("tab-i") || !TAB_ICO[a.dataset.route]) continue;
+    a.insertAdjacentHTML("afterbegin", `<svg class="tab-i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${TAB_ICO[a.dataset.route]}</svg>`);
+  }
+}
+tabIcons();
+new MutationObserver(tabIcons).observe(document.querySelector(".tabs"), { childList: true, subtree: true });
 // The black pill under the active nav item slides from tab to tab (tabs are links; the pill is decoration only).
 const tabInd = (() => { const el = document.createElement("span"); el.className = "tab-ind still"; el.setAttribute("aria-hidden", "true"); $(".tabs").prepend(el); return el; })();
 function placeInd() {
@@ -335,9 +362,9 @@ new ResizeObserver(fitSoon).observe($(".nav-inner"));
 document.fonts?.ready.then(fitSoon);
 // Phones: "As of Oct 1" while the year is the default one, else the full date; desktop always "As of Oct 1, 2026".
 function asofLabel() {
-  if (innerWidth > 640) return t("as_of") + " " + fmtDate(asOf);
+  if (!matchMedia("(max-width: 640px), (pointer: coarse) and (max-height: 500px)").matches) return t("as_of") + " " + fmtDate(asOf);
   if (asOf !== DEFAULT_AS_OF) return new Date(asOf + "T12:00:00").toLocaleDateString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric", year: "2-digit" }); // phones: a small badge next to the calendar
-  return (innerWidth < 380 ? "" : t("as_of") + " ") + new Date(asOf + "T12:00:00").toLocaleDateString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric" });
+  return (innerWidth < 375 ? "" : t("as_of") + " ") + new Date(asOf + "T12:00:00").toLocaleDateString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric" });
 }
 addEventListener("resize", () => { $("#asof-label").textContent = asofLabel(); }, { passive: true });
 const ASOF_MIN = "2020-01-01", ASOF_MAX = "2030-12-31";
@@ -362,6 +389,20 @@ $("#asof").addEventListener("change", (e) => { clearTimeout(asofT); asofT = setT
 $("#asof").addEventListener("blur", (e) => asofCommit(e.target, true));
 $("#asof").addEventListener("keydown", (e) => { if (e.key === "Enter") asofCommit(e.target, true); });
 $("#asof").addEventListener("click", (e) => { try { e.target.showPicker?.(); } catch { /* not allowed: the native control opens anyway */ } });
+// A date input is four Tab stops in Chromium (month, day, year, picker), all named "Answers as of": the visible pill
+// is the one stop instead; Enter or Space opens the calendar (or, without showPicker, focuses the field to type)
+function dateStop(inp) {
+  const lab = inp.closest("label");
+  if (!lab || lab.dataset.stop) return;
+  lab.dataset.stop = "1"; inp.tabIndex = -1; lab.tabIndex = 0; lab.setAttribute("role", "button");
+  lab.addEventListener("keydown", (e) => {
+    if (e.target !== lab || (e.key !== "Enter" && e.key !== " ")) return;
+    e.preventDefault();
+    try { if (!inp.showPicker) throw 0; inp.showPicker(); } catch { inp.focus(); }
+  });
+}
+function dateName(inp) { inp?.closest("label[data-stop]")?.setAttribute("aria-label", `${t("asof_aria")}: ${fmtDate(inp.value || asOf)}`); }
+dateStop($("#asof"));
 $("#asof-reset").addEventListener("click", () => { $("#asof").value = DEFAULT_AS_OF; setAsOf(DEFAULT_AS_OF); $("#asof").focus({ preventScroll: true }); });
 $$(".seg button").forEach((b) => b.addEventListener("click", async () => {
   if (lang === b.dataset.lang) return;
@@ -374,7 +415,12 @@ document.addEventListener("click", (e) => { if (e.target.closest("[data-nla-open
 function openNla() {
   openModal(t("nla_title"), `<p class="lead-p"><strong>${t("nla")}</strong> ${esc(t("nla_body"))}</p><p class="muted">${esc(t("footer_body"))}</p>`);
 }
-const currentView = () => { const v = location.hash.replace(/^#\/?/, "").split("/")[0]; return v === "a" || v === "check" || v === "compare" || !v ? "lookup" : v; };
+// "#/a/A0001?topic=rent_increase_limits": the path is cut at "?", the rest is the query (never part of an id)
+function hashParts() {
+  const raw = location.hash.replace(/^#\/?/, ""), i = raw.indexOf("?");
+  return { path: i < 0 ? raw : raw.slice(0, i), query: new URLSearchParams(i < 0 ? "" : raw.slice(i + 1)) };
+}
+const currentView = () => { const v = hashParts().path.split("/")[0]; return v === "a" || v === "check" || v === "compare" || !v ? "lookup" : v === "notice" ? "properties" : v; };
 
 // ------------------------------------------------------------------ search --
 function scoreAddr(a, q) {
@@ -408,7 +454,8 @@ function cmdkRender() {
   const pg = q ? [] : pages.map(([h, k]) => ({ href: h, label: t(k) }));
   cItems = cItems.concat(pg);
   cSel = 0;
-  let html = cItems.length ? `<li class="grp" role="presentation">${q ? t("g_results") : t("g_examples")}</li>` : `<li class="grp">${t("no_match")}</li>`;
+  const lookup = !cItems.length && q.length >= 6 && /\d/.test(q) && /[a-z]{2,}/i.test(q); // features/any-address.js adds "Look up this address" (#146)
+  let html = cItems.length ? `<li class="grp" role="presentation">${q ? t("g_results") : t("g_examples")}</li>` : lookup ? "" : `<li class="grp">${t("no_match")}</li>`;
   html += cItems.map((it, i) => it.a ? optHtml(it.a, i, cSel, q) : `${i === cItems.length - pg.length ? `<li class="grp" role="presentation">${t("g_pages")}</li>` : ""}<li class="opt" role="option" id="o-${i}" aria-selected="${i === cSel}" data-href="${it.href}"><div class="addr">${esc(it.label)}</div><span class="arrow">${I.chev}</span></li>`).join("");
   cList.innerHTML = html;
 }
@@ -513,9 +560,9 @@ function viewHome() {
       <span class="slide-cap"><b>${esc(c)}</b>${a ? esc(titleCase(a.street)) : ""}${I.arrow}</span></a>`;
   }).join("");
   const chip = (src, cls = "") => `<span class="s-chip ${cls}" aria-hidden="true">${imgTag(src, "").replace("<img ", "<img data-spring ")}</span>`;
-  const row = (href, art, h, p, link, flip) => `<section class="frow${flip ? " flip" : ""}" data-reveal>
+  const row = (href, art, h, p, link, flip, ps) => `<section class="frow${flip ? " flip" : ""}" data-reveal>
       <a class="frow-m" href="${href}" tabindex="-1" aria-hidden="true">${imgTag(`/static/img/${art}.webp`, "")}</a>
-      <div class="frow-t"><h2>${esc(h)}</h2><p>${esc(p)}</p><a class="frow-l" href="${href}">${esc(link)}${I.arrow}</a></div></section>`;
+      <div class="frow-t"><h2>${esc(h)}</h2><p>${ps ? `<span class="pl">${esc(p)}</span><span class="ps">${esc(ps)}</span>` : esc(p)}</p><a class="frow-l" href="${href}">${esc(link)}${I.arrow}</a></div></section>`;
   const html = `
   <div class="home">
   <section class="hero">
@@ -525,7 +572,7 @@ function viewHome() {
       <form class="big-search" role="search" autocomplete="off" data-tour="search">
         <div class="box">
           <label class="bs-f bs-addr" for="hq"><span class="sr">${esc(t("bs_addr"))}</span>
-            <input id="hq" type="text" role="combobox" aria-expanded="false" aria-controls="hs" aria-autocomplete="list" spellcheck="false" placeholder="${esc(t("search_try"))}"></label>
+            <input id="hq" name="ce-find" type="search" role="combobox" aria-expanded="false" aria-controls="hs" aria-autocomplete="list" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search" enterkeyhint="search" placeholder="${esc(t("search_try"))}"></label>
           <label class="bs-f bs-date"><span class="bs-l">${esc(t("bs_asof"))}</span><span class="bs-v" id="bs-v">${esc(fmtDate(asOf))}</span>
             <input type="date" id="bs-asof" min="${ASOF_MIN}" max="${ASOF_MAX}" value="${asOf}" aria-label="${esc(t("asof_aria"))}"></label>
           <button class="go" type="submit" aria-label="${esc(t("search_go"))}">${I.arrow}</button>
@@ -543,7 +590,7 @@ function viewHome() {
       chip1: chip("/static/img/scales-balanced.webp"), chip2: `<span class="s-chips">${chip("/static/img/san-francisco-sm.webp", "photo")}${chip("/static/img/boston-sm.webp", "photo")}</span>`,
       chip3: chip("/static/img/magnifier-over-document.webp"), chip4: chip("/static/img/shield-check.webp"),
       chip0: `<span class="s-chip s-nav w" aria-hidden="true">${I.arrow}</span>`, chip5: `<span class="s-chip s-ok w" aria-hidden="true">${I.check}</span>`,
-      s: stateN, c: cityN, a: n.addresses ?? ADDR.length, r: n.rules ?? "", d: n.documents ?? "" })}</p>
+      s: stateN, c: cityN, a: n.addresses ?? ADDR.length, r: n.rules ?? "", d: n.documents ?? "", o: n.official_documents ?? "" })}</p>
   </section>
   <section class="map-stage" aria-label="${esc(t("map_aria"))}" data-reveal>
     <h2 class="map-h"><span class="dot" aria-hidden="true"></span>${esc(t("map_h"))}</h2>
@@ -555,7 +602,7 @@ function viewHome() {
     </div>
     <div class="city-card" id="city-card" aria-live="polite"></div>
   </section>
-  ${row("#/check", "keys-on-ring", t("b_check"), t("b_check_p"), t("b_check_l"), false)}
+  ${row("#/check", "keys-on-ring", t("b_check"), t("b_check_p"), t("b_check_l"), false, t("b_check_ps"))}
   ${row(sf && ex[2] ? `#/compare/${sf.id},${ex[2].id}` : "#/compare", "house-with-checkmark", t("b_cmp"), t("b_cmp_p"), t("b_cmp_l"), true)}
   ${row("#/changes", "calendar-with-clock", t("b_chg"), t("b_chg_p"), t("b_chg_l"), false)}
   ${row("#/audit", "magnifier-over-document", t("b_src"), tf("b_src_p", { n: n.documents ?? "" }), t("b_src_l"), true)}
@@ -579,7 +626,8 @@ function reveal(root) {
     $$(".w", words).forEach((w, i) => w.style.setProperty("--d", i * 28 + "ms"));
   }
   const els = $$("[data-reveal], [data-words]", root);
-  if (RM.matches || !("IntersectionObserver" in window)) { els.forEach((e) => e.classList.add("in")); return; }
+  // phones: no hidden-until-scrolled content
+  if (RM.matches || innerWidth <= 640 || !("IntersectionObserver" in window)) { els.forEach((e) => e.classList.add("in")); return; }
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -12% 0px", threshold: .12 });
   els.forEach((e) => io.observe(e));
   cleanup.push(() => io.disconnect());
@@ -672,6 +720,16 @@ async function cityCard(c, { animate = true } = {}) {
     el.innerHTML = `${esc(tf("city_rent", { a: titleCase(a.street) }))} <b>${esc(topicSummary(cat, d).line)}</b>`;
   }).catch(() => {});
 }
+// A city or ZIP search that opened a sample address there: the place for "Example address in {q}", spelled as the app
+// spells it. Part of a street ("hf" for Ashford St) is a normal pick, not an example: "".
+function examplePlace(q, a) {
+  if (!a) return "";
+  const k = String(q || "").toLowerCase().replace(/,.*$/, "").trim();
+  if (/^\d{5}$/.test(k)) return a.zip === k ? k : "";
+  if (k && (a.city || "").toLowerCase() === k) return a.city;
+  if (k && (a.postal_city || "").toLowerCase() === k) return a.postal_city;
+  return "";
+}
 function initHome(ex) {
   const form = $(".big-search"), input = $("#hq"), list = $("#hs");
   let items = [], sel = 0;
@@ -687,11 +745,11 @@ function initHome(ex) {
       list.hidden = false; input.setAttribute("aria-expanded", "true"); return;
     }
     if (!items.length && q.length >= 6 && /\d/.test(q) && /[a-z]{2,}/i.test(q)) { list.innerHTML = ""; list.hidden = true; return; }
-    list.innerHTML = items.length ? items.map((a, i) => optHtml(a, i, sel, q)).join("") : `<li class="opt empty" aria-disabled="true"><div><div class="addr">${esc(tf("no_match_q", { q }))}</div><div class="sub">${esc(t("no_match_hint"))}</div></div></li>`;
+    list.innerHTML = items.length ? items.map((a, i) => optHtml(a, i, sel, q)).join("") : `<li class="opt empty" aria-disabled="true"><div><div class="addr">${esc(tf("no_match_q", { q: q.length > 40 ? q.slice(0, 40) + "…" : q }))}</div><div class="sub">${esc(t("no_match_hint"))}</div></div></li>`;
     list.hidden = false; input.setAttribute("aria-expanded", "true");
   };
   input.addEventListener("input", render);
-  input.addEventListener("focus", () => { render(); if (matchMedia("(pointer: coarse)").matches) setTimeout(() => form.scrollIntoView({ block: "start", behavior: RM.matches ? "auto" : "smooth" }), 300); });
+  input.addEventListener("focus", render); // phones: features/typeahead.js brings the field up and fits the list above the keyboard
   input.addEventListener("blur", () => setTimeout(close, 120));
   input.addEventListener("keydown", (e) => {
     if (list.hidden || !items.length) return;
@@ -704,7 +762,7 @@ function initHome(ex) {
   const pick = (id, topic) => {
     const q = input.value.trim();
     if (topic) sessionStorage.setItem("ce.open", topic);
-    else if (/^\d{5}$/.test(q) || !/\d/.test(q)) sessionStorage.setItem("ce.example", q); // a city or ZIP opened someone else's address
+    else { const place = examplePlace(q, ADDR.find((x) => x.id === id)); if (place) sessionStorage.setItem("ce.example", place); }
     go(id);
   };
   list.addEventListener("mousedown", (e) => { const li = e.target.closest("[data-id]"); if (li) { e.preventDefault(); pick(li.dataset.id, li.dataset.topic); } });
@@ -713,7 +771,12 @@ function initHome(ex) {
   // the as-of field in the search pill is the header control, closer to hand
   const d = $("#bs-asof");
   d.addEventListener("click", (e) => { try { e.target.showPicker?.(); } catch { /* native control opens anyway */ } });
-  d.addEventListener("change", () => { const v = d.value; if (v && v >= ASOF_MIN && v <= ASOF_MAX) { $("#asof").value = v; setAsOf(v); } });
+  dateStop(d); dateName(d); d.addEventListener("change", () => dateName(d));
+  let dT = 0;
+  const commit = (final) => { clearTimeout(dT); const v = d.value; if (v && v >= ASOF_MIN && v <= ASOF_MAX) { $("#asof").value = v; setAsOf(v); } else if (final) d.value = asOf; };
+  d.addEventListener("change", () => { clearTimeout(dT); dT = setTimeout(() => commit(document.activeElement !== d), 700); }); // typing fires change per segment (#140)
+  d.addEventListener("blur", () => commit(true));
+  d.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); commit(true); } });
   // map
   const map = $("#map");
   layoutMap();
@@ -734,12 +797,42 @@ function initHome(ex) {
 // page-head object (a single <img> with a stable wrapper, so features/spring.js can attach to it)
 const HEAD_ART = { changes: "calendar-with-clock", rules: "scales-balanced", compare: "house-with-checkmark", properties: "keys-on-ring" };
 function headArt() {
-  const view = location.hash.replace(/^#\/?/, "").split("/")[0];
+  const view = hashParts().path.split("/")[0];
   const head = $(".page-head", main), src = HEAD_ART[view];
   if (!head || !src || $(".ph-art", head) || head.closest(".src-hero")) return;
   head.classList.add("has-art");
   head.insertAdjacentHTML("beforeend", `<span class="ph-art" aria-hidden="true"><img src="/static/img/${src}.webp" alt="" width="152" height="152" decoding="async" data-spring onerror="this.parentNode.remove()"></span>`);
 }
+// Calendar maths without impossible dates: Jan 31 + 1 month is Feb 28 (29 in a leap year), never "Feb 31".
+function addMonths(iso, n) {
+  const [y, mo, d] = iso.slice(0, 10).split("-").map(Number);
+  const t = y * 12 + (mo - 1) + n, Y = Math.floor(t / 12), M = t % 12;
+  const last = new Date(Date.UTC(Y, M + 1, 0)).getUTCDate();
+  return `${Y}-${String(M + 1).padStart(2, "0")}-${String(Math.min(d, last)).padStart(2, "0")}`;
+}
+// A date field never holds or submits a date that doesn't exist (typed "31.02.2027"): the browser marks it badInput
+// (or the value fails a round trip); an inline hint says so and forms check data-bad before they run.
+const realDate = (v) => { if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return false; const d = new Date(v + "T12:00:00Z"); return !isNaN(d) && d.toISOString().slice(0, 10) === v; };
+function checkDateField(el) {
+  const bad = el.validity?.badInput || (el.value && !realDate(el.value));
+  el.toggleAttribute("data-bad", !!bad);
+  el.setAttribute("aria-invalid", bad ? "true" : "false");
+  let hint = el.parentElement?.querySelector(":scope > .date-bad");
+  if (bad && !hint) { el.insertAdjacentHTML("afterend", `<span class="date-bad" role="alert">${esc(t("date_bad"))}</span>`); }
+  else if (!bad && hint) hint.remove();
+  return !bad;
+}
+for (const ev of ["input", "change", "blur"]) document.addEventListener(ev, (e) => { if (e.target?.matches?.('input[type="date"]')) checkDateField(e.target); }, true);
+// Chromium fires no input/change for a typed date that doesn't exist (Feb 31 stays "" with badInput): check it once
+// typing pauses and when focus leaves, so it is flagged right away instead of on submit or silently replaced
+const dateT = new WeakMap();
+document.addEventListener("keyup", (e) => { const el = e.target; if (!el?.matches?.('input[type="date"]')) return; clearTimeout(dateT.get(el)); dateT.set(el, setTimeout(() => checkDateField(el), 900)); }, true);
+document.addEventListener("focusout", (e) => { if (e.target?.matches?.('input[type="date"]')) checkDateField(e.target); }, true);
+document.addEventListener("submit", (e) => {
+  const bad = [...(e.target.querySelectorAll?.('input[type="date"]') || [])].filter((el) => !checkDateField(el));
+  if (bad.length) { e.preventDefault(); e.stopImmediatePropagation(); bad[0].focus(); }
+}, true);
+window.CE_DATES = { addMonths, realDate };
 // words people type instead of an address (persona test): map them to the topic they are asking about
 const KW = [["security_deposits", /deposit|dep[oó]sito|fianza/i], ["just_cause_eviction", /evict|kick|echar|desalo|complain|queja|heat|calefacc|repair|repara|retalia|represal/i],
   ["application_screening_fees", /\bfees?\b|cargo|cobr|solicitud|application/i], ["screening_restrictions", /voucher|\bvales?\b|section 8|secci[oó]n 8|record|antecedente|criminal/i],
@@ -752,7 +845,9 @@ const RANK = { applies: 0, unknown: 1, not_yet_effective: 2, superseded: 3, pend
 // PV: a place view (Rules page, no building): a rule that covers the place unless the building is exempt ranks with
 // the ones that apply, so the main protection still leads.
 let PV = false;
-const rankOf = (x) => PV && x.result === "unknown" ? 0 : RANK[x.result] ?? 9;
+// version_gap (an older version applied on this date) ranks with the rules that apply, so the main protection still
+// leads its topic and says it can't tell, instead of a side rule answering the question
+const rankOf = (x) => (PV && x.result === "unknown") || x.version_gap ? 0 : RANK[x.result] ?? 9;
 const localFirst = (x, y) => y.rule.level === "state" && x.rule.level !== "state" && (x.rule.overrides || []).includes(y.rule.team_rule_id) ? -1 : 0;
 const ordered = (items) => [...items].sort((x, y) => rankOf(x) - rankOf(y)
   || (PV ? localFirst(x, y) : 0) - (PV ? localFirst(y, x) : 0) // a place: a local rule that replaces the state one leads
@@ -760,13 +855,17 @@ const ordered = (items) => [...items].sort((x, y) => rankOf(x) - rankOf(y)
   || (x.rule.headline_priority ?? 1.5) - (y.rule.headline_priority ?? 1.5) // the main protection leads (good cause before retaliation)
   || (x.rule.level === "state" ? 0 : 1) - (y.rule.level === "state" ? 0 : 1));
 // Plain answer and why line (web/headlines.py PLAIN), while their period lasts; the headline is the fallback.
-const plainOk = (r) => r.answer_display && !(r.plain_until && asOf > r.plain_until);
-const answerOf = (item) => plainOk(item.rule) ? item.rule.answer_display : headlineOf(item);
+// the plain answer / why on a date: the figure period's wording inside [plain_from, plain_until], else the general
+// wording (web/headlines.py plain(); address items arrive resolved for their date, with no period left)
+const plainOut = (r, d) => (r.plain_until && d > r.plain_until) || (r.plain_from && d < r.plain_from);
+const plainAt = (r, d = asOf) => plainOut(r, d) ? { a: r.answer_general || null, w: r.why_general || null } : { a: r.answer_display, w: r.why_display };
+const plainOk = (r) => !!plainAt(r).a;
+const answerOf = (item) => plainOk(item.rule) ? plainAt(item.rule).a : headlineOf(item);
 // Internal wording never reaches a reader: corpus notes, document ids, extraction confidence, <=, (assessor).
 const DEBUG = /corpus|link-only|not captured|unverified|believed to|captured documents|ecode360|\bD0\d\d\b|confidence|flagged|extraction|human review|use description|source_doc/i;
 const clean = (txt) => splitSentences(String(txt || "")).filter((x) => !DEBUG.test(x)).join(" ")
   .replace(/\(\s*<=\s*(\d+)\s*units?\s*\)/gi, (m, n) => `(${n} ${lang === "es" ? "unidades o menos" : "units or fewer"})`).replace(/<=\s*/g, lang === "es" ? "como máximo " : "at most ")
-  .replace(/\s*\((?:assessor|from the assessor|tasador)\)/gi, "").replace(/\s*\(from use description '[^']*'\)/gi, "").replace(/\s{2,}/g, " ").trim();
+  .replace(/\s*\((?:assessor|from the assessor|tasador|asesor fiscal)\)/gi, "").replace(/\s*\((?:from use description|según la descripción de uso) '[^']*'\)/gi, "").replace(/\s{2,}/g, " ").trim();
 
 // The engine's explanation is one English sentence chain. Split it into facts, changes and notes so that each
 // piece is shown once, in its own section, and the key figure (already in the answer line) is not repeated.
@@ -794,7 +893,8 @@ function parseWhy(item) {
   if ((m = s.match(/^[\s\S]+? (?:applies|may apply) in (.+?)(?: \(([A-Z]{2}) statewide rule\))?(?::\s*([\s\S]+?))?\.(\s[\s\S]*)?$/))) {
     if (m[3]) out.facts.push(...m[3].split(/;\s+/).map((x) => cap(isoDates(x.replace(/^coverage depends on facts not in the data:\s*/i, "")
       // #142: the year is known; what is missing is the exact certificate date
-      .replace(/^the year built date is not in the data \(year built on or before ([\d-]+)\)$/i, "the data has only the year, not the exact certificate-of-occupancy date (cutoff $1)")))));
+      .replace(/^the year built date is not in the data \(year built (?:on or before|before|after) ([\d-]+)\)$/i, "the data has only the year, not the exact certificate-of-occupancy date (cutoff $1)")))));
+    else if (/, but the version in our sources took effect /.test(m[1])) out.facts.push(cap(isoDates(m[1].split(", but ").slice(1).join(", but ")))); // an older version applied on this date (#158)
     else if (m[2]) out.facts.push(tf("w_statewide", { s: t(STATE_NAMES[m[2]] || m[2]) }));
     else out.facts.push(tf("w_city", { c: shortJ(m[1]) }));
     if (m[4]?.trim()) out.facts.push(m[4].trim());
@@ -813,7 +913,8 @@ function parseWhy(item) {
     rest = rest.replace(/\b[A-Z]{2,4}-[A-Z]{2,5}-[A-Z0-9]{1,3}\s*\(([^)]*)\)/g, "$1").replace(/\s*\b[A-Z]{2,4}-[A-Z]{2,5}-[A-Z0-9]{1,3}\b,?/g, "");
     const nota = rest.match(/\s*Nota:\s*([\s\S]+)$/); // the translated note replaces the English one
     out.notes = nota ? [cap(nota[1].replace(/^pregunta abierta:\s*/i, "").replace(/\s*-\s*marcad[oa] para revisión humana\.?$/i, "").trim())] : [];
-    out.facts = []; out.rest = nota ? rest.slice(0, nota.index) : rest;
+    out.facts = []; out.rest = (nota ? rest.slice(0, nota.index) : rest) // #142: the year is known, the certificate date is not
+      .replace(/la fecha de construcción no consta en los datos \(año de construcción (?:el (.+?) o antes|anterior al (.+?)|posterior al (.+?))\)/g, (_, a, b, c) => `los datos solo tienen el año, no la fecha exacta del certificado de ocupación (límite: ${a || b || c})`);
   }
   return out;
 }
@@ -821,6 +922,7 @@ const missingLabel = (item, d) => {
   const f = item.missing_fact || "";
   const y = d?.address?.year_built;
   if (/certificate|year built/i.test(f) && y) return tf("needs_co", { y });
+  if (lang !== "en" && item.missing_fact_display) return item.missing_fact_display;
   return t(f || "A fact not contained in the public data");
 };
 // The span stays verbatim in the data; on screen a scraped tail ("(click here to", a cut-off clause) is trimmed back
@@ -837,19 +939,21 @@ function shownQuote(q) {
 function sourceHtml(src, effective = "") {
   // src: {quote, citation, url, retrieved, doc, rule, check, confidence, id, secondary}. One block: quote, one citation line, one meta line.
   const chk = src.check?.status;
-  const verified = chk === "exact" || chk === "normalized" ? `<span class="ok">${I.check}${t("quote_ok")}</span>` : chk === "not_found" ? `<span class="warn">${I.alert}${t("quote_bad")}</span>` : "";
+  const verified = src.note ? "" : chk === "exact" || chk === "normalized" ? `<span class="ok">${I.check}${t("quote_ok")}</span>` : chk === "not_found" ? `<span class="warn">${I.alert}${t("quote_bad")}</span>` : "";
   const meta = [verified, src.retrieved ? esc(tf("retrieved", { d: fmtDate(src.retrieved) })) : "", src.secondary ? esc(t("secondary")) : ""].filter(Boolean);
   const cite = [src.citation ? `<span>${esc(src.citation)}</span>` : "", effective ? `<span>${esc(effective)}</span>` : "", src.url ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(host(src.url))}${I.ext}</a>` : "", src.doc ? `<a href="#" data-doc="${esc(src.doc)}" data-rule="${esc(src.rule || "")}">${t("read_full")}</a>` : ""].filter(Boolean);
   return `<div class="rd-src" data-tour="source">
     ${src.quote ? `<blockquote class="quote">${esc(shownQuote(src.quote))}</blockquote>` : ""}
     ${cite.length ? `<p class="rd-cite">${cite.join("")}</p>` : ""}
-    ${meta.length ? `<p class="rd-meta">${meta.join("<span class=\"sep\" aria-hidden=\"true\">·</span>")}</p>` : ""}
+    ${meta.length ? `<p class="rd-meta">${meta.join("<span class=\"sep\" aria-hidden=\"true\">·</span>")}</p>` : ""}${srcNote(src.note)}
   </div>`;
 }
 // The source link's label: a law-firm or news page is a summary, never the "Official site"
 const isSecondary = (r) => !!(r?.source?.secondary || r?.verification === "secondary_source" || r?.source_verification === "secondary_source");
 const srcLabel = (r) => isSecondary(r) ? tf("src_secondary", { h: host(r.source?.url || r.source_url || "") }) : t("official_site");
-const ruleSource = (r) => ({ quote: r.quoted_span, citation: r.citation, url: r.source_url, retrieved: r.source?.retrieved_at || r.retrieved_at, doc: r.source?.has_text ? (r.span_doc_id || r.quoted_span_doc_id || r.source_doc_id) : null, rule: r.team_rule_id, check: r.quote_check, confidence: r.confidence, id: r.team_rule_id, secondary: r.source?.secondary });
+// the quote is from another document than the cited law (web/source_notes.py): amber, never "Word for word on"
+const srcNote = (n) => n ? `<p class="src-note">${I.alert}<span><b>${esc(n.lead)}</b> ${esc(n.text)}</span></p>` : "";
+const ruleSource = (r) => ({ quote: r.quoted_span, citation: r.citation, url: r.source_url, retrieved: r.source?.retrieved_at || r.retrieved_at, doc: r.source?.has_text ? (r.span_doc_id || r.quoted_span_doc_id || r.source_doc_id) : null, rule: r.team_rule_id, check: r.quote_check, confidence: r.confidence, id: r.team_rule_id, secondary: r.source?.secondary, note: r.source_note });
 // Plain words for the abbreviations the rule summaries use (English only; the Spanish text is translated already).
 const GLOSSARY = [[/\bfirst CO\b/g, "first certificate of occupancy"], [/\bCO\b/g, "certificate of occupancy"], [/\bAGA\b/g, "annual general adjustment"],
   [/Costa-Hawkins-eligible tenancies/g, "single-family homes and condos (exempt under the state Costa-Hawkins Act)"], [/\bFMR\b/g, "fair market rent"],
@@ -864,42 +968,47 @@ function sameAsQuote(a, b) {
   return hit >= 0.6;
 }
 // L4 line for a rule whose quote is shown above (L3): when it took effect and how the quote was checked, in words
-function checkedLine(r, eff) {
-  const ok = ["exact", "normalized"].includes(r.quote_check?.status), when = r.source?.retrieved_at || r.retrieved_at;
+function checkedLine(r, eff, trail = false) {
+  if (r.source_note) return (eff ? `<p class="rd-meta">${esc(eff + ".")}</p>` : "") + srcNote(r.source_note);
+  const ok = !trail && ["exact", "normalized"].includes(r.quote_check?.status), when = r.source?.retrieved_at || r.retrieved_at;
   const parts = [eff ? eff + "." : "", ok && when ? tf("checked_on", { d: fmtDate(when) }) : ""].filter(Boolean);
   return parts.length ? `<p class="rd-meta">${esc(parts.join(" "))}</p>` : "";
 }
-function ruleDetail(item, d, { withTitle = true, needs = true, quote = true } = {}) {
+// trail: features/howmade.js shows the quote check and confidence below, so only a flag stays here
+function ruleDetail(item, d, { withTitle = true, needs = true, quote = true, trail = false } = {}) {
   const r = item.rule, res = item.result, w = parseWhy(item);
   const list = (xs) => xs.length > 1 ? `<ul>${xs.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : `<p>${esc(xs[0])}</p>`;
   const why = [...(w.facts.length ? w.facts.map(plain) : w.rest ? [isoDates(w.rest)] : [])].map(clean).filter(Boolean);
   if (res === "superseded" && item.superseded_by?.length) why.push(tf("yields_to", { r: item.superseded_by.map((x) => x.title).join(", ") }));
   const changes = [...w.changes];
   if (res === "not_yet_effective" && r.effective_date) changes.push(tf("ch_starts", { d: fmtDate(r.effective_date_norm || r.effective_date) }));
-  if (w.version && asOf < w.version.from) changes.push(tf("ch_version", { a: fmtDate(asOf), b: fmtDate(w.version.from) }) + (w.version.note ? " " + w.version.note : ""));
+  if (w.version && asOf < w.version.from) changes.push(tf("ch_version", { a: fmtDate(asOf), b: fmtDate(w.version.from) }) + (w.version.note ? " " + (lang !== "en" && r.prior_version_note === w.version.note && r.prior_version_note_display || w.version.note) : ""));
   const figEnd = w.figureEnd || (r.headline_until && asOf > r.headline_until ? r.headline_until : null); // #142: expired period figures say so
-  if (figEnd) changes.push(tf("ch_figure_end", { d: fmtDate(figEnd) }));
+  // #142: an ended period's figure leaves the plain text and is named, as ended, under Changes
+  let req = r.requirement_display || r.requirement || "", gone = null;
+  const LAST = /\s*\((?:last published|último publicado): ([^)]+)\)/i;
+  if (figEnd && asOf > figEnd && LAST.test(req)) { gone = req.match(LAST)[1]; req = req.replace(LAST, ""); }
+  if (figEnd) changes.push(gone ? tf("ch_figure_gone", { f: gone, d: fmtDate(figEnd) }) : tf("ch_figure_end", { d: fmtDate(figEnd) }));
   const notes = []; // open questions are for reviewers (Rules, Sources), not for the answer
   // open questions join "Changes" when there are changes, else they get their own heading
   const later = changes.length ? [...changes, ...notes.map((n) => `${t("sec_review")}: ${n}`)] : notes;
   const laterHead = changes.length ? "sec_changes" : "sec_review";
   const eff = /^\d{4}-\d{2}/.test(r.effective_date_norm || "") && res !== "not_yet_effective" ? tf("ch_effective", { d: fmtDate(r.effective_date_norm) }).replace(/\.$/, "") : "";
-  const req = r.requirement_display || r.requirement || "";
   // plain text only for what the quote doesn't already say (exceptions, conditions)
   const extra = clean(splitSentences(req).filter((x) => !sameAsQuote(x, r.quoted_span)).join(" ").trim());
   return `<div class="rd">
     ${withTitle ? `<h4 class="rd-title">${esc(r.title_display || r.title)}</h4>` : ""}
     ${extra ? `<p class="rd-plain">${esc(cap(plain(extra)))}</p>` : ""}
     ${res === "unknown" && needs ? `<p class="rd-needs"><b>${t("needs")}:</b> ${esc(missingLabel(item, d))}</p>` : ""}
-    ${quote ? sourceHtml(ruleSource(r), eff) : checkedLine(r, eff)}
-    <p class="rd-meta">${esc([r.confidence != null ? tf("conf_l", { n: pctOf(r.confidence) }) : "", r.conflict_flag ? tf("flag_l", { n: plainNote(r) }) : t("flag_none")].filter(Boolean).join(" "))}</p>
+    ${quote ? sourceHtml(ruleSource(r), eff) : checkedLine(r, eff, trail)}
+    ${trail && !r.conflict_flag && !(r.confidence < 0.7) ? "" : `<p class="rd-meta">${esc([r.confidence != null ? tf("conf_l", { n: pctOf(r.confidence) }) : "", r.conflict_flag ? tf("flag_l", { n: plainNote(r) }) : t("flag_none")].filter(Boolean).join(" "))}</p>`}
     ${why.length ? `<section class="rd-sec"><h5>${t(res === "unknown" ? "sec_why_unknown" : "sec_why")}</h5>${list(why)}</section>` : ""}
     ${later.length ? `<section class="rd-sec"><h5>${t(laterHead)}</h5>${list(later)}</section>` : ""}
   </div>`;
 }
 // One line that answers the topic's question for this address.
 // The row answer (web/headlines.py): the API sends it per item for its as-of date; otherwise pick by our own date.
-const headlineOf = (item) => item.headline || (item.rule.headline_until && asOf > item.rule.headline_until ? item.rule.headline_after : item.rule.headline_display);
+const headlineOf = (item) => item.headline || (item.rule.headline_after && ((item.rule.headline_until && asOf > item.rule.headline_until) || (item.rule.headline_from && asOf < item.rule.headline_from)) ? item.rule.headline_after : item.rule.headline_display);
 function alsoLine(rest) {
   const n = (r) => rest.filter((x) => x.result === r).length;
   const part = (r, k) => n(r) ? tf(n(r) === 1 ? k + "1" : k + "N", { n: n(r) }) : "";
@@ -913,11 +1022,13 @@ function topicSummary(c, d) {
   if (top) {
     const r = top.rule, w = parseWhy(top);
     let line, status = top.result, next = "";
-    if (top.result === "unknown") line = PV && plainOk(r) ? answerOf(top) : t("l1_unknown");
+    // version_gap: an older version of the law applied on this date (navigator.evaluate.version_gap); the line says so
+    if (top.result === "unknown") line = (PV || top.version_gap) && plainOk(r) ? answerOf(top) : t("l1_unknown");
     else if (top.result === "not_yet_effective" && !plainOk(r)) line = tf("l1_later", { d: fmtDate(r.effective_date_norm || r.effective_date) });
     else line = answerOf(top) || r.key_value_display || r.key_value || r.title_display || r.title;
     if (top.result === "applies") status = r.removes_protection ? "no_limit" : "";
-    if (top.result === "not_yet_effective") next = tf("starts", { d: fmtDate(r.effective_date_norm || r.effective_date) });
+    if (top.version_gap) next = tf("starts", { d: fmtDate(top.version_gap.from) });
+    else if (top.result === "not_yet_effective") next = tf("starts", { d: fmtDate(r.effective_date_norm || r.effective_date) });
     else if (w.version && asOf < w.version.from) next = tf("fig_from", { d: fmtDate(w.version.from) });
     else {
       const soon = items.find((x) => x !== top && x.result === "not_yet_effective");
@@ -938,23 +1049,26 @@ function subRule(item, d) {
 }
 // Feature modules (compare, check, tour) may append quiet links into these slots; see web/DESIGN.md.
 const slot = (c) => `<div class="topic-actions" data-slot="topic-actions" data-cat="${c.id}"></div>`;
-function topicBody(c, d, { slot: withSlot = true, quote = true } = {}) {
+function topicBody(c, d, { slot: withSlot = true, quote = true, trail = false } = {}) {
   const slot2 = (x) => withSlot ? slot(x) : "";
   const items = ordered(c.enacted || []);
   if (items.length) {
     const [top, ...rest] = items;
-    return ruleDetail(top, d, { needs: false, quote }) + (rest.length ? `<div class="also"><h5>${t("also_here")}</h5>${rest.map((x) => subRule(x, d)).join("")}</div>` : "") + slot2(c);
+    return ruleDetail(top, d, { needs: false, quote, trail }) + (rest.length ? `<div class="also"><h5>${t("also_here")}</h5>${rest.map((x) => subRule(x, d)).join("")}</div>` : "") + slot2(c);
   }
   let html = "";
+  const shown = quote ? null : lawAlt(c)?.item; // already quoted under "Show me the law"
   for (const ex of c.excluded || []) {
+    if (ex === shown) continue;
     html += `<div class="rd"><p class="rd-plain">${esc(tf("exempt_body", { t: ex.title, c: ex.citation || ex.id }))}</p>
       <section class="rd-sec"><h5>${t("sec_why_not")}</h5>${ex.reasons.length > 1 ? `<ul>${ex.reasons.map((x) => `<li>${esc(cap(isoDates(x)))}</li>`).join("")}</ul>` : `<p>${esc(cap(isoDates(ex.reasons[0] || "")))}</p>`}</section></div>`;
   }
   for (const f of c.no_rule_findings || []) {
+    if (f === shown) continue;
     html += `<div class="rd"><p class="rd-plain">${esc(f.finding_display || f.finding)}</p>
       ${f.quoted_span || f.citation ? sourceHtml({ quote: f.quoted_span, citation: f.citation, url: f.source_url, retrieved: f.source?.retrieved_at, doc: f.source?.has_text ? (f.quoted_span_doc_id || f.source_doc_id) : null, check: f.quote_check, confidence: f.confidence, id: f.finding_id, rule: f.finding_id }) : ""}</div>`;
   }
-  return (html || `<div class="rd"><p class="rd-plain">${esc(t("no_rule_short"))}</p></div>`) + slot2(c);
+  return (html || (shown ? "" : `<div class="rd"><p class="rd-plain">${esc(t("no_rule_short"))}</p></div>`)) + slot2(c);
 }
 // Plain words first (persona "David": low attention, not legally literate). A topic opens to one "why" line in
 // 5th-grade words, a question when the answer depends on a fact he knows, the actions, and one "Show me the law" tap
@@ -970,10 +1084,11 @@ function whyLine(c, d) {
     return t("why_none");
   }
   const r = top.rule, place = placeName(r);
-  if (top.result === "applies" && plainOk(r) && r.why_display) return r.why_display;
+  if (top.version_gap && r.why_display) return r.why_display;
+  if (top.result === "applies" && plainOk(r) && plainAt(r).w) return plainAt(r).w;
   if (top.result === "unknown" && PV) {
     const other = items.find((x) => x !== top && x.rule.level === "state" && (x.result === "applies" || x.result === "unknown") && answerOf(x));
-    const base = factKind(top) ? tf("why_place", { f: plainFact(top) }) : t("why_unknown_other");
+    const base = factKind(top) ? tf("why_place", { f: plainFact(top) }) : t("why_place_other");
     return other && top.rule.level !== "state" ? `${base} ${tf("why_else", { o: answerOf(other) })}` : base;
   }
   if (top.result === "unknown") return factKind(top) ? tf("why_unknown", { f: plainFact(top) }) : t("why_unknown_other");
@@ -1008,7 +1123,7 @@ function yearCuts(d) {
 }
 function askHtml(c, d) {
   const top = ordered(c.enacted || [])[0];
-  if (!top || top.result !== "unknown" || !(d?.address?.address_id || d?.ask)) return "";
+  if (!top || top.result !== "unknown" || top.version_gap || !(d?.address?.address_id || d?.ask)) return "";
   const k = factKind(top);
   const opt = (v, label, said = label) => `<button type="button" class="btn" data-val="${v}" data-said="${esc(said)}">${esc(label)}</button>`;
   let q = "", btns = "", foot = "", preview = "";
@@ -1060,64 +1175,114 @@ function flagHtml(c) {
 // the other rules that apply here, as plain one-liners (a specific worry is often one of these: retaliation, notice)
 function alsoHtml(c) {
   const [top, ...rest] = ordered(c.enacted || []);
-  if (!top || (top.result === "unknown" && !PV)) return "";
+  if (!top || (top.result === "unknown" && !PV && !top.version_gap)) return "";
   const seen = new Set([answerOf(top)]);
   const lines = rest.filter((x) => x.result === "applies" || (PV && x.result === "unknown")).map(answerOf).filter((x) => x && !seen.has(x) && seen.add(x));
   return lines.length ? `<ul class="also-l" aria-label="${esc(t("also_rules"))}">${lines.map((x) => `<li>${esc(cap(x))}</li>`).join("")}</ul>` : "";
 }
 // Inline calculator for rent and deposit: the reader's rent in, the most they can ask out (POST /api/check, the same
-// deterministic verdict as Check a rent increase; nothing stored).
+// deterministic verdict as Check a rent increase; the rent stays in this tab's sessionStorage only).
 function calcHtml(c, d) {
   const top = ordered(c.enacted || [])[0];
   if (!d?.address?.address_id || !top || top.result !== "applies" || top.rule.removes_protection) return "";
   if (c.id !== "rent_increase_limits" && c.id !== "security_deposits") return "";
   return `<form class="calc" data-calc="${c.id}" onsubmit="return false"><label><span>${esc(t("calc_rent"))}</span>
-    <span class="calc-in"><b aria-hidden="true">$</b><input type="text" inputmode="decimal" autocomplete="off" placeholder="2,000" aria-label="${esc(t("calc_rent"))}"></span></label>
+    <span class="calc-in"><b aria-hidden="true">$</b><input type="text" inputmode="decimal" autocomplete="off" placeholder="2,000" aria-label="${esc(t("calc_rent"))}"${RENT[d.address.address_id] ? ` value="${esc(String(RENT[d.address.address_id]))}"` : ""}></span></label>
     <output class="calc-out" aria-live="polite"></output></form>`;
 }
+// the rent the reader gave for an address (here or on Check a rent increase), kept for this visit: the rent and
+// deposit topics answer in dollars right away, and Check a rent increase starts with it
+const RENT = (() => { try { return JSON.parse(sessionStorage.getItem("ce.rent") || "{}"); } catch { return {}; } })();
+const keepRent = (id, v) => { if (!id) return; if (v > 0) RENT[id] = v; else delete RENT[id]; try { sessionStorage.setItem("ce.rent", JSON.stringify(RENT)); } catch { /* private mode */ } };
 const money = (n) => new Intl.NumberFormat(lang === "es" ? "es-US" : "en-US", { style: "currency", currency: "USD", maximumFractionDigits: n % 1 ? 2 : 0 }).format(n);
 let calcT = 0;
 document.addEventListener("input", (e) => {
+  const ck = e.target.closest?.("#main #ck-current_rent"), m = ck && location.hash.match(/^#\/check\/([^/?#]+)/);
+  if (m) keepRent(decodeURIComponent(m[1]).toUpperCase(), parseFloat(ck.value.replace(/[^0-9.]/g, "")));
   const inp = e.target.closest?.("#main .calc input");
   if (!inp) return;
+  keepRent(main.dataset.addr, parseFloat(inp.value.replace(/[^0-9.]/g, "")));
   clearTimeout(calcT);
-  calcT = setTimeout(async () => {
-    const form = inp.closest(".calc"), out = $(".calc-out", form), rent = parseFloat(inp.value.replace(/[^0-9.]/g, ""));
-    if (!(rent > 0)) { out.textContent = ""; form.classList.remove("has"); return; }
-    const id = main.dataset.addr, facts = Object.fromEntries(Object.entries(ANS[id] || {}).filter(([k]) => !k.startsWith("_")));
-    const rentQ = form.dataset.calc === "rent_increase_limits";
-    const body = { address_id: id, as_of: asOf, lang, current_rent: rent, ...(rentQ ? { increase_pct: 0.01 } : { deposit: 1 }), ...(Object.keys(facts).length ? { facts } : {}) };
-    let v;
-    try { const r = await fetch("/api/check", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }); if (!r.ok) throw 0; v = (await r.json()).verdicts.find((x) => x.id === (rentQ ? "rent" : "deposit")); } catch { return; }
-    const x = v?.values || {};
-    let txt = "";
-    if (rentQ && v?.code === "within" && x.max_rent) txt = tf("calc_max", { v: money(x.max_rent) });
-    else if (rentQ && v?.code === "need_cpi" && x.cap_max) txt = tf("calc_upto", { v: money(Math.round(rent * (1 + x.cap_max / 100))), p: x.cap_max });
-    else if (!rentQ && v?.code === "within" && x.max) txt = tf("calc_dep", { v: money(x.max) });
-    if (inp.isConnected) { out.textContent = txt; form.classList.toggle("has", !!txt); form.classList.remove("pulse"); void form.offsetWidth; form.classList.add("pulse"); }
-  }, 280);
+  calcT = setTimeout(() => runCalc(inp), 280);
+});
+async function runCalc(inp) {
+  const form = inp.closest(".calc"), out = $(".calc-out", form), rent = parseFloat(inp.value.replace(/[^0-9.]/g, ""));
+  if (!(rent > 0)) { out.textContent = ""; form.classList.remove("has"); return; }
+  const id = main.dataset.addr, facts = Object.fromEntries(Object.entries(ANS[id] || {}).filter(([k]) => !k.startsWith("_")));
+  const rentQ = form.dataset.calc === "rent_increase_limits";
+  const body = { address_id: id, as_of: asOf, lang, current_rent: rent, ...(rentQ ? { increase_pct: 0.01 } : { deposit: 1 }), ...(Object.keys(facts).length ? { facts } : {}) };
+  let v;
+  try { const r = await fetch("/api/check", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }); if (!r.ok) throw 0; v = (await r.json()).verdicts.find((x) => x.id === (rentQ ? "rent" : "deposit")); } catch { return; }
+  const x = v?.values || {};
+  let txt = "";
+  if (rentQ && v?.code === "within" && x.max_rent) txt = tf("calc_max", { v: money(x.max_rent) });
+  else if (rentQ && v?.code === "need_cpi" && x.cap_max) txt = tf("calc_upto", { v: money(Math.round(rent * (1 + x.cap_max / 100))), p: x.cap_max });
+  else if (!rentQ && v?.code === "within" && x.max) txt = tf("calc_dep", { v: money(x.max) });
+  if (inp.isConnected) { out.textContent = txt; form.classList.toggle("has", !!txt); form.classList.remove("pulse"); void form.offsetWidth; form.classList.add("pulse"); }
+}
+// an opened rent or deposit topic with a rent already given answers in dollars without typing it again
+document.addEventListener("toggle", (e) => {
+  const inp = e.target.open && e.target.matches?.("#main details.topic") && $(".calc input", e.target);
+  if (!inp) return;
+  if (!inp.value && RENT[main.dataset.addr]) inp.value = String(RENT[main.dataset.addr]);
+  if (inp.value && !$(".calc-out", e.target).textContent) runCalc(inp);
+}, true);
+// Check a rent increase from an address starts with the rent given there (its form is filled like My properties does)
+document.addEventListener("click", (e) => {
+  const a = e.target.closest?.("#main .addr a.ck-entry, #main .addr .prop-cta a.btn.primary, #main .aside a.btn.primary"), id = main.dataset.addr, rent = a && RENT[id];
+  if (!rent) return;
+  let n = 0;
+  const fill = () => {
+    const el = $("#main .ck-form #ck-current_rent");
+    if (!el) { if (++n < 40) setTimeout(fill, 50); return; }
+    if (el.value) return;
+    el.value = String(rent);
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+    el.dispatchEvent(new Event("focusout", { bubbles: true })); // reads as money ($2,000) like a typed amount
+    el.dispatchEvent(new Event("ce:prefill", { bubbles: true })); // features/check.js: selected on focus + "From My rent now"
+  };
+  setTimeout(fill, 30);
 });
 // L3: only the sentence of the law that carries the answer, with one source line
 const lawTop = (c) => { const top = ordered(c.enacted || [])[0]; return top?.rule.quoted_span ? top : null; };
+// No rule covers the building: "Show me the law" quotes the in-force law that doesn't cover it (with why), else the
+// cited finding that there is no such law, so the panel is never empty
+const asRule = (x, id) => ({ quoted_span: x.quoted_span, quoted_span_doc_id: x.quoted_span_doc_id || x.source_doc_id, citation: x.citation, source_url: x.source_url, source: x.source, quote_check: x.quote_check, team_rule_id: id, retrieved_at: x.source?.retrieved_at, source_note: x.source_note });
+function lawAlt(c) {
+  if (ordered(c.enacted || [])[0]) return null;
+  const ex = (c.excluded || []).find((x) => x.quoted_span);
+  // the engine's reasons are English: other languages end the sentence (the why line above already says it)
+  const why = lang === "en" && ex?.reasons?.length ? ` ${cap(ex.reasons.map((x) => isoDates(x)).join("; "))}.` : null;
+  if (ex) return { item: ex, r: asRule(ex, ex.id), lead: why ? tf("exempt_body", { t: ex.title, c: ex.citation || ex.id }) + why : tf("exempt_body", { t: ex.title, c: ex.citation || ex.id }).replace(/:\s*$/, ".") };
+  const f = (c.no_rule_findings || []).find((x) => x.quoted_span);
+  if (f) return { item: f, r: asRule(f, f.finding_id), lead: f.finding_display || f.finding };
+  return null;
+}
+const hasLaw = (c) => !!(lawTop(c) || lawAlt(c));
 function lawQuote(c) {
-  const top = lawTop(c);
-  if (!top) return "";
-  const r = top.rule, src = ruleSource(r);
+  const top = lawTop(c), alt = top ? null : lawAlt(c);
+  if (!top && !alt) return "";
+  const r = top ? top.rule : alt.r, src = ruleSource(r);
   const ok = ["exact", "normalized"].includes(r.quote_check?.status), when = r.source?.retrieved_at || r.retrieved_at;
-  const badgeL = ok ? `<p class="l3-ok">${I.check}<span>${esc(tf("l3_ok", { h: host(r.source?.url || r.source_url || ""), d: fmtDate(when) }))}</span></p>` : when ? `<p class="rd-meta">${esc(tf("retrieved", { d: fmtDate(when) }))}</p>` : "";
-  return `<div class="rd-src l3" data-tour="source">${lang !== "en" ? `<p class="l3-tr">${esc(t("tr_note"))}</p>` : ""}<blockquote class="quote" lang="en">${esc(shownQuote(r.quoted_span))}</blockquote>${badgeL}
+  const badgeL = r.source_note ? srcNote(r.source_note) : ok ? `<p class="l3-ok">${I.check}<span>${esc(tf("l3_ok", { h: host(r.source?.url || r.source_url || ""), d: fmtDate(when) }))}</span></p>` : when ? `<p class="rd-meta">${esc(tf("retrieved", { d: fmtDate(when) }))}</p>` : "";
+  return `<div class="rd-src l3" data-tour="source">${alt ? `<p class="rd-plain l3-lead">${esc(alt.lead)}</p>` : ""}${lang !== "en" ? `<p class="l3-tr">${esc(t("tr_note"))}</p>` : ""}<blockquote class="quote" lang="en">${esc(shownQuote(r.quoted_span))}</blockquote>${badgeL}
     <p class="rd-cite">${r.citation ? `<span>${esc(r.citation)}</span>` : ""}${r.source_url ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(srcLabel(r))}${I.ext}</a>` : ""}${src.doc ? `<a href="#" data-doc="${esc(src.doc)}" data-rule="${esc(r.team_rule_id)}">${t("read_full")}</a>` : ""}</p></div>`;
 }
 // the closed row's status: one coloured dot (green limit or protection, amber needs an answer, grey none, blue later)
 // a flagged answer (low confidence or a conflict at this address, the same test as flagHtml) is never green: amber
 function dotOf(c, s, top) {
-  let k = !top ? "none" : top.result === "unknown" ? "ask" : top.result === "not_yet_effective" ? "later" : s.status === "no_limit" || s.status === "exempt" || s.status === "no_rule" ? "none" : "ok";
+  let k = !top ? "none" : top.version_gap ? "later" : top.result === "unknown" ? "ask" : top.result === "not_yet_effective" ? "later" : s.status === "no_limit" || s.status === "exempt" || s.status === "no_rule" ? "none" : "ok";
   if (k === "ok" && flagHtml(c)) k = "check";
   if (k === "ask" && PV && plainOk(top.rule)) k = "dep"; // a place: the answer is real, it may not cover every building
   return `<span class="sdot sd-${k === "check" ? "ask sd-check" : k === "dep" ? "ask sd-check" : k}" role="img" aria-label="${esc(t("sd_" + k))}"></span>`;
 }
 // generated plain copy (navigator/plain.py) not yet read by a person: say so, in the details only
 const autoSum = (top) => top?.rule.plain_source === "generated" ? `<p class="rd-meta auto-sum">${esc(t(top.rule.plain_needs_review ? "auto_sum_review" : "auto_sum"))}</p>` : "";
+// "Show me the law" only when there is a quote to show (no law at all on that date: just "More details")
+const lawPanel = (c, more) => hasLaw(c) ? `<details class="law"><summary><span>${esc(t("law_show"))}</span><span class="chev">${I.chev}</span></summary>
+        <div class="law-in">${lawQuote(c)}
+          ${more}
+        </div></details>` : more;
 function topicRow(c, d, { asked = false } = {}) {
   const s = topicSummary(c, d);
   const top = ordered(c.enacted || [])[0];
@@ -1137,11 +1302,8 @@ function topicRow(c, d, { asked = false } = {}) {
       ${alsoHtml(c)}
       ${askHtml(c, d)}${calcHtml(c, d)}
       ${slot(c)}
-      <details class="law"><summary><span>${esc(t("law_show"))}</span><span class="chev">${I.chev}</span></summary>
-        <div class="law-in">${lawQuote(c)}
-          <details class="more"><summary><span>${esc(t("law_more"))}</span><span class="chev">${I.chev}</span></summary>
-            <div class="more-in">${s.extra ? `<p class="law-x">${esc(s.extra)}</p>` : ""}${topicBody(c, d, { slot: false, quote: !lawTop(c) })}${autoSum(top)}</div></details>
-        </div></details>
+      ${lawPanel(c, `<details class="more"><summary><span>${esc(t("law_more"))}</span><span class="chev">${I.chev}</span></summary>
+            <div class="more-in">${s.extra ? `<p class="law-x">${esc(s.extra)}</p>` : ""}${topicBody(c, d, { slot: false, quote: !hasLaw(c), trail: !!window.CEHowMade })}${window.CEHowMade ? window.CEHowMade.html(c, d, { top }) : autoSum(top)}</div></details>`)}
     </div>
   </details>`;
 }
@@ -1170,8 +1332,8 @@ const SEEN = new Set();
 const lstep = (n, title) => `<li class="lstep" data-step="${n}"><span class="lk" aria-hidden="true">${I.check}</span><span class="lt"><b>${esc(title)}</b><small></small></span></li>`;
 function stepsShell(id) {
   const a = ADDR.find((x) => x.id === id);
-  const slug = citySlug(a?.city);
-  return `<article class="addr is-loading"><section class="ahero"><div class="gal${slug ? " street" : ""}">${slug ? streetTag(slug, true) : ""}</div>
+  const slug = citySlug(a?.city) || citySlug(a?.postal_city); // the same photo the page will show (viewAddress)
+  return `<article class="addr is-loading"><section class="ahero"><div class="gal${slug ? " street" : ""}">${slug ? streetTag(slug, true) : imgTag("/static/img/hero-building-card.webp", "", "", true)}</div>
       <div class="addr-head"><h1>${esc(titleCase(a?.street || ""))}</h1><p class="addr-sub">${esc(a?.postal_city || "")}, ${esc(a?.state || "")} ${esc(a?.zip || "")}</p>
       <div class="steps-card" role="status" aria-label="${esc(t("ls_title"))}"><ol class="lsteps">${lstep(1, t("ls_1"))}${lstep(2, t("ls_2"))}${lstep(3, t("ls_3"))}</ol></div></div></section></article>`;
 }
@@ -1203,10 +1365,30 @@ async function runSteps(d, my) {
 }
 function viewNotFound(kind) {
   const ex = examplePicks().slice(0, 3);
-  document.title = `${t("nf_title")} · Clause & Effect`;
-  return swap(`<section class="notfound"><h1>${esc(t(kind === "address" ? "nf_title" : "nf_page"))}</h1><p>${esc(t("nf_body"))}</p>
-    <button class="btn primary" type="button" data-cmdk>${esc(t("search_ph"))}</button>
+  const page = kind !== "address";
+  document.title = `${t(page ? "nf_page" : "nf_title")} · Clause & Effect`;
+  return swap(`<section class="notfound"><h1>${esc(t(page ? "nf_page" : "nf_title"))}</h1><p>${esc(t(page ? "nf_page_body" : "nf_body"))}</p>
+    ${page ? `<p class="nf-acts"><a class="btn primary" href="#/">${esc(t("nf_lookup"))}</a> <a class="btn" href="#/ask">${esc(t("nf_ask"))}</a></p>` : `<button class="btn primary" type="button" data-cmdk>${esc(t("nf_cta"))}</button>`}
     <ul class="group chips">${ex.map((a) => `<li><a href="#/a/${a.id}"><span class="ex-a">${esc(titleCase(a.street))}</span><span class="ex-c">${esc(a.city || a.postal_city)}</span>${I.chev}</a></li>`).join("")}</ul></section>`);
+}
+// #151: the resolver's note (geo/resolve.py) in Spanish; parts we don't know keep the English note
+const GEO_ES = [
+  [/^Census batch geocoder exact match ('[^']*')$/, "coincidencia exacta en el geocodificador del Censo: $1"],
+  [/^Census batch geocoder non_exact match ('[^']*')$/, "coincidencia aproximada en el geocodificador del Censo: $1"],
+  [/^Census single-line match for normalised ('[^']*') -> ('[^']*')$/, "coincidencia en el geocodificador del Censo para la dirección normalizada $1 → $2"],
+  [/^Census had no match$/, "el Censo no encontró la dirección"],
+  [/^inside (.+) city \(consolidated City and County of San Francisco\)$/, "dentro de la ciudad de $1 (ciudad y condado consolidados de San Francisco)"],
+  [/^inside (.+) city$/, "dentro de la ciudad de $1"],
+  [/^postal city ('[^']*') is a mailing name, legal city is (.+) \(.+\)$/, "la ciudad postal $1 es solo un nombre de correo; la ciudad legal es $2"],
+  [/^USPS name ('[^']*') is a neighborhood of (.+), same city rules$/, "el nombre postal $1 es un barrio de $2; rigen las mismas reglas de la ciudad"],
+  [/^source ZIP (\d+) is not an? (.+) ZIP and was ignored$/, "el código postal $1 de los datos de origen no es de $2 y no se usó"],
+  [/^source record has no house number$/, "el registro de origen no tiene número de casa"],
+  [/^OpenStreetMap street-level point ('[^']*') used, place from Census coordinates \(street could cross a city line: check\)$/, "se usó un punto de OpenStreetMap a nivel de calle ($1); la ciudad sale de las coordenadas del Censo (la calle podría cruzar un límite de ciudad: hay que verificarlo)"],
+  [/^OpenStreetMap Nominatim house-level hit ('[^']*'), place from Census coordinates$/, "OpenStreetMap encontró la casa ($1); la ciudad sale de las coordenadas del Censo"],
+];
+function geoNoteEs(note) {
+  const parts = String(note || "").split(/;\s*/).map((p) => { const m = GEO_ES.find(([re]) => re.test(p)); return m ? p.replace(m[0], m[1]) : null; });
+  return parts.length && parts.every((p) => p !== null) ? cap(parts.join("; ")) : "";
 }
 async function viewAddress(id) {
   if (ADDR.length && !ADDR.some((a) => a.id === id)) return viewNotFound("address");
@@ -1288,7 +1470,7 @@ async function viewAddress(id) {
   const howHtml = `<dl class="kv">
           ${row(t("method"), esc(methodLabel))}
           ${row(t("confidence"), `${pctOf(j.confidence)}%`)}
-          ${row(lang === "en" ? "" : t("note_en"), j.note ? `<span lang="en">${esc(j.note)}</span>` : "")}
+          ${lang !== "en" && geoNoteEs(j.note) ? row(t("geo_note"), esc(geoNoteEs(j.note))) : row(lang === "en" ? "" : t("note_en"), j.note ? `<span lang="en">${esc(j.note)}</span>` : "")}
           ${row(t("county"), j.county ? esc(j.county) : "")}
           ${row(t("use"), a.use_description ? esc(a.use_description) : "")}
           ${row(t("data_from"), esc(a.source_dataset || ""))}
@@ -1297,7 +1479,11 @@ async function viewAddress(id) {
   if (same) { main.innerHTML = html; open.forEach((x) => { const el = document.getElementById(x); if (el) el.open = true; }); }
   else await swap(html, null, { quick: fromSteps });
   main.dataset.addr = id;
-  try { sessionStorage.setItem("ce.place", j.city ? `${j.city}, ${a.state}` : a.state); } catch { /* private mode */ }
+  try {
+    sessionStorage.setItem("ce.place", j.city ? `${j.city}, ${a.state}` : a.state);
+    // Ask starts with the address you looked up (not an example opened from a city or ZIP search, not one the tour opened)
+    if (!sessionStorage.getItem("ce.example") && !document.documentElement.classList.contains("tour-on")) sessionStorage.setItem("ce.addr", JSON.stringify({ id, label: `${titleCase(a.street_address)}, ${j.city || titleCase(a.postal_city || "")}` }));
+  } catch { /* private mode */ }
   if (ANS[id]) applyAnswers(id);
   const openT = sessionStorage.getItem("ce.open");
   if (openT) { sessionStorage.removeItem("ce.open"); const el = document.getElementById("t-" + openT); if (el) { el.open = true; setTimeout(() => el.scrollIntoView({ block: "start", behavior: RM.matches ? "auto" : "smooth" }), 60); } }
@@ -1314,11 +1500,31 @@ function gotoTopic(e) {
   e.preventDefault();
   const el = document.getElementById(b.dataset.goto);
   if (!el) return;
+  foldOthers(el);
   el.open = true;
   el.scrollIntoView({ block: "start", behavior: RM.matches ? "auto" : "smooth" });
   el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
 }
 document.addEventListener("click", (e) => { if (e.target.closest("#main [data-goto]")) gotoTopic(e); });
+// one topic open at a time on an address page, and a topic the reader opens comes up just under the header when it
+// does not fit where it is (on a small phone the previous topic's law quote otherwise fills the screen)
+function foldOthers(el) {
+  for (const x of $$("#main .addr details.topic[open]")) if (x !== el) { x.open = false; $$("details[open]", x).forEach((y) => { y.open = false; }); }
+}
+let tapped = null;
+document.addEventListener("click", (e) => {
+  const sm = e.target.closest?.("#main .addr details.topic > summary");
+  tapped = sm && !sm.parentElement.open ? sm.parentElement : null;
+});
+document.addEventListener("toggle", (e) => {
+  const el = e.target;
+  if (el !== tapped || !el.open) return;
+  tapped = null;
+  foldOthers(el);
+  const cs = getComputedStyle(document.documentElement), px = (k) => parseFloat(cs.getPropertyValue(k)) || 0;
+  const r = el.getBoundingClientRect(), top = px("--nav-h"), bottom = innerHeight - px("--tabbar-h") - px("--dock-h");
+  if (r.top < top || r.bottom > bottom) el.scrollIntoView({ block: "start", behavior: RM.matches ? "auto" : "smooth" });
+}, true);
 // answers to the "unknown" questions, per address, kept on this device
 const ANS = JSON.parse(localStorage.getItem("ce.ans") || "{}");
 const FKEY = { year: "year_built", units: "units", owner: "owner_occupied" };
@@ -1421,20 +1627,24 @@ function openModal(title, body) {
   $("[data-close]", m).focus();
 }
 function closeModal() { const m = $("#modal"); if (!m.hidden) closeLayer(m); }
-async function openSource(doc, rule) {
-  openModal(doc, `<div class="sk" style="height:18px;width:60%"></div><div class="sk" style="height:320px;margin-top:14px"></div>`);
+async function openSource(doc, rule, official) {
+  openModal(t("src_title"), `<div class="sk" style="height:18px;width:60%"></div><div class="sk" style="height:320px;margin-top:14px"></div>`);
   let d;
   try { d = await api(`/api/source/${doc}?rule_id=${encodeURIComponent(rule || "")}`); }
   catch (e) { // #141: say what happened instead of a skeleton forever
     const m = $("#modal");
-    if (!m.hidden) $(".modal-body", m).innerHTML = `<p class="lead-p">${esc(t(/404/.test(e.message) ? "src_missing" : "src_error"))}</p>`;
+    const missing = /404/.test(e.message);
+    if (m.hidden) return;
+    $(".modal-body", m).innerHTML = `<p class="lead-p">${esc(t(missing ? "src_missing" : "src_error"))}</p><p class="doc-more">${missing ? "" : `<button type="button" class="btn" id="src-retry">${esc(t("src_retry"))}</button> `}${official ? `<a class="btn" href="${esc(official)}" target="_blank" rel="noopener">${esc(t("src_open"))}${I.ext}</a>` : ""}</p>`;
+    $("#src-retry")?.addEventListener("click", () => openSource(doc, rule, official));
     return;
   }
   // first line = the page title; then the text. Around the quote, page chrome (short lines that are not sentences:
   // "Skip to main content", "news", menu words) is left out; "Show the whole document" shows everything.
   const txt = d.text, hl = d.highlight;
-  const nl = txt.indexOf("\n"), title = (nl > 0 ? txt.slice(0, nl) : "").replace(/\s*[|·–-]\s*[^|·–-]{2,30}$/, "").trim();
-  const start = nl > 0 && title.length < 160 ? nl + 1 : 0;
+  const nl = txt.indexOf("\n"), first = (nl > 0 ? txt.slice(0, nl) : "").replace(/\s*[|·–-]\s*[^|·–-]{2,30}$/, "").trim();
+  const title = first.length < 160 ? first : ""; // a first paragraph is not a title: the site's name heads the modal (#145)
+  const start = title ? nl + 1 : 0;
   const mark = (a, b) => hl && hl[0] >= a && hl[0] < b ? esc(txt.slice(a, hl[0])) + `<mark id="hlm">${esc(txt.slice(hl[0], Math.min(hl[1], b)))}</mark>` + esc(txt.slice(Math.min(hl[1], b), b)) : esc(txt.slice(a, b));
   const full = () => mark(start, txt.length);
   let excerpt = "";
@@ -1468,7 +1678,7 @@ async function openSource(doc, rule) {
 }
 document.addEventListener("click", (e) => {
   const a = e.target.closest("[data-doc]");
-  if (a) { e.preventDefault(); openSource(a.dataset.doc, a.dataset.rule); }
+  if (a) { e.preventDefault(); openSource(a.dataset.doc, a.dataset.rule, a.closest(".rd-cite, tr")?.querySelector('a[target="_blank"]')?.href); }
   if (e.target.closest("[data-close]") || e.target.id === "modal") closeModal();
 });
 
@@ -1481,7 +1691,7 @@ const pct = (d) => Math.max(0, Math.min(100, (dayIdx(d) / TL_MAX) * 100));
 let CH_PLACE = null;
 async function viewChanges() {
   progress(true);
-  const [tl, rules] = await Promise.all([api(`/api/timeline?lang=${lang}`), api(`/api/rules?lang=${lang}&as_of=${asOf}`).catch(() => [])]);
+  const [tl, rules] = await Promise.all([api(`/api/timeline?lang=${lang}&as_of=${asOf}`), api(`/api/rules?lang=${lang}&as_of=${asOf}`).catch(() => [])]);
   progress(false);
   const R = Object.fromEntries(rules.map((r) => [r.team_rule_id, r]));
   const place = (e) => e.jurisdiction.length === 2 ? t(STATE_NAMES[e.jurisdiction] || e.jurisdiction) : shortJ(e.jurisdiction);
@@ -1491,9 +1701,10 @@ async function viewChanges() {
   const inPlace = (e) => !pf || place(e) === pf || (STATE_NAMES[e.jurisdiction] && CITIES.some((x) => x.c === pf && x.s === e.jurisdiction));
   const shown = tl.filter((e) => e.date >= "2024-01-01" && inPlace(e)), older = tl.filter((e) => e.date < "2024-01-01" && inPlace(e));
   // a change in plain words: the rule's short answer first, its legal title second
-  const plainOf = (e) => { const r = R[e.id]; return r ? (r.answer_display && !(r.plain_until && e.date > r.plain_until) ? r.answer_display : r.headline_display) || r.title_display || e.title : e.title; };
+  // the event's own date decides the wording (/api/timeline answer / why / headline, web/headlines.py periods)
+  const plainOf = (e) => { const r = R[e.id]; return e.answer || e.headline || (r ? r.headline_display || r.title_display : null) || e.title; };
   const stop = (x) => /[.!?]$/.test(x) ? x : x + "."; // one rule for every Changes headline: a full stop
-  const tlCut = (m) => { const x = new Date(asOf + "T12:00:00"); x.setMonth(x.getMonth() + m); return x.toISOString().slice(0, 10); };
+  const tlCut = (m) => addMonths(asOf, m);
   const back12 = tlCut(-12), next12 = tlCut(12);
   const all = tl.filter(inPlace);
   const sections = [
@@ -1502,8 +1713,8 @@ async function viewChanges() {
     ["ch_recent", all.filter((e) => e.date <= asOf && e.date > back12).reverse(), true],
     ["ch_earlier", all.filter((e) => e.date <= back12).reverse(), false],
   ];
-  const evRow = (e) => { const r = R[e.id]; const later = e.date > asOf; return `<li class="tv-i${later ? " is-later" : ""}"><details class="ev-x"><summary class="ev" data-date="${e.date}"><span class="tv-dot" aria-hidden="true"></span><span class="ev-main"><span class="ev-d">${esc(fmtDate(e.date))}<span class="ev-s"> · ${esc(place(e))} · ${esc(t("cat_" + e.category))}</span></span><span class="ev-t">${esc(stop(cap(plainOf(e))))}</span></span><span class="ev-st"></span><span class="chev">${I.chev}</span></summary>
-        <div class="ev-body">${r?.why_display ? `<p class="why">${esc(r.why_display)}</p>` : ""}${e.addresses ? `<p class="ev-title">${esc(tf("ch_reach", { n: e.addresses }))}</p>` : ""}
+  const evRow = (e) => { const r = R[e.id]; const later = e.date > asOf; return `<li class="tv-i${later ? " is-later" : ""}"><details class="ev-x"><summary class="ev" data-date="${e.date}"><span class="tv-dot" aria-hidden="true"></span><span class="ev-main"><span class="ev-d">${esc(fmtDate(e.date))}<span class="ev-s">${pf ? "" : ` · ${esc(place(e))}`} · ${esc(t("cat_" + e.category))}</span></span><span class="ev-t">${esc(stop(cap(plainOf(e))))}</span></span><span class="ev-st"></span><span class="chev">${I.chev}</span></summary>
+        <div class="ev-body">${e.why ? `<p class="why">${esc(e.why)}</p>` : ""}${e.addresses ? `<p class="ev-title">${esc(tf("ch_reach", { n: e.addresses }))}</p>` : ""}
           <details class="law"><summary><span>${esc(t("law_show"))}</span><span class="chev">${I.chev}</span></summary><div class="law-in">
           <p class="ev-title">${esc(r?.title_display || e.title)}</p>
           ${r?.quoted_span ? `<blockquote class="quote" lang="en">${esc(shownQuote(r.quoted_span))}</blockquote><p class="rd-cite">${r.citation ? `<span>${esc(r.citation)}</span>` : ""}${r.source_url ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(srcLabel(r))}${I.ext}</a>` : ""}${r.retrieved_at ? `<span>${esc(tf("retrieved", { d: fmtDate(r.retrieved_at) }))}</span>` : ""}</p>` : ""}</div></details>
@@ -1513,8 +1724,9 @@ async function viewChanges() {
   const html = `
     <header class="page-head"><h1>${esc(t("ch_h"))}</h1><p>${esc(t("ch_lead"))}</p></header>
     <div class="chips-f" role="group" aria-label="${esc(t("ch_place"))}">${["", ...places].map((p) => `<button type="button" class="chip-f" data-place="${esc(p)}" aria-pressed="${p === pf}">${esc(p || t("all"))}</button>`).join("")}</div>
+    <label class="ch-sel"><span>${esc(t("ch_place"))}</span><select id="ch-sel">${["", ...places].map((p) => `<option value="${esc(p)}"${p === pf ? " selected" : ""}>${esc(p || t("all"))}</option>`).join("")}</select></label>
     <div id="events" class="tv-wrap">${sections.map(sec).join("") || `<p class="empty">${esc(t("ch_none"))}</p>`}</div>
-    <section class="block ch-big"><div class="answers-head"><h2>${esc(t("ch_big"))}</h2><p class="note">${esc(t("ch_big_s"))}</p></div>
+    <details class="block ch-big"${innerWidth > 640 ? " open" : ""}><summary class="answers-head"><h2>${esc(t("ch_big"))}</h2><p class="note">${esc(t("ch_big_s"))}</p><span class="chev">${I.chev}</span></summary>
     <div data-slot="changes-top"></div>
     <section class="tl panel" aria-label="${t("timeline_aria")}">
       <div class="tl-top"><b id="tl-date"></b><span id="tl-sum"></span></div>
@@ -1523,7 +1735,7 @@ async function viewChanges() {
         <input type="range" class="tl-range" id="tl-range" min="0" max="${TL_MAX}" value="${dayIdx(asOf)}" aria-label="${t("asof_aria")}">
       </div>
       <div class="tl-years" aria-hidden="true">${[2024, 2025, 2026, 2027, 2028].map((y) => `<span style="left:${pct(y + "-01-01")}%">${y}</span>`).join("")}</div>
-    </section></section>`;
+    </section></details>`;
   await swap(html, () => {
     const range = $("#tl-range"), dateEl = $("#tl-date");
     let last = null, raf = 0;
@@ -1545,6 +1757,7 @@ async function viewChanges() {
     range.addEventListener("input", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => paint(idxDay(+range.value))); });
     range.addEventListener("change", () => { $("#asof").value = idxDay(+range.value); setAsOf(idxDay(+range.value), { silent: true }); });
     $$(".chip-f").forEach((b) => b.addEventListener("click", () => { CH_PLACE = b.dataset.place; route({ keepScroll: true, soft: true }); }));
+    $("#ch-sel")?.addEventListener("change", (e) => { CH_PLACE = e.target.value; route({ keepScroll: true, soft: true }); });
     // time travel only on request: the whole app answers on that date (the header shows it, × resets)
     $$("#events [data-goto-date]").forEach((b) => b.addEventListener("click", () => { $("#asof").value = b.dataset.gotoDate; setAsOf(b.dataset.gotoDate); }));
   });
@@ -1557,13 +1770,13 @@ const rulesSentence = (all, inForce, later, pending, open, failed) =>
 let RF = { jur: "", cat: "", status: "", q: "", conflicts: false }, RT_OPEN = false;
 // Rules: "What are the rules where I live?" Pick a place; its six topics answer like an address page (the engine
 // with no building facts, POST /api/evaluate), unknowns ask their one question. The matrix is "Compare all places".
-let RP_PLACE = "", RP_FACTS = {};
+let RP_PLACE = "", RP_FACTS = {}, RP_SAID = {};
 async function viewRules(jur) {
   progress(true);
   const [rules, cov] = await Promise.all([api(`/api/rules?lang=${lang}&as_of=${asOf}`), api(`/api/coverage?as_of=${asOf}`)]);
   progress(false);
   const places = cov.jurisdictions;
-  if (jur && places.includes(jur)) { if (jur !== RP_PLACE) RP_FACTS = {}; RP_PLACE = jur; }
+  if (jur && places.includes(jur)) { if (jur !== RP_PLACE) { RP_FACTS = {}; RP_SAID = {}; } RP_PLACE = jur; }
   if (!places.includes(RP_PLACE)) { const last = sessionStorage.getItem("ce.place"); RP_PLACE = places.includes(last) ? last : "San Francisco, CA"; }
   const pname = (j) => j.length === 2 ? t(STATE_NAMES[j] || j) : shortJ(j);
   const chips = ["CA", "NJ", "MA"].map((S) => `<div class="pc-row" data-st="${S}"><span class="pc-l">${esc(t(STATE_NAMES[S]))}</span>${places.filter((j) => j === S || j.endsWith(", " + S)).map((j) => `<button type="button" class="chip-f" data-place="${esc(j)}" aria-pressed="${j === RP_PLACE}">${esc(j === S ? t("pc_state") : shortJ(j))}</button>`).join("")}</div>`).join("");
@@ -1572,6 +1785,7 @@ async function viewRules(jur) {
   const html = `
     <header class="page-head"><h1>${esc(t("rp_h"))}</h1><p>${esc(t("rp_lead"))}</p></header>
     <div class="pc-seg" role="tablist" aria-label="${esc(t("ch_place"))}">${["CA", "NJ", "MA"].map((S) => `<button type="button" role="tab" data-state="${S}" aria-selected="${(RP_PLACE.length === 2 ? RP_PLACE : RP_PLACE.slice(-2)) === S}" aria-label="${esc(t(STATE_NAMES[S]))}"><span class="l-full">${esc(t(STATE_NAMES[S]))}</span><span class="l-abbr" aria-hidden="true">${S}</span></button>`).join("")}</div>
+    <label class="ch-sel rp-sel"><span>${esc(t("ch_place"))}</span><select id="rp-sel">${["CA", "NJ", "MA"].map((S) => `<optgroup label="${esc(t(STATE_NAMES[S]))}">${places.filter((j) => j === S || j.endsWith(", " + S)).map((j) => `<option value="${esc(j)}"${j === RP_PLACE ? " selected" : ""}>${esc(j === S ? `${t(STATE_NAMES[S])} (${t("pc_state").toLowerCase()})` : shortJ(j))}</option>`).join("")}</optgroup>`).join("")}</select></label>
     <div class="pc" role="group" aria-label="${esc(t("ch_place"))}" data-state="${RP_PLACE.length === 2 ? RP_PLACE : RP_PLACE.slice(-2)}">${chips}</div>
     <section class="answers rp-answers" id="rp-answers" data-fact-owner aria-live="polite"></section>
     <details class="block rev" id="rules-all"${RT_OPEN ? " open" : ""}><summary><h2>${esc(t("rp_all"))}</h2><span class="rev-s">${esc(rulesSentence(rules.length, count("in_force"), count("not_yet_effective"), count("pending"), rules.filter((r) => r.conflict_flag).length, count("failed")))}</span><span class="chev">${I.chev}</span></summary>
@@ -1580,7 +1794,7 @@ async function viewRules(jur) {
       <tbody>${cov.jurisdictions.map((j) => `<tr class="${j.length === 2 ? "state" : "city"}"><th>${esc(j.length === 2 ? t(STATE_NAMES[j] || j) : shortJ(j))}</th>${cov.categories.map((c) => {
         const cell = cov.cells[j]?.[c.id] || [];
         const nr = cov.no_rule_cells?.[j]?.[c.id];
-        return `<td>${cell.length ? `<button type="button" data-j="${esc(j)}" data-c="${c.id}" title="${esc(cell.map((x) => x.title).join("\n"))}">${cell.length}</button>` : nr ? `<button type="button" class="none finding" data-nr="${esc(nr.id)}" aria-label="${esc(t("legend_nr"))}">–</button>` : `<span class="none" role="img" aria-label="${esc(t("none_level"))}">–</span>`}</td>`;
+        return `<td>${cell.length ? `<button type="button" data-j="${esc(j)}" data-c="${c.id}" title="${esc(cell.map((x) => rules.find((r) => r.team_rule_id === x.id)?.title_display || x.title).join("\n"))}">${cell.length}</button>` : nr ? `<button type="button" class="none finding" data-nr="${esc(nr.id)}" aria-label="${esc(t("legend_nr"))}">–</button>` : `<span class="none" role="img" aria-label="${esc(t("none_level"))}">–</span>`}</td>`;
       }).join("")}</tr>`).join("")}</tbody></table></div>
       <p class="legend">${esc(t("matrix_note"))}</p>
     </section>
@@ -1620,16 +1834,21 @@ async function viewRules(jur) {
       if (!box.isConnected || j !== RP_PLACE) return;
       CE_render(box, v, { ask: true, place: true, heading: tf("rp_in", { p: pname(j) }) });
       open.forEach((id) => { const x = box.querySelector("#" + CSS.escape(id)); if (x) { x.open = true; x.classList.add("pop"); } });
+      // an answered question can be taken back, like on an address page
+      const said = Object.entries(RP_SAID).map(([k, v]) => tf("said_" + k, { v: String(v).replace(/^[A-Z]/, (m) => m.toLowerCase()) })).join(" · ");
+      if (said) (box.querySelector(".answers-head") || box).insertAdjacentHTML(box.querySelector(".answers-head") ? "beforeend" : "afterbegin", `<p class="said">${I.check}<span>${esc(tf("said", { s: said }))}</span><button type="button" class="linkish" data-rp-said-x>${esc(t("change"))}</button></p>`);
+      box.querySelector("[data-rp-said-x]")?.addEventListener("click", () => { RP_FACTS = {}; RP_SAID = {}; load(); });
       box.classList.remove("aa-stale");
     };
     $$(".pc-seg button").forEach((b) => b.addEventListener("click", () => {
       $$(".pc-seg button").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
       $(".pc").dataset.state = b.dataset.state;
     }));
-    box.addEventListener("ce:fact", (e) => { RP_FACTS = { ...RP_FACTS, [e.detail.key]: e.detail.value }; load(); });
+    box.addEventListener("ce:fact", (e) => { RP_FACTS = { ...RP_FACTS, [e.detail.key]: e.detail.value }; RP_SAID = { ...RP_SAID, [e.detail.key]: e.detail.said }; load(); });
+    $("#rp-sel")?.addEventListener("change", (e) => { RP_PLACE = e.target.value; RP_FACTS = {}; RP_SAID = {}; $$(".pc .chip-f").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.place === RP_PLACE))); load(); });
     $$(".pc .chip-f").forEach((b) => b.addEventListener("click", () => {
       if (b.dataset.place === RP_PLACE) return;
-      RP_PLACE = b.dataset.place; RP_FACTS = {};
+      RP_PLACE = b.dataset.place; RP_FACTS = {}; RP_SAID = {};
       $$(".pc .chip-f").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
       load();
     }));
@@ -1693,7 +1912,7 @@ const shortUrl = (u) => {
 };
 async function viewAudit() {
   progress(true);
-  const [d, tests, rules] = await Promise.all([api("/api/audit", { fresh: true }), api(`/api/changes?lang=${lang}&as_of=${asOf}`), api(`/api/rules?lang=${lang}&as_of=${asOf}`).catch(() => [])]);
+  const [d, tests, rules] = await Promise.all([api(`/api/audit?lang=${lang}`, { fresh: true }), api(`/api/changes?lang=${lang}&as_of=${asOf}`), api(`/api/rules?lang=${lang}&as_of=${asOf}`).catch(() => [])]);
   progress(false);
   const ver = d.verification, vt = Object.values(ver).reduce((a, b) => a + b, 0);
   const steps = ["ingest", "extract", "resolve", "apply", "track"].map((k) => [t("p_" + k), tf(`p_${k}_d`, { n: d.documents.length })]);
@@ -1754,11 +1973,11 @@ async function viewAudit() {
       ${sec("a-files", t("a_files"), `<dl class="kv">${Object.entries(d.sources).map(([n, src]) => `<div><dt class="mono">${esc(n)}</dt><dd>${esc(src.kind)}${src.modified ? ` · ${esc(src.modified.replace("T", " "))}` : ""}</dd></div>`).join("")}</dl>
         <p class="block-lead">${esc(tf("a_spans", { a: verifiedN, b: vt }))}${ver.not_found ? `; ${esc(tf("a_notfound", { n: ver.not_found }))}` : ""}${ver.no_text ? `; ${esc(tf("a_notext", { n: ver.no_text }))}` : ""}.</p>`)}
       ${sec("a-geo", t("a_geo"), `<dl class="kv">${Object.entries(d.geocoding).map(([k, v]) => `<div><dt>${esc(t("m_" + k).startsWith("m_") ? k : t("m_" + k))}</dt><dd>${v}</dd></div>`).join("")}</dl>
-        <div class="table-wrap tall"><table class="rtable"><thead><tr><th>${t("col_address")}</th><th>${t("col_mailing")}</th><th>${t("col_legal")}</th><th>${t("col_method")}</th></tr></thead><tbody>${d.geocoding_notes.map((g) => `<tr><td><a href="#/a/${g.id}">${esc(titleCase(g.street))}</a></td><td>${esc(g.postal_city)}</td><td>${esc(g.city || t("outside"))}</td><td class="s" title="${esc(g.note)}">${esc(t("m_" + g.method).startsWith("m_") ? g.method : t("m_" + g.method))}</td></tr>`).join("")}</tbody></table></div>`)}
+        <div class="table-wrap tall"><table class="rtable"><thead><tr><th>${t("col_address")}</th><th>${t("col_mailing")}</th><th>${t("col_legal")}</th><th>${t("col_method")}</th></tr></thead><tbody>${d.geocoding_notes.map((g) => `<tr><td><a href="#/a/${g.id}">${esc(titleCase(g.street))}</a></td><td>${esc(g.postal_city)}</td><td>${esc(g.city || t("outside"))}</td><td class="s" title="${esc((lang !== "en" && geoNoteEs(g.note)) || g.note)}">${esc(t("m_" + g.method).startsWith("m_") ? g.method : t("m_" + g.method))}</td></tr>`).join("")}</tbody></table></div>`)}
       ${sec("a-docs", tf("a_docs", { n: d.documents.length }), `<div class="table-wrap tall"><table class="rtable"><thead><tr><th>${t("col_source")}</th><th>${t("jurisdiction")}</th><th>${t("col_type")}</th><th>${t("col_rules")}</th><th><span class="sr">${t("col_text")}</span></th></tr></thead><tbody>
         ${d.documents.map((x) => `<tr><td><a href="${esc(x.url)}" target="_blank" rel="noopener" title="${esc(x.url)}">${esc(shortUrl(x.url))}</a><div class="s"><span class="mono">${esc(x.doc_id)}</span> · ${esc(tf("retrieved", { d: x.retrieved_at ? fmtDate(x.retrieved_at) : "–" }))} · sha256 ${esc((x.sha256 || "").slice(0, 12))}</div></td><td class="nw">${esc(x.jurisdictions)}</td><td class="s">${esc(x.source_type)}${x.capture !== "yes" ? ` · ${esc(x.capture)}` : ""}</td><td class="num">${x.rules_extracted || 0}</td><td>${x.text_available ? `<a href="#" data-doc="${esc(x.doc_id)}">${t("l_text")}</a>` : `<span class="s">${t("l_link")}</span>`}</td></tr>`).join("")}
         </tbody></table></div>`)}
-      ${sec("a-log", `${t("a_log")} · ${d.audit_total}`, `<div class="filters"><input type="search" id="lq" placeholder="${t("q_filter")}" aria-label="${t("q_filter")}"></div><p class="count-note" id="lc"></p><div class="log" id="log"></div>`)}
+      ${sec("a-log", `${t("a_log")} · ${d.audit_total}`, `<div class="filters"><input type="search" id="lq" placeholder="${t("q_filter")}" aria-label="${t("q_filter")}"></div><p class="count-note" id="lc"></p><div class="log" id="log" lang="en"></div>`)}
     </div></section></details>`;
   await swap(html, () => {
     // the Ask audit log (features/ask, web/ask.py): linked only when the server has it, so the link never dead-ends
@@ -1806,14 +2025,17 @@ async function route({ keepScroll = false, soft = false } = {}) {
   const my = ++routing;
   cleanup.forEach((f) => f()); cleanup = [];
   if (lang === "es" && !Object.keys(ES).length) ES = await api("/api/i18n/es").catch(() => ({})); // retry after a failed fetch (#132)
-  const [view, arg] = location.hash.replace(/^#\/?/, "").split("/");
-  const name = view === "a" || view === "check" || view === "compare" ? "lookup" : view || "lookup"; // #138
+  const { path, query } = location.hash.startsWith("#/") ? hashParts() : { path: "", query: new URLSearchParams() }; // "#main", "#nl-h": in-page anchors, not views
+  const [view, arg] = path.split("/");
+  if (view === "a" && CATS.includes(query.get("topic"))) sessionStorage.setItem("ce.open", query.get("topic")); // ?topic= opens that topic
+  const name = view === "a" || view === "check" || view === "compare" ? "lookup" : view === "notice" ? "properties" : view || "lookup"; // #138; the owner's notice sits under My properties
   syncHeader(name);
   closeModal(); closeCmdk();
   const titles = { changes: "t_changes", rules: "t_rules", audit: "t_audit" };
   document.title = titles[view] ? `${t(titles[view])} · Clause & Effect` : `Clause & Effect · ${t("tagline_short")}`;
   const y = scrollY;
   const back = !soft && history.state?.ce ? history.state.ce : null; // returning to an entry we left (Back): restore it (#63)
+  swapTop = !back && !keepScroll; // so the loading state and the page share one scroll position: nothing jumps when it resolves
   if (!soft && view !== "a") delete main.dataset.addr;
   main.dataset.view = view || "home";
   document.documentElement.classList.toggle("is-home", !view);
@@ -1824,19 +2046,26 @@ async function route({ keepScroll = false, soft = false } = {}) {
     else if (view === "rules") await viewRules(arg ? decodeURIComponent(arg) : "");
     else if (view === "audit") await viewAudit();
     else if (!view) await viewHome();
-    else { location.replace("#/"); return; }
+    else await viewNotFound("page"); // a wrong link says so (with the way back), it does not silently go home
   } catch (e) {
     progress(false);
     if (my === routing) main.innerHTML = `<div class="empty">${t("error")} ${esc(e.message)}</div>`;
     console.error(e);
   }
-  if (my !== routing) return;
+  if (my !== routing) {
+    // a slower, older route finished after the current one had painted (fast taps, Back/Forward): its late paint
+    // may now sit in #main, so the current route paints again; only the current hash is ever left on screen
+    if (routeDone === routing) route();
+    return;
+  }
+  routeDone = my;
+  swapTop = false;
   document.dispatchEvent(new CustomEvent("ce:route", { detail: { view: name, arg } }));
   headArt();
   // the docked "Ask anything" bar (features/ask.js) on home, and on address pages where there is room for it
   // On phones the home hero already has a search box: the bar docks once the hero has scrolled away.
   if (view !== "ask" && window.CEAsk) {
-    const phone = innerWidth <= 640, hero = $(".big-search", main);
+    const phone = matchMedia("(max-width: 640px), (pointer: coarse) and (max-height: 500px)").matches, hero = $(".big-search", main);
     if (!view && !phone && hero && "IntersectionObserver" in window) {
       window.CEAsk.unmountDock();
       const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) window.CEAsk.unmountDock(); else window.CEAsk.mountDock(); });
@@ -1852,14 +2081,25 @@ async function route({ keepScroll = false, soft = false } = {}) {
   if (!firstRoute && !soft) main.focus({ preventScroll: true });
   firstRoute = false;
 }
-let firstRoute = true;
+let firstRoute = true, routeDone = 0;
 // Before following an in-app link, remember where we were on this entry, so Back returns to the same place (#63).
 document.addEventListener("click", (e) => {
   const a = e.target.closest('a[href^="#/"]');
   if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey) return;
   history.replaceState({ ...(history.state || {}), ce: { y: scrollY, open: $$("details[open][id]", main).map((x) => x.id) } }, "");
 }, true);
-addEventListener("hashchange", () => route());
+addEventListener("hashchange", () => { if (location.hash.length < 2 || location.hash.startsWith("#/")) route(); });
+// in-page anchors (skip link, "N not law yet") scroll to their target instead of becoming a route
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href^="#"]:not([href^="#/"])');
+  if (!a || e.defaultPrevented || a.getAttribute("href").length < 2) return;
+  const el = document.getElementById(decodeURIComponent(a.getAttribute("href").slice(1)));
+  if (!el) return;
+  e.preventDefault();
+  el.scrollIntoView({ block: "start", behavior: RM.matches ? "auto" : "smooth" });
+  if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
+  el.focus({ preventScroll: true });
+});
 document.addEventListener("click", (e) => { const a = e.target.closest(".tabs a, .footer-links a"); if (a) setTimeout(() => a.blur(), 0); });
 
 const CE_render = (el, v, opts) => { PV = !!opts.place; try { el.innerHTML = answersHTML({ ...normalizeLookup(v), ...opts }); } finally { PV = false; } };
@@ -1892,7 +2132,7 @@ window.CE = Object.freeze({
   },
   navigate(routeOrHash) { location.hash = routeOrHash.startsWith("#") ? routeOrHash : "#/" + String(routeOrHash).replace(/^\/+/, ""); },
   /** Register a view at #/<name>[/<arg>]: render(mainEl, arg) may be async. */
-  addRoute(name, render) { ROUTES.set(name, render); if (location.hash.replace(/^#\/?/, "").split("/")[0] === name) route(); },
+  addRoute(name, render) { ROUTES.set(name, render); if (hashParts().path.split("/")[0] === name) route(); },
   toast,
   t,
   api,
@@ -1909,9 +2149,39 @@ window.CE = Object.freeze({
 });
 
 (async function init() {
-  syncHeader(currentView());
+  // Spanish: index.html already shows the header in Spanish, so it is synced only once the dictionary is here
+  // (fetched alongside the data), never flashing back to English in between
+  const es = lang === "es" ? api("/api/i18n/es").catch(() => ({})) : null;
+  if (!es) syncHeader(currentView());
   [META, ADDR] = await Promise.all([api("/api/meta"), api("/api/addresses")]);
-  if (lang === "es") ES = await api("/api/i18n/es").catch(() => ({}));
+  if (es) ES = await es;
   await route();
   document.dispatchEvent(new CustomEvent("ce:ready", { detail: { version: 1 } }));
 })();
+
+// ------------------------------------------------------------------ shell hand-over --
+// The home hero arrives pre-rendered in index.html (tests/make_shell.py). Its first real render keeps every node that
+// is already on screen (running entrance animations, the decoded photo) and only patches what differs.
+function morphInto(root, html) {
+  const tpl = document.createElement("template");
+  tpl.innerHTML = html;
+  morphKids(root, tpl.content);
+}
+const sameNode = (a, b) => a.nodeType === b.nodeType && (a.nodeType !== 1 || (a.tagName === b.tagName && a.id === b.id));
+const blank = (n) => n && (n.nodeType === 8 || (n.nodeType === 3 && !n.nodeValue.trim())); // comments, layout whitespace
+function morphKids(old, neu) {
+  let cur = old.firstChild;
+  for (const n of [...neu.childNodes]) {
+    // whitespace and comments never decide a match: step over them to pair up the elements
+    if (n.nodeType === 1) while (blank(cur)) cur = cur.nextSibling;
+    if (cur && sameNode(cur, n)) { morphNode(cur, n); cur = cur.nextSibling; }
+    else if (!blank(n)) old.insertBefore(n, cur);
+  }
+  while (cur) { const next = cur.nextSibling; cur.remove(); cur = next; }
+}
+function morphNode(o, n) {
+  if (o.nodeType !== 1) { if (o.nodeValue !== n.nodeValue) o.nodeValue = n.nodeValue; return; }
+  for (const a of [...o.attributes]) if (!n.hasAttribute(a.name)) o.removeAttribute(a.name);
+  for (const a of n.attributes) if (o.getAttribute(a.name) !== a.value) o.setAttribute(a.name, a.value);
+  morphKids(o, n);
+}

@@ -59,6 +59,12 @@ def main(argv: list[str] | None = None) -> int:
         metavar="ID",
         help="generate for rules WITH reviewed copy and compare -> output/plain_compare.json (no other writes)",
     )
+    tr = sub.add_parser(
+        "try", help="run one new law text through the pipeline (Try it page), print its rules.json"
+    )
+    tr.add_argument("file")
+    tr.add_argument("--jurisdiction", required=True, help='e.g. "Newark, NJ" or "Austin, TX"')
+    sub.add_parser("try-run", help=argparse.SUPPRESS).add_argument("workdir")
     sub.add_parser("fetch-supplementary", help="one-time polite fetch of link-only sources")
     sub.add_parser("run-all", help="extract (cached) + plain + evaluate + changes + selfcheck")
 
@@ -109,6 +115,14 @@ def main(argv: list[str] | None = None) -> int:
             plain.compare(a.compare)
         else:
             plain.run(rule_ids=a.rules, jurisdiction=a.jurisdiction)
+    elif a.cmd == "try":
+        from . import trylaw
+
+        return trylaw.cli(a.file, a.jurisdiction)
+    elif a.cmd == "try-run":
+        from . import trylaw
+
+        trylaw.run_job(a.workdir)
     elif a.cmd == "fetch-supplementary":
         from .supplementary import fetch_all
 

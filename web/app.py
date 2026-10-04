@@ -28,15 +28,18 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from web import headlines as H
+from web import source_notes as SN
 from web.accounts import router as accounts_router
 from web.any_address import router as any_address_router
 from web.ask import router as ask_router
 from web.check import router as check_router
+from web.howmade import router as howmade_router
 from web.letter import router as letter_router
 from web.notice import router as notice_router
 from web.share import router as share_router
 from web.stats import router as stats_router
-from web.translate import es_dates, plain_expected
+from web.translate import es_dates, es_explanation, plain_expected
+from web.trylaw import router as trylaw_router
 from web.tts import router as tts_router
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -336,6 +339,14 @@ class Store:
         out = table.get(hashlib.sha1(text.encode()).hexdigest()[:16], text)
         return es_dates(out) if lang == "es" else out
 
+    def t_expl(self, text: str | None, lang: str) -> str | None:
+        """An engine explanation: the cached translation, else the Spanish built from its fixed phrases (live
+        evaluations and as-of dates make sentences the cache can't hold), else the English."""
+        if lang != "es" or not text or self.has_t(text, lang):
+            return self.t(text, lang)
+        tr = lambda x: self.t(x, lang) if self.has_t(x, lang) else None  # noqa: E731
+        return es_explanation(text, tr) or text
+
     def has_t(self, text: str | None, lang: str) -> bool:
         return bool(text) and hashlib.sha1(text.encode()).hexdigest()[:16] in self.tr.get(lang, {})
 
@@ -479,7 +490,11 @@ MISSING_HINTS = [
         r"certificate|year built|building age|construct|built",
         "Year built / certificate-of-occupancy date",
     ),
+    # owner occupancy before owner type: "exempt if owner-occupied with <= 3 units" is about who lives there (NJ)
+    (r"owner[- ]occup", "Owner occupancy"),
     (r"owner|landlord type|natural person|corporat", "Owner type"),
+    # Boston's selection policy covers city-funded or income-restricted housing, not a unit count
+    (r"DND\)? funding|income-restricted|Inclusionary", "City funding or income-restricted housing"),
     (r"unit count|number of units|units", "Number of units"),
     (r"exempt|filing|registration", "Exemption filing / registration status"),
     (r"tenan(cy|t) (length|duration)|12 months", "Length of tenancy"),
@@ -513,11 +528,14 @@ def rule_view(r: dict, lang: str) -> dict:
         else r.get("key_value"),
         "conflict_note_display": STORE.t(r.get("conflict_note"), lang),
         "interaction_display": STORE.t(r.get("interaction"), lang),
+        "prior_version_note_display": STORE.t(r.get("prior_version_note"), lang),
         "translated": lang != "en" and STORE.has_t(r.get("requirement"), lang),
         "quote_check": v,
         "source": src,
         "addresses_count": STORE.rule_addr_counts.get(r["team_rule_id"], 0),
         "low_confidence": (r.get("confidence") is not None and r.get("confidence") < 0.7),
+        # the quote is from another document than the cited law: an amber note, not "Word for word on"
+        "source_note": SN.note(r["team_rule_id"], lang),
         **H.view(r["team_rule_id"], lang),
     }
 
@@ -671,6 +689,20 @@ def excluded_rules(
                     "level": r.get("level"),
                     "citation": r.get("citation"),
                     "reasons": why,
+                    # the law that doesn't cover the building, quoted, so "Show me the law" is never empty
+                    "quoted_span": r.get("quoted_span"),
+                    "quoted_span_doc_id": r.get("quoted_span_doc_id") or r.get("source_doc_id"),
+                    "source_url": r.get("source_url"),
+                    "quote_check": STORE.verify(r),
+                    "source_note": SN.note(r["team_rule_id"], lang),
+                    "source": {
+                        **(
+                            m := STORE.doc_meta(
+                                r.get("quoted_span_doc_id") or r.get("source_doc_id")
+                            )
+                        ),
+                        "retrieved_at": m.get("retrieved_at") or r.get("retrieved_at") or "",
+                    },
                 }
             )
     return out
@@ -694,6 +726,57 @@ def category_headline(enacted: list[dict]) -> str | None:
     return top.get("headline") or top["rule"].get("headline_display")
 
 
+_LATER_FINDING = {
+    "en": (
+        "On {d}, no state or city rule on this was in force yet.",
+        "{p} law {c} was enacted on {e} and takes effect on {f}.",
+        "{p} law {c} takes effect on {f}.",
+    ),
+    "es": (
+        "El {d} todavía no había ninguna norma estatal ni municipal en vigor sobre esto.",
+        "La ley {c} de {p} se promulgó el {e} y entra en vigor el {f}.",
+        "La ley {c} de {p} entra en vigor el {f}.",
+    ),
+}
+_STATE_NAMES = {
+    "NJ": ("New Jersey", "Nueva Jersey"),
+    "CA": ("California", "California"),
+    "MA": ("Massachusetts", "Massachusetts"),
+}
+
+
+def finding_display(f: dict, as_of: str, lang: str, stack_j: set) -> str:
+    """A no-rule finding that names the law governing instead ("the $50 cap is a state law") says, on a date before
+    that law is in force, that nothing was in force yet and when it starts (#158)."""
+    text = STORE.t(f.get("finding"), lang)
+    for r in STORE.rules.values():
+        cite = r.get("citation")
+        if (
+            r.get("category") != f.get("category")
+            or r.get("jurisdiction") not in stack_j
+            or r.get("status") not in ("in_force", "not_yet_effective")
+            or not cite
+            or (cite != f.get("citation") and cite not in (f.get("finding") or ""))
+        ):
+            continue
+        eff = _norm_date(r.get("effective_date"))
+        if not eff or as_of >= eff:
+            continue
+        es = lang == "es"
+        w = _LATER_FINDING["es" if es else "en"]
+        j = r.get("jurisdiction") or ""
+        place = _STATE_NAMES[j][1 if es else 0] if j in _STATE_NAMES else j.split(",")[0]
+        enacted = _norm_date(r.get("enacted_date"))
+        v = {"d": H.fmt_date(as_of, lang), "p": place, "c": cite, "f": H.fmt_date(eff, lang)}
+        tail = (
+            w[1].format(e=H.fmt_date(enacted, lang), **v)
+            if enacted and enacted > as_of
+            else w[2].format(**v)
+        )
+        return f"{w[0].format(**v)} {tail}"
+    return text
+
+
 def build_address(address_id: str, as_of: str, lang: str) -> dict:
     a = STORE.addresses.get(address_id)
     if not a:
@@ -714,7 +797,7 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
             counts[e["result"]] += 1
             item = {
                 "result": e["result"],
-                "explanation": STORE.t(e.get("explanation"), lang),
+                "explanation": STORE.t_expl(e.get("explanation"), lang),
                 "explanation_en": e.get("explanation"),
                 # the address-level flag (lookups.json), not the rule-level one: a rule flagged for its conflict
                 # with a city ban carries no conflict where there is no city ban (Newark, T3)
@@ -726,7 +809,7 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
                 item["superseded_by"] = [
                     {
                         "id": b,
-                        "title": STORE.rules[b].get("title"),
+                        "title": STORE.t(STORE.rules[b].get("title"), lang),
                         "jurisdiction": STORE.rules[b].get("jurisdiction"),
                     }
                     for b in by
@@ -737,11 +820,13 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
                     item["overrides_here"] = [
                         {
                             "id": o,
-                            "title": STORE.rules[o].get("title"),
+                            "title": STORE.t(STORE.rules[o].get("title"), lang),
                             "jurisdiction": STORE.rules[o].get("jurisdiction"),
                         }
                         for o in yields
                     ]
+            if e.get("version_gap"):
+                item["version_gap"] = e["version_gap"]
             if e["result"] == "unknown":
                 item["missing_fact"] = missing_fact(e.get("explanation", ""))
             item["headline"] = H.headline(r["team_rule_id"], lang, as_of)
@@ -751,8 +836,8 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
                 cve and as_of < cve and hd.get("after_en")
             ):  # before the figure's period: no future figure (#158)
                 item["headline"] = hd.get(f"after_{lang}") or hd["after_en"]
-            item["explanation_translated"] = lang != "en" and STORE.has_t(
-                e.get("explanation"), lang
+            item["explanation_translated"] = lang != "en" and item["explanation"] != e.get(
+                "explanation"
             )
             H.apply_item(item, as_of, lang, units=units_n, units_min=units_lo)
             (pending if e["result"] == "pending" else enacted).append(item)
@@ -782,7 +867,7 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
                 **f,
                 "source": STORE.doc_meta(f.get("quoted_span_doc_id") or f.get("source_doc_id")),
                 "quote_check": STORE.verify(f),
-                "finding_display": STORE.t(f.get("finding"), lang),
+                "finding_display": finding_display(f, as_of, lang, stack_j),
             }
             for f in STORE.no_rule
             if f.get("category") == cid and f.get("jurisdiction") in stack_j
@@ -904,6 +989,31 @@ app = FastAPI(
     version="0.1",
     description="Address-level rental housing rules with citations. Not legal advice.",
 )
+
+
+from starlette.exceptions import HTTPException as _StarletteHTTPException  # noqa: E402
+
+
+@app.exception_handler(_StarletteHTTPException)
+async def not_found_page(request, exc):
+    """A page that does not exist gets the app itself (status 404), never raw JSON or the offline page: a head
+    script turns /nope into /#/nope before the shell paints, so the app's own "Page not found" (EN/ES, tab bar)
+    shows, the same page as a wrong #/ link. /api/*, /static/* and /auth/* keep their JSON errors."""
+    if exc.status_code == 404 and not request.url.path.startswith(("/api/", "/static/", "/auth/")):
+        to_hash = (
+            '<script data-cfasync="false">history.replaceState(null, "", "/#" + '
+            'location.pathname.replace(/\\/+$/, ""))</script>\n</head>'
+        )
+        return HTMLResponse(
+            shell_html().replace("</head>", to_hash, 1),
+            status_code=404,
+            headers={"Cache-Control": "no-store"},
+        )
+    return JSONResponse(
+        {"detail": exc.detail}, status_code=exc.status_code, headers=getattr(exc, "headers", None)
+    )
+
+
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.include_router(any_address_router)  # POST /api/resolve, /api/evaluate: any address (#39)
 app.include_router(accounts_router)  # sign-in, My properties, alerts, /privacy, /terms (#38)
@@ -913,6 +1023,10 @@ app.include_router(letter_router)  # POST /api/letter: letter to the landlord fr
 app.include_router(notice_router)  # POST /api/notice: rent-increase notice for a building (#96)
 app.include_router(stats_router)  # GET /api/stats/protections: protections over time, Changes page
 app.include_router(ask_router)  # POST /api/ask: ask the law in plain words, cited answers (#101)
+app.include_router(trylaw_router)  # POST /api/try: a new law's text through the pipeline, live
+app.include_router(
+    howmade_router
+)  # GET /api/howmade: who decided what, per rule (audit log, plain copy)
 app.include_router(
     share_router
 )  # /s/<id>/<topic>/<as_of>: frozen, cited share page + preview card (#117)
@@ -974,6 +1088,9 @@ def meta():
             "rules": len(rules),
             "addresses": len(STORE.addresses),
             "documents": len(STORE.manifest),
+            "official_documents": sum(
+                1 for m in STORE.manifest.values() if m.get("source_type") == "official"
+            ),
             "by_status": dict(Counter(r.get("status") for r in rules)),
             "conflicts": sum(1 for r in rules if r.get("conflict_flag")),
             "cities": dict(
@@ -1087,7 +1204,7 @@ def changes(lang: str = "en", as_of: str | None = None):
 
 
 @app.get("/api/timeline")
-def timeline(lang: str = "en"):
+def timeline(lang: str = "en", as_of: str | None = None):
     ev = []
     for r in STORE.rules.values():
         d = _norm_date(r.get("effective_date"))
@@ -1101,9 +1218,27 @@ def timeline(lang: str = "en"):
                     "category": r.get("category"),
                     "status": r.get("status"),
                     "addresses": STORE.rule_addr_counts.get(r["team_rule_id"], 0),
+                    # the plain wording on the event's own date (figure periods: web/headlines.period_of), so a
+                    # 2021 event never shows a 2026 figure
+                    **_event_plain(r["team_rule_id"], lang, d, _as_of(as_of) if as_of else None),
                 }
             )
     return sorted(ev, key=lambda e: e["date"])
+
+
+def _event_plain(rule_id: str, lang: str, day: str, as_of: str | None = None) -> dict:
+    """The event's wording on its own date; an event after the reader's as-of date is still ahead, so it reads
+    like the address page on that date ("Not yet: a state ban starts Jul 1, 2027"), never in the past tense."""
+    if as_of and day > as_of:
+        f = H.for_item(rule_id, "not_yet_effective", as_of, lang, effective=day)
+        if f["answer_display"] or f["headline"]:
+            return {"answer": f["answer_display"], "why": None, "headline": f["headline"]}
+    p = H.plain(rule_id, lang, day)
+    return {
+        "answer": p["answer_display"],
+        "why": p["why_display"],
+        "headline": H.headline(rule_id, lang, day),
+    }
 
 
 @app.get("/api/snapshot")
@@ -1113,7 +1248,7 @@ def snapshot(as_of: str | None = None):
     return {"as_of": d, "rules": result_counts(list(STORE.rules), d)}
 
 
-def doc_plain(did: str) -> dict:
+def doc_plain(did: str, lang: str = "en") -> dict:
     """A plain name for a source document (Sources page): the title of the rule read from it, else the document's
     own first heading line; plus whether a quote from it was found word for word."""
     rules = [
@@ -1121,7 +1256,9 @@ def doc_plain(did: str) -> dict:
         for r in STORE.rules.values()
         if did in (r.get("source_doc_id"), r.get("quoted_span_doc_id"), r.get("span_doc_id"))
     ]
-    title = rules[0].get("title") if rules else None
+    title = (
+        STORE.t(rules[0].get("title"), lang) if rules else None
+    )  # a rule title has its translation
     if not title:
         txt = STORE.doc_text(did) or ""
         for line in txt.splitlines():
@@ -1143,7 +1280,7 @@ def doc_plain(did: str) -> dict:
 
 
 @app.get("/api/audit")
-def audit(limit: int = Query(300, le=5000), q: str = ""):
+def audit(limit: int = Query(300, le=5000), q: str = "", lang: str = "en"):
     docs = []
     rules_by_doc = Counter(r.get("source_doc_id") for r in STORE.rules.values())
     for did, m in STORE.manifest.items():
@@ -1152,7 +1289,7 @@ def audit(limit: int = Query(300, le=5000), q: str = ""):
                 **m,
                 "rules_extracted": rules_by_doc.get(did, 0),
                 "text_available": STORE.doc_text(did) is not None,
-                **doc_plain(did),
+                **doc_plain(did, lang),
             }
         )
     entries = list(enumerate(STORE.audit))
@@ -1228,7 +1365,9 @@ def source(doc_id: str, rule_id: str | None = None):
     if txt is None:
         raise HTTPException(404, "no text for this document (link-only source)")
     # the capture header (SOURCE: / RETRIEVED: lines) is shown as metadata, not as document text (#145)
-    head = re.match(r"(?:(?:SOURCE|RETRIEVED|TITLE|URL):[^\n]*\n)+\s*", txt)
+    head = re.match(
+        r"(?:(?:SOURCE|SOURCE_TYPE|RETRIEVED|PUBLISHED|PAGES|TITLE|URL):[^\n]*\n)+\s*", txt
+    )
     if head:
         txt = txt[head.end() :]
     hl = None
@@ -1299,6 +1438,10 @@ app.mount("/static", StaticFiles(directory=STATIC), name="static")
 @app.get("/")
 def index():
     """Serve the shell with content-hashed asset URLs, so CDN caches never mix old and new files."""
+    return HTMLResponse(shell_html(), headers={"Cache-Control": "no-store"})
+
+
+def shell_html() -> str:
     html = (STATIC / "index.html").read_text()
 
     def versioned(m: re.Match) -> str:
@@ -1309,4 +1452,4 @@ def index():
     # every /static/*.css|js reference, with or without an old ?v= (fonts keep plain URLs so the
     # <link rel=preload> matches the url() in app.css; font files never change under the same name)
     html = re.sub(r"/static/([\w./-]+?\.(?:css|js))(?:\?v=[\w.-]+)?(?=[\"'])", versioned, html)
-    return HTMLResponse(html, headers={"Cache-Control": "no-store"})
+    return html

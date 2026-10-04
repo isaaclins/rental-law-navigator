@@ -72,6 +72,19 @@
 .mp-stop-c span span { font-size: 12.5px; color: var(--label-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .mp-stop-img { width: 40px; height: 40px; border-radius: 12px; object-fit: cover; background: var(--stage); }
 
+/* one row that scrolls (wide screens): the edge with more fades and an arrow scrolls on */
+.mp-tl-wrap { position: relative; }
+.mp-coming:is(.is-more, .is-less) .mp-tl2 { --fl: 0px; --fr: 0px; -webkit-mask: linear-gradient(90deg, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%); mask: linear-gradient(90deg, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%); }
+.mp-coming.is-more .mp-tl2 { --fr: 96px; }
+.mp-coming.is-less .mp-tl2 { --fl: 40px; }
+.mp-tl-more { position: absolute; right: 14px; top: calc(var(--d-h, 44px) + 2px); z-index: 2; width: 40px; height: 40px; border: 0; border-radius: 50%; display: none; place-items: center; background: var(--bg); color: var(--label); box-shadow: var(--shadow-card), inset 0 0 0 1px var(--sep-2); cursor: pointer; transition: transform .3s var(--spring), background-color .2s; }
+.mp-tl-more .ico { width: 18px; height: 18px; }
+.mp-tl-more:hover { background: var(--fill); }
+.mp-tl-more:active { transform: scale(.92); }
+.mp-tl-more.is-back { right: auto; left: 14px; }
+.mp-tl-more.is-back .ico { transform: rotate(180deg); }
+.mp-coming.is-more .mp-tl-more:not(.is-back), .mp-coming.is-less .mp-tl-more.is-back { display: grid; animation: mp-pop .35s var(--spring) both; }
+
 /* buildings */
 .mp-bldgs { margin-top: 40px; }
 .mp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: var(--mp-gap); align-items: stretch; }
@@ -343,6 +356,17 @@
   .mp-raise.full { padding: 20px 18px 16px; }
   .mp-skel { padding: 20px 12px; }
 }
+/* phones: the notice is the card's one button (persona round 1: phones had no "Draft the notice"); the check stays as a quiet link */
+@media (max-width: 640px), (pointer: coarse) and (max-height: 500px) {
+  .mp-tl-more { display: none !important; }
+  html .mp-card .mp-raise-n { font-size: 15px; font-weight: 500; color: var(--label); margin-top: 6px; }
+  html .mp-card .mp-raise-n .ico { margin-top: 2px; }
+  html .mp-card .mp-draft { width: 100%; margin-top: 14px; padding: 0 16px; min-height: 44px; justify-content: center; color: var(--accent); background: none; box-shadow: inset 0 0 0 1px var(--sep) !important; }
+  html .mp-dtitle .mp-acts .btn.mp-share { display: inline-flex; flex: 0 0 auto; gap: 8px; padding: 0 !important; min-height: 44px; }
+  html .mp-dtitle .mp-acts .btn.mp-share[hidden] { display: none; }
+  html .mp-card.has-notice .mp-acts { padding-top: 4px; }
+  html .mp-card.has-notice .mp-acts .btn.primary { width: auto; flex: 0 0 auto; min-height: 44px; padding: 0 !important; box-shadow: none !important; background: none; color: var(--accent); text-decoration: underline; text-decoration-color: rgb(10 58 140 / .3); text-underline-offset: 3px; }
+}
 @media (max-width: 380px) {
   .mp-stats { grid-template-columns: minmax(0, 1fr); }
   .mp-stat::before { display: none; }
@@ -381,3 +405,9 @@
 @media (prefers-reduced-motion: reduce) {
   .mp-ta-list, .mp-ta-list .opt.is-added .arrow, .mp-undo, .mp-undo.out, .mp-undo-c { animation: none !important; }
 }
+.acct-b { display: grid; place-items: center; width: 34px; height: 34px; margin-left: 4px; border-radius: 50%; background: var(--ink-btn); color: #fff; font-size: 14px; font-weight: 650; text-decoration: none; flex: none; }
+.acct-b:hover { text-decoration: none; background: var(--accent-hover); }
+.mp-leave { min-height: 44px; font-size: 14px; }
+.mp-oneline { display: block; margin-top: 10px; font-size: 16px; color: var(--label); }
+.mp-hrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; margin-top: 14px; }
+.mp-top .mp-lead { margin-top: 12px; font-size: 13px; color: var(--label-3); }

@@ -17,6 +17,8 @@
 .lt-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; margin-top: 14px; }
 .lt-title h1 { font: 400 var(--fs-l)/.98 var(--display); letter-spacing: -.03em; min-width: 0; }
 .lt-h-s { display: none; }
+.lt-langs { display: inline-flex; flex: none; align-items: center; gap: 10px; }
+.lt-lang-l { font-size: 14px; font-weight: 550; color: var(--label-2); white-space: nowrap; } /* the document's language, not the site's */
 .lt-seg { display: inline-flex; flex: none; padding: 3px; border-radius: 999px; background: var(--cool-2); }
 .lt-seg button { height: 38px; min-width: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: none; color: var(--label-2); font: 600 15px/1 var(--font); cursor: pointer; transition: background-color .2s, color .2s, box-shadow .2s, transform .3s var(--spring); }
 .lt-seg button:hover { color: var(--label); }
@@ -47,13 +49,21 @@
 .lt-ph { padding: 0 3px; border-radius: 4px; background: #fff3c4; color: #6e4d00; font-weight: 600; }
 
 /* inline fields: yellow until filled */
-.lt-f { display: inline-block; max-width: 100%; height: auto; margin: 0; padding: 0 2px; border: 0; border-radius: 5px; background: transparent; color: var(--label); font: inherit; line-height: inherit; vertical-align: baseline; outline: none; box-shadow: inset 0 -1.5px 0 var(--sep); transition: background-color .2s, box-shadow .2s; }
-.lt-f:placeholder-shown { background: #fff3c4; font-weight: 600; box-shadow: none; }
+/* a 44 px tap area around a word-sized field: 10 px of transparent padding above and below (negative margins keep the
+   line height), the colour painted only behind the text; focus is a 2 px navy underline, so nothing covers the commas */
+.lt-f { --lt-c: transparent; --lt-u: var(--sep); display: inline-block; max-width: 100%; height: auto; margin: -10px 0; padding: 10px 2px; border: 0; border-radius: 0; color: var(--label); font: inherit; line-height: inherit; vertical-align: baseline; outline: none; box-shadow: none; background: linear-gradient(transparent 9px, var(--lt-c) 9px, var(--lt-c) calc(100% - 10px), var(--lt-u) calc(100% - 10px), var(--lt-u) calc(100% - 8.5px), transparent calc(100% - 8.5px)); }
+.lt-f:placeholder-shown { --lt-c: #fff3c4; --lt-u: #fff3c4; font-weight: 600; }
 .lt-f::placeholder { color: #6e4d00; opacity: 1; }
-.lt-f:hover { background: #fff8de; }
-.lt-f:focus { background: #fff; box-shadow: 0 0 0 2px var(--accent), 0 0 0 5px var(--ring); }
+.lt-f:hover { --lt-c: #fff8de; --lt-u: #fff8de; }
+.lt-f:focus { --lt-c: #fff; --lt-u: var(--accent); background: linear-gradient(transparent 9px, var(--lt-c) 9px, var(--lt-c) calc(100% - 11px), var(--lt-u) calc(100% - 11px), var(--lt-u) calc(100% - 8px), transparent calc(100% - 8px)); }
 .lt-f:focus::placeholder { color: rgb(110 77 0 / .5); }
 .lt-fp { display: none; }
+/* Listen (features/say.js): one quiet line above the paper */
+.lt-say, .lt-say:hover { text-decoration: none; }
+.lt-say { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin: -6px 0 6px; padding: 0; border: 0; background: none; color: var(--accent); font: 600 15px/1 var(--font); cursor: pointer; }
+.lt-say .ico { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.lt-say[aria-pressed="true"] .ico { fill: currentColor; stroke: none; }
+.lt-say:active { transform: scale(.97); }
 .lt-hint mark { padding: 0 3px; border-radius: 4px; background: #fff3c4; color: #6e4d00; font-weight: 600; }
 
 /* actions */
@@ -83,9 +93,9 @@
 
 /* motion: the letter writes in, the checks follow */
 @keyframes lt-rise { from { opacity: 0; transform: translateY(8px); } }
-@keyframes lt-write { from { opacity: 0; transform: translateY(7px); filter: blur(2px); } }
+@keyframes lt-write { from { opacity: .3; transform: translateY(5px); } } /* the text is legible from the first frame: the paper never looks empty */
 @keyframes lt-pop { 0% { opacity: 0; transform: scale(.4); } 60% { opacity: 1; transform: scale(1.12); } 100% { transform: none; } }
-.lt-anim .lt-in { animation: lt-write .55s var(--ease-out) both; animation-delay: calc(var(--i) * 70ms + 60ms); }
+.lt-anim .lt-in { animation: lt-write .4s var(--ease-out) both; animation-delay: calc(min(var(--i), 8) * 35ms); }
 .lt-side.lt-anim .lt-checks li { animation: lt-rise .5s var(--ease-out) both; animation-delay: calc(var(--i) * 110ms + 450ms); }
 .lt-side.lt-anim .lt-ok { animation: lt-pop .55s var(--spring) both; animation-delay: calc(var(--i) * 110ms + 600ms); }
 @media (prefers-reduced-motion: reduce) {
@@ -120,24 +130,79 @@
   .lt-side { padding: 24px 20px 20px; border-radius: 24px; }
 }
 
-/* print: the letter only, on any paper size */
+/* the landlord's address (client-only fields, for the window envelope) */
+.lt-view:not(.nt-view) .lt-to { margin-bottom: 20px !important; }
+
+/* print: the same document as the PDF (features/paper.js html()), US Letter; the footer and page numbers sit in the
+   page margin (Chromium prints @page margin boxes; paper.js adds their text) */
+.pp-print { display: none; }
 @media print {
-  @page { margin: 22mm 22mm 20mm; }
+  @page { size: letter; margin: 0.6in 1in 0.75in; @bottom-left { font: 7.5pt Inter, sans-serif; color: #5c6373; } @bottom-right { font: 7.5pt Inter, sans-serif; color: #5c6373; } }
   html, body { background: #fff !important; }
   body:has(.lt-view) > :not(main) { display: none !important; }
   body:has(.lt-view) main { max-width: none; min-height: 0; margin: 0; padding: 0 !important; }
   body:has(.lt-view) main > :not(.lt-view) { display: none !important; }
-  .lt-head, .lt-side, .lt-acts, .lt-hint { display: none !important; }
+  .lt-head, .lt-side, .lt-acts, .lt-hint, .lt-say { display: none !important; }
   .lt-grid { display: block; }
-  .lt-sheet { min-height: 0; padding: 0; border-radius: 0; box-shadow: none; font-size: 11.5pt; line-height: 1.55; color: #000; }
-  .lt-sheet p { max-width: none; }
-  .lt-quote { font-size: 14pt; break-inside: avoid; }
-  .lt-in { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+  .lt-view:has(.pp-print .pp) .lt-sheet { display: none !important; }
+  .pp-print { display: block; }
+  .pp { color: #000c1f; font: 10.5pt/1.48 Inter, "Inter Fallback", sans-serif; font-feature-settings: "tnum" 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pp p { margin: 0 0 8pt; }
+  .pp a { color: #0a3a8c; text-decoration: none; }
+  .pp-b { font-weight: 600; }
+  .pp-grey { color: #5c6373; }
+  .pp-accent { color: #0a3a8c; }
+  .pp-red { color: #b4231a !important; }
+  .pp-head { position: relative; min-height: 52pt; padding: 0 224pt 10pt 0; border-bottom: .5pt solid #d9dde3; }
+  .pp-name { font: 21pt/1.05 "Instrument Serif", "Serif Fallback", serif; margin-bottom: 5pt; }
+  .pp-name.pp-blank { width: 200pt; height: 20pt; border-bottom: .6pt solid #8c94a1; font: 7pt Inter, sans-serif; color: #9ea5b3; }
+  .pp-name.pp-blank span { position: relative; top: 23pt; }
+  .pp-meta { color: #5c6373; font-size: 9pt; line-height: 1.33; }
+  .pp-verify { position: absolute; top: 0; right: 0; display: flex; flex-direction: row-reverse; gap: 10pt; width: 210pt; text-align: right; }
+  .pp-nw { white-space: nowrap; }
+  .pp-verify svg { flex: none; width: 52pt; height: 52pt; fill: #000c1f; }
+  .pp-verify b { display: block; font-size: 8pt; font-weight: 600; }
+  .pp-verify p { margin: 0; color: #5c6373; font-size: 7pt; line-height: 1.43; }
+  /* #10 window envelope: the address sits 2.1" from the top of the sheet */
+  .pp-window { display: flex; justify-content: space-between; align-items: flex-start; gap: 24pt; height: 1.15in; margin-top: .62in; }
+  .pp-to { width: 300pt; line-height: 1.3; }
+  .pp-window.pp-none { display: block; height: auto; margin: 14pt 0 18pt; }
+  .pp-date { color: #5c6373; font-size: 10pt; white-space: nowrap; }
+  .pp-subject { margin: 0 0 14pt !important; font-weight: 600; font-size: 11pt; }
+  .pp-title { margin: 0 0 10pt; font: 400 24pt/1.15 "Instrument Serif", "Serif Fallback", serif; letter-spacing: 0; }
+  .pp-banner { padding: 8pt 14pt; border-left: 2.5pt solid #b4231a; background: #fdefed; color: #b4231a; font-size: 9.5pt; }
+  .pp-table { width: 100%; margin: 4pt 0 18pt; border-collapse: collapse; border-top: .6pt solid #cdd1d9; border-bottom: .6pt solid #cdd1d9; break-inside: avoid; font-size: 10pt; }
+  .pp-table th, .pp-table td { padding: 4.5pt 12pt; border-top: .4pt solid #e6e8ec; text-align: left; font-weight: 400; vertical-align: baseline; }
+  .pp-table th { width: 140pt; color: #5c6373; }
+  .pp-table .pp-n { color: #5c6373; font-size: 8.5pt; }
+  .pp-table .pp-v { text-align: right; white-space: nowrap; font-feature-settings: "tnum" 1; }
+  .pp-table .pp-strong td, .pp-table .pp-strong th { background: #f2f4f8; }
+  .pp-table .pp-strong .pp-v { font-weight: 600; }
+  .pp-line { display: inline-block; width: 110pt; border-bottom: .6pt solid #8c94a1; }
+  .pp-quote { margin: 2pt 0 14pt; padding: 12pt 14pt 10pt 18pt; border-left: 2.5pt solid #002664; background: #f4f6fa; break-inside: avoid; }
+  .pp-quote p { margin: 0 0 6pt; font: 12.5pt/1.36 "Instrument Serif", "Serif Fallback", serif; }
+  .pp-quote footer { color: #5c6373; font-size: 7.5pt; line-height: 1.4; }
+  .pp-closing { margin-top: 4pt !important; }
+  .pp-tail { display: flex; gap: 34pt; align-items: flex-start; break-inside: avoid; }
+  .pp-sign { width: 214pt; flex: none; }
+  .pp-sign > div { margin-top: 26pt; }
+  .pp-sl { border-bottom: .6pt solid #59616f; }
+  .pp-sv { margin-bottom: 2pt; }
+  .pp-lab { margin: 3pt 0 2pt; color: #5c6373; font-size: 7.5pt; }
+  .pp-sources { flex: 1; min-width: 0; padding-top: 6pt; border-top: .5pt solid #d9dde3; color: #5c6373; font-size: 7pt; line-height: 1.3; overflow-wrap: anywhere; }
+  .pp-sources h2 { margin: 0 0 3pt; color: #000c1f; font: 600 7pt/1.3 Inter, sans-serif; letter-spacing: 0; }
+  .pp-sources ol { margin: 0; padding-left: 12pt; }
+  .pp-sources li { margin-bottom: 3pt; }
+  .pp-keep { break-inside: avoid; }
+  /* if the print copy could not be built: the sheet itself, plainly */
+  .lt-sheet { min-height: 0; padding: 0; border-radius: 0; box-shadow: none !important; font-size: 11pt; color: #000; }
   .lt-f { display: none !important; }
   .lt-fp { display: inline; }
-  .lt-fp:empty { display: inline-block; width: 11em; height: 1.1em; vertical-align: text-bottom; border-bottom: 1px solid #000; }
-  .lt-fp[data-fp="unit"]:empty { width: 5em; }
-  .lt-src a { color: inherit; text-decoration: none; }
-  .lt-v { padding: 0; background: none !important; color: #000 !important; font-weight: inherit; }
-  .lt-heading { font-size: 11pt; }
+  .lt-in { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
 }
+/* the notice's paper while it is written: grey text lines (features/notice.js), never an empty card */
+.lt-skel { display: grid; gap: 12px; margin-top: 18px; }
+.lt-skel i { display: block; height: 12px; border-radius: 6px; background: linear-gradient(90deg, var(--cool-2) 0 40%, var(--cool) 50%, var(--cool-2) 60% 100%) 0 0 / 300% 100%; animation: lt-skel 1.4s ease-in-out infinite; }
+.lt-skel b { display: block; height: 6px; }
+@keyframes lt-skel { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .lt-skel i { animation: none; } }

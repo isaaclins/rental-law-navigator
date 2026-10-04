@@ -48,8 +48,114 @@ FACT_LABELS = {
     "owner_occupied": "Whether the owner lives in the building",
     "certificate_of_occupancy_date": "Certificate-of-occupancy date",
 }
+FACT_LABELS_ES = {
+    "year_built": "Año de construcción",
+    "units": "Número de unidades",
+    "owner_occupied": "Si el dueño vive en el edificio",
+    "certificate_of_occupancy_date": "Fecha del certificado de ocupación",
+}
+OTHER_ES = {
+    "The source is only linked, not captured; check the official text.": "La fuente solo está enlazada, no guardada aquí; revise el texto oficial.",
+    "Depends on whether the owner filed for the new-construction exemption.": "Depende de si el dueño pidió la exención para construcciones nuevas.",
+}
+
+
+def _missing_es(needs: list[str], other: str | None) -> str | None:
+    """The missing fact in Spanish (Rules page, Check, any address); None keeps the English label."""
+    if needs:
+        return " o ".join(FACT_LABELS_ES[k] for k in needs)
+    if other in OTHER_ES:
+        return OTHER_ES[other]
+    if other and other.startswith("Depends on: "):
+        parts = [
+            _web().STORE.t(x, "es") if _web().STORE.has_t(x, "es") else None
+            for x in other[12:].rstrip(".").split("; ")
+        ]
+        if all(parts):
+            return "Depende de: " + "; ".join(parts) + "."
+    return None
+
+
 STATS: Counter = Counter()  # counts only, never addresses
 _UPSTREAM = threading.Semaphore(2)  # polite: at most two concurrent Census calls
+# every US state (+ DC, PR), to name a state we don't cover when the geocoder finds no match ("…, Springfield, IL")
+US_STATES = {
+    "AL": "Alabama",
+    "AK": "Alaska",
+    "AZ": "Arizona",
+    "AR": "Arkansas",
+    "CA": "California",
+    "CO": "Colorado",
+    "CT": "Connecticut",
+    "DE": "Delaware",
+    "DC": "District of Columbia",
+    "FL": "Florida",
+    "GA": "Georgia",
+    "HI": "Hawaii",
+    "ID": "Idaho",
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "IA": "Iowa",
+    "KS": "Kansas",
+    "KY": "Kentucky",
+    "LA": "Louisiana",
+    "ME": "Maine",
+    "MD": "Maryland",
+    "MA": "Massachusetts",
+    "MI": "Michigan",
+    "MN": "Minnesota",
+    "MS": "Mississippi",
+    "MO": "Missouri",
+    "MT": "Montana",
+    "NE": "Nebraska",
+    "NV": "Nevada",
+    "NH": "New Hampshire",
+    "NJ": "New Jersey",
+    "NM": "New Mexico",
+    "NY": "New York",
+    "NC": "North Carolina",
+    "ND": "North Dakota",
+    "OH": "Ohio",
+    "OK": "Oklahoma",
+    "OR": "Oregon",
+    "PA": "Pennsylvania",
+    "PR": "Puerto Rico",
+    "RI": "Rhode Island",
+    "SC": "South Carolina",
+    "SD": "South Dakota",
+    "TN": "Tennessee",
+    "TX": "Texas",
+    "UT": "Utah",
+    "VT": "Vermont",
+    "VA": "Virginia",
+    "WA": "Washington",
+    "WV": "West Virginia",
+    "WI": "Wisconsin",
+    "WY": "Wyoming",
+}
+COVERED_SENTENCE = "We cover California, New Jersey and Massachusetts."
+
+
+def not_covered_message(name: str) -> str:
+    return f"{name} isn't covered yet. {COVERED_SENTENCE}"
+
+
+def state_in_text(address: str) -> str | None:
+    """The state an address names at its end: ', IL', ', IL 62701', 'IL 62701', ', Illinois', 'Illinois 62701'."""
+    a = address.strip().rstrip(".")
+    m = re.search(r",\s*([A-Za-z]{2})\.?\s*(\d{5}(-\d{4})?)?$", a) or re.search(
+        r"\s([A-Z]{2})\s+\d{5}(-\d{4})?$", a
+    )
+    if m and m.group(1).upper() in US_STATES:
+        return m.group(1).upper()
+    tail = re.sub(r"[\s,]*(\d{5}(-\d{4})?)?$", "", a).lower()
+    for code, name in sorted(
+        US_STATES.items(), key=lambda kv: -len(kv[1])
+    ):  # "West Virginia" before "Virginia"
+        n = name.lower()
+        if tail.endswith(n) and (len(tail) == len(n) or not tail[-len(n) - 1].isalpha()):
+            return code
+    return None
 
 
 # ------------------------------------------------------------------ rate limiting (in memory, per IP)
@@ -195,7 +301,7 @@ def interpret(m: dict) -> dict:
             "and a city or county ordinance may add protections."
         )
     else:
-        msg = "This address is outside the states we cover (California, New Jersey, Massachusetts)."
+        msg = not_covered_message(STATE_NAMES.get(st) or US_STATES.get(st) or "This state")
     c = m.get("coordinates") or {}
     return {
         "match": True,
@@ -203,6 +309,7 @@ def interpret(m: dict) -> dict:
         "lat": round(c["y"], 6) if "y" in c else None,
         "lon": round(c["x"], 6) if "x" in c else None,
         "state": st,
+        "state_name": US_STATES.get(st) or (states[0].get("NAME") if states else None),
         "county": county,
         "place": place or None,
         "jurisdiction": jur,
@@ -242,6 +349,18 @@ def resolve(body: ResolveIn, request: Request):
         ) from None
     if not m:
         STATS["resolve_no_match"] += 1
+        st = state_in_text(body.address)
+        if (
+            st and st not in STATES
+        ):  # no match, but the address names a state we don't cover: say that
+            return {
+                "match": False,
+                "out_of_area": True,
+                "state": st,
+                "state_name": US_STATES[st],
+                "message": not_covered_message(US_STATES[st]),
+                "covered": U.covered_cities(),
+            }
         return {
             "match": False,
             "message": "We could not find this address. Add the city and state, e.g. '1685 Main St, Santa Monica, CA'.",
@@ -362,7 +481,7 @@ def build_view(d: dict, lang: str) -> dict:
             counts[e["result"]] += 1
             item = {
                 "result": e["result"],
-                "explanation": W.STORE.t(e.get("explanation"), lang),
+                "explanation": W.STORE.t_expl(e.get("explanation"), lang),
                 "explanation_en": e.get("explanation"),
                 "conflict_flag": bool(
                     e.get("conflict_flag")
@@ -373,11 +492,13 @@ def build_view(d: dict, lang: str) -> dict:
                 item["superseded_by"] = [
                     {
                         "id": b,
-                        "title": by_id[b].get("title"),
+                        "title": W.STORE.t(by_id[b].get("title"), lang),
                         "jurisdiction": by_id[b].get("jurisdiction"),
                     }
                     for b in _overriders(r["team_rule_id"], present, by_id)
                 ]
+            if e.get("version_gap"):
+                item["version_gap"] = e["version_gap"]
             if e["result"] == "unknown":
                 item["needs_fact"] = e.get("needs_fact", [])
                 item["needs_other"] = e.get("needs_other")
@@ -386,6 +507,12 @@ def build_view(d: dict, lang: str) -> dict:
                     if item["needs_fact"]
                     else (e.get("needs_other") or W.missing_fact(e.get("explanation", "")))
                 )
+                if (
+                    lang == "es"
+                ):  # shown as is; missing_fact stays English for the pages' fact matching
+                    item["missing_fact_display"] = _missing_es(
+                        item["needs_fact"], e.get("needs_other")
+                    )
             H.apply_item(item, d["as_of"], lang, units=(d.get("facts") or {}).get("units"))
             (pending if e["result"] == "pending" else enacted).append(item)
         for r in by_id.values():

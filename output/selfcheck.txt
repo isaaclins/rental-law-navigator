@@ -145,14 +145,14 @@
   NJ-EVIC-02   in_force          None       N.J.S.A. 2A:50-69 et seq                      | 90-day notice to quit; notice within 10 business days of sal
   NJ-EVIC-03   in_force          1974       N.J.S.A. 2A:18-61.1                           | Good cause required; Notice to Quit 3 days to 3 years depend
   NJ-DEP-01    in_force          None       N.J.S.A. 46:8-21.2                            | 1.5 months' rent; annual increase max 10%; return within 30 
-  NJ-FEE-01    in_force          2026-05-01 P.L.2025, c.405                               | $50 per application, CPI-adjusted annually
+  NJ-FEE-01    in_force          2026-05-01 P.L.2025, c.405                               | $50 per application (CPI-adjusted yearly from 2027)
   NJ-SCR-01    in_force          None       N.J.S.A. 10:5-12                              | Ban on source-of-income discrimination (incl. Section 8 vouc
   NJ-SCR-02    in_force          2022-01-01 N.J.S.A. 46:8-52 to 46:8-64                   | No criminal-history inquiry before conditional offer; look-b
   NJ-ALG-01    not_yet_effective 2027-07-01 P.L.2026, c.43                                | Ban on algorithmic rent-setting coordination using nonpublic  [CONFLICT]
   MA-RENT-01   in_force          None       G.L. c. 40P, § 4                              | state bar on local rent control
   MA-RENT-P1   failed            None       Initiative Petition 25-21                     | Lesser of CPI or 5% (never took effect)  [secondary_source]
   MA-EVIC-01   in_force          None       G.L. c. 186, § 11                             | 14 days' written notice to quit for nonpayment
-  MA-EVIC-02   in_force          None       G.L. c. 186, § 12                             | 3 months' notice; 14 days for nonpayment with 10-day cure ri
+  MA-EVIC-02   in_force          None       G.L. c. 186, § 12                             | One rent period or 30 days (whichever is longer); 3 months i
   MA-EVIC-03   in_force          None       G.L. c. 186, § 18                             | 1–3 months' rent damages; 6-month presumption
   MA-EVIC-04   in_force          None       G.L. c. 186, § 31                             | State form required with nonpayment notice to quit
   MA-DEP-01    in_force          2025-08-01 G.L. c. 186, § 15B                            | Max = first month's rent; separate interest-bearing account;
@@ -161,7 +161,7 @@
   MA-SCR-01    in_force          None       G.L. c. 151B, § 4                             | ban on discrimination based on public assistance / housing s
   MA-ALG-P1    pending           None       H.5222                                        | pending bill; no operative text shown
   MA-ALG-P2    pending           None       S.2983                                        | pending bill prohibiting algorithmic rent setting
-  LA-RENT-01   in_force          2026-02-02 L.A. Mun. Code § 151.00 et seq                | Once per 12 months; annual percentage set by LAHD (3% for 7/  [CONFLICT]
+  LA-RENT-01   in_force          2026-02-02 L.A. Mun. Code § 151.00 et seq                | Once per 12 months, by LAHD's yearly percentage (last publis  [CONFLICT]
   LA-EVIC-01   in_force          None       L.A. Mun. Code § 151.09                       | Listed causes only; LAHD filing within 3 business days; no-f
   LA-EVIC-02   in_force          None       L.A. Mun. Code § 165.03                       | Just cause required; relocation assistance for no-fault evic
   LA-EVIC-03   in_force          2025-02-11 L.A. Ord. Nos. 188481 and 188482              | $87,450–$115,480 for lower-income households

@@ -43,8 +43,9 @@ def cap(s: str) -> str:
 
 
 # ------------------------------------------------------------------ what each rule means, spoken
-# Per rule: n = spoken name; r / o = renter / owner sentence; ra / oa = the same after the figure's period
-# (headlines.py "until", or an own "until"); reset = the sentence for the change on the day after "until";
+# Per rule: n = spoken name; r / o = renter / owner sentence; ra / oa = the same outside the figure's period
+# (headlines.py "from" / "until", or an own one: H.period_of); rs / os = the sentence where a small landlord's
+# exception may apply (H.small_landlord_possible); reset = the sentence for the change on the day after "until";
 # brief = order inside its topic in the briefing (None: only in "Explain this"); dep / fee = the cap as a noun
 # phrase ("if they ask for <dep>, that's over the limit"); missing = which fact an "unknown" is about.
 # Every value is (English, Spanish).
@@ -143,20 +144,20 @@ SAY: dict[str, dict] = {
     "BER-RENT-01": {
         **_city("Berkeley"),
         "r": (
-            "This unit has rent control: for 2026 your rent can go up by at most 1 percent, and never more than 5 percent in any year.",
-            "Esta vivienda tiene control de rentas: en 2026 su renta puede subir como máximo un 1 por ciento, y nunca más del 5 por ciento en un año.",
+            "This unit has rent control: for 2026 your rent can go up by at most 1 percent. The yearly raise is never more than 5 percent, though unused past raises can be added.",
+            "Esta vivienda tiene control de rentas: en 2026 su renta puede subir como máximo un 1 por ciento. El aumento anual nunca pasa del 5 por ciento, aunque se pueden sumar aumentos no usados de años anteriores.",
         ),
         "ra": (
-            "This unit has rent control: increases follow 65 percent of inflation, never more than 5 percent. We don't have the figure after {until} yet.",
-            "Esta vivienda tiene control de rentas: los aumentos siguen el 65 por ciento de la inflación, nunca más del 5 por ciento. Aún no tenemos la cifra posterior al {until}.",
+            "This unit has rent control: the yearly raise follows 65 percent of inflation, never more than 5 percent, though unused past raises can be added. We don't have this year's figure.",
+            "Esta vivienda tiene control de rentas: el aumento anual sigue el 65 por ciento de la inflación, nunca más del 5 por ciento, aunque se pueden sumar aumentos no usados. No tenemos la cifra de este año.",
         ),
         "o": (
-            "This building has rent control: at most 1 percent for 2026, and never more than 5 percent in any year.",
-            "Este edificio tiene control de rentas: como máximo un 1 por ciento en 2026, y nunca más del 5 por ciento en un año.",
+            "This building has rent control: at most 1 percent for 2026. The yearly raise is capped at 5 percent, plus any unused past raises.",
+            "Este edificio tiene control de rentas: como máximo un 1 por ciento en 2026. El aumento anual tiene un tope del 5 por ciento, más los aumentos no usados de años anteriores.",
         ),
         "oa": (
-            "This building has rent control: increases follow 65 percent of inflation, never more than 5 percent. We don't have the figure after {until}, so check it with the Berkeley Rent Board.",
-            "Este edificio tiene control de rentas: los aumentos siguen el 65 por ciento de la inflación, nunca más del 5 por ciento. No tenemos la cifra posterior al {until}; confírmela con la Junta de Rentas de Berkeley.",
+            "This building has rent control: the yearly raise follows 65 percent of inflation, capped at 5 percent plus any unused past raises. We don't have this year's figure, so check it with the Berkeley Rent Board.",
+            "Este edificio tiene control de rentas: el aumento anual sigue el 65 por ciento de la inflación, con tope del 5 por ciento más los aumentos no usados. No tenemos la cifra de este año; confírmela con la Junta de Rentas de Berkeley.",
         ),
         "reset": (
             "a new rent increase",
@@ -305,8 +306,9 @@ SAY: dict[str, dict] = {
     "LA-EVIC-04": {
         "n": ("Los Angeles relocation assistance", "la ayuda de reubicación de Los Ángeles"),
         "r": (
-            "If it's not your fault, you're owed 11,000 to 27,400 dollars to move.",
-            "Si no es por culpa suya, le corresponden de 11000 a 27400 dólares para mudarse.",
+            # D043 Chart A: lower amounts for some Mom & Pop and single-family cases, hence "most tenants"
+            "If it's not your fault, most tenants are owed 11,000 to 27,400 dollars to move.",
+            "Si no es su culpa, la mayoría recibe de 11000 a 27400 dólares para mudarse.",
         ),
         "ra": (
             "If it's not your fault, you're owed relocation money.",
@@ -346,7 +348,7 @@ SAY: dict[str, dict] = {
         "n": ("San Francisco relocation payments", "los pagos de reubicación de San Francisco"),
         "r": (
             "If it's not your fault, like an owner move-in, you're owed at least 8,245 dollars in relocation.",
-            "Si no es por culpa suya, como cuando el dueño se muda, le corresponden al menos 8245 dólares de reubicación.",
+            "Si no es su culpa, como cuando el dueño se muda, le corresponden al menos 8245 dólares de reubicación.",
         ),
         "ra": (
             "If it's not your fault, like an owner move-in, you're owed relocation money.",
@@ -443,12 +445,12 @@ SAY: dict[str, dict] = {
     "MA-EVIC-02": {
         "n": ("the Massachusetts notice rules", "las reglas de aviso de Massachusetts"),
         "r": (
-            "To end your tenancy, your landlord must give written notice: at least 30 days or one rental period, and 14 days for unpaid rent.",
-            "Para terminar su contrato, su arrendador debe avisarle por escrito: al menos 30 días o un período de renta, y 14 días por renta impaga.",
+            "Without a lease, your landlord can end your tenancy for no reason, with written notice of at least 30 days or one rental period; for unpaid rent, 14 days.",
+            "Sin contrato, su arrendador puede terminarlo sin dar razón, con aviso por escrito de al menos 30 días o un período de renta; por renta impaga, 14 días.",
         ),
         "o": (
-            "To end a tenancy you must give written notice: at least 30 days or one rental period, and 14 days for unpaid rent, which the tenant can usually cure.",
-            "Para terminar un contrato debe avisar por escrito: al menos 30 días o un período de renta, y 14 días por renta impaga, que el inquilino normalmente puede saldar.",
+            "Without a lease, you can end a tenancy with written notice of at least 30 days or one rental period, and 14 days for unpaid rent, which the tenant can usually cure.",
+            "Sin contrato, puede terminar el arrendamiento con aviso por escrito de al menos 30 días o un período de renta, y 14 días por renta impaga, que el inquilino normalmente puede saldar.",
         ),
         "brief": 1,
     },
@@ -517,12 +519,20 @@ SAY: dict[str, dict] = {
     "CA-DEP-01": {
         "n": ("California's deposit cap", "el tope estatal de depósitos"),
         "r": (
-            "Your deposit can be at most one month's rent, or two with a small landlord, and comes back with an itemized statement within 21 days after you move out.",
-            "Su depósito puede ser como máximo un mes de renta, o dos con un arrendador pequeño, y se le devuelve con un detalle por escrito en 21 días después de mudarse.",
+            "Your deposit can be at most one month's rent, and comes back with an itemized statement within 21 days after you move out.",
+            "Su depósito puede ser como máximo un mes de renta, y se le devuelve con un detalle por escrito en 21 días después de mudarse.",
+        ),
+        "rs": (
+            "Your deposit can be at most one month's rent, or two with a small landlord (an individual with 2 rentals and 4 units at most), and comes back with an itemized statement within 21 days after you move out.",
+            "Su depósito puede ser como máximo un mes de renta, o dos con un dueño pequeño (una persona con 2 propiedades y 4 unidades como máximo), y se le devuelve con un detalle por escrito en 21 días después de mudarse.",
         ),
         "o": (
-            "You can ask for a deposit of at most one month's rent, two if you're a small landlord, and must return it with an itemized statement within 21 days.",
-            "Puede pedir un depósito de como máximo un mes de renta, dos si es un arrendador pequeño, y debe devolverlo con un detalle por escrito en 21 días.",
+            "You can ask for a deposit of at most one month's rent, and must return it with an itemized statement within 21 days.",
+            "Puede pedir un depósito de como máximo un mes de renta, y debe devolverlo con un detalle por escrito en 21 días.",
+        ),
+        "os": (
+            "You can ask for a deposit of at most one month's rent, two if you're an individual with 2 rentals and 4 units at most, and must return it with an itemized statement within 21 days.",
+            "Puede pedir un depósito de como máximo un mes de renta, dos si es una persona con 2 propiedades y 4 unidades como máximo, y debe devolverlo con un detalle por escrito en 21 días.",
         ),
         "dep": (
             "more than one month's rent as a deposit",
@@ -666,17 +676,31 @@ SAY: dict[str, dict] = {
     },
     "NJ-FEE-01": {
         "n": ("New Jersey's application fee cap", "el tope de cuotas de solicitud de Nueva Jersey"),
+        # D066 § 1d: the $50 is adjusted for CPI only from January 1, 2027 (the year after enactment, Jan 20, 2026)
+        "until": "2026-12-31",
         "r": (
-            "An application fee can be at most 50 dollars, adjusted for inflation.",
-            "Una cuota de solicitud puede ser como máximo de 50 dólares, ajustada por inflación.",
+            "An application fee can be at most 50 dollars.",
+            "Una cuota de solicitud puede ser como máximo de 50 dólares.",
+        ),
+        "ra": (
+            "An application fee can be at most 50 dollars, adjusted for inflation each year since 2027.",
+            "Una cuota de solicitud puede ser como máximo de 50 dólares, ajustada por inflación cada año desde 2027.",
         ),
         "o": (
-            "Application fees are capped at 50 dollars per application, adjusted for inflation each year.",
-            "Las cuotas de solicitud tienen un tope de 50 dólares por solicitud, ajustado por inflación cada año.",
+            "Application fees are capped at 50 dollars per application.",
+            "Las cuotas de solicitud tienen un tope de 50 dólares por solicitud.",
+        ),
+        "oa": (
+            "Application fees are capped at 50 dollars per application, adjusted for inflation each year since 2027.",
+            "Las cuotas de solicitud tienen un tope de 50 dólares por solicitud, ajustado por inflación cada año desde 2027.",
         ),
         "fee": (
-            "more than 50 dollars plus inflation to apply",
-            "más de 50 dólares más inflación por solicitar",
+            "more than 50 dollars to apply",
+            "más de 50 dólares por solicitar",
+        ),
+        "fee_after": (
+            "more than the inflation-adjusted 50-dollar cap to apply",
+            "más del tope de 50 dólares ajustado por inflación por solicitar",
         ),
         "brief": 1,
     },
@@ -793,12 +817,12 @@ SAY: dict[str, dict] = {
     "BER-SCR-01": {
         "n": ("Berkeley's fair chance rules", "las reglas de oportunidad justa de Berkeley"),
         "r": (
-            "In Berkeley, landlords can't ask about or use your criminal history at all.",
-            "En Berkeley, los arrendadores no pueden preguntar ni usar sus antecedentes penales.",
+            "Most Berkeley landlords can't ask about or use your criminal record.",  # D003: some exemptions
+            "En la mayoría de los alquileres de Berkeley, no pueden preguntar ni usar sus antecedentes penales.",
         ),
         "o": (
-            "In Berkeley you can't ask about or use criminal history in choosing tenants; fines run from 1,000 to 10,000 dollars.",
-            "En Berkeley no puede preguntar ni usar antecedentes penales para elegir inquilinos; las multas van de 1000 a 10000 dólares.",
+            "In most Berkeley rentals you can't ask about or use criminal history in choosing tenants; fines run from 1,000 to 10,000 dollars.",
+            "En la mayoría de los alquileres de Berkeley no puede preguntar ni usar antecedentes penales para elegir inquilinos; las multas van de 1000 a 10000 dólares.",
         ),
         "brief": 1,
     },
@@ -832,6 +856,7 @@ SAY: dict[str, dict] = {
             "En vivienda financiada por la ciudad o con ingresos restringidos no puede usar rechazos generales por antecedentes, condenas de más de 5 años ni puntajes de crédito.",
         ),
         "brief": 3,
+        "missing": "funded",  # D010: DND funding or land, or BPDA income-restricted units (no unit count)
     },
     # ---------------------------------------------------------------- rent-setting software
     "CA-ALG-01": {
@@ -1000,6 +1025,8 @@ TOPIC_WORDS = {
 MISSING_KEY = {
     "Year built / certificate-of-occupancy date": "yob",
     "Owner type": "owner",
+    "Owner occupancy": "owner_occ",
+    "City funding or income-restricted housing": "funded",
     "Number of units": "units",
     "Exemption filing / registration status": "filing",
     "Length of tenancy": "tenancy",
@@ -1030,9 +1057,21 @@ UNKNOWN = {
             "We don't know if this is an affordable housing building, which decides whether {n} {v}.",
             "Whether {n} {v} depends on whether this is an affordable housing building.",
         ),
+        "owner_occ": (
+            "We don't know if the owner lives in the building, which decides whether {n} {v}. Ask your landlord.",
+            "Whether {n} {v} depends on whether you live in the building yourself.",
+        ),
+        "funded": (
+            "We don't know if this building has city funding or income-restricted units, which decides whether {n} {v}.",
+            "Whether {n} {v} depends on whether the building has city funding or income-restricted units.",
+        ),
         "text": (
             "We couldn't read the text of {n}, so we can't confirm the details.",
             "We couldn't read the text of {n}, so we can't confirm the details.",
+        ),
+        "version": (
+            "For this date we can't tell what {n} said: an older version applied that our sources don't include.",
+            "For this date we can't tell what {n} said: an older version applied that our sources don't include.",
         ),
         "other": (
             "Whether {n} {v} depends on a fact that isn't in the public data. Ask your landlord{g}.",
@@ -1065,9 +1104,21 @@ UNKNOWN = {
             "No sabemos si este edificio es vivienda asequible, y de eso depende si {v} {n}.",
             "Si {v} {n} depende de si este edificio es vivienda asequible.",
         ),
+        "owner_occ": (
+            "No sabemos si el dueño vive en el edificio, y de eso depende si {v} {n}. Pregúntele a su arrendador.",
+            "Si {v} {n} depende de si usted vive en el edificio.",
+        ),
+        "funded": (
+            "No sabemos si este edificio tiene fondos de la ciudad o unidades con ingresos restringidos, y de eso depende si {v} {n}.",
+            "Si {v} {n} depende de si el edificio tiene fondos de la ciudad o unidades con ingresos restringidos.",
+        ),
         "text": (
             "No pudimos leer el texto de {n}, así que no podemos confirmar los detalles.",
             "No pudimos leer el texto de {n}, así que no podemos confirmar los detalles.",
+        ),
+        "version": (
+            "Para esta fecha no podemos saber qué decía {n}: regía una versión anterior que nuestras fuentes no incluyen.",
+            "Para esta fecha no podemos saber qué decía {n}: regía una versión anterior que nuestras fuentes no incluyen.",
         ),
         "other": (
             "Si {v} {n} depende de un dato que no está en las fuentes públicas. Pregúntele a su arrendador{g}.",
@@ -1132,28 +1183,63 @@ def _val(d: dict, key: str, lang: str) -> str | None:
     return v[0 if lang == "en" else 1] if v else None
 
 
+def _plural(n: str, lang: str) -> bool:
+    """'New Jersey's deposit rules' takes 'apply', not 'applies' (es: 'las reglas ...' takes 'aplican')."""
+    if lang == "es":
+        return bool(re.match(r"(?:las|los)\b", n))
+    return bool(re.search(r"(?:rules|protections|payments|limits)$", n))
+
+
+def _period(rid: str) -> dict:
+    """The figure period of a spoken sentence: the rule's own SAY dates, else its headlines.py dates."""
+    s, h = SAY.get(rid, {}), H.HEADLINES.get(rid, {})
+    return {"from": s.get("from") or h.get("from"), "until": s.get("until") or h.get("until")}
+
+
 def _until(rid: str) -> str | None:
-    s = SAY.get(rid, {})
-    return s.get("until") or H.HEADLINES.get(rid, {}).get("until")
+    return _period(rid)["until"]
 
 
 def _after(rid: str, as_of: str) -> bool:
-    u = _until(rid)
-    return bool(u and as_of > u)
+    """Outside the figure's period (before "from" or after "until"): the general sentence (ra / oa)."""
+    return H.period_of(_period(rid), as_of) != "in"
 
 
 def name(rid: str, lang: str) -> str:
     return _val(SAY.get(rid, {}), "n", lang) or rid
 
 
-def rule_sentence(rid: str, persona: str, lang: str, as_of: str, brief: bool = False) -> str:
-    """What the rule means for this persona on as_of, one or two sentences (brief: the briefing's wording)."""
+def _before_version(rid: str, as_of: str) -> bool:
+    """The date is before the current version of an amended law: its figures are not that date's."""
+    r = _rules().get(rid) or {}
+    cve = str(r.get("current_version_effective") or "")[:10]
+    return bool(r.get("amends_existing_law") and cve and as_of < cve)
+
+
+def _rules() -> dict:
+    from web.app import STORE
+
+    return STORE.rules
+
+
+def rule_sentence(
+    rid: str, persona: str, lang: str, as_of: str, brief: bool = False, small: bool | None = None
+) -> str:
+    """What the rule means for this persona on as_of, one or two sentences (brief: the briefing's wording; small:
+    the address item's small_landlord_possible, which picks the rs / os wording)."""
     s = SAY.get(rid)
     p = "r" if persona == "renter" else "o"
+    if s and p in s and _before_version(rid, as_of) and re.search(r"\d", _val(s, p, lang)):
+        s = None  # before the current version: the row headline (general wording, #158) instead of its figure
     if not s or p not in s:  # not hand-written: the row answer as a sentence
         h = H.headline(rid, lang, as_of) or ""
+        hd = H.HEADLINES.get(rid) or {}
+        if _before_version(rid, as_of) and hd.get("after_en"):
+            h = hd.get(f"after_{lang}") or hd["after_en"]
         return cap(re.sub(r"\s*\([^)]*\)", "", h).rstrip(".")) + "." if h else ""
     key = p + "a" if _after(rid, as_of) and p + "a" in s else p
+    if small and key == p and p + "s" in s:
+        key = p + "s"
     if brief and p + "b" in s and key == p:
         key = p + "b"
     u = _until(rid)
@@ -1213,7 +1299,9 @@ def topic_lines(cat: dict, persona: str, lang: str, as_of: str, brief: bool) -> 
     out: list[str] = []
     budget = 230 if brief else 300
     for i in applies[: 2 if brief else 3]:
-        s = rule_sentence(i["rule"]["team_rule_id"], persona, lang, as_of, brief)
+        s = rule_sentence(
+            i["rule"]["team_rule_id"], persona, lang, as_of, brief, i.get("small_landlord_possible")
+        )
         if s and s not in out and (not out or sum(map(len, out)) + len(s) <= budget):
             out.append(s)
     if out or brief:
@@ -1234,9 +1322,16 @@ def caps_line(cats: dict, persona: str, lang: str, as_of: str, small: bool = Tru
     for cid, key in (("security_deposits", "dep"), ("application_screening_fees", "fee")):
         for i in sorted(_items(cats.get(cid, {}), "applies"), key=_brief_order):
             rid = i["rule"]["team_rule_id"]
+            if _before_version(rid, as_of):
+                continue  # the cap's figure is the current version's, not this date's
             s = SAY.get(rid, {})
             ks = [key + "_after"] if _after(rid, as_of) else []
-            if small:  # a small landlord (at most 4 units) may be allowed more
+            ok = i.get(
+                "small_landlord_possible"
+            )  # H.small_landlord_possible: units and the use-code floor
+            if (
+                small if ok is None else ok
+            ):  # a small landlord (at most 4 units in total) may be allowed more
                 ks += [key + "_small_o"] if persona == "owner" else []
                 ks += [key + "_small"]
             ks += [key + "_o"] if persona == "owner" else []
@@ -1258,8 +1353,11 @@ def unknown_lines(
     for c in cats:
         for i in _items(c, "unknown"):
             rid = i["rule"]["team_rule_id"]
-            fact = SAY.get(rid, {}).get("missing") or MISSING_KEY.get(
-                i.get("missing_fact") or "", "other"
+            fact = (
+                "version"  # an older version of the law applied on this date (navigator.evaluate.version_gap)
+                if i.get("version_gap")
+                else SAY.get(rid, {}).get("missing")
+                or MISSING_KEY.get(i.get("missing_fact") or "", "other")
             )
             if fact == "said":
                 continue
@@ -1272,10 +1370,10 @@ def unknown_lines(
     out = []
     for fact, rules in list(groups.items())[:limit]:
         names = [name(r, lang) for _, r in rules]
-        if len(names) > 2:  # name the topics instead of every rule
+        if len(names) > 2 and fact != "version":  # name the topics instead of every rule
             names = list(dict.fromkeys(TOPIC_WORDS[lang][cid] for cid, _ in rules))
         n = _join(names, lang)
-        v = w["verb1"] if len(names) == 1 else w["verbn"]
+        v = w["verb1"] if len(names) == 1 and not _plural(names[0], lang) else w["verbn"]
         g = t["ask"].format(g=ag) if ag else ""
         s = t[fact][0 if persona == "renter" else 1].format(n=n, v=v, g=g)
         out.append((rules[0][0], cap(s)))
@@ -1361,10 +1459,9 @@ def briefing(d: dict, persona: str, lang: str) -> Script:
     for cid in ("rent_increase_limits", "just_cause_eviction"):
         for n, s in enumerate(topic_lines(cats[cid], persona, lang, as_of, brief=True)):
             facts.append((cid, s, 2 if n else 0))
-    try:
-        small = int(float(d["address"].get("units") or 0)) <= 4
-    except ValueError:
-        small = True
+    # fallback for items without the flag: the same unit test as the address page (count, or the use-code floor)
+    a = d["address"]
+    small = H.small_landlord_possible("CA-DEP-01", a.get("units"), a.get("units_min")) is not False
     caps = caps_line(cats, persona, lang, as_of, small)
     if caps:
         facts.append(("security_deposits", caps, 0))

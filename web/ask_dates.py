@@ -12,9 +12,9 @@ import re
 import unicodedata
 
 MIN_DATE, MAX_DATE = (
-    "2020-01-01",
-    "2030-12-31",
-)  # the range the app supports (app.js ASOF_MIN / ASOF_MAX)
+    "1970-01-01",
+    "2100-12-31",
+)  # beyond the data's own horizon Ask answers with a note
 
 MONTHS = {
     "january": 1,
@@ -76,8 +76,15 @@ _NUMW = {
     "a": 1,
 }
 _N = r"(\d{1,2}|one|two|three|four|five|a|un|uno|una|dos|tres|cuatro|cinco)"
+_N2 = r"([2-9]|1\d|two|three|four|five|dos|tres|cuatro|cinco)"  # "in a year" is a span of time, not a date
 # words that make a bare year a date ("in 2023"), not a law number ("P.L.2026")
-_PREP = r"(?:as of|as at|on|in|during|for|by|from|since|until|before|after|back in|around|at the end of|en|el|del|desde|hasta|para|durante|antes de|despu[eé]s de|a partir de|al)"
+_PREP = r"(?:as of|as at|on|in|during|for|by|from|since|until|before|after|back in|around|about|asking about|regarding|at the end of|en|el|del|desde|hasta|para|durante|antes de|despu[eé]s de|a partir de|al)"
+
+
+BUILT = re.compile(
+    r"\b(?:built|constructed|erected|completed|construid[oa]s?|edificad[oa]s?|terminad[oa]s?|year built|ano de construccion)"
+    r"(?:\s+(?:back|around|about|alrededor de|hacia))?\s*$"
+)
 
 
 def _fold(s: str) -> str:
@@ -153,10 +160,13 @@ def find_date(q: str, base: str) -> dict | None:
         ),
         (r"\b(last year|el ano pasado)\b", lambda m: (dt.date(b.year - 1, 1, 1), "year")),
         (
-            r"\b(next month|el proximo mes|el mes que viene)\b",
+            r"\b(next month(?!'s|\s+(?:of\s+)?rent)|el proximo mes|el mes que viene)\b",
             lambda m: (_add_months(b, 1), "month"),
         ),
-        (r"\b(last month|el mes pasado)\b", lambda m: (_add_months(b, -1), "month")),
+        (
+            r"\b(last month(?!'s|\s+(?:of\s+)?rent|\s*,|\s+(?:and|or|plus|deposit))|el mes pasado)\b",
+            lambda m: (_add_months(b, -1), "month"),
+        ),
         # next July / el próximo julio / julio próximo / last March / this July
         (
             rf"\b(?:next|el proximo|este proximo)\s+({_MON})\b|\b({_MON})\s+(?:proximo|que viene)\b",
@@ -169,7 +179,7 @@ def find_date(q: str, base: str) -> dict | None:
         (rf"\bthis\s+({_MON})\b", lambda m: (dt.date(b.year, MONTHS[m[1]], 1), "month")),
         # in 2 years / 2 years ago / hace 2 años / en 2 años / dentro de 2 años
         (
-            rf"\b(?:in|en|dentro de)\s+{_N}\s+(?:years?|anos?)\b",
+            rf"\b(?:in|en|dentro de)\s+{_N2}\s+(?:years?|anos?)\b",
             lambda m: (_years(b, _num(m[1])), "year"),
         ),
         (
@@ -182,9 +192,16 @@ def find_date(q: str, base: str) -> dict | None:
             lambda m: (dt.date(int(m[1]), 1, 1), "year"),
         ),
     ]
+    money = re.search(
+        r"\bfirst (?:month|and last)\b|\b(?:primer|ultimo) mes\b", t
+    )  # move-in money, not dates
     best = None
     for rx, fn in pats:
-        m = re.search(rx, t)
+        if money and "month" in rx and "last" in rx:
+            continue
+        m = next(  # "built in 1962", "construido en 1962": a fact about the building, not the as-of date
+            (x for x in re.finditer(rx, t) if not BUILT.search(t[: x.start()])), None
+        )
         if not m:
             continue
         d, grain = fn(m)

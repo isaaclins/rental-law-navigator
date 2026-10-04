@@ -18,8 +18,9 @@ Blocks: {"k": kind, "s": [segment]} with kind date | from | re | salute | p | qu
 from __future__ import annotations
 
 import datetime as dt
+import os
 import re
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import Field
@@ -165,6 +166,19 @@ def pct(n: float) -> str:
     return num(round(n, 2)) + "%"
 
 
+def article(n: str) -> str:
+    """'a' or 'an' before a number as it is read: an 8.33%, an 11%, an 18%, an 80%; a 1.5%, a 110% (EN only)."""
+    digits = re.sub(r"[^0-9.]", "", n)
+    whole = digits.split(".")[0]
+    if (
+        digits.startswith("8")
+        or whole in ("11", "18")
+        or (len(whole) in (5, 8) and whole[:2] in ("11", "18"))
+    ):
+        return "an"
+    return "a"
+
+
 def long_date(d: dt.date | str, lang: str) -> str:
     d = dt.date.fromisoformat(d) if isinstance(d, str) else d
     if lang == "es":
@@ -225,6 +239,40 @@ def F(name: str) -> dict:
 
 
 BR = {"br": 1}
+
+# The public site, for the QR code and footer of the PDF (features/paper.js)
+SITE = os.environ.get("PUBLIC_ORIGIN", "https://navigator.isaaclins.com").rstrip("/")
+
+
+def retrieved(url: str | None, fallback: str | None = None) -> str | None:
+    """The day our copy of a source was retrieved (YYYY-MM-DD), from the source manifest by URL."""
+    W = C._web()
+    for m in W.STORE.manifest.values():
+        if url and m.get("url") == url and m.get("retrieved_at"):
+            return m["retrieved_at"][:10]
+    return (fallback or "")[:10] or None
+
+
+def verify_url(address_id: str | None, place: dict, as_of: str, lang: str) -> str:
+    """Where the reader of the letter can check the rule: the address's shared rent answer, else the city's rules."""
+    from web import share as SH
+
+    q = "?lang=es" if lang == "es" else ""
+    if address_id:
+        try:
+            a, _, d = SH.check_params(address_id.upper(), "rent", as_of)
+            return f"{SITE}/s/{a}/rent/{d}{q}"
+        except HTTPException:
+            pass
+    j = (place or {}).get("jurisdiction") or (place or {}).get("state")
+    return f"{SITE}/#/rules/{quote(j)}" if j else f"{SITE}/"
+
+
+def paper_address(body) -> tuple[str | None, str | None]:
+    """(street, 'City, ST 94118') for the PDF: the notice's address lines, which carry the ZIP."""
+    from web.notice import _address
+
+    return _address(body)
 
 
 # ------------------------------------------------------------------ the template
@@ -306,7 +354,7 @@ def build(body: LetterIn, result: dict) -> dict:
             T(" a month"),
         ]
         p1 += [T(f" from {long_date(eff, lang)}")] if eff else []
-        p1 += [T(f". That is a {pct(x['increase_pct'])} increase.")]
+        p1 += [T(f". That is {article(pct(x['increase_pct']))} {pct(x['increase_pct'])} increase.")]
     blocks.append({"k": "p", "s": p1})
 
     covered = (
@@ -316,14 +364,27 @@ def build(body: LetterIn, result: dict) -> dict:
     )
     covered += f" ({cite}). " if cite and cite.lower() not in law.lower() else ". "
     blocks.append({"k": "p", "s": [T(covered + says)]})
-    blocks.append({"k": "quote", "s": [T("“" + quote_text(rule.get("quote") or "") + "”")]})
-    if rule.get("url"):
+    # quote the sentence that states the figure this letter uses (letter_quote), else the rule's own quote
+    q, qurl = (
+        (rule["letter_quote"], rule.get("letter_quote_url"))
+        if rule.get("letter_quote") and cap.get("basis") == "period"
+        else (rule.get("quote"), rule.get("url"))
+    )
+    blocks.append({"k": "quote", "s": [T("“" + quote_text(q or "") + "”")]})
+    sources = [
+        {
+            "cite": cite,
+            "url": qurl,
+            "retrieved": retrieved(qurl, rule.get("retrieved")),
+        }
+    ]
+    if qurl:
         blocks.append(
             {
                 "k": "src",
                 "s": [
                     T("Fuente (texto original en inglés): " if es else "Source: "),
-                    T(short_url(rule["url"]), href=rule["url"]),
+                    T(short_url(qurl), href=qurl),
                 ],
             }
         )
@@ -374,20 +435,35 @@ def build(body: LetterIn, result: dict) -> dict:
         nr = (short.get("rules") or [{}])[0]
         st = (STATE_ES if es else STATE).get(state, state)
         if es:
+            by = f" (según {nr['stated_by']})" if nr.get("stated_by") else ""
+            under = (
+                f" para un aumento de menos del {pct(nr['below_pct'])}"
+                if nr.get("below_pct")
+                else ""
+            )
             txt = (
                 f"Además, el aviso llegó {n['days_given']} días antes del aumento. La ley de {st} exige "
-                f"{n['days_needed']} días de aviso por escrito, así que el aumento no puede entrar en vigor antes del "
-                f"{long_date(n['earliest'], lang)}."
+                f"{n['days_needed']} días de aviso por escrito{under}{by}, así que el"
+                f" aumento no puede entrar en vigor antes del {long_date(n['earliest'], lang)}."
             )
         else:
+            by = f" (as stated by {nr['stated_by']})" if nr.get("stated_by") else ""
+            under = f" for an increase under {pct(nr['below_pct'])}" if nr.get("below_pct") else ""
             txt = (
                 f"The notice also came {n['days_given']} days before the increase. {st} law requires "
-                f"{n['days_needed']} days' written notice, so the increase cannot take effect before "
-                f"{long_date(n['earliest'], lang)}."
+                f"{n['days_needed']} days' written notice{under}{by}, so the increase cannot"
+                f" take effect before {long_date(n['earliest'], lang)}."
             )
         blocks.append({"k": "p", "s": [T(txt)]})
         if nr.get("quote"):
             blocks.append({"k": "quote", "s": [T("“" + quote_text(nr["quote"]) + "”")]})
+            sources.append(
+                {
+                    "cite": nr.get("citation"),
+                    "url": nr.get("url"),
+                    "retrieved": retrieved(nr.get("url"), nr.get("retrieved")),
+                }
+            )
         if nr.get("url"):
             blocks.append(
                 {
@@ -490,9 +566,18 @@ def build(body: LetterIn, result: dict) -> dict:
     title = ("Carta al arrendador" if es else "Letter to landlord") + (
         f" - {street}" if street else ""
     )
+    p_street, p_city = paper_address(body)
+    paper = {
+        "street": p_street or street,
+        "city": p_city or city,
+        "sources": sources,
+        "verify": verify_url(body.address_id, result["place"], result["as_of"], lang),
+        "site": SITE,
+    }
     return {
         "lang": lang,
         "as_of": result["as_of"],
+        "paper": paper,
         "verdict": rent,
         "notice": short,
         "letter": {"blocks": blocks, "text": to_text(blocks, lang)},

@@ -16,60 +16,62 @@ const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 // ------------------------------------------------------------------ i18n --
 const STR = {
   en: {
-    nav: "Ask", title: "Ask the law", sub: "Plain questions, answered only from official law texts.",
-    ph_try: "Try ‘{q}’", ph_dock: "Ask anything…", ph_more: "Ask a follow-up…", send: "Ask", new_q: "New question",
+    nav: "Ask", title: "Ask the law", sub: "Plain questions, answered only from the quoted sources.",
+    ph_try: "Try ‘{q}’", ph_phone: "Rent, deposits, evictions…", ph_dock: "Ask anything…", ph_more: "Ask a follow-up…", send: "Ask", new_q: "New question",
     st1: "Finding the rules", st1n: "Found {n} rules", st1e: "Found {n} rules · building checked", st_eng: "Checking the building with the rules engine",
     st2: "Checking each quote in the source", st2n: "{v} of {n} quotes found word for word", st3: "Writing the answer",
     verbatim: "Found word for word in the source", not_verbatim: "Quote not found in the source text: needs review",
-    read: "Read the source", open_site: "Official site", foot: "As of {d} · Not legal advice · from {n} quoted laws",
+    read: "Read the source", open_site: "Official site", secondary: "{h} (summary, not the official text)", foot: "As of {d} · Not legal advice · from {n} quoted laws",
     foot1: "As of {d} · Not legal advice · from 1 quoted law", foot0: "As of {d} · Not legal advice",
     engine: "checked by the rules engine", closest: "Closest official source", built: "built {y}", units: "{n} units",
     units_min: "at least {n} units", built_unk: "year built unknown", units_unk: "units unknown", cached: "instant",
-    err: "Something went wrong. Please try again.", busy: "Many people are asking right now. Please try again in a minute.",
-    statement: "Clause & Effect answers only from {a} official law texts, quotes {b} every sentence, and says “unknown” {c} instead of guessing.",
+    err: "Something went wrong. Please try again.", offline: "You're offline. Check your connection and try again.", busy: "Many people are asking right now. Please try again in a minute.",
+    statement: "Clause & Effect answers only from {a} its quoted sources, cites {b} every point of law, and says “unknown” {c} instead of guessing.",
     try_these: "Try one of these", degraded: "Quick answer from our rules engine", you: "You asked",
-    show_law: "Show me the law", hide_law: "Hide the law", progress: "Progress",
+    show_law: "Show me the law", hide_law: "Hide the law", progress: "Progress", same_addr: "Same address", at: "Asking about", at_x: "Ask without this address",
     queued: "Waiting for the answer above…", up_next: "Up next", remove: "Remove", retry: "Try again", timeout: "That took too long. Please try again.",
     stale: "Answered for {d}.", ask_again: "Ask again for {d}", answer_as_of: "Answer as of {d}",
     source_n: "Source {n}", where: "Where do you rent?", type_addr: "Type your address", next: "What you can do",
-    privacy: "Not legal advice. I never ask who you are, and answers are logged without personal details for audit.",
-    privacy_short: "Not legal advice · no personal details kept",
+    privacy: "Not legal advice. For audits we keep each question with e-mails, phone numbers and street addresses removed, plus the answer; the public log shows only topic, place and rules.",
+    privacy_short: "Not legal advice · no personal details kept", privacy_more: "About privacy",
     help: "Get help", addr_ph: "Street and city, e.g. 6238 De Longpre Ave, Los Angeles", understood: "Following on from your question",
   },
   es: {
-    nav: "Preguntar", title: "Pregunte a la ley", sub: "Preguntas sencillas, respondidas solo con textos legales oficiales.",
-    ph_try: "Pruebe ‘{q}’", ph_dock: "Pregunte lo que quiera…", ph_more: "Haga otra pregunta…", send: "Preguntar", new_q: "Nueva pregunta",
+    nav: "Preguntar", title: "Pregunte a la ley", sub: "Preguntas sencillas, respondidas solo con las fuentes citadas.",
+    ph_try: "Pruebe ‘{q}’", ph_phone: "Renta, depósitos, desalojos…", ph_dock: "Pregunte lo que quiera…", ph_more: "Haga otra pregunta…", send: "Preguntar", new_q: "Nueva pregunta",
     st1: "Buscando las normas", st1n: "{n} normas encontradas", st1e: "{n} normas · edificio revisado", st_eng: "Revisando el edificio con el motor de reglas",
     st2: "Comprobando cada cita en la fuente", st2n: "{v} de {n} citas, palabra por palabra", st3: "Redactando la respuesta",
     verbatim: "Encontrada palabra por palabra en la fuente", not_verbatim: "Cita no encontrada en el texto fuente: requiere revisión",
-    read: "Leer la fuente", open_site: "Sitio oficial", foot: "Al {d} · No es asesoría legal · de {n} leyes citadas",
+    read: "Leer la fuente", open_site: "Sitio oficial", secondary: "{h} (resumen, no el texto oficial)", foot: "Al {d} · No es asesoría legal · de {n} leyes citadas",
     foot1: "Al {d} · No es asesoría legal · de 1 ley citada", foot0: "Al {d} · No es asesoría legal",
     engine: "revisado por el motor de reglas", closest: "Fuente oficial más cercana", built: "construido en {y}", units: "{n} unidades",
     units_min: "al menos {n} unidades", built_unk: "año de construcción desconocido", units_unk: "unidades desconocidas", cached: "al instante",
-    err: "Algo salió mal. Inténtelo de nuevo.", busy: "Mucha gente pregunta ahora mismo. Inténtelo de nuevo en un minuto.",
-    statement: "Clause & Effect responde solo con {a} textos legales oficiales, cita {b} cada frase y dice «desconocido» {c} en vez de adivinar.",
+    err: "Algo salió mal. Inténtelo de nuevo.", offline: "No tiene conexión a internet. Revise su conexión e inténtelo de nuevo.", busy: "Mucha gente pregunta ahora mismo. Inténtelo de nuevo en un minuto.",
+    statement: "Clause & Effect responde solo con {a} sus fuentes citadas, cita {b} la fuente de cada punto legal y dice «desconocido» {c} en vez de adivinar.",
     try_these: "Pruebe una de estas", degraded: "Respuesta rápida de nuestro motor de reglas", you: "Usted preguntó",
-    show_law: "Muéstreme la ley", hide_law: "Ocultar la ley", progress: "Progreso",
+    show_law: "Muéstreme la ley", hide_law: "Ocultar la ley", progress: "Progreso", same_addr: "Misma dirección", at: "Pregunta sobre", at_x: "Preguntar sin esta dirección",
     queued: "Esperando la respuesta anterior…", up_next: "A continuación", remove: "Quitar", retry: "Intentar de nuevo", timeout: "Tardó demasiado. Inténtelo de nuevo.",
     stale: "Respondido para el {d}.", ask_again: "Preguntar de nuevo para el {d}", answer_as_of: "Respuesta al {d}",
     source_n: "Fuente {n}", where: "¿Dónde alquila?", type_addr: "Escriba su dirección", next: "Lo que puede hacer",
-    privacy: "No es asesoría legal. Nunca pregunto quién es usted, y las respuestas se registran sin datos personales para auditoría.",
-    privacy_short: "No es asesoría legal · sin datos personales",
+    privacy: "No es asesoría legal. Para auditoría guardamos cada pregunta sin correos, teléfonos ni direcciones, y la respuesta; el registro público solo muestra tema, lugar y normas.",
+    privacy_short: "No es asesoría legal · sin datos personales", privacy_more: "Sobre la privacidad",
     help: "Pedir ayuda", addr_ph: "Calle y ciudad, p. ej. 6238 De Longpre Ave, Los Angeles", understood: "Siguiendo su pregunta",
   },
 };
 const sx = (l, k, v = {}) => (STR[l]?.[k] ?? STR.en[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? "");
 const s = (k, v = {}) => sx(lang(), k, v);
+const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
 // short placeholders that fit a phone's ask bar
 const PH = {
-  en: ["How much deposit can they ask?", "Can they raise my rent 8%?", "Can I be evicted for no reason?"],
-  es: ["¿Cuánto depósito pueden pedir?", "¿Me pueden subir la renta?", "¿Me pueden desalojar sin motivo?"],
+  en: ["How big can the deposit be?", "Can they raise my rent 8%?", "Evicted for no reason?"],
+  es: ["¿Cuánto depósito piden?", "¿Me suben la renta 8%?", "¿Desalojo sin motivo?"],
 };
 const narrow = () => matchMedia("(max-width: 640px)").matches;
-const phText = (q) => (narrow() ? q : s("ph_try", { q }));
+const phText = (q) => (narrow() ? s("ph_phone") : s("ph_try", { q })); // phones: neutral, not a copy of a suggestion
 const IMG = (n) => `/static/img/${n}.webp`;
 const ARROW = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
 const CHECK = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>`;
+const PIN = `<svg class="ask-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg>`;
 const CAL = `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>`;
 const EXT = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`;
 
@@ -79,7 +81,7 @@ let SUGGEST = { en: null, es: null };
 let mainEl = null, phTimer = null, io = null, askY = 0;
 // the same suggestions the server pre-warms (web/ask.py SUGGEST): the page paints at once, the server's list wins
 const SUGGEST_DEFAULT = {
-  en: ["How much deposit can my landlord ask for at 6238 De Longpre Ave?", "Can they raise my rent 8% in Hoboken?", "Can I be evicted without a reason in Berkeley?", "¿Cuánto me pueden cobrar por la solicitud?"],
+  en: ["How much deposit can my landlord ask for at 6238 De Longpre Ave?", "Can they raise my rent 8% in Hoboken?", "Can I be evicted without a reason in Berkeley?"],
   es: ["¿Cuánto depósito me pueden pedir en 6238 De Longpre Ave?", "¿Me pueden subir la renta un 8% en Hoboken?", "¿Me pueden desalojar sin motivo en Berkeley?", "¿Cuánto me pueden cobrar por la solicitud?"],
 };
 // dates in the answer's own language (not the page's), so an old English answer stays English after EN -> ES
@@ -89,13 +91,18 @@ const suggestions = () => SUGGEST[lang()] || SUGGEST_DEFAULT[lang()] || SUGGEST_
 async function fetchSuggestions() {
   const l = lang();
   if (SUGGEST[l]) return;
-  try { SUGGEST[l] = (await CE.api(`/api/ask/suggest?lang=${l}`)).questions; } catch { return; }
+  // chips are in the page's language only: the server's EN list also carries a Spanish question
+  try { SUGGEST[l] = (await CE.api(`/api/ask/suggest?lang=${l}`)).questions.filter((q) => l !== "en" || !/[¿¡]/.test(q)); } catch { return; }
   const box = mainEl && $(".ask-chips", mainEl);
   if (box && l === lang() && box.dataset.qs !== JSON.stringify(SUGGEST[l])) { box.outerHTML = chipsHTML(SUGGEST[l], false); }
 }
 const chipsHTML = (qs, anim = true) => `<div class="ask-chips${anim ? "" : " still"}" role="list" aria-label="${esc(s("try_these"))}" data-qs="${esc(JSON.stringify(qs))}">
         ${qs.map((q, i) => `<button type="button" role="listitem" class="ask-chip" data-ask="${esc(q)}" style="--i:${i}">${esc(q)}</button>`).join("")}
       </div>`;
+
+// the address looked up last (app.js keeps it for the session): the first question is about it, until cleared
+const homeAddr = () => { try { const a = JSON.parse(sessionStorage.getItem("ce.addr") || "null"); return a && a.id ? a : null; } catch { return null; } };
+const atHTML = () => { const a = homeAddr(); return a ? `<div class="ask-at" data-ask-at>${PIN}<span>${esc(s("at"))} <a href="#/a/${esc(a.id)}"><b>${esc(a.label)}</b></a></span><button type="button" class="ask-at-x" data-ask-at-x aria-label="${esc(s("at_x"))}">×</button></div>` : ""; };
 
 // ------------------------------------------------------------------ markup --
 const bar = (cls, ph, id) => `
@@ -113,12 +120,13 @@ function pageHTML(qs, { thread = THREAD.length > 0, still = false } = {}) {
     <section class="ask-hero" aria-labelledby="ask-h1">
       <h1 id="ask-h1" class="ask-h1">${esc(s("title"))}</h1>
       <p class="ask-sub">${esc(s("sub"))}</p>
+      ${atHTML()}
       <div class="ask-stage">
         ${bar("ask-bar--hero", phText((PH[lang()] || PH.en)[0]), "ask-q-hero")}
         <div class="ask-photo"><img src="${IMG("hero-justice")}" alt="" fetchpriority="high" decoding="async" data-ask-photo></div>
       </div>
       ${chipsHTML(qs)}
-      <p class="ask-privacy">${esc(s("privacy"))}</p>
+      <p class="ask-privacy"><span class="long">${esc(s("privacy"))}</span><span class="short"><span class="t">${esc(s("privacy_short"))}</span><button type="button" class="ask-info" data-ask-privacy aria-label="${esc(s("privacy_more"))}">ⓘ</button></span></p>
     </section>
     <div class="ask-thread-head"><h1 class="ask-h1 ask-h1--small">${esc(s("title"))}</h1><button type="button" class="linkish ask-new" data-ask-new>${esc(s("new_q"))}</button></div>
     <section class="ask-thread" aria-live="polite"></section>
@@ -177,33 +185,40 @@ const statementHTML = () => esc(s("statement", { a: "\u0001", b: "\u0002", c: "\
 // inline citation chips: a tap opens "Show me the law" at that quote
 const sup = (ns) => (ns || []).map((n) => `<button type="button" class="ask-sup" data-cite="${Number(n)}" aria-label="${esc(s("source_n", { n: Number(n) }))}">${Number(n)}</button>`).join("");
 
-function placeHTML(p, L = lang(), engine = false) {
+// The place line (Isaac 2026-10-04): an address the engine checked gets the full line with its building photo, the
+// same address again a compact "Same address · …"; a city or state a small pin and "Hoboken, NJ"; a definition none.
+function placeHTML(p, L = lang(), engine = false, prev = null) {
   if (!p) return "";
   const s = (k, v) => sx(L, k, v);
-  const bits = [];
   if (p.kind === "address") {
-    bits.push(p.year_built ? s("built", { y: p.year_built }) : s("built_unk"));
-    bits.push(p.units ? s("units", { n: p.units }) : p.units_min ? s("units_min", { n: p.units_min }) : s("units_unk"));
+    if (prev?.kind === "address" && prev.address_id === p.address_id) {
+      return `<div class="ask-place is-compact">${PIN}<div><span>${esc(s("same_addr"))}</span> <span class="sep">·</span> <a href="#/a/${esc(p.address_id)}"><b>${esc(String(p.label || "").split(",")[0])}</b></a>${engine ? ` <span class="sep">·</span> <span class="ask-eng-ok">${CHECK}${esc(s("engine"))}</span>` : ""}</div></div>`;
+    }
+    const bits = [p.year_built ? s("built", { y: p.year_built }) : s("built_unk"),
+      p.units ? s("units", { n: p.units }) : p.units_min ? s("units_min", { n: p.units_min }) : s("units_unk")];
+    const img = p.image ? `<img src="${IMG(p.image + "-sm")}" alt="" loading="lazy">` : `<span class="ask-place-dot" aria-hidden="true">${PIN}</span>`;
+    const eng = engine ? `<span class="ask-eng-ok">${CHECK}${esc(s("engine"))}</span>` : "";
+    return `<div class="ask-place">${img}<div><a href="#/a/${esc(p.address_id)}"><b>${esc(p.label)}</b></a>${bits.map((b) => ` <span class="ask-fact"><span class="sep">·</span> ${esc(b)}</span>`).join("")}${eng}</div></div>`;
   }
-  const img = p.image ? `<img src="${IMG(p.image + "-sm")}" alt="" loading="lazy">` : `<span class="ask-place-dot" aria-hidden="true">§</span>`;
-  const link = p.kind === "address" ? `<a href="#/a/${esc(p.address_id)}"><b>${esc(p.label)}</b></a>` : `<b>${esc(p.label)}</b>`;
-  const eng = engine ? ` <span class="sep">·</span> <span class="ask-eng-ok">${CHECK}${esc(s("engine"))}</span>` : "";
-  return `<div class="ask-place">${img}<div>${link}${bits.map((b) => ` <span class="sep">·</span> ${esc(b)}`).join("")}${eng}</div></div>`;
+  const label = p.kind === "city" && p.jurisdiction ? p.jurisdiction : p.label; // "Hoboken, NJ"
+  return `<div class="ask-place is-area">${PIN}<div><b>${esc(label)}</b></div></div>`;
 }
 
 function citeHTML(c, L = lang()) {
   const s = (k, v) => sx(L, k, v);
   const eng = c.engine && c.engine.result !== "applies" ? `<span class="ask-eng st-${esc(c.engine.result)}">${esc(c.engine.label)}${c.engine.missing_fact ? `: ${esc(c.engine.missing_fact)}` : ""}</span>` : "";
-  const vb = c.quoted_span ? (c.verbatim ? `<span class="ask-vb">${CHECK}${esc(s("verbatim"))}</span>` : `<span class="ask-vb no">${esc(s("not_verbatim"))}</span>`) : "";
+  // the quote is from another document than the cited law (web/source_notes.py): amber note instead of "word for word"
+  const note = c.source_note ? `<p class="src-note"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17.5v.01"/></svg><span><b>${esc(c.source_note.lead)}</b> ${esc(c.source_note.text)}</span></p>` : "";
+  const vb = note ? "" : c.quoted_span ? (c.verbatim ? `<span class="ask-vb">${CHECK}${esc(s("verbatim"))}</span>` : `<span class="ask-vb no">${esc(s("not_verbatim"))}</span>`) : "";
   const src = c.doc_id ? `<button type="button" class="linkish ask-src" data-doc="${esc(c.doc_id)}" data-rule="${esc(c.id)}">${esc(s("read"))}</button>`
     : "";
-  const site = c.source_url ? `<a class="ask-src" href="${esc(safeUrl(c.source_url))}" target="_blank" rel="noopener">${esc(s("open_site"))}${EXT}</a>` : "";
+  const site = c.source_url ? `<a class="ask-src" href="${esc(safeUrl(c.source_url))}" target="_blank" rel="noopener">${esc(c.secondary ? s("secondary", { h: host(c.source_url) }) : s("open_site"))}${EXT}</a>` : "";
   const quote = c.quoted_span ? `<blockquote>“${esc(c.quoted_span.replace(/\s+/g, " ").trim())}”</blockquote>` : `<p class="ask-req">${esc(c.requirement)}</p>`;
   return `<li class="ask-cite" data-n="${c.n}" style="--i:${c.n}">
     <span class="n" aria-hidden="true">${c.n}</span>
     <div class="ask-cite-body">
       ${quote}
-      <div class="ask-meta"><span>${esc([c.citation || c.jurisdiction_label, c.status === "in_force" ? "" : c.status_label].filter(Boolean).join(" · "))}</span>${eng}${vb}${src}${site}</div>
+      <div class="ask-meta"><span>${esc([c.citation || c.jurisdiction_label, c.status === "in_force" ? "" : c.status_label].filter(Boolean).join(" · "))}</span>${eng}${vb}${src}${site}</div>${note}
     </div></li>`;
 }
 
@@ -214,6 +229,8 @@ function sentHTML(b) {
   const m = /^(.*?)(\S+)\s*$/s.exec(b.text || "");
   return m ? `${esc(m[1])}<span class="ask-nw">${esc(m[2])}${chips}</span>` : chips;
 }
+// the place of the answer before this one in the thread (for "Same address · …")
+const prevPlace = (idx) => (idx > 0 ? THREAD[idx - 1]?.res?.place || null : null);
 const partsHTML = (parts) => (parts || []).map((b) => `<span class="ask-sent">${sentHTML(b)}</span>`).join(" ");
 
 function answerHTML(t, idx, { partial = false } = {}) {
@@ -221,7 +238,7 @@ function answerHTML(t, idx, { partial = false } = {}) {
   if (!r) return "";
   const parts = r.parts || r.body || [];
   if (partial) {
-    return `<div class="ask-a is-partial">${placeHTML(t.place)}${r.answer ? `<h2 class="ask-answer">${esc(r.answer)}</h2>` : ""}<p class="ask-body">${partsHTML(parts)}</p></div>`;
+    return `<div class="ask-a is-partial">${t.general ? "" : placeHTML(t.place, lang(), false, prevPlace(idx))}${r.answer ? `<h2 class="ask-answer">${esc(r.answer)}</h2>` : ""}<p class="ask-body">${partsHTML(parts)}</p></div>`;
   }
   const n = (r.citations || []).length;
   const L = r.lang || lang(), S = (k, v) => sx(L, k, v);
@@ -240,7 +257,7 @@ function answerHTML(t, idx, { partial = false } = {}) {
   const head = !r.answer ? "" : r.quiet ? `<p class="ask-lead">${esc(r.answer)}</p>` : `<h2 class="ask-answer">${esc(r.answer)}</h2>`;
   const when = r.asked_as_of ? `<p class="ask-when">${CAL}${esc(S("answer_as_of", { d: r.asked_label || fmtD(r.asked_as_of, L) }))}</p>` : "";
   return `<div class="ask-a${r.kind === "refusal" ? " is-refusal" : ""}${r.quiet ? " is-quiet" : ""}" data-turn="${idx}">
-    ${when}${placeHTML(r.place, L, r.engine_checked)}
+    ${when}${placeHTML(r.place, L, r.engine_checked, prevPlace(idx))}
     ${head}
     ${parts.length ? `<p class="ask-body">${partsHTML(parts)}</p>` : ""}
     ${summary}${askq}${quick}${note}${official}${steps}${help}
@@ -266,8 +283,9 @@ function turnHTML(t, idx, { fresh = false } = {}) {
     ${t.res?.followups?.length && idx === THREAD.length - 1 ? followupsHTML(t.res.followups) : ""}
   </article>`;
 }
+const errKey = (t) => (["busy", "timeout", "offline"].includes(t.err) ? t.err : "err");
 function errorHTML(t, idx) {
-  return `<div class="ask-a ask-err" role="alert"><p class="ask-err-msg">${esc(s(t.err === "busy" ? "busy" : t.err === "timeout" ? "timeout" : "err"))}</p>
+  return `<div class="ask-a ask-err" role="alert"><p class="ask-err-msg">${esc(s(errKey(t)))}</p>
     <button type="button" class="ask-retry" data-ask-retry="${idx}">${esc(s("retry"))}</button></div>`;
 }
 function drawThread() {
@@ -310,7 +328,7 @@ function updateTurn(idx, { reveal = false } = {}) {
   if (!t || !work) return;
   const cur = [...work.children].filter((c) => !c.classList.contains("leaving")).pop();
   if (t.state === "error") {
-    if (cur?.classList.contains("ask-err")) { $(".ask-err-msg", cur).textContent = s(t.err === "busy" ? "busy" : t.err === "timeout" ? "timeout" : "err"); return; }
+    if (cur?.classList.contains("ask-err")) { $(".ask-err-msg", cur).textContent = s(errKey(t)); return; }
     swapView(work, errorHTML(t, idx));
     return;
   }
@@ -416,6 +434,7 @@ function start(q) {
   turnEl(idx - 1)?.querySelector(".ask-next")?.remove(); // chips belong to the latest answer only
   th.insertAdjacentHTML("beforeend", turnHTML(THREAD[idx], idx, { fresh: true }));
   const turn = turnEl(idx);
+  turn.classList.add("is-pending");
   entered($(".ask-steps.enter", turn));
   userScrolled = false;
   requestAnimationFrame(() => turn.scrollIntoView({ block: "start", behavior: first || reduced() ? "auto" : "smooth" }));
@@ -452,7 +471,7 @@ async function run(idx) {
     const resp = await fetch("/api/ask", {
       method: "POST", signal: ctrl.signal,
       headers: { "content-type": "application/json", accept: "text/event-stream" },
-      body: JSON.stringify({ q: t.q, lang: lang(), as_of: CE.asOf(), history: historyFor(idx) }),
+      body: JSON.stringify({ q: t.q, lang: lang(), as_of: CE.asOf(), history: historyFor(idx), place: placeFor(idx) }),
     });
     if (resp.status === 429) throw Object.assign(new Error("busy"), { kind: "busy" });
     if (!resp.ok || !resp.body) throw new Error("http");
@@ -480,13 +499,18 @@ async function run(idx) {
             if (d.id === "writing") t.steps.cur = "writing";
             if (d.id === "partial") t.partial = d;
             if (d.id === "place") t.place = d.place;
+            if (d.id === "general") t.general = true;
             updateTurn(idx);
           });
         } else if (ev === "answer") {
           final = d;
           t.place = d.place;
           clearTimeout(timer);
-          paced(() => { t.res = final; t.state = "done"; updateTurn(idx, { reveal: true }); if (final.followups?.length) addChips(idx); });
+          paced(() => {
+            t.res = final; t.state = "done"; updateTurn(idx, { reveal: true }); if (final.followups?.length) addChips(idx);
+            // focus stays in the thread (not on <body>), without scrolling and without opening the phone keyboard
+            setTimeout(() => keepFocus(idx), 0);
+          });
           paced(done); // the next question can go while the follow-up chips are still being checked
         } else if (ev === "followups") {
           paced(() => { if (t.res) { t.res.followups = d.followups; addChips(idx); } });
@@ -497,13 +521,14 @@ async function run(idx) {
   } catch (e) {
     if (!final) {
       t.state = "error";
-      t.err = e.kind || (timedOut ? "timeout" : "err");
+      t.err = e.kind || (navigator.onLine === false ? "offline" : timedOut ? "timeout" : "err");
       paced(() => updateTurn(idx));
       if (location.hash.startsWith("#/ask/")) history.replaceState(history.state, "", "#/ask");
       paced(done);
     }
   } finally {
     clearTimeout(timer);
+    paced(() => turnEl(idx)?.classList.remove("is-pending")); // chips are in (or never coming): no blank screen below
   }
 }
 function retry(idx) {
@@ -517,6 +542,20 @@ function retry(idx) {
 }
 
 // the conversation so far, as the server returned it (nothing else leaves the tab)
+// after an answer, focus is never left on <body>: the follow-up box with a mouse or keyboard, the answer card on touch
+// screens (focusing an input there would open the keyboard over the answer)
+function keepFocus(idx) {
+  const ae = document.activeElement;
+  if (ae && ae !== document.body && document.body.contains(ae)) return;
+  const input = dockEl && $("input", dockEl);
+  if (input && matchMedia("(pointer: fine)").matches) { input.focus({ preventScroll: true }); return; }
+  const a = turnEl(idx)?.querySelector(".ask-a");
+  if (a) { a.tabIndex = -1; a.focus({ preventScroll: true }); }
+}
+function placeFor(idx) { // only the first question of a conversation; later turns carry the place themselves
+  const a = homeAddr();
+  return a && !historyFor(idx).length ? { kind: "address", address_id: a.id } : null;
+}
 function historyFor(idx) {
   return THREAD.slice(0, idx).filter((x) => x.res).slice(-5).map((x) => ({
     q: x.q, resolved_q: x.res.resolved_q || null, lang: x.res.lang || null, memo: x.res.memo || null, context: x.res.context || null,
@@ -586,6 +625,7 @@ function dock(mode) {
 // ------------------------------------------------------------------ placeholder: the suggestions take turns --
 function rotatePlaceholder() {
   const qs = PH[lang()] || PH.en;
+  if (narrow()) { clearInterval(phTimer); return; } // phones keep the neutral placeholder
   clearInterval(phTimer);
   const inp = $("#ask-q-hero", mainEl);
   if (!inp || qs.length < 2 || reduced()) return;
@@ -628,7 +668,8 @@ function relabel() {
   set(".ask-h1", s("title"));
   set(".ask-sub", s("sub"));
   set(".ask-new", s("new_q"));
-  set(".ask-privacy", s("privacy"));
+  set(".ask-privacy .long", s("privacy"));
+  set(".ask-privacy .short .t", s("privacy_short"));
   $$(".ask-sr", pg).forEach((el) => { el.textContent = el.closest(".ask-q") ? `${s("you")}: ` : s("title"); });
   const st = $(".ask-statement p", pg);
   if (st) st.innerHTML = statementHTML();
@@ -670,6 +711,13 @@ document.addEventListener("click", (e) => {
   const c = e.target.closest("[data-ask]");
   if (c && (c.closest(".ask-page") || c.closest(".ask-dock"))) { ask(c.dataset.ask); return; }
   if (e.target.closest("[data-ask-addr]")) { typeAddress(); return; }
+  if (e.target.closest("[data-ask-at-x]")) {
+    try { sessionStorage.removeItem("ce.addr"); } catch { /* private mode */ }
+    $$("[data-ask-at]").forEach((el) => el.remove());
+    $("#ask-q-hero", mainEl)?.focus();
+    return;
+  }
+  if (e.target.closest("[data-ask-privacy]")) { CE.openModal(s("privacy_more"), `<p class="lead-p">${esc(s("privacy"))}</p>`); return; }
   const uq = e.target.closest("[data-ask-unqueue]");
   if (uq) { QUEUE.splice(Number(uq.dataset.askUnqueue), 1); drawQueue(); return; }
   const rt = e.target.closest("[data-ask-retry]");
@@ -718,7 +766,7 @@ function navLink() {
   }
   $$('.tabs a[data-route="ask"], .footer-links a[href="#/ask"]').forEach((a) => { a.textContent = s("nav"); });
   $$('.tabs a[data-route="ask"]').forEach((a) => { a.dataset.short = s("nav"); });
-  if (location.hash.replace(/^#\/?/, "").split("/")[0] === "ask") $$('.tabs a[data-route="ask"]').forEach((a) => a.setAttribute("aria-current", "page"));
+  if (location.hash.replace(/^#\/?/, "").split(/[/?]/)[0] === "ask") $$('.tabs a[data-route="ask"]').forEach((a) => a.setAttribute("aria-current", "page"));
 }
 
 window.CEAsk = Object.freeze({

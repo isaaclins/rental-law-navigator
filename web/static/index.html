@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Clause &amp; Effect · Rental Housing Law Navigator</title>
-<meta name="description" content="Which rental housing rules apply at an address today, and what is about to change. Plain-language answers, each quoted from the law. Not legal advice.">
+<meta name="description" content="Which rental housing rules apply at an address today, and what is about to change. Plain-language answers, each quoted from its source. Not legal advice.">
 <meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
@@ -12,8 +12,18 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Clause &amp; Effect">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="preload" href="/static/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/InterVariable-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/static/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script data-cfasync="false">
+// first screen before app.js: home preloads its first street photo (the hero shell below shows it at once)
+if (!location.hash || location.hash === "#/" || location.hash === "#") {
+  var l = document.createElement("link");
+  l.rel = "preload"; l.as = "image"; l.fetchPriority = "high"; l.href = "/static/img/street/san-francisco.webp";
+  l.setAttribute("imagesrcset", "/static/img/street/san-francisco-m.webp 800w, /static/img/street/san-francisco.webp 1600w");
+  l.setAttribute("imagesizes", "(max-width: 640px) 100vw, 760px");
+  document.head.appendChild(l);
+}
+</script>
 <link rel="stylesheet" href="/static/app.css">
 <link rel="stylesheet" href="/static/mobile.css">
 <link rel="stylesheet" href="/static/features/any-address.css">
@@ -23,15 +33,28 @@
 <link rel="stylesheet" href="/static/features/check.css">
 <link rel="stylesheet" href="/static/features/compare.css">
 <link rel="stylesheet" href="/static/features/tour.css">
+<link rel="stylesheet" href="/static/features/typeahead.css">
 <link rel="stylesheet" href="/static/features/stats.css">
 <link rel="stylesheet" href="/static/features/ask.css">
 <link rel="stylesheet" href="/static/features/share.css">
 <link rel="stylesheet" href="/static/features/spring.css">
+<link rel="stylesheet" href="/static/features/shell.css">
+<link rel="stylesheet" href="/static/features/howmade.css">
+<link rel="stylesheet" href="/static/features/trylaw.css">
+<link rel="stylesheet" href="/static/features/mobile-v4.css">
 <link rel="icon" href="/static/icons/favicon-32.png" type="image/png">
+<!-- First screen before app.js boots (features/shell.css), in <head> so the picker script right after <main> can run
+     before the first paint. The home hero is pre-rendered from the real viewHome
+     markup by tests/make_shell.py (do not edit by hand; rerun it after changing the hero); app.js morphs its first
+     render into these nodes (no flash, no shift). Deep links get a route-shaped skeleton instead. -->
+<template id="shell-en"><!--shell-en--><div class="home" data-shell="home"><section class="hero"> <h1>Rental law, <span class="l2">for your address.</span></h1> <p class="lead">Rent limits, eviction rules, deposits, fees and screening, each quoted from its source. And what is about to change.</p> <div class="hero-media"> <form class="big-search" role="search" autocomplete="off" data-tour="search"> <div class="box"> <label class="bs-f bs-addr" for="hq"><span class="sr">Address</span> <input id="hq" type="search" role="combobox" aria-expanded="false" aria-controls="hs" aria-autocomplete="list" spellcheck="false" placeholder="Try ‘3515 Fillmore St’ or 07030" name="ce-find" autocomplete="off" autocorrect="off" autocapitalize="off" inputmode="search" enterkeyhint="search"></label> <label class="bs-f bs-date"><span class="bs-l">Answers as of</span><span class="bs-v" id="bs-v">Oct 1, 2026</span> <input type="date" id="bs-asof" min="2020-01-01" max="2030-12-31" value="2026-10-01" aria-label="Answers as of"></label> <button class="go" type="submit" aria-label="Look up"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button> </div> <ul class="suggest" id="hs" role="listbox" hidden=""></ul> </form> <div class="slides" aria-roledescription="carousel" aria-label="Buildings in the covered cities"><a class="slide on" href="#/a/A0016" data-i="0" style="--op:50% 60%"><img src="/static/img/street/san-francisco.webp" srcset="/static/img/street/san-francisco-m.webp 800w, /static/img/street/san-francisco.webp 1600w" sizes="(max-width: 640px) 100vw, 760px" alt="" loading="eager" decoding="async" data-street="" onerror="if(!this.dataset.f){this.dataset.f=1;this.removeAttribute('srcset');this.src='/static/img/san-francisco.webp';this.classList.add('cutout')}else this.remove()" fetchpriority="high"> <span class="slide-cap"><b>San Francisco</b>3515 Fillmore St<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0065" data-i="1" style="--op:50% 60%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>Boston</b>63 Bailey St<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0001" data-i="2" style="--op:50% 75%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>Los Angeles</b>6238 De Longpre Ave<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0002" data-i="3" style="--op:50% 60%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>Hoboken</b>1031-1035 Clinton St<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0019" data-i="4" style="--op:50% 60%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>San Diego</b>3820 Haines St<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0009" data-i="5" style="--op:50% 60%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>Cambridge</b>322-322.5 Western Ave<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div> <div class="car-ctl"><button type="button" class="car-b" data-car="-1" aria-label="Previous building"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button><button type="button" class="car-b" data-car="pause" aria-label="Pause"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg></button><button type="button" class="car-b" data-car="1" aria-label="Next building"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button></div> </div> <p class="hero-nla"><strong>Not legal advice.</strong> Every rule quoted word for word from its source. <button type="button" class="linkish" data-nla-open="">About this information</button></p> <div class="tour-slot" data-tour-slot="home"></div> </section></div><!--/shell-en--></template>
+<template id="shell-es"><!--shell-es--><div class="home" data-shell="home"><section class="hero"> <h1>Derecho de alquiler, <span class="l2">para su dirección.</span></h1> <p class="lead">Límites de renta, reglas de desalojo, depósitos, cargos y selección de inquilinos, cada uno citado de su fuente. Y lo que está por cambiar.</p> <div class="hero-media"> <form class="big-search" role="search" autocomplete="off" data-tour="search"> <div class="box"> <label class="bs-f bs-addr" for="hq"><span class="sr">Dirección</span> <input id="hq" type="search" role="combobox" aria-expanded="false" aria-controls="hs" aria-autocomplete="list" spellcheck="false" placeholder="Ej.: 3515 Fillmore St o 07030" name="ce-find" autocomplete="off" autocorrect="off" autocapitalize="off" inputmode="search" enterkeyhint="search"></label> <label class="bs-f bs-date"><span class="bs-l">Respuestas al</span><span class="bs-v" id="bs-v">1 oct 2026</span> <input type="date" id="bs-asof" min="2020-01-01" max="2030-12-31" value="2026-10-01" aria-label="Respuestas al"></label> <button class="go" type="submit" aria-label="Buscar"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button> </div> <ul class="suggest" id="hs" role="listbox" hidden=""></ul> </form> <div class="slides" aria-roledescription="carousel" aria-label="Edificios de las ciudades cubiertas"><a class="slide on" href="#/a/A0016" data-i="0" style="--op:50% 60%"><img src="/static/img/street/san-francisco.webp" srcset="/static/img/street/san-francisco-m.webp 800w, /static/img/street/san-francisco.webp 1600w" sizes="(max-width: 640px) 100vw, 760px" alt="" loading="eager" decoding="async" data-street="" onerror="if(!this.dataset.f){this.dataset.f=1;this.removeAttribute('srcset');this.src='/static/img/san-francisco.webp';this.classList.add('cutout')}else this.remove()" fetchpriority="high"> <span class="slide-cap"><b>San Francisco</b>3515 Fillmore St<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0065" data-i="1" style="--op:50% 60%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>Boston</b>63 Bailey St<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0001" data-i="2" style="--op:50% 75%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>Los Angeles</b>6238 De Longpre Ave<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0002" data-i="3" style="--op:50% 60%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>Hoboken</b>1031-1035 Clinton St<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0019" data-i="4" style="--op:50% 60%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>San Diego</b>3820 Haines St<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="slide" href="#/a/A0009" data-i="5" style="--op:50% 60%" aria-hidden="true" tabindex="-1"> <span class="slide-cap"><b>Cambridge</b>322-322.5 Western Ave<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div> <div class="car-ctl"><button type="button" class="car-b" data-car="-1" aria-label="Edificio anterior"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button><button type="button" class="car-b" data-car="pause" aria-label="Pausa"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg></button><button type="button" class="car-b" data-car="1" aria-label="Edificio siguiente"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button></div> </div> <p class="hero-nla"><strong>No es asesoría legal.</strong> Cada regla citada palabra por palabra de su fuente. <button type="button" class="linkish" data-nla-open="">Sobre esta información</button></p> <div class="tour-slot" data-tour-slot="home"></div> </section></div><!--/shell-es--></template>
+<template id="shell-page"><div class="ce-sk" data-shell="skeleton" aria-hidden="true"><header class="page-head"><h1><i class="ce-sk-x" style="width:8.5ch"></i><br><i class="ce-sk-x" style="width:6ch"></i></h1><p><i class="ce-sk-x" style="width:min(30ch,90%)"></i></p></header><div class="ce-sk-card"><div class="ce-sk-row"><i class="ce-sk-x ce-sk-q"></i><i class="ce-sk-x ce-sk-a"></i></div><div class="ce-sk-row"><i class="ce-sk-x ce-sk-q"></i><i class="ce-sk-x ce-sk-a"></i></div><div class="ce-sk-row"><i class="ce-sk-x ce-sk-q"></i><i class="ce-sk-x ce-sk-a"></i></div></div></div></template>
+<template id="shell-addr"><article class="addr is-loading ce-sk" data-shell="skeleton" aria-hidden="true"><section class="ahero"><div class="gal"></div><div class="addr-head"><h1><i class="ce-sk-x" style="width:9ch"></i></h1><p class="addr-sub"><i class="ce-sk-x" style="width:14ch"></i></p><div class="steps-card"><div class="ce-sk-row"><i class="ce-sk-x ce-sk-q"></i></div><div class="ce-sk-row"><i class="ce-sk-x ce-sk-q"></i></div><div class="ce-sk-row"><i class="ce-sk-x ce-sk-q"></i></div></div></div></section></article></template>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
-<p class="strip"><span class="strip-l" data-i18n="strip">Housing law from official sources, quoted word for word. Not legal advice.</span><span class="strip-s" data-i18n="strip_s">Official sources, quoted. Not legal advice.</span> <button type="button" class="linkish strip-more" data-nla-open data-i18n="strip_more">About this information</button><button type="button" class="strip-i" data-nla-open aria-label="About this information"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg></button></p>
+<p class="strip"><span class="strip-l" data-i18n="strip">Housing law, quoted word for word from its sources. Not legal advice.</span><span class="strip-s" data-i18n="strip_s">Quoted word for word. Not legal advice.</span><span class="strip-xs" data-i18n="strip_xs">Quoted sources. Not legal advice.</span> <button type="button" class="linkish strip-more" data-nla-open data-i18n="strip_more">About this information</button><button type="button" class="linkish strip-ab" data-nla-open data-i18n="strip_ab">About</button><button type="button" class="strip-i" data-nla-open aria-label="About this information"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg></button></p>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -49,7 +72,7 @@
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       </button>
       <label class="tool asof" id="asof-ctl" data-tour="asof">
-        <svg class="ico cal-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><span class="asof-l" id="asof-label"></span><svg class="ico caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+        <svg class="ico cal-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><span class="asof-l" id="asof-label">As of Oct 1, 2026</span><svg class="ico caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
         <input type="date" id="asof" min="2020-01-01" max="2030-12-31" aria-label="Answers as of">
       </label>
       <button type="button" class="tool asof-reset off" id="asof-reset" tabindex="-1" aria-hidden="true">×</button>
@@ -64,10 +87,35 @@
 </header>
 
 <main id="main" tabindex="-1"></main>
+<script data-cfasync="false">
+(function () {
+  var m = document.getElementById("main"), v = location.hash.replace(/^#\/?/, "").split("/")[0], lang;
+  try { lang = localStorage.getItem("lang"); } catch (e) { /* private mode */ }
+  lang = lang || (/^es\b/i.test(navigator.language || "") ? "es" : "en"); // the same rule as app.js
+  var tpl = !v ? "shell-" + lang : v === "a" ? "shell-addr" : "shell-page";
+  m.dataset.view = v || "home";
+  if (!v) document.documentElement.classList.add("is-home");
+  var t = document.getElementById(tpl);
+  if (m.firstElementChild) return; // app.js already rendered (should a proxy ever defer this script): leave it
+  if (t && t.content.firstElementChild) m.appendChild(t.content.firstElementChild.cloneNode(true));
+  // the header in the visitor's language and with its date already, so nothing changes when app.js takes over
+  var ES = /*es*/{"as_of":"Al","cancel":"Cancelar","footer_body":"Resúmenes en lenguaje sencillo de la ley, de fuentes obtenidas el 1 oct 2026. Pueden estar incompletos o tener errores: verifique siempre la fuente citada.","footer_meta":"Solo datos públicos. Sin datos de clientes, residentes ni precios.","footer_s":"Resúmenes sencillos. Revise siempre la fuente citada.","nav_audit":"Fuentes","nav_changes":"Cambios","nav_lookup":"Dirección","nav_rules":"Reglas","nla":"No es asesoría legal.","nla_more":"Sobre esta información","skip":"Saltar al contenido","strip":"Ley de vivienda, citada palabra por palabra de sus fuentes. No es asesoría legal.","strip_ab":"Más","strip_more":"Sobre esta información","strip_s":"Citas textuales. No es asesoría legal.","strip_xs":"Fuentes citadas. No es asesoría legal."}/*/es*/, asof = null, lab = document.getElementById("asof-label");
+  if (lang === "es") {
+    document.documentElement.lang = "es";
+    document.querySelectorAll("[data-i18n]").forEach(function (e) { if (ES[e.dataset.i18n]) e.textContent = ES[e.dataset.i18n]; });
+  }
+  try { asof = sessionStorage.getItem("asof"); } catch (e) { /* private mode */ }
+  if (lab && !asof) { // the same label as app.js asofLabel() for the default date
+    var d = new Date("2026-10-01T12:00:00"), loc = lang === "es" ? "es-US" : "en-US", w = lang === "es" ? ES.as_of : "As of";
+    lab.textContent = innerWidth > 640 ? w + " " + d.toLocaleDateString(loc, { month: "short", day: "numeric", year: "numeric" })
+      : (innerWidth < 375 ? "" : w + " ") + d.toLocaleDateString(loc, { month: "short", day: "numeric" });
+  }
+})();
+</script>
 
 <footer class="footer">
   <div class="footer-inner">
-    <p class="footer-nla"><strong data-i18n="nla">Not legal advice.</strong> <span data-i18n="footer_body">Plain-language summaries of official texts retrieved Oct 1, 2026. They can be incomplete or wrong, so always check the cited source.</span> <button type="button" class="linkish" data-nla-open data-i18n="nla_more">More</button></p>
+    <p class="footer-nla"><strong data-i18n="nla">Not legal advice.</strong> <span class="nla-s" data-i18n="footer_s">Plain summaries. Always check the cited source.</span><span class="nla-l" data-i18n="footer_body">Plain-language summaries of the law, from sources retrieved Oct 1, 2026. They can be incomplete or wrong, so always check the cited source.</span> <button type="button" class="linkish" data-nla-open data-i18n="nla_more">More</button></p>
     <nav class="footer-links" aria-label="Footer">
       <a href="#/" data-i18n="nav_lookup">Lookup</a>
       <a href="#/changes" data-i18n="nav_changes">Changes</a>
@@ -90,7 +138,7 @@
   <div class="cmdk-card">
     <div class="cmdk-input">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input type="text" role="combobox" aria-expanded="true" aria-controls="cmdk-list" aria-autocomplete="list" autocomplete="off" spellcheck="false">
+      <input id="cmdk-q" name="ce-find-sheet" type="search" role="combobox" aria-expanded="true" aria-controls="cmdk-list" aria-autocomplete="list" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search" enterkeyhint="search">
       <button type="button" class="linkish cmdk-x" data-cmdk-close data-i18n="cancel">Cancel</button>
     </div>
     <ul id="cmdk-list" class="cmdk-list" role="listbox"></ul>
@@ -99,6 +147,7 @@
 
 <div id="toasts" class="toasts" aria-live="polite"></div>
 <script data-cfasync="false" src="/static/sentences.js"></script>
+<script data-cfasync="false" src="/static/features/howmade.js" type="module"></script>
 <script data-cfasync="false" src="/static/app.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/any-address.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/pwa.js" type="module"></script>
@@ -108,9 +157,12 @@
 <script data-cfasync="false" src="/static/features/notice.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/compare.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/tour.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/typeahead.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/stats.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/ask.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/share.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/spring.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/trylaw.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/mobile-v4.js" type="module"></script>
 </body>
 </html>

@@ -8,12 +8,15 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const CE = window.CE;
+import { sayButton, bindSay } from "./say.js";
 
-{ // the stylesheet travels with the module
+// the stylesheet travels with the module; views await it (at most 1.2 s) so the first paint already has its layout
+const cssLink = (href) => new Promise((ok) => {
   const l = document.createElement("link");
-  l.rel = "stylesheet"; l.href = new URL("./letter.css", import.meta.url).href;
-  document.head.appendChild(l);
-}
+  l.rel = "stylesheet"; l.href = href; l.onload = l.onerror = () => ok();
+  document.head.appendChild(l); setTimeout(ok, 1200);
+});
+export const cssReady = cssLink(new URL("./letter.css", import.meta.url).href);
 
 const EN = {
   cta: "Write a letter to my landlord", cta_sub: "Ready in a second. English or Spanish.", new: "New",
@@ -21,7 +24,7 @@ const EN = {
   side_h: "What your letter says", side_p: "Filled in from your rent check. No AI writing, same answer every time.",
   copy: "Copy", print: "Print", pdf: "PDF", share: "Send…", copied: "Letter copied", saved: "PDF saved",
   hint: "Fill in the <mark>[yellow]</mark> parts. They stay on this device.", nla: "Not legal advice.",
-  lang_g: "Language of the letter", loading: "Writing your letter…", err: "Something went wrong. Try again.",
+  lang_g: "Language of the letter", lang_l: "Letter in", loading: "Writing your letter…", err: "Something went wrong. Try again.",
   busy: "Too many checks. Wait a minute.",
 };
 const ES = {
@@ -30,7 +33,7 @@ const ES = {
   side_h: "Qué dice su carta", side_p: "Completada con su revisión de renta. Sin escritura por IA: la misma respuesta cada vez.",
   copy: "Copiar", print: "Imprimir", pdf: "PDF", share: "Enviar…", copied: "Carta copiada", saved: "PDF guardado",
   hint: "Complete las partes en <mark>[amarillo]</mark>. Se quedan en este dispositivo.", nla: "No es asesoría legal.",
-  lang_g: "Idioma de la carta", loading: "Escribiendo su carta…", err: "Algo salió mal. Inténtelo de nuevo.",
+  lang_g: "Idioma de la carta", lang_l: "Carta en", loading: "Escribiendo su carta…", err: "Algo salió mal. Inténtelo de nuevo.",
   busy: "Demasiadas consultas. Espere un minuto.",
 };
 const t = (k) => (CE.lang() === "es" && ES[k]) || EN[k] || k;
@@ -43,7 +46,7 @@ const I = {
 };
 
 // ------------------------------------------------------------------ state (memory only)
-const vals = { name: "", unit: "", landlord: "" }; // what the reader types: never sent, never stored
+const vals = { name: "", unit: "", landlord: "", landlord_street: "", landlord_city: "" }; // what the reader types: never sent, never stored
 let L = { key: null, data: null, lang: null }; // data: {en, es} responses of /api/letter for the current check
 
 const isRent = (v) => v.id === "rent" && (v.code === "over" || v.code === "over_max");
@@ -63,6 +66,25 @@ export async function post(url, body) {
 }
 const todayIso = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; };
 
+// the landlord's address: a recipient block the browser adds to the letter (for the window envelope); never sent
+const TO_FIELDS = {
+  en: { landlord_street: "[Landlord's street address]", landlord_city: "[City, State ZIP]" },
+  es: { landlord_street: "[Dirección del arrendador]", landlord_city: "[Ciudad, estado y código postal]" },
+};
+const TO_LABELS = {
+  en: { landlord_street: "Landlord's street address", landlord_city: "Landlord's city, state and ZIP" },
+  es: { landlord_street: "Dirección del arrendador", landlord_city: "Ciudad, estado y código postal del arrendador" },
+};
+const isLetter = (d) => d.letter.blocks.some((b) => b.k === "salute");
+function withTo(d) {
+  if (!isLetter(d) || d.letter.blocks.some((b) => b.k === "to")) return d;
+  const lg = d.lang === "es" ? "es" : "en";
+  const blocks = [...d.letter.blocks];
+  const at = blocks.findIndex((b) => b.k === "from") + 1;
+  blocks.splice(at, 0, { k: "to", s: [{ f: "landlord" }, { br: 1 }, { f: "landlord_street" }, { br: 1 }, { f: "landlord_city" }] });
+  return { ...d, letter: { ...d.letter, blocks }, fields: { ...TO_FIELDS[lg], ...d.fields }, field_labels: { ...TO_LABELS[lg], ...d.field_labels } };
+}
+
 // ------------------------------------------------------------------ rendering
 // segments: {t} text (b bold, href link, v a value from the engine, over: over the limit, ph: a value still missing),
 // {f} a field the reader fills in, {br} a line break
@@ -75,6 +97,7 @@ function segHtml(s, fields, labels, v) {
   return s.b ? `<strong>${esc(s.t)}</strong>` : esc(s.t);
 }
 export function letterHtml(d, v = vals) {
+  d = withTo(d);
   return d.letter.blocks.map((b, i) => {
     const inner = b.s.map((s) => segHtml(s, d.fields, d.field_labels, v)).join("");
     const st = `style="--i:${i}"`;
@@ -109,93 +132,26 @@ export function fit(el) {
 
 // ------------------------------------------------------------------ plain text and PDF
 function blocksOf(d) { return d.letter.blocks; }
+// what Listen reads: the letter without its source links; a field not filled in is read as its label
+function sayText(d, v = vals) {
+  return blocksOf(d).filter((b) => b.k !== "src").map((b) => b.s.map((s) => (s.br ? "\n" : s.f ? v[s.f] || String(d.fields[s.f] || "").replace(/[[\]]/g, "") : s.t)).join("")).join("\n\n");
+}
 export function toText(d, v = vals) {
-  return blocksOf(d).map((b) => b.s.map((s) => (s.br ? "\n" : s.f ? v[s.f] || d.fields[s.f] : s.href || s.t)).join("")).join("\n\n") + "\n";
+  d = withTo(d);
+  return d.letter.blocks.map((b) => (b.k === "to"
+    ? b.s.filter((s) => s.f && v[s.f]?.trim()).map((s) => v[s.f].trim()).join("\n")
+    : b.s.map((s) => (s.br ? "\n" : s.f ? v[s.f] || d.fields[s.f] : s.href || s.t)).join(""))).filter(Boolean).join("\n\n") + "\n";
 }
 
-// A one-file PDF writer for this letter: Helvetica (the PDF base fonts, WinAnsi), US Letter, links as annotations.
-// Line breaks are measured with the browser's Helvetica/Arial metrics (Arial and Liberation Sans share them).
-const WIN = { "“": 0x93, "”": 0x94, "‘": 0x91, "’": 0x92, "–": 0x96, "—": 0x97, "…": 0x85, "€": 0x80, "•": 0x95 };
-const winAnsi = (s) => [...s.replace(/→/g, "->")].map((ch) => { const c = ch.codePointAt(0); return c < 256 ? ch : WIN[ch] ? String.fromCharCode(WIN[ch]) : "?"; }).join("");
-const pdfStr = (s) => "(" + winAnsi(s).replace(/[\\()]/g, (m) => "\\" + m) + ")";
-const ctx2d = document.createElement("canvas").getContext("2d");
-export function letterPdf(d, v = vals) {
-  const PW = 612, PH = 792, M = 72, MAXW = PW - 2 * M;
-  const FONT = { r: "/F1", b: "/F2", i: "/F3" };
-  const css = { r: "", b: "bold ", i: "italic " };
-  const width = (s, f, size) => { ctx2d.font = `${css[f]}${size}px Helvetica, Arial, "Liberation Sans", sans-serif`; return ctx2d.measureText(s).width; };
-  const pages = [[]], annots = [[]];
-  let y = PH - M;
-  const newPage = () => { pages.push([]); annots.push([]); y = PH - M; };
-  for (const b of blocksOf(d)) {
-    const quote = b.k === "quote", src = b.k === "src";
-    const size = src ? 9 : quote ? 11 : 11, lead = src ? 12 : 15.5, indent = quote ? 16 : 0;
-    // runs -> words with their font
-    const words = [[]];
-    for (const s of b.s) {
-      if (s.br) { words.push([]); continue; }
-      const f = s.b || b.k === "title" ? "b" : quote ? "i" : "r";
-      const text = s.f ? v[s.f] || "_".repeat(s.f === "unit" ? 8 : 18) : s.t;
-      for (const part of text.split(/(\s+)/)) if (part) words[words.length - 1].push({ text: part, f, href: s.href });
-    }
-    const lines = [];
-    for (const hard of words) {
-      let line = [], w = 0;
-      for (const wd of hard) {
-        const ww = width(wd.text, wd.f, size);
-        if (/^\s+$/.test(wd.text)) { if (line.length) { line.push({ ...wd, w: ww }); w += ww; } continue; }
-        if (w + ww > MAXW - indent && line.length) {
-          while (line.length && /^\s+$/.test(line[line.length - 1].text)) w -= line.pop().w;
-          lines.push(line); line = []; w = 0;
-        }
-        line.push({ ...wd, w: ww }); w += ww;
-      }
-      lines.push(line);
-    }
-    if (y - lines.length * lead < M) newPage();
-    const top = y;
-    for (const line of lines) {
-      let x = M + indent;
-      if (b.k === "title") x = M + (MAXW - line.reduce((a, wd) => a + wd.w, 0)) / 2;
-      const grey = src ? "0.38 0.4 0.44 rg" : "0 0.047 0.122 rg";
-      for (const wd of line) {
-        if (!/^\s+$/.test(wd.text)) {
-          const col = wd.href ? "0.039 0.227 0.549 rg" : grey;
-          pages.at(-1).push(`BT ${col} ${FONT[wd.f]} ${size} Tf 1 0 0 1 ${x.toFixed(2)} ${(y - size).toFixed(2)} Tm ${pdfStr(wd.text)} Tj ET`);
-          if (wd.href) annots.at(-1).push({ rect: [x, y - size - 2, x + wd.w, y + 1], url: wd.href });
-        }
-        x += wd.w;
-      }
-      y -= lead;
-    }
-    if (quote) pages.at(-1).push(`0 0.149 0.392 RG 2 w ${M + 1} ${(top - size * 0.15).toFixed(2)} m ${M + 1} ${(y + lead - size - 3).toFixed(2)} l S`);
-    y -= src ? 10 : b.k === "quote" ? 4 : 10;
-  }
-  // assemble
-  const objs = [];
-  const add = (s) => { objs.push(s); return objs.length; };
-  const fonts = ["Helvetica", "Helvetica-Bold", "Helvetica-Oblique"].map((n) => add(`<< /Type /Font /Subtype /Type1 /BaseFont /${n} /Encoding /WinAnsiEncoding >>`));
-  const pid = add(""); // the page tree, written once its kids are known
-  const kids = [];
-  pages.forEach((ops, i) => {
-    const content = ops.join("\n");
-    const cid = add(`<< /Length ${content.length} >>\nstream\n${content}\nendstream`);
-    const aids = annots[i].map((a) => add(`<< /Type /Annot /Subtype /Link /Rect [${a.rect.map((n) => n.toFixed(2)).join(" ")}] /Border [0 0 0] /A << /S /URI /URI ${pdfStr(a.url)} >> >>`));
-    kids.push(add(`<< /Type /Page /Parent ${pid} 0 R /MediaBox [0 0 ${PW} ${PH}] /Resources << /Font << /F1 ${fonts[0]} 0 R /F2 ${fonts[1]} 0 R /F3 ${fonts[2]} 0 R >> >> /Contents ${cid} 0 R${aids.length ? ` /Annots [${aids.map((n) => n + " 0 R").join(" ")}]` : ""} >>`));
-  });
-  objs[pid - 1] = `<< /Type /Pages /Kids [${kids.map((k) => k + " 0 R").join(" ")}] /Count ${kids.length} >>`;
-  const info = add(`<< /Title ${pdfStr(d.title)} /Producer (Clause & Effect) >>`);
-  const cat = add(`<< /Type /Catalog /Pages ${pid} 0 R >>`);
-  let out = "%PDF-1.4\n%\xE2\xE3\xCF\xD3\n";
-  const offs = [];
-  objs.forEach((o, i) => { offs.push(out.length); out += `${i + 1} 0 obj\n${o}\nendobj\n`; });
-  const xref = out.length;
-  out += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n${offs.map((o) => String(o).padStart(10, "0") + " 00000 n \n").join("")}`;
-  out += `trailer\n<< /Size ${objs.length + 1} /Root ${cat} 0 R /Info ${info} 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
-  const bytes = new Uint8Array(out.length);
-  for (let i = 0; i < out.length; i++) bytes[i] = out.charCodeAt(i) & 255;
-  return new Blob([bytes], { type: "application/pdf" });
+// The PDF and the printed page: features/paper.js (loaded when a letter or notice opens, fonts included), so the
+// tap on PDF or Send… builds the file at once and keeps its user gesture (iOS share sheet).
+let PAPER = null;
+export const paperKit = () => import("./paper.js").then(async (P) => { await P.load(); PAPER = P; return P; });
+export async function letterPdf(d, v = vals) {
+  const P = PAPER || (await paperKit());
+  return P.pdf(P.model(d, v));
 }
+const pdfNow = (d, v) => (PAPER ? Promise.resolve(PAPER.pdf(PAPER.model(d, v))) : letterPdf(d, v));
 export const fileName = (d) => d.title.replace(/[\\/:*?"<>|]+/g, " ").trim() + ".pdf";
 
 export async function copyText(s) {
@@ -210,6 +166,7 @@ export const phone = () => matchMedia("(max-width: 640px)").matches;
 export const canShare = () => typeof navigator.share === "function" && (phone() || matchMedia("(pointer: coarse)").matches);
 
 export async function letterView(main, { id, S, backHref }) {
+  await cssReady;
   const body = S?.body;
   if (!body || !canWrite(S.result)) { CE.navigate(backHref.slice(1)); return; }
   const key = JSON.stringify(body);
@@ -221,10 +178,10 @@ export async function letterView(main, { id, S, backHref }) {
     <header class="lt-head">
       <a class="ck-back" href="${esc(backHref)}">${I.back}${esc(t("back"))}</a>
       <div class="lt-title"><h1><span class="lt-h-l">${esc(t("h"))}</span><span class="lt-h-s">${esc(t("h_s"))}</span></h1>
-        <div class="lt-seg" role="group" aria-label="${esc(t("lang_g"))}"><button type="button" data-ll="en" lang="en"><span class="lt-ll">English</span><span class="lt-ls">EN</span></button><button type="button" data-ll="es" lang="es"><span class="lt-ll">Español</span><span class="lt-ls">ES</span></button></div></div>
+        <div class="lt-langs"><span class="lt-lang-l" aria-hidden="true">${esc(t("lang_l"))}</span><div class="lt-seg" role="group" aria-label="${esc(t("lang_g"))}"><button type="button" data-ll="en" lang="en"><span class="lt-ll">English</span><span class="lt-ls">EN</span></button><button type="button" data-ll="es" lang="es"><span class="lt-ll">Español</span><span class="lt-ls">ES</span></button></div></div></div>
     </header>
     <div class="lt-grid">
-      <div class="lt-col"><div class="lt-sheet" aria-live="polite"><p class="lt-wait">${esc(t("loading"))}</p></div>
+      <div class="lt-col">${sayButton(ui, "linkish lt-say")}<div class="lt-sheet" aria-live="polite"><p class="lt-wait">${esc(t("loading"))}</p></div>
         ${actsHtml("lt-acts-m")}<p class="lt-hint">${t("hint")}</p></div>
       <aside class="lt-side"></aside>
     </div></article>`;
@@ -269,23 +226,43 @@ export async function letterView(main, { id, S, backHref }) {
   });
   sheet.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.closest(".lt-f")) { e.preventDefault(); e.target.blur(); } });
   bindActions($(".lt-view", main), () => L.data[lang()], vals);
+  bindSay($(".lt-view", main), () => sayText(L.data[lang()]), lang);
 }
 
+// Print: the same document as the PDF, as HTML (.pp, letter.css @media print), refreshed before every print
+// (also Ctrl+P / the browser menu)
+async function printPrep(d, v) {
+  const P = PAPER || (await paperKit().catch(() => null));
+  const col = document.querySelector(".lt-view .lt-col");
+  if (!P || !col || !d) return;
+  const m = P.model(d, v);
+  let box = col.querySelector(".pp-print");
+  if (!box) { box = document.createElement("div"); box.className = "pp-print"; box.setAttribute("aria-hidden", "true"); col.appendChild(box); }
+  box.innerHTML = P.html(m);
+  let st = document.getElementById("pp-page-css");
+  if (!st) { st = Object.assign(document.createElement("style"), { id: "pp-page-css" }); document.head.appendChild(st); }
+  st.textContent = P.printCss(m);
+}
+let printDoc = null;
+addEventListener("beforeprint", () => { if (printDoc && PAPER) { const [d, v] = printDoc(); if (d) printPrep(d, v); } });
+
 export function bindActions(main, doc, v) {
+  printDoc = () => { try { return [main.isConnected ? doc() : null, v]; } catch { return [null, v]; } };
+  if (!PAPER) (window.requestIdleCallback || ((f) => setTimeout(f, 300)))(() => paperKit().catch(() => {}));
   main.addEventListener("click", async (e) => {
     const b = e.target.closest("[data-act]");
     if (!b) return;
     const d = doc();
     if (b.dataset.act === "copy") { if (await copyText(toText(d, v))) CE.toast(t("copied")); }
-    if (b.dataset.act === "print") { const tt = document.title; document.title = d.title; print(); document.title = tt; }
+    if (b.dataset.act === "print") { const tt = document.title; document.title = d.title; await printPrep(d, v); print(); document.title = tt; }
     if (b.dataset.act === "pdf") {
-      const url = URL.createObjectURL(letterPdf(d, v));
+      const url = URL.createObjectURL(await pdfNow(d, v));
       const a = Object.assign(document.createElement("a"), { href: url, download: fileName(d) });
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 30000);
     }
     if (b.dataset.act === "share") {
-      const file = new File([letterPdf(d, v)], fileName(d), { type: "application/pdf" });
+      const file = new File([await pdfNow(d, v)], fileName(d), { type: "application/pdf" });
       try {
         if (navigator.canShare?.({ files: [file] })) await navigator.share({ files: [file], title: d.title });
         else await navigator.share({ title: d.title, text: toText(d, v) });

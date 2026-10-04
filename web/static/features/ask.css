@@ -106,6 +106,9 @@
 .ask-qx { border: 0; background: none; width: 22px; height: 22px; border-radius: 50%; cursor: pointer; color: var(--label-2); font-size: 15px; line-height: 1; }
 .ask-qx:hover { background: var(--fill); }
 .ask-dock:not(.on-ask) .ask-dock-note { display: none; }
+.ask-privacy .short { display: none; }
+.ask-info { border: 0; background: none; padding: 0 2px; margin-left: 4px; font: inherit; color: var(--ask-navy); cursor: pointer; vertical-align: baseline; }
+.ask-info:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 4px; }
 .ask-when { display: inline-flex; align-items: center; gap: 6px; margin: 0 0 12px; padding: 5px 12px 5px 10px; border-radius: 999px; background: var(--soon-tint); color: var(--soon); font: 600 13px/1.2 var(--font); }
 .ask-when svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .ask-lead { margin: 0 0 8px; font: 500 18px/1.45 var(--font); color: var(--label); }
@@ -114,12 +117,15 @@
 .ask-dock-note { max-width: 720px; margin: 8px auto 0; text-align: center; font-size: 11.5px; line-height: 1.35; color: var(--label-3); }
 /* the latest turn is at least a screen tall: its answer, late chips and the opened law grow inside it, nothing
    below moves (no layout shift); the room under it is where the docked bar sits */
-.ask-page[data-state="thread"] .ask-turn:last-child { min-height: calc(100svh - var(--nav-h) - 40px); padding-bottom: 150px; margin-bottom: 0; }
+/* while the latest answer and its chips are still arriving, its turn is a screen tall (nothing visible moves); after
+   that only the room the docked bar needs stays */
+.ask-page[data-state="thread"] .ask-turn:last-child { padding-bottom: 150px; margin-bottom: 0; }
+.ask-page[data-state="thread"] .ask-turn.is-pending:last-child { min-height: calc(100svh - var(--nav-h) - 40px); }
 html.ask-docked { scroll-padding-bottom: 150px; }
 .ask-thread { overflow-anchor: none; }
 .ask-chips.still .ask-chip, .ask-page.still .ask-q, .ask-page.still .ask-h1, .ask-page.still .ask-sub, .ask-page.still .ask-stage { animation: none; }
 
-.ask-turn { margin: 0 0 64px; scroll-margin-top: calc(var(--nav-h) + 16px); }
+.ask-turn { margin: 0 0 64px; scroll-margin-top: calc(var(--nav-h) + env(safe-area-inset-top) + 16px); }
 .ask-q { display: flex; justify-content: flex-end; }
 .ask-turn.fresh .ask-q { animation: ask-rise .45s var(--ask-ease) both; }
 .ask-q p {
@@ -149,6 +155,8 @@ html.ask-docked { scroll-padding-bottom: 150px; }
 /* the answer */
 .ask-a { background: #fff; border-radius: 32px; padding: clamp(24px, 3.4vw, 40px) clamp(22px, 3.6vw, 44px) clamp(22px, 3vw, 32px); box-shadow: var(--shadow-card); }
 .ask-a { align-self: start; }
+.ask-a:focus { outline: none; } /* focused only so keyboard users stay in the thread */
+.ask-a:focus-visible { outline: 2px solid var(--ask-navy); outline-offset: 3px; }
 .ask-nw { white-space: nowrap; }
 .ask-err { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 22px 26px; }
 .ask-err-msg { margin: 0; font-size: 16px; color: var(--label); }
@@ -163,6 +171,17 @@ html.ask-docked { scroll-padding-bottom: 150px; }
 .ask-place a { color: inherit; text-decoration: none; }
 .ask-place a:hover b { text-decoration: underline; text-underline-offset: 3px; }
 .ask-place b { color: var(--label); font-weight: 600; }
+.ask-pin { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; color: var(--label-2); }
+.ask-place.is-area, .ask-place.is-compact { gap: 6px; margin-bottom: 12px; }
+.ask-place-dot .ask-pin { width: 20px; height: 20px; }
+.ask-at { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; margin: 0 0 12px; padding: 5px 4px 5px 12px; border-radius: 999px; background: var(--canvas); box-shadow: inset 0 0 0 1px var(--sep-2); font-size: 14px; color: var(--label-2); line-height: 1.3; }
+.ask-at > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ask-at a { color: inherit; text-decoration: none; }
+.ask-at a:hover b { text-decoration: underline; text-underline-offset: 3px; }
+.ask-at b { color: var(--label); font-weight: 600; }
+.ask-at-x { flex: none; width: 28px; height: 28px; border: 0; border-radius: 50%; background: transparent; color: var(--label-2); font-size: 18px; line-height: 1; cursor: pointer; }
+.ask-at-x:hover { background: var(--sep-2); color: var(--label); }
+.ask-at-x:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 1px; }
 .ask-place .sep { color: var(--label-3); margin: 0 2px; }
 .ask-answer { font: 400 clamp(2.1rem, 1.5rem + 1.9vw, 3rem)/1.06 var(--ask-serif); letter-spacing: -.012em; color: var(--label); margin: 0 0 14px; text-wrap: balance; }
 .ask-answer.words .w { display: inline-block; animation: ask-word .55s calc(var(--w) * 45ms) var(--ask-ease) both; }
@@ -181,8 +200,7 @@ html.ask-docked { scroll-padding-bottom: 150px; }
 .ask-clarify { margin: 14px 0 0; font: 400 clamp(1.35rem, 1.1rem + .6vw, 1.6rem)/1.3 var(--ask-serif); color: var(--ask-navy); }
 .ask-quick { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .ask-quick .ask-chip { animation-delay: calc(var(--i, 0) * 30ms); padding: 9px 15px; }
-.ask-quick .ask-chip.is-state { background: var(--ask-navy); color: #fff; border-color: var(--ask-navy); }
-.ask-quick .ask-chip.is-state:hover { background: var(--ask-navy-hover); }
+.ask-quick .ask-chip.is-state { font-weight: 600; } /* like the city chips: filled navy read as "already selected" */
 .ask-summary { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; font-size: 16px; }
 .ask-summary li { display: flex; gap: 10px; align-items: baseline; }
 .ask-summary b { min-width: 9.5em; font-weight: 600; }
@@ -233,7 +251,9 @@ html.ask-docked { scroll-padding-bottom: 150px; }
 .ask-cite.flash { animation: ask-flash 1.1s ease both; }
 
 .ask-next { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding: 0 4px; }
-.ask-foot { margin-top: 22px; font-size: 12.5px; color: var(--label-3); }
+.ask-foot { margin-top: 22px; font-size: 13.5px; color: var(--label-3); }
+.ask-fact { white-space: nowrap; }
+.ask-place .ask-eng-ok { display: flex; margin-top: 2px; }
 .ask-eng-ok { display: inline-flex; align-items: center; gap: 4px; color: var(--applies); font-weight: 600; }
 .ask-eng-ok svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -260,11 +280,24 @@ html.ask-docked .toasts { bottom: calc(100px + var(--tabbar-h) + env(safe-area-i
 
 /* ------------------------------------------------------------------ small screens */
 @media (max-width: 640px) {
-  .footer-links a[href="#/ask"] { display: none; } /* in the tab bar already, like the other pages */
-  .ask-hero { border-radius: 32px; padding-top: 36px; margin: 0 -8px; }
+  .footer-links a[href="#/ask"] { display: none; }
+  /* calm phones: no photo, no manifesto with icon bubbles, suggestions as plain rows right under the input */
+  .ask-photo, .ask-statement { display: none; }
+  .ask-bar--hero { border: 0; box-shadow: inset 0 0 0 1.5px var(--sep); }
+  .ask-bar--hero:focus-within { box-shadow: inset 0 0 0 1.5px var(--ask-navy); }
+  .ask-privacy .long { display: none; }
+  .ask-privacy .short { display: inline; }
+  .ask-privacy { margin-top: 14px; font-size: 12.5px; white-space: nowrap; }
+  .ask-chips { display: block; margin: 16px 0 0; }
+  .ask-chips .ask-chip { display: block; width: 100%; border: 0; border-bottom: 1px solid var(--sep-2); border-radius: 0; background: none; box-shadow: none; padding: 14px 4px; font-size: 16px; line-height: 1.35; text-align: left; animation: none; }
+  .ask-chips .ask-chip:nth-child(n+4) { display: none; }
+  .ask-chips .ask-chip:hover { transform: none; box-shadow: none; } /* in the tab bar already, like the other pages */
+  .ask-hero { border-radius: 0; padding: 0 0 8px; margin: 0; background: none; }
+  .ask-h1 { font-size: clamp(2.8rem, 2rem + 4vw, 3.4rem); }
+  .ask-sub { margin-top: 10px; }
   .ask-sub { max-width: 26ch; }
-  .ask-stage { padding-top: 0; margin-top: 28px; }
-  .ask-stage .ask-bar { position: relative; left: auto; right: auto; margin: 0 -2px -38px; }
+  .ask-stage { padding-top: 0; margin-top: 22px; max-width: none; }
+  .ask-stage .ask-bar { position: relative; left: auto; right: auto; margin: 0; width: 100%; box-sizing: border-box; }
   .ask-bar { min-height: 68px; padding-left: 20px; }
   .ask-bar input { font-size: 16px; }
   .ask-send { width: 48px; height: 48px; }
@@ -277,7 +310,7 @@ html.ask-docked .toasts { bottom: calc(100px + var(--tabbar-h) + env(safe-area-i
   .ask-answer { font-size: 1.65rem; line-height: 1.1; margin-bottom: 10px; }
   .ask-body { font-size: 16.5px; line-height: 1.5; }
   .ask-clarify { font-size: 1.25rem; }
-  .ask-place { margin-bottom: 12px; font-size: 13px; }
+  .ask-place { margin-bottom: 12px; font-size: 14px; }
   .ask-place img, .ask-place-dot { width: 38px; height: 38px; }
   .ask-a.is-quiet { padding: 16px 18px; }
   .ask-lead { font-size: 16.5px; }
@@ -287,13 +320,9 @@ html.ask-docked .toasts { bottom: calc(100px + var(--tabbar-h) + env(safe-area-i
   .ask-dock { padding: 22px 10px 8px; }
   .ask-steps { padding: 18px 18px; }
   .ask-step { font-size: 14px; gap: 10px; }
-  .ask-dock:not(.on-ask) .ask-dock-note { display: none; }
-.ask-lead { margin: 0 0 8px; font: 500 18px/1.45 var(--font); color: var(--label); }
-.ask-a.is-quiet { padding: 22px 26px; }
-.ask-a.is-quiet .ask-body { font-size: 16.5px; }
-.ask-dock-note { font-size: 10.5px; margin-top: 5px; }
+  .ask-dock-note { font-size: 10.5px; margin-top: 5px; }
   .ask-bar--dock { min-height: 56px; }
-  .ask-bar--dock .ask-send { width: 42px; height: 42px; }
+  .ask-bar--dock .ask-send { width: 44px; height: 44px; }
 }
 
 @keyframes ask-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }

@@ -3,7 +3,8 @@
 // worker, which drops every cache of the old build.
 //
 // Strategies
-//   navigations ("/")        network-first; offline: cached app shell, else /static/offline.html
+//   navigations ("/")        network-first; any HTTP answer (404 page included) is shown as is. Only when the request
+//                            itself fails (no connection): cached app shell for "/", else /static/offline.html
 //   /api/address/*           network-first; the last 20 answers are kept for offline reading (survive deploys)
 //   other /api/*             network-first; last good copy per build (meta, addresses, i18n, lists)
 //   /static/*?v=<hash>       stale-while-revalidate (content-addressed, so never stale code)
@@ -21,7 +22,8 @@ const NICE = [
   "/manifest.webmanifest",
   "/static/icons/icon-192.png",
   "/static/icons/apple-touch-icon.png",
-  "/static/fonts/InterVariable.woff2",
+  "/static/fonts/InterVariable-latin.woff2",
+  "/static/fonts/InstrumentSerif-Regular.woff2", // offline.html is set in the app's fonts
   "/static/img/us-map.svg",
   "/api/meta",
   "/api/addresses",
@@ -80,8 +82,9 @@ async function navigate(e, url) {
   try {
     const res = (await e.preloadResponse) || (await fetch(e.request));
     if (res.ok && url.pathname === "/") (await caches.open(SHELL)).put("/", res.clone());
-    return res;
+    return res; // a 404 or 500 is an answer from the server, never "offline"
   } catch {
+    // fetch threw: no connection
     const shell = await caches.open(SHELL);
     const hit = (url.pathname === "/" && (await shell.match("/"))) || (await shell.match(OFFLINE));
     return hit || new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } });

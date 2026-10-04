@@ -214,7 +214,15 @@ def test_every_city_fills_the_template_with_the_check_numbers(body, law_en, law_
         assert LT.pct(limit) in text
         assert f"{LT.money(x['current_rent'])} × {LT.num(1 + limit / 100)}" in text
         assert v["rules"][0]["citation"] in text
-        assert v["rules"][0]["url"] in text
+        # the quoted sentence states the figure the letter uses (letter_quote: Berkeley's 1.0% is D008's, Santa
+        # Ana's 2.87% D084's; legal review BER-RENT-01)
+        r0 = v["rules"][0]
+        assert (r0.get("letter_quote_url") or r0["url"]) in text
+        if r0.get("letter_quote") and v["cap"].get("basis") == "period":
+            assert (
+                LT.quote_text(r0["letter_quote"]) in text
+                and LT.pct(limit).rstrip("%") in r0["letter_quote"]
+            )
         assert d["help"]["url"] == help_url
         assert d["summary"][2]["s"].endswith(
             f"{LT.money(x['max_rent'])} a month"
@@ -297,3 +305,18 @@ def test_exceptions_line_only_where_the_city_source_names_them():
         for k, t in by_law.items()
         if k != "the Berkeley Rent Stabilization Ordinance"
     )
+
+
+def test_article_before_a_number():
+    for n, a in (
+        ("8.33%", "an"),
+        ("11%", "an"),
+        ("18.5%", "an"),
+        ("80%", "an"),
+        ("1.5%", "a"),
+        ("110%", "a"),
+        ("5%", "a"),
+        ("1.8%", "a"),
+        ("11,000", "an"),
+    ):
+        assert LT.article(n) == a, n

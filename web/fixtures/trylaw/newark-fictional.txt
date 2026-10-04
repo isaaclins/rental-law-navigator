@@ -1,0 +1,52 @@
+FICTIONAL SAMPLE ORDINANCE, WRITTEN FOR THE CLAUSE & EFFECT DEMO. NOT A LAW OF THE CITY OF NEWARK.
+
+CITY OF NEWARK, NEW JERSEY
+ORDINANCE 6PSF-26-14
+
+AN ORDINANCE AMENDING TITLE XIX (HOUSING) OF THE REVISED GENERAL ORDINANCES OF THE CITY OF NEWARK BY ADDING
+CHAPTER 19:6, "FAIR RENT-SETTING AND APPLICATION FEES"
+
+WHEREAS, the Municipal Council finds that software which pools nonpublic rent and occupancy data from competing
+landlords and recommends rents can raise rents above what a competitive market would set; and
+
+WHEREAS, applicants for rental housing in the City often pay several screening fees for a single search, which
+falls hardest on households with low incomes;
+
+NOW, THEREFORE, BE IT ORDAINED by the Municipal Council of the City of Newark, New Jersey, as follows:
+
+Section 19:6-1. Definitions.
+As used in this chapter:
+"Algorithmic rent-setting device" means any software, service or system that uses nonpublic data about rents,
+occupancy or lease terms supplied by two or more landlords to recommend, set or adjust the rent or other lease
+terms for a dwelling unit.
+"Application fee" means any fee, charge or deposit, however named, that a landlord or the landlord's agent
+collects from a prospective tenant to process a rental application, including a fee for a credit or background
+check.
+"Dwelling unit" means any room or group of rooms in the City rented or offered for rent as a home.
+
+Section 19:6-2. Algorithmic rent-setting prohibited.
+No landlord of a building containing five or more dwelling units shall use an algorithmic rent-setting device to
+set the rent for any dwelling unit in the City, and no person shall sell, license or provide such a device for that
+purpose. This section does not prohibit the use of a report that publishes aggregated rent data and does not
+recommend rents for specific units.
+
+Section 19:6-3. Exemptions.
+Section 19:6-2 does not apply to a building containing four or fewer dwelling units, or to a dwelling unit owned
+and operated by the Newark Housing Authority.
+
+Section 19:6-4. Application fees.
+No landlord shall charge an application fee exceeding twenty-five dollars ($25.00) per adult applicant. A landlord
+who charges an application fee shall give the applicant a written receipt and, within fourteen days after the
+application is denied or withdrawn, shall refund any part of the fee that was not spent on a credit or background
+check.
+
+Section 19:6-5. Penalties.
+A landlord who violates this chapter shall be liable for a civil penalty of up to two thousand dollars ($2,000.00)
+for each violation. Each month in which an algorithmic rent-setting device is used for a dwelling unit constitutes
+a separate violation. The Department of Economic and Housing Development shall enforce this chapter.
+
+Section 19:6-6. Severability.
+If any provision of this chapter is held invalid, the remaining provisions shall continue in full force and effect.
+
+Section 19:6-7. Effective date.
+This ordinance shall take effect on January 1, 2027.

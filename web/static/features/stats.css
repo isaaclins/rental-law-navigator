@@ -95,8 +95,6 @@
 
 @media (max-width: 640px) {
   .pt-row { grid-template-columns: 1fr auto; grid-template-areas: "name val" "plot plot"; row-gap: 0; margin-top: 8px; }
-  .pt-axis-in > [data-y]:nth-of-type(even) { visibility: hidden; }
-  .pt-axis-in > [data-y]:nth-last-child(3) { visibility: hidden; } /* last year: leaves room for "Not law" */
   .pt-legend { gap: 4px 12px; }
 }
 @media (prefers-reduced-motion: reduce) {

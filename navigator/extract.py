@@ -1085,7 +1085,8 @@ def apply_review_fixes(records: list[dict]) -> None:
             continue
         before = {k: r.get(k) for k in fx["set"]}
         r.update(fx["set"])
-        r["review_evidence"] = [{"doc_id": d, "quoted_span": q} for d, q in ev]
+        got = [{"doc_id": d, "quoted_span": q} for d, q in ev]
+        r["review_evidence"] = (r.get("review_evidence") or []) + got
         audit(
             {
                 "stage": "review_fix",
@@ -1093,7 +1094,7 @@ def apply_review_fixes(records: list[dict]) -> None:
                 "applied": True,
                 "before": before,
                 "after": fx["set"],
-                "evidence": r["review_evidence"],
+                "evidence": got,
             }
         )
 

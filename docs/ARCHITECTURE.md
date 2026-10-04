@@ -63,8 +63,10 @@ labelled as such all the way through to the UI.
 
 **Prompt context.** The prompts define an output contract: the starter schema fields, the `coverage` object, citation
 style and the jurisdiction list. As organiser context they also pass the brief's category examples table
-([`docs/challenge-brief.txt`](challenge-brief.txt)) and the starter README's open questions. The prompts name no
-specific law, and every rule must come from a document. Responses are constrained to a JSON schema (`--json-schema`
+([`docs/challenge-brief.txt`](challenge-brief.txt)) and the starter README's open questions. The prompts name laws
+only in citation-format and coverage examples and in that labelled organiser context; every rule must come from a
+document. After extraction, 16 reviewed field corrections (`navigator/review_fixes.py`) are applied, each only when
+code finds its supporting sentence verbatim in the source, and logged in `audit.jsonl` (stage `review_fix`). Responses are constrained to a JSON schema (`--json-schema`
 with the Claude CLI).
 
 | Stage | Calls (current run) | What happens |
@@ -202,7 +204,7 @@ pipeline rerun shows up without a restart.
 | `/api/meta`, `/api/health` | Counts, data sources, disclaimer |
 | `/api/ask`, `/api/ask/suggest`, `/api/ask/audit` | Ask the law (JSON or server-sent events), suggested questions, the redacted Ask log |
 | `/api/check`, `/api/letter`, `/api/notice` | Rent-increase check, letter to the landlord, rent-increase notice (deterministic) |
-| `/api/resolve`, `/api/evaluate` | Any US address: live geocode, then evaluation with user-supplied building facts |
+| `/api/resolve`, `/api/evaluate` | Any address in CA, NJ or MA: live geocode, then evaluation with user-supplied building facts (other states: not covered) |
 | `/api/share/...`, `/s/...` | Frozen, cited permalinks with a preview card |
 | `/api/tts`, `/api/stats/protections` | Listen briefings; protections over time |
 

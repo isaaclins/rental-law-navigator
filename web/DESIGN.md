@@ -181,12 +181,37 @@ Rules for feature markup:
   cached clips: `uv run --with faster-whisper python -m web.tts align` (local, free), else an estimate. Browser voice:
   word boundary events.
 
+## First screen (cold load)
+- `index.html` carries a pre-rendered home hero (`<template id="shell-en|es">`, generated from the real viewHome render
+  by `tests/make_shell.py`; rerun it after changing the hero) and route-shaped skeletons for deep links (built from the
+  page classes, `features/shell.css`). A tiny inline script picks one before first paint, sets the header language and
+  date; app.js morphs its first home render into the shell's nodes (no flash, no shift). Only the first street photo is
+  in the shell (preloaded); the web font is `InterVariable-latin.woff2` (Latin subset, 102 KB).
+
 ## Mobile navigation (≤ 640px)
 - `.tabs` becomes the fixed bottom tab bar (icons from CSS masks per `data-route`, short labels via `data-short`),
   with safe-area padding and exactly one active tab (accent icon and label).
 - The header must never get `transform`, `filter`, `backdrop-filter` or `will-change`: the bar is `position: fixed`
   inside it. Its own blur lives on the bar.
 - The footer and toasts get `--tabbar-h` of bottom room, so content is never covered.
+
+## Back pills and route painting (`features/backnav.js`, `route()` in `app.js`)
+- Back pills (`a.ck-back`, `.mp-back a`) go to the page the reader came from: an in-app history (sessionStorage,
+  updated on every hash change; a `location.replace` step is not a new page) rewrites the pill's href and label
+  ("‹ Ask", "‹ Rent check", "‹ 663 Massachusetts Ave") and the click is `history.back()`. A direct or deep-link load
+  keeps the pill's parent page. New views get this for free by using one of those two classes.
+- Street names in labels are display-normalised (title case, "Av" -> "Ave", "Bl" -> "Blvd"); never the data.
+- Only the current hash stays painted: when an older, slower route resolves after the current one, `route()` paints
+  the current one again (fast taps, Back/Forward).
+- Typeaheads on Check and Compare: tapping an empty field lists sample addresses under "Examples",
+  filtering starts at the first letter, nothing is pre-highlighted, ArrowUp/Down, Enter, Esc.
+- Hover colours on tabs and primary buttons only under `@media (hover: hover)`: a tapped control never keeps a
+  hover look on touch.
+
+## Read aloud with the device voice (`features/say.js`)
+- `sayButton(lang, cls)` + `bindSay(root, getText, getLang)`: a quiet "Listen" (speaker icon) that reads a text with
+  `speechSynthesis`, paragraph by paragraph; Stop while it plays; ends on route change. Used by the letter (the typed
+  names never leave the device) and the rent-check verdict. No speech support: no button.
 
 ## Ask the law (`#/ask`, `web/ask.py`, `web/ask_prompt.md`, `features/ask.js|css`)
 - A conversational housing helper (Isaac 2026-10-04: "fully AI", modelled on america.gov). The model leads: plain,
@@ -220,7 +245,16 @@ Rules for feature markup:
   a question asked while one is running waits in "Up next" above the docked bar; errors stay in the turn with
   "Try again"; a language or as-of switch relabels in place (open laws stay open, old answers keep their language
   and say "Answered for <date> · Ask again for <date>"); coming back from another page restores the thread's place.
-- Reviewers: `/ask/audit` (and `/api/ask/audit?limit=N`) shows the latest audit-log entries, read-only.
+- Reviewers: `/ask/audit` (and `/api/ask/audit?limit=N`) shows the latest audit-log entries, read-only, without any
+  free text: question type ("deposit question · Los Angeles, CA"), topics, place, as-of, model, prompt hash, rule ids,
+  engine verdicts, citations, and how many sentences the checks removed with their reasons. The redacted question and
+  the answer stay in the server-side file only.
+- Checks added after the 125-question eval (2026-10-04): frequency and per-increase wording must come from the source
+  (a drifting CA cap sentence is replaced by its reviewed plain reading), "no limit" where a state rule still applies,
+  a state figure for a city whose own rule governs, conditions and "not covered" claims not in the source, "proposed"
+  for enacted law, an expired figure called current, offices the source doesn't name, Yes/No lines that contradict
+  themselves, internal names; urgent situations get "get help today" first even without the model; unknown law names
+  and federal premises are corrected first; an address-only message gets an acknowledgement.
 
 ## Security and privacy (Ask)
 - The model runs as `claude -p` with no tools (`--tools ""`), no session persistence, isolated settings
@@ -310,3 +344,14 @@ Example of a step that states the law (it cites): {"text": "Send a short, polite
   "Show me the law" `<details>`; one footer line. Header = wordmark + EN/ES only. The hash is in `meta[ce:data-version]`.
   Server-rendered (works without JS), absolute Open Graph / Twitter tags, `app.css` tokens. The 1200x630 card (`card.png`) is drawn with Pillow from the WOFF2 fonts, cached in `cache/og/`, fresh
   renders rate-limited. Wording follows `topicSummary` / `whyLine` in `app.js`: change both together.
+
+## How this answer was made (`features/howmade.js|css`, `web/howmade.py`)
+- Under *More details* of every topic (address page and the any-address sheet), four quiet lines, no box: AI read the
+  source (confidence, host, retrieval date, "Log" = the extraction entry from `audit.jsonl` with the model's own output),
+  code checked the quote word for word, the rules engine (no AI) decided (facts + where they came from: property
+  records or "your answer"), how the short answer was worded (`plain_source`: written ahead of time and checked
+  against its quote, or AI-written and code-checked). Flags only when present (confidence < 70%, conflict, data issue).
+- Marks: navy sparkle = AI, `‹›` = code; one inline legend next to the heading. With the trail loaded, the rule block
+  above drops its own quote-check and confidence lines (kept when flagged), so the trail is the single place.
+- `GET /api/howmade` (per rule: extraction model/time/log index, plain record) and `/api/howmade/{rule_id}`.
+  Hook: `topicRow()` calls `CEHowMade.html(c, d, { top })`. Ask: `CEHowMade.askLine(citation, lang)` (one line).

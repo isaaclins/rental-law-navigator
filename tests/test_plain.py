@@ -191,9 +191,14 @@ class FakeLLM:
         }
 
 
+@pytest.fixture(autouse=True)
+def _no_real_audit(tmp_path, monkeypatch):
+    """Every test in this file logs to a temp file, never to output/audit.jsonl."""
+    monkeypatch.setattr(P, "AUDIT_LOG", tmp_path / "audit.jsonl")
+
+
 @pytest.fixture
 def tmp_audit(tmp_path, monkeypatch):
-    monkeypatch.setattr(P, "AUDIT_LOG", tmp_path / "audit.jsonl")
     monkeypatch.setattr(P, "reviewed_ids", lambda: ({"XX-RENT-01"}, {"XX-RENT-01"}))
     return tmp_path
 

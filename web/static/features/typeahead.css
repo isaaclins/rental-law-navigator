@@ -1,0 +1,6 @@
+/* Clause & Effect · search typeaheads (features/typeahead.js). The search fields are type=search (no iOS contact
+   AutoFill); they keep the look of plain text fields. On phones the open list scrolls inside itself. */
+#hq, #mp-find, #cmdk-q { -webkit-appearance: none; appearance: none; border-radius: 0; box-sizing: border-box; }
+#hq::-webkit-search-decoration, #mp-find::-webkit-search-decoration, #cmdk-q::-webkit-search-decoration,
+#hq::-webkit-search-cancel-button, #mp-find::-webkit-search-cancel-button, #cmdk-q::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; display: none; }
+.suggest.ta-fit, .cmdk-list.ta-fit { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }

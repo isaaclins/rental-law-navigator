@@ -389,6 +389,22 @@ def version_note(rule: dict, as_of: dt.date) -> str:
     return ""
 
 
+def version_gap(rule: dict, as_of: dt.date) -> dict | None:
+    """A rule that amends an older law records its requirement as of its effective_date. Before that date an earlier
+    version applied; unless the sources show it said the same (earlier_version == "same", navigator/review_fixes.py),
+    the answer for such a date is unknown, never the current figure. -> {"from", "in_sources"} or None."""
+    if not rule.get("amends_existing_law") or rule.get("earlier_version") == "same":
+        return None
+    start = N.date_floor(rule.get("effective_date"))
+    since = N.date_floor(rule.get("in_force_since"))
+    if not start or as_of >= start or (since and since >= start):
+        return None
+    return {
+        "from": N.date(rule.get("effective_date")) or str(rule.get("effective_date")),
+        "in_sources": rule.get("earlier_version") == "in_sources",
+    }
+
+
 def _applies_here(rule: dict, f: Facts) -> bool:
     if rule["level"] == "state":
         return rule["jurisdiction"] == f.state
@@ -519,7 +535,24 @@ def evaluate_address(
                         + ", ".join(f"{x['team_rule_id']} ({x['citation']})" for x in unk_local)
                         + " applies (then the state rule yields); local coverage is unknown from the data."
                     )
-        if ts == "in_force":
+        gap = (
+            version_gap(r, as_of_d)
+            if res == "applies"
+            or (res == "unknown" and v == UNK and r.get("verification") != "unverified_link_only")
+            else None
+        )
+        if gap:
+            res = "unknown"
+            expl = (
+                f"{cite} may apply in {where}, but the version in our sources took effect {gap['from']}; on"
+                f" {as_of_d} an earlier version applied"
+                + (
+                    ", which our sources mention but our data does not hold."
+                    if gap["in_sources"]
+                    else " that our sources don't include."
+                )
+            )
+        if ts == "in_force" and not gap:
             expl += version_note(r, as_of_d) + figure_note(r, as_of_d)
         if notes:
             expl += " Note: " + " ".join(notes)
@@ -531,6 +564,7 @@ def evaluate_address(
                 "conflict_flag": conflict,
                 "citation": cite,
                 "category": r["category"],
+                **({"version_gap": gap} if gap else {}),
             }
         )
     return out

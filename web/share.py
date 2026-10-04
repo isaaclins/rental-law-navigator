@@ -25,6 +25,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse
 
 from web.any_address import RateLimit, client_ip
+from web.source_notes import note as source_note
 
 router = APIRouter()
 
@@ -68,7 +69,7 @@ EN = {
     "pq_just_cause_eviction": "Can they make me move out?",
     "pq_security_deposits": "How big can the deposit be?",
     "pq_application_screening_fees": "What can they charge me to apply?",
-    "pq_screening_restrictions": "Can they turn me down for a voucher?",
+    "pq_screening_restrictions": "Can they turn me down for a voucher or a record?",
     "pq_algorithmic_rent_setting": "Can a computer set my rent?",
     "why_city": "{p} has its own law for this, and it covers your building.",
     "why_state": "A {p} law covers your building.",
@@ -98,6 +99,7 @@ EN = {
     "today_diff": "Today's answer is different: {a}",
     "changed": "The data behind this answer changed after the link was shared. This page shows the current data for {d}.",
     "checked": "quote checked word for word",
+    "checked_s": "Word for word",
     "retrieved": "retrieved {d}",
     "nla": "Not legal advice.",
     "nla_body": "Public law with citations, for information only. Check the source, and for your situation a tenant group, housing agency or lawyer.",
@@ -110,6 +112,9 @@ EN = {
     "nla_card": "Not legal advice",
     "answer_asof": "Answer as of {d}",
     "law_show": "Show me the law",
+    "strip_s": "Quoted word for word. Not legal advice.",
+    "strip_ab": "About",
+    "strip_xs": "Quoted sources. Not legal advice.",
     "foot_src": "Not legal advice · from {p} official {n}",
     "foot_none": "Not legal advice · from public state and city law",
     "n_rent": "rent rules",
@@ -129,6 +134,7 @@ ES_OWN = {
     "today_diff": "La respuesta de hoy es otra: {a}",
     "changed": "Los datos de esta respuesta cambiaron después de compartir el enlace. Esta página muestra los datos actuales para el {d}.",
     "checked": "cita comprobada palabra por palabra",
+    "checked_s": "Palabra por palabra",
     "retrieved": "consultado el {d}",
     "nla": "No es asesoría legal.",
     "nla_body": "Leyes públicas con citas, solo para informar. Revise la fuente y, para su caso, consulte a un grupo de inquilinos, una oficina de vivienda o un abogado.",
@@ -361,6 +367,8 @@ def summarize(cat: dict, d: dict, as_of: str, lang: str) -> dict:
                 "retrieved": (src.get("retrieved_at") or r.get("retrieved_at") or "")[:10],
                 "verified": (r.get("quote_check") or {}).get("status") in ("exact", "normalized"),
                 "rule": r["team_rule_id"],
+                # the quote is from another document than the cited law: amber note, not "word for word"
+                "note": source_note(r["team_rule_id"], lang),
             }
         rules = [(x["rule"]["team_rule_id"], x["result"]) for x in items]
         src_place = place
@@ -593,6 +601,7 @@ def _asset(rel: str) -> str:
 
 
 ICON_LOCK = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>'
+ICON_ALERT = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17.5v.01"/></svg>'
 ICON_CHECK = (
     '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>'
 )
@@ -612,11 +621,12 @@ def _head(title: str, lang: str, extra: str = "") -> str:
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/static/icons/favicon-32.png" type="image/png">
 <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
-<link rel="preload" href="/static/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/InterVariable-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/static/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{_asset("app.css")}">
 <link rel="stylesheet" href="{_asset("mobile.css")}">
 <link rel="stylesheet" href="{_asset("features/share.css")}">
+<link rel="stylesheet" href="{_asset("features/mobile-v4.css")}">
 </head>"""
 
 
@@ -626,6 +636,7 @@ def _chrome_top(lang: str, path: str, query_es: str, query_en: str) -> str:
         f'<a href="{_e(path + query_es)}" data-lang="es" lang="es" hreflang="es" aria-pressed="{str(lang == "es").lower()}">ES</a>'
     )
     return f"""<body class="sh-body">
+<p class="strip sh-strip"><span class="strip-s">{_e(t("strip_s", lang))}</span><span class="strip-xs">{_e(t("strip_xs", lang))}</span> <a class="strip-ab" href="/#/audit">{_e(t("strip_ab", lang))}</a></p>
 <header class="nav sh-nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="/" aria-label="{_e(t("home_aria", lang))}"><span class="brand-mark" aria-hidden="true">§</span><span class="brand-word">Clause <i>&amp;</i> Effect</span></a>
@@ -702,10 +713,23 @@ def page_html(a: dict, today_a: dict, now: str, shared_v: str | None) -> str:
             )
         if q["retrieved"]:
             bits.append(
-                f"<span>{_e(tf('retrieved', lang, d=fmt_date(q['retrieved'], lang)))}</span>"
+                f'<span class="sh-ret">{_e(tf("retrieved", lang, d=fmt_date(q["retrieved"], lang)))}</span>'
             )
+        note = q.get("note")
         check = (
-            f'<p class="sh-ok">{ICON_CHECK}{_e(t("checked", lang))}</p>' if q["verified"] else ""
+            f'<p class="src-note">{ICON_ALERT}<span><b>{_e(note["lead"])}</b> {_e(note["text"])}</span></p>'
+            if note
+            # phones (features/mobile-v4.css): one line "Word for word · retrieved <date>" instead of the long phrase
+            else f'<p class="sh-ok">{ICON_CHECK}'
+            + (
+                f'<span class="sh-ok-l">{_e(t("checked", lang))}</span><span class="sh-ok-r">{_e(t("checked_s", lang))} · '
+                f"{_e(tf('retrieved', lang, d=fmt_date(q['retrieved'], lang)))}</span>"
+                if q["retrieved"]
+                else _e(t("checked", lang))
+            )
+            + "</p>"
+            if q["verified"]
+            else ""
         )
         tr = f'<p class="sh-tr">{_e(t("tr_note", lang))}</p>' if lang != "en" else ""
         law = f"""{tr}<blockquote class="sh-quote" lang="en" cite="{_e(q["url"])}">“{_e(q["text"])}”</blockquote>
@@ -713,6 +737,12 @@ def page_html(a: dict, today_a: dict, now: str, shared_v: str | None) -> str:
     else:
         law = f'<p class="sh-noquote">{_e(t("no_quote", lang))}</p>'
     share_data = _e(json.dumps(public_json(a), ensure_ascii=False))
+    # phones (features/mobile-v4.css): the street photo as a strip with the address on it
+    street_ph = (
+        f'<img class="sh-ph" src="/static/img/street/{_e(a["image"])}-m.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()">'
+        if (STATIC / "img" / "street" / f"{a['image']}-m.webp").is_file()
+        else ""
+    )
     return (
         _head(
             f"{a['title']} · Clause & Effect",
@@ -724,7 +754,7 @@ def page_html(a: dict, today_a: dict, now: str, shared_v: str | None) -> str:
 <main id="main" class="sh-main" data-share-page data-v="{_e(a["v"])}" data-cat="{_e(a["category"])}">
   <p class="sh-asof">{ICON_LOCK}<span>{_e(tf("answer_asof", lang, d=as_of_l))}</span></p>
   {"".join(notes)}
-  <p class="sh-addr"><img src="/static/img/{_e(a["image"])}-sm.webp" alt="" width="44" height="34" onerror="this.remove()"><span>{_e(a["street"] + (", " + a["city"] if a["city"] else ""))}</span></p>
+  <p class="sh-addr"><img src="/static/img/{_e(a["image"])}-sm.webp" alt="" width="44" height="34" onerror="this.remove()">{street_ph}<span>{_e(a["street"] + (", " + a["city"] if a["city"] else ""))}</span></p>
   <p class="sh-q">{_e(a["question"])}</p>
   <h1 class="sh-a">{_e(a["answer"])}</h1>
   <p class="sh-why">{_e(a["why"])}</p>
@@ -739,10 +769,12 @@ def page_html(a: dict, today_a: dict, now: str, shared_v: str | None) -> str:
       <p class="sh-nla"><b>{_e(t("nla", lang))}</b> {_e(t("nla_body", lang))}</p>
     </div>
   </details>
+  <p class="sh-nla sh-nla-m"><b>{_e(t("nla", lang))}</b> {_e(t("nla_body", lang))}</p>
 </main>
 """
         + _footer(lang, foot_line(a))
-        + f'\n<script data-cfasync="false" src="{_asset("features/share.js")}" type="module"></script>\n</body>\n</html>\n'
+        + f'\n<script data-cfasync="false" src="{_asset("features/share.js")}" type="module"></script>'
+        + f'\n<script data-cfasync="false" src="{_asset("features/mobile-v4.js")}" type="module"></script>\n</body>\n</html>\n'
     )
 
 

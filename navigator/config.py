@@ -37,6 +37,12 @@ if os.environ.get("NAVIGATOR_EXTENSION"):
     OUTPUT_DIR = BASE_OUTPUT_DIR / "extension" / EXTENSION_DIR.name
     RESOLVED_CSV = OUTPUT_DIR / "addresses_resolved.csv"
     SAMPLE_ADDRESSES = EXTENSION_DIR / "addresses.csv"
+# One-off runs (`navigator try-run`, the Try it page): every output and the model cache go to a scratch folder,
+# so output/ and cache/llm/ stay exactly as the batch run left them.
+if os.environ.get("NAVIGATOR_OUTPUT_DIR"):
+    OUTPUT_DIR = Path(os.environ["NAVIGATOR_OUTPUT_DIR"]).resolve()
+if os.environ.get("NAVIGATOR_CACHE_DIR"):
+    CACHE_DIR = Path(os.environ["NAVIGATOR_CACHE_DIR"]).resolve()
 RULES_JSON = OUTPUT_DIR / "rules.json"
 RAW_RULES_JSON = OUTPUT_DIR / "rules_raw.json"
 LOOKUPS_JSON = OUTPUT_DIR / "lookups.json"

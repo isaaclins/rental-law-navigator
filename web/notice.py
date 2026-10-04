@@ -122,6 +122,22 @@ def check_body(body: NoticeIn, new: float, start: dt.date, notice: dt.date | Non
     return out
 
 
+# What our sources do say about an increase notice where they state no number of days (NJ: D067, the Anti-Eviction
+# Act's notice to quit and notice of rent increase)
+NOTICE_NOTE = {
+    "NJ": {
+        "doc_id": "D067",
+        "cite": "N.J.S.A. 2A:18-61.1 et seq.",
+        "quote": "before an owner can evict a tenant for nonpayment of an increased rent, they must first serve the"
+        " tenant with a valid notice to quit and notice of rent increase.",
+        "en": "In New Jersey, a rent increase needs a notice to quit and a notice of the increase; our sources don't"
+        " state the number of days.",
+        "es": "En Nueva Jersey, un aumento de renta necesita un aviso de desalojo y un aviso del aumento; nuestras"
+        " fuentes no indican el número de días.",
+    }
+}
+
+
 def _notice_rule(state: str, increase_pct: float | None) -> dict | None:
     W = C._web()
     for r in C.NOTICE_RULES:
@@ -263,9 +279,11 @@ def build(body: NoticeIn) -> dict:
     if city:
         to += [T(", " + city)]
     blocks.append({"k": "to", "s": to})
+    # a notice of increase: a new rent at or below the current one is never printed (no "an increase of $-237,574")
+    shown_new = new if new and cur and new > cur else None
     new_seg = (
-        T(money2(new), v=1, over=1 if is_over else None)
-        if new
+        T(money2(shown_new), v=1, over=1 if is_over else None)
+        if shown_new
         else T("[nueva renta]" if es else "[new rent]", ph=1)
     )
     p1 = [
@@ -274,7 +292,7 @@ def build(body: NoticeIn) -> dict:
         T(" a " if es else " to "),
         new_seg,
     ]
-    if new:
+    if shown_new:
         d_amt, d_pct = round(new - cur, 2), LT.pct((new - cur) / cur * 100)
         p1 += [
             T(
@@ -287,6 +305,13 @@ def build(body: NoticeIn) -> dict:
     blocks.append({"k": "p", "s": p1})
 
     law, says = (LT.LAW.get(rule.get("id")) or {}).get(lang) or (None, None)
+    # quote the sentence that states what the notice relies on (letter_quote: the figure, or the governing rule)
+    if rule.get("letter_quote") and (rent.get("cap", {}).get("basis") == "period" or not cap_known):
+        rule = {
+            **rule,
+            "quote": rule["letter_quote"],
+            "url": rule.get("letter_quote_url") or rule.get("url"),
+        }
     if rule.get("quote") and code not in ("no_cap", "state_bar", "need_fact"):
         if not law:
             place = (juris or "").split(",")[0]
@@ -560,17 +585,31 @@ def build(body: NoticeIn) -> dict:
             )
     else:
         st = (LT.STATE_ES if es else LT.STATE).get(state, state)
-        checks.append(
-            {
-                "st": "info",
-                "t": ("Plazo de aviso" if es else "Notice period"),
-                "s": (
-                    f"Nuestras fuentes no indican el plazo de aviso para este aumento en {st}."
-                    if es
-                    else f"Our sources do not state the notice period for this increase in {st}."
-                ),
-            }
-        )
+        note = NOTICE_NOTE.get(state)
+        if note:
+            meta = C._web().STORE.doc_meta(note["doc_id"])
+            checks.append(
+                {
+                    "st": "info",
+                    "t": ("Plazo de aviso" if es else "Notice period"),
+                    "s": note["es" if es else "en"],
+                    "cite": note["cite"],
+                    "quote": note["quote"],
+                    "url": meta.get("url"),
+                }
+            )
+        else:
+            checks.append(
+                {
+                    "st": "info",
+                    "t": ("Plazo de aviso" if es else "Notice period"),
+                    "s": (
+                        f"Nuestras fuentes no indican el plazo de aviso para este aumento en {st}."
+                        if es
+                        else f"Our sources do not state the notice period for this increase in {st}."
+                    ),
+                }
+            )
     if annual:
         if not body.last_increase:
             checks.append(
@@ -643,7 +682,33 @@ def build(body: NoticeIn) -> dict:
     title = ("Aviso de aumento de renta" if es else "Rent increase notice") + (
         f" - {street}" if street else ""
     )
+    # for the PDF (features/paper.js): the sources the notice cites, with the day our copy was retrieved
+    sources = []
+    if rule.get("quote") and code not in ("no_cap", "state_bar", "need_fact") and rule.get("url"):
+        sources.append(
+            {
+                "cite": cite,
+                "url": rule["url"],
+                "retrieved": LT.retrieved(rule["url"], rule.get("retrieved")),
+            }
+        )
+    if nr:
+        sources.append(
+            {
+                "cite": nr["citation_es" if es else "citation"],
+                "url": nr["source_url"],
+                "retrieved": LT.retrieved(nr["source_url"], nr.get("retrieved_at")),
+            }
+        )
+    paper = {
+        "street": street,
+        "city": city,
+        "sources": sources,
+        "verify": LT.verify_url(body.address_id, result["place"], start.isoformat(), lang),
+        "site": LT.SITE,
+    }
     return {
+        "paper": paper,
         "lang": lang,
         "as_of": today.isoformat(),
         "current_rent": cur,

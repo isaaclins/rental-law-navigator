@@ -15,14 +15,14 @@ const EN = {
   title: "Look up an address", ph: "Street, city, state", go: "Look up",
   locating: "Finding the legal jurisdiction…", evaluating: "Checking the rules…",
   nla: "Not legal advice.", nla_body: "Public law with citations, for information only. Check the cited source.",
-  covered: "Covered", not_covered: "Not covered", state: "State", county: "County", city: "City",
+  covered: "Covered", not_covered: "Not covered", state: "State", county: "County", city: "City", state_of: (n) => `${n} State`,
   facts: "Building details (optional)", facts_lead: "Only what the public data can't tell us. Nothing is stored.",
   year_built: "Year built", units: "Units", owner_occupied: "Owner lives there", certificate_of_occupancy_date: "Certificate of occupancy",
   yes: "Yes", no: "No", unsure: "Not sure",
   resolves: (n) => `resolves ${n}`, helps: (n) => `helps answer ${n}`, found_with: "Found with the US Census geocoder.", depends: (n) => `${n} depend on this`, optional: "optional",
   prompt: (f, n) => `Add the ${f.toLowerCase()} to resolve ${n} unknown answer${n === 1 ? "" : "s"}.`,
   all_clear: "Every answer is definite for these facts.",
-  answers: "Answers as of", out_title: "Outside our coverage", out_body: "We cover state law in California, New Jersey and Massachusetts, and local law in these cities:",
+  answers: "Answers as of", out_title: "Outside our coverage", out_state: (n) => `${n} isn't covered yet`, out_body: "We cover state law in California, New Jersey and Massachusetts, and local law in these cities:",
   state_only: "Only state law was checked. Local ordinances here are not covered yet.",
   nomatch: "We could not find this address.", busy: "Too many lookups. Please wait a minute.", down: "The US Census geocoder did not answer. Try again in a moment.",
   r_applies: "Applies", r_unknown: "Unknown", r_superseded: "Superseded", r_not_yet_effective: "Not yet in effect", r_pending: "Pending bill", r_failed: "Failed · not law",
@@ -34,14 +34,14 @@ const ES = {
   title: "Consultar una dirección", ph: "Calle, ciudad, estado", go: "Consultar",
   locating: "Buscando la jurisdicción legal…", evaluating: "Revisando las normas…",
   nla: "No es asesoría legal.", nla_body: "Leyes públicas con citas, solo informativo. Verifique la fuente citada.",
-  covered: "Cubierta", not_covered: "No cubierta", state: "Estado", county: "Condado", city: "Ciudad",
+  covered: "Cubierta", not_covered: "No cubierta", state: "Estado", county: "Condado", city: "Ciudad", state_of: (n) => `Estado de ${n}`,
   facts: "Datos del edificio (opcional)", facts_lead: "Solo lo que los datos públicos no dicen. No se guarda nada.",
   year_built: "Año de construcción", units: "Unidades", owner_occupied: "El dueño vive allí", certificate_of_occupancy_date: "Certificado de ocupación",
   yes: "Sí", no: "No", unsure: "No sé",
   resolves: (n) => `resuelve ${n}`, helps: (n) => `ayuda a responder ${n}`, found_with: "Encontrada con el geocodificador del Censo de EE. UU.", depends: (n) => `${n} dependen de esto`, optional: "opcional",
   prompt: (f, n) => `Indique ${f.toLowerCase()} para resolver ${n} respuesta${n === 1 ? "" : "s"} desconocida${n === 1 ? "" : "s"}.`,
   all_clear: "Todas las respuestas son definitivas con estos datos.",
-  answers: "Respuestas al", out_title: "Fuera de nuestra cobertura", out_body: "Cubrimos la ley estatal de California, Nueva Jersey y Massachusetts, y la ley local de estas ciudades:",
+  answers: "Respuestas al", out_title: "Fuera de nuestra cobertura", out_state: (n) => `Todavía no cubrimos ${n}`, out_body: "Cubrimos la ley estatal de California, Nueva Jersey y Massachusetts, y la ley local de estas ciudades:",
   state_only: "Solo se revisó la ley estatal. Las ordenanzas locales de aquí aún no están cubiertas.",
   nomatch: "No encontramos esta dirección.", busy: "Demasiadas consultas. Espere un minuto.", down: "El geocodificador del Censo no respondió. Inténtelo de nuevo.",
   r_applies: "Aplica", r_unknown: "Desconocido", r_superseded: "Reemplazada", r_not_yet_effective: "Aún no vigente", r_pending: "Proyecto de ley", r_failed: "Fallida · no es ley",
@@ -136,6 +136,7 @@ function open(q) {
     sheet.addEventListener("click", (e) => { if (e.target.closest("[data-aa-close]")) close(); });
     $(".aa-search", sheet).addEventListener("submit", (e) => { e.preventDefault(); const v = $(".aa-search input", sheet).value.trim(); if (v) { state = { q: v, place: null, facts: {}, data: null }; resolve(); } });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && sheet && !sheet.hidden) close(); });
+    addEventListener("hashchange", close); // another page (a link, Back): the sheet does not stay over it
     // as-of date or language changed in the header: refresh the answers
     document.addEventListener("change", (e) => { if (e.target.id === "asof" && state?.place && !sheet.hidden) setTimeout(evaluate, 0); });
     document.addEventListener("click", (e) => { if (e.target.closest(".seg button") && state?.place && !sheet.hidden) setTimeout(() => { labels(); evaluate(); }, 50); });
@@ -176,12 +177,21 @@ async function resolve() {
   try { d = await post("/api/resolve", { address: state.q }); }
   catch (err) { body().innerHTML = `<div class="aa-msg warn">${I.info}<div>${esc(err.message)}</div></div>`; return; }
   const extra = d.message && d.message.trim() !== t("nomatch").trim() && !/could not find/i.test(d.message) ? ` ${esc(d.message)}` : ""; // said once (#147)
+  if (!d.match && d.out_of_area) { body().innerHTML = outHtml(d) + coveredHtml(d.covered); return; } // "…, Springfield, IL": name the state
   if (!d.match) { body().innerHTML = `<div class="aa-msg warn">${I.info}<div><b>${esc(t("nomatch"))}</b>${extra}</div></div>${coveredHtml(d.covered)}`; return; }
   state.place = d;
-  if (!d.in_scope) { body().innerHTML = placeHtml(d) + `<div class="aa-msg"><div><b>${esc(t("out_title"))}.</b> ${esc(t("out_body"))}</div></div>${coveredHtml(d.covered)}`; return; }
+  if (!d.in_scope) { body().innerHTML = placeHtml(d) + outHtml(d) + coveredHtml(d.covered); return; }
   body().innerHTML = placeHtml(d) + `<div class="aa-results"></div><details class="aa-more"><summary data-t="facts">${esc(t("facts"))}</summary><section class="aa-facts" aria-labelledby="aa-fh"></section></details>`;
   body().addEventListener("ce:fact", (e) => { state.facts[e.detail.key] = e.detail.value; const inp = $(`.aa-facts input[name="${e.detail.key}"]`, sheet); if (inp) inp.value = e.detail.value; evaluate(); });
   evaluate();
+}
+// "Illinois isn't covered yet. We cover state law in California, New Jersey and Massachusetts, and local law in these cities:"
+const ES_STATES = { "New York": "Nueva York", "New Mexico": "Nuevo México", "North Carolina": "Carolina del Norte", "South Carolina": "Carolina del Sur",
+  "North Dakota": "Dakota del Norte", "South Dakota": "Dakota del Sur", Pennsylvania: "Pensilvania", Hawaii: "Hawái", Louisiana: "Luisiana",
+  "West Virginia": "Virginia Occidental", "District of Columbia": "el Distrito de Columbia", "Puerto Rico": "Puerto Rico" };
+function outHtml(d) {
+  const n = d.state_name, name = n && (lang() === "es" ? ES_STATES[n] || n : n);
+  return `<div class="aa-msg"><div><b>${esc(name ? t("out_state")(name) : t("out_title"))}.</b> ${esc(t("out_body"))}</div></div>`;
 }
 function coveredHtml(cov) {
   if (!cov) return "";
@@ -189,7 +199,9 @@ function coveredHtml(cov) {
   return `<div class="aa-covered">${Object.entries(cov).map(([st, cities]) => `<div><b>${esc(names[st] || st)}</b><div class="aa-cities">${cities.map((c) => `<span class="aa-city">${esc(c.replace(/, ..$/, ""))}</span>`).join("")}</div></div>`).join("")}</div>`;
 }
 function placeHtml(d) {
-  const names = [...d.stack].reverse().map((s) => `<span class="${s.level === "county" ? "" : s.covered ? "on" : "off"}">${esc(s.name)}</span>`).join(" · ");
+  // a city named like its state ("New York · New York County · New York") gets the state's label on the state (#147)
+  const dup = (s) => s.level === "state" && d.stack.some((x) => x !== s && x.level !== "state" && x.name === s.name);
+  const names = [...d.stack].reverse().map((s) => `<span class="${s.level === "county" ? "" : s.covered ? "on" : "off"}">${esc(dup(s) ? t("state_of")(s.name) : s.name)}</span>`).join(" · ");
   const seen = new Set();
   const cov = d.stack.filter((s) => s.level !== "county" && !seen.has(s.name) && seen.add(s.name)).map((s) => `${esc(s.name)}: ${esc(t(s.covered ? "covered" : "not_covered"))}`).join(" · ");
   void cov;
@@ -280,7 +292,7 @@ const fmtDate = (d) => { const x = new Date(d + "T12:00:00"); return isNaN(x) ? 
 const firstSentence = (s) => { const m = String(s || "").match(/^.{20,}?[.;](\s|$)/); return m ? m[0].trim() : String(s || ""); };
 function card(item, i) {
   const r = item.rule, res = item.result;
-  const hint = res === "unknown" ? `<span class="hint unknown">${I.q}${esc(t("depends_on"))} ${esc(item.missing_fact || "")}</span>`
+  const hint = res === "unknown" ? `<span class="hint unknown">${I.q}${esc(t("depends_on"))} ${esc(String((lang() !== "en" && item.missing_fact_display) || item.missing_fact || "").replace(/^Depende de:\s*/, ""))}</span>`
     : res === "not_yet_effective" ? `<span class="hint nye">${I.cal}${esc(fmtDate(r.effective_date_norm || r.effective_date))}</span>` : "";
   const juris = r.level === "state" ? r.jurisdiction : String(r.jurisdiction).replace(/, ..$/, "");
   return `<article class="rule ${esc(res)}">
