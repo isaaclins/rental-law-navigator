@@ -184,6 +184,8 @@ CREATE TABLE IF NOT EXISTS properties (
   units INTEGER,
   owner_occupied INTEGER,
   certificate_of_occupancy_date TEXT,
+  last_increase_date TEXT,
+  current_rent REAL,
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL
 );
@@ -221,6 +223,8 @@ DEMO_PROPERTIES = [
         "year_built": 1923,
         "units": 6,
         "owner_occupied": 0,
+        "last_increase_date": "2026-01-01",
+        "current_rent": 2400.0,
     },
     {
         "label": "Tujunga courtyard",
@@ -233,6 +237,8 @@ DEMO_PROPERTIES = [
         "year_built": 1964,
         "units": 39,
         "owner_occupied": 0,
+        "last_increase_date": "2025-12-01",
+        "current_rent": 1850.0,
     },
     {
         "label": "Bloomfield brownstone",
@@ -245,12 +251,16 @@ DEMO_PROPERTIES = [
         "year_built": 1890,
         "units": 4,
         "owner_occupied": None,
+        "last_increase_date": "2026-04-01",
+        "current_rent": 3100.0,
     },
 ]
 PROP_COLS = (
     "label address matched_address state jurisdiction place county year_built units owner_occupied "
-    "certificate_of_occupancy_date"
+    "certificate_of_occupancy_date last_increase_date current_rent"
 ).split()
+# columns added after the first release: (name, type), added in place by _init_db
+PROP_MIGRATIONS = (("last_increase_date", "TEXT"), ("current_rent", "REAL"))
 _db_ready: set[str] = set()
 _db_lock = threading.Lock()
 
@@ -276,6 +286,10 @@ def _init_db(path: Path) -> None:
             c = _connect(path)
             c.execute("PRAGMA journal_mode = WAL")
             c.executescript(SCHEMA)
+            have = {r["name"] for r in c.execute("PRAGMA table_info(properties)")}
+            for col, typ in PROP_MIGRATIONS:
+                if col not in have:
+                    c.execute(f"ALTER TABLE properties ADD COLUMN {col} {typ}")
             seed_demo(c)
             c.commit()
             c.close()
@@ -803,6 +817,7 @@ def prop_out(p: sqlite3.Row) -> dict:
         "place": p["place"],
         "county": p["county"],
         "facts": prop_facts(p),
+        "rent": {"last_increase_date": p["last_increase_date"], "current_rent": p["current_rent"]},
         "created_at": p["created_at"],
         "updated_at": p["updated_at"],
     }
@@ -815,10 +830,213 @@ def summary(p: sqlite3.Row, as_of: str) -> dict:
         "counts": ch["counts"],
         "changes": sum(len(e["items"]) for e in ch["events"]),
         "pending": len(ch["pending"]),
+        "events": ch["events"],
         "next": {"date": nxt["date"], "title": _event_title(nxt), "items": nxt["items"]}
         if nxt
         else None,
     }
+
+
+# ------------------------------------------------------------------ next lawful rent increase (#152)
+def raise_dates(last: dt.date, as_of: dt.date, notice_days: int | None) -> dict:
+    """Pure: the earliest date of the next raise and the last day to send its written notice.
+
+    One raise per 12 months, counted from the last one (LA RSO "once every 12 months", SF's annual allowable
+    increase, AB 1482 "any 12-month period"). A notice cannot be sent in the past: when the 12 months are already
+    over (or too close), the earliest date is today + the notice period."""
+    from web.check import _add_months
+
+    spaced = _add_months(last, 12)
+    soonest = as_of + dt.timedelta(days=notice_days or 0)
+    date = max(spaced, soonest)
+    return {
+        "date": date,
+        "spaced": spaced,
+        "notice_by": date - dt.timedelta(days=notice_days) if notice_days else None,
+        "now": spaced < soonest,
+    }
+
+
+def max_rent(cur: float, pct: float) -> float:
+    return round(cur * (1 + pct / 100) + 1e-9, 2)
+
+
+@lru_cache(maxsize=512)
+def _next_raise(
+    state: str,
+    jur: str | None,
+    facts_json: str,
+    last: str | None,
+    rent: float | None,
+    as_of: str,
+    lang: str,
+    sig: float,
+) -> dict:
+    """Date, most-you-may-charge and notice deadline of the next raise, from the deterministic check engine
+    (web/check.py) evaluated on that future date. A figure the sources do not state is reported as missing."""
+    from web import check as C
+
+    W = C._web()
+    d0 = dt.date.fromisoformat(as_of)
+    facts = {k: v for k, v in json.loads(facts_json).items() if v is not None}
+    now = _cap_now(C, state, jur, facts, d0, lang)
+    if not last or not rent:
+        return {"state": "need_input", "cap_now": now}
+    last_d = dt.date.fromisoformat(last)
+    nrs = [
+        r
+        for r in C.NOTICE_RULES
+        if state in r["states"] and W.STORE.verify(r).get("status") in ("exact", "normalized")
+    ]
+    nr = nrs[0] if nrs else None
+    dates = raise_dates(last_d, d0, nr["days"] if nr else None)
+    body = C.CheckIn(
+        place={"state": state, "jurisdiction": jur},
+        facts=facts,
+        effective_date=min(dates["date"], dt.date(2035, 12, 31)),
+        lang=lang,
+    )
+    ctx = C._context(body, body.effective_date)
+    rv = C.check_rent(ctx, rent, rent + 0.01, None, lang)
+    out = {
+        "last_increase_date": last,
+        "current_rent": rent,
+        "date": dates["date"].isoformat(),
+        "now": dates["now"],
+        "rules": rv.get("rules") or [],
+        "notice": None,
+        "cap_now": now,
+    }
+    code, v = rv["code"], rv.get("values") or {}
+    gov = ctx["rules"].get(out["rules"][0]["id"]) if out["rules"] else None
+    out["place"] = (gov or {}).get("jurisdiction")
+    pct_for_notice = None
+    if code == "within":
+        out |= {"state": "ok", "cap_pct": v["cap_pct"], "max_rent": max_rent(rent, v["cap_pct"])}
+        out["cap_end"] = (rv.get("cap") or {}).get("end")
+        pct_for_notice = v["cap_pct"]
+    elif code == "need_cpi":
+        out |= {
+            "state": "need_cpi",
+            "cap_max": v["cap_max"],
+            "cap_base": v["cap_base"],
+            "max_rent": max_rent(rent, v["cap_max"]),
+        }
+    elif code == "need_figure":
+        periods = (
+            C.parse_rent_cap(gov.get("key_value"), gov.get("requirement"))["periods"] if gov else []
+        )
+        last_p = max(periods, key=lambda x: x[2]) if periods else None
+        # the agency has not published the figure yet (its current period still runs) vs. it is out but not in
+        # our sources (the period it replaces is already over)
+        out["state"] = "cap_not_out" if last_p and last_p[2] >= d0 else "not_in_sources"
+        if last_p:
+            out |= {"last_pct": last_p[0], "cap_end": last_p[2].isoformat()}
+    elif code == "need_fact":
+        need = rv.get("need") or {}
+        out["state"] = "need_fact" if need.get("key") in FACT_KEYS else "not_in_sources"
+        out["need"] = need.get("key")
+        if gov:
+            out["why"] = W.rule_view(gov, lang).get("why_display")
+    else:  # no cap here, or the state bars local rent control
+        out["state"] = "no_cap"
+    if nr:
+        ok = pct_for_notice is not None and pct_for_notice < nr["below_pct"]
+        out["notice"] = {
+            "days": nr["days"],
+            "by": dates["notice_by"].isoformat() if dates["notice_by"] else None,
+            "below_pct": nr["below_pct"],
+            # the period applies to raises under 10%: certain when the cap is known and below it
+            "sure": ok,
+            "rule": C._src(nr, lang),
+        }
+    return out
+
+
+FACT_KEYS = ("year_built", "units", "owner_occupied")
+
+
+def _cap_now(C, state: str, jur: str | None, facts: dict, d0: dt.date, lang: str) -> dict:
+    """The rent cap in force today (for the card's status line), whatever the rent: kind + pct / period end."""
+    body = C.CheckIn(
+        place={"state": state, "jurisdiction": jur}, facts=facts, effective_date=d0, lang=lang
+    )
+    rv = C.check_rent(C._context(body, d0), 1000.0, 1000.01, None, lang)
+    v, cap = rv.get("values") or {}, rv.get("cap") or {}
+    out = {"code": rv["code"]}
+    if rv["code"] == "within":
+        out |= {"pct": v["cap_pct"], "end": cap.get("end")}
+    elif rv["code"] == "need_cpi":
+        out |= {"base": v["cap_base"], "max": v["cap_max"]}
+    return out
+
+
+def next_raise(p, as_of: str, lang: str = "en") -> dict:
+    return _next_raise(*_key(p), p["last_increase_date"], p["current_rent"], as_of, lang, _sig())
+
+
+# The building card (list): per topic the leading answer and its status, one question a fact would settle.
+RANK = {"applies": 0, "unknown": 1, "not_yet_effective": 2, "superseded": 3, "pending": 4}
+
+
+def _lead(c: dict) -> dict | None:
+    items = sorted(
+        c.get("enacted") or [],
+        key=lambda x: (
+            RANK.get(x["result"], 9),
+            x["rule"].get("headline_priority") or 1.5,
+            x["rule"].get("level") != "state",
+        ),
+    )
+    return items[0] if items else None
+
+
+def _year_cuts(view: dict) -> list[int]:
+    ys, now = set(), dt.date.fromisoformat(view["as_of"])
+    for c in view["categories"]:
+        for it in c.get("enacted") or []:
+            if it["result"] != "unknown" or "year_built" not in (it.get("needs_fact") or []):
+                continue
+            cov = it["rule"].get("coverage") or {}
+            if (cov.get("construction_cutoff") or {}).get("date"):
+                ys.add(int(cov["construction_cutoff"]["date"][:4]))
+            if (cov.get("new_construction_exemption") or {}).get("years"):
+                ys.add(now.year - int(cov["new_construction_exemption"]["years"]))
+    return sorted(ys)
+
+
+def card_brief(view: dict, as_of: str) -> dict:
+    topics, question = [], None
+    for c in view["categories"]:
+        top = _lead(c)
+        if not top:
+            topics.append({"id": c["id"], "status": "exempt" if c.get("excluded") else "no_rule"})
+            continue
+        r = top["rule"]
+        plain = (
+            r.get("answer_display")
+            if not (r.get("plain_until") and as_of > r["plain_until"])
+            else None
+        )
+        status = (
+            "no_rule"
+            if r.get("removes_protection") and top["result"] == "applies"
+            else top["result"]
+        )
+        topics.append(
+            {
+                "id": c["id"],
+                "status": status,
+                "answer": plain or r.get("headline_short") or r.get("headline_display"),
+            }
+        )
+        for it in c.get("enacted") or []:
+            k = next((x for x in it.get("needs_fact") or [] if x in FACT_KEYS), None)
+            if it["result"] == "unknown" and k and not question:
+                question = {"fact": k, "topic": c["id"]}
+                if k == "year_built":
+                    question["cuts"] = _year_cuts(view)
+    return {"topics": topics, "question": question}
 
 
 def _as_of(v: str | None) -> str:
@@ -861,12 +1079,30 @@ class PlaceIn(BaseModel):
     matched_address: str | None = Field(None, max_length=200)
 
 
+class RentIn(BaseModel):
+    """The last increase and the rent now (#152); both null clears them."""
+
+    model_config = ConfigDict(extra="forbid")
+    last_increase_date: dt.date | None = None
+    current_rent: float | None = Field(None, gt=0, le=1_000_000)
+
+    @field_validator("last_increase_date")
+    @classmethod
+    def date_range(cls, v):
+        if v is not None and not (dt.date(1990, 1, 1) <= v <= dt.date(2035, 12, 31)):
+            raise ValueError("last increase date out of range")
+        return v
+
+
 class PropertyIn(BaseModel):
     model_config = ConfigDict(extra="forbid")
     label: str = Field(min_length=1, max_length=60)
     address: str = Field(min_length=5, max_length=200)
-    place: PlaceIn
+    place: PlaceIn | None = None
+    # one of the 500 sample addresses: place and public facts come from our data (the typeahead's first group)
+    address_id: str | None = Field(None, pattern=r"^[A-Za-z0-9-]{1,20}$")
     facts: FactsIn = FactsIn()
+    rent: RentIn = RentIn()
 
     @field_validator("label", "address")
     @classmethod
@@ -881,6 +1117,7 @@ class PropertyPatch(BaseModel):
     model_config = ConfigDict(extra="forbid")
     label: str | None = Field(None, min_length=1, max_length=60)
     facts: FactsIn | None = None
+    rent: RentIn | None = None
 
     @field_validator("label")
     @classmethod
@@ -913,10 +1150,20 @@ def _own(c: sqlite3.Connection, uid: int, pid: int) -> sqlite3.Row:
     return p
 
 
+def card(p, d: str, lang: str) -> dict:
+    """What a building card in the list needs: summary, per-topic status, one question, the next raise."""
+    return {
+        "summary": summary(p, d),
+        "brief": card_brief(_view(*_key(p), d, lang, _sig()), d),
+        "next_raise": next_raise(p, d, lang),
+    }
+
+
 @router.get("/api/properties")
-def list_props(request: Request, as_of: str | None = None):
+def list_props(request: Request, as_of: str | None = None, lang: str = "en"):
     user = require_user(request)
     d = _as_of(as_of)
+    lang = lang if lang in ("en", "es") else "en"
     with db() as c:
         rows = c.execute(
             "SELECT * FROM properties WHERE user_id = ? ORDER BY id", (user["id"],)
@@ -926,14 +1173,39 @@ def list_props(request: Request, as_of: str | None = None):
         "disclaimer": NLA,
         "demo": bool(user["is_demo"]),
         "max": MAX_PROPERTIES,
-        "properties": [{**prop_out(p), "summary": summary(p, d)} for p in rows],
+        "properties": [{**prop_out(p), **card(p, d, lang)} for p in rows],
     }
 
 
 @router.post("/api/properties", status_code=201)
 def create_prop(body: PropertyIn, request: Request):
     user = require_user(request, write=True)
-    _check_place(body.place)
+    place, facts = body.place, _facts_row(body.facts)
+    if body.address_id:
+        from navigator import api as NA
+
+        f = NA._addresses().get(body.address_id.upper())
+        if not f:
+            raise HTTPException(404, "Unknown address.")
+        a = f.raw
+        place = PlaceIn(
+            state=f.state,
+            jurisdiction=f.city,
+            place=(f.city or "").removesuffix(f", {f.state}") or a.get("postal_city"),
+            county=a.get("county"),
+            matched_address=f"{a.get('street_address')}, {a.get('postal_city')}, {f.state}, {a.get('zip')}",
+        )
+        facts = {
+            "year_built": facts["year_built"] or f.year_built,
+            "units": facts["units"] or (f.units_lo if f.units_lo == f.units_hi else None),
+            "owner_occupied": facts["owner_occupied"]
+            if facts["owner_occupied"] is not None
+            else (None if f.owner_occupied is None else int(f.owner_occupied)),
+            "certificate_of_occupancy_date": facts["certificate_of_occupancy_date"],
+        }
+    if place is None:
+        raise HTTPException(422, "place or address_id is required")
+    _check_place(place)
     with db() as c:
         n = c.execute(
             "SELECT COUNT(*) FROM properties WHERE user_id = ?", (user["id"],)
@@ -943,8 +1215,12 @@ def create_prop(body: PropertyIn, request: Request):
         vals = {
             "label": body.label,
             "address": body.address,
-            **body.place.model_dump(),
-            **_facts_row(body.facts),
+            **place.model_dump(),
+            **facts,
+            "last_increase_date": body.rent.last_increase_date.isoformat()
+            if body.rent.last_increase_date
+            else None,
+            "current_rent": body.rent.current_rent,
         }
         pid = insert_property(c, user["id"], vals)
         p = _own(c, user["id"], pid)
@@ -965,6 +1241,29 @@ def get_prop(pid: int, request: Request, as_of: str | None = None, lang: str = "
         "view": _view(*_key(p), d, lang, _sig()),
         "changes": property_changes(p, d),
         "summary": summary(p, d),
+        "next_raise": next_raise(p, d, lang),
+    }
+
+
+class PreviewIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    facts: FactsIn
+    as_of: str | None = None
+    lang: str = "en"
+
+
+@router.post("/api/properties/{pid}/preview")
+def preview_prop(pid: int, body: PreviewIn, request: Request):
+    """The card with other facts, nothing saved (the one-tap answer on the read-only example portfolio)."""
+    user = require_user(request)
+    d = _as_of(body.as_of)
+    with db() as c:
+        p = dict(_own(c, user["id"], pid))
+    p.update(_facts_row(body.facts))
+    return {
+        "id": pid,
+        "facts": prop_facts(p),
+        **card(p, d, body.lang if body.lang in ("en", "es") else "en"),
     }
 
 
@@ -978,6 +1277,11 @@ def update_prop(pid: int, body: PropertyPatch, request: Request):
             sets["label"] = body.label
         if body.facts is not None:
             sets.update(_facts_row(body.facts))
+        if body.rent is not None:
+            sets["last_increase_date"] = (
+                body.rent.last_increase_date.isoformat() if body.rent.last_increase_date else None
+            )
+            sets["current_rent"] = body.rent.current_rent
         if sets:
             c.execute(
                 f"UPDATE properties SET {', '.join(f'{k} = ?' for k in sets)}, updated_at = ? WHERE id = ?",
@@ -1128,8 +1432,57 @@ def build_ics(user: sqlite3.Row, base: str, today: dt.date) -> str:
             "END:VALARM",
             "END:VEVENT",
         ]
+    lines += notice_events(user["id"], base, host, stamp, today)
     lines.append("END:VCALENDAR")
     return "\r\n".join(_fold(x) for x in lines) + "\r\n"
+
+
+def notice_events(uid: int, base: str, host: str, stamp: str, today: dt.date) -> list[str]:
+    """#152: the last day to send the written notice of the next raise, per building (when the engine knows it)."""
+    with db() as c:
+        rows = c.execute(
+            "SELECT * FROM properties WHERE user_id = ? ORDER BY id", (uid,)
+        ).fetchall()
+    out = []
+    for p in rows:
+        nx = next_raise(p, today.isoformat())
+        n = nx.get("notice") or {}
+        if nx.get("state") not in ("ok", "need_cpi", "no_cap") or not n.get("by"):
+            continue
+        d = dt.date.fromisoformat(n["by"])
+        raise_on = dt.date.fromisoformat(nx["date"])
+        amount = f"up to ${nx['max_rent']:,.2f} a month" if nx.get("max_rent") else "no legal cap"
+        if nx["state"] == "need_cpi":
+            amount = f"at most ${nx['max_rent']:,.2f} a month ({nx['cap_max']:g}% max; the exact cap depends on inflation)"
+        desc = [
+            f"{p['label']} ({p['place'] or p['state']})",
+            "",
+            f"Next lawful raise: {raise_on:%b} {raise_on.day}, {raise_on.year}, {amount}.",
+            f"Send the written notice by today: {n['days']} days ahead"
+            + ("." if n.get("sure") else f", for a raise under {n['below_pct']:g}%."),
+            f"Source: {n['rule'].get('url') or ''}",
+            "",
+            f"Details: {base}/#/properties",
+            NLA,
+        ]
+        out += [
+            "BEGIN:VEVENT",
+            f"UID:ce-notice-{p['id']}-{nx['date']}@{host}",
+            f"DTSTAMP:{stamp}",
+            f"DTSTART;VALUE=DATE:{d:%Y%m%d}",
+            f"DTEND;VALUE=DATE:{d + dt.timedelta(days=1):%Y%m%d}",
+            "SUMMARY:" + _ics_text(f"Send rent notice: {p['label']}"),
+            "DESCRIPTION:" + _ics_text("\n".join(desc)),
+            f"URL:{base}/#/properties",
+            "TRANSP:TRANSPARENT",
+            "BEGIN:VALARM",
+            "ACTION:DISPLAY",
+            "TRIGGER:-P7D",
+            "DESCRIPTION:" + _ics_text(f"In one week: send the rent notice for {p['label']}"),
+            "END:VALARM",
+            "END:VEVENT",
+        ]
+    return out
 
 
 @router.get("/cal/{token}.ics")

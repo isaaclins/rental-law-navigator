@@ -938,6 +938,10 @@ def finalize(rules: list[dict], findings: list[dict], as_of: str = DEFAULT_AS_OF
         cov = r.get("coverage") or {}
         unverified = bool(r.get("unverified_link_only"))
         url, retrieved, stype = _source_meta(r["source_doc_id"])
+        span_doc = r.get("span_doc_id") or r["source_doc_id"]
+        if not retrieved and span_doc != r["source_doc_id"]:
+            # the source itself is link-only and was never read; the quote comes from a document we did retrieve
+            retrieved = _source_meta(span_doc)[1]
         rec = {
             "team_rule_id": r["team_rule_id"],
             "jurisdiction": r["jurisdiction"],
@@ -984,6 +988,8 @@ def finalize(rules: list[dict], findings: list[dict], as_of: str = DEFAULT_AS_OF
             "extracted_from_candidates": r.get("from_candidates", []),
         }
         final.append(rec)
+    _trim_dangling_spans(final)
+    apply_review_fixes(final)
     _link_interactions(final)
     enacted_cells = {
         (r["jurisdiction"], r["category"])
@@ -1028,6 +1034,68 @@ def finalize(rules: list[dict], findings: list[dict], as_of: str = DEFAULT_AS_OF
         "rules": final,
         "no_rule_findings": nr,
     }
+
+
+def _trim_dangling_spans(records: list[dict]) -> None:
+    """A quote that ends in a cut-off parenthesis scraped from a link ("... percentage (click here to") is shortened
+    to end before it. The result is still a verbatim substring of the document."""
+    for r in records:
+        span = (r.get("quoted_span") or "").rstrip()
+        o = span.rfind("(")
+        if o > span.rfind(")") and len(span[o:].split()) <= 6 and len(span[:o].strip()) >= 40:
+            new = span[:o].rstrip(" ,;:\u00a0")
+            audit(
+                {
+                    "stage": "span_trim",
+                    "rule": r.get("team_rule_id"),
+                    "before": r["quoted_span"],
+                    "after": new,
+                }
+            )
+            r["quoted_span"] = new
+
+
+def apply_review_fixes(records: list[dict]) -> None:
+    """Apply navigator/review_fixes.py: a field is set only when every evidence quote is verbatim in its document."""
+    from .review_fixes import FIXES
+
+    by_id = {r["team_rule_id"]: r for r in records}
+    for fx in FIXES:
+        r = by_id.get(fx["rule"])
+        if not r or r.get("citation") != fx["citation"]:
+            audit(
+                {
+                    "stage": "review_fix",
+                    "rule": fx["rule"],
+                    "applied": False,
+                    "why": "rule not found",
+                }
+            )
+            continue
+        ev = [(e["doc_id"], verify_span(e["doc_id"], e["quoted_span"])) for e in fx["evidence"]]
+        if not all(q for _, q in ev):
+            audit(
+                {
+                    "stage": "review_fix",
+                    "rule": fx["rule"],
+                    "applied": False,
+                    "why": "evidence not verbatim",
+                }
+            )
+            continue
+        before = {k: r.get(k) for k in fx["set"]}
+        r.update(fx["set"])
+        r["review_evidence"] = [{"doc_id": d, "quoted_span": q} for d, q in ev]
+        audit(
+            {
+                "stage": "review_fix",
+                "rule": fx["rule"],
+                "applied": True,
+                "before": before,
+                "after": fx["set"],
+                "evidence": r["review_evidence"],
+            }
+        )
 
 
 def _link_interactions(rules: list[dict]) -> None:

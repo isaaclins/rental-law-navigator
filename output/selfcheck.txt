@@ -111,7 +111,7 @@
 ====================================================================================================
 5b. as-of sanity: amended long-standing laws exist before their current version date
 ====================================================================================================
-  28 rules marked as amendments/annual updates of an existing law
+  29 rules marked as amendments/annual updates of an existing law
   PASS as of 2025-12-31: no amended long-standing rule reported not_yet_effective []
   PASS as of 2024-01-01: no amended long-standing rule reported not_yet_effective []
 
@@ -155,7 +155,7 @@
   MA-EVIC-02   in_force          None       G.L. c. 186, § 12                             | 3 months' notice; 14 days for nonpayment with 10-day cure ri
   MA-EVIC-03   in_force          None       G.L. c. 186, § 18                             | 1–3 months' rent damages; 6-month presumption
   MA-EVIC-04   in_force          None       G.L. c. 186, § 31                             | State form required with nonpayment notice to quit
-  MA-DEP-01    in_force          None       G.L. c. 186, § 15B                            | Max = first month's rent; separate interest-bearing account;
+  MA-DEP-01    in_force          2025-08-01 G.L. c. 186, § 15B                            | Max = first month's rent; separate interest-bearing account;
   MA-FEE-01    in_force          2025-08-01 G.L. c. 112, § 87DDD½                         | Broker fee paid only by party who hired the broker
   MA-FEE-02    in_force          2025-08-01 G.L. c. 186, § 15B(1)(b)                      | First, last, security deposit, lock/key only
   MA-SCR-01    in_force          None       G.L. c. 151B, § 4                             | ban on discrimination based on public assistance / housing s

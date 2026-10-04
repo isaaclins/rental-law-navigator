@@ -32,6 +32,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from navigator import user_facts as U
 from navigator.config import STATES
+from web import headlines as H
 
 router = APIRouter()
 
@@ -304,6 +305,47 @@ def _overriders(rid: str, present: set[str], by_id: dict) -> list[str]:
     return res
 
 
+def _excluded(
+    d: dict, cid: str, present: set[str], by_id: dict, juris: set, lang: str
+) -> list[dict]:
+    """In-force rules here that these building facts rule out (same shape as web.app.excluded_rules), so a
+    new-construction exemption reads as "exempt" and not as "no rule"."""
+    from navigator import evaluate as NE
+
+    W = _web()
+    try:
+        f = U.make_facts(d["state"], d["jurisdiction"], d["facts"])
+        day = dt.date.fromisoformat(d["as_of"])
+    except Exception:
+        return []
+    out = []
+    for r in by_id.values():
+        if (
+            r.get("category") != cid
+            or r["team_rule_id"] in present
+            or r.get("jurisdiction") not in juris
+        ):
+            continue
+        try:
+            if NE.time_status(r, day) != "in_force":
+                continue
+            verdict, why = NE.coverage(r, f, day)
+        except Exception:
+            continue
+        if verdict == NE.NO:
+            out.append(
+                {
+                    "id": r["team_rule_id"],
+                    "title": W.STORE.t(r.get("title"), lang),
+                    "jurisdiction": r.get("jurisdiction"),
+                    "level": r.get("level"),
+                    "citation": r.get("citation"),
+                    "reasons": why,
+                }
+            )
+    return out
+
+
 def build_view(d: dict, lang: str) -> dict:
     """navigator.user_facts output -> the categories shape of /api/address/{id} (web.app.build_address)."""
     W = _web()
@@ -322,7 +364,9 @@ def build_view(d: dict, lang: str) -> dict:
                 "result": e["result"],
                 "explanation": W.STORE.t(e.get("explanation"), lang),
                 "explanation_en": e.get("explanation"),
-                "conflict_flag": bool(e.get("conflict_flag") or r.get("conflict_flag")),
+                "conflict_flag": bool(
+                    e.get("conflict_flag")
+                ),  # address-level, as in web.app.build_address
                 "rule": W.rule_view(r, lang),
             }
             if e["result"] == "superseded":
@@ -342,6 +386,7 @@ def build_view(d: dict, lang: str) -> dict:
                     if item["needs_fact"]
                     else (e.get("needs_other") or W.missing_fact(e.get("explanation", "")))
                 )
+            H.apply_item(item, d["as_of"], lang, units=(d.get("facts") or {}).get("units"))
             (pending if e["result"] == "pending" else enacted).append(item)
         for r in by_id.values():
             if (
@@ -378,6 +423,7 @@ def build_view(d: dict, lang: str) -> dict:
                 "id": cid,
                 "label": label,
                 "question": question,
+                "excluded": _excluded(d, cid, present, by_id, juris, lang),
                 "enacted": enacted,
                 "pending": pending,
                 "not_law": notlaw,

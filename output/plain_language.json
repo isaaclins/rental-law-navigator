@@ -1,0 +1,1559 @@
+{
+ "about": "Plain-language answers per rule. source=reviewed: hand-checked copy in web/headlines.py wins; source=generated: written by navigator/plain.py from the rule's own fields and checked by code (numbers, dates, length, jargon, status, Spanish). Not legal advice.",
+ "prompt_version": "plain-v5",
+ "counts": {
+  "rules": 62,
+  "reviewed": 46,
+  "generated": 16,
+  "needs_review": 3
+ },
+ "records": {
+  "BER-ALG-01": {
+   "rule_id": "BER-ALG-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "BER-DEP-01": {
+   "rule_id": "BER-DEP-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "How large can the deposit be?",
+   "question_es": "¿Qué tan alto puede ser el depósito?",
+   "fields": {
+    "answer_en": "Yes, landlords must pay you interest.",
+    "answer_es": "Sí, el propietario debe pagarle intereses.",
+    "why_en": "You get interest each year, or a part of it if you move out early.",
+    "why_es": "Recibe intereses cada año, o una parte si se muda antes de que termine el año.",
+    "headline_en": "Landlords pay interest on your deposit",
+    "headline_es": "El propietario paga intereses sobre el depósito",
+    "short_en": "Interest paid yearly",
+    "short_es": "Intereses cada año",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Landlords pay interest on your deposit",
+    "es": "El propietario paga intereses sobre el depósito",
+    "short_en": "Interest paid yearly",
+    "short_es": "Intereses cada año",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Yes, landlords must pay you interest.",
+     "You get interest each year, or a part of it if you move out early."
+    ],
+    "es": [
+     "Sí, el propietario debe pagarle intereses.",
+     "Recibe intereses cada año, o una parte si se muda antes de que termine el año."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "d15cd34b4694e5a1346e8a51ac2df7591eff5e5202dcbe1f8021d63b51fdff1c",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "d15cd34b4694e5a1346e8a51ac2df7591eff5e5202dcbe1f8021d63b51fdff1c",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 4.4
+   },
+   "input": {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "Berkeley security deposit interest requirement",
+    "key_value": "annual interest on deposit, prorated at move-out",
+    "requirement": "For units fully or partially covered by Berkeley's Rent Ordinance, landlords must pay tenants interest on the security deposit at the end of each year, and a prorated amount if the tenant moves out before year end.",
+    "coverage_conditions": null,
+    "exemptions": "Exempt units: golden duplex, owner-shared kitchen/bath, owner-occupied ADU property, university dorms, nonprofit cooperatives.",
+    "effective_date": null,
+    "quoted_span": "For tenancies in units fully or partially covered by Berkeley's Rent Ordinance, landlords must pay tenants interest on their security deposit at the end of each year and a prorated amount if the tenant moves out before the end of the year"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "BER-EVIC-01": {
+   "rule_id": "BER-EVIC-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "BER-FEE-01": {
+   "rule_id": "BER-FEE-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "BER-RENT-01": {
+   "rule_id": "BER-RENT-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "BER-SCR-01": {
+   "rule_id": "BER-SCR-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "BOS-EVIC-01": {
+   "rule_id": "BOS-EVIC-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "Yes, they must give you a rights notice.",
+    "answer_es": "Sí, deben darle un aviso de sus derechos.",
+    "why_en": "The notice must come with the notice to quit, and a copy goes to the City.",
+    "why_es": "El aviso debe entregarse junto con el aviso de desalojo, y se envía una copia a la Ciudad.",
+    "headline_en": "Rights notice required with notice to quit",
+    "headline_es": "Aviso de derechos junto con el aviso de desalojo",
+    "short_en": "Rights notice required",
+    "short_es": "Aviso de derechos obligatorio",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Rights notice required with notice to quit",
+    "es": "Aviso de derechos junto con el aviso de desalojo",
+    "short_en": "Rights notice required",
+    "short_es": "Aviso de derechos obligatorio",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Yes, they must give you a rights notice.",
+     "The notice must come with the notice to quit, and a copy goes to the City."
+    ],
+    "es": [
+     "Sí, deben darle un aviso de sus derechos.",
+     "El aviso debe entregarse junto con el aviso de desalojo, y se envía una copia a la Ciudad."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "dad87056b8e9b81257d9265441f945b29a4d4e0f79f175f3a3c9dcbaa9263f30",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "c897004569a9fc2ab2a174c48c98a5cf3e8b3b5980e2755bc3fc59624994bb2e",
+      "cached": true,
+      "errors": [
+       "headline_en has 9 words (max 8): 'Landlord must give rights notice with notice to quit'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "dad87056b8e9b81257d9265441f945b29a4d4e0f79f175f3a3c9dcbaa9263f30",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 4.7
+   },
+   "input": {
+    "jurisdiction": "Boston, MA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Housing Stability Notification Act",
+    "key_value": "Notice of Tenants' Rights and Resources with notice to quit; $300/day fine after a warning",
+    "requirement": "A landlord planning to end a tenancy must give the tenant a Notice of Tenants' Rights and Resources at the same time as the notice to quit or non-renewal. The landlord must also send a copy of the notice to the City. A violation draws a warning, then $300 per day, but does not halt the eviction.",
+    "coverage_conditions": null,
+    "exemptions": "Residences in hospitals, skilled nursing or health facilities, and non-profit short-term substance abuse treatment facilities. Requirements cannot be waived.",
+    "effective_date": "2020-11-06",
+    "quoted_span": "The Notice of\nTenants’ Rights and Resources must be delivered at the same time as the Notice to\nQuit"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "BOS-RENT-P1": {
+   "rule_id": "BOS-RENT-P1",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "How much can the rent go up?",
+   "question_es": "¿Cuánto puede subir la renta?",
+   "fields": {
+    "answer_en": "Not law: the proposal failed.",
+    "answer_es": "No es ley: la propuesta fracasó.",
+    "why_en": "Boston still has no power to set rent limits under this proposal.",
+    "why_es": "Con esta propuesta, Boston sigue sin poder para fijar límites al aumento del alquiler.",
+    "headline_en": "Boston rent stabilization petition failed",
+    "headline_es": "Fracasó la petición de estabilización de alquileres en Boston",
+    "short_en": "Proposal failed",
+    "short_es": "Propuesta fracasó",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Boston rent stabilization petition failed",
+    "es": "Fracasó la petición de estabilización de alquileres en Boston",
+    "short_en": "Proposal failed",
+    "short_es": "Propuesta fracasó"
+   },
+   "plain": {
+    "en": [
+     "Not law: the proposal failed.",
+     "Boston still has no power to set rent limits under this proposal."
+    ],
+    "es": [
+     "No es ley: la propuesta fracasó.",
+     "Con esta propuesta, Boston sigue sin poder para fijar límites al aumento del alquiler."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "677a13194b171fa3b3b58a7ade9d26e3d0b66d7eac1ca8d9b49bde7faab87d31",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "677a13194b171fa3b3b58a7ade9d26e3d0b66d7eac1ca8d9b49bde7faab87d31",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 5.8
+   },
+   "input": {
+    "jurisdiction": "Boston, MA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "failed",
+    "title": "H.3744 – Boston rent stabilization and tenant eviction protections home-rule petition",
+    "key_value": "home-rule petition sent to study order (not enacted)",
+    "requirement": "A home-rule petition to let Boston adopt rent stabilization and tenant eviction protections was accompanied by a study order on 9/9/2024 and was not enacted. It gives Boston no rent stabilization authority.",
+    "coverage_conditions": null,
+    "exemptions": null,
+    "effective_date": null,
+    "quoted_span": "An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "BOS-SCR-01": {
+   "rule_id": "BOS-SCR-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "BOS-SCR-02": {
+   "rule_id": "BOS-SCR-02",
+   "source": "generated",
+   "method": "template",
+   "needs_review": true,
+   "review_reasons": [
+    "checks_failed: template used"
+   ],
+   "question_en": "What may a landlord ask about or consider?",
+   "question_es": "¿Qué puede preguntar o considerar el propietario?",
+   "fields": {
+    "answer_en": "Limits on what landlords may check.",
+    "answer_es": "Límites a lo que el dueño puede revisar.",
+    "why_en": "Open the law below for the exact rule and its source.",
+    "why_es": "Abra la ley abajo para ver la regla exacta y su fuente.",
+    "headline_en": "Limits on what landlords may check",
+    "headline_es": "Límites a lo que el dueño puede revisar",
+    "short_en": "Screening limited",
+    "short_es": "Revisión con límites",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Limits on what landlords may check",
+    "es": "Límites a lo que el dueño puede revisar",
+    "short_en": "Screening limited",
+    "short_es": "Revisión con límites",
+    "priority": 2
+   },
+   "plain": {
+    "en": [
+     "Limits on what landlords may check.",
+     "Open the law below for the exact rule and its source."
+    ],
+    "es": [
+     "Límites a lo que el dueño puede revisar.",
+     "Abra la ley abajo para ver la regla exacta y su fuente."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "4a04c387daef9ea9ca8e22473ac60fd129dfb00d221cac3f55c1be330578e33e",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": false,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "955f55db47cd6fd70f9f61130d74af85ad92aaef51c751a9c42344417addc4ce",
+      "cached": true,
+      "errors": [
+       "answer_en has 10 words (max 8): 'No credit scores, and no convictions older than 5 years.'",
+       "why_en reads at grade 11.2 (max 9); use shorter, everyday words: 'This applies only to city-funded housing or income-restricted units, and each applicant is judged case by case.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "4a04c387daef9ea9ca8e22473ac60fd129dfb00d221cac3f55c1be330578e33e",
+      "cached": true,
+      "errors": [
+       "answer_en has 9 words (max 8): 'No credit scores or convictions over 5 years old.'",
+       "why_en reads at grade 9.1 (max 9); use shorter, everyday words: 'This only covers city-funded or income-limited homes, and each person is judged one by one.'"
+      ]
+     }
+    ],
+    "grade_why_en": 3.7
+   },
+   "input": {
+    "jurisdiction": "Boston, MA",
+    "level": "city",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Boston Fair Chance Tenant Selection Policy",
+    "key_value": "No blanket criminal-history bans; no convictions older than 5 years; no credit score use",
+    "requirement": "In housing funded by or on land from Boston DND, or with income-restricted units under the BPDA Inclusionary Development Policy, providers may not use blanket bans on applicants with arrests or convictions. They may not consider non-conviction arrests, expunged or sealed convictions, juvenile records, or convictions over 5 years old, with exceptions for direct relationship or unreasonable risk. Credit scores may not be used to approve or deny applications.",
+    "coverage_conditions": "Applies to housing providers receiving DND funding and/or land, or with income-restricted units created under the BPDA Inclusionary Development Policy.",
+    "exemptions": "Does not apply where a conviction has a direct relationship to the housing sought or poses unreasonable risk of substantial harm to others, or to current criminal behavior.",
+    "effective_date": "2017-02",
+    "quoted_span": "will not impose a blanket policy that denies \nhousing to anyone with arrests and or convictions. Housing providers will consider applicants on \na case-by-case basis"
+   },
+   "fills": []
+  },
+  "CA-ALG-01": {
+   "rule_id": "CA-ALG-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "CA-DEP-01": {
+   "rule_id": "CA-DEP-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "CA-EVIC-01": {
+   "rule_id": "CA-EVIC-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "CA-FEE-01": {
+   "rule_id": "CA-FEE-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "CA-RENT-01": {
+   "rule_id": "CA-RENT-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "CA-SCR-01": {
+   "rule_id": "CA-SCR-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "CA-SCR-02": {
+   "rule_id": "CA-SCR-02",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "CAM-EVIC-01": {
+   "rule_id": "CAM-EVIC-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "Yes, landlords must give you a rights guide.",
+    "answer_es": "Sí, el dueño debe darle una guía de derechos.",
+    "why_en": "They must give it at the start and when ending your stay, or face a $300 per day fine.",
+    "why_es": "Debe dársela al comenzar y al terminar el alquiler, o enfrenta una multa de $300 por día.",
+    "headline_en": "Landlord must give tenants rights guide",
+    "headline_es": "El dueño debe dar la guía de derechos",
+    "short_en": "Rights guide required",
+    "short_es": "Guía de derechos obligatoria",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Landlord must give tenants rights guide",
+    "es": "El dueño debe dar la guía de derechos",
+    "short_en": "Rights guide required",
+    "short_es": "Guía de derechos obligatoria",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Yes, landlords must give you a rights guide.",
+     "They must give it at the start and when ending your stay, or face a $300 per day fine."
+    ],
+    "es": [
+     "Sí, el dueño debe darle una guía de derechos.",
+     "Debe dársela al comenzar y al terminar el alquiler, o enfrenta una multa de $300 por día."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "37dcd6902bc95ac16676ee84ed1df835f3dc48634d3143fe1452e2c04c164d05",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "d6b6e6ceb7a7385dd30f5236d4ec82137924e091a2853867c5f6ad667a559551",
+      "cached": true,
+      "errors": [
+       "answer_en has 9 words (max 8): \"Yes, landlords must give you the city's rights guide.\"",
+       "answer_es has 12 words (max 11): 'Sí, el dueño debe darle la guía de derechos de la ciudad.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "37dcd6902bc95ac16676ee84ed1df835f3dc48634d3143fe1452e2c04c164d05",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 3.9
+   },
+   "input": {
+    "jurisdiction": "Cambridge, MA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Tenants Rights and Resources Notification Ordinance",
+    "key_value": "Guide required at tenancy start and at termination; $300 per day fine",
+    "requirement": "Landlords must give tenants the city's Tenants Rights and Resources Guide at the start of a tenancy and whenever legal steps to end a tenancy (e.g., Notice to Quit or Summary Process) are taken. The ordinance does not bar evictions otherwise allowed by law.",
+    "coverage_conditions": null,
+    "exemptions": "Rental units in a hospital, skilled nursing facility or health facility, or in a non-profit short-term substance abuse treatment facility; short-term rental units under Zoning Ordinance Art. 4, § 4.60. Applies to owner-occupied single units.",
+    "effective_date": "2020-10-14",
+    "quoted_span": "The Ordinance also requires that a landlord provide the Guide to tenants when legal steps to terminate a tenancy are taken (ex. Notice to Quit or Summary Process)"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "CAM-SCR-01": {
+   "rule_id": "CAM-SCR-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "HOB-ALG-01": {
+   "rule_id": "HOB-ALG-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "HOB-RENT-01": {
+   "rule_id": "HOB-RENT-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "JC-ALG-01": {
+   "rule_id": "JC-ALG-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "JC-RENT-01": {
+   "rule_id": "JC-RENT-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "LA-DEP-01": {
+   "rule_id": "LA-DEP-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "How large can the deposit be?",
+   "question_es": "¿Qué tan alto puede ser el depósito?",
+   "fields": {
+    "answer_en": "Yes, landlords must pay you interest.",
+    "answer_es": "Sí, el arrendador debe pagarle intereses.",
+    "why_en": "The city sets the interest rate on your deposit each year: 4.320% for 2025.",
+    "why_es": "La ciudad fija cada año la tasa de interés de su depósito: 4.320% para 2025.",
+    "headline_en": "Landlords must pay interest on deposits",
+    "headline_es": "El arrendador debe pagar intereses del depósito",
+    "short_en": "Interest paid on deposit",
+    "short_es": "Pagan intereses del depósito",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Landlords must pay interest on deposits",
+    "es": "El arrendador debe pagar intereses del depósito",
+    "short_en": "Interest paid on deposit",
+    "short_es": "Pagan intereses del depósito",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Yes, landlords must pay you interest.",
+     "The city sets the interest rate on your deposit each year: 4.320% for 2025."
+    ],
+    "es": [
+     "Sí, el arrendador debe pagarle intereses.",
+     "La ciudad fija cada año la tasa de interés de su depósito: 4.320% para 2025."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "7aa6a39920bfc58b5f3ff91922dfb99d7cbae9fbf289932e70c41d87490157ee",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "adae8163e81e1f22a08502862b17067074d1e481bb08d1620ffee6a6307aee5b",
+      "cached": true,
+      "errors": [
+       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for the deposit (keep it short and simple): 'The city sets the rate each year: 4.320% for 2025.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "7aa6a39920bfc58b5f3ff91922dfb99d7cbae9fbf289932e70c41d87490157ee",
+      "cached": false,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 5.8
+   },
+   "input": {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "Los Angeles RSO security deposit interest",
+    "key_value": "Annual City-set interest rate (4.320% for 2025); paid monthly or yearly",
+    "requirement": "Landlords of RSO units must pay tenants interest on security deposits, monthly or yearly, as a direct payment or rent credit, and tell the tenant in writing which method they chose. The City sets the rate annually (4.320% for 2025).",
+    "coverage_conditions": null,
+    "exemptions": null,
+    "effective_date": "1990-11-01",
+    "quoted_span": "Interest Payments on Security Deposits"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "LA-EVIC-01": {
+   "rule_id": "LA-EVIC-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "LA-EVIC-02": {
+   "rule_id": "LA-EVIC-02",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "LA-EVIC-03": {
+   "rule_id": "LA-EVIC-03",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "If demolished, they pay $87,450–$115,480.",
+    "answer_es": "Si demuelen, pagan $87,450–$115,480.",
+    "why_en": "You may stay until 6 months before construction and have return rights.",
+    "why_es": "Puede quedarse hasta 6 meses antes de la construcción y tiene derecho a volver.",
+    "headline_en": "Extra moving pay when homes are demolished",
+    "headline_es": "Pago extra por mudanza si demuelen el edificio",
+    "short_en": "$87,450–$115,480 to move",
+    "short_es": "$87,450–$115,480 por mudanza",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Extra moving pay when homes are demolished",
+    "es": "Pago extra por mudanza si demuelen el edificio",
+    "short_en": "$87,450–$115,480 to move",
+    "short_es": "$87,450–$115,480 por mudanza",
+    "priority": 2
+   },
+   "plain": {
+    "en": [
+     "If demolished, they pay $87,450–$115,480.",
+     "You may stay until 6 months before construction and have return rights."
+    ],
+    "es": [
+     "Si demuelen, pagan $87,450–$115,480.",
+     "Puede quedarse hasta 6 meses antes de la construcción y tiene derecho a volver."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "7959d61de56110efd7a92a2600f105912398895a541fa320d3eb89cf48df83f9",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "063973401713aaab6cc08ec5b1e945ae9006b8a4f36499384a559aaaf45124d3",
+      "cached": true,
+      "errors": [
+       "answer_en has 9 words (max 8): 'If they tear down your home, they pay $87,450–$115,480.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "7959d61de56110efd7a92a2600f105912398895a541fa320d3eb89cf48df83f9",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 5.9
+   },
+   "input": {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Los Angeles Resident Protections Ordinance (RPO) – demolition for new construction",
+    "key_value": "$87,450–$115,480 for lower-income households",
+    "requirement": "Owners demolishing Protected Units for new construction must pay enhanced relocation to lower-income households under one of three options, with standardized payments of $87,450–$115,480. Tenants may remain until 6 months before construction and have return and first-refusal rights.",
+    "coverage_conditions": null,
+    "exemptions": null,
+    "effective_date": "2025-02-11",
+    "quoted_span": "Owners have 3 relocation options to comply with the RPO relocation rules"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "LA-EVIC-04": {
+   "rule_id": "LA-EVIC-04",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "If not your fault, they pay $11,000–$27,400.",
+    "answer_es": "Si no es su culpa, le pagan $11,000–$27,400.",
+    "why_en": "In an eviction that isn't your fault, the landlord must make the payment available within 15 days.",
+    "why_es": "En un desalojo que no es su culpa, el dueño debe tener el pago disponible en 15 días.",
+    "headline_en": "Moving pay for no-fault evictions",
+    "headline_es": "Pago de mudanza si el desalojo no es su culpa",
+    "short_en": "$11,000–$27,400 moving pay",
+    "short_es": "$11,000–$27,400 por mudanza",
+    "period_end": "2027-06-30",
+    "after_headline_en": "Moving pay for no-fault evictions, amount set yearly",
+    "after_headline_es": "Pago de mudanza por desalojo sin culpa, monto anual",
+    "after_short_en": "Moving pay, amount set yearly",
+    "after_short_es": "Pago de mudanza, monto anual",
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Moving pay for no-fault evictions",
+    "es": "Pago de mudanza si el desalojo no es su culpa",
+    "short_en": "$11,000–$27,400 moving pay",
+    "short_es": "$11,000–$27,400 por mudanza",
+    "priority": 2,
+    "until": "2027-06-30",
+    "after_en": "Moving pay for no-fault evictions, amount set yearly",
+    "after_es": "Pago de mudanza por desalojo sin culpa, monto anual",
+    "short_until": "2027-06-30",
+    "short_after_en": "Moving pay, amount set yearly",
+    "short_after_es": "Pago de mudanza, monto anual"
+   },
+   "plain": {
+    "en": [
+     "If not your fault, they pay $11,000–$27,400.",
+     "In an eviction that isn't your fault, the landlord must make the payment available within 15 days."
+    ],
+    "es": [
+     "Si no es su culpa, le pagan $11,000–$27,400.",
+     "En un desalojo que no es su culpa, el dueño debe tener el pago disponible en 15 días."
+    ],
+    "until": "2027-06-30"
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "937aa52845cea4af5c496951b5c0ed3212ca7b650df594817a21257ae44bf75b",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "e1bfbbdfaf41260e5ba86978dceb4374187de886d83fe2951ab1ceeab9f948c5",
+      "cached": true,
+      "errors": [
+       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for evictions (keep it short and simple): 'The landlord must make the payment available within 15 days, and it rises each July 1.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "937aa52845cea4af5c496951b5c0ed3212ca7b650df594817a21257ae44bf75b",
+      "cached": false,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 8.4
+   },
+   "input": {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Los Angeles RSO/JCO no-fault eviction relocation assistance",
+    "key_value": "$11,000–$27,400 per unit (7/1/2026–6/30/2027); payment within 15 days",
+    "requirement": "For no-fault evictions from RSO or JCO units, landlords must file a Declaration of Intent to Evict with LAHD before serving notice and pay relocation assistance, made available within 15 days of service. Amounts for 7/1/2026–6/30/2027 range from $11,000 to $27,400 per unit and rise each July 1.",
+    "coverage_conditions": null,
+    "exemptions": "Resident manager replaced by another resident manager; natural-disaster hazardous conditions; reduced amounts for Mom and Pop properties and natural-person single-family dwellings.",
+    "effective_date": "2026-07-01",
+    "quoted_span": "All tenant not- at-fault evictions require payment of relocation assistance and the filing of a"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "LA-RENT-01": {
+   "rule_id": "LA-RENT-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "MA-ALG-P1": {
+   "rule_id": "MA-ALG-P1",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "MA-ALG-P2": {
+   "rule_id": "MA-ALG-P2",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "MA-DEP-01": {
+   "rule_id": "MA-DEP-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "MA-EVIC-01": {
+   "rule_id": "MA-EVIC-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "For unpaid rent, 14 days' written notice.",
+    "answer_es": "Por renta sin pagar, aviso escrito de 14 días.",
+    "why_en": "You can keep your home by paying all rent due, with interest and costs, by the answer day.",
+    "why_es": "Puede quedarse en su hogar si paga toda la renta adeudada, con intereses y costos, antes del día de respuesta.",
+    "headline_en": "14 days' notice for unpaid rent",
+    "headline_es": "Aviso de 14 días por renta sin pagar",
+    "short_en": "14 days' written notice",
+    "short_es": "Aviso escrito de 14 días",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "14 days' notice for unpaid rent",
+    "es": "Aviso de 14 días por renta sin pagar",
+    "short_en": "14 days' written notice",
+    "short_es": "Aviso escrito de 14 días",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "For unpaid rent, 14 days' written notice.",
+     "You can keep your home by paying all rent due, with interest and costs, by the answer day."
+    ],
+    "es": [
+     "Por renta sin pagar, aviso escrito de 14 días.",
+     "Puede quedarse en su hogar si paga toda la renta adeudada, con intereses y costos, antes del día de respuesta."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "2aa5c47d953bd9c000513226a956653993c651651b59de10f39e87673f57da42",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "b864a7e1f7e091e10a9d2ff8228c3084c24cd17f71367161c7eb6de034e17662",
+      "cached": true,
+      "errors": [
+       "headline_en has 9 words (max 8): \"14 days' notice to end lease for unpaid rent\""
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "2aa5c47d953bd9c000513226a956653993c651651b59de10f39e87673f57da42",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 5.9
+   },
+   "input": {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Notice to quit for nonpayment under a written lease",
+    "key_value": "14 days' written notice to quit for nonpayment",
+    "requirement": "For nonpayment of rent under a written lease, a landlord may end the lease with 14 days' written notice to quit. The tenant keeps the tenancy by paying all rent due with interest and costs by the answer day; delays by government in delivering payments require a hearing continuance of at least 7 days.",
+    "coverage_conditions": "Tenancies under a written lease where rent is unpaid.",
+    "exemptions": null,
+    "effective_date": null,
+    "quoted_span": "Upon the neglect or refusal to pay the rent due under a written lease, fourteen days' notice to quit, given in writing by the landlord to the tenant, shall be sufficient to determine the lease"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "MA-EVIC-02": {
+   "rule_id": "MA-EVIC-02",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "MA-EVIC-03": {
+   "rule_id": "MA-EVIC-03",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "MA-EVIC-04": {
+   "rule_id": "MA-EVIC-04",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "Yes, you must get a state form.",
+    "answer_es": "Sí, debe darle un formulario estatal.",
+    "why_en": "Courts won't accept a nonpayment case without proof the form was delivered.",
+    "why_es": "Los tribunales no aceptan un caso por falta de pago sin prueba de que se entregó el formulario.",
+    "headline_en": "State form required with nonpayment notice",
+    "headline_es": "Formulario estatal con aviso por falta de pago",
+    "short_en": "State form required",
+    "short_es": "Formulario estatal requerido",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "State form required with nonpayment notice",
+    "es": "Formulario estatal con aviso por falta de pago",
+    "short_en": "State form required",
+    "short_es": "Formulario estatal requerido",
+    "priority": 2
+   },
+   "plain": {
+    "en": [
+     "Yes, you must get a state form.",
+     "Courts won't accept a nonpayment case without proof the form was delivered."
+    ],
+    "es": [
+     "Sí, debe darle un formulario estatal.",
+     "Los tribunales no aceptan un caso por falta de pago sin prueba de que se entregó el formulario."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "fa24970ac492fa85bf108195d6c4f0fdb263275c5b86e96dbac0219d6deede9d",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "fa24970ac492fa85bf108195d6c4f0fdb263275c5b86e96dbac0219d6deede9d",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 6.8
+   },
+   "input": {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Notice to quit for nonpayment: required state form",
+    "key_value": "State form required with nonpayment notice to quit",
+    "requirement": "A written notice to quit for nonpayment of rent must come with the state form documenting repayment agreements and giving rental assistance and legal information, stating that the notice is not an eviction. Courts will not accept a nonpayment summary process filing without proof the form was delivered.",
+    "coverage_conditions": null,
+    "exemptions": null,
+    "effective_date": null,
+    "quoted_span": "No court having jurisdiction over an action for summary process pursuant to chapter 239, including the Boston municipal court department, shall, in an eviction for nonpayment of rent for a residential dwelling unit, accept for filing a writ, summons or complaint without proof of delivery of the form required under this section"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "MA-FEE-01": {
+   "rule_id": "MA-FEE-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "What can be charged to apply or move in?",
+   "question_es": "¿Qué se puede cobrar por solicitar o al mudarse?",
+   "fields": {
+    "answer_en": "Broker fees only from whoever hired the broker.",
+    "answer_es": "El corredor solo cobra a quien lo contrató.",
+    "why_en": "If the landlord hires the broker, the landlord can't pass the fee to you.",
+    "why_es": "Si el dueño contrata al corredor, no puede pasarle a usted el costo de la comisión.",
+    "headline_en": "Broker fee paid by who hired the broker",
+    "headline_es": "Comisión paga quien contrató al corredor",
+    "short_en": "Hirer pays broker fee",
+    "short_es": "Paga quien contrata",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Broker fee paid by who hired the broker",
+    "es": "Comisión paga quien contrató al corredor",
+    "short_en": "Hirer pays broker fee",
+    "short_es": "Paga quien contrata",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Broker fees only from whoever hired the broker.",
+     "If the landlord hires the broker, the landlord can't pass the fee to you."
+    ],
+    "es": [
+     "El corredor solo cobra a quien lo contrató.",
+     "Si el dueño contrata al corredor, no puede pasarle a usted el costo de la comisión."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "0eedf4de3ab22a95ce8728170d6d881cbd6285d813f441e278741b4591801b58",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "0eedf4de3ab22a95ce8728170d6d881cbd6285d813f441e278741b4591801b58",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 4.2
+   },
+   "input": {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Broker fees payable only by the party who engaged the broker",
+    "key_value": "Broker fee paid only by party who hired the broker",
+    "requirement": "A licensed broker may contract solely with either the tenant or the landlord, and any fee must be paid only by the party who engaged the broker. A landlord who hires the broker cannot shift the fee to the tenant.",
+    "coverage_conditions": null,
+    "exemptions": null,
+    "effective_date": "2025-08-01",
+    "quoted_span": "Any fee shall only be paid by the party, lessor or tenant who originally engaged and entered into a contract with the licensed broker or salesperson"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "MA-FEE-02": {
+   "rule_id": "MA-FEE-02",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "MA-RENT-01": {
+   "rule_id": "MA-RENT-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "MA-RENT-P1": {
+   "rule_id": "MA-RENT-P1",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "How much can the rent go up?",
+   "question_es": "¿Cuánto puede subir la renta?",
+   "fields": {
+    "answer_en": "Not law: the 5% cap proposal failed.",
+    "answer_es": "No es ley: la propuesta de límite de 5% fracasó.",
+    "why_en": "The state court ruled in June 2026 it can't be on the November 2026 ballot.",
+    "why_es": "El tribunal estatal decidió en jun 2026 que no puede estar en la boleta de nov 2026.",
+    "headline_en": "Proposed 5% rent cap removed from ballot",
+    "headline_es": "Límite de alquiler de 5% sacado de la boleta",
+    "short_en": "Not law: cap proposal failed",
+    "short_es": "No es ley: propuesta fracasó",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Proposed 5% rent cap removed from ballot",
+    "es": "Límite de alquiler de 5% sacado de la boleta",
+    "short_en": "Not law: cap proposal failed",
+    "short_es": "No es ley: propuesta fracasó"
+   },
+   "plain": {
+    "en": [
+     "Not law: the 5% cap proposal failed.",
+     "The state court ruled in June 2026 it can't be on the November 2026 ballot."
+    ],
+    "es": [
+     "No es ley: la propuesta de límite de 5% fracasó.",
+     "El tribunal estatal decidió en jun 2026 que no puede estar en la boleta de nov 2026."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "b9986421e3c141667d79bce39c3c93fc6c099e79ca437f2ba958feb88aed98d5",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "b9986421e3c141667d79bce39c3c93fc6c099e79ca437f2ba958feb88aed98d5",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 2.2
+   },
+   "input": {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "rent_increase_limits",
+    "status": "failed",
+    "title": "Initiative Petition 25-21 - statewide rent increase cap (removed from ballot by SJC)",
+    "key_value": "Lesser of CPI or 5% (never took effect)",
+    "requirement": "The proposed ballot initiative would have repealed the ban on rent control and capped annual rent increases at the lesser of CPI or 5% for most units. The SJC ruled in June 2026 it cannot appear on the November 2026 ballot, so it is not law.",
+    "coverage_conditions": null,
+    "exemptions": "Owner-occupied buildings with four or fewer units, units less than 10 years old, certain publicly regulated units, short-term rentals, educational/religious/nonprofit facilities.",
+    "effective_date": null,
+    "quoted_span": "annual rent increases would have been limited to the lesser of the annual increase in the Consumer Price Index or 5%"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "MA-SCR-01": {
+   "rule_id": "MA-SCR-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NJ-ALG-01": {
+   "rule_id": "NJ-ALG-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NJ-DEP-01": {
+   "rule_id": "NJ-DEP-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NJ-EVIC-01": {
+   "rule_id": "NJ-EVIC-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NJ-EVIC-02": {
+   "rule_id": "NJ-EVIC-02",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NJ-EVIC-03": {
+   "rule_id": "NJ-EVIC-03",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NJ-FEE-01": {
+   "rule_id": "NJ-FEE-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NJ-SCR-01": {
+   "rule_id": "NJ-SCR-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NJ-SCR-02": {
+   "rule_id": "NJ-SCR-02",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "NWK-RENT-01": {
+   "rule_id": "NWK-RENT-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": true,
+   "review_reasons": [
+    "low_confidence: 0.35 (unverified_link_only)"
+   ],
+   "question_en": "How much can the rent go up?",
+   "question_es": "¿Cuánto puede subir la renta?",
+   "fields": {
+    "answer_en": "Yes, the city limits it. Ask city hall.",
+    "answer_es": "Sí, la ciudad lo limita. Pregunte en la oficina local.",
+    "why_en": "The exact limit isn't known here, so check with Newark's rent control office.",
+    "why_es": "Aquí no sabemos el límite exacto, así que consulte con la oficina de control de alquileres de Newark.",
+    "headline_en": "Newark may limit rent increases locally",
+    "headline_es": "Newark podría limitar los aumentos de alquiler",
+    "short_en": "City limit, amount unknown",
+    "short_es": "Límite local, monto no confirmado",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Newark may limit rent increases locally",
+    "es": "Newark podría limitar los aumentos de alquiler",
+    "short_en": "City limit, amount unknown",
+    "short_es": "Límite local, monto no confirmado",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Yes, the city limits it. Ask city hall.",
+     "The exact limit isn't known here, so check with Newark's rent control office."
+    ],
+    "es": [
+     "Sí, la ciudad lo limita. Pregunte en la oficina local.",
+     "Aquí no sabemos el límite exacto, así que consulte con la oficina de control de alquileres de Newark."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "5048376caca5effe54b696862c18c6e9ae4965ebf123c3064c6aab493c4dd1f5",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "495a0250af9c6adff884b56c7f54f45f85136a25b9b8f1e78826e7c277e34df5",
+      "cached": true,
+      "errors": [
+       "answer_en has 9 words (max 8): 'Yes, the city limits it. Ask the city office.'",
+       "why_es uses jargon 'No se indica': 'No se indica el límite, así que consulte con la oficina de control de alquileres de Newark.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "5048376caca5effe54b696862c18c6e9ae4965ebf123c3064c6aab493c4dd1f5",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 4.9
+   },
+   "input": {
+    "jurisdiction": "Newark, NJ",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Newark municipal rent control / rent leveling ordinance (unverified)",
+    "key_value": null,
+    "requirement": "Newark is believed to have a municipal rent control ordinance limiting rent increases, enforced locally. The captured documents do not give its text, so check the ordinance and the Newark rent control office for the cap and covered units.",
+    "coverage_conditions": null,
+    "exemptions": null,
+    "effective_date": null,
+    "quoted_span": "Municipalities \nmay pass an ordinance establishing rent control or rent leveling"
+   },
+   "fills": []
+  },
+  "SA-ALG-01": {
+   "rule_id": "SA-ALG-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SA-EVIC-01": {
+   "rule_id": "SA-EVIC-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SA-RENT-01": {
+   "rule_id": "SA-RENT-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SD-ALG-01": {
+   "rule_id": "SD-ALG-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SD-EVIC-01": {
+   "rule_id": "SD-EVIC-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SD-SCR-01": {
+   "rule_id": "SD-SCR-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SF-ALG-01": {
+   "rule_id": "SF-ALG-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SF-DEP-01": {
+   "rule_id": "SF-DEP-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "How large can the deposit be?",
+   "question_es": "¿Qué tan alto puede ser el depósito?",
+   "fields": {
+    "answer_en": "Yes, you earn 4.2% interest until Feb 2027.",
+    "answer_es": "Sí, usted gana 4.2% de interés hasta feb 2027.",
+    "why_en": "Landlords must pay interest on your deposit; last year's rate was 5.0%.",
+    "why_es": "Los arrendadores deben pagar intereses por su depósito; el año anterior la tasa fue 5.0%.",
+    "headline_en": "Landlord pays 4.2% interest on deposit",
+    "headline_es": "El arrendador paga 4.2% de interés por el depósito",
+    "short_en": "4.2% interest on deposit",
+    "short_es": "4.2% de interés",
+    "period_end": "2027-02-28",
+    "after_headline_en": "Deposit interest rate set by the city",
+    "after_headline_es": "Interés del depósito fijado por la ciudad",
+    "after_short_en": "Interest rate set by city",
+    "after_short_es": "Interés fijado por la ciudad",
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Landlord pays 4.2% interest on deposit",
+    "es": "El arrendador paga 4.2% de interés por el depósito",
+    "short_en": "4.2% interest on deposit",
+    "short_es": "4.2% de interés",
+    "priority": 1,
+    "until": "2027-02-28",
+    "after_en": "Deposit interest rate set by the city",
+    "after_es": "Interés del depósito fijado por la ciudad",
+    "short_until": "2027-02-28",
+    "short_after_en": "Interest rate set by city",
+    "short_after_es": "Interés fijado por la ciudad"
+   },
+   "plain": {
+    "en": [
+     "Yes, you earn 4.2% interest until Feb 2027.",
+     "Landlords must pay interest on your deposit; last year's rate was 5.0%."
+    ],
+    "es": [
+     "Sí, usted gana 4.2% de interés hasta feb 2027.",
+     "Los arrendadores deben pagar intereses por su depósito; el año anterior la tasa fue 5.0%."
+    ],
+    "until": "2027-02-28"
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "9e2e7bceb1ce0f1b55a052639bad1efa855d56e03aa20ac10c566f652c94d319",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "335cc6d18af79a8bdb2076a2d30032a2b1d67cc945b6790ad47b191ecf8a4ede",
+      "cached": true,
+      "errors": [
+       "answer_en has 10 words (max 8): 'Yes, landlords must pay you 4.2% interest until Feb 2027.'",
+       "why_en uses jargon 'Mar': 'The rate is 4.2% from Mar 1, 2026 to Feb 28, 2027.'",
+       "why_es uses jargon 'mar': 'La tasa es 4.2% del 1 mar 2026 al 28 feb 2027.'",
+       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for the deposit (keep it short and simple): 'The rate is 4.2% from Mar 1, 2026 to Feb 28, 2027.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "9e2e7bceb1ce0f1b55a052639bad1efa855d56e03aa20ac10c566f652c94d319",
+      "cached": false,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 4.8
+   },
+   "input": {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "SF security deposit interest rate",
+    "key_value": "4.2% interest (3/1/2026–2/28/2027)",
+    "requirement": "Landlords must pay interest on tenant security deposits at the Rent Board rate: 4.2% for March 1, 2026 through February 28, 2027 (5.0% prior year).",
+    "coverage_conditions": null,
+    "exemptions": null,
+    "effective_date": "2026-03-01",
+    "quoted_span": "Security Deposit Interest:\n4.2% for March 1, 2026 – February 28, 2027"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "SF-EVIC-01": {
+   "rule_id": "SF-EVIC-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SF-EVIC-02": {
+   "rule_id": "SF-EVIC-02",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "Yes, and they pay you $8,245 to move.",
+    "answer_es": "Sí, y deben pagarle $8,245 por mudarse.",
+    "why_en": "If you are evicted through no fault of yours, the most is $24,733 per unit.",
+    "why_es": "Si la desalojan sin que sea su culpa, el máximo es $24,733 por unidad.",
+    "headline_en": "Relocation pay for no-fault evictions",
+    "headline_es": "Pago por mudanza en desalojos sin culpa",
+    "short_en": "$8,245 per tenant",
+    "short_es": "$8,245 por inquilino",
+    "period_end": "2027-02-28",
+    "after_headline_en": "City-set moving pay for no-fault evictions",
+    "after_headline_es": "Pago por mudanza fijado por la ciudad en desalojos sin culpa",
+    "after_short_en": "Set by the city",
+    "after_short_es": "Fijado por la ciudad",
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Relocation pay for no-fault evictions",
+    "es": "Pago por mudanza en desalojos sin culpa",
+    "short_en": "$8,245 per tenant",
+    "short_es": "$8,245 por inquilino",
+    "priority": 2,
+    "until": "2027-02-28",
+    "after_en": "City-set moving pay for no-fault evictions",
+    "after_es": "Pago por mudanza fijado por la ciudad en desalojos sin culpa",
+    "short_until": "2027-02-28",
+    "short_after_en": "Set by the city",
+    "short_after_es": "Fijado por la ciudad"
+   },
+   "plain": {
+    "en": [
+     "Yes, and they pay you $8,245 to move.",
+     "If you are evicted through no fault of yours, the most is $24,733 per unit."
+    ],
+    "es": [
+     "Sí, y deben pagarle $8,245 por mudarse.",
+     "Si la desalojan sin que sea su culpa, el máximo es $24,733 por unidad."
+    ],
+    "until": "2027-02-28"
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "f7acb0918faa5f4945c5b502bb4980303ecbc134adce02a1a01618159faeaac6",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "d65e16d4e0e99319621e38442f8662302c5dcaf012470ac1cb30903d483ab186",
+      "cached": true,
+      "errors": [
+       "answer_en has 9 words (max 8): 'Yes, and they must pay you $8,245 to move.'",
+       "after_headline_en has 9 words (max 8): 'Relocation pay set by the city for no-fault evictions'",
+       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for evictions (keep it short and simple): 'Max $24,733 per unit, plus $5,497 for elderly, disabled, or families with a minor child.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "f7acb0918faa5f4945c5b502bb4980303ecbc134adce02a1a01618159faeaac6",
+      "cached": false,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 3.4
+   },
+   "input": {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "SF relocation payments for no-fault evictions (owner move-in, demolition, capital improvement, rehabilitation)",
+    "key_value": "$8,245 per tenant; max $24,733 per unit; +$5,497 (notices 3/1/26–2/28/27)",
+    "requirement": "Landlords evicting for owner/relative move-in, demolition or permanent removal, temporary capital improvements, or substantial rehabilitation must pay relocation. For notices served 3/1/2026–2/28/2027: $8,245 per tenant, max $24,733 per unit, plus $5,497 per elderly/disabled tenant or household with a minor child.",
+    "coverage_conditions": null,
+    "exemptions": "Temporary capital improvement evictions under 20 days are governed by Cal. Civ. Code § 1947.9.",
+    "effective_date": "2026-03-01",
+    "quoted_span": "Relocation Payments for Evictions based on Owner/Relative Move-in OR Demolition/Permanent Removal of Unit from Housing Use OR Temporary Capital Improvement Work* OR Substantial Rehabilitation"
+   },
+   "fills": [
+    "plain"
+   ]
+  },
+  "SF-RENT-01": {
+   "rule_id": "SF-RENT-01",
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
+  },
+  "SF-SCR-01": {
+   "rule_id": "SF-SCR-01",
+   "source": "generated",
+   "method": "template",
+   "needs_review": true,
+   "review_reasons": [
+    "checks_failed: template used"
+   ],
+   "question_en": "What may a landlord ask about or consider?",
+   "question_es": "¿Qué puede preguntar o considerar el propietario?",
+   "fields": {
+    "answer_en": "Limits on what landlords may check.",
+    "answer_es": "Límites a lo que el dueño puede revisar.",
+    "why_en": "Open the law below for the exact rule and its source.",
+    "why_es": "Abra la ley abajo para ver la regla exacta y su fuente.",
+    "headline_en": "Limits on what landlords may check",
+    "headline_es": "Límites a lo que el dueño puede revisar",
+    "short_en": "Screening limited",
+    "short_es": "Revisión con límites",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Limits on what landlords may check",
+    "es": "Límites a lo que el dueño puede revisar",
+    "short_en": "Screening limited",
+    "short_es": "Revisión con límites",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Limits on what landlords may check.",
+     "Open the law below for the exact rule and its source."
+    ],
+    "es": [
+     "Límites a lo que el dueño puede revisar.",
+     "Abra la ley abajo para ver la regla exacta y su fuente."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "185f5575b5470c388ec15d2e5aa79b64892a2f06d3b40216130f0bb145ac5cda",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": false,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "3ea8a755097bfdfcb1462ea7252b89230a901c2e81c33fceb423aa5871d297f7",
+      "cached": true,
+      "errors": [
+       "answer_en has 9 words (max 8): 'Arrest or conviction history is protected in affordable housing.'",
+       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for how landlords screen applicants (keep it short and simple): 'This only covers affordable housing decisions in San Francisco.'",
+       "why_en reads at grade 10.2 (max 9); use shorter, everyday words: 'This only covers affordable housing decisions in San Francisco.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "185f5575b5470c388ec15d2e5aa79b64892a2f06d3b40216130f0bb145ac5cda",
+      "cached": false,
+      "errors": [
+       "why_en reads at grade 10.1 (max 9); use shorter, everyday words: 'When landlords screen applicants for affordable housing in San Francisco, this history is protected.'"
+      ]
+     }
+    ],
+    "grade_why_en": 3.7
+   },
+   "input": {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "San Francisco Fair Chance Ordinance (affordable housing)",
+    "key_value": "protection for arrest/conviction history in affordable housing decisions",
+    "requirement": "In San Francisco affordable housing decisions, residents and applicants with an arrest or conviction history are protected under the Fair Chance Ordinance. The page gives no further detail.",
+    "coverage_conditions": "Affordable housing decisions only.",
+    "exemptions": null,
+    "effective_date": null,
+    "quoted_span": "San Francisco's Fair Chance Ordinance protects residents with arrest or conviction history in affordable housing decisions"
+   },
+   "fills": []
+  }
+ }
+}

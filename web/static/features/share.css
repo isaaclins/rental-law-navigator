@@ -1,0 +1,124 @@
+/* Share an answer (#117): the frozen share page (/s/...) and the share popover. Design language: web/DESIGN.md */
+
+/* ------------------------------------------------------------ share page
+   For the person who receives the link: low attention, on a phone. One centred column, one answer, one action;
+   the law is one tap away (server-rendered <details>). */
+.sh-nav .nav-inner { justify-content: space-between; }
+.sh-body .nav-tools { margin-left: auto; }
+.sh-seg a { position: relative; z-index: 1; display: grid; place-items: center; padding: 0 12px; height: 34px; min-width: 44px; font-size: 13px; font-weight: 600; color: var(--label-3); border-radius: 999px; transition: color .2s; text-decoration: none; }
+.sh-seg a[aria-pressed="true"], .sh-seg a:hover { color: var(--label); text-decoration: none; }
+.sh-seg:has(a[data-lang="es"][aria-pressed="true"])::before { transform: translateX(100%); }
+
+.sh-main { max-width: calc(640px + 2 * var(--inset)); margin: 0 auto; padding: clamp(40px, 11vh, 132px) max(var(--inset), env(safe-area-inset-right)) 0 max(var(--inset), env(safe-area-inset-left)); }
+.sh-asof { display: inline-flex; align-items: center; gap: 7px; margin: 0; font-size: 13.5px; font-weight: 500; color: var(--label-3); }
+.sh-asof .ico { width: 14px; height: 14px; stroke-width: 2; }
+.sh-note { margin: 10px 0 0; font-size: 14px; line-height: 1.45; color: var(--label-2); }
+.sh-changed { color: var(--unknown); font-weight: 550; }
+.sh-addr { display: flex; align-items: center; gap: 12px; margin: 18px 0 0; font-size: 16px; font-weight: 550; color: var(--label); min-width: 0; }
+.sh-addr img { width: 44px; height: 34px; border-radius: 10px; object-fit: cover; background: var(--stage); flex: none; }
+.sh-addr span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sh-q { margin: clamp(36px, 6vh, 56px) 0 0; font-size: 18px; color: var(--label-2); }
+.sh-a { font: 400 clamp(46px, 1.9rem + 4.4vw, 84px)/.98 var(--display); letter-spacing: -.025em; margin: 10px 0 0; text-wrap: balance; overflow-wrap: anywhere; }
+.sh-why { margin: 20px 0 0; max-width: 34em; font-size: clamp(17px, 1rem + .3vw, 20px); line-height: 1.5; color: var(--label-2); }
+.sh-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: clamp(32px, 5vh, 48px); }
+.sh-acts .btn .ico { width: 17px; height: 17px; }
+.sh-share { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 6px; border: 0; background: none; color: var(--label-2); font-size: 15px; font-weight: 600; cursor: pointer; border-radius: 999px; transition: color .2s; }
+.sh-share:hover, .sh-share[aria-expanded="true"] { color: var(--accent); }
+.sh-share .ico { width: 17px; height: 17px; }
+
+.sh-law { margin-top: clamp(40px, 7vh, 72px); border-top: 1px solid var(--sep-2); }
+.sh-law > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 600; color: var(--label); }
+.sh-law > summary::-webkit-details-marker { display: none; }
+.sh-law > summary .chev { width: 18px; height: 18px; color: var(--label-3); transition: transform .3s var(--spring); }
+.sh-law[open] > summary .chev { transform: rotate(180deg); }
+.sh-law > summary:hover span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--sep); }
+.sh-law-in { padding: 4px 0 8px; }
+.sh-law[open] .sh-law-in { animation: sh-open .3s var(--ease-out); }
+@keyframes sh-open { from { opacity: 0; transform: translateY(-4px); } }
+.sh-tr { margin: 0 0 10px; font-size: 13px; color: var(--label-3); }
+.sh-quote { position: relative; margin: 0; padding: 2px 0 2px 20px; font: 400 clamp(19px, 1rem + .5vw, 22px)/1.38 var(--display); color: var(--label); overflow-wrap: anywhere; }
+.sh-quote::before { content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; border-radius: 3px; background: var(--accent); }
+.sh-cite { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin: 14px 0 0; font-size: 13.5px; color: var(--label-2); }
+.sh-cite a { color: var(--link); font-weight: 550; display: inline-flex; align-items: center; gap: 3px; }
+.sh-cite a .ico { width: 13px; height: 13px; }
+.sh-ok { display: flex; align-items: center; gap: 6px; margin: 8px 0 0; font-size: 13.5px; color: var(--applies); font-weight: 600; }
+.sh-ok .ico { width: 15px; height: 15px; stroke-width: 2.4; }
+.sh-noquote { margin: 0; color: var(--label-2); font-size: 15px; }
+.sh-nla { margin: 20px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--label-2); }
+.sh-nla b { color: var(--label); font-weight: 650; }
+
+.sh-foot { max-width: calc(640px + 2 * var(--inset)); margin: clamp(56px, 12vh, 140px) auto 0; padding: 0 max(var(--inset), env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) max(var(--inset), env(safe-area-inset-left)); }
+.sh-foot p { margin: 0; font-size: 13px; color: var(--label-3); text-align: left; }
+
+/* the link preview (in the popover): the card image over a title strip, like a chat app shows it */
+.sh-prev { display: block; color: inherit; text-decoration: none; border-radius: 16px; overflow: hidden; background: var(--bg); box-shadow: 0 0 0 1px var(--sep-2), 0 2px 8px rgb(0 12 31 / .06); }
+.sh-prev:hover { text-decoration: none; }
+.sh-prev img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; background: var(--stage); }
+.sh-prev-t { display: block; padding: 10px 14px 12px; background: #f7f8fa; }
+.sh-prev-t b { display: block; font-size: 14.5px; line-height: 1.3; font-weight: 650; overflow-wrap: anywhere; }
+.sh-prev-t span { display: block; margin-top: 2px; font-size: 13px; color: var(--label-3); }
+
+@media (max-width: 640px), (pointer: coarse) and (max-height: 500px) {
+  .sh-seg a[aria-pressed="true"] { display: none; } /* one toggle that names the other language, as in the app */
+  .sh-seg a { height: 40px; padding: 0 12px; background: var(--bg); box-shadow: var(--shadow-card); color: var(--label); font-size: 14px; font-weight: 550; }
+}
+@media (max-width: 640px) {
+  .sh-main { padding-top: 28px; }
+  .sh-q { margin-top: 32px; font-size: 17px; }
+  .sh-acts .btn { flex: 1 1 100%; }
+  .sh-share { margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) { .sh-law[open] .sh-law-in { animation: none; } .sh-law > summary .chev { transition: none; } }
+
+/* ------------------------------------------------------------ share button in the app */
+.topic-actions > .ce-share-b { gap: 6px; }
+.ce-share-b .ico { width: 16px; height: 16px; }
+.ce-share-b[aria-expanded="true"] { background: var(--ink-btn); color: #fff; box-shadow: 0 0 0 4px rgb(0 38 100 / .14); }
+
+/* ------------------------------------------------------------ popover (desktop) / sheet (phone) */
+.ce-sp { position: absolute; z-index: 120; width: min(380px, calc(100vw - 24px)); padding: 14px; border-radius: 24px; background: var(--bg); box-shadow: var(--shadow-float); transform-origin: var(--ox, 50%) top; animation: ce-sp-in .32s var(--spring); }
+.ce-sp.is-out { animation: ce-sp-out .16s var(--ease-std) forwards; }
+@keyframes ce-sp-in { from { opacity: 0; transform: translateY(-6px) scale(.96); } }
+@keyframes ce-sp-out { to { opacity: 0; transform: translateY(-4px) scale(.98); } }
+.ce-sp-h { display: flex; align-items: center; justify-content: space-between; margin: 0 2px 10px 4px; }
+.ce-sp-h h2 { margin: 0; font-size: 15px; font-weight: 650; letter-spacing: -.01em; }
+.ce-sp-x { width: 32px; height: 32px; border: 0; border-radius: 50%; background: var(--fill); display: grid; place-items: center; cursor: pointer; color: var(--label-2); }
+.ce-sp-x:hover { color: var(--label); background: var(--cool-2); }
+.ce-sp-x .ico { width: 16px; height: 16px; }
+.ce-sp .sh-prev { border-radius: 14px; }
+.ce-sp .sh-prev img { opacity: 0; transition: opacity .3s; }
+.ce-sp .sh-prev img.is-in { opacity: 1; }
+.ce-sp-acts { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+.ce-sp-acts .btn { min-height: 44px; padding: 0 12px; font-size: 14px; gap: 7px; }
+.ce-sp-acts .btn .ico { width: 17px; height: 17px; }
+.ce-sp-wa .ico { color: #1da851; }
+.ce-sp-url { display: flex; align-items: center; gap: 8px; margin-top: 10px; padding: 0 4px; font-size: 12.5px; color: var(--label-3); }
+.ce-sp-url span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ce-sp-url a { color: var(--link); font-weight: 600; white-space: nowrap; }
+.ce-sp-err { margin: 6px 4px 0; font-size: 13px; color: var(--danger); }
+
+/* Copy link: the label swaps to a drawn check and "Copied", with one spring pop */
+.ce-sp-copy { position: relative; overflow: hidden; }
+.ce-sp-copy .cp-a, .ce-sp-copy .cp-b { display: inline-flex; align-items: center; gap: 7px; transition: transform .35s var(--spring), opacity .2s; }
+.ce-sp-copy .cp-b { position: absolute; inset: 0; justify-content: center; opacity: 0; transform: translateY(70%); }
+.ce-sp-copy.is-done { --edge: #0c5a2c; background: var(--applies); color: #fff; box-shadow: inset 0 1px 0 rgb(255 255 255 / .14), 0 3px 0 var(--edge); animation: ce-pop .42s var(--spring); }
+.ce-sp-copy.is-done .cp-a { opacity: 0; transform: translateY(-70%); }
+.ce-sp-copy.is-done .cp-b { opacity: 1; transform: none; }
+.ce-sp-copy .cp-b path { stroke-dasharray: 22; stroke-dashoffset: 22; }
+.ce-sp-copy.is-done .cp-b path { stroke-width: 2.6; transition: stroke-dashoffset .38s .08s var(--ease-out); stroke-dashoffset: 0; }
+@keyframes ce-pop { 40% { transform: scale(1.06); } }
+
+@media (max-width: 640px) {
+  .ce-sp { position: fixed; left: 0 !important; right: 0; top: auto !important; bottom: 0; width: auto; border-radius: 28px 28px 0 0; padding: 16px 16px calc(18px + env(safe-area-inset-bottom)); animation-name: ce-sheet-in; transform-origin: bottom; }
+  .ce-sp.is-out { animation-name: ce-sheet-out; }
+  .ce-sp-scrim { position: fixed; inset: 0; z-index: 119; background: rgb(0 12 31 / .28); animation: ce-fade .2s; }
+  @keyframes ce-sheet-in { from { transform: translateY(100%); } }
+  @keyframes ce-sheet-out { to { transform: translateY(100%); } }
+  @keyframes ce-fade { from { opacity: 0; } }
+  .ce-sp-acts { grid-template-columns: 1fr 1fr; }
+  .ce-sp-copy { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ce-sp, .ce-sp.is-out, .ce-sp-copy.is-done, .ce-sp-scrim { animation-duration: .01ms !important; }
+  .ce-sp-copy .cp-a, .ce-sp-copy .cp-b, .ce-sp-copy .cp-b path, .ce-sp .sh-prev img { transition-duration: .01ms !important; }
+}

@@ -1,0 +1,487 @@
+{
+ "about": "Plain-language answers per rule. source=reviewed: hand-checked copy in web/headlines.py wins; source=generated: written by navigator/plain.py from the rule's own fields and checked by code (numbers, dates, length, jargon, status, Spanish). Not legal advice.",
+ "prompt_version": "plain-v5",
+ "counts": {
+  "rules": 6,
+  "reviewed": 0,
+  "generated": 6,
+  "needs_review": 0
+ },
+ "records": {
+  "SMO-ALG-01": {
+   "rule_id": "SMO-ALG-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Can software be used to set the rent?",
+   "question_es": "¿Se puede usar software para fijar la renta?",
+   "fields": {
+    "answer_en": "Not if it uses competitor data.",
+    "answer_es": "No, si usa datos de la competencia.",
+    "why_en": "If a landlord uses rent-pricing software like this, you can sue for $1,000 or your actual damages.",
+    "why_es": "Si el arrendador usa este tipo de software de precios, usted puede demandar por $1,000 o sus daños reales, lo que sea mayor.",
+    "headline_en": "Rent-pricing software using competitor data banned",
+    "headline_es": "Prohibido el software de precios con datos de competidores",
+    "short_en": "Banned if it uses competitor data",
+    "short_es": "Prohibido si usa datos de rivales",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Rent-pricing software using competitor data banned",
+    "es": "Prohibido el software de precios con datos de competidores",
+    "short_en": "Banned if it uses competitor data",
+    "short_es": "Prohibido si usa datos de rivales",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Not if it uses competitor data.",
+     "If a landlord uses rent-pricing software like this, you can sue for $1,000 or your actual damages."
+    ],
+    "es": [
+     "No, si usa datos de la competencia.",
+     "Si el arrendador usa este tipo de software de precios, usted puede demandar por $1,000 o sus daños reales, lo que sea mayor."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "8f4467d87b04c7090a90e722038a4be66b7b7f551ee2937f7f5a85e5288e203d",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "7f971556fd31773752ca2262ea1c906c6ca88ad9b6ba65db91f11a86d0e486fc",
+      "cached": true,
+      "errors": [
+       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for rent-pricing software (keep it short and simple): 'You can sue, and the penalty is $1,000 per offense or your actual damages.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "8f4467d87b04c7090a90e722038a4be66b7b7f551ee2937f7f5a85e5288e203d",
+      "cached": false,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 6.9
+   },
+   "input": {
+    "jurisdiction": "Santa Monica, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "Santa Monica algorithmic rental pricing software ban",
+    "key_value": "ban on sale and use of algorithmic devices using competitor data",
+    "requirement": "Landlords may not use, and vendors may not sell, algorithmic software that uses competitor data to advise on rent prices or whether to leave units vacant. Tenants can raise violations as an affirmative defense in eviction cases, and tenants or the city can sue; penalties are $1,000 per offense or actual damages, whichever is greater, plus attorney fees.",
+    "coverage_conditions": null,
+    "exemptions": null,
+    "effective_date": "2025-06",
+    "quoted_span": "The Santa Monica ordinance defines prohibited \"algorithmic devices\" as software that uses competitor data to advise landlords on rent pricing or whether to leave units vacant"
+   },
+   "fills": [
+    "headline",
+    "plain"
+   ]
+  },
+  "SMO-DEP-01": {
+   "rule_id": "SMO-DEP-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "How large can the deposit be?",
+   "question_es": "¿Qué tan alto puede ser el depósito?",
+   "fields": {
+    "answer_en": "Max 1 month's rent.",
+    "answer_es": "Máximo 1 mes de renta.",
+    "why_en": "Small landlords may ask for 2 months, and the money must sit in an interest-bearing account.",
+    "why_es": "Los propietarios pequeños pueden pedir 2 meses, y el dinero debe estar en una cuenta que genere intereses.",
+    "headline_en": "Deposit capped at 1 month's rent",
+    "headline_es": "Depósito limitado a 1 mes de renta",
+    "short_en": "Max 1 month's rent",
+    "short_es": "Máx. 1 mes de renta",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Deposit capped at 1 month's rent",
+    "es": "Depósito limitado a 1 mes de renta",
+    "short_en": "Max 1 month's rent",
+    "short_es": "Máx. 1 mes de renta",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Max 1 month's rent.",
+     "Small landlords may ask for 2 months, and the money must sit in an interest-bearing account."
+    ],
+    "es": [
+     "Máximo 1 mes de renta.",
+     "Los propietarios pequeños pueden pedir 2 meses, y el dinero debe estar en una cuenta que genere intereses."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "717d384d4b8540332c4696ab4038365c5241b1e39e50a74fdc1f845b9fa61625",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "717d384d4b8540332c4696ab4038365c5241b1e39e50a74fdc1f845b9fa61625",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 7.6
+   },
+   "input": {
+    "jurisdiction": "Santa Monica, CA",
+    "level": "city",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "Santa Monica Rent Control Regulations ch. 14: security deposit ceiling and interest-bearing account",
+    "key_value": "1 month's max allowable rent; 2 months for qualifying small landlords; interest-bearing account",
+    "requirement": "For controlled units, the security deposit generally cannot exceed the maximum allowable rent (one month) at initial rental; qualifying small landlords (natural person or all-natural-person LLC, no more than two properties with four units total) may demand two months from non-service-member tenants. Once set, the deposit cannot be raised during the tenancy, and all deposits must be held in an insured interest-bearing account until returned or properly used.",
+    "coverage_conditions": "Controlled rental units under Santa Monica rent control.",
+    "exemptions": null,
+    "effective_date": "1983-12-07",
+    "quoted_span": "The landlord may\ndemand a security deposit in an amount equal to two months’ rent if the prospective tenant is not a\nservice member and both the following are true:"
+   },
+   "fills": [
+    "headline",
+    "plain"
+   ]
+  },
+  "SMO-EVIC-01": {
+   "rule_id": "SMO-EVIC-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "Yes, only for a listed good reason.",
+    "answer_es": "Sí, solo por una razón válida de la lista.",
+    "why_en": "The notice must state the reason, and a copy goes to the Rent Control Board within 3 days.",
+    "why_es": "El aviso debe decir la razón, y se envía una copia a la Junta de Control de Rentas en 3 días.",
+    "headline_en": "Eviction only for a listed good reason",
+    "headline_es": "Desalojo solo por una razón válida de la lista",
+    "short_en": "Good reason required",
+    "short_es": "Se requiere razón válida",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Eviction only for a listed good reason",
+    "es": "Desalojo solo por una razón válida de la lista",
+    "short_en": "Good reason required",
+    "short_es": "Se requiere razón válida",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Yes, only for a listed good reason.",
+     "The notice must state the reason, and a copy goes to the Rent Control Board within 3 days."
+    ],
+    "es": [
+     "Sí, solo por una razón válida de la lista.",
+     "El aviso debe decir la razón, y se envía una copia a la Junta de Control de Rentas en 3 días."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "e917474cfd2266bb7d28e43bcd6963321c93719f4c7f6eb58471ab5cf2f93516",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "e917474cfd2266bb7d28e43bcd6963321c93719f4c7f6eb58471ab5cf2f93516",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 5.6
+   },
+   "input": {
+    "jurisdiction": "Santa Monica, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Santa Monica Rent Control Charter Amendment: eviction only for just cause",
+    "key_value": "Eviction only for enumerated just causes; cause stated in notice; copy filed with Rent Control Board within 3 days",
+    "requirement": "Landlords of controlled units may not demand possession, serve a notice to quit, or sue to evict unless a listed just cause applies (e.g. nonpayment, uncured material breach or nuisance, owner/relative move-in, demolition, Ellis withdrawal). The notice must state the cause and a copy must be filed with the Rent Control Board within 3 days (except 3-day pay-or-quit notices). Retaliatory evictions are barred, and owner move-in requires good-faith occupancy within 60 days for at least two years, with protections for tenants 62+ or disabled with 5+ years or terminally ill.",
+    "coverage_conditions": "Controlled rental units as defined in §1801(c).",
+    "exemptions": "Same exemptions as controlled rental units; single family homes not rented July 1, 1984 (§1815); State Park/tidelands property (§1820).",
+    "effective_date": "1979-04-10",
+    "quoted_span": "No landlord shall take action to terminate any tenancy including but not limited, to making a demand\nfor possession of a rental unit, threatening to terminate a tenancy, serving any notice to quit or\nother eviction notice"
+   },
+   "fills": [
+    "headline",
+    "plain"
+   ]
+  },
+  "SMO-EVIC-P1": {
+   "rule_id": "SMO-EVIC-P1",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "Not law yet: on the Nov 3, 2026 ballot.",
+    "answer_es": "Aún no es ley: en la boleta del 3 nov 2026.",
+    "why_en": "If voters approve it, landlords couldn't evict for unpaid rent unless more than about one month is owed.",
+    "why_es": "Si los votantes lo aprueban, no podrían desalojar por falta de pago salvo que se deba más de cerca de un mes.",
+    "headline_en": "Measure RR: on the Nov 3, 2026 ballot",
+    "headline_es": "Medida RR: en la boleta del 3 nov 2026",
+    "short_en": "Measure RR on Nov 3, 2026 ballot",
+    "short_es": "Medida RR, boleta 3 nov 2026",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Measure RR: on the Nov 3, 2026 ballot",
+    "es": "Medida RR: en la boleta del 3 nov 2026",
+    "short_en": "Measure RR on Nov 3, 2026 ballot",
+    "short_es": "Medida RR, boleta 3 nov 2026"
+   },
+   "plain": {
+    "en": [
+     "Not law yet: on the Nov 3, 2026 ballot.",
+     "If voters approve it, landlords couldn't evict for unpaid rent unless more than about one month is owed."
+    ],
+    "es": [
+     "Aún no es ley: en la boleta del 3 nov 2026.",
+     "Si los votantes lo aprueban, no podrían desalojar por falta de pago salvo que se deba más de cerca de un mes."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "d2e355d88c5dbdc675c53a74e365587b8b3e61d1f2b34aadeb42a949d335c313",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "4c947150a7180e15454adb9355bb13e1769268e34f55e322f1fe443c835ba565",
+      "cached": true,
+      "errors": [
+       "answer_en has 11 words (max 8): 'Not law yet: a ballot vote is set for Nov 3, 2026.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "d2e355d88c5dbdc675c53a74e365587b8b3e61d1f2b34aadeb42a949d335c313",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 7.8
+   },
+   "input": {
+    "jurisdiction": "Santa Monica, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "pending",
+    "title": "Measure RR – Charter amendment limiting nonpayment evictions (rent-controlled units, Art. XVIII §1806(a)(1))",
+    "key_value": "Nonpayment eviction only if rent owed exceeds average HUD Small Area FMR (about one month)",
+    "requirement": "If voters approve Measure RR on Nov 3, 2026, a landlord of a rent-controlled unit could not evict for nonpayment unless the amount owed exceeds the average HUD Small Area Fair Market Rent for an equivalent-size unit in Santa Monica ZIP codes, and the notice must state the bedroom count and that rent amount.",
+    "coverage_conditions": "Rent-controlled rental units under the Santa Monica Rent Control Law.",
+    "exemptions": null,
+    "effective_date": null,
+    "quoted_span": "provided that the amount due exceeds the average of the Small Area Fair Market Rents set annually by the U.S. Department of Housing and Urban Development for equivalent sized rental units"
+   },
+   "fills": [
+    "headline",
+    "plain"
+   ]
+  },
+  "SMO-EVIC-P2": {
+   "rule_id": "SMO-EVIC-P2",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "Does the landlord need a reason to end the tenancy?",
+   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
+   "fields": {
+    "answer_en": "Not law yet: voters decide Nov 3, 2026.",
+    "answer_es": "Aún no es ley: votación el 3 nov 2026.",
+    "why_en": "If it passes, nonpayment evictions need rent owed above a set amount.",
+    "why_es": "Si se aprueba, para desalojar por falta de pago la deuda debe superar un monto fijado.",
+    "headline_en": "Measure RR: on the Nov 3, 2026 ballot",
+    "headline_es": "Medida RR: en la boleta del 3 nov 2026",
+    "short_en": "Pending: Nov 3, 2026 vote",
+    "short_es": "Pendiente: voto 3 nov 2026",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Measure RR: on the Nov 3, 2026 ballot",
+    "es": "Medida RR: en la boleta del 3 nov 2026",
+    "short_en": "Pending: Nov 3, 2026 vote",
+    "short_es": "Pendiente: voto 3 nov 2026"
+   },
+   "plain": {
+    "en": [
+     "Not law yet: voters decide Nov 3, 2026.",
+     "If it passes, nonpayment evictions need rent owed above a set amount."
+    ],
+    "es": [
+     "Aún no es ley: votación el 3 nov 2026.",
+     "Si se aprueba, para desalojar por falta de pago la deuda debe superar un monto fijado."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "431b048f32acb94ea28eb02a4c283b2e41679043ee4130e0e9c12172cf9b59de",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "c3def1ba35ac971bfa978ce9b18c9ecb76e21542b1ef32a9d1c11a2aa7d1b94a",
+      "cached": true,
+      "errors": [
+       "answer_en has 10 words (max 8): 'Not law yet: a vote is set for Nov 3, 2026.'"
+      ]
+     },
+     {
+      "attempt": 2,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "431b048f32acb94ea28eb02a4c283b2e41679043ee4130e0e9c12172cf9b59de",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 6.8
+   },
+   "input": {
+    "jurisdiction": "Santa Monica, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "pending",
+    "title": "Measure RR – Charter amendment limiting nonpayment evictions (non-rent-controlled units, Art. XXIII §2304(a)(1))",
+    "key_value": "Nonpayment eviction only if rent owed exceeds average HUD Small Area FMR (about one month)",
+    "requirement": "If voters approve Measure RR on Nov 3, 2026, a landlord of a non-rent-controlled unit covered by the Housing Policies article could not evict for nonpayment unless the amount owed exceeds the average HUD Small Area Fair Market Rent for an equivalent-size unit, and the notice must state the bedroom count and that rent amount.",
+    "coverage_conditions": "Non-rent-controlled rental units, excluding single-unit dwellings and condominiums.",
+    "exemptions": "Single-unit dwellings and condominiums.",
+    "effective_date": null,
+    "quoted_span": "provided that the amount due exceeds the average of the Small Area Fair Market Rents set annually by the U.S. Department of Housing and Urban Development for equivalent sized rental units"
+   },
+   "fills": [
+    "headline",
+    "plain"
+   ]
+  },
+  "SMO-RENT-01": {
+   "rule_id": "SMO-RENT-01",
+   "source": "generated",
+   "method": "model",
+   "needs_review": false,
+   "review_reasons": [],
+   "question_en": "How much can the rent go up?",
+   "question_es": "¿Cuánto puede subir la renta?",
+   "fields": {
+    "answer_en": "Max 3% a year.",
+    "answer_es": "Máximo 3% al año.",
+    "why_en": "Each Sep 1 it rises by 75% of inflation, never below 0%.",
+    "why_es": "Cada 1 sep sube el 75% de la inflación, nunca menos de 0%.",
+    "headline_en": "Yearly increase capped at 3%",
+    "headline_es": "Aumento anual limitado a 3%",
+    "short_en": "Max 3%/yr",
+    "short_es": "Máx. 3%/año",
+    "period_end": null,
+    "after_headline_en": null,
+    "after_headline_es": null,
+    "after_short_en": null,
+    "after_short_es": null,
+    "removes_protection": false
+   },
+   "headline": {
+    "en": "Yearly increase capped at 3%",
+    "es": "Aumento anual limitado a 3%",
+    "short_en": "Max 3%/yr",
+    "short_es": "Máx. 3%/año",
+    "priority": 1
+   },
+   "plain": {
+    "en": [
+     "Max 3% a year.",
+     "Each Sep 1 it rises by 75% of inflation, never below 0%."
+    ],
+    "es": [
+     "Máximo 3% al año.",
+     "Cada 1 sep sube el 75% de la inflación, nunca menos de 0%."
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "prompt_hash": "352cca7b426fe85ba3742596eb3d7bd3dee3e14513d31cc859883719dd431aaf",
+   "prompt_version": "plain-v5",
+   "validation": {
+    "passed": true,
+    "attempts": [
+     {
+      "attempt": 1,
+      "model": "claude-sonnet-5-5",
+      "prompt_hash": "352cca7b426fe85ba3742596eb3d7bd3dee3e14513d31cc859883719dd431aaf",
+      "cached": true,
+      "errors": []
+     }
+    ],
+    "grade_why_en": 5.0
+   },
+   "input": {
+    "jurisdiction": "Santa Monica, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Santa Monica Rent Control Charter Amendment: maximum allowable rents and annual general adjustment",
+    "key_value": "75% of CPI, min 0%, max 3% annual general adjustment",
+    "requirement": "Rents on controlled units cannot exceed the Rent Control Board's maximum allowable rent (MAR). Each September 1 the MAR rises by 75% of the regional CPI change, but never less than 0% or more than 3% (3.0% in 2024). Landlords may not raise rent if they have not complied with the Article (e.g. registration fees) or have uncorrected housing-code violations. Owners may pass half the registration fee through to tenants, plus limited property-tax surcharges for pre-March 2018 tenancies (capped at $35 or 4% of MAR).",
+    "coverage_conditions": "All residential rental units in Santa Monica except exempt units (hotels, institutions, owner-occupied up to 3 units, units constructed after adoption of the Article, certain single family homes per §1815, State Park/tidelands property per §1820).",
+    "exemptions": "Transient hotel/motel units; hospitals, convents, dormitories; certain government units; owner-occupied dwellings of 3 or fewer units; units constructed after adoption of the Article (not conversions); non-profit child care/social service units; single family homes not rented July 1, 1984; State Park/tidelands property. Exemptions are granted by the Board on owner application.",
+    "effective_date": "2022-12-06",
+    "quoted_span": "in no event shall the general\nadjustment be less than zero percent or greater than three (3) percent"
+   },
+   "fills": [
+    "headline",
+    "plain"
+   ]
+  }
+ }
+}

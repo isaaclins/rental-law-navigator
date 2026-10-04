@@ -10,7 +10,9 @@ Everything after that is deterministic code that can be tested and repeated:
 - deciding which rules cover a building on a given date;
 - diffing results between two dates.
 
-The model never answers a renter's question directly.
+The model never decides whether a rule applies. Where it writes for a renter (generated plain-language answers,
+*Ask the law*), it only rephrases rule records and the engine's verdicts, and code checks every cited id and number
+([README](../README.md#ask-the-law-grounding-security-audit)).
 
 ```mermaid
 flowchart TB
@@ -198,6 +200,11 @@ pipeline rerun shows up without a restart.
 | `/api/audit`, `/api/audit/entry/{i}`, `/api/source/{doc_id}` | Audit log and source texts |
 | `/api/i18n/{lang}` | Spanish strings |
 | `/api/meta`, `/api/health` | Counts, data sources, disclaimer |
+| `/api/ask`, `/api/ask/suggest`, `/api/ask/audit` | Ask the law (JSON or server-sent events), suggested questions, the redacted Ask log |
+| `/api/check`, `/api/letter`, `/api/notice` | Rent-increase check, letter to the landlord, rent-increase notice (deterministic) |
+| `/api/resolve`, `/api/evaluate` | Any US address: live geocode, then evaluation with user-supplied building facts |
+| `/api/share/...`, `/s/...` | Frozen, cited permalinks with a preview card |
+| `/api/tts`, `/api/stats/protections` | Listen briefings; protections over time |
 
 The Spanish view uses translations generated ahead of time by [`web/translate.py`](../web/translate.py), cached in
 `web/translations/es.json`. Citations, rule ids and quoted law stay in English. Design notes are in

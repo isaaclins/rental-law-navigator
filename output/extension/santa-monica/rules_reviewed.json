@@ -52,7 +52,15 @@
    "source_doc_id": "D024",
    "enacted_date": null,
    "_span_check": "verbatim",
-   "span_doc_id": "D024"
+   "span_doc_id": "D024",
+   "amends_existing_law": true,
+   "in_force_since": "2019-03-15",
+   "current_version_effective": "2024-04-01",
+   "prior_version_note": "AB 1482 cap in force since 2019-03-15 (rent increases on/after that date); SB 567 repealed and re-added it, operative 2024-04-01.",
+   "in_force_since_evidence": {
+    "doc_id": "D024",
+    "quoted_span": "This section shall apply to all rent increases subject to subdivision (a) occurring on or after March 15, 2019"
+   }
   },
   {
    "jurisdiction": "CA",
@@ -105,7 +113,12 @@
    ],
    "source_doc_id": "D023",
    "_span_check": "verbatim",
-   "span_doc_id": "D023"
+   "span_doc_id": "D023",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-01-01",
+   "prior_version_note": "AB 1482 just-cause rules applied from 2020 (notice dates July 1, 2020 in text); SB 567 made the section operative 2024-04-01 and AB 1529 amended it effective 2026-01-01.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "CA",
@@ -149,7 +162,12 @@
    ],
    "source_doc_id": "D025",
    "_span_check": "verbatim",
-   "span_doc_id": "D025"
+   "span_doc_id": "D025",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-01-01",
+   "prior_version_note": "A one-month-plus-first-month cap (with higher cap for small landlords from AB 12) applied to security collected on/after 2024-07-01; earlier versions had higher caps (two months unfurnished); AB 414 amended it effective 2026-01-01.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "CA",
@@ -190,7 +208,12 @@
    ],
    "source_doc_id": "D026",
    "_span_check": "verbatim",
-   "span_doc_id": "D026"
+   "span_doc_id": "D026",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-01-01",
+   "prior_version_note": "The $30 per-applicant fee cap, CPI-adjustable since 1998-01-01, predates the AB 1170 amendment effective 2026-01-01; the CPI-adjusted dollar figure resets annually.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "CA",
@@ -236,7 +259,12 @@
    ],
    "source_doc_id": "D027",
    "_span_check": "verbatim",
-   "span_doc_id": "D027"
+   "span_doc_id": "D027",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2024-01-01",
+   "prior_version_note": "Source of income was a protected basis earlier; SB 329 extended it to housing subsidies/vouchers effective 2020-01-01; SB 267 amended it effective 2024-01-01.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "CA",
@@ -278,7 +306,15 @@
    ],
    "source_doc_id": "D016",
    "_span_check": "verbatim",
-   "span_doc_id": "D016"
+   "span_doc_id": "D016",
+   "amends_existing_law": false,
+   "in_force_since": "2020-01-01",
+   "current_version_effective": null,
+   "prior_version_note": "No specific California regulation on criminal history in housing screening applied before the regulations took effect 2020-01-01.",
+   "in_force_since_evidence": {
+    "doc_id": "D015",
+    "quoted_span": "In 2019, California’s Civil Rights Council (formerly the Fair Employment and Housing Council) enacted regulations that took effect Jan. 1, 2020"
+   }
   },
   {
    "jurisdiction": "CA",
@@ -322,7 +358,15 @@
    ],
    "source_doc_id": "D022",
    "_span_check": "verbatim",
-   "span_doc_id": "D022"
+   "span_doc_id": "D022",
+   "amends_existing_law": false,
+   "in_force_since": "2026-01-01",
+   "current_version_effective": null,
+   "prior_version_note": "Section 16729 was newly added to the Cartwright Act; before 2026 only general antitrust prohibitions applied.",
+   "in_force_since_evidence": {
+    "doc_id": "D028",
+    "quoted_span": "These laws, described below, took effect on January 1, 2026"
+   }
   },
   {
    "jurisdiction": "NJ",
@@ -367,7 +411,15 @@
    ],
    "source_doc_id": "D065",
    "_span_check": "verbatim",
-   "span_doc_id": "D065"
+   "span_doc_id": "D065",
+   "amends_existing_law": false,
+   "in_force_since": "2022-01-01",
+   "current_version_effective": null,
+   "prior_version_note": "No prior state criminal-history screening limits for rental housing; act approved June 18, 2021 took effect first day of seventh month after (Jan 1, 2022).",
+   "in_force_since_evidence": {
+    "doc_id": "D065",
+    "quoted_span": "This act shall take effect on the first day of the\nseventh month next following the date of enactment,"
+   }
   },
   {
    "jurisdiction": "NJ",
@@ -414,7 +466,12 @@
    "source_doc_id": "D068",
    "review_note": "Section 10:5-12 is identified in D067; D068 does not give a section. No effective date in documents.",
    "_span_check": "verbatim",
-   "span_doc_id": "D068"
+   "span_doc_id": "D068",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "Source-of-lawful-income was added to the LAD as a protected class by amendment; the documents do not state when.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "NJ",
@@ -456,7 +513,15 @@
    ],
    "source_doc_id": "D066",
    "_span_check": "verbatim",
-   "span_doc_id": "D066"
+   "span_doc_id": "D066",
+   "amends_existing_law": false,
+   "in_force_since": "2026-05-01",
+   "current_version_effective": null,
+   "prior_version_note": "No state cap on application fees before; the $50 limit is CPI-adjusted each January 1 following enactment, only if CPI change is positive.",
+   "in_force_since_evidence": {
+    "doc_id": "D066",
+    "quoted_span": "This act shall take effect on the first day of the\nfourth month next following the date of enactment,"
+   }
   },
   {
    "jurisdiction": "NJ",
@@ -504,7 +569,12 @@
    ],
    "source_doc_id": "D067",
    "_span_check": "verbatim",
-   "span_doc_id": "D067"
+   "span_doc_id": "D067",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "Long-standing Security Deposit Law; documents give no enactment or amendment dates.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "NJ",
@@ -557,7 +627,15 @@
    ],
    "source_doc_id": "D067",
    "_span_check": "verbatim",
-   "span_doc_id": "D067"
+   "span_doc_id": "D067",
+   "amends_existing_law": false,
+   "in_force_since": "1974",
+   "current_version_effective": null,
+   "prior_version_note": "Enacted as P.L.1974, c.49; later amendments are not dated in the documents.",
+   "in_force_since_evidence": {
+    "doc_id": "D065",
+    "quoted_span": "Anti-Eviction Act, P.L.1974, c.49"
+   }
   },
   {
    "jurisdiction": "NJ",
@@ -594,7 +672,12 @@
    ],
    "source_doc_id": "D067",
    "_span_check": "verbatim",
-   "span_doc_id": "D067"
+   "span_doc_id": "D067",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "Long-standing reprisal statute; documents give no enactment date.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "NJ",
@@ -632,7 +715,12 @@
    "source_doc_id": "D067",
    "review_note": "Applies only to units whose property was foreclosed.",
    "_span_check": "verbatim",
-   "span_doc_id": "D067"
+   "span_doc_id": "D067",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "Foreclosure Fairness Act tenant protections supplement the Anti-Eviction Act; documents give no enactment date.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "NJ",
@@ -678,7 +766,15 @@
    ],
    "source_doc_id": "D069",
    "_span_check": "verbatim",
-   "span_doc_id": "D069"
+   "span_doc_id": "D069",
+   "amends_existing_law": false,
+   "in_force_since": "2027-07-01",
+   "current_version_effective": null,
+   "prior_version_note": "New ban added to the NJ Antitrust Act framework; approved 2026-07-20, operative 2027-07-01; not yet in force as of 2026-10-01.",
+   "in_force_since_evidence": {
+    "doc_id": "D069",
+    "quoted_span": "This act shall take effect on the first day of\nthe twelfth month next following the date of enactment"
+   }
   },
   {
    "jurisdiction": "MA",
@@ -777,7 +873,12 @@
    ],
    "source_doc_id": "D048",
    "_span_check": "verbatim",
-   "span_doc_id": "D048"
+   "span_doc_id": "D048",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "MA",
@@ -851,7 +952,12 @@
    ],
    "source_doc_id": "D050",
    "_span_check": "verbatim",
-   "span_doc_id": "D050"
+   "span_doc_id": "D050",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "MA",
@@ -885,7 +991,12 @@
    ],
    "source_doc_id": "D051",
    "_span_check": "verbatim",
-   "span_doc_id": "D051"
+   "span_doc_id": "D051",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "MA",
@@ -915,7 +1026,12 @@
    ],
    "source_doc_id": "D053",
    "_span_check": "verbatim",
-   "span_doc_id": "D053"
+   "span_doc_id": "D053",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "MA",
@@ -944,7 +1060,12 @@
    ],
    "source_doc_id": "D058",
    "_span_check": "verbatim",
-   "span_doc_id": "D058"
+   "span_doc_id": "D058",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "MA",
@@ -980,7 +1101,12 @@
    ],
    "source_doc_id": "D052",
    "_span_check": "verbatim",
-   "span_doc_id": "D052"
+   "span_doc_id": "D052",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "The first-month's-rent security deposit cap predates 2025; 2025, c. 9 (eff. 2025-08-01) extended limits to lessor's agents and added fee-in-lieu authority.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "MA",
@@ -1017,7 +1143,12 @@
    ],
    "source_doc_id": "D052",
    "_span_check": "verbatim",
-   "span_doc_id": "D052"
+   "span_doc_id": "D052",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2025-08-01",
+   "prior_version_note": "The limit on upfront payments by the lessor applied before; 2025, c. 9 (eff. 2025-08-01) extended it to the lessor's agents. A secondary source says the law has been in effect since the 1970s.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "MA",
@@ -1048,7 +1179,12 @@
    ],
    "source_doc_id": "D057",
    "_span_check": "verbatim",
-   "span_doc_id": "D057"
+   "span_doc_id": "D057",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2025-08-01",
+   "prior_version_note": "Before 2025-08-01 the section only required brokers finding dwellings for a fee to be licensed; 2025, c. 9 added the rule that only the party who engaged the broker pays the fee.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "MA",
@@ -1082,7 +1218,12 @@
    ],
    "source_doc_id": "D049",
    "_span_check": "verbatim",
-   "span_doc_id": "D049"
+   "span_doc_id": "D049",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Los Angeles, CA",
@@ -1132,7 +1273,12 @@
    ],
    "source_doc_id": "D041",
    "_span_check": "verbatim",
-   "span_doc_id": "D041"
+   "span_doc_id": "D041",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-02-02",
+   "prior_version_note": "RSO allowable annual increase was already in force earlier (rent increases were frozen 2020-03-30 through 2024-01-31); the 2026-02-02 revision removed the utilities add-on and the 10% dependent add-on, and the percentage is reset each July 1 (3% for 7/1/2025-6/30/2026).",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Los Angeles, CA",
@@ -1178,7 +1324,12 @@
    ],
    "source_doc_id": "D040",
    "_span_check": "verbatim",
-   "span_doc_id": "D040"
+   "span_doc_id": "D040",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "Just-cause provisions of the RSO predate the documents; later additions include the FMR non-payment limit (2023-03-27) and Right to Counsel posting (2025-08-20), but the original start date is not stated.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Los Angeles, CA",
@@ -1233,7 +1384,12 @@
    ],
    "source_doc_id": "D040",
    "_span_check": "verbatim",
-   "span_doc_id": "D040"
+   "span_doc_id": "D040",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "JCO original effective date not stated in the documents; the FMR non-payment limit was added 2023-03-27.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Los Angeles, CA",
@@ -1279,7 +1435,12 @@
    ],
    "source_doc_id": "D043",
    "_span_check": "verbatim",
-   "span_doc_id": "D043"
+   "span_doc_id": "D043",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-07-01",
+   "prior_version_note": "Relocation assistance for no-fault evictions already applied under the RSO/JCO; amounts are adjusted every July 1 (prior period 7/1/2025-6/30/2026).",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Los Angeles, CA",
@@ -1320,7 +1481,15 @@
    ],
    "source_doc_id": "D043",
    "_span_check": "verbatim",
-   "span_doc_id": "D043"
+   "span_doc_id": "D043",
+   "amends_existing_law": false,
+   "in_force_since": "2025-02-11",
+   "current_version_effective": null,
+   "prior_version_note": "RPO codified and expanded HCA (SB 330) relocation protections that already applied; the RPO standardized payment amounts are updated each July 1 (current figures effective 2026-07-01).",
+   "in_force_since_evidence": {
+    "doc_id": "D043",
+    "quoted_span": "effective 2/11/2025\nunder Ordinances # 188481 and #188482"
+   }
   },
   {
    "jurisdiction": "Los Angeles, CA",
@@ -1364,7 +1533,15 @@
    ],
    "source_doc_id": "D041",
    "_span_check": "official_quote",
-   "span_doc_id": "D041"
+   "span_doc_id": "D041",
+   "amends_existing_law": false,
+   "in_force_since": "1990-11-01",
+   "current_version_effective": null,
+   "prior_version_note": "Interest rate is reset annually by the City (e.g., 0.520% for 2024, 4.320% for 2025), but the requirement itself has applied since 1990.",
+   "in_force_since_evidence": {
+    "doc_id": "D044",
+    "quoted_span": "Interest shall begin accruing on November 1, 1990, on a monthly basis"
+   }
   },
   {
    "jurisdiction": "San Francisco, CA",
@@ -1404,7 +1581,12 @@
    ],
    "source_doc_id": "D079",
    "_span_check": "verbatim",
-   "span_doc_id": "D079"
+   "span_doc_id": "D079",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "Just-cause eviction provisions of the SF Rent Ordinance predate the documents provided; no start date stated.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "San Francisco, CA",
@@ -1444,7 +1626,12 @@
    ],
    "source_doc_id": "D082",
    "_span_check": "verbatim",
-   "span_doc_id": "D082"
+   "span_doc_id": "D082",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-03-01",
+   "prior_version_note": "Relocation amounts are reset every March 1; the prior period (3/1/25–2/28/26) was $8,062 per tenant, and the archive's earliest listed rate period starts 8/10/06.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "San Francisco, CA",
@@ -1482,7 +1669,12 @@
    ],
    "source_doc_id": "D082",
    "_span_check": "verbatim",
-   "span_doc_id": "D082"
+   "span_doc_id": "D082",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-03-01",
+   "prior_version_note": "Ellis Act relocation amounts are reset every March 1; prior period (3/1/25–2/28/26) was $10,863.45 per tenant.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "San Francisco, CA",
@@ -1529,7 +1721,12 @@
    ],
    "source_doc_id": "D080",
    "_span_check": "verbatim",
-   "span_doc_id": "D080"
+   "span_doc_id": "D080",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-03-01",
+   "prior_version_note": "Annual allowable increase is reset each March 1; the prior period (3/1/25–2/28/26) was 1.4%.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "San Francisco, CA",
@@ -1566,7 +1763,12 @@
    ],
    "source_doc_id": "D083",
    "_span_check": "verbatim",
-   "span_doc_id": "D083"
+   "span_doc_id": "D083",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-03-01",
+   "prior_version_note": "Security deposit interest rate is reset each March 1; the prior period (3/1/25–2/28/26) was 5.0%.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "San Francisco, CA",
@@ -1605,7 +1807,15 @@
    ],
    "source_doc_id": "D081",
    "_span_check": "verbatim",
-   "span_doc_id": "D081"
+   "span_doc_id": "D081",
+   "amends_existing_law": false,
+   "in_force_since": "2024-10-14",
+   "current_version_effective": null,
+   "prior_version_note": "No earlier SF ban on algorithmic rent-setting devices; Section 37.10C is a new addition to the Rent Ordinance.",
+   "in_force_since_evidence": {
+    "doc_id": "D081",
+    "quoted_span": "Legislation\nadding Section 37.10C to the Rent Ordinance went into effect on October 14, 2024"
+   }
   },
   {
    "jurisdiction": "San Francisco, CA",
@@ -1640,7 +1850,12 @@
    ],
    "source_doc_id": "D078",
    "_span_check": "verbatim",
-   "span_doc_id": "D078"
+   "span_doc_id": "D078",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "The HRC page names the Fair Chance Ordinance but gives no enactment or effective date.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "San Diego, CA",
@@ -1694,7 +1909,15 @@
    ],
    "source_doc_id": "D073",
    "_span_check": "verbatim",
-   "span_doc_id": "D073"
+   "span_doc_id": "D073",
+   "amends_existing_law": true,
+   "in_force_since": "2004-03-30",
+   "current_version_effective": "2024-03-28",
+   "prior_version_note": "Tenants' Right to Know Regulations added 2004 (O-19269); retitled and expanded with just cause, relocation and buyout rules effective 2023-06-24 (O-21647); amended again effective 2024-03-28 (O-21769).",
+   "in_force_since_evidence": {
+    "doc_id": "D073",
+    "quoted_span": "(“Tenants’ Right to Know Regulations” added 3–30–2004 by O–19269 N.S.)"
+   }
   },
   {
    "jurisdiction": "San Diego, CA",
@@ -1739,7 +1962,12 @@
    "source_doc_id": "D076",
    "review_note": "Passage date not in the documents; enactment confirmed only by the secondary alert and litigation references.",
    "_span_check": "verbatim",
-   "span_doc_id": "D076"
+   "span_doc_id": "D076",
+   "amends_existing_law": false,
+   "in_force_since": "2025-06",
+   "current_version_effective": null,
+   "prior_version_note": "No earlier San Diego ordinance of this kind; the document is an unsigned draft that takes effect the 30th day after final passage, so no exact date is stated.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Berkeley, CA",
@@ -1782,7 +2010,12 @@
    ],
    "source_doc_id": "D001",
    "_span_check": "verbatim",
-   "span_doc_id": "D001"
+   "span_doc_id": "D001",
+   "amends_existing_law": false,
+   "in_force_since": "2026-01",
+   "current_version_effective": null,
+   "prior_version_note": "Ordinance 7,992-N.S. amended an existing chapter 13.63 (passed to print Nov 18, 2025); published effective dates conflict (Jan 2026 per law-firm alert; Mar 2026 per other sources), and the earlier chapter text is not in the documents.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Berkeley, CA",
@@ -1826,7 +2059,12 @@
    ],
    "source_doc_id": "D003",
    "_span_check": "verbatim",
-   "span_doc_id": "D003"
+   "span_doc_id": "D003",
+   "amends_existing_law": false,
+   "in_force_since": "2020-04-14",
+   "current_version_effective": null,
+   "prior_version_note": "Council passed the ordinance April 14, 2020; no explicit effective date is stated in the documents.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Berkeley, CA",
@@ -1871,7 +2109,12 @@
    ],
    "source_doc_id": "D006",
    "_span_check": "verbatim",
-   "span_doc_id": "D006"
+   "span_doc_id": "D006",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2024-12-20",
+   "prior_version_note": "Just ('good') cause for eviction applied before Measure BB (Nov 2024), which changed some causes and notice requirements; the original enactment date is not stated in the documents.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Berkeley, CA",
@@ -1911,7 +2154,12 @@
    ],
    "source_doc_id": "D004",
    "_span_check": "verbatim",
-   "span_doc_id": "D004"
+   "span_doc_id": "D004",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-01-01",
+   "prior_version_note": "Relocation amounts are indexed to inflation and reset each January 1; the 2025 amounts applied before the 2026 increase of 1.5%.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Berkeley, CA",
@@ -1968,7 +2216,12 @@
    ],
    "source_doc_id": "D006",
    "_span_check": "verbatim",
-   "span_doc_id": "D006"
+   "span_doc_id": "D006",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-01-01",
+   "prior_version_note": "The AGA is reset annually (65% of CPI formula approved by voters in Nov 2004); Measure BB (Nov 2024) added the 5% maximum; the 2026 AGA of 1.0% applies no earlier than Jan 1, 2026.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Berkeley, CA",
@@ -2012,7 +2265,12 @@
    ],
    "source_doc_id": "D007",
    "_span_check": "verbatim",
-   "span_doc_id": "D007"
+   "span_doc_id": "D007",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "The documents do not state when the interest requirement began.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Berkeley, CA",
@@ -2050,7 +2308,12 @@
    ],
    "source_doc_id": "D005",
    "_span_check": "verbatim",
-   "span_doc_id": "D005"
+   "span_doc_id": "D005",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": "2026-01-01",
+   "prior_version_note": "State screening-fee cap under Civ. Code 1950.6 has applied for years and is CPI-adjusted annually; $68.96 is the 2026 figure; the BMC ch. 13.78 enactment date is not stated.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Santa Ana, CA",
@@ -2097,7 +2360,15 @@
    "source_doc_id": "D085",
    "review_note": "Ordinance section number not stated in documents; cited by name. Current 2.87% figure from D084.",
    "_span_check": "verbatim",
-   "span_doc_id": "D085"
+   "span_doc_id": "D085",
+   "amends_existing_law": true,
+   "in_force_since": "2021-11-19",
+   "current_version_effective": "2026-09-01",
+   "prior_version_note": "Ordinance in force since 2021-11-19; the allowable increase is reset each September 1 (currently 2.87% for 9/1/2026-8/31/2027).",
+   "in_force_since_evidence": {
+    "doc_id": "D085",
+    "quoted_span": "The new ordinances are not effective until November 19, 2021"
+   }
   },
   {
    "jurisdiction": "Santa Ana, CA",
@@ -2147,7 +2418,15 @@
    "source_doc_id": "D085",
    "review_note": "Ordinance section number not stated in documents; cited by name.",
    "_span_check": "verbatim",
-   "span_doc_id": "D085"
+   "span_doc_id": "D085",
+   "amends_existing_law": false,
+   "in_force_since": "2021-11-19",
+   "current_version_effective": null,
+   "prior_version_note": "No earlier local just-cause ordinance is stated; state AB 1482 just-cause (2020) is a separate law.",
+   "in_force_since_evidence": {
+    "doc_id": "D085",
+    "quoted_span": "The new ordinances are not effective until November 19, 2021"
+   }
   },
   {
    "jurisdiction": "Santa Ana, CA",
@@ -2191,7 +2470,15 @@
    "source_doc_id": "D002",
    "review_note": "Only secondary sources available; no official ordinance text provided.",
    "_span_check": "verbatim",
-   "span_doc_id": "D002"
+   "span_doc_id": "D002",
+   "amends_existing_law": false,
+   "in_force_since": "2026-04-02",
+   "current_version_effective": null,
+   "prior_version_note": "New local ordinance; no earlier local algorithmic rent-setting ban applied (state AB 325 operates separately under antitrust law).",
+   "in_force_since_evidence": {
+    "doc_id": "D002",
+    "quoted_span": "Santa Ana Ordinance No. NS-3090 (effective April 2, 2026)"
+   }
   },
   {
    "jurisdiction": "Jersey City, NJ",
@@ -2233,7 +2520,12 @@
    "source_doc_id": "D036",
    "review_note": "Ordinance adoption date not stated in the documents; no effective date given.",
    "_span_check": "verbatim",
-   "span_doc_id": "D036"
+   "span_doc_id": "D036",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "Chapter 260 is a long-standing local ordinance; the documents give no first-effective date, and allowable increases are reset by the Rent Leveling Board/CPI.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Jersey City, NJ",
@@ -2269,7 +2561,15 @@
    ],
    "source_doc_id": "D037",
    "_span_check": "verbatim",
-   "span_doc_id": "D037"
+   "span_doc_id": "D037",
+   "amends_existing_law": false,
+   "in_force_since": "2025-06",
+   "current_version_effective": null,
+   "prior_version_note": "No earlier Jersey City algorithmic-pricing ban applied; the NJ FAIR Act (P.L.2026, c.43) takes effect 2027-07-01 and bars conflicting municipal ordinances.",
+   "in_force_since_evidence": {
+    "doc_id": "D037",
+    "quoted_span": "Jersey City Code § 218-12 (effective June 2025)"
+   }
   },
   {
    "jurisdiction": "Hoboken, NJ",
@@ -2308,7 +2608,15 @@
    ],
    "source_doc_id": "D002",
    "_span_check": "verbatim",
-   "span_doc_id": "D002"
+   "span_doc_id": "D002",
+   "amends_existing_law": false,
+   "in_force_since": "2025-07",
+   "current_version_effective": null,
+   "prior_version_note": "No earlier Hoboken algorithmic rent-coordination rule is described; the ordinance is new as of July 2025.",
+   "in_force_since_evidence": {
+    "doc_id": "D002",
+    "quoted_span": "Hoboken City Code, ch. 158-2 (effective July 2025)"
+   }
   },
   {
    "jurisdiction": "Newark, NJ",
@@ -2342,7 +2650,12 @@
    "conflict_note": "Unverified: the Newark code text (ecode360 link-only source D070-D072) could not be read. The quoted span is from D067 (NJ DCA Truth in Renting guide), which says only that NJ municipalities may adopt rent control.",
    "review_note": "Cap formula, exemptions and section number are unknown. The 30-year new-construction exemption comes from N.J.S.A. 2A:42-84.5, as described in D067.",
    "_span_check": "verbatim",
-   "span_doc_id": "D067"
+   "span_doc_id": "D067",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "None of the provided documents states when Newark's rent control ordinance took effect or was amended. The state guide (D067) says only that municipalities may pass rent control or rent leveling ordinances.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Boston, MA",
@@ -2383,7 +2696,12 @@
    ],
    "source_doc_id": "D010",
    "_span_check": "verbatim",
-   "span_doc_id": "D010"
+   "span_doc_id": "D010",
+   "amends_existing_law": false,
+   "in_force_since": "2017-02",
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Boston, MA",
@@ -2418,7 +2736,12 @@
    ],
    "source_doc_id": "D012",
    "_span_check": "verbatim",
-   "span_doc_id": "D012"
+   "span_doc_id": "D012",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Boston, MA",
@@ -2462,7 +2785,15 @@
    ],
    "source_doc_id": "D014",
    "_span_check": "verbatim",
-   "span_doc_id": "D014"
+   "span_doc_id": "D014",
+   "amends_existing_law": false,
+   "in_force_since": "2020-11-06",
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": {
+    "doc_id": "D014",
+    "quoted_span": "The HSNA becomes effective on November 6, 2020"
+   }
   },
   {
    "jurisdiction": "Boston, MA",
@@ -2528,7 +2859,12 @@
    ],
    "source_doc_id": "D029",
    "_span_check": "verbatim",
-   "span_doc_id": "D029"
+   "span_doc_id": "D029",
+   "amends_existing_law": false,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": null,
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Cambridge, MA",
@@ -2572,7 +2908,12 @@
    "source_doc_id": "D031",
    "review_note": "Notification requirement only; does not restrict grounds for eviction.",
    "_span_check": "verbatim",
-   "span_doc_id": "D031"
+   "span_doc_id": "D031",
+   "amends_existing_law": false,
+   "in_force_since": "2020-10-14",
+   "current_version_effective": null,
+   "prior_version_note": "The 2020-10-14 date is only the web page posting date; the page was last modified 2025-03-17, and no document states the ordinance's effective date.",
+   "in_force_since_evidence": null
   },
   {
    "category": "screening_restrictions",
@@ -2614,7 +2955,12 @@
    "unverified_link_only": true,
    "span_doc_id": "D016",
    "from_candidates": [],
-   "_span_check": "verbatim"
+   "_span_check": "verbatim",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "No document states the effective date of the San Diego source-of-income ordinance. Its text is not provided. State FEHA source-of-income protection also applies.",
+   "in_force_since_evidence": null
   },
   {
    "category": "rent_increase_limits",
@@ -2664,7 +3010,12 @@
    "unverified_link_only": true,
    "span_doc_id": "D067",
    "from_candidates": [],
-   "_span_check": "verbatim"
+   "_span_check": "verbatim",
+   "amends_existing_law": true,
+   "in_force_since": null,
+   "current_version_effective": null,
+   "prior_version_note": "No document gives the enactment or effective date of Hoboken's rent control ordinance (ch. 155). D067 says only that NJ municipalities may pass rent control ordinances.",
+   "in_force_since_evidence": null
   },
   {
    "jurisdiction": "Santa Monica, CA",

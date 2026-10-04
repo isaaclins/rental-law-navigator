@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-01",
- "generated_at": "2026-10-03T20:21:19",
+ "generated_at": "2026-10-04T02:30:17",
  "disclaimer": "Not legal advice. Automated extraction from the supplied corpus; verify against the cited source.",
  "rules": [
   {
@@ -422,7 +422,7 @@
    "level": "state",
    "category": "algorithmic_rent_setting",
    "status": "in_force",
-   "title": "AB 325 – Common pricing algorithm prohibition (Cartwright Act)",
+   "title": "AB 325 / SB 763 – Common pricing algorithm prohibition (Cartwright Act)",
    "requirement": "It is unlawful to use or distribute a common pricing algorithm (used by two or more persons, using competitor data to set prices) as part of a conspiracy to restrain trade, or to use or distribute one while coercing others to adopt its recommended prices. Applies to all pricing including rents.",
    "key_value": "ban on common pricing algorithms using competitor data in restraint of trade or with coercion",
    "coverage_conditions": "Any person using or distributing a common pricing algorithm; not limited to housing; excludes end consumers.",
@@ -451,7 +451,7 @@
     "may_preempt_local_rules": false
    },
    "legal_status": "enacted",
-   "penalty": "Cartwright Act violation; civil fines up to $1 million and increased criminal fines per D028.",
+   "penalty": "Cartwright Act as amended by AB 325 / SB 763: civil fines up to $1 million; criminal fines up to $6 million for businesses and $1 million for individuals (D028).",
    "effective_date_note": "Approved Oct 6, 2025; general effective date Jan 1, 2026 (D028 confirms).",
    "in_force_since": "2026-01-01",
    "current_version_effective": null,
@@ -480,6 +480,16 @@
    "extracted_from_candidates": [
     "c21",
     "c97"
+   ],
+   "review_evidence": [
+    {
+     "doc_id": "D028",
+     "quoted_span": "Last October, California Governor Newsom signed into law Assembly Bill 325 (AB 325) and Senate Bill 763 (SB 763), amending the Act"
+    },
+    {
+     "doc_id": "D028",
+     "quoted_span": "Criminal fines rise to more than $6 million for businesses and $1 million for individuals, and businesses and individuals may now be subject to civil fines of up to $1 million"
+    }
    ]
   },
   {
@@ -1348,7 +1358,7 @@
    "exemptions": "Vacation or recreational tenancies of 100 days or less.",
    "overrides": [],
    "interaction": null,
-   "effective_date": null,
+   "effective_date": "2025-08-01",
    "citation": "G.L. c. 186, § 15B",
    "source_doc_id": "D052",
    "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B",
@@ -1369,10 +1379,10 @@
    },
    "legal_status": "enacted",
    "penalty": "Forfeiture of right to retain deposit; three times the deposit plus 5% interest, costs and attorney's fees.",
-   "effective_date_note": "Original effective date of the cap not stated; Aug. 1, 2025 amendment (2025, c. 9) only added agents and fee-in-lieu authority.",
+   "effective_date_note": "Current text of § 15B(1)(b) effective August 1, 2025 (St. 2025, c. 9, §§ 54-55); the original date of the one-month cap is not stated in the document.",
    "in_force_since": null,
-   "current_version_effective": null,
-   "amends_existing_law": false,
+   "current_version_effective": "2025-08-01",
+   "amends_existing_law": true,
    "prior_version_note": "The first-month's-rent security deposit cap predates 2025; 2025, c. 9 (eff. 2025-08-01) extended limits to lessor's agents and added fee-in-lieu authority.",
    "in_force_since_evidence": null,
    "enacted_date": null,
@@ -1389,6 +1399,12 @@
    "verification": "primary_source",
    "extracted_from_candidates": [
     "c46"
+   ],
+   "review_evidence": [
+    {
+     "doc_id": "D052",
+     "quoted_span": "Introductory paragraph of clause (b) of subsection (1) as amended by 2025, 9, Secs. 54 and 55 effective August 1, 2025"
+    }
    ]
   },
   {
@@ -1686,7 +1702,7 @@
    "citation": "L.A. Mun. Code § 151.00 et seq",
    "source_doc_id": "D041",
    "source_url": "https://housing.lacity.gov/residents/rso-overview",
-   "quoted_span": "Rent may be increased once every 12 months by the allowable rent increase percentage (click here to",
+   "quoted_span": "Rent may be increased once every 12 months by the allowable rent increase percentage",
    "confidence": 0.8,
    "conflict_flag": true,
    "conflict_note": "Two effective dates published for the new formula: 2026-02-02 (LAHD) and 2026-01-24 (landlord association). LAHD date used.",
@@ -2580,7 +2596,7 @@
    "citation_aliases": [
     "Prohibition of Discrimination Based on a Tenant's Source of Income"
    ],
-   "retrieved_at": "",
+   "retrieved_at": "2026-10-01T22:35Z",
    "source_type": "code publisher (link-only, text not captured)",
    "quoted_span_doc_id": "D016",
    "span_verification": "verbatim",
@@ -3431,7 +3447,7 @@
    "citation_aliases": [
     "Hoboken Rent Control Ordinance"
    ],
-   "retrieved_at": "",
+   "retrieved_at": "2026-10-01T22:37Z",
    "source_type": "code publisher (link-only, text not captured)",
    "quoted_span_doc_id": "D067",
    "span_verification": "verbatim",
@@ -3549,7 +3565,7 @@
    "sunset_date": null,
    "sunset_kind": null,
    "citation_aliases": [],
-   "retrieved_at": "",
+   "retrieved_at": "2026-10-01T22:37Z",
    "source_type": "code publisher (link-only, text not captured)",
    "quoted_span_doc_id": "D067",
    "span_verification": "verbatim",

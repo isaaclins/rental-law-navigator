@@ -350,6 +350,10 @@ function maybeNudge() {
   if (st.installed || (st.dismissedAt && Date.now() - st.dismissedAt < 14 * DAY) || (st.nudges || 0) >= 1) return;
   if (!matchMedia("(max-width: 640px), (pointer: coarse)").matches) return; // desktop: footer link only
   if (sessionStorage.getItem("ce.pwa.nudged")) return;
+  // not on the first answer: only from the second address of a visit, so it never greets a new reader
+  const seen = new Set(JSON.parse(sessionStorage.getItem("ce.pwa.addr") || "[]")); seen.add(location.hash);
+  sessionStorage.setItem("ce.pwa.addr", JSON.stringify([...seen]));
+  if (seen.size < 2) return;
   // shown once, after the reader has scrolled past the answers, so it never covers one
   removeEventListener("scroll", nudgeWatch);
   addEventListener("scroll", nudgeWatch, { passive: true });

@@ -1,23 +1,37 @@
-"""Listen to an answer (#49): the address summary read aloud (ElevenLabs), EN and ES. Not legal advice.
+"""Listen (#49): a spoken briefing on what the rules at an address mean for a renter or an owner, EN and ES.
 
-POST /api/tts  {"address_id": "A0016", "as_of": "2026-10-01", "lang": "es"}
-    -> 200 audio/mpeg                               spoken summary (cached, or synthesized now)
-    -> 200 {"fallback": true, "text", "lang", ...}  the browser speaks `text` itself (speechSynthesis)
+POST /api/tts  {"address_id": "A0016", "as_of": "2026-10-01", "lang": "es", "persona": "owner", "topic": null}
+    -> 200 audio/mpeg                               briefing (cached, or synthesized now); X-TTS-Chapters and
+                                                    X-TTS-Chars let the page highlight the topic being spoken
+    -> 200 {"fallback": true, "text", "lang", "chapters", ...}  the browser speaks `text` itself (speechSynthesis)
+"topic" = one category id: only that topic's short explanation ("Explain this", about 10-15 s).
 
-The text is always built here from the evaluator result (address, as-of date, one line per topic, "not legal
-advice"), so clients cannot send their own text: this is not a general TTS proxy. Characters are precious:
+The text is always built here from the evaluator result (web/briefing.py: deterministic templates, no LLM), so
+clients cannot send their own text: this is not a general TTS proxy. Characters are precious:
 - mp3s are cached on disk by sha256(text, voice, model) and are only ever paid for once;
 - new synthesis has a hard global budget (characters, file counter shared by every process) and a per-IP limit;
 - over budget, rate-limited, no key, or any ElevenLabs error -> the fallback answer above, never an error page.
 The API key is read from ~/.config/hacknation/elevenlabs-key on the server only; it is never logged or returned.
 
-CLI: python -m web.tts status | prewarm [--dry]   (prewarm = the home page examples, EN + ES, default as-of)
+POST /api/tts/captions  (same body) -> {text, lang, chapters, sentences, words, timing, duration}
+    the time-synced transcript of the same clip: sentences = [[first char, end char], ...]; words =
+    [[first char, end char, start s, end s], ...] when its audio is cached, else null (the browser voice drives it
+    with boundary events). timing = "elevenlabs" (character alignment from the with-timestamps endpoint, saved as
+    <hash>.align.json next to <hash>.mp3), "whisper" (aligned locally from the cached mp3, no characters spent:
+    `align` below) or "estimated" (spread over the mp3's length by characters and pauses). Never synthesizes.
+
+CLI: python -m web.tts status | prewarm [--dry] [--reserve N] | align [--model base]
+     align = alignment for cached mp3s that have none (needs `uv run --with faster-whisper`; free, local)
+     prewarm = the home page examples x both personas, English, default as-of; it stops before the budget left
+     would fall under N characters (default 1000), so first clicks elsewhere still get the real voice.
 """
 
 from __future__ import annotations
 
+import base64
 import contextlib
 import datetime as dt
+import difflib
 import fcntl
 import hashlib
 import json
@@ -33,6 +47,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel, ConfigDict, Field
 
+from web import briefing as B
 from web.any_address import RateLimit, client_ip
 
 HOME = Path.home()
@@ -43,7 +58,7 @@ API = "https://api.elevenlabs.io/v1"
 VOICE = "EXAVITQu4vr4xnSDxMaL"  # "Sarah", the voice of our product videos
 MODEL = "eleven_v4"  # multilingual (EN + ES), same model as the videos
 FORMAT = "mp3_44100_64"
-MAX_TEXT = 900  # a summary never needs more; longer texts go to the browser voice
+MAX_TEXT = 1000  # a briefing never needs more (longest Spanish one: ~850); longer texts go to the browser voice
 
 REQUEST_LIMIT = RateLimit(30, 60.0)  # any /api/tts call, per IP
 SYNTH_LIMIT = RateLimit(6, 3600.0)  # new (uncached) syntheses, per IP
@@ -53,208 +68,31 @@ _locks: dict[str, threading.Lock] = {}
 _locks_guard = threading.Lock()
 
 # ------------------------------------------------------------------ text
-# Topic names as spoken (shorter than the headings; the summary must stay brief).
-SPOKEN_CAT = {
-    "en": {
-        "rent_increase_limits": "Rent increases",
-        "just_cause_eviction": "Evictions",
-        "security_deposits": "Deposit",
-        "application_screening_fees": "Fees",
-        "screening_restrictions": "Screening",
-        "algorithmic_rent_setting": "Rent software",
-    },
-    "es": {
-        "rent_increase_limits": "Aumentos de renta",
-        "just_cause_eviction": "Desalojos",
-        "security_deposits": "Depósito",
-        "application_screening_fees": "Cuotas",
-        "screening_restrictions": "Selección de inquilinos",
-        "algorithmic_rent_setting": "Software de rentas",
-    },
-}
-MISSING_ES = {
-    "Year built / certificate-of-occupancy date": "el año de construcción",
-    "Owner type": "el tipo de propietario",
-    "Number of units": "el número de unidades",
-    "Exemption filing / registration status": "el registro de exención",
-    "Length of tenancy": "la duración del arrendamiento",
-    "A fact not contained in the public data": "un dato que no está en las fuentes públicas",
-}
-WORDS = {
-    "en": {
-        "as_of": "As of {d}.",
-        "depends": "depends on {f}",
-        "starts": "{x}, from {d}",
-        "exempt": "no rule applies to this building",
-        "none": "no rule for this address",
-        "nla": "This is not legal advice.",
-        "or": " or ",
-        "to": " to ",
-        "is": " is ",
-    },
-    "es": {
-        "as_of": "Reglas al {d}.",
-        "depends": "depende de {f}",
-        "starts": "{x}, a partir del {d}",
-        "exempt": "ninguna regla se aplica a este edificio",
-        "none": "no hay regla para esta dirección",
-        "nla": "Esto no es asesoría legal.",
-        "or": " o ",
-        "to": " a ",
-        "is": " es ",
-    },
-}
-MONTHS_ES = "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split()
-LIMIT = {"en": 48, "es": 56}  # characters per spoken topic line
-RANK = {
-    "applies": 0,
-    "unknown": 1,
-    "not_yet_effective": 2,
-    "superseded": 3,
-    "pending": 4,
-    "failed": 5,
-}
+PERSONAS = Literal["renter", "owner"]
+TOPICS = Literal[
+    "rent_increase_limits",
+    "just_cause_eviction",
+    "security_deposits",
+    "application_screening_fees",
+    "screening_restrictions",
+    "algorithmic_rent_setting",
+]
 
 
-def say_date(iso: str, lang: str) -> str:
-    d = dt.date.fromisoformat(iso[:10])
-    if lang == "es":
-        return f"{d.day} de {MONTHS_ES[d.month - 1]} de {d.year}"
-    return f"{d:%B} {d.day}, {d.year}"
-
-
-def title_case(s: str) -> str:
-    return " ".join(w if any(c.isdigit() for c in w) else w.capitalize() for w in (s or "").split())
-
-
-# Where a long line may end without sounding cut off: before a comma, slash or one of these words.
-BREAK = re.compile(
-    r"(?:,| /)\s| (?=(?:using|with|in|for|based|within|after|under|including|que|con|en|para|según|desde|dentro|"
-    r"después|incluid[oa]s?)\b)"
-)
-
-
-def spoken(s: str, lang: str) -> str:
-    """One short spoken line: no parentheticals, ranges read as words, cut at a natural break near LIMIT."""
-    w, limit = WORDS[lang], LIMIT[lang]
-    s = re.sub(r"\s*\([^)]*\)", "", s or "").strip()
-    s = re.sub(
-        r"(?<=[\d%])\s*[–-]\s*(?=[$\d])", w["to"], s
-    )  # $87,450–$115,480 -> $87,450 to $115,480
-    s = re.sub(r"(?<=[A-Za-zÀ-ÿ])/(?=[A-Za-zÀ-ÿ])", w["or"], s)  # lock/key -> lock or key
-    s = s.replace(" = ", w["is"])
-    parts = [p.strip() for p in s.split(";") if p.strip()]
-    out = parts[0] if parts else ""
-    for p in parts[1:]:
-        if len(out) + 2 + len(p) > limit:
-            break
-        out += ", " + p
-    if len(out) > limit + 12:  # a little over is fine; much over is cut where a sentence may end
-        cuts = [m.start() for m in BREAK.finditer(out) if 16 <= m.start() <= limit]
-        if cuts:
-            out = out[: cuts[-1]]
-        else:
-            out = out[: limit + 12].rsplit(" ", 1)[0]
-            out = re.sub(
-                r"(?:\s+(?:a|an|the|of|to|and|or|by|on|de|del|la|el|los|las|y|o|por|al))+$", "", out
-            )
-    return cap(out.rstrip(" .,;:/"))
-
-
-def cap(s: str) -> str:
-    return s[:1].upper() + s[1:]
-
-
-def _order_key(item: dict):
-    r = item["rule"]
-    return (
-        RANK.get(item["result"], 9),
-        0 if item.get("overrides_here") else 1,
-        0 if r.get("level") == "state" else 1,
-    )
-
-
-# "Feb 2027" in a row answer is read with the full month name
-MONTHS = {
-    "en": {
-        "jan": "January",
-        "feb": "February",
-        "mar": "March",
-        "apr": "April",
-        "jun": "June",
-        "jul": "July",
-        "aug": "August",
-        "sep": "September",
-        "oct": "October",
-        "nov": "November",
-        "dec": "December",
-    },
-    "es": {
-        "ene": "enero",
-        "feb": "febrero",
-        "mar": "marzo",
-        "abr": "abril",
-        "may": "mayo",
-        "jun": "junio",
-        "jul": "julio",
-        "ago": "agosto",
-        "sep": "septiembre",
-        "oct": "octubre",
-        "nov": "noviembre",
-        "dic": "diciembre",
-    },
-}
-
-
-def topic_line(c: dict, lang: str) -> str:
-    """The topic's one-line answer, as on the address page (web/headlines.py), made speakable."""
-    w = WORDS[lang]
-    items = sorted(c.get("enacted") or [], key=_order_key)
-    if items:
-        top, r = items[0], items[0]["rule"]
-        if top["result"] == "unknown":
-            f = top.get("missing_fact") or "A fact not contained in the public data"
-            f = MISSING_ES.get(f, MISSING_ES[next(iter(MISSING_ES))]) if lang == "es" else f.lower()
-            return cap(w["depends"].format(f=f))
-        line = spoken(
-            top.get("headline")  # web/headlines.py, the same line the address page shows
-            or r.get("key_value_display")
-            or r.get("key_value")
-            or r.get("title_display")
-            or "",
-            lang,
-        )
-        line = re.sub(
-            r"\b([A-Za-z]{3})\.? (\d{4})\b",
-            lambda m: (
-                f"{MONTHS[lang].get(m.group(1).lower(), m.group(1))}{' de' if lang == 'es' and m.group(1).lower() in MONTHS['es'] else ''} {m.group(2)}"
-            ),
-            line,
-        )
-        eff = r.get("effective_date_norm")
-        if top["result"] == "not_yet_effective" and eff:
-            line = w["starts"].format(x=line, d=say_date(eff, lang))
-        return line
-    return cap(w["exempt"] if c.get("excluded") else w["none"])
-
-
-def summary_text(address_id: str, as_of: str, lang: str) -> str:
+def script_for(
+    address_id: str, as_of: str, lang: str, persona: str = "renter", topic: str | None = None
+) -> B.Script:
+    """The spoken script (category, sentence) for an address: the briefing, or one topic's explanation."""
     from web import app as A  # late import: web.app includes this router
 
-    if lang == "en" or lang in A.STORE.tr:
-        d = A.build_address(address_id, as_of, lang)
-    else:
+    if lang != "en" and lang not in A.STORE.tr:
         raise HTTPException(400, "lang must be en or es")
-    a = d["address"]
-    w = WORDS[lang]
-    labels = {cid: label for cid, label, _ in A.CATEGORIES} | SPOKEN_CAT[lang]
-    lines = [
-        f"{title_case(a['street_address'])}, {title_case(a['postal_city'])}.",
-        w["as_of"].format(d=say_date(d["as_of"], lang)),
-    ]
-    lines += [f"{labels.get(c['id'], c['id'])}: {topic_line(c, lang)}." for c in d["categories"]]
-    lines.append(w["nla"])
-    return " ".join(lines)
+    d = A.build_address(address_id, as_of, lang)
+    return B.topic(d, topic, persona, lang) if topic else B.briefing(d, persona, lang)
+
+
+def script_text(*args, **kw) -> str:
+    return B.text_of(script_for(*args, **kw))
 
 
 # ------------------------------------------------------------------ cache + budget
@@ -304,19 +142,25 @@ def _key() -> str:
     return KEY_FILE.read_text().strip()
 
 
-def synthesize(text: str) -> bytes:
-    """One ElevenLabs call. Raises on any failure; the key goes only into the request header."""
+def synthesize(text: str) -> tuple[bytes, dict | None]:
+    """One ElevenLabs call (with-timestamps: the audio and its character alignment, same price).
+    Raises on any failure; the key goes only into the request header."""
     req = urllib.request.Request(
-        f"{API}/text-to-speech/{VOICE}?output_format={FORMAT}",
+        f"{API}/text-to-speech/{VOICE}/with-timestamps?output_format={FORMAT}",
         data=json.dumps({"text": text, "model_id": MODEL}).encode(),
         method="POST",
-        headers={"xi-api-key": _key(), "Content-Type": "application/json", "Accept": "audio/mpeg"},
+        headers={
+            "xi-api-key": _key(),
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
     )
-    with urllib.request.urlopen(req, timeout=60) as r:
-        data = r.read()
+    with urllib.request.urlopen(req, timeout=90) as r:
+        d = json.loads(r.read())
+    data = base64.b64decode(d.get("audio_base64") or "")
     if len(data) < 1000:
         raise ValueError("audio too short")
-    return data
+    return data, d.get("alignment") or d.get("normalized_alignment")
 
 
 def _lock(h: str) -> threading.Lock:
@@ -343,11 +187,13 @@ def audio_for(text: str, ip: str | None = None) -> tuple[bytes | None, str]:
         if not reserve(n):
             return None, "budget"
         try:
-            data = synthesize(text)
+            data, alignment = synthesize(text)
         except Exception as e:  # network, quota, 4xx/5xx: the browser voice takes over
             refund(n)
             _log({"event": "error", "error": type(e).__name__, "chars": n})
             return None, "unavailable"
+        if alignment:  # written before the mp3, so a cached mp3 always finds its timing
+            save_alignment(h, {"source": "elevenlabs", "alignment": alignment})
         tmp = mp3.with_suffix(".part")
         tmp.write_bytes(data)
         tmp.replace(mp3)
@@ -369,21 +215,249 @@ class TtsIn(BaseModel):
     address_id: str = Field(pattern=r"^[A-Za-z0-9_-]{1,40}$")
     as_of: str | None = None
     lang: Literal["en", "es"] = "en"
+    persona: PERSONAS = "renter"
+    topic: TOPICS | None = None
 
 
 @router.post("/api/tts")
 def tts(body: TtsIn, request: Request):
     from web.app import _as_of
 
-    text = summary_text(body.address_id.upper(), _as_of(body.as_of), body.lang)
+    script = script_for(
+        body.address_id.upper(), _as_of(body.as_of), body.lang, body.persona, body.topic
+    )
+    text = B.text_of(script)
+    chapters = B.chapters(script)
     ip = client_ip(request)
     if not REQUEST_LIMIT.allow(ip):
         data, how = None, "rate_limited"
     else:
         data, how = audio_for(text, ip)
     if data is None:
-        return JSONResponse({"fallback": True, "reason": how, "lang": body.lang, "text": text})
-    return Response(data, media_type="audio/mpeg", headers={"X-TTS": how})
+        return JSONResponse(
+            {"fallback": True, "reason": how, "lang": body.lang, "text": text, "chapters": chapters}
+        )
+    return Response(
+        data,
+        media_type="audio/mpeg",
+        headers={
+            "X-TTS": how,
+            "X-TTS-Chars": str(len(text)),
+            "X-TTS-Chapters": json.dumps(chapters, separators=(",", ":")),
+        },
+    )
+
+
+# ------------------------------------------------------------------ captions (time-synced transcript)
+SENTENCE_END = re.compile(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡'\"0-9])")
+
+
+def sentences(script: B.Script) -> list[list[int]]:
+    """[[first char, end char], ...] of every sentence in text_of(script) (a script line can hold several)."""
+    out, pos = [], 0
+    for _, line in script:
+        start = 0
+        for m in SENTENCE_END.finditer(line):
+            out.append([pos + start, pos + m.start()])
+            start = m.end()
+        out.append([pos + start, pos + len(line)])
+        pos += len(line) + 1
+    return out
+
+
+def word_spans(text: str) -> list[tuple[int, int]]:
+    return [(m.start(), m.end()) for m in re.finditer(r"\S+", text)]
+
+
+def _align_path(h: str) -> Path:
+    return DIR / f"{h}.align.json"
+
+
+def save_alignment(h: str, d: dict) -> None:
+    DIR.mkdir(parents=True, exist_ok=True)
+    p = _align_path(h)
+    tmp = p.with_suffix(".part")
+    tmp.write_text(json.dumps({"v": 1, **d}, separators=(",", ":")))
+    tmp.replace(p)
+
+
+def words_from_chars(text: str, al: dict) -> list[list]:
+    """ElevenLabs character alignment -> [[c0, c1, t0, t1], ...] per word of `text`."""
+    chars = al.get("characters") or []
+    t0s = al.get("character_start_times_seconds") or []
+    t1s = al.get("character_end_times_seconds") or []
+    n = min(len(chars), len(t0s), len(t1s))
+    if not n:
+        return []
+    if "".join(chars[:n]) == text:
+        at = lambda i: i  # noqa: E731  same characters: index i is character i
+    else:  # normalized differently: map by position
+        at = lambda i: min(n - 1, round(i * (n - 1) / max(1, len(text) - 1)))  # noqa: E731
+    return [[a, b, round(t0s[at(a)], 3), round(t1s[at(b - 1)], 3)] for a, b in word_spans(text)]
+
+
+def _norm(w: str) -> str:
+    return "".join(c for c in w.lower() if c.isalnum())
+
+
+def fit_words(text: str, heard: list[tuple[str, float, float]], duration: float) -> list[list]:
+    """Recognized words with times (any recognizer) -> timings for the words of `text`. Words matched in order
+    (difflib on normalized spellings) take their times; the rest share the gaps around them by length."""
+    spans = word_spans(text)
+    mine = [_norm(text[a:b]) for a, b in spans]
+    theirs = [_norm(w) for w, _, _ in heard]
+    times: list[tuple[float, float] | None] = [None] * len(spans)
+    sm = difflib.SequenceMatcher(None, mine, theirs, autojunk=False)
+    for blk in sm.get_matching_blocks():
+        for k in range(blk.size):
+            _, t0, t1 = heard[blk.b + k]
+            times[blk.a + k] = (t0, t1)
+    i = 0
+    while i < len(spans):
+        if times[i] is not None:
+            i += 1
+            continue
+        j = i
+        while j < len(spans) and times[j] is None:
+            j += 1
+        lo = times[i - 1][1] if i else (heard[0][1] if heard else 0.0) * 0.5
+        hi = times[j][0] if j < len(spans) else max(lo, duration or lo)
+        lens = [spans[k][1] - spans[k][0] + 1 for k in range(i, j)]
+        tot, t = sum(lens), lo
+        for k, n in zip(range(i, j), lens, strict=True):
+            d = (hi - lo) * n / tot
+            times[k] = (t, t + d)
+            t += d
+        i = j
+    return [
+        [a, b, round(t0, 3), round(t1, 3)] for (a, b), (t0, t1) in zip(spans, times, strict=True)
+    ]
+
+
+def mp3_seconds(p: Path) -> float:
+    return p.stat().st_size * 8 / 64000  # FORMAT is constant 64 kbit/s
+
+
+def estimate_words(text: str, duration: float) -> list[list]:
+    """No alignment saved: spread the words over the clip by length, with room for the pauses at punctuation."""
+    spans = word_spans(text)
+    weight = []
+    for a, b in spans:
+        w = text[a:b]
+        weight.append(len(w) + 1 + (6 if w[-1] in ".!?;:" else 2.5 if w[-1] == "," else 0))
+    lead, tail = 0.12, 0.35
+    span = max(0.1, duration - lead - tail)
+    tot, t, out = sum(weight) or 1, lead, []
+    for (a, b), w in zip(spans, weight, strict=True):
+        d = span * w / tot
+        out.append([a, b, round(t, 3), round(t + d * 0.92, 3)])
+        t += d
+    return out
+
+
+def timing_for(text: str) -> tuple[list | None, str | None, float | None]:
+    """(words, source, duration) of the cached clip of `text`; (None, None, None) when it has no audio."""
+    h = cache_key(text)
+    mp3 = DIR / f"{h}.mp3"
+    if not mp3.exists():
+        return None, None, None
+    dur = round(mp3_seconds(mp3), 3)
+    p = _align_path(h)
+    if p.exists():
+        try:
+            d = json.loads(p.read_text())
+            if d.get("source") == "elevenlabs" and d.get("alignment"):
+                words = words_from_chars(text, d["alignment"])
+                if words:
+                    return words, "elevenlabs", max(dur, words[-1][3])
+            elif d.get("words") and len(d["words"]) == len(word_spans(text)):
+                return d["words"], d.get("source") or "aligned", dur
+        except (ValueError, KeyError, TypeError, IndexError):
+            pass  # a broken file only costs precision
+    return estimate_words(text, dur), "estimated", dur
+
+
+@router.post("/api/tts/captions")
+def captions(body: TtsIn):
+    """The transcript of exactly the clip /api/tts plays, with its timing. Reads the cache only (free)."""
+    from web.app import _as_of
+
+    script = script_for(
+        body.address_id.upper(), _as_of(body.as_of), body.lang, body.persona, body.topic
+    )
+    text = B.text_of(script)
+    words, timing, duration = timing_for(text)
+    return {
+        "text": text,
+        "lang": body.lang,
+        "chapters": B.chapters(script),
+        "sentences": sentences(script),
+        "words": words,
+        "timing": timing,
+        "duration": duration,
+    }
+
+
+def align_cached(model: str = "base") -> None:
+    """Free, local alignment (faster-whisper word timestamps) for cached mp3s of current scripts without one."""
+    from web import app as A
+
+    todo = {p.stem for p in DIR.glob("*.mp3") if not _align_path(p.stem).exists()}
+    if not todo:
+        print("every cached clip has its alignment")
+        return
+    found: dict[str, tuple[str, str]] = {}
+    for aid in sorted(A.STORE.addresses):
+        for lang in ("en", "es"):
+            for persona in ("renter", "owner"):
+                for topic in (None, *B.CATS):
+                    try:
+                        t = script_text(aid, A.DEFAULT_AS_OF, lang, persona, topic)
+                    except HTTPException:
+                        continue
+                    h = cache_key(t)
+                    if h in todo:
+                        found[h] = (t, lang)
+        if len(found) == len(todo):
+            break
+    import subprocess
+
+    import numpy as np
+    from faster_whisper import WhisperModel  # uv run --with faster-whisper python -m web.tts align
+
+    wm = WhisperModel(model, device="cpu", compute_type="int8", cpu_threads=2)
+    for h, (t, lang) in found.items():
+        pcm = subprocess.run(  # 16 kHz mono float, decoded by ffmpeg (avoids PyAV version quirks)
+            [
+                "ffmpeg",
+                "-nostdin",
+                "-v",
+                "error",
+                "-i",
+                str(DIR / f"{h}.mp3"),
+                "-f",
+                "s16le",
+                "-ac",
+                "1",
+                "-ar",
+                "16000",
+                "-",
+            ],
+            capture_output=True,
+            check=True,
+        ).stdout
+        audio = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768.0
+        segs, _ = wm.transcribe(audio, language=lang, word_timestamps=True, vad_filter=False)
+        heard = [(w.word, w.start, w.end) for s in segs for w in (s.words or [])]
+        words = fit_words(t, heard, mp3_seconds(DIR / f"{h}.mp3"))
+        save_alignment(h, {"source": "whisper", "words": words})
+        hit = difflib.SequenceMatcher(
+            None, [_norm(w) for w in t.split()], [_norm(w) for w, _, _ in heard], autojunk=False
+        ).ratio()
+        print(
+            f"{h[:12]} {lang} {len(t)} chars, {len(heard)} words heard, {hit:.0%} matched -> aligned"
+        )
+    print(f"{len(todo) - len(found)} cached clips belong to older scripts (left as they are)")
 
 
 # ------------------------------------------------------------------ CLI
@@ -430,15 +504,25 @@ def main(argv: list[str]) -> None:
         print(json.dumps(budget_status()))
     elif cmd == "prewarm":
         dry = "--dry" in argv
+        reserve = int(argv[argv.index("--reserve") + 1]) if "--reserve" in argv else 1000
         total = 0
         for aid in example_ids():
-            for lang in ("en", "es"):
-                text = summary_text(aid, A.DEFAULT_AS_OF, lang)
+            for persona in ("renter", "owner"):
+                text = script_text(aid, A.DEFAULT_AS_OF, "en", persona)
                 cached = (DIR / f"{cache_key(text)}.mp3").exists()
-                how = "cached" if cached else ("would synthesize" if dry else audio_for(text)[1])
-                total += 0 if cached else len(text)
-                print(f"{aid} {lang} {len(text):4d} chars  {how}\n    {text}")
+                if cached:
+                    how = "cached"
+                elif budget_status()["left"] - (total if dry else 0) - len(text) < reserve:
+                    how = f"skipped (would leave under {reserve} characters)"
+                elif dry:
+                    how, total = "would synthesize", total + len(text)
+                else:
+                    how = audio_for(text)[1]
+                    total += len(text) if how == "new" else 0
+                print(f"{aid} {persona} {len(text):4d} chars  {how}")
         print(f"new characters: {total}; budget: {json.dumps(budget_status())}")
+    elif cmd == "align":
+        align_cached(argv[argv.index("--model") + 1] if "--model" in argv else "base")
     else:
         sys.exit(__doc__)
 

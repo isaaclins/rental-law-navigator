@@ -56,6 +56,58 @@ TEST_FILES = (
 )
 
 
+MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sept", "oct", "nov", "dic"]
+_EN_MONTHS = {
+    m: i
+    for i, names in enumerate(
+        [
+            ("january", "jan"),
+            ("february", "feb"),
+            ("march", "mar"),
+            ("april", "apr"),
+            ("may",),
+            ("june", "jun"),
+            ("july", "jul"),
+            ("august", "aug"),
+            ("september", "sep", "sept"),
+            ("october", "oct"),
+            ("november", "nov"),
+            ("december", "dec"),
+        ]
+    )
+    for m in names
+}
+_MONTH_RE = "|".join(sorted(_EN_MONTHS, key=len, reverse=True))
+
+
+def _es_date(day: int, month: int, year: int | None) -> str:
+    return f"{day} {MESES[month]}" + (f" {year}" if year else "")
+
+
+def es_dates(text: str | None) -> str | None:
+    """Dates inside Spanish text in Spanish order and month names (#es-dates): 2026-03-01, 3/1/2026, 3/1/26 and
+    'March 1, 2026' all become '1 mar 2026'. Citations and section numbers are left alone."""
+    if not text:
+        return text
+
+    def iso(m):
+        y, mo, d = int(m[1]), int(m[2]), int(m[3])
+        return _es_date(d, mo - 1, y) if 1 <= mo <= 12 and 1 <= d <= 31 else m[0]
+
+    def slash(m):
+        mo, d, y = int(m[1]), int(m[2]), int(m[3])
+        y = y + 2000 if y < 100 else y
+        return _es_date(d, mo - 1, y) if 1 <= mo <= 12 and 1 <= d <= 31 else m[0]
+
+    def words(m):
+        mo = _EN_MONTHS[m[1].lower().rstrip(".")]
+        return _es_date(int(m[2]), mo, int(m[3]) if m[3] else None)
+
+    text = re.sub(r"(?<![\d§.-])(\d{4})-(\d{2})-(\d{2})(?![\d])", iso, text)
+    text = re.sub(r"(?<![\d/.§])(\d{1,2})/(\d{1,2})/(\d{4}|\d{2})(?![\d/])", slash, text)
+    return re.sub(rf"\b({_MONTH_RE})\.? (\d{{1,2}})(?:, (\d{{4}}))?\b", words, text, flags=re.I)
+
+
 def load(name: str):
     for d in (ROOT / "output", ROOT / "web" / "fixtures"):
         p = d / name

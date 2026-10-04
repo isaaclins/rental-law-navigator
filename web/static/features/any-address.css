@@ -75,3 +75,10 @@ html.aa-lock { overflow: hidden; }
 }
 @media (max-width: 380px) { .aa-grid { grid-template-columns: 1fr; } }
 @keyframes aa-up { from { transform: translateY(24px); opacity: 0; } }
+
+/* building details: optional, behind one tap (the answers ask what they need) */
+.aa-more { margin-top: 24px; border-top: 1px solid var(--sep-2); }
+.aa-more > summary { display: flex; align-items: center; min-height: 48px; font-size: 15px; font-weight: 600; color: var(--accent); }
+.aa-more .aa-facts { margin-top: 4px; }
+.aa-sheet .topics.group { box-shadow: none; padding: 0; background: none; }
+.aa-more .aa-facts header h3 { display: none; }
