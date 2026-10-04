@@ -7,7 +7,7 @@
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const RM = matchMedia("(prefers-reduced-motion: reduce)");
-const lang = () => localStorage.getItem("lang") || "en";
+const lang = () => window.CE?.lang?.() || localStorage.getItem("lang") || "en";
 const asOf = () => sessionStorage.getItem("asof") || "2026-10-01";
 
 const EN = {
@@ -16,10 +16,10 @@ const EN = {
   locating: "Finding the legal jurisdiction…", evaluating: "Checking the rules…",
   nla: "Not legal advice.", nla_body: "Public law with citations, for information only. Check the cited source.",
   covered: "Covered", not_covered: "Not covered", state: "State", county: "County", city: "City",
-  facts: "Building facts", facts_lead: "Only what the public data can't tell us. Nothing is stored.",
+  facts: "Building details (optional)", facts_lead: "Only what the public data can't tell us. Nothing is stored.",
   year_built: "Year built", units: "Units", owner_occupied: "Owner lives there", certificate_of_occupancy_date: "Certificate of occupancy",
   yes: "Yes", no: "No", unsure: "Not sure",
-  resolves: (n) => `resolves ${n}`, depends: (n) => `${n} depend on this`, optional: "optional",
+  resolves: (n) => `resolves ${n}`, helps: (n) => `helps answer ${n}`, found_with: "Found with the US Census geocoder.", depends: (n) => `${n} depend on this`, optional: "optional",
   prompt: (f, n) => `Add the ${f.toLowerCase()} to resolve ${n} unknown answer${n === 1 ? "" : "s"}.`,
   all_clear: "Every answer is definite for these facts.",
   answers: "Answers as of", out_title: "Outside our coverage", out_body: "We cover state law in California, New Jersey and Massachusetts, and local law in these cities:",
@@ -35,10 +35,10 @@ const ES = {
   locating: "Buscando la jurisdicción legal…", evaluating: "Revisando las normas…",
   nla: "No es asesoría legal.", nla_body: "Leyes públicas con citas, solo informativo. Verifique la fuente citada.",
   covered: "Cubierta", not_covered: "No cubierta", state: "Estado", county: "Condado", city: "Ciudad",
-  facts: "Datos del edificio", facts_lead: "Solo lo que los datos públicos no dicen. No se guarda nada.",
+  facts: "Datos del edificio (opcional)", facts_lead: "Solo lo que los datos públicos no dicen. No se guarda nada.",
   year_built: "Año de construcción", units: "Unidades", owner_occupied: "El dueño vive allí", certificate_of_occupancy_date: "Certificado de ocupación",
   yes: "Sí", no: "No", unsure: "No sé",
-  resolves: (n) => `resuelve ${n}`, depends: (n) => `${n} dependen de esto`, optional: "opcional",
+  resolves: (n) => `resuelve ${n}`, helps: (n) => `ayuda a responder ${n}`, found_with: "Encontrada con el geocodificador del Censo de EE. UU.", depends: (n) => `${n} dependen de esto`, optional: "opcional",
   prompt: (f, n) => `Indique ${f.toLowerCase()} para resolver ${n} respuesta${n === 1 ? "" : "s"} desconocida${n === 1 ? "" : "s"}.`,
   all_clear: "Todas las respuestas son definitivas con estos datos.",
   answers: "Respuestas al", out_title: "Fuera de nuestra cobertura", out_body: "Cubrimos la ley estatal de California, Nueva Jersey y Massachusetts, y la ley local de estas ciudades:",
@@ -175,10 +175,12 @@ async function resolve() {
   let d;
   try { d = await post("/api/resolve", { address: state.q }); }
   catch (err) { body().innerHTML = `<div class="aa-msg warn">${I.info}<div>${esc(err.message)}</div></div>`; return; }
-  if (!d.match) { body().innerHTML = `<div class="aa-msg warn">${I.info}<div><b>${esc(t("nomatch"))}</b> ${esc(d.message || "")}</div></div>${coveredHtml(d.covered)}`; return; }
+  const extra = d.message && d.message.trim() !== t("nomatch").trim() && !/could not find/i.test(d.message) ? ` ${esc(d.message)}` : ""; // said once (#147)
+  if (!d.match) { body().innerHTML = `<div class="aa-msg warn">${I.info}<div><b>${esc(t("nomatch"))}</b>${extra}</div></div>${coveredHtml(d.covered)}`; return; }
   state.place = d;
   if (!d.in_scope) { body().innerHTML = placeHtml(d) + `<div class="aa-msg"><div><b>${esc(t("out_title"))}.</b> ${esc(t("out_body"))}</div></div>${coveredHtml(d.covered)}`; return; }
-  body().innerHTML = placeHtml(d) + `<section class="aa-facts" aria-labelledby="aa-fh"></section><div class="aa-results"></div>`;
+  body().innerHTML = placeHtml(d) + `<div class="aa-results"></div><details class="aa-more"><summary data-t="facts">${esc(t("facts"))}</summary><section class="aa-facts" aria-labelledby="aa-fh"></section></details>`;
+  body().addEventListener("ce:fact", (e) => { state.facts[e.detail.key] = e.detail.value; const inp = $(`.aa-facts input[name="${e.detail.key}"]`, sheet); if (inp) inp.value = e.detail.value; evaluate(); });
   evaluate();
 }
 function coveredHtml(cov) {
@@ -188,16 +190,18 @@ function coveredHtml(cov) {
 }
 function placeHtml(d) {
   const names = [...d.stack].reverse().map((s) => `<span class="${s.level === "county" ? "" : s.covered ? "on" : "off"}">${esc(s.name)}</span>`).join(" · ");
-  const cov = d.stack.filter((s) => s.level !== "county").map((s) => `${esc(s.name)}: ${esc(t(s.covered ? "covered" : "not_covered"))}`).join(" · ");
+  const seen = new Set();
+  const cov = d.stack.filter((s) => s.level !== "county" && !seen.has(s.name) && seen.add(s.name)).map((s) => `${esc(s.name)}: ${esc(t(s.covered ? "covered" : "not_covered"))}`).join(" · ");
+  void cov;
   return `<section class="aa-place">
     <h3>${esc(titleCase(d.matched_address || state.q))}</h3>
     <p class="addr-meta">${names}</p>
-    <p class="addr-meta">${cov}</p>
-    <p class="addr-meta"><a href="https://www.openstreetmap.org/?mlat=${d.lat}&mlon=${d.lon}#map=17/${d.lat}/${d.lon}" target="_blank" rel="noopener">${esc(t("source"))} · ${(+d.lat).toFixed(4)}, ${(+d.lon).toFixed(4)}</a></p>
+    <p class="addr-meta">${esc(t("found_with"))}</p>
     ${d.scope === "state" ? `<p class="aa-scope">${esc(d.message)}</p>` : ""}
   </section>`;
 }
-const titleCase = (s) => String(s || "").toLowerCase().replace(/\b\w/g, (m) => m.toUpperCase()).replace(/\b(Ca|Nj|Ma|Dc|Nw|Ne|Sw|Se)\b/g, (m) => m.toUpperCase());
+// state codes and compass points stay upper case ("New York, NY 10001", "NW") (#147)
+const titleCase = (s) => String(s || "").toLowerCase().replace(/\b\w/g, (m) => m.toUpperCase()).replace(/\b(Nw|Ne|Sw|Se)\b/g, (m) => m.toUpperCase()).replace(/,\s*([A-Za-z]{2})\b(?=,?\s*(\d{5}|$))/g, (m, st) => m.replace(st, st.toUpperCase()));
 
 // ------------------------------------------------------------------ facts + evaluation --
 function schedule() { clearTimeout(evalTimer); evalTimer = setTimeout(evaluate, 350); }
@@ -218,15 +222,17 @@ async function evaluate() {
   state.data = d;
   renderFacts(d);
   res.classList.remove("aa-stale");
+  const wasOpen = [...res.querySelectorAll("details.topic[open]")].map((x) => x.id);
   res.innerHTML = summaryHtml(d) + `<div class="aa-answers"></div>`;
   const el = $(".aa-answers", res);
-  if (window.CE?.renderAnswers) window.CE.renderAnswers(el, d);
+  if (window.CE?.renderAnswers) window.CE.renderAnswers(el, d, { ask: true }); // unknowns ask one question (ce:fact below)
   else el.innerHTML = answersHtml(d);
+  wasOpen.forEach((id) => { const x = el.querySelector("#" + CSS.escape(id)); if (x) { x.open = true; x.classList.add("pop"); } });
 }
 function chipHtml(d, k) {
   const v = state.facts[k], n = d.fact_counts?.[k], dep = d.fact_depends?.[k];
   if (v != null && v !== "") return dep ? `<span class="aa-n dep">${esc(t("depends")(dep))}</span>` : "";
-  if (n) return `<span class="aa-n res">${esc(t("resolves")(n))}</span>`;
+  if (n) return `<span class="aa-n res">${esc(t("helps")(n))}</span>`;
   return `<span class="aa-n">${esc(t("optional"))}</span>`;
 }
 function renderFacts(d) {
@@ -264,7 +270,8 @@ function renderFacts(d) {
 function summaryHtml(d) {
   const counts = d.fact_counts || {};
   const top = Object.entries(counts).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])[0];
-  return `${top ? `<p class="aa-prompt">${esc(t("prompt")(t(top[0]), top[1]))}</p>` : d.unknowns ? "" : `<p class="aa-prompt ok">${esc(t("all_clear"))}</p>`}
+  void top;
+  return `${d.unknowns ? "" : `<p class="aa-prompt ok">${esc(t("all_clear"))}</p>`}
   ${d.scope_note ? `<p class="aa-scope">${esc(t("state_only"))}</p>` : ""}`;
 }
 const fmtDate = (d) => { const x = new Date(d + "T12:00:00"); return isNaN(x) ? d : x.toLocaleDateString(lang() === "es" ? "es-US" : "en-US", { month: "short", day: "numeric", year: "numeric" }); };

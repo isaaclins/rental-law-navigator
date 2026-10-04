@@ -246,3 +246,17 @@ def test_live_census():
     d = AA.interpret(m)
     assert d["state"] == "CA" and d["jurisdiction"] == "Santa Monica, CA"
     assert d["county"] == "Los Angeles County"
+
+
+def test_evaluate_lists_exempt_rules():
+    """A new building in San Diego is exempt from the state rent cap: listed under excluded, not shown as "no rule"."""
+    body = {
+        "address": {"state": "CA", "jurisdiction": "San Diego, CA"},
+        "as_of": "2026-10-01",
+        "facts": {"year_built": 2015, "units": 20},
+    }
+    d = client.post("/api/evaluate", json=body).json()
+    rent = next(c for c in d["categories"] if c["id"] == "rent_increase_limits")
+    assert not [i for i in rent["enacted"] if i["result"] == "applies"]
+    ex = {e["id"]: e for e in rent["excluded"]}
+    assert "CA-RENT-01" in ex and ex["CA-RENT-01"]["reasons"]

@@ -1,0 +1,45 @@
+/* Rent-increase notice (#96), loaded by features/notice.js. The sheet, fields, actions and motion come from
+   features/letter.css (shared with the renter letter); here: the side panel's inputs and its checks. */
+
+.nt-form { margin: 4px 0 6px; border-radius: 16px; background: var(--fill); box-shadow: inset 0 0 0 1px var(--sep-2); }
+.nt-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 50px; padding: 0 14px; border-top: 1px solid var(--sep-2); cursor: text; }
+.nt-row:first-child { border-top: 0; }
+.nt-row > span { flex: 1 1 auto; min-width: 0; color: var(--label-2); font-size: 15px; font-weight: 500; }
+.nt-row input { flex: 0 1 170px; width: 170px; min-width: 0; height: 36px; padding: 0 2px; border: 0; background: none; outline: none; color: var(--label); font: 650 17px/1 var(--font); text-align: right; font-variant-numeric: tabular-nums; }
+.nt-row input::placeholder { color: var(--label); opacity: .9; }
+.nt-row input[type="date"] { -webkit-appearance: none; appearance: none; display: flex; justify-content: flex-end; font-size: 16px; }
+.nt-row input[type="date"]::-webkit-date-and-time-value { text-align: right; }
+.nt-row input[type="date"]::-webkit-calendar-picker-indicator { opacity: .45; cursor: pointer; margin-left: 6px; }
+.nt-row:focus-within { box-shadow: inset 3px 0 0 var(--accent); }
+.nt-row:focus-within > span { color: var(--accent); }
+.nt-row.is-over input { color: var(--danger); }
+.nt-row[hidden] { display: none; }
+.nt-hint { margin: 8px 2px 10px; color: var(--label-3); font-size: 13px; }
+
+.nt-checks li > span:last-child { display: block; }
+.nt-ic .ico { width: 16px; height: 16px; stroke-width: 3; }
+.nt-over .nt-ic { background: var(--over-tint); color: var(--danger); }
+.nt-info .nt-ic { background: var(--unk-tint); color: var(--unknown); }
+.nt-over b { color: var(--danger); }
+.nt-q { margin-top: 6px; }
+.nt-q > summary { display: inline; color: var(--link); font-size: 13.5px; font-weight: 550; text-decoration: underline; text-decoration-color: rgb(10 58 140 / .3); text-underline-offset: 2px; cursor: pointer; list-style: none; }
+.nt-q > summary::-webkit-details-marker { display: none; }
+.nt-q blockquote { margin: 8px 0 4px; padding: 2px 0 2px 12px; border-left: 2px solid var(--accent); font: 400 17px/1.35 var(--display); color: var(--label); }
+.nt-q a, .nt-src { display: inline-flex; align-items: center; gap: 3px; margin-top: 4px; color: var(--link); font-size: 13px; font-weight: 550; }
+.nt-q a .ico, .nt-src .ico { width: 13px; height: 13px; }
+.nt-help { display: inline-flex; align-items: center; gap: 3px; color: var(--link); font-weight: 600; }
+.nt-help .ico { width: 14px; height: 14px; }
+
+.lt-sheet.is-over { box-shadow: 0 0 0 2px var(--danger), 0 22px 54px -22px rgb(180 35 26 / .3); }
+.nt-view .lt-sheet { transition: box-shadow .3s; }
+.nt-view .lt-to { margin-bottom: 18px !important; }
+
+@media (max-width: 640px) {
+  .nt-row { padding: 0 12px; }
+  .nt-row > span { font-size: 14px; }
+  .nt-row input { flex-basis: 52%; width: 52%; }
+  .nt-row input[type="date"] { flex: 0 0 140px; width: 140px; font-size: 15px; }
+}
+@media print {
+  .lt-sheet.is-over { box-shadow: none; }
+}

@@ -1,8 +1,108 @@
-/* Listen to the answer (#49): a quiet text button in the address actions slot, like the other links there. */
-.ce-listen { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; font-size: 14px; line-height: 20px; color: var(--accent, #0066cc); cursor: pointer; }
-.ce-listen .ico { width: 16px; height: 16px; vertical-align: 0; }
-.ce-listen:hover { text-decoration: none; }
-.ce-listen:hover span { text-decoration: underline; text-underline-offset: 2px; }
-.ce-listen:focus-visible { outline: 2px solid var(--accent, #0066cc); outline-offset: 4px; border-radius: 4px; }
-.ce-listen[aria-busy] { opacity: .6; }
-@media (pointer: coarse) { .ce-listen { min-height: 44px; } }
+/* Listen (#49): quiet text controls in the address actions slot and "Explain this" in the topic slots.
+   The persona choice is two plain words (the chosen one in semibold ink, like the active nav link); no pills.
+   The topic being spoken gets .topic.is-speaking, drawn by app.css. */
+.ce-listen { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0 16px; }
+.ce-l-main, .ce-explain { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; font-size: inherit; line-height: 20px; color: var(--accent); cursor: pointer; }
+.ce-l-main .ico { width: 16px; height: 16px; flex: none; }
+.ce-l-main:hover, .ce-explain:hover { text-decoration: none; }
+.ce-l-main:hover span, .ce-explain:hover span { text-decoration: underline; text-underline-offset: 2px; }
+.ce-l-main[aria-busy], .ce-explain[aria-busy] { opacity: .6; }
+.ce-l-main { order: -2; }
+.ce-speed { padding: 0; border: 0; background: none; font: inherit; font-size: inherit; line-height: 20px; color: var(--label-2); cursor: pointer; }
+.ce-speed:hover { color: var(--label); }
+.ce-speed { font-variant-numeric: tabular-nums; min-width: 3.2em; text-align: left; }
+.ce-listen button, .ce-explain { min-height: 32px; }
+@media (pointer: coarse) { .ce-listen button, .ce-explain { min-height: 44px; } }
+
+/* Transcript: a calm caption panel while a clip plays (white card, Inter, navy accent). Desktop: bottom right.
+   Phones: a sheet from the bottom, above the tab bar. Current sentence in ink, current word in navy. */
+.ce-cap {
+  --cap-x: 0px; --cap-y: 24px; --cap-s: .97;
+  position: fixed; z-index: 95; right: 24px; bottom: calc(24px + env(safe-area-inset-bottom));
+  width: min(420px, calc(100vw - 48px)); max-height: min(440px, calc(100vh - 160px));
+  display: flex; flex-direction: column; background: var(--bg, #fff); border-radius: 24px; box-shadow: var(--shadow-float);
+  font-family: var(--font); color: var(--label);
+  --cap-lift: 0px;
+  opacity: 0; transform: translate3d(var(--cap-x), calc(var(--cap-y) - var(--cap-lift)), 0) scale(var(--cap-s)); transform-origin: 100% 100%;
+  will-change: transform, opacity;
+  /* a soft spring: quick out, a hint of overshoot, settles */
+  transition: opacity .24s var(--ease-out), transform .6s cubic-bezier(.2, 1.18, .32, 1);
+}
+.ce-cap.in { opacity: 1; --cap-y: 0px; --cap-s: 1; }
+.ce-cap.out { opacity: 0; --cap-y: 16px; --cap-s: .98; pointer-events: none; transition: opacity .2s ease-in, transform .26s cubic-bezier(.4, 0, 1, 1); }
+.ce-cap.ce-cap-still { transition: none; }
+html.ce-cap-open body .footer-inner { padding-bottom: calc(36px + var(--cap-room, 0px) + env(safe-area-inset-bottom)); }
+.ce-cap-h { display: flex; align-items: center; gap: 10px; padding: 14px 10px 6px 20px; font-size: 13px; color: var(--label-2); }
+.ce-cap-t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ce-cap-t b { color: var(--label); font-weight: 600; }
+.ce-cap-x { display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: none; color: var(--label-2); cursor: pointer; }
+.ce-cap-x:hover { background: var(--fill); color: var(--label); }
+.ce-cap-x .ico { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+/* three quiet level bars; still when paused */
+.ce-cap-eq { display: inline-flex; align-items: flex-end; gap: 2px; width: 14px; height: 12px; }
+.ce-cap-eq i { flex: 1; height: 100%; border-radius: 1px; background: var(--accent); transform-origin: 50% 100%; animation: ce-eq 1.1s ease-in-out infinite; }
+.ce-cap-eq i:nth-child(2) { animation-delay: -.35s; } .ce-cap-eq i:nth-child(3) { animation-delay: -.7s; }
+.ce-cap.is-paused .ce-cap-eq i { animation-play-state: paused; }
+@keyframes ce-eq { 0%, 100% { transform: scaleY(.35); } 50% { transform: scaleY(1); } }
+.ce-cap-body {
+  position: relative; flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 4px 20px 8px;
+  -webkit-mask: linear-gradient(transparent, #000 14px, #000 calc(100% - 22px), transparent); mask: linear-gradient(transparent, #000 14px, #000 calc(100% - 22px), transparent);
+}
+.ce-cap-p { margin: 0 0 12px; font-size: 18px; line-height: 1.6; letter-spacing: -.011em; }
+.ce-cap-s { color: var(--label-3); cursor: pointer; border-radius: 6px; transition: color .25s; }
+.ce-cap-s:hover { color: var(--label-2); }
+.ce-cap-s.is-on { color: var(--label); }
+.ce-cap-s:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ce-cap-w { border-radius: 4px; transition: color .12s, background-color .12s, box-shadow .12s; }
+.ce-cap-s.is-on .ce-cap-w.is-w { color: var(--accent); background: rgb(0 38 100 / .07); box-shadow: 0 0 0 2px rgb(0 38 100 / .07); }
+.ce-cap-f { display: flex; align-items: center; gap: 12px; padding: 10px 16px 14px; border-top: 1px solid var(--sep-2); }
+.ce-cap-pp { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--ink-btn); color: #fff; cursor: pointer; box-shadow: 0 2px 0 var(--ink-btn-edge); }
+.ce-cap-pp:active { transform: translateY(2px); box-shadow: none; }
+.ce-cap-pp .ico { width: 18px; height: 18px; fill: currentColor; stroke: none; }
+.ce-cap-r { flex: 1; min-width: 0; height: 20px; margin: 0; background: none; -webkit-appearance: none; appearance: none; cursor: pointer; --p: 0%; }
+.ce-cap-r::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--accent) var(--p), rgb(0 12 31 / .12) var(--p)); }
+.ce-cap-r::-moz-range-track { height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--accent) var(--p), rgb(0 12 31 / .12) var(--p)); }
+.ce-cap-r::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; margin-top: -5px; border: 0; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px #fff, 0 1px 4px rgb(0 12 31 / .25); }
+.ce-cap-r::-moz-range-thumb { width: 14px; height: 14px; border: 0; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px #fff; }
+.ce-cap-r:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+.ce-cap-tm { flex: none; min-width: 74px; text-align: right; font-size: 12.5px; color: var(--label-2); font-variant-numeric: tabular-nums; }
+.ce-cap-sp { flex: none; min-width: 3em; min-height: 36px; text-align: center; font-size: 13px; }
+@media (max-width: 640px) {
+  .ce-cap {
+    left: 0; right: 0; width: auto; bottom: calc(var(--tabbar-h, 0px) + max(4px, env(safe-area-inset-bottom)) + var(--dock-h, 0px)); max-height: 46vh;
+    border-radius: 22px 22px 0 0;
+    box-shadow: 0 0 0 1px rgb(0 12 31 / .05), 0 -12px 40px rgb(0 12 31 / .12); --cap-y: 100%; --cap-s: 1;
+    transition: opacity .2s var(--ease-out), transform .5s cubic-bezier(.22, 1.08, .36, 1);
+  }
+  .ce-cap.out { --cap-y: 100%; transition: opacity .2s ease-in .06s, transform .28s cubic-bezier(.4, 0, 1, 1); }
+  .ce-cap-h::before { content: ""; position: absolute; left: 50%; top: 6px; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: rgb(0 12 31 / .14); }
+  .ce-cap-p { font-size: 17px; }
+  .ce-cap-pp { width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ce-cap, .ce-cap.out, .ce-cap-s, .ce-cap-w { transition: none; }
+  .ce-cap-eq i { animation: none; transform: scaleY(.7); }
+}
+/* the persona choice lives in the panel header while it is open; the panel flips left when it would cover its trigger */
+.ce-cap-h { flex-wrap: wrap; row-gap: 2px; }
+.ce-cap-t { flex: 0 1 auto; }
+/* segmented "I rent · I own": a cool-grey track, the chosen side a white pill with navy text */
+.ce-seg { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--cool-2, #eaeef4); }
+.ce-seg-b { min-height: 30px; padding: 0 14px; border: 0; border-radius: 999px; background: none; font: inherit; font-size: 13px; font-weight: 600; color: var(--label-2); cursor: pointer; transition: background-color .2s, color .2s, box-shadow .2s; }
+.ce-seg-b:hover { color: var(--label); }
+.ce-seg-b[aria-pressed="true"] { background: #fff; color: var(--accent); box-shadow: 0 1px 2px rgb(0 12 31 / .1), 0 0 0 1px rgb(0 12 31 / .04); }
+.ce-seg-b:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+@media (pointer: coarse) { .ce-seg-b { min-height: 36px; } }
+.ce-cap-h .ce-cap-x { margin-left: auto; }
+
+/* fixed footprint: all labels and both icons share one grid cell; only the current one shows */
+.ce-ico, .ce-lab { display: inline-grid; }
+.ce-ico > span, .ce-lab > span { grid-area: 1 / 1; visibility: hidden; white-space: nowrap; }
+.ce-ico > span { display: grid; place-items: center; }
+.ce-ico .ico { width: 16px; height: 16px; }
+[data-st="idle"] .ce-ico [data-i="listen"], [data-st="loading"] .ce-ico [data-i="listen"],
+[data-st="paused"] .ce-ico [data-i="listen"], [data-st="playing"] .ce-ico [data-i="pause"],
+[data-st="idle"] .ce-lab [data-st="idle"], [data-st="loading"] .ce-lab [data-st="loading"],
+[data-st="playing"] .ce-lab [data-st="playing"], [data-st="paused"] .ce-lab [data-st="paused"] { visibility: visible; }
+/* the focus ring is for keyboard focus only: not after a mouse or touch press */
+.ce-pressed:focus-visible { outline: none; }

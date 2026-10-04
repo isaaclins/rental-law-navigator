@@ -13,6 +13,7 @@ uv run python -m navigator changes        # Module C -> output/changes.json (T1-
 uv run python -m navigator ingest-new path/to/new_ordinance.txt --jurisdiction "Cambridge, MA"   # hour-16 test (T6)
 uv run python -m navigator lookup A0001 --as-of 2027-07-02
 uv run python -m navigator selfcheck      # -> output/selfcheck.txt, exit 1 if a check fails
+uv run python -m navigator plain          # plain-language answers for rules without reviewed copy -> output/plain_language.json (navigator/plain.py; also run by extract, ingest-new, run-all, extend)
 NAVIGATOR_EXTENSION=new_docs/santa-monica uv run python -m navigator extend   # new jurisdiction -> output/extension/santa-monica/ (docs/NEW_JURISDICTION.md)
 ```
 

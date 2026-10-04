@@ -10,13 +10,16 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const CE = window.CE;
 const lang = () => CE.lang();
+// the letter to the landlord (#122) loads alongside, without delaying this route's registration
+let LM = null;
+const LMP = import("./letter.js").then((m) => (LM = m)).catch(() => null);
 
 // ------------------------------------------------------------------ i18n --
 const EN = {
   title: "Check a rent increase", entry: "Check a rent increase", entry_dep: "Check a deposit", entry_fee: "Check an application fee",
   any_sub: "Any address in California, New Jersey or Massachusetts.",
   address: "Address", address_ph: "Street, city, state",
-  cur: "Current rent", new: "New rent", new_ph: "Amount or %", notice: "Notice given", eff: "Takes effect",
+  cur: "Current rent", new: "New rent", new_ph: "$2,300, +300 or 5%", notice: "Notice given", eff: "Takes effect",
   more: "Deposit, fees and ending the tenancy", deposit: "Deposit asked", fee: "Application fee",
   term: "Notice to end the tenancy", term_none: "None", term_reason: "Yes, with a reason", term_no_reason: "Yes, no reason given",
   moved_in: "Moved in", cpi: "Local CPI change", cpi_hint: "%, if you know it", building: "Building",
@@ -25,9 +28,9 @@ const EN = {
   it_rent: "Rent increase", it_notice: "Notice", it_deposit: "Deposit", it_fee: "Application fee", it_termination: "Ending the tenancy",
   b_ok: "Allowed", b_over: "Over the limit", b_short: "Too short", b_enough: "Enough notice", b_unknown: "Can't tell", b_none: "No cap",
   b_notallowed: "Not allowed", b_noreason: "No reason needed",
-  l_within: "Up to {max} ({pct}%)", l_noinc: "No increase", l_over: "{amt} too high ({pp}% above the {pct}% cap)",
+  l_within: "Up to {max} ({pct}%)", l_noinc: "No increase", l_over: "{amt} too high: a {inc}% increase, the cap is {pct}%",
   l_over_max: "{amt} too high, even at the highest cap ({pct}%)", l_need: "We need {f}",
-  l_no_cap: "No rent cap covers this building", l_state_bar: "State law bars local rent control",
+  l_no_cap: "No rent cap covers this building", l_state_bar: "No limit here. They can raise it any amount.",
   l_short: "Needs {n} days, got {d}", l_enough: "{n} days needed, {d} given",
   l_dep_within: "Up to {max}", l_dep_over: "{amt} too high", l_dep_none: "No deposit cap in our sources",
   l_fee_within: "Up to {max}", l_fee_over: "{amt} too high", l_fee_not_listed: "Landlords may not charge it here", l_fee_none: "No fee cap in our sources",
@@ -64,13 +67,16 @@ const EN = {
   state_only: "Only state law was checked here: local rules for this address are not in our sources.",
   e_rent: "Enter the current and the new rent.", e_dates: "The increase cannot take effect before the notice.", e_err: "Something went wrong. Try again.", e_invalid: "Check the amounts: enter rents and fees as positive numbers.",
   e_nomatch: "We could not find this address. Add the city and state.", e_out: "This address is outside California, New Jersey and Massachusetts.",
-  e_busy: "Too many checks. Wait a minute.", results: "Result",
+  e_busy: "Too many checks. Wait a minute.", results: "Result", results_more: "The law behind it", echo_new: "New rent: {v}", add_dates: "Add the dates to check the notice too.",
+  h_over: "too high", h_within: "Within the limit", h_rent_k: "Your rent increase", h_dep_k: "Deposit", h_fee_k: "Application fee",
+  h_max: "Highest allowed: {max}", h_cap: "{pct}% cap", h_new: "New rent {v}", h_asked: "Asked {v}", h_room: "{v} below the limit",
+  empty_t: "Your answer appears here", empty_p: "Enter the current and the new rent. The answer names the law that decides it, with its exact words.",
 };
 const ES = {
   title: "Revisar un aumento de renta", entry: "Revisar un aumento de renta", entry_dep: "Revisar un depósito", entry_fee: "Revisar una cuota de solicitud",
   any_sub: "Cualquier dirección en California, Nueva Jersey o Massachusetts.",
   address: "Dirección", address_ph: "Calle, ciudad, estado",
-  cur: "Renta actual", new: "Renta nueva", new_ph: "Monto o %", notice: "Aviso entregado", eff: "Entra en vigor",
+  cur: "Renta actual", new: "Renta nueva", new_ph: "$2,300, +300 o 5%", notice: "Aviso entregado", eff: "Entra en vigor",
   more: "Depósito, cuotas y fin del contrato", deposit: "Depósito pedido", fee: "Cuota de solicitud",
   term: "Aviso de fin del contrato", term_none: "Ninguno", term_reason: "Sí, con un motivo", term_no_reason: "Sí, sin motivo",
   moved_in: "Fecha de mudanza", cpi: "Cambio del IPC local", cpi_hint: "%, si lo sabe", building: "Edificio",
@@ -79,9 +85,9 @@ const ES = {
   it_rent: "Aumento de renta", it_notice: "Aviso", it_deposit: "Depósito", it_fee: "Cuota de solicitud", it_termination: "Fin del contrato",
   b_ok: "Permitido", b_over: "Sobre el límite", b_short: "Muy corto", b_enough: "Aviso suficiente", b_unknown: "No se puede saber", b_none: "Sin límite",
   b_notallowed: "No permitido", b_noreason: "No requiere motivo",
-  l_within: "Hasta {max} ({pct}%)", l_noinc: "Sin aumento", l_over: "{amt} de más ({pp}% sobre el límite de {pct}%)",
+  l_within: "Hasta {max} ({pct}%)", l_noinc: "Sin aumento", l_over: "{amt} de más: un aumento del {inc}%, el límite es {pct}%",
   l_over_max: "{amt} de más, incluso con el límite más alto ({pct}%)", l_need: "Necesitamos {f}",
-  l_no_cap: "Ningún límite de renta cubre este edificio", l_state_bar: "La ley estatal prohíbe el control local de rentas",
+  l_no_cap: "Ningún límite de renta cubre este edificio", l_state_bar: "Aquí no hay límite. Pueden subirla cualquier monto.",
   l_short: "Requiere {n} días, recibió {d}", l_enough: "Se requieren {n} días, recibió {d}",
   l_dep_within: "Hasta {max}", l_dep_over: "{amt} de más", l_dep_none: "Sin límite de depósito en nuestras fuentes",
   l_fee_within: "Hasta {max}", l_fee_over: "{amt} de más", l_fee_not_listed: "Aquí el arrendador no puede cobrarla", l_fee_none: "Sin límite de cuota en nuestras fuentes",
@@ -118,7 +124,10 @@ const ES = {
   state_only: "Aquí solo se revisó la ley estatal: las normas locales de esta dirección no están en nuestras fuentes.",
   e_rent: "Indique la renta actual y la nueva.", e_dates: "El aumento no puede entrar en vigor antes del aviso.", e_err: "Algo salió mal. Inténtelo de nuevo.", e_invalid: "Revise los montos: indique rentas y cargos como números positivos.",
   e_nomatch: "No encontramos esta dirección. Agregue la ciudad y el estado.", e_out: "Esta dirección está fuera de California, Nueva Jersey y Massachusetts.",
-  e_busy: "Demasiadas consultas. Espere un minuto.", results: "Resultado",
+  e_busy: "Demasiadas consultas. Espere un minuto.", results: "Resultado", results_more: "La ley detrás", echo_new: "Nueva renta: {v}", add_dates: "Agregue las fechas para revisar también el aviso.",
+  h_over: "de más", h_within: "Dentro del límite", h_rent_k: "Su aumento de renta", h_dep_k: "Depósito", h_fee_k: "Cargo de solicitud",
+  h_max: "Máximo permitido: {max}", h_cap: "límite del {pct}%", h_new: "Nueva renta {v}", h_asked: "Se pide {v}", h_room: "{v} por debajo del límite",
+  empty_t: "Aquí aparecerá su respuesta", empty_p: "Ingrese la renta actual y la nueva. La respuesta nombra la ley que lo decide, con sus palabras exactas.",
 };
 const STATES = { CA: ["California", "California"], NJ: ["New Jersey", "Nueva Jersey"], MA: ["Massachusetts", "Massachusetts"] };
 const t = (k, o = {}) => Object.entries(o).reduce((s, [a, b]) => s.replaceAll("{" + a + "}", b), (lang() === "es" && ES[k]) || EN[k] || k);
@@ -158,7 +167,7 @@ function verdictText(v) {
   if (v.id === "rent") {
     if (v.code === "no_increase") out.line = t("l_noinc");
     else if (v.code === "within" || v.code === "over") {
-      out.line = v.code === "within" ? t("l_within", { max: money(x.max_rent), pct: pct(x.cap_pct) }) : t("l_over", { amt: money(x.over_amount), pp: pct(x.over_pct), pct: pct(x.cap_pct) });
+      out.line = v.code === "within" ? t("l_within", { max: money(x.max_rent), pct: pct(x.cap_pct) }) : t("l_over", { amt: money(x.over_amount), inc: pct(x.increase_pct), pct: pct(x.cap_pct) });
       const c = v.cap || {};
       out.body = c.basis === "period" ? t("x_period", { pct: pct(x.cap_pct), a: day(c.start), b: day(c.end), max: money(x.max_rent), cur: money(x.current_rent) })
         : c.share === 1 ? t("x_formula", { base: pct(c.base), hi: pct(c.max), cpi: pct(c.cpi), pct: pct(x.cap_pct), max: money(x.max_rent) })
@@ -231,13 +240,64 @@ function verdictRow(v) {
   </details>`;
 }
 
+// The answer's moment: the deciding number, large, counted up once; a colour sweep and a sticker for the verdict.
+function heroData(d) {
+  const v = d.verdicts.find((x) => x.id === "rent" && ["within", "over", "over_max"].includes(x.code))
+    || d.verdicts.find((x) => (x.id === "deposit" || x.id === "fee") && ["within", "over"].includes(x.code) && x.values?.max != null);
+  if (!v) return null;
+  const x = v.values || {}, ok = v.code === "within";
+  if (v.id === "rent") {
+    const max = v.code === "over_max" ? x.max_rent : x.max_rent;
+    return { ok, k: t("h_rent_k"), n: ok ? x.new_rent - x.current_rent : x.over_amount, plus: ok, from: 0, lo: x.current_rent, hi: max, v: x.new_rent,
+      sub: [t("h_new", { v: money(x.new_rent) }), t("h_max", { max: money(max) })], note: ok ? t("h_room", { v: money(Math.max(0, max - x.new_rent)) }) : t("h_cap", { pct: pct(v.code === "over_max" ? x.cap_max : x.cap_pct) }), cap: money(max) };
+  }
+  const asked = v.id === "deposit" ? S.values.deposit : S.values.application_fee;
+  return { ok, k: t(v.id === "deposit" ? "h_dep_k" : "h_fee_k"), n: ok ? num(asked) : x.over_amount, from: 0, lo: 0, hi: x.max, v: num(asked), sub: [t("h_asked", { v: money(num(asked) || 0) })], note: t("h_max", { max: money(x.max) }), cap: money(x.max) };
+}
+function heroHtml(h) {
+  if (!h) return "";
+  const top = (h.hi - h.lo) / 0.7 || 1; // one scale for every verdict: the limit always sits at 70 %
+  const at = (val) => Math.max(0, Math.min(100, ((val - h.lo) / top) * 100));
+  return `<div class="ck-hero ${h.ok ? "is-ok" : "is-over"}" role="status">
+    <img class="ck-art" src="/static/img/${h.ok ? "shield-check" : "scales-balanced"}.webp" alt="" onerror="this.remove()">
+    <p class="ck-k">${esc(h.k)}</p>
+    <p class="ck-big"><span class="ck-n" data-to="${h.n}" data-from="${h.from}" data-plus="${h.plus ? 1 : ""}">${h.plus ? "+" : ""}${esc(money(h.n))}</span>${h.ok ? "" : ` <span class="ck-w">${esc(t("h_over"))}</span>`}</p>
+    ${h.ok ? `<p class="ck-ok">${esc(t("h_within"))}</p>` : ""}
+    <div class="ck-bar" aria-hidden="true"><i class="ck-fill" style="--w:${at(Math.min(h.v, h.hi))}%"></i>${h.ok ? "" : `<i class="ck-overf" style="--l:${at(h.hi)}%;--w:${at(h.v) - at(h.hi)}%"></i>`}<b class="ck-cap" style="--l:${at(h.hi)}%"><span>${esc(h.cap)}</span></b></div>
+    <p class="ck-sub">${h.sub.map(esc).join('<span class="sep" aria-hidden="true">·</span>')}<span class="sep" aria-hidden="true">·</span>${esc(h.note)}</p>
+  </div>`;
+}
+function playHero(out) {
+  const el = $(".ck-n", out);
+  if (!el) return;
+  const to = +el.dataset.to, from = +el.dataset.from;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !(to > from)) return;
+  const t0 = performance.now(), dur = 750;
+  const step = (now) => {
+    if (!el.isConnected) return;
+    const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+    const pre = el.dataset.plus ? "+" : "";
+    el.textContent = pre + money(Math.round(from + (to - from) * e));
+    if (p < 1) requestAnimationFrame(step); else el.textContent = pre + money(to);
+  };
+  el.textContent = (el.dataset.plus ? "+" : "") + money(from);
+  setTimeout(() => requestAnimationFrame(step), 180);
+}
 function resultHtml(d) {
   const rentChecked = d.verdicts.some((v) => v.id === "rent" && v.values?.new_rent);
   const anyIncrease = d.verdicts.some((v) => v.id === "rent" && v.values?.increase_pct > 0 && (v.kind === "ok" || v.kind === "over"));
   const notes = [S.values.effective_date ? t("as_of", { d: day(d.as_of) }) : t("as_of_plain", { d: day(d.as_of) })];
   if (rentChecked && anyIncrease) notes.push(t("assume"));
-  return `<h2>${t("results")}</h2>
-    <div class="group">${d.verdicts.map(verdictRow).join("")}</div>
+  const hero = heroData(d);
+  if (hero) hero.v0 = d.verdicts.find((v) => v.id === "rent" && ["within", "over", "over_max"].includes(v.code)) || null;
+  // no dates typed: the notice check is skipped quietly instead of an orange "Can't tell" row
+  const noDates = !S.values.notice_date && !S.values.effective_date;
+  const shown = d.verdicts.filter((v) => !(noDates && v.id === "notice" && v.kind === "unknown"));
+  const skipped = shown.length < d.verdicts.length;
+  const letter = LM?.canWrite(d) ? LM.ctaHtml(S.addr ? `#/check/${S.addr}/letter` : "#/check/letter") : ""; // #122
+  return `${heroHtml(hero)}<h2>${t(hero ? "results_more" : "results")}</h2>
+    <div class="topics group">${shown.map(verdictRow).join("")}</div>${letter}
+    ${skipped ? `<p class="addr-meta">${esc(t("add_dates"))}</p>` : ""}
     ${S.place && !S.place.jurisdiction ? `<p class="addr-meta">${t("state_only")}</p>` : ""}
     <p class="addr-meta">${notes.map(esc).join(" ")}</p>
     <p class="addr-meta"><strong>${t("nla")}</strong> ${t("nla_body")}</p>`;
@@ -282,8 +342,7 @@ function formHtml(any, needBuilding) {
     </details>
     <p class="ck-err" role="alert" hidden></p>
     <div class="ck-actions"><button class="btn primary" type="submit">${t("go")}</button></div>
-  </form>
-  <section class="block ck-result" aria-live="polite"></section>`;
+  </form>`;
 }
 
 function readForm(form) {
@@ -296,9 +355,9 @@ function payload(v) {
   const body = { lang: lang(), as_of: CE.asOf(), termination: v.termination || "none" };
   const cur = num(v.current_rent);
   if (cur) body.current_rent = cur;
-  const nv = String(v.new || "");
-  if (/%\s*$/.test(nv)) { const p = num(nv.replace("%", "")); if (p != null) body.increase_pct = p; }
-  else if (num(nv)) body.new_rent = num(nv);
+  const nv = (window.CE_RENT?.parseNewRent || (() => null))(v.new, cur); // "+300" is an increase of $300, not a rent of $300
+  if (nv?.increase_pct != null) body.increase_pct = nv.increase_pct;
+  else if (nv?.new_rent) body.new_rent = nv.new_rent;
   for (const k of ["notice_date", "effective_date", "moved_in"]) if (v[k]) body[k] = v[k];
   for (const k of ["deposit", "application_fee"]) if (num(v[k]) != null && v[k] !== "") body[k] = num(v[k]);
   if (num(v.cpi) != null && v.cpi !== "") body.cpi = num(v.cpi);
@@ -348,8 +407,12 @@ async function submit(main, any) {
       body.place = S.place.place;
     } else body.address_id = S.addr;
     btn.textContent = t("checking");
+    S.body = body; // the letter (#122) is filled from this same check
     S.result = await post("/api/check", body);
+    await LMP;
     out.innerHTML = resultHtml(S.result);
+    out.classList.remove("ck-empty-on");
+    playHero(out);
     if (matchMedia("(max-width: 640px)").matches) out.scrollIntoView({ block: "start", behavior: "smooth" });
   } catch (e) {
     show(e.user ? e.message : e.status === 429 ? t("e_busy") : e.status === 422 && /notice/.test(e.message) ? t("e_dates") : e.status === 422 || e.status === 400 ? t("e_invalid") : t("e_err"));
@@ -360,6 +423,13 @@ async function submit(main, any) {
 
 // ------------------------------------------------------------------ view --
 async function view(main, arg) {
+  // #/check/<id>/letter or #/check/letter: the letter to the landlord from this check (#122, features/letter.js)
+  const lm = location.hash.match(/^#\/check\/(?:([^/?#]+)\/)?letter\/?$/i);
+  if (lm) {
+    const lid = lm[1] ? decodeURIComponent(lm[1]).toUpperCase() : null;
+    if (!(await LMP)) { CE.navigate(lid ? `check/${lid}` : "check"); return; }
+    return LM.letterView(main, { id: lid, S: S.key === (lid || "any") ? S : null, backHref: lid ? `#/check/${lid}` : "#/check" });
+  }
   const id = arg ? String(arg).toUpperCase() : null;
   const key = id || "any";
   if (S.key !== key) S = { key, values: S.key === "any" && id ? S.values : {}, place: null, result: null, addr: id, autorun: S.key === "any" && id ? S.autorun : false };
@@ -374,10 +444,28 @@ async function view(main, arg) {
     needBuilding = !a.year_built || !a.units;
   }
   document.title = `${t("title")} · Clause & Effect`;
-  main.innerHTML = `<article class="ck"><header class="page-head ck-head">${head}</header>${formHtml(!id, needBuilding)}</article>`;
+  main.innerHTML = `<article class="ck"><header class="page-head ck-head">${head}</header>
+    <div class="ck-grid"><div class="panel ck-main">${formHtml(!id, needBuilding)}</div>
+      <aside class="ck-side"><section class="ck-result ck-empty-on" aria-live="polite"><div class="ck-empty"><img src="/static/img/magnifier-over-document.webp" alt="" onerror="this.remove()"><h2>${esc(t("empty_t"))}</h2><p>${esc(t("empty_p"))}</p></div></section></aside></div></article>`;
   const form = $(".ck-form", main);
   form.addEventListener("submit", (e) => { e.preventDefault(); submit(main, !id); });
   form.addEventListener("input", (e) => { if (e.target.name === "address") S.place = null; });
+  // "+300" echoes the rent it means
+  const echo = () => {
+    const el = $("#ck-new", form), cur = num($("#ck-current_rent", form)?.value), r = window.CE_RENT?.parseNewRent(el?.value, cur);
+    let out = $(".ck-echo", form);
+    const show = r?.delta != null && r.new_rent;
+    if (!show) { out?.remove(); return; }
+    if (!out) { el.closest("li").insertAdjacentHTML("beforeend", `<p class="ck-echo" aria-live="polite"></p>`); out = $(".ck-echo", form); }
+    out.textContent = t("echo_new", { v: money(r.new_rent) });
+  };
+  form.addEventListener("input", (e) => { if (e.target.name === "new" || e.target.name === "current_rent") echo(); });
+  echo();
+  // empty date fields show their mm/dd/yyyy hint in the placeholder colour
+  const dates = $$('input[type="date"]', form);
+  const mark = (el) => el.toggleAttribute("data-empty", !el.value);
+  dates.forEach(mark);
+  form.addEventListener("input", (e) => { if (e.target.type === "date") mark(e.target); });
   main.addEventListener("click", (e) => {
     const b = e.target.closest("[data-ck-fix]");
     if (!b) return;

@@ -169,7 +169,9 @@ function slotHtml(i, side) {
         <label><span>${esc(t("year_built"))}</span><input type="number" inputmode="numeric" name="y" min="1700" max="2100" value="${esc(side.custom.y || "")}"></label>
         <label><span>${esc(t("units"))}</span><input type="number" inputmode="numeric" name="u" min="1" max="5000" value="${esc(side.custom.u || "")}"></label>
       </div>` : "";
+    const slug = String(side.place || "").split(",")[0].trim().toLowerCase().replace(/[^a-z]+/g, "-");
     return `<div class="cmp-slot" data-side="${i}">
+      ${slug ? `<div class="cmp-img"><img src="/static/img/street/${esc(slug)}-m.webp" srcset="/static/img/street/${esc(slug)}-m.webp 800w, /static/img/street/${esc(slug)}.webp 1600w" sizes="(max-width: 640px) 100vw, 420px" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.f){this.dataset.f=1;this.removeAttribute('srcset');this.src='/static/img/${esc(slug)}.webp';this.classList.add('cutout')}else this.parentNode.remove()"></div>` : ""}
       <p class="cmp-street">${name}</p>
       <p class="cmp-place">${esc(side.place)}${scope} <button type="button" class="linkish cmp-link" data-change="${i}">${esc(t("change"))}</button></p>
       ${facts}
@@ -189,10 +191,10 @@ function shellHtml(sides) {
   const both = sides[0] && sides[1];
   const empty = !sides[0] && !sides[1];
   return `<section class="cmp${both ? " full" : ""}">
-    <header class="page-head"><h1 class="cmp-h1">${esc(t("title"))}</h1>${empty ? `<p>${esc(t("lead"))}</p>` : ""}</header>
-    <div class="cmp-head"><span class="cmp-meta" aria-live="polite"></span>${slotHtml(0, sides[0])}${slotHtml(1, sides[1])}<span></span></div>
-    ${both ? `<div class="group cmp-body" aria-busy="true">${CATS.map(() => `<div class="cmp-skel"><i></i><i></i><i></i></div>`).join("")}</div>`
-      : empty ? `<p class="cmp-ex"><a href="#/compare/A0016,A0006">${esc(t("example"))}</a></p>` : ""}
+    <header class="page-head"><h1 class="cmp-h1">${esc(t("title"))}</h1>${empty ? `<p>${esc(t("lead"))}</p>` : `<p class="cmp-meta" aria-live="polite"></p>`}</header>
+    <div class="cmp-card"><div class="cmp-head"><span></span>${slotHtml(0, sides[0])}${slotHtml(1, sides[1])}<span></span></div>
+    ${both ? `<div class="group cmp-body" aria-busy="true">${CATS.map(() => `<div class="cmp-skel"><i></i><i></i><i></i></div>`).join("")}</div>` : ""}</div>
+    ${empty ? `<p class="cmp-ex"><a href="#/compare/A0016,A0006">${esc(t("example"))}</a></p>` : ""}
   </section>`;
 }
 
@@ -252,7 +254,8 @@ async function fillBody(my, sides) {
   const { rows, diff } = bodyHtml(sides, data, open);
   body.innerHTML = rows;
   body.removeAttribute("aria-busy");
-  $(".cmp-meta", root).innerHTML = `<b>${esc(t("diff")(diff, CATS.length))}</b>${esc(t("as_of"))} ${esc(CE.fmtDate(data[0].as_of || asOf()))}`;
+  const meta = $(".cmp-meta", root);
+  if (meta) meta.textContent = `${t("diff")(diff, CATS.length)} · ${t("as_of")} ${CE.fmtDate(data[0].as_of || asOf())}`;
   // building facts for a place resolved by the any-address feature: only offered when an answer depends on them
   data.forEach((d, i) => {
     const box = $(`[data-facts="${i}"]`, root);

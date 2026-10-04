@@ -12,6 +12,7 @@ The run builds on the main extraction (output/rules_reviewed.json) instead of re
   2. consolidation, evidence-grounded coverage audit and empty-cell probe for the new jurisdiction, with the
      state's reviewed rules as context (precedence, state exemptions, possible preemption)
   3. finalisation of main + new rules together (ids of existing rules do not change), schema validation
+  3b. plain-language answers (en + es) for the new rules (navigator/plain.py, checked by code)
   4. address lookups for the extension addresses, pending/as-of change tests for the new rules
   5. metrics: wall time, LLM calls (cached vs new), cost from the CLI envelope, span verification pass rate
 Everything goes to output/extension/<slug>/; output/rules.json, lookups.json and changes.json are not touched.
@@ -27,6 +28,7 @@ from collections import Counter
 from . import changes as C
 from . import evaluate as E
 from . import extract as X
+from . import plain as P
 from .config import (
     AUDIT_LOG,
     BASE_OUTPUT_DIR,
@@ -41,7 +43,7 @@ from .config import (
 )
 from .corpus import extension_doc_rows, load_docs, verify_span
 
-LLM_STAGES = ("extract", "span_fix", "review", "coverage_audit", "probe")
+LLM_STAGES = ("extract", "span_fix", "review", "coverage_audit", "probe", "plain")
 
 
 def log(msg: str) -> None:
@@ -163,6 +165,11 @@ def run() -> dict:
     for r in mine:
         log(f"  {r['team_rule_id']:12} {r['status']:17} {r['citation']} | {r.get('key_value')}")
 
+    # 3b. plain-language answers (en + es) for the new rules, generated and checked by code (navigator/plain.py)
+    t_plain = time.time()
+    pl = P.run(rules=doc["rules"], log=log)
+    t_plain = round(time.time() - t_plain, 1)
+
     # 4. lookups for the extension addresses + change tests for pending / future rules of the new jurisdiction
     look = E.run(rules=doc["rules"])["lookups"]
     tests = []
@@ -212,6 +219,7 @@ def run() -> dict:
             ],
             "addresses_file": str(RESOLVED_CSV.relative_to(BASE_OUTPUT_DIR.parent)),
             "schema_errors": errs,
+            "plain_language": {**pl["counts"], "wall_seconds_this_run": t_plain},
             "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
         }
     )

@@ -1,0 +1,104 @@
+/* Protections over time (features/stats.js): small-multiple step lines on the Changes page.
+   Colour = status, from the app tokens (fallbacks for builds without the chart tokens). Motion: stroke-dashoffset,
+   opacity and transform only; reduced motion shows the final state. */
+.pt {
+  --pt-in: var(--status-in-force, var(--applies));
+  --pt-soon: var(--status-soon, var(--soon));
+  --pt-pend: var(--status-pending, var(--pending));
+  --pt-fail: var(--status-failed, var(--st-muted));
+  --pt-grid: var(--chart-grid, var(--sep-2));
+  --pt-now: var(--accent);
+  --pt-draw: 1.4s;
+  margin-top: 8px;
+  margin-bottom: 40px;
+}
+.pt .pt-h { font-size: var(--fs-h2, 22px); line-height: 1.25; max-width: var(--col); margin-bottom: 6px; text-wrap: balance; }
+.pt-sub { color: var(--label-2); max-width: var(--col); }
+.pt-q { font-size: var(--fs-s); font-weight: 600; margin-top: 24px; }
+.pt-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 6px 0 12px; padding: 0; font-size: var(--fs-s); color: var(--label-2); }
+.pt-legend li { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.pt-sw { display: inline-block; width: 18px; height: 0; border-top: 2px solid var(--pt-in); position: relative; }
+.pt-sw.soon { border-top-color: var(--pt-soon); }
+.pt-sw.pend { border-top: 2px dashed var(--pt-pend); }
+.pt-sw.fail { width: 14px; border-top-color: var(--pt-fail); }
+.pt-sw.fail::after { content: ""; position: absolute; left: 4px; top: -7px; width: 2px; height: 12px; background: var(--pt-fail); transform: rotate(35deg); }
+.pt-sw.asof { width: 0; height: 14px; border-top: 0; border-left: 2px solid var(--pt-now); }
+
+.pt-chart { position: relative; }
+.pt-rows { position: relative; }
+.pt-row { display: grid; grid-template-columns: minmax(150px, 210px) 1fr 104px; grid-template-areas: "name plot val"; align-items: center; column-gap: 16px; }
+.pt-name { grid-area: name; font-size: var(--fs-s); line-height: 1.3; }
+.pt-plot { grid-area: plot; height: 72px; min-width: 0; }
+.pt-headrow .pt-plot { height: 0; }
+.pt-colh { font-size: 12px; color: var(--label-2); align-self: end; }
+.pt-row + .pt-row { border-top: 1px solid var(--pt-grid); }
+.pt-headrow + .pt-row { border-top: 0; }
+.pt-area { fill: var(--pt-in); fill-opacity: .13; stroke: none; }
+.pt-n { font-size: 12px; font-weight: 650; fill: var(--label); font-variant-numeric: tabular-nums; }
+.pt-val { grid-area: val; text-align: right; font-size: var(--fs-s); color: var(--label-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pt-val b { font-size: var(--fs-m); font-weight: 600; color: var(--label); }
+.pt-unk { display: block; font-size: 12px; line-height: 1.25; white-space: normal; color: var(--label-2); }
+.pt-svg { display: block; overflow: visible; cursor: pointer; }
+
+.pt-base { stroke: var(--sep); stroke-width: 1; }
+.pt-grid { stroke: var(--pt-grid); stroke-width: 1; }
+.pt-gutter { stroke: var(--sep); stroke-width: 1; stroke-dasharray: 2 3; }
+.pt-line { fill: none; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.pt-line.in { stroke: var(--pt-in); }
+.pt-line.soon { stroke: var(--pt-soon); }
+.pt-pend { fill: none; stroke: var(--pt-pend); stroke-width: 2; stroke-dasharray: 4 3; }
+.pt-pend-dot { fill: var(--bg); stroke: var(--pt-pend); stroke-width: 2; }
+.pt-fail { stroke: var(--pt-fail); stroke-width: 2; stroke-linecap: round; }
+.pt-dot { fill: var(--pt-in); stroke: var(--bg); stroke-width: 2; }
+.pt-dot.soon { fill: var(--pt-soon); }
+.pt-dot0 { fill: var(--pt-in); }
+.pt-now { stroke: var(--pt-now); stroke-width: 1.5; pointer-events: none; }
+.pt-hit { fill: transparent; cursor: pointer; outline: none; }
+.pt-hit:focus-visible, .pt-hit.on { fill: var(--pt-grid); }
+.pt-hit:focus-visible { stroke: var(--pt-now); stroke-width: 1.5; }
+
+.pt-axis { position: relative; height: 44px; }
+.pt-axis-in { position: relative; height: 100%; }
+.pt-axis-in > span { position: absolute; top: 4px; font-size: 12px; color: var(--label-2); transform: translateX(-50%); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pt-axis-in > [data-y] { transform: none; padding-left: 3px; }
+.pt-axis-in > .pt-asof-l { top: 22px; color: var(--pt-now); font-weight: 600; background: var(--bg); padding: 0 4px; }
+.pt-out .pt-now, .pt-out .pt-asof-l { opacity: 0; }
+
+/* as-of follows the app's date */
+.pt-now, .pt-asof-l { transition: transform .45s var(--ease-out, ease-out), opacity .2s; }
+.pt-still .pt-now, .pt-still .pt-asof-l { transition: none; }
+
+/* draw once, forward through time */
+.pt-armed .pt-line { stroke-dashoffset: var(--len); }
+.pt-armed .pt-late { opacity: 0; }
+.pt-armed.pt-drawn .pt-line { stroke-dashoffset: 0; transition: stroke-dashoffset var(--dur) linear var(--del); }
+.pt-armed.pt-drawn .pt-late { opacity: 1; transition: opacity .25s ease-out calc(var(--at, 1) * var(--pt-draw)); }
+.pt-static .pt-line, .pt-static .pt-late { transition: none !important; stroke-dashoffset: 0; opacity: 1; }
+
+.pt-tip { position: absolute; z-index: 5; background: var(--bg); border-radius: 12px; box-shadow: var(--shadow-float, 0 12px 32px rgb(0 0 0 / .12)); border: 1px solid var(--sep-2); padding: 10px 36px 10px 12px; font-size: var(--fs-s); line-height: 1.4; }
+.pt-tip p + p { margin-top: 6px; }
+.pt-tip .badge { margin-right: 2px; }
+.pt-tip-h { color: var(--label-2); }
+.pt-tip-h b { color: var(--label); }
+.pt-tip a { color: var(--link, var(--accent)); }
+.pt-tip-go .linkish { font-size: var(--fs-s); }
+.pt-tip-x { position: absolute; top: 2px; right: 2px; width: 36px; height: 36px; border: 0; background: none; font-size: 20px; line-height: 1; color: var(--label-2); cursor: pointer; border-radius: 8px; }
+
+.pt-hint { font-size: var(--fs-s); color: var(--label-2); margin-top: 4px; }
+.pt-src { font-size: var(--fs-s); color: var(--label-3); margin-top: 6px; max-width: var(--col); }
+.pt-data { margin-top: 10px; font-size: var(--fs-s); }
+.pt-data summary { cursor: pointer; color: var(--link, var(--accent)); width: max-content; min-height: 32px; display: flex; align-items: center; }
+.pt-table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.pt-table th, .pt-table td { text-align: left; vertical-align: top; padding: 6px 8px 6px 0; border-bottom: 1px solid var(--sep-2); font-weight: 400; }
+.pt-table thead th { font-weight: 600; color: var(--label-2); }
+.pt-table tbody th { font-weight: 600; }
+
+@media (max-width: 640px) {
+  .pt-row { grid-template-columns: 1fr auto; grid-template-areas: "name val" "plot plot"; row-gap: 0; margin-top: 8px; }
+  .pt-axis-in > [data-y]:nth-of-type(even) { visibility: hidden; }
+  .pt-axis-in > [data-y]:nth-last-child(3) { visibility: hidden; } /* last year: leaves room for "Not law" */
+  .pt-legend { gap: 4px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pt *, .pt-armed.pt-drawn .pt-line, .pt-armed.pt-drawn .pt-late { transition: none !important; }
+}

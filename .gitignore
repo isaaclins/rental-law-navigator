@@ -5,3 +5,8 @@ __pycache__/
 node_modules/
 docs/*.pdf
 !docs/METHOD_NOTE.pdf
+.ask-budget.json
+.ask-budget.tmp
+output/ask_audit.jsonl
+cache/ask/
+cache/og/

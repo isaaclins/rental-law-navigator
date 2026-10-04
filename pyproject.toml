@@ -7,4 +7,5 @@ dependencies = [
     "uvicorn>=0.54.0",
     "jsonschema>=4.23",
     "trafilatura>=2.0",
+    "pillow>=11",
 ]

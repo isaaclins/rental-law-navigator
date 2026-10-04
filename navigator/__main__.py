@@ -47,8 +47,20 @@ def main(argv: list[str] | None = None) -> int:
         "extend",
         help="add a jurisdiction: NAVIGATOR_EXTENSION=new_docs/<slug> -> output/extension/<slug>/",
     )
+    pl = sub.add_parser(
+        "plain",
+        help="plain-language answers (en + es) for rules without reviewed copy -> output/plain_language.json",
+    )
+    pl.add_argument("--rules", nargs="*", help="only these rule ids")
+    pl.add_argument("--jurisdiction", default=None, help='e.g. "Santa Monica, CA"')
+    pl.add_argument(
+        "--compare",
+        nargs="*",
+        metavar="ID",
+        help="generate for rules WITH reviewed copy and compare -> output/plain_compare.json (no other writes)",
+    )
     sub.add_parser("fetch-supplementary", help="one-time polite fetch of link-only sources")
-    sub.add_parser("run-all", help="extract (cached) + evaluate + changes + selfcheck")
+    sub.add_parser("run-all", help="extract (cached) + plain + evaluate + changes + selfcheck")
 
     a = p.parse_args(argv)
     if a.cmd == "extract":
@@ -57,6 +69,10 @@ def main(argv: list[str] | None = None) -> int:
 
         docs = [get_doc(d) for d in a.docs] if a.docs else None
         extract.run(docs=docs, review=not a.no_review and not a.docs)
+        if not a.docs:
+            from . import plain
+
+            plain.run()
     elif a.cmd == "evaluate":
         from . import evaluate
 
@@ -69,6 +85,9 @@ def main(argv: list[str] | None = None) -> int:
         from . import changes
 
         changes.ingest_new(a.file, jurisdiction=a.jurisdiction, url=a.url, test_id=a.test_id)
+        from . import plain
+
+        plain.run()
     elif a.cmd == "lookup":
         import json
 
@@ -83,15 +102,23 @@ def main(argv: list[str] | None = None) -> int:
         from . import extend
 
         extend.run()
+    elif a.cmd == "plain":
+        from . import plain
+
+        if a.compare is not None:
+            plain.compare(a.compare)
+        else:
+            plain.run(rule_ids=a.rules, jurisdiction=a.jurisdiction)
     elif a.cmd == "fetch-supplementary":
         from .supplementary import fetch_all
 
         for r in fetch_all():
             print(*r)
     elif a.cmd == "run-all":
-        from . import changes, evaluate, extract, selfcheck
+        from . import changes, evaluate, extract, plain, selfcheck
 
         extract.run()
+        plain.run()
         evaluate.run()
         changes.run()
         return selfcheck.run()

@@ -30,8 +30,13 @@ from fastapi.staticfiles import StaticFiles
 from web import headlines as H
 from web.accounts import router as accounts_router
 from web.any_address import router as any_address_router
+from web.ask import router as ask_router
 from web.check import router as check_router
-from web.translate import plain_expected
+from web.letter import router as letter_router
+from web.notice import router as notice_router
+from web.share import router as share_router
+from web.stats import router as stats_router
+from web.translate import es_dates, plain_expected
 from web.tts import router as tts_router
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -328,7 +333,8 @@ class Store:
         if not text or lang == "en":
             return text
         table = self.tr.get(lang, {})
-        return table.get(hashlib.sha1(text.encode()).hexdigest()[:16], text)
+        out = table.get(hashlib.sha1(text.encode()).hexdigest()[:16], text)
+        return es_dates(out) if lang == "es" else out
 
     def has_t(self, text: str | None, lang: str) -> bool:
         return bool(text) and hashlib.sha1(text.encode()).hexdigest()[:16] in self.tr.get(lang, {})
@@ -516,6 +522,41 @@ def rule_view(r: dict, lang: str) -> dict:
     }
 
 
+def census_zip(a: dict) -> str | None:
+    """The ZIP to show: the Census-matched one when the source ZIP was rejected during geocoding (#160)."""
+    z = (a.get("zip") or "").strip() or None
+    if "was ignored" in (a.get("resolution_note") or ""):
+        m = re.search(r"\b(\d{5})\s*$", a.get("matched_address") or "")
+        if m:
+            return m.group(1)
+    return z
+
+
+def units_floor(address_id: str) -> int | None:
+    """Lower bound of the unit count the evaluator derives from the use code when the count itself is missing (#148)."""
+    try:
+        from navigator import api as NA
+
+        f = NA._addresses()[address_id]
+        return f.units_lo if f.units_lo and f.units_lo != f.units_hi else None
+    except Exception:
+        return None
+
+
+def units_known(address_id: str, a: dict) -> tuple[int | None, int | None]:
+    """(unit count, lower bound) as the evaluator sees them: the assessor count, else one derived from the use code."""
+    try:
+        from navigator import api as NA
+
+        f = NA._addresses()[address_id]
+        if f.units_lo and f.units_lo == f.units_hi:
+            return f.units_lo, None
+        return None, f.units_lo or None
+    except Exception:
+        n = (a.get("units") or "").strip()
+        return (int(float(n)) if n.replace(".", "", 1).isdigit() else None), None
+
+
 def address_facts(a: dict) -> dict:
     def val(k):
         v = (a.get(k) or "").strip()
@@ -526,9 +567,10 @@ def address_facts(a: dict) -> dict:
         "street_address": a["street_address"],
         "postal_city": a["postal_city"],
         "state": a["state"],
-        "zip": val("zip"),
+        "zip": census_zip(a),
         "year_built": val("year_built"),
         "units": val("units"),
+        "units_min": None if val("units") else units_floor(a["address_id"]),
         "use_code": val("use_code"),
         "use_description": val("use_description"),
         "source_dataset": a.get("source_dataset"),
@@ -642,6 +684,7 @@ def category_headline(enacted: list[dict]) -> str | None:
         key=lambda i: (
             rank.get(i["result"], 9),
             0 if i.get("overrides_here") else 1,
+            i["rule"].get("headline_priority") or 1.5,
             0 if i["rule"].get("level") == "state" else 1,
         ),
     )
@@ -657,6 +700,7 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
         raise HTTPException(404, f"Unknown address {address_id}")
     entries, engine = evaluate(address_id, as_of)
     present = {e["team_rule_id"] for e in entries}
+    units_n, units_lo = units_known(address_id, a)
     jur = jurisdiction(a)
     stack_j = {s.get("jurisdiction") for s in jur["stack"] if s.get("jurisdiction")}
     cats = []
@@ -672,7 +716,9 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
                 "result": e["result"],
                 "explanation": STORE.t(e.get("explanation"), lang),
                 "explanation_en": e.get("explanation"),
-                "conflict_flag": bool(e.get("conflict_flag") or r.get("conflict_flag")),
+                # the address-level flag (lookups.json), not the rule-level one: a rule flagged for its conflict
+                # with a city ban carries no conflict where there is no city ban (Newark, T3)
+                "conflict_flag": bool(e.get("conflict_flag")),
                 "rule": rule_view(r, lang),
             }
             if e["result"] == "superseded":
@@ -699,6 +745,16 @@ def build_address(address_id: str, as_of: str, lang: str) -> dict:
             if e["result"] == "unknown":
                 item["missing_fact"] = missing_fact(e.get("explanation", ""))
             item["headline"] = H.headline(r["team_rule_id"], lang, as_of)
+            cve = _norm_date(r.get("current_version_effective"))
+            hd = H.HEADLINES.get(r["team_rule_id"]) or {}
+            if (
+                cve and as_of < cve and hd.get("after_en")
+            ):  # before the figure's period: no future figure (#158)
+                item["headline"] = hd.get(f"after_{lang}") or hd["after_en"]
+            item["explanation_translated"] = lang != "en" and STORE.has_t(
+                e.get("explanation"), lang
+            )
+            H.apply_item(item, as_of, lang, units=units_n, units_min=units_lo)
             (pending if e["result"] == "pending" else enacted).append(item)
         # failed proposals in this address's jurisdictions: show as "not law"
         for r in STORE.rules.values():
@@ -853,6 +909,13 @@ app.include_router(any_address_router)  # POST /api/resolve, /api/evaluate: any 
 app.include_router(accounts_router)  # sign-in, My properties, alerts, /privacy, /terms (#38)
 app.include_router(tts_router)  # POST /api/tts: listen to the answer, EN/ES (#49)
 app.include_router(check_router)  # POST /api/check: rent increase, deposit, fee, notice (#40)
+app.include_router(letter_router)  # POST /api/letter: letter to the landlord from the check (#122)
+app.include_router(notice_router)  # POST /api/notice: rent-increase notice for a building (#96)
+app.include_router(stats_router)  # GET /api/stats/protections: protections over time, Changes page
+app.include_router(ask_router)  # POST /api/ask: ask the law in plain words, cited answers (#101)
+app.include_router(
+    share_router
+)  # /s/<id>/<topic>/<as_of>: frozen, cited share page + preview card (#117)
 
 
 @app.middleware("http")
@@ -871,7 +934,9 @@ async def reload_mw(request, call_next):
         ok = v and resp.status_code == 200 and f.is_file() and v == asset_hash(f)
         resp.headers["Cache-Control"] = "public, max-age=31536000, immutable" if ok else "no-cache"
     else:
-        resp.headers["Cache-Control"] = "no-store"
+        resp.headers.setdefault(
+            "Cache-Control", "no-store"
+        )  # a route may cache (share cards, #117)
     return resp
 
 
@@ -931,7 +996,7 @@ def addresses():
             "postal_city": a["postal_city"],
             "city": a.get("resolved_city") or "",
             "state": a["state"],
-            "zip": a.get("zip", ""),
+            "zip": census_zip(a) or "",
             "year_built": a.get("year_built", ""),
             "units": a.get("units", ""),
         }
@@ -1022,7 +1087,7 @@ def changes(lang: str = "en", as_of: str | None = None):
 
 
 @app.get("/api/timeline")
-def timeline():
+def timeline(lang: str = "en"):
     ev = []
     for r in STORE.rules.values():
         d = _norm_date(r.get("effective_date"))
@@ -1031,7 +1096,7 @@ def timeline():
                 {
                     "date": d,
                     "id": r["team_rule_id"],
-                    "title": r.get("title"),
+                    "title": STORE.t(r.get("title"), lang),
                     "jurisdiction": r.get("jurisdiction"),
                     "category": r.get("category"),
                     "status": r.get("status"),
@@ -1048,6 +1113,35 @@ def snapshot(as_of: str | None = None):
     return {"as_of": d, "rules": result_counts(list(STORE.rules), d)}
 
 
+def doc_plain(did: str) -> dict:
+    """A plain name for a source document (Sources page): the title of the rule read from it, else the document's
+    own first heading line; plus whether a quote from it was found word for word."""
+    rules = [
+        r
+        for r in STORE.rules.values()
+        if did in (r.get("source_doc_id"), r.get("quoted_span_doc_id"), r.get("span_doc_id"))
+    ]
+    title = rules[0].get("title") if rules else None
+    if not title:
+        txt = STORE.doc_text(did) or ""
+        for line in txt.splitlines():
+            line = line.strip()
+            if not line or re.match(r"^[A-Z_]{3,}:", line) or len(line) < 8:
+                continue
+            words = re.findall(r"[A-Za-z]{2,}", line)
+            if len(words) < 3 or re.search(
+                r"\bTEL\b|\bSuite\b|^\d|\d{3}[-) ]\d{3}|^(Updated|Posted|Published)\b", line
+            ):
+                break  # not a title (an address, a date, a menu word): the page is named by its site instead
+            title = re.sub(r"\s*[|·–]\s*[^|·–]{2,30}$", "", line)
+            if title.isupper():
+                title = title.title()
+            break
+    title = (title or did)[:90]
+    checked = any(STORE.verify(r)["status"] in ("exact", "normalized") for r in rules)
+    return {"title": title, "quote_checked": checked, "n_rules": len(rules)}
+
+
 @app.get("/api/audit")
 def audit(limit: int = Query(300, le=5000), q: str = ""):
     docs = []
@@ -1058,6 +1152,7 @@ def audit(limit: int = Query(300, le=5000), q: str = ""):
                 **m,
                 "rules_extracted": rules_by_doc.get(did, 0),
                 "text_available": STORE.doc_text(did) is not None,
+                **doc_plain(did),
             }
         )
     entries = list(enumerate(STORE.audit))
@@ -1132,12 +1227,25 @@ def source(doc_id: str, rule_id: str | None = None):
     txt = STORE.doc_text(doc_id)
     if txt is None:
         raise HTTPException(404, "no text for this document (link-only source)")
+    # the capture header (SOURCE: / RETRIEVED: lines) is shown as metadata, not as document text (#145)
+    head = re.match(r"(?:(?:SOURCE|RETRIEVED|TITLE|URL):[^\n]*\n)+\s*", txt)
+    if head:
+        txt = txt[head.end() :]
     hl = None
-    if rule_id and rule_id in STORE.rules:
-        span = STORE.rules[rule_id].get("quoted_span") or ""
+    finding = (
+        next((f for f in STORE.no_rule if f.get("finding_id") == rule_id), None)
+        if rule_id
+        else None
+    )
+    span = (STORE.rules.get(rule_id) or finding or {}).get("quoted_span") if rule_id else None
+    if span:
         i = txt.find(span)
         if i >= 0:
             hl = [i, i + len(span)]
+        else:  # the quote may differ from the text only in whitespace
+            m = re.search(r"\s+".join(map(re.escape, span.split())), txt)
+            if m:
+                hl = [m.start(), m.end()]
     return {"doc_id": doc_id, "meta": STORE.doc_meta(doc_id), "text": txt, "highlight": hl}
 
 

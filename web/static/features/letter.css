@@ -1,0 +1,143 @@
+/* Letter to the landlord (#122), loaded by features/letter.js. The entry button under a "too high" verdict, the
+   letter view (a paper sheet with inline fields, a side card "What your letter says"), the write-in motion and a
+   print stylesheet that prints the letter only. Shared classes: btn / btn primary, ck-back (web/DESIGN.md). */
+
+/* entry: under the verdict hero */
+.lt-cta { position: relative; margin-top: 18px; }
+.lt-go { width: 100%; min-height: 58px; gap: 10px; font-size: 17px; animation: lt-rise .5s var(--ease-out) .9s both; }
+.lt-go.btn.primary { box-shadow: inset 0 1px 0 rgb(255 255 255 / .12), 0 3px 0 var(--edge), 0 0 0 6px rgb(0 38 100 / .1), 0 10px 24px rgb(0 38 100 / .2); }
+.lt-go .ico { width: 20px; height: 20px; flex: none; }
+.lt-new { position: absolute; top: -10px; right: 18px; padding: 3px 9px; border-radius: 999px; background: var(--bg); color: var(--accent); font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; box-shadow: var(--shadow-lift); pointer-events: none; animation: lt-pop .6s var(--spring) 1.25s both; }
+.lt-cta-sub { margin: 12px 0 0; text-align: center; color: var(--label-2); font-size: var(--fs-s); animation: lt-rise .5s var(--ease-out) 1s both; }
+
+/* the view */
+.lt-view { max-width: none; }
+.lt-head { margin: 8px 0 28px; }
+.lt-head .ck-back { display: inline-flex; }
+.lt-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; margin-top: 14px; }
+.lt-title h1 { font: 400 var(--fs-l)/.98 var(--display); letter-spacing: -.03em; min-width: 0; }
+.lt-h-s { display: none; }
+.lt-seg { display: inline-flex; flex: none; padding: 3px; border-radius: 999px; background: var(--cool-2); }
+.lt-seg button { height: 38px; min-width: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: none; color: var(--label-2); font: 600 15px/1 var(--font); cursor: pointer; transition: background-color .2s, color .2s, box-shadow .2s, transform .3s var(--spring); }
+.lt-seg button:hover { color: var(--label); }
+.lt-seg button[aria-pressed="true"] { background: var(--bg); color: var(--label); box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 2px 8px rgb(0 0 0 / .06); }
+.lt-seg button:active { transform: scale(.96); }
+.lt-seg .lt-ls { display: none; }
+
+.lt-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr); gap: 28px; align-items: start; }
+.lt-col { min-width: 0; }
+
+/* the paper */
+.lt-sheet { min-height: 420px; padding: clamp(28px, 4.4vw, 60px) clamp(22px, 5vw, 68px); border-radius: 6px; background: #fff; box-shadow: 0 0 0 1px rgb(0 12 31 / .07), 0 2px 4px rgb(0 12 31 / .03), 0 22px 54px -22px rgb(0 12 31 / .28); color: var(--label); font-size: 16.5px; line-height: 1.62; overflow-wrap: break-word; }
+.lt-sheet p { margin: 0 0 15px; max-width: 64ch; }
+.lt-sheet strong { font-weight: 650; }
+.lt-date { color: var(--label-2); }
+.lt-from { margin-bottom: 20px !important; }
+.lt-re { margin: 22px 0 18px !important; }
+.lt-quote { margin: 4px 0 6px; padding: 2px 0 2px 18px; max-width: 60ch; border-left: 3px solid var(--accent); font: 400 20.5px/1.4 var(--display); letter-spacing: -.005em; }
+.lt-src { font-size: 13px; color: var(--label-3); overflow-wrap: anywhere; }
+.lt-src a { color: inherit; text-decoration: underline; text-decoration-color: var(--sep); text-underline-offset: 2px; }
+.lt-src a:hover { color: var(--accent); }
+.lt-sign { margin: 22px 0 0 !important; }
+.lt-wait { color: var(--label-3); }
+/* the notice (#96, features/notice.js) shares the sheet: a centred heading, engine values tinted, missing values marked */
+.lt-heading { margin: 0 0 22px !important; max-width: none !important; text-align: center; font-size: 14px; font-weight: 700; letter-spacing: .14em; }
+.lt-v { padding: 1px 4px; border-radius: 5px; background: rgb(0 38 100 / .07); color: var(--accent); font-weight: 600; transition: background-color .25s, color .25s; }
+.lt-v.is-over { background: var(--over-tint); color: var(--danger); }
+.lt-ph { padding: 0 3px; border-radius: 4px; background: #fff3c4; color: #6e4d00; font-weight: 600; }
+
+/* inline fields: yellow until filled */
+.lt-f { display: inline-block; max-width: 100%; height: auto; margin: 0; padding: 0 2px; border: 0; border-radius: 5px; background: transparent; color: var(--label); font: inherit; line-height: inherit; vertical-align: baseline; outline: none; box-shadow: inset 0 -1.5px 0 var(--sep); transition: background-color .2s, box-shadow .2s; }
+.lt-f:placeholder-shown { background: #fff3c4; font-weight: 600; box-shadow: none; }
+.lt-f::placeholder { color: #6e4d00; opacity: 1; }
+.lt-f:hover { background: #fff8de; }
+.lt-f:focus { background: #fff; box-shadow: 0 0 0 2px var(--accent), 0 0 0 5px var(--ring); }
+.lt-f:focus::placeholder { color: rgb(110 77 0 / .5); }
+.lt-fp { display: none; }
+.lt-hint mark { padding: 0 3px; border-radius: 4px; background: #fff3c4; color: #6e4d00; font-weight: 600; }
+
+/* actions */
+.lt-acts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 10px; }
+.lt-acts .btn { min-height: 50px; min-width: 0; padding: 0 12px; font-size: 15.5px; }
+.lt-acts-m { display: none; margin-top: 16px; }
+.lt-hint { margin: 12px 0 0; text-align: center; color: var(--label-2); font-size: var(--fs-s); }
+
+/* side card */
+.lt-side { position: sticky; top: calc(var(--nav-h) + 12px); min-width: 0; padding: 30px 30px 26px; border-radius: var(--r-card); background: var(--bg); box-shadow: var(--shadow-card); }
+.lt-side:empty { display: none; }
+.lt-side h2 { font: 400 clamp(28px, 1.6rem + .6vw, 36px)/1.04 var(--display); letter-spacing: -.015em; }
+.lt-side-p { margin: 8px 0 14px; color: var(--label-2); font-size: var(--fs-s); }
+.lt-checks { list-style: none; margin: 0; padding: 0; }
+.lt-checks li { display: flex; gap: 14px; padding: 16px 0; border-top: 1px solid var(--sep-2); }
+.lt-checks li > span:last-child { min-width: 0; }
+.lt-checks b { display: block; font-size: 17px; font-weight: 650; letter-spacing: -.01em; }
+.lt-checks b + span { display: block; margin-top: 2px; color: var(--label-2); font-size: 14.5px; }
+.lt-ok { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--ok-tint); color: var(--applies); }
+.lt-ok .ico { width: 16px; height: 16px; stroke-width: 3; }
+.lt-acts-d { margin: 10px 0 20px; }
+.lt-acts-d .lt-share { display: none; }
+.lt-nla { margin: 0; padding-top: 16px; border-top: 1px solid var(--sep-2); color: var(--label-2); font-size: var(--fs-s); }
+.lt-nla strong { color: var(--label); font-weight: 650; }
+.lt-nla a { display: inline-flex; align-items: center; gap: 3px; color: var(--link); font-weight: 600; }
+.lt-nla a .ico { width: 14px; height: 14px; }
+
+/* motion: the letter writes in, the checks follow */
+@keyframes lt-rise { from { opacity: 0; transform: translateY(8px); } }
+@keyframes lt-write { from { opacity: 0; transform: translateY(7px); filter: blur(2px); } }
+@keyframes lt-pop { 0% { opacity: 0; transform: scale(.4); } 60% { opacity: 1; transform: scale(1.12); } 100% { transform: none; } }
+.lt-anim .lt-in { animation: lt-write .55s var(--ease-out) both; animation-delay: calc(var(--i) * 70ms + 60ms); }
+.lt-side.lt-anim .lt-checks li { animation: lt-rise .5s var(--ease-out) both; animation-delay: calc(var(--i) * 110ms + 450ms); }
+.lt-side.lt-anim .lt-ok { animation: lt-pop .55s var(--spring) both; animation-delay: calc(var(--i) * 110ms + 600ms); }
+@media (prefers-reduced-motion: reduce) {
+  .lt-go, .lt-new, .lt-cta-sub, .lt-anim .lt-in, .lt-side.lt-anim .lt-checks li, .lt-side.lt-anim .lt-ok { animation: none !important; }
+}
+
+@media (max-width: 1000px) {
+  .lt-grid { grid-template-columns: minmax(0, 1fr); }
+  .lt-side { position: static; }
+  .lt-acts-m { display: grid; }
+  .lt-acts-d { display: none; }
+  .lt-acts-m .lt-share { display: none; }
+}
+@media (max-width: 640px) {
+  .lt-head { margin: 0 0 16px; }
+  .lt-title { flex-wrap: nowrap; align-items: center; margin-top: 12px; }
+  .lt-title h1 { font-size: 36px; }
+  .lt-h-l { display: none; }
+  .lt-h-s { display: inline; }
+  .lt-seg button { height: 36px; padding: 0 12px; font-size: 14px; }
+  .lt-seg .lt-ll { display: none; }
+  .lt-seg .lt-ls { display: inline; }
+  .lt-grid { gap: 20px; }
+  .lt-sheet { min-height: 0; padding: 22px 18px 24px; border-radius: 18px; font-size: 16px; line-height: 1.55; box-shadow: var(--shadow-card); }
+  .lt-sheet p { margin-bottom: 12px; }
+  .lt-from { margin-bottom: 16px !important; }
+  .lt-re { margin: 16px 0 14px !important; }
+  .lt-quote { padding: 8px 12px; border-left: 0; border-radius: 10px; background: var(--cool); font: italic 400 15px/1.5 var(--font); }
+  .lt-acts-m .lt-print { display: none; }
+  .lt-can-share .lt-acts-m .lt-share { display: inline-flex; }
+  .lt-can-share .lt-acts-m { grid-template-columns: 1fr 1fr 1.25fr; grid-auto-flow: row; }
+  .lt-side { padding: 24px 20px 20px; border-radius: 24px; }
+}
+
+/* print: the letter only, on any paper size */
+@media print {
+  @page { margin: 22mm 22mm 20mm; }
+  html, body { background: #fff !important; }
+  body:has(.lt-view) > :not(main) { display: none !important; }
+  body:has(.lt-view) main { max-width: none; min-height: 0; margin: 0; padding: 0 !important; }
+  body:has(.lt-view) main > :not(.lt-view) { display: none !important; }
+  .lt-head, .lt-side, .lt-acts, .lt-hint { display: none !important; }
+  .lt-grid { display: block; }
+  .lt-sheet { min-height: 0; padding: 0; border-radius: 0; box-shadow: none; font-size: 11.5pt; line-height: 1.55; color: #000; }
+  .lt-sheet p { max-width: none; }
+  .lt-quote { font-size: 14pt; break-inside: avoid; }
+  .lt-in { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+  .lt-f { display: none !important; }
+  .lt-fp { display: inline; }
+  .lt-fp:empty { display: inline-block; width: 11em; height: 1.1em; vertical-align: text-bottom; border-bottom: 1px solid #000; }
+  .lt-fp[data-fp="unit"]:empty { width: 5em; }
+  .lt-src a { color: inherit; text-decoration: none; }
+  .lt-v { padding: 0; background: none !important; color: #000 !important; font-weight: inherit; }
+  .lt-heading { font-size: 11pt; }
+}

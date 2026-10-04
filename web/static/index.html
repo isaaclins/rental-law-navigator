@@ -22,32 +22,40 @@
 <link rel="stylesheet" href="/static/features/listen.css">
 <link rel="stylesheet" href="/static/features/check.css">
 <link rel="stylesheet" href="/static/features/compare.css">
+<link rel="stylesheet" href="/static/features/tour.css">
+<link rel="stylesheet" href="/static/features/stats.css">
+<link rel="stylesheet" href="/static/features/ask.css">
+<link rel="stylesheet" href="/static/features/share.css">
+<link rel="stylesheet" href="/static/features/spring.css">
 <link rel="icon" href="/static/icons/favicon-32.png" type="image/png">
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<p class="strip"><span class="strip-l" data-i18n="strip">Housing law from official sources, quoted word for word. Not legal advice.</span><span class="strip-s" data-i18n="strip_s">Official sources, quoted. Not legal advice.</span> <button type="button" class="linkish strip-more" data-nla-open data-i18n="strip_more">About this information</button><button type="button" class="strip-i" data-nla-open aria-label="About this information"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg></button></p>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="#/" aria-label="Clause and Effect, home"><span class="brand-mark" aria-hidden="true">§</span><span class="brand-word">Clause <i>&amp;</i> Effect</span></a>
     <nav class="tabs" aria-label="Main">
       <a href="#/" data-route="lookup" data-i18n="nav_lookup">Lookup</a>
+      <a href="#/ask" data-route="ask" data-short="Ask">Ask</a>
       <a href="#/changes" data-route="changes" data-tour="changes" data-i18n="nav_changes">Changes</a>
       <a href="#/rules" data-route="rules" data-i18n="nav_rules">Rules</a>
       <a href="#/audit" data-route="audit" data-i18n="nav_audit">Sources</a>
+      <a href="#/properties" data-route="properties" data-short="Mine" data-tour="properties">My properties</a>
     </nav>
     <div class="nav-tools">
       <button type="button" class="tool search-trigger" data-cmdk aria-label="Search addresses">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       </button>
       <label class="tool asof" id="asof-ctl" data-tour="asof">
-        <span class="asof-l" id="asof-label"></span><svg class="ico caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+        <svg class="ico cal-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><span class="asof-l" id="asof-label"></span><svg class="ico caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
         <input type="date" id="asof" min="2020-01-01" max="2030-12-31" aria-label="Answers as of">
       </label>
       <button type="button" class="tool asof-reset off" id="asof-reset" tabindex="-1" aria-hidden="true">×</button>
       <div class="seg" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" data-lang="en" aria-pressed="true" lang="en"><span class="l-short">EN</span><span class="l-long">English</span></button>
+        <button type="button" data-lang="es" aria-pressed="false" lang="es"><span class="l-short">ES</span><span class="l-long">Español</span></button>
       </div>
     </div>
   </div>
@@ -90,12 +98,19 @@
 </div>
 
 <div id="toasts" class="toasts" aria-live="polite"></div>
+<script data-cfasync="false" src="/static/sentences.js"></script>
 <script data-cfasync="false" src="/static/app.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/any-address.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/pwa.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/properties.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/listen.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/check.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/notice.js" type="module"></script>
 <script data-cfasync="false" src="/static/features/compare.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/tour.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/stats.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/ask.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/share.js" type="module"></script>
+<script data-cfasync="false" src="/static/features/spring.js" type="module"></script>
 </body>
 </html>

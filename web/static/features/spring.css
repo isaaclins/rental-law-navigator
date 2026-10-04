@@ -1,0 +1,21 @@
+/* Spring-drag (features/spring.js): grabbable decorative images. Only the cursor, touch and selection behaviour
+   live here; the motion is the spring in JS (individual translate / rotate / scale properties, so the elements'
+   own transforms keep working). */
+.ce-spring {
+  cursor: grab;
+  touch-action: pan-y; /* vertical swipes still scroll the page; a sideways move or a short hold grabs */
+  -webkit-user-select: none; user-select: none;
+  -webkit-user-drag: none; -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ce-spring img { -webkit-user-drag: none; pointer-events: none; } /* the press lands on the chip, not a ghost image */
+.mk.ce-spring img { pointer-events: none; }
+html.spring-grabbing, html.spring-grabbing * { cursor: grabbing !important; -webkit-user-select: none !important; user-select: none !important; }
+/* the verdict's number line (padding-right keeps it clear of the sticker) is positioned later in the card: keep the
+   sticker on top so it can be grabbed */
+.ck-art.ce-spring { z-index: 2; }
+/* the verdict card clips its colour sweep; while the sticker is out of its spot the card lets it overshoot */
+.ck-hero:has(.ck-art.is-springing) { overflow: visible; }
+.ck-hero:has(.ck-art.is-springing)::before { border-radius: inherit; }
+/* backgrounds don't move on phones or touch: no grab cursor, and the page scrolls from them as from any image */
+@media (max-width: 640px), (pointer: coarse) { .ce-spring-bg { cursor: auto; touch-action: auto; } }
