@@ -7,7 +7,6 @@
   opacity: 0; transition: opacity .2s ease; /* position and size come from tour.js, one write per frame */
 }
 .tour-ring.on { opacity: 1; }
-.tour.is-done .tour-ring { opacity: 0; }
 /* no spotlight (between targets, the last card): the page stays dimmed */
 .tour::before { content: ""; position: fixed; inset: 0; background: rgb(0 12 31 / .26); opacity: 0; transition: opacity .2s ease; }
 .tour.dim::before { opacity: 1; }
@@ -20,7 +19,6 @@
 }
 .tour-card.in { opacity: 1; }
 @media (max-width: 639px) { .tour-card { width: min(440px, calc(100vw - 24px)); } }
-.tour.busy .tour-card .tour-text { opacity: .5; }
 
 .tour-text { margin: 0 32px 12px 0; font-size: 17px; line-height: 1.4; font-weight: 500; letter-spacing: -.01em; transition: opacity .15s ease; }
 .tour-row { display: flex; align-items: center; gap: 8px; }
@@ -56,7 +54,9 @@
 
 /* while the tour runs: no install nudge, toasts or docked Ask bar over the caption (hidden, not removed: no layout shift) */
 html.tour-on .pwa-nudge, html.tour-on #toasts { opacity: 0; pointer-events: none; }
-html.tour-on .ask-dock { visibility: hidden; opacity: 0; pointer-events: none; transition: none; }
+html.tour-on:not(.tour-dock) .ask-dock { visibility: hidden; opacity: 0; pointer-events: none; transition: none; }
+/* the sticky header is solid under the dim layer, so no page text shows through it */
+html.tour-on .nav { background: #fff !important; }
 
 @media (prefers-reduced-motion: reduce) {
   .tour-ring, .tour-card, .tour-text, .tour::before { transition: none; }

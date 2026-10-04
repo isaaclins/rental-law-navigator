@@ -40,6 +40,17 @@
   .nt-row input { flex-basis: 52%; width: 52%; }
   .nt-row input[type="date"] { flex: 0 0 140px; width: 140px; font-size: 15px; }
 }
-@media print {
-  .lt-sheet.is-over { box-shadow: none; }
+/* a wrong amount: the message sits right under its field, the draft keeps the last good numbers */
+.nt-ferr { margin: 0; padding: 6px 14px 10px; font-size: 13.5px; font-weight: 600; color: var(--danger); text-align: right; }
+.nt-row:has(input[aria-invalid]) input { color: var(--danger); }
+/* the status of each check in words, visible (no hover-only icon title) */
+.nt-st { display: block; margin-bottom: 2px; font-size: 12px; font-weight: 650; letter-spacing: .02em; color: var(--applies); }
+.nt-over .nt-st { color: var(--danger); }
+.nt-info .nt-st { color: var(--unknown); }
+/* touch: every control on the notice is a 44 px target */
+@media (pointer: coarse) {
+  .nt-q summary, .nt-q a, .nt-help, .nt-side a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; }
+  .nt-row input { min-height: 44px; }
+  .nt-view .lt-seg button { height: 44px; min-width: 48px; }
+  .nt-view .ck-back { min-height: 44px; }
 }

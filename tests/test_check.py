@@ -11,7 +11,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from web import check as C
-from web.app import app
+from web.app import STORE, app
 
 client = TestClient(app)
 D = dt.date
@@ -264,7 +264,12 @@ def test_deposit_fee_and_termination():
         application_fee=80,
         termination="no_reason",
     )
-    assert v["deposit"]["kind"] == "unknown" and v["deposit"]["need"]["key"] == "landlord_small"
+    # A0001 has 32 units: the 2-month small-landlord exception can't apply, the cap is one month (legal review #1)
+    dep = v["deposit"]
+    assert (
+        dep["kind"] == "over" and dep["values"]["small_excluded"] and dep["values"]["units"] == 32
+    )
+    assert dep["values"]["max"] == 2000 and dep["values"]["over_amount"] == 1000
     assert v["fee"]["kind"] == "over" and v["fee"]["values"]["over_amount"] == 11.04
     assert v["termination"]["kind"] == "over" and v["termination"]["code"] == "reason_required"
     ma = post(address_id="A0006", current_rent=3000, application_fee=40, deposit=3500)
@@ -297,3 +302,51 @@ def test_any_address_and_validation():
     )
     assert r.status_code == 422
     assert client.post("/api/check", json={"current_rent": 100}).status_code == 422
+
+
+# ------------------------------------------------------------------ legal review 2026-10-04: small-landlord deposits
+def test_deposit_small_landlord_exception_follows_the_unit_count():
+    """One test (web/headlines.small_landlord_possible) for Check, Listen and the address page: a building with more
+    than 4 units, or '5 or more' by use code, can't be a small landlord's; the cap is then one month."""
+    big = post(address_id="A0016", current_rent=2000, deposit=4000)["deposit"]  # SF, 21 units
+    assert (
+        big["kind"] == "over"
+        and big["values"]["over_amount"] == 2000
+        and big["values"]["max"] == 2000
+    )
+    assert big["values"]["small_excluded"] and "alt_max" not in big["values"]
+    six = post(address_id="A0007", current_rent=2000, deposit=4000)["deposit"]  # LA, 6 units
+    assert six["kind"] == "over" and six["values"]["over_amount"] == 2000
+    # a building whose count is unknown or small: the landlord type decides
+    small = {
+        "place": {"state": "CA", "jurisdiction": "Los Angeles, CA"},
+        "current_rent": 2000,
+        "deposit": 4000,
+    }
+    assert post(**small)["deposit"]["code"] == "need_landlord"
+    assert post(**small, facts={"units": 3})["deposit"]["code"] == "need_landlord"
+    assert post(**small, facts={"units": 6})["deposit"]["values"]["small_excluded"]
+    # Santa Monica: the same test
+    sm = post(
+        place={"state": "CA", "jurisdiction": "Santa Monica, CA"},
+        facts={"units": 12},
+        current_rent=2000,
+        deposit=4000,
+    )["deposit"]
+    assert sm["kind"] == "over" and sm["values"]["max"] == 2000
+
+
+def test_nj_fee_cap_is_flat_in_2026_and_needs_the_cpi_figure_from_2027():
+    """D066 § 1d: $50 flat until the first CPI adjustment on Jan 1, 2027 (legal review NJ-FEE-01)."""
+    from web import check as C
+
+    p = C.parse_fee_cap("$50 per application (CPI-adjusted yearly from 2027)", "2026-05-01")
+    assert C.fee_cap_on(p, dt.date(2026, 12, 31)) == {"amount": 50.0, "until": "2026-12-31"}
+    assert C.fee_cap_on(p, dt.date(2027, 3, 1)) == {"amount": None, "year": 2027}
+    nj = next(i for i, a in STORE.addresses.items() if a.get("resolved_city") == "Newark")
+    assert (
+        post(address_id=nj, as_of="2026-10-01", application_fee=55)["fee"]["values"]["over_amount"]
+        == 5
+    )
+    later = post(address_id=nj, as_of="2027-03-01", application_fee=55)["fee"]
+    assert later["code"] == "need_figure" and later["need"] == {"key": "fee_figure", "year": 2027}

@@ -1856,7 +1856,7 @@ PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">§</span><span class="brand-word">Clause <i>&amp;</i> Effect</span></a>
 <h1>{title}</h1><p class="upd">Last updated October 3, 2026 · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
 {body}
-<p class="nla"><b>Not legal advice.</b> Clause &amp; Effect explains public law with citations to the official text. It is
+<p class="nla"><b>Not legal advice.</b> Clause &amp; Effect explains public law with citations to its source. It is
 not a compliance check. For your situation, contact a tenant organisation, housing agency or attorney.</p>
 </main></body></html>"""
 
@@ -1890,8 +1890,8 @@ deleted.</p>
 TERMS = """
 <p>Clause &amp; Effect is a free hackathon prototype. By using it you agree to these short terms.</p>
 <h2>Information, not advice</h2>
-<p>Answers are automated summaries of statutes, ordinances and bills from a fixed set of official sources, with the
-date they apply to. They can be incomplete or wrong. Always read the cited source before you act.</p>
+<p>Answers are automated summaries of statutes, ordinances and bills from a fixed set of public sources (mostly
+official texts), with the date they apply to. They can be incomplete or wrong. Always read the cited source before you act.</p>
 <h2>Use it fairly</h2>
 <ul><li>Use it to understand and follow the rules, not to find ways around them.</li>
 <li>No automated scraping, no attempts to break in or to overload the service.</li>

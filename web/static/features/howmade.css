@@ -1,0 +1,24 @@
+/* How this answer was made (features/howmade.js): quiet lines under More details, no boxes, one tiny AI/code mark */
+.hm { margin-top: 22px; }
+.hm-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; font-size: 13px; font-weight: 650; color: var(--label-2); margin-bottom: 8px; }
+.hm-key { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; color: var(--label-3); }
+.hm-key .hm-i { width: 11px; height: 11px; }
+.hm-dot { margin: 0 3px; color: var(--label-3); }
+.hm-l { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; }
+.hm-l li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; align-items: start; font-size: var(--fs-s); line-height: 1.55; color: var(--label-2); overflow-wrap: anywhere; }
+.hm-l li .hm-i { margin-top: .32em; }
+.hm-i { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; color: var(--label-3); }
+.hm-i.is-ai { fill: currentColor; stroke: none; color: var(--accent); opacity: .85; }
+.hm-l li.is-warn .hm-i { color: var(--unknown, var(--label-3)); }
+.hm-log { margin-left: 2px; font-size: inherit; color: var(--accent); }
+.hm-modal h5 { font-size: 13px; font-weight: 650; color: var(--label-2); margin: 16px 0 6px; }
+.hm-pre { max-height: 46vh; overflow: auto; padding: 12px 14px; border-radius: 14px; background: var(--fill); font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+/* Ask "Show me the law": one line under each quote card */
+.hm-ask { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 0; margin-top: 8px; font-size: 12.5px; line-height: 1.5; color: var(--label-3); }
+.hm-ask > span:not(.hm-dot) { display: inline-flex; align-items: center; gap: 4px; }
+.hm-ask .hm-i { width: 12px; height: 12px; }
+@media (max-width: 640px) {
+  .hm { margin-top: 18px; }
+  .hm-l { gap: 6px; }
+  .hm-l li { gap: 8px; }
+}

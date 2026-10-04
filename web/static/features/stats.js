@@ -99,7 +99,7 @@ function svg(tag, attrs = {}, parent) {
 
 // ------------------------------------------------------------------ mount --
 async function mount() {
-  if (!/^#\/changes(\/|$)/.test(location.hash)) return;
+  if (!/^#\/changes(\/|\?|$)/.test(location.hash)) return;
   const main = document.getElementById("main");
   let host = main.querySelector('[data-slot="changes-top"]');
   if (!host) { // no slot on this build: insert right after the page head
@@ -200,8 +200,18 @@ function layout() {
   const axis = root.querySelector(".pt-axis-in");
   axis.style.marginLeft = g.left + "px";
   axis.style.width = g.w + "px";
-  axis.querySelectorAll("[data-y]").forEach((s) => { s.style.left = g.x(`${s.dataset.y}-01-01`) + "px"; });
-  axis.querySelector(".pt-notlaw").style.left = g.gx + "px";
+  const nl = axis.querySelector(".pt-notlaw");
+  nl.style.left = g.gx + "px";
+  // year labels: show only the ones that fit (no run-together years, nothing under "Not law yet")
+  const stop = g.gx - nl.offsetWidth / 2 - 6;
+  let edge = -Infinity;
+  axis.querySelectorAll("[data-y]").forEach((s) => {
+    const x = g.x(`${s.dataset.y}-01-01`);
+    s.style.left = x + "px";
+    const fits = x >= edge + 8 && x + s.offsetWidth <= stop;
+    s.style.visibility = fits ? "visible" : "hidden";
+    if (fits) edge = x + s.offsetWidth;
+  });
 }
 
 function rowSVG(p, g) {
@@ -262,9 +272,10 @@ function rowSVG(p, g) {
   if (p.initial.laws.length) svg("circle", { cx: 2, cy: g.y(p.initial.count), r: 3, class: "pt-dot0 pt-late", style: "--at:0" }, s);
   for (const [n, xs] of pend) marks.push({ kind: "pending", x: px2, y: g.y(n), items: xs });
   for (const [n, xs] of fail) marks.push({ kind: "failed", x: fx, y: g.y(n), items: xs });
+  const half = matchMedia("(pointer: coarse)").matches ? 22 : 12; // a finger-wide (44 px) target on touch
   marks.forEach((m, i) => {
-    const x0 = Math.min(m.x, m.x2 ?? m.x) - 12, x1 = Math.max(m.x, m.x2 ?? m.x) + 12;
-    const r = svg("rect", { x: Math.max(-2, x0), y: 0, width: x1 - Math.max(-2, x0), height: g.h, class: "pt-hit", tabindex: 0, role: "button", "data-mark": i, ...(m.kind === "step" ? { "data-dates": m.items.map((x) => x.date).join(" ") } : { "data-kind": m.kind }) }, s);
+    const x0 = Math.max(-2, Math.min(m.x, m.x2 ?? m.x) - half), x1 = Math.max(Math.max(m.x, m.x2 ?? m.x) + half, x0 + 2 * half);
+    const r = svg("rect", { x: x0, y: 0, width: x1 - x0, height: g.h, class: "pt-hit", tabindex: 0, role: "button", "data-mark": i, ...(m.kind === "step" ? { "data-dates": m.items.map((x) => x.date).join(" ") } : { "data-kind": m.kind }) }, s);
     r.setAttribute("aria-label", markAria(p, m));
     r.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") showTip(p, m, r, false); });
     r.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") hideTip(false); });
@@ -302,7 +313,7 @@ function update(asOf, { from = null } = {}) {
     const p = data.protections.find((x) => x.id === row.dataset.p);
     const unk = p.unknown?.cities || []; // only-unverified cities: the address answers there are "unknown"
     row.querySelector("[data-val]").innerHTML = `<b>${countOn(p, asOf)}</b> <span>${esc(L().of_10)}</span>`
-      + (unk.length ? `<span class="pt-unk" title="${esc(L().unknown_why(L().names[p.id], joinList(unk)))}">${esc(L().unknown(unk.length))}</span>` : "");
+      + (unk.length ? `<span class="pt-unk">${esc(L().unknown(unk.length))}</span>` : "");
     row.querySelectorAll(".pt-dot").forEach((c) => c.classList.toggle("soon", c.dataset.date > asOf));
     splitLine(row, p, g, asOf);
   });

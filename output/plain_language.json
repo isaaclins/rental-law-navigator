@@ -3,8 +3,8 @@
  "prompt_version": "plain-v5",
  "counts": {
   "rules": 62,
-  "reviewed": 46,
-  "generated": 16,
+  "reviewed": 53,
+  "generated": 9,
   "needs_review": 3
  },
  "records": {
@@ -501,86 +501,8 @@
   },
   "LA-DEP-01": {
    "rule_id": "LA-DEP-01",
-   "source": "generated",
-   "method": "model",
-   "needs_review": false,
-   "review_reasons": [],
-   "question_en": "How large can the deposit be?",
-   "question_es": "¿Qué tan alto puede ser el depósito?",
-   "fields": {
-    "answer_en": "Yes, landlords must pay you interest.",
-    "answer_es": "Sí, el arrendador debe pagarle intereses.",
-    "why_en": "The city sets the interest rate on your deposit each year: 4.320% for 2025.",
-    "why_es": "La ciudad fija cada año la tasa de interés de su depósito: 4.320% para 2025.",
-    "headline_en": "Landlords must pay interest on deposits",
-    "headline_es": "El arrendador debe pagar intereses del depósito",
-    "short_en": "Interest paid on deposit",
-    "short_es": "Pagan intereses del depósito",
-    "period_end": null,
-    "after_headline_en": null,
-    "after_headline_es": null,
-    "after_short_en": null,
-    "after_short_es": null,
-    "removes_protection": false
-   },
-   "headline": {
-    "en": "Landlords must pay interest on deposits",
-    "es": "El arrendador debe pagar intereses del depósito",
-    "short_en": "Interest paid on deposit",
-    "short_es": "Pagan intereses del depósito",
-    "priority": 1
-   },
-   "plain": {
-    "en": [
-     "Yes, landlords must pay you interest.",
-     "The city sets the interest rate on your deposit each year: 4.320% for 2025."
-    ],
-    "es": [
-     "Sí, el arrendador debe pagarle intereses.",
-     "La ciudad fija cada año la tasa de interés de su depósito: 4.320% para 2025."
-    ]
-   },
-   "model": "claude-sonnet-5-5",
-   "prompt_hash": "7aa6a39920bfc58b5f3ff91922dfb99d7cbae9fbf289932e70c41d87490157ee",
-   "prompt_version": "plain-v5",
-   "validation": {
-    "passed": true,
-    "attempts": [
-     {
-      "attempt": 1,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "adae8163e81e1f22a08502862b17067074d1e481bb08d1620ffee6a6307aee5b",
-      "cached": true,
-      "errors": [
-       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for the deposit (keep it short and simple): 'The city sets the rate each year: 4.320% for 2025.'"
-      ]
-     },
-     {
-      "attempt": 2,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "7aa6a39920bfc58b5f3ff91922dfb99d7cbae9fbf289932e70c41d87490157ee",
-      "cached": false,
-      "errors": []
-     }
-    ],
-    "grade_why_en": 5.8
-   },
-   "input": {
-    "jurisdiction": "Los Angeles, CA",
-    "level": "city",
-    "category": "security_deposits",
-    "status": "in_force",
-    "title": "Los Angeles RSO security deposit interest",
-    "key_value": "Annual City-set interest rate (4.320% for 2025); paid monthly or yearly",
-    "requirement": "Landlords of RSO units must pay tenants interest on security deposits, monthly or yearly, as a direct payment or rent credit, and tell the tenant in writing which method they chose. The City sets the rate annually (4.320% for 2025).",
-    "coverage_conditions": null,
-    "exemptions": null,
-    "effective_date": "1990-11-01",
-    "quoted_span": "Interest Payments on Security Deposits"
-   },
-   "fills": [
-    "plain"
-   ]
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
   },
   "LA-EVIC-01": {
    "rule_id": "LA-EVIC-01",
@@ -594,176 +516,13 @@
   },
   "LA-EVIC-03": {
    "rule_id": "LA-EVIC-03",
-   "source": "generated",
-   "method": "model",
-   "needs_review": false,
-   "review_reasons": [],
-   "question_en": "Does the landlord need a reason to end the tenancy?",
-   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
-   "fields": {
-    "answer_en": "If demolished, they pay $87,450–$115,480.",
-    "answer_es": "Si demuelen, pagan $87,450–$115,480.",
-    "why_en": "You may stay until 6 months before construction and have return rights.",
-    "why_es": "Puede quedarse hasta 6 meses antes de la construcción y tiene derecho a volver.",
-    "headline_en": "Extra moving pay when homes are demolished",
-    "headline_es": "Pago extra por mudanza si demuelen el edificio",
-    "short_en": "$87,450–$115,480 to move",
-    "short_es": "$87,450–$115,480 por mudanza",
-    "period_end": null,
-    "after_headline_en": null,
-    "after_headline_es": null,
-    "after_short_en": null,
-    "after_short_es": null,
-    "removes_protection": false
-   },
-   "headline": {
-    "en": "Extra moving pay when homes are demolished",
-    "es": "Pago extra por mudanza si demuelen el edificio",
-    "short_en": "$87,450–$115,480 to move",
-    "short_es": "$87,450–$115,480 por mudanza",
-    "priority": 2
-   },
-   "plain": {
-    "en": [
-     "If demolished, they pay $87,450–$115,480.",
-     "You may stay until 6 months before construction and have return rights."
-    ],
-    "es": [
-     "Si demuelen, pagan $87,450–$115,480.",
-     "Puede quedarse hasta 6 meses antes de la construcción y tiene derecho a volver."
-    ]
-   },
-   "model": "claude-sonnet-5-5",
-   "prompt_hash": "7959d61de56110efd7a92a2600f105912398895a541fa320d3eb89cf48df83f9",
-   "prompt_version": "plain-v5",
-   "validation": {
-    "passed": true,
-    "attempts": [
-     {
-      "attempt": 1,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "063973401713aaab6cc08ec5b1e945ae9006b8a4f36499384a559aaaf45124d3",
-      "cached": true,
-      "errors": [
-       "answer_en has 9 words (max 8): 'If they tear down your home, they pay $87,450–$115,480.'"
-      ]
-     },
-     {
-      "attempt": 2,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "7959d61de56110efd7a92a2600f105912398895a541fa320d3eb89cf48df83f9",
-      "cached": true,
-      "errors": []
-     }
-    ],
-    "grade_why_en": 5.9
-   },
-   "input": {
-    "jurisdiction": "Los Angeles, CA",
-    "level": "city",
-    "category": "just_cause_eviction",
-    "status": "in_force",
-    "title": "Los Angeles Resident Protections Ordinance (RPO) – demolition for new construction",
-    "key_value": "$87,450–$115,480 for lower-income households",
-    "requirement": "Owners demolishing Protected Units for new construction must pay enhanced relocation to lower-income households under one of three options, with standardized payments of $87,450–$115,480. Tenants may remain until 6 months before construction and have return and first-refusal rights.",
-    "coverage_conditions": null,
-    "exemptions": null,
-    "effective_date": "2025-02-11",
-    "quoted_span": "Owners have 3 relocation options to comply with the RPO relocation rules"
-   },
-   "fills": [
-    "plain"
-   ]
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
   },
   "LA-EVIC-04": {
    "rule_id": "LA-EVIC-04",
-   "source": "generated",
-   "method": "model",
-   "needs_review": false,
-   "review_reasons": [],
-   "question_en": "Does the landlord need a reason to end the tenancy?",
-   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
-   "fields": {
-    "answer_en": "If not your fault, they pay $11,000–$27,400.",
-    "answer_es": "Si no es su culpa, le pagan $11,000–$27,400.",
-    "why_en": "In an eviction that isn't your fault, the landlord must make the payment available within 15 days.",
-    "why_es": "En un desalojo que no es su culpa, el dueño debe tener el pago disponible en 15 días.",
-    "headline_en": "Moving pay for no-fault evictions",
-    "headline_es": "Pago de mudanza si el desalojo no es su culpa",
-    "short_en": "$11,000–$27,400 moving pay",
-    "short_es": "$11,000–$27,400 por mudanza",
-    "period_end": "2027-06-30",
-    "after_headline_en": "Moving pay for no-fault evictions, amount set yearly",
-    "after_headline_es": "Pago de mudanza por desalojo sin culpa, monto anual",
-    "after_short_en": "Moving pay, amount set yearly",
-    "after_short_es": "Pago de mudanza, monto anual",
-    "removes_protection": false
-   },
-   "headline": {
-    "en": "Moving pay for no-fault evictions",
-    "es": "Pago de mudanza si el desalojo no es su culpa",
-    "short_en": "$11,000–$27,400 moving pay",
-    "short_es": "$11,000–$27,400 por mudanza",
-    "priority": 2,
-    "until": "2027-06-30",
-    "after_en": "Moving pay for no-fault evictions, amount set yearly",
-    "after_es": "Pago de mudanza por desalojo sin culpa, monto anual",
-    "short_until": "2027-06-30",
-    "short_after_en": "Moving pay, amount set yearly",
-    "short_after_es": "Pago de mudanza, monto anual"
-   },
-   "plain": {
-    "en": [
-     "If not your fault, they pay $11,000–$27,400.",
-     "In an eviction that isn't your fault, the landlord must make the payment available within 15 days."
-    ],
-    "es": [
-     "Si no es su culpa, le pagan $11,000–$27,400.",
-     "En un desalojo que no es su culpa, el dueño debe tener el pago disponible en 15 días."
-    ],
-    "until": "2027-06-30"
-   },
-   "model": "claude-sonnet-5-5",
-   "prompt_hash": "937aa52845cea4af5c496951b5c0ed3212ca7b650df594817a21257ae44bf75b",
-   "prompt_version": "plain-v5",
-   "validation": {
-    "passed": true,
-    "attempts": [
-     {
-      "attempt": 1,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "e1bfbbdfaf41260e5ba86978dceb4374187de886d83fe2951ab1ceeab9f948c5",
-      "cached": true,
-      "errors": [
-       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for evictions (keep it short and simple): 'The landlord must make the payment available within 15 days, and it rises each July 1.'"
-      ]
-     },
-     {
-      "attempt": 2,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "937aa52845cea4af5c496951b5c0ed3212ca7b650df594817a21257ae44bf75b",
-      "cached": false,
-      "errors": []
-     }
-    ],
-    "grade_why_en": 8.4
-   },
-   "input": {
-    "jurisdiction": "Los Angeles, CA",
-    "level": "city",
-    "category": "just_cause_eviction",
-    "status": "in_force",
-    "title": "Los Angeles RSO/JCO no-fault eviction relocation assistance",
-    "key_value": "$11,000–$27,400 per unit (7/1/2026–6/30/2027); payment within 15 days",
-    "requirement": "For no-fault evictions from RSO or JCO units, landlords must file a Declaration of Intent to Evict with LAHD before serving notice and pay relocation assistance, made available within 15 days of service. Amounts for 7/1/2026–6/30/2027 range from $11,000 to $27,400 per unit and rise each July 1.",
-    "coverage_conditions": null,
-    "exemptions": "Resident manager replaced by another resident manager; natural-disaster hazardous conditions; reduced amounts for Mom and Pop properties and natural-person single-family dwellings.",
-    "effective_date": "2026-07-01",
-    "quoted_span": "All tenant not- at-fault evictions require payment of relocation assistance and the filing of a"
-   },
-   "fills": [
-    "plain"
-   ]
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
   },
   "LA-RENT-01": {
    "rule_id": "LA-RENT-01",
@@ -787,86 +546,8 @@
   },
   "MA-EVIC-01": {
    "rule_id": "MA-EVIC-01",
-   "source": "generated",
-   "method": "model",
-   "needs_review": false,
-   "review_reasons": [],
-   "question_en": "Does the landlord need a reason to end the tenancy?",
-   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
-   "fields": {
-    "answer_en": "For unpaid rent, 14 days' written notice.",
-    "answer_es": "Por renta sin pagar, aviso escrito de 14 días.",
-    "why_en": "You can keep your home by paying all rent due, with interest and costs, by the answer day.",
-    "why_es": "Puede quedarse en su hogar si paga toda la renta adeudada, con intereses y costos, antes del día de respuesta.",
-    "headline_en": "14 days' notice for unpaid rent",
-    "headline_es": "Aviso de 14 días por renta sin pagar",
-    "short_en": "14 days' written notice",
-    "short_es": "Aviso escrito de 14 días",
-    "period_end": null,
-    "after_headline_en": null,
-    "after_headline_es": null,
-    "after_short_en": null,
-    "after_short_es": null,
-    "removes_protection": false
-   },
-   "headline": {
-    "en": "14 days' notice for unpaid rent",
-    "es": "Aviso de 14 días por renta sin pagar",
-    "short_en": "14 days' written notice",
-    "short_es": "Aviso escrito de 14 días",
-    "priority": 1
-   },
-   "plain": {
-    "en": [
-     "For unpaid rent, 14 days' written notice.",
-     "You can keep your home by paying all rent due, with interest and costs, by the answer day."
-    ],
-    "es": [
-     "Por renta sin pagar, aviso escrito de 14 días.",
-     "Puede quedarse en su hogar si paga toda la renta adeudada, con intereses y costos, antes del día de respuesta."
-    ]
-   },
-   "model": "claude-sonnet-5-5",
-   "prompt_hash": "2aa5c47d953bd9c000513226a956653993c651651b59de10f39e87673f57da42",
-   "prompt_version": "plain-v5",
-   "validation": {
-    "passed": true,
-    "attempts": [
-     {
-      "attempt": 1,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "b864a7e1f7e091e10a9d2ff8228c3084c24cd17f71367161c7eb6de034e17662",
-      "cached": true,
-      "errors": [
-       "headline_en has 9 words (max 8): \"14 days' notice to end lease for unpaid rent\""
-      ]
-     },
-     {
-      "attempt": 2,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "2aa5c47d953bd9c000513226a956653993c651651b59de10f39e87673f57da42",
-      "cached": true,
-      "errors": []
-     }
-    ],
-    "grade_why_en": 5.9
-   },
-   "input": {
-    "jurisdiction": "MA",
-    "level": "state",
-    "category": "just_cause_eviction",
-    "status": "in_force",
-    "title": "Notice to quit for nonpayment under a written lease",
-    "key_value": "14 days' written notice to quit for nonpayment",
-    "requirement": "For nonpayment of rent under a written lease, a landlord may end the lease with 14 days' written notice to quit. The tenant keeps the tenancy by paying all rent due with interest and costs by the answer day; delays by government in delivering payments require a hearing continuance of at least 7 days.",
-    "coverage_conditions": "Tenancies under a written lease where rent is unpaid.",
-    "exemptions": null,
-    "effective_date": null,
-    "quoted_span": "Upon the neglect or refusal to pay the rent due under a written lease, fourteen days' notice to quit, given in writing by the landlord to the tenant, shall be sufficient to determine the lease"
-   },
-   "fills": [
-    "plain"
-   ]
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
   },
   "MA-EVIC-02": {
    "rule_id": "MA-EVIC-02",
@@ -880,77 +561,8 @@
   },
   "MA-EVIC-04": {
    "rule_id": "MA-EVIC-04",
-   "source": "generated",
-   "method": "model",
-   "needs_review": false,
-   "review_reasons": [],
-   "question_en": "Does the landlord need a reason to end the tenancy?",
-   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
-   "fields": {
-    "answer_en": "Yes, you must get a state form.",
-    "answer_es": "Sí, debe darle un formulario estatal.",
-    "why_en": "Courts won't accept a nonpayment case without proof the form was delivered.",
-    "why_es": "Los tribunales no aceptan un caso por falta de pago sin prueba de que se entregó el formulario.",
-    "headline_en": "State form required with nonpayment notice",
-    "headline_es": "Formulario estatal con aviso por falta de pago",
-    "short_en": "State form required",
-    "short_es": "Formulario estatal requerido",
-    "period_end": null,
-    "after_headline_en": null,
-    "after_headline_es": null,
-    "after_short_en": null,
-    "after_short_es": null,
-    "removes_protection": false
-   },
-   "headline": {
-    "en": "State form required with nonpayment notice",
-    "es": "Formulario estatal con aviso por falta de pago",
-    "short_en": "State form required",
-    "short_es": "Formulario estatal requerido",
-    "priority": 2
-   },
-   "plain": {
-    "en": [
-     "Yes, you must get a state form.",
-     "Courts won't accept a nonpayment case without proof the form was delivered."
-    ],
-    "es": [
-     "Sí, debe darle un formulario estatal.",
-     "Los tribunales no aceptan un caso por falta de pago sin prueba de que se entregó el formulario."
-    ]
-   },
-   "model": "claude-sonnet-5-5",
-   "prompt_hash": "fa24970ac492fa85bf108195d6c4f0fdb263275c5b86e96dbac0219d6deede9d",
-   "prompt_version": "plain-v5",
-   "validation": {
-    "passed": true,
-    "attempts": [
-     {
-      "attempt": 1,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "fa24970ac492fa85bf108195d6c4f0fdb263275c5b86e96dbac0219d6deede9d",
-      "cached": true,
-      "errors": []
-     }
-    ],
-    "grade_why_en": 6.8
-   },
-   "input": {
-    "jurisdiction": "MA",
-    "level": "state",
-    "category": "just_cause_eviction",
-    "status": "in_force",
-    "title": "Notice to quit for nonpayment: required state form",
-    "key_value": "State form required with nonpayment notice to quit",
-    "requirement": "A written notice to quit for nonpayment of rent must come with the state form documenting repayment agreements and giving rental assistance and legal information, stating that the notice is not an eviction. Courts will not accept a nonpayment summary process filing without proof the form was delivered.",
-    "coverage_conditions": null,
-    "exemptions": null,
-    "effective_date": null,
-    "quoted_span": "No court having jurisdiction over an action for summary process pursuant to chapter 239, including the Boston municipal court department, shall, in an eviction for nonpayment of rent for a residential dwelling unit, accept for filing a writ, summons or complaint without proof of delivery of the form required under this section"
-   },
-   "fills": [
-    "plain"
-   ]
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
   },
   "MA-FEE-01": {
    "rule_id": "MA-FEE-01",
@@ -1038,76 +650,8 @@
   },
   "MA-RENT-P1": {
    "rule_id": "MA-RENT-P1",
-   "source": "generated",
-   "method": "model",
-   "needs_review": false,
-   "review_reasons": [],
-   "question_en": "How much can the rent go up?",
-   "question_es": "¿Cuánto puede subir la renta?",
-   "fields": {
-    "answer_en": "Not law: the 5% cap proposal failed.",
-    "answer_es": "No es ley: la propuesta de límite de 5% fracasó.",
-    "why_en": "The state court ruled in June 2026 it can't be on the November 2026 ballot.",
-    "why_es": "El tribunal estatal decidió en jun 2026 que no puede estar en la boleta de nov 2026.",
-    "headline_en": "Proposed 5% rent cap removed from ballot",
-    "headline_es": "Límite de alquiler de 5% sacado de la boleta",
-    "short_en": "Not law: cap proposal failed",
-    "short_es": "No es ley: propuesta fracasó",
-    "period_end": null,
-    "after_headline_en": null,
-    "after_headline_es": null,
-    "after_short_en": null,
-    "after_short_es": null,
-    "removes_protection": false
-   },
-   "headline": {
-    "en": "Proposed 5% rent cap removed from ballot",
-    "es": "Límite de alquiler de 5% sacado de la boleta",
-    "short_en": "Not law: cap proposal failed",
-    "short_es": "No es ley: propuesta fracasó"
-   },
-   "plain": {
-    "en": [
-     "Not law: the 5% cap proposal failed.",
-     "The state court ruled in June 2026 it can't be on the November 2026 ballot."
-    ],
-    "es": [
-     "No es ley: la propuesta de límite de 5% fracasó.",
-     "El tribunal estatal decidió en jun 2026 que no puede estar en la boleta de nov 2026."
-    ]
-   },
-   "model": "claude-sonnet-5-5",
-   "prompt_hash": "b9986421e3c141667d79bce39c3c93fc6c099e79ca437f2ba958feb88aed98d5",
-   "prompt_version": "plain-v5",
-   "validation": {
-    "passed": true,
-    "attempts": [
-     {
-      "attempt": 1,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "b9986421e3c141667d79bce39c3c93fc6c099e79ca437f2ba958feb88aed98d5",
-      "cached": true,
-      "errors": []
-     }
-    ],
-    "grade_why_en": 2.2
-   },
-   "input": {
-    "jurisdiction": "MA",
-    "level": "state",
-    "category": "rent_increase_limits",
-    "status": "failed",
-    "title": "Initiative Petition 25-21 - statewide rent increase cap (removed from ballot by SJC)",
-    "key_value": "Lesser of CPI or 5% (never took effect)",
-    "requirement": "The proposed ballot initiative would have repealed the ban on rent control and capped annual rent increases at the lesser of CPI or 5% for most units. The SJC ruled in June 2026 it cannot appear on the November 2026 ballot, so it is not law.",
-    "coverage_conditions": null,
-    "exemptions": "Owner-occupied buildings with four or fewer units, units less than 10 years old, certain publicly regulated units, short-term rentals, educational/religious/nonprofit facilities.",
-    "effective_date": null,
-    "quoted_span": "annual rent increases would have been limited to the lesser of the annual increase in the Consumer Price Index or 5%"
-   },
-   "fills": [
-    "plain"
-   ]
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
   },
   "MA-SCR-01": {
    "rule_id": "MA-SCR-01",
@@ -1343,7 +887,7 @@
       "attempt": 2,
       "model": "claude-sonnet-5-5",
       "prompt_hash": "9e2e7bceb1ce0f1b55a052639bad1efa855d56e03aa20ac10c566f652c94d319",
-      "cached": false,
+      "cached": true,
       "errors": []
      }
     ],
@@ -1373,95 +917,8 @@
   },
   "SF-EVIC-02": {
    "rule_id": "SF-EVIC-02",
-   "source": "generated",
-   "method": "model",
-   "needs_review": false,
-   "review_reasons": [],
-   "question_en": "Does the landlord need a reason to end the tenancy?",
-   "question_es": "¿Necesita el propietario una causa para terminar el contrato?",
-   "fields": {
-    "answer_en": "Yes, and they pay you $8,245 to move.",
-    "answer_es": "Sí, y deben pagarle $8,245 por mudarse.",
-    "why_en": "If you are evicted through no fault of yours, the most is $24,733 per unit.",
-    "why_es": "Si la desalojan sin que sea su culpa, el máximo es $24,733 por unidad.",
-    "headline_en": "Relocation pay for no-fault evictions",
-    "headline_es": "Pago por mudanza en desalojos sin culpa",
-    "short_en": "$8,245 per tenant",
-    "short_es": "$8,245 por inquilino",
-    "period_end": "2027-02-28",
-    "after_headline_en": "City-set moving pay for no-fault evictions",
-    "after_headline_es": "Pago por mudanza fijado por la ciudad en desalojos sin culpa",
-    "after_short_en": "Set by the city",
-    "after_short_es": "Fijado por la ciudad",
-    "removes_protection": false
-   },
-   "headline": {
-    "en": "Relocation pay for no-fault evictions",
-    "es": "Pago por mudanza en desalojos sin culpa",
-    "short_en": "$8,245 per tenant",
-    "short_es": "$8,245 por inquilino",
-    "priority": 2,
-    "until": "2027-02-28",
-    "after_en": "City-set moving pay for no-fault evictions",
-    "after_es": "Pago por mudanza fijado por la ciudad en desalojos sin culpa",
-    "short_until": "2027-02-28",
-    "short_after_en": "Set by the city",
-    "short_after_es": "Fijado por la ciudad"
-   },
-   "plain": {
-    "en": [
-     "Yes, and they pay you $8,245 to move.",
-     "If you are evicted through no fault of yours, the most is $24,733 per unit."
-    ],
-    "es": [
-     "Sí, y deben pagarle $8,245 por mudarse.",
-     "Si la desalojan sin que sea su culpa, el máximo es $24,733 por unidad."
-    ],
-    "until": "2027-02-28"
-   },
-   "model": "claude-sonnet-5-5",
-   "prompt_hash": "f7acb0918faa5f4945c5b502bb4980303ecbc134adce02a1a01618159faeaac6",
-   "prompt_version": "plain-v5",
-   "validation": {
-    "passed": true,
-    "attempts": [
-     {
-      "attempt": 1,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "d65e16d4e0e99319621e38442f8662302c5dcaf012470ac1cb30903d483ab186",
-      "cached": true,
-      "errors": [
-       "answer_en has 9 words (max 8): 'Yes, and they must pay you $8,245 to move.'",
-       "after_headline_en has 9 words (max 8): 'Relocation pay set by the city for no-fault evictions'",
-       "why_en does not say what it is about, so it can be read as another rule; work in a plain word for evictions (keep it short and simple): 'Max $24,733 per unit, plus $5,497 for elderly, disabled, or families with a minor child.'"
-      ]
-     },
-     {
-      "attempt": 2,
-      "model": "claude-sonnet-5-5",
-      "prompt_hash": "f7acb0918faa5f4945c5b502bb4980303ecbc134adce02a1a01618159faeaac6",
-      "cached": false,
-      "errors": []
-     }
-    ],
-    "grade_why_en": 3.4
-   },
-   "input": {
-    "jurisdiction": "San Francisco, CA",
-    "level": "city",
-    "category": "just_cause_eviction",
-    "status": "in_force",
-    "title": "SF relocation payments for no-fault evictions (owner move-in, demolition, capital improvement, rehabilitation)",
-    "key_value": "$8,245 per tenant; max $24,733 per unit; +$5,497 (notices 3/1/26–2/28/27)",
-    "requirement": "Landlords evicting for owner/relative move-in, demolition or permanent removal, temporary capital improvements, or substantial rehabilitation must pay relocation. For notices served 3/1/2026–2/28/2027: $8,245 per tenant, max $24,733 per unit, plus $5,497 per elderly/disabled tenant or household with a minor child.",
-    "coverage_conditions": null,
-    "exemptions": "Temporary capital improvement evictions under 20 days are governed by Cal. Civ. Code § 1947.9.",
-    "effective_date": "2026-03-01",
-    "quoted_span": "Relocation Payments for Evictions based on Owner/Relative Move-in OR Demolition/Permanent Removal of Unit from Housing Use OR Temporary Capital Improvement Work* OR Substantial Rehabilitation"
-   },
-   "fills": [
-    "plain"
-   ]
+   "source": "reviewed",
+   "reviewed_in": "web/headlines.py"
   },
   "SF-RENT-01": {
    "rule_id": "SF-RENT-01",
@@ -1532,7 +989,7 @@
       "attempt": 2,
       "model": "claude-sonnet-5-5",
       "prompt_hash": "185f5575b5470c388ec15d2e5aa79b64892a2f06d3b40216130f0bb145ac5cda",
-      "cached": false,
+      "cached": true,
       "errors": [
        "why_en reads at grade 10.1 (max 9); use shorter, everyday words: 'When landlords screen applicants for affordable housing in San Francisco, this history is protected.'"
       ]

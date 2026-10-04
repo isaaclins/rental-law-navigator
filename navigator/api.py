@@ -164,7 +164,16 @@ def _extension(slug: str) -> tuple[list[dict], list[dict], dict[str, E.Facts]]:
             f"{r.get('use_code')} {r.get('use_description')}".strip(),
             r,
         )
-    return doc["rules"], doc.get("no_rule_findings", []), facts
+    # the main jurisdictions' rules come from the current output/rules.json (review fixes, earlier-version evidence),
+    # so an extension address and a main address answer the same rule the same way
+    main = {r["team_rule_id"]: r for r in load_rules()}
+    rules = [
+        main[r["team_rule_id"]]
+        if r["team_rule_id"] in main and main[r["team_rule_id"]]["citation"] == r["citation"]
+        else r
+        for r in doc["rules"]
+    ]
+    return rules, doc.get("no_rule_findings", []), facts
 
 
 def extension_lookup(slug: str, address_id: str, as_of: str = DEFAULT_AS_OF) -> dict:

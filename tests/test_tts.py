@@ -68,7 +68,7 @@ def test_renter_briefing_en():
     assert "This unit has rent control: one increase a year" in t
     assert "We have no figure after June 30, 2026; the last was 3 percent." in t
     assert "You can only be evicted for a reason on the city's list." in t
-    assert "If it's not your fault, you're owed 11,000 to 27,400 dollars to move." in t
+    assert "If it's not your fault, most tenants are owed 11,000 to 27,400 dollars to move." in t
     assert (
         "If they ask for more than one month's rent as a deposit, or more than about 69 dollars to apply, that's over the limit."
         in t
@@ -142,7 +142,7 @@ def test_unknown_names_the_fact_that_settles_it():
     # more than two rules waiting for one fact: the topics are named instead
     nj = text("A0227", persona="owner")
     assert (
-        "Whether eviction protections, the deposit cap and the screening rules apply depends on whether you own as a person or through a company."
+        "Whether eviction protections, the deposit cap and the screening rules apply depends on whether you live in the building yourself."
         in nj
     )
 

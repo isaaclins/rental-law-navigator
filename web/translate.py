@@ -108,6 +108,304 @@ def es_dates(text: str | None) -> str | None:
     return re.sub(rf"\b({_MONTH_RE})\.? (\d{{1,2}})(?:, (\d{{4}}))?\b", words, text, flags=re.I)
 
 
+_BASIS_ES = {
+    "certificate of occupancy": "certificado de ocupación",
+    "year built": "año de construcción",
+    "construction completed": "construcción terminada",
+    "first certificate of occupancy": "primer certificado de ocupación",
+}
+_CI_ES = {
+    "on or before": "el {d} o antes",
+    "before": "antes del {d}",
+    "on or after": "el {d} o después",
+    "after": "después del {d}",
+}
+
+
+def _units_es(u: str) -> str | None:
+    if u == "unit count not given":
+        return "no se sabe cuántas unidades tiene"
+    m = re.fullmatch(r"(\d+) units?( \(you entered\))?", u)
+    if m:
+        n = int(m[1])
+        return f"{n} unidad{'' if n == 1 else 'es'}" + (", según usted" if m[2] else "")
+    return None
+
+
+def _phr_es(p: str) -> str | None:
+    m = re.fullmatch(r"(.+?) (on or before|on or after|before|after) (\d{4}-\d{2}-\d{2})", p)
+    if not m or m[1] not in _BASIS_ES:
+        return None
+    return f"{_BASIS_ES[m[1]]} {_CI_ES[m[2]].format(d=m[3])}"
+
+
+def _why_es(seg: str, tr) -> str | None:
+    """One coverage reason of navigator/evaluate.coverage() in Spanish, or None."""
+    U = r"(unit count not given|\d+ units?(?: \(you entered\))?)"
+    pats = [
+        (
+            rf"building has {U}, meets the (\d+)\+ unit threshold",
+            lambda m: f"el edificio tiene {_units_es(m[1])}: cumple el mínimo de {m[2]} unidades",
+        ),
+        (
+            rf"building has {U}, below the (\d+)-unit threshold",
+            lambda m: f"el edificio tiene {_units_es(m[1])}: menos del mínimo de {m[2]} unidades",
+        ),
+        (
+            r"coverage needs (\d+)\+ units",
+            lambda m: f"solo cubre edificios de {m[1]} unidades o más",
+        ),
+        (
+            rf"building has {U}, within the (\d+)-unit limit",
+            lambda m: f"el edificio tiene {_units_es(m[1])}: dentro del límite de {m[2]} unidades",
+        ),
+        (
+            rf"building has {U}, above the (\d+)-unit limit",
+            lambda m: f"el edificio tiene {_units_es(m[1])}: más del límite de {m[2]} unidades",
+        ),
+        (
+            r"coverage limited to buildings of at most (\d+) units",
+            lambda m: f"solo cubre edificios de {m[1]} unidades o menos",
+        ),
+        (
+            rf"owner-occupied exemption \(<= (\d+) units\) cannot apply: {U}",
+            lambda m: (
+                f"la exención cuando el dueño vive en el edificio ({m[1]} unidades o menos) no aplica: {_units_es(m[2])}"
+            ),
+        ),
+        (
+            r"not owner-occupied: the owner-occupied exemption \(<= (\d+) units\) does not apply",
+            lambda m: (
+                f"el dueño no vive en el edificio: no aplica la exención para edificios de {m[1]} unidades o menos donde vive el dueño"
+            ),
+        ),
+        (
+            rf"owner-occupied with {U}: exempt \(<= (\d+) units\)",
+            lambda m: (
+                f"el dueño vive en el edificio, que tiene {_units_es(m[1])}: exento ({m[2]} unidades o menos)"
+            ),
+        ),
+        (
+            r"exempt if owner-occupied with <= (\d+) units",
+            lambda m: f"exento si el dueño vive en el edificio y tiene {m[1]} unidades o menos",
+        ),
+        (
+            r"owner-occupied exemption \(<= (\d+) units\) not checkable",
+            lambda m: (
+                f"no se puede comprobar la exención cuando el dueño vive en el edificio ({m[1]} unidades o menos)"
+            ),
+        ),
+        (
+            r"sample rows are multifamily buildings",
+            lambda m: "los registros de muestra son edificios multifamiliares",
+        ),
+        (
+            rf"owner occupancy is not in the data \({U}\)",
+            lambda m: f"los datos no dicen si el dueño vive en el edificio ({_units_es(m[1])})",
+        ),
+        (
+            r"certificate date (\d{4}-\d{2}-\d{2}): meets the cutoff \((.+)\)",
+            lambda m: _ok(
+                _phr_es(m[2]), lambda p: f"certificado del {m[1]}: cumple la fecha límite ({p})"
+            ),
+        ),
+        (
+            r"certificate date (\d{4}-\d{2}-\d{2}): outside the cutoff \((.+)\)",
+            lambda m: _ok(
+                _phr_es(m[2]), lambda p: f"certificado del {m[1]}: fuera de la fecha límite ({p})"
+            ),
+        ),
+        (
+            r"coverage depends on (.+)",
+            lambda m: _ok(_phr_es(m[1]), lambda p: f"la cobertura depende de: {p}"),
+        ),
+        (
+            r"year built is not in the data",
+            lambda m: "el año de construcción no consta en los datos",
+        ),
+        (
+            r"built (\d{4}): meets the cutoff \((.+)\)",
+            lambda m: _ok(
+                _phr_es(m[2]), lambda p: f"construido en {m[1]}: cumple la fecha límite ({p})"
+            ),
+        ),
+        (
+            r"built (\d{4}): outside the cutoff \((.+)\)",
+            lambda m: _ok(
+                _phr_es(m[2]), lambda p: f"construido en {m[1]}: fuera de la fecha límite ({p})"
+            ),
+        ),
+        (
+            r"built (\d{4}), the cutoff year",
+            lambda m: f"construido en {m[1]}, el año de la fecha límite",
+        ),
+        (
+            r"the (.+?) date is not in the data \((.+)\)",
+            lambda m: _ok(_phr_es(m[2]), lambda p: f"la fecha exacta no consta en los datos ({p})"),
+        ),
+        (
+            r"certificate date (\d{4}-\d{2}-\d{2}): older than the (\d+)-year new-construction exemption",
+            lambda m: (
+                f"certificado del {m[1]}: más antiguo que la exención de {m[2]} años para construcciones nuevas"
+            ),
+        ),
+        (
+            r"(?:certificate date (\d{4}-\d{2}-\d{2})|built (\d{4})): may be exempt as new construction \(< (\d+) years\) if the owner filed for the exemption",
+            lambda m: (
+                f"{'certificado del ' + m[1] if m[1] else 'construido en ' + m[2]}: puede estar exento como construcción nueva (menos de {m[3]} años) si el dueño pidió la exención"
+            ),
+        ),
+        (r"filing not in the data", lambda m: "los datos no dicen si la pidió"),
+        (
+            r"certificate date (\d{4}-\d{2}-\d{2}): exempt as new construction \(within (\d+) years\)",
+            lambda m: (
+                f"certificado del {m[1]}: exento como construcción nueva (menos de {m[2]} años)"
+            ),
+        ),
+        (
+            r"exempt if newer than (\d+) years \((\d{4}-\d{2}-\d{2})\)",
+            lambda m: f"exento si tiene menos de {m[1]} años (después del {m[2]})",
+        ),
+        (
+            r"built (\d{4}): older than the (\d+)-year new-construction exemption",
+            lambda m: (
+                f"construido en {m[1]}: más antiguo que la exención de {m[2]} años para construcciones nuevas"
+            ),
+        ),
+        (
+            r"built (\d{4}): exempt as new construction \(certificate of occupancy within (\d+) years\)",
+            lambda m: (
+                f"construido en {m[1]}: exento como construcción nueva (certificado de ocupación de menos de {m[2]} años)"
+            ),
+        ),
+        (
+            r"built (\d{4}): the (\d+)-year new-construction exemption turns on the exact certificate date \((\d{4}-\d{2}-\d{2})\)",
+            lambda m: (
+                f"construido en {m[1]}: la exención de {m[2]} años para construcciones nuevas depende de la fecha exacta del certificado ({m[3]})"
+            ),
+        ),
+    ]
+    for rx, fn in pats:
+        m = re.fullmatch(rx, seg)
+        if m:
+            return fn(m)
+    return _units_es(seg) or tr(seg)
+
+
+def _ok(v, fn):
+    return fn(v) if v else None
+
+
+def _whys_es(why: str, tr) -> str | None:
+    out, facts = [], False
+    for seg in why.split("; "):
+        if seg.startswith("coverage depends on facts not in the data: "):
+            seg, facts = seg.split(": ", 1)[1], True
+            x = tr(seg)
+            out.append(x and "la cobertura depende de datos que no tenemos: " + x)
+        else:
+            out.append(tr(seg) if facts else _why_es(seg, tr))
+        if not out[-1]:
+            return None
+    return "; ".join(out)
+
+
+def es_explanation(text: str | None, tr) -> str | None:
+    """A rule-engine explanation (navigator/evaluate.py) in Spanish when it is not in the translation cache: the
+    Rules page, Check and any-address views build them live for the facts a person gives (#151 sweep).
+    `tr(s)` returns the cached Spanish for a fixed English string or None. Version, figure and review notes are
+    left out (the page shows them from the English parse); any part we don't know returns None (English stays)."""
+    if not text:
+        return None
+    s = re.sub(
+        r"(?: Earlier version in force on .*| The figure above covers the period ending .*| Note: .*)$",
+        "",
+        text,
+    )
+    pre = ""
+    if m := re.match(r"In effect since (\d{4}-\d{2}-\d{2})\. ", s):
+        s, pre = s[m.end() :], f"Vigente desde el {m[1]}. "
+    if m := re.match(
+        r"The stricter local rule is not in effect on (\d{4}-\d{2}-\d{2}), so this rule governs\. ",
+        s,
+    ):
+        s, pre = (
+            s[m.end() :],
+            pre
+            + f"La regla local más estricta no está vigente el {m[1]}, así que rige esta regla. ",
+        )
+    tail = ""
+    if m := re.search(
+        r" This state law restricts local [a-z ]+ ordinances; no local ordinance of this kind applies at this address\.$",
+        s,
+    ):
+        s, tail = (
+            s[: m.start()],
+            " Esta ley estatal limita las ordenanzas locales de este tipo; aquí no aplica ninguna ordenanza local de ese tipo.",
+        )
+    s = re.sub(r" Rule: .*$", "", s) if re.match(r".+? applies in ", s) else s
+
+    def where_es(w):
+        m = re.fullmatch(r"(.+?)(?: \(([A-Z]{2}) statewide rule\))?", w)
+        return m[1] + (f" (regla estatal de {m[2]})" if m[2] else "")
+
+    def body():
+        if m := re.fullmatch(r"(.+?) applies in ([^:.]+?)(?:: (.+))?\.", s):
+            w = _whys_es(m[3], tr) if m[3] else ""
+            return (
+                w is not None
+                and f"{m[1]} se aplica en {where_es(m[2])}" + (f": {w}" if w else "") + "."
+            )
+        if m := re.fullmatch(r"(.+?) may apply in ([^:.]+?): (.+)\.", s):
+            w = _whys_es(m[3], tr)
+            return w and f"{m[1]} podría aplicarse en {where_es(m[2])}: {w}."
+        if m := re.fullmatch(
+            r"(.+?) is a pending bill, not law, as of (\S+)\. If enacted it would cover this address in ([^:]+?)\.",
+            s,
+        ):
+            return f"{m[1]} es un proyecto de ley pendiente, no es ley al {m[2]}. Si se aprueba, cubriría esta dirección en {where_es(m[3])}."
+        if m := re.fullmatch(
+            r"(.+?) is enacted but takes effect (\S+), after (\S+); it will cover this address in ([^:]+?)\.(?: Coverage then depends on facts not in the data: (.+))?",
+            s,
+        ):
+            w = _whys_es(m[5].rstrip("."), tr) if m[5] else ""
+            return w is not None and (
+                f"{m[1]} ya se aprobó, pero entra en vigor el {m[2]}, después del {m[3]}; entonces cubrirá esta dirección en {where_es(m[4])}."
+                + (f" La cobertura dependerá de datos que no tenemos: {w}." if w else "")
+            )
+        if m := re.fullmatch(
+            r"(.+?) would cover this address, but local (.+) governs here; the state rule yields to it\.",
+            s,
+        ):
+            return f"{m[1]} cubriría esta dirección, pero aquí rige la regla local {m[2]}; la regla estatal cede ante ella."
+        if m := re.fullmatch(
+            r"(.+?) would cover this address, but one of the complementary local ordinances (.+) governs every building \(which one depends on the construction date\); the state rule yields\.",
+            s,
+        ):
+            return f"{m[1]} cubriría esta dirección, pero en cada edificio rige una de las ordenanzas locales complementarias {m[2]} (cuál depende de la fecha de construcción); la regla estatal cede."
+        if m := re.fullmatch(
+            r"(.+?) covers this address unless local (.+) applies \(then the state rule yields\); local coverage is unknown from the data\.",
+            s,
+        ):
+            return f"{m[1]} cubre esta dirección, salvo que aplique la regla local {m[2]} (entonces cede la regla estatal); los datos no dicen si la regla local la cubre."
+        if m := re.fullmatch(
+            r"(.+?) may apply in ([^:]+?), but the version in our sources took effect (\S+); on (\S+) an earlier version applied(, which our sources mention but our data does not hold| that our sources don't include)\.",
+            s,
+        ):
+            return (
+                f"{m[1]} podría aplicarse en {where_es(m[2])}, pero la versión de nuestras fuentes entró en vigor el {m[3]}; el {m[4]} regía una versión anterior"
+                + (
+                    ", que nuestras fuentes mencionan pero nuestros datos no contienen."
+                    if m[5].startswith(",")
+                    else " que nuestras fuentes no incluyen."
+                )
+            )
+        return None
+
+    b = body()
+    return es_dates(pre + b + tail) if b else None
+
+
 def load(name: str):
     for d in (ROOT / "output", ROOT / "web" / "fixtures"):
         p = d / name
@@ -124,9 +422,17 @@ def collect() -> list[str]:
             texts.append(f["finding"])
     rules = rules["rules"] if isinstance(rules, dict) else rules
     for r in rules:
-        for f in ("title", "requirement", "key_value", "conflict_note", "interaction"):
+        for f in (
+            "title",
+            "requirement",
+            "key_value",
+            "conflict_note",
+            "interaction",
+            "prior_version_note",
+        ):
             if isinstance(r.get(f), str) and r[f].strip():
                 texts.append(r[f])
+        texts += [x for x in ((r.get("coverage") or {}).get("requires_unknown_facts") or []) if x]
     for f in TEST_FILES:  # change-test titles and expected behaviour (#74)
         if (ROOT / f).exists():
             for t in json.loads((ROOT / f).read_text()):

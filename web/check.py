@@ -23,6 +23,7 @@ from typing import Literal
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from web import headlines as H
 from web.any_address import FactsIn, PlaceIn, RateLimit, _limit
 
 router = APIRouter()
@@ -166,6 +167,7 @@ def parse_fee_cap(key_value: str | None, effective: str | None) -> dict | None:
     """Application-fee cap.
     '$30 base ..., CPI-adjusted annually since 1998 ($68.96 for 2026 ...)' -> {'figures': {2026: 68.96}}
     '$50 per application, CPI-adjusted annually' (effective 2026-05-01) -> $50 for the 12 months from that date
+    '$50 per application (CPI-adjusted yearly from 2027)' (effective 2026-05-01) -> $50 until Dec 31, 2026
     'First, last, security deposit, lock/key only' -> {'amount': 0} (a fee is not among the allowed charges)."""
     if not key_value:
         return None
@@ -183,7 +185,13 @@ def parse_fee_cap(key_value: str | None, effective: str | None) -> dict | None:
             start = dt.date.fromisoformat(effective) if effective and len(effective) == 10 else None
             if not start:
                 return None
-            end = start.replace(year=start.year + 1) - dt.timedelta(days=1)
+            if m := re.search(r"CPI[- ]adjusted[^;)]*?\bfrom (\d{4})", kv):
+                # the flat figure holds until the first CPI adjustment ("... yearly from 2027"; D066 § 1d)
+                end = dt.date(int(m.group(1)), 1, 1) - dt.timedelta(days=1)
+            else:
+                end = _add_months(start, 12) - dt.timedelta(
+                    days=1
+                )  # Feb 29 + 1 year clamps to Feb 28
             return {"window": (amt, start, end)}
         return {"amount": amt}
     if re.search(r"\bonly\b", kv) and not re.search(r"fee|application", kv, re.I):
@@ -250,6 +258,10 @@ NOTICE_RULES = [
         "key_value": "30 days' written notice for increases under 10%",
         "citation": "California state law, as stated by the Los Angeles Housing Department",
         "citation_es": "Ley estatal de California, según el Departamento de Vivienda de Los Ángeles",
+        "stated_by": {
+            "en": "the Los Angeles Housing Department",
+            "es": "el Departamento de Vivienda de Los Ángeles",
+        },
         "source_url": "https://housing.lacity.gov/rso-rent-increase-calculator",
         "source_doc_id": "D042",
         "quoted_span": "State law requires landlords to provide 30 days' written advance notice of rent increases of less than 10%.",
@@ -362,9 +374,25 @@ def _src(r: dict, lang: str) -> dict:
         "level": r.get("level"),
         "url": r.get("source_url"),
         "quote": r.get("quoted_span"),
+        # the sentence a letter or notice quotes for its figure (navigator/review_fixes.py letter_quote)
+        **_letter_quote(r),
+        # who states a rule our corpus has only second-hand (CA notice period: the LA Housing Department)
+        "stated_by": (r.get("stated_by") or {}).get("es" if es else "en"),
+        "below_pct": r.get("below_pct"),
         "retrieved": s.get("retrieved_at") or r.get("retrieved_at"),
         "doc": v.get("span_doc_id") if s.get("has_text") else None,
         "check": (v.get("quote_check") or {}).get("status"),
+    }
+
+
+def _letter_quote(r: dict) -> dict:
+    lq = r.get("letter_quote") or {}
+    if not lq.get("quoted_span"):
+        return {}
+    meta = _web().STORE.doc_meta(lq.get("doc_id"))
+    return {
+        "letter_quote": lq["quoted_span"],
+        "letter_quote_url": meta.get("url") or r.get("source_url"),
     }
 
 
@@ -575,7 +603,14 @@ def check_deposit(ctx: dict, deposit: float, rent: float | None, lang: str) -> d
     v |= {"rent": round(rent, 2), "months": cap["months"], "max": top}
     if deposit <= top + 0.005:
         return {"id": "deposit", "kind": "ok", "code": "within", "values": v, "rules": src}
-    if cap.get("alt_months"):
+    f = ctx["f"]
+    # the one small-landlord test (web/headlines.small_landlord_possible): the building's unit count, or its floor
+    # from the use code ("5 or more units"), above 4 rules the 2-month exception out
+    exact = f.units_lo if f.units_lo is not None and f.units_lo == f.units_hi else None
+    small = H.small_landlord_possible(e["team_rule_id"], exact, f.units_lo)
+    if cap.get("alt_months") and small is False:
+        v |= {"small_excluded": True, "units": exact, "units_min": None if exact else f.units_lo}
+    elif cap.get("alt_months"):
         alt = round(rent * cap["alt_months"], 2)
         v |= {"alt_months": cap["alt_months"], "alt_max": alt}
         if deposit <= alt + 0.005:

@@ -83,6 +83,42 @@ def test_resolve_out_of_scope_lists_cities(monkeypatch):
     assert "Cambridge, MA" in d["covered"]["MA"] and "Santa Monica, CA" in d["covered"]["CA"]
 
 
+def test_resolve_out_of_scope_names_the_state(monkeypatch):
+    mock(monkeypatch, census_match("TX", "Austin", "Travis County", "48"))
+    d = client.post("/api/resolve", json={"address": "100 Congress Ave, Austin, TX"}).json()
+    assert d["state_name"] == "Texas"
+    assert (
+        d["message"]
+        == "Texas isn't covered yet. We cover California, New Jersey and Massachusetts."
+    )
+
+
+@pytest.mark.parametrize(
+    "address,code,name",
+    [
+        ("123 Main St, Springfield, IL", "IL", "Illinois"),
+        ("123 Main St Springfield IL 62701", "IL", "Illinois"),
+        ("5 Elm St, Charleston, West Virginia", "WV", "West Virginia"),
+    ],
+)
+def test_resolve_no_match_in_an_uncovered_state_says_so(monkeypatch, address, code, name):
+    mock(monkeypatch, None)
+    d = client.post("/api/resolve", json={"address": address}).json()
+    assert d["match"] is False and d["out_of_area"] is True
+    assert d["state"] == code and d["state_name"] == name
+    assert (
+        d["message"]
+        == f"{name} isn't covered yet. We cover California, New Jersey and Massachusetts."
+    )
+    assert d["covered"]
+
+
+def test_resolve_no_match_in_a_covered_state_is_not_found(monkeypatch):
+    mock(monkeypatch, None)
+    d = client.post("/api/resolve", json={"address": "99999 Nowhere Rd, Boston, MA"}).json()
+    assert d["match"] is False and "out_of_area" not in d and "could not find" in d["message"]
+
+
 def test_resolve_no_match_and_upstream_down(monkeypatch):
     mock(monkeypatch, None)
     d = client.post("/api/resolve", json={"address": "nowhere street 99"}).json()

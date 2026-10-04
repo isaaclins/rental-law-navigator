@@ -145,7 +145,8 @@ const TG = {
   asof: () => firstShown($$('[data-tour="asof"]'), $$("#asof-ctl")),
   dateRow: () => { const tp = topicEl(DATE_CAT); return tp && firstShown([$(":scope > summary", tp)]); },
   check: () => firstShown($$('#main .prop-cta a[href^="#/check/"]'), $$('#main a.btn[href^="#/check/"]')),
-  ask: () => firstShown($$("#main .ask-bar--hero")),
+  // the Ask page's own field; after a question it is the bar docked above the tab bar; else the Ask tab
+  ask: () => firstShown($$("#main .ask-bar--hero"), $$(".ask-dock.on > .ask-bar"), $$('.tabs a[data-route="ask"]')),
   props: () => firstShown($$('.tabs a[data-route="properties"]'), $$('[data-tour="properties"]'), $$("#main .mp-root h1")),
 };
 
@@ -188,12 +189,16 @@ const STEPS = [
     async enter() { await setAsOf(S.asOf, { quiet: true }); await onAddr(); foldTopics(); },
   }] },
   { beats: [{
-    ms: 6500, text: "s_ask", target: TG.ask,
+    ms: 6500, text: "s_ask", target: TG.ask, dock: true,
     async enter() { await setAsOf(S.asOf, { quiet: true }); await goHash("#/ask", "ask"); },
   }] },
   { beats: [
     { ms: 7000, text: "s_props", target: TG.props, async enter() { await setAsOf(S.asOf, { quiet: true }); await goHash("#/properties", "properties"); } },
-    { ms: 0, text: "s_done", target: null, done: true, async enter() { await setAsOf(S.asOf, { quiet: true }); } },
+    { ms: 0, text: "s_done", target: TG.search, side: "bottom", done: true, async enter() { // back home, at the search field
+      await setAsOf(S.asOf, { quiet: true }); await goHash("#/", "lookup");
+      const inp = await waitFor(TG.searchInput, 3000);
+      if (inp && inp.value) { inp.value = ""; inp.dispatchEvent(new Event("input", { bubbles: true })); }
+    } },
   ] },
 ];
 const FLAT = STEPS.flatMap((s, si) => s.beats.map((b, bi) => ({ ...b, step: si, first: bi === 0 })));
@@ -295,6 +300,7 @@ async function show(i) {
   S.target = null; S.getTarget = null; S.plan = null; S.fixed = false;
   S.root.dataset.beat = i; delete S.root.dataset.ready;
   S.root.classList.add("busy");
+  document.documentElement.classList.toggle("tour-dock", !!b.dock); // the Ask step may spotlight the docked Ask bar
   paintCard();
   try { await b.enter?.(tok); } catch (e) { console.warn("tour", e); }
   if (!live(tok)) return;
@@ -404,13 +410,9 @@ async function scrollToTarget(tok) {
 // where the ring and card should be this frame (viewport coordinates), or null when nothing is spotlit
 function layout(target, fixed) {
   const W = innerWidth, H = innerHeight, sa = safeArea(), { w: cw, h: ch } = cardSize();
-  const b = FLAT[S.i];
   let r = target ? rectOf(target) : null;
   if (r && S.plan != null && !fixed) { const dy = scrollY - S.plan; r = { ...r, top: r.top + dy, bottom: r.bottom + dy }; }
-  if (b.done || !r) { // no target: the card sits in the middle (done) or at the bottom
-    const y = b.done ? (H - ch) / 2 : sa.bottom - ch;
-    return { ring: null, card: { x: (W - cw) / 2, y } };
-  }
+  if (!r) return { ring: null, card: { x: (W - cw) / 2, y: (H - ch) / 2 } }; // nothing to show: a centered caption, no ring
   const phone = isPhone();
   // ring = target + PAD, kept inside the safe area
   let top = r.top - PAD, bot = r.bottom + PAD;
@@ -431,7 +433,7 @@ function layout(target, fixed) {
     else top = Math.min(bot - 24, sa.top + ch + GAP);
   }
   S.sticky = side;
-  if (bot - top < 16) return { ring: null, card: { x: (W - cw) / 2, y: sa.bottom - ch } };
+  if (bot - top < 16) return { ring: null, card: { x: (W - cw) / 2, y: (H - ch) / 2 } };
   let cy = side === "above" ? top - GAP - ch : side === "below" ? bot + GAP : sa.bottom - ch;
   cy = Math.max(sa.top, Math.min(sa.bottom - ch, cy));
   const cx = phone || side === "bottom" ? (W - cw) / 2 : Math.max(EDGE, Math.min(left, W - cw - EDGE));
@@ -455,13 +457,14 @@ function springTo(st, goal, dt) {
 function loop(now) {
   if (!S) return;
   S.raf = requestAnimationFrame(loop);
-  const dt = Math.min(0.05, Math.max(0, (now - (S.last || now)) / 1000)); S.last = now;
+  const dt = Math.min(0.1, Math.max(0, (now - (S.last || now)) / 1000)); S.last = now; // slow phones: the spring keeps real time
   const root = S.root, ring = $(".tour-ring", root), card = $(".tour-card", root);
   const busy = root.classList.contains("busy") && !S.target;
   if (busy && S.hold && !els(S.hold).every(shown)) S.hold = null; // the previous target left the screen
   if (!busy && S.getTarget && !els(S.target).every((e) => e.isConnected)) { const n = S.getTarget(); if (n && els(n).length) S.target = n; } // re-rendered view
   const L = busy ? layout(S.hold, S.holdFixed) : layout(S.target, S.fixed);
   if (busy && S.card.on) L.card = { ...S.card.p }; // the card holds still while the UI is driven
+  else if (busy) { const sa = safeArea(), { w, h } = cardSize(); L.card = { x: (innerWidth - w) / 2, y: sa.bottom - h }; } // first card: at the bottom
   if (busy && L.ring && S.ring.on) L.ring = { ...S.ring.p }; // so does the ring, while its target is still on screen
   root.classList.toggle("dim", !L.ring);
   // ring
@@ -526,7 +529,7 @@ async function teardown() {
   document.removeEventListener("keydown", onKey, true);
   document.removeEventListener("pointerdown", onPointer, true);
   document.removeEventListener("ce:lang", paintCard);
-  document.documentElement.classList.remove("tour-on");
+  document.documentElement.classList.remove("tour-on", "tour-dock");
   const root = s.root;
   if (RM.matches) root.remove();
   else { root.classList.remove("open"); root.classList.add("closing"); setTimeout(() => root.remove(), 220); }

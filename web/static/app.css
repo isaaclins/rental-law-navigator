@@ -4,10 +4,13 @@
    cards on their own stage colour, floating cards over the map. The information architecture stays: every answer
    once, details one tap away, status only where it matters. */
 
-@font-face { font-family: "Inter"; src: url("/static/fonts/InterVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/static/fonts/InterVariable-latin.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
 @font-face { font-family: "Instrument Serif"; src: url("/static/fonts/InstrumentSerif-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Instrument Serif"; src: url("/static/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: "Serif Fallback"; src: local("Times New Roman"), local("Times"); size-adjust: 96%; }
+/* metric-matched stand-ins while Instrument Serif loads (measured against Times New Roman / Liberation Serif with
+   fontTools: average advance, ascender, descender), so headlines keep their line breaks when it swaps in */
+@font-face { font-family: "Serif Fallback"; src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times"); size-adjust: 84.29%; ascent-override: 117.45%; descent-override: 36.78%; line-gap-override: 0%; }
+@font-face { font-family: "Serif Fallback"; font-style: italic; src: local("Times New Roman Italic"), local("TimesNewRomanPS-ItalicMT"), local("Liberation Serif Italic"), local("Times Italic"); size-adjust: 88.59%; ascent-override: 111.75%; descent-override: 34.99%; line-gap-override: 0%; }
 /* metric-matched stand-in while Inter loads, so text does not reflow when it swaps in */
 @font-face { font-family: "Inter Fallback"; src: local("Arial"), local("Helvetica"), local("Liberation Sans"); ascent-override: 90.49%; descent-override: 22.56%; line-gap-override: 0%; size-adjust: 107.06%; }
 
@@ -85,7 +88,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-to
 .strip .ico { width: 14px; height: 14px; }
 .strip-s { display: none; }
 .strip-i { display: none; border: 0; background: none; padding: 6px; margin: -6px; color: var(--label-2); cursor: pointer; }
-@media (max-width: 640px) { .strip-l, .strip-more { display: none; } .strip-s { display: inline; white-space: nowrap; } .strip-i { display: inline-grid; } .strip { font-size: 12px; min-height: 30px; flex-wrap: nowrap; } }
+@media (max-width: 640px), (pointer: coarse) and (max-height: 500px) { .strip-l, .strip-more { display: none; } .strip-s { display: inline; white-space: nowrap; } .strip-i { display: inline-grid; } .strip { font-size: 12px; min-height: 30px; flex-wrap: nowrap; } }
 html.locked { overflow: hidden; }
 body {
   margin: 0; background: var(--canvas); color: var(--label);
@@ -102,7 +105,7 @@ a { color: var(--link); text-decoration: none; }
 .linkish:hover, .tour-entry:hover, .cmp-link:hover, .ck-more > summary:hover, .addr-actions > a:hover { text-decoration-color: currentColor; }
 ::selection { background: rgb(0 38 100 / .14); }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
-button { font: inherit; color: inherit; letter-spacing: inherit; }
+button { font: inherit; color: inherit; letter-spacing: inherit; word-spacing: inherit; }
 input, select, textarea { font: inherit; letter-spacing: inherit; color: var(--label); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; } /* #131 */
 main:focus, main:focus-visible { outline: none; }
@@ -140,7 +143,8 @@ html.scrolled .nav::after { opacity: 1; }
 /* main nav: one white pill holding the links; a black pill slides to the active one */
 .tabs { position: relative; display: flex; gap: 2px; align-items: center; min-width: 0; padding: 4px; margin: 0 auto; background: var(--cool); border-radius: 999px; }
 .tabs a { position: relative; z-index: 1; color: var(--label-2); font-size: var(--fs-s); font-weight: 550; white-space: nowrap; padding: 9px 16px; border-radius: 999px; transition: color .25s var(--ease-std), background-color .2s; }
-.tabs a:hover { color: var(--label); text-decoration: none; background: var(--fill); }
+.tabs a, .tabs a:hover, .tabs a:focus { text-decoration: none; } /* a tapped tab never keeps the link underline (sticky touch hover) */
+@media (hover: hover) { .tabs a:hover { color: var(--label); text-decoration: none; background: var(--fill); } } /* touch: a tapped tab never keeps a dark hover after Back */
 .tabs a[aria-current="page"], .tabs a[aria-current="page"]:hover { color: #fff; background: transparent; }
 .tab-ind { position: absolute; z-index: 0; left: 0; top: 4px; height: calc(100% - 8px); width: 0; border-radius: 999px; background: var(--ink-btn); pointer-events: none; opacity: 0; transform: translateX(var(--x, 0)); width: var(--w, 0); transition: transform .45s var(--spring), width .45s var(--spring), opacity .2s; }
 .tab-ind.on { opacity: 1; }
@@ -205,7 +209,7 @@ html.hf-2 .seg button { background: var(--cool); }
 .btn:hover, .pill:hover { text-decoration: none; background: #fbfbf9; }
 .btn:active, .pill:active { transform: translateY(3px); box-shadow: inset 0 0 0 1px var(--sep), 0 0 0 var(--edge); }
 .btn.primary, .pill.primary { --edge: var(--ink-btn-edge); background: var(--ink-btn); color: #fff; box-shadow: inset 0 1px 0 rgb(255 255 255 / .12), 0 3px 0 var(--edge), 0 8px 20px rgb(0 38 100 / .22); }
-.btn.primary:hover, .pill.primary:hover { background: #0a3a8c; }
+@media (hover: hover) { .btn.primary:hover, .pill.primary:hover { background: #0a3a8c; } } /* no sticky hover colour after a tap */
 .btn.primary:active, .pill.primary:active { box-shadow: inset 0 1px 0 rgb(255 255 255 / .1), 0 0 0 var(--edge), 0 2px 6px rgb(14 16 20 / .16); }
 .btn .arrow-i, .pill .arrow-i { transition: transform .3s var(--spring); }
 .btn:hover .arrow-i, .pill:hover .arrow-i { transform: translateX(3px); }
@@ -329,7 +333,7 @@ html.is-home:not(.scrolled) .nav::after { opacity: 0; }
 .slide img.cutout, .gal img.cutout { object-position: 50% 72%; mix-blend-mode: multiply; }
 .slides::after { content: ""; position: absolute; inset: 0 0 auto; height: 90px; z-index: 1; background: linear-gradient(180deg, rgb(255 255 255 / .28), transparent); pointer-events: none; }
 .gal.street > img { object-position: 50% 62%; }
-.slide-cap { position: absolute; left: 20px; bottom: 20px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 16px; border-radius: 999px; background: rgb(255 255 255 / .94); box-shadow: 0 6px 18px rgb(0 12 31 / .12); font-size: 14px; color: var(--label-2); transition: transform .3s var(--spring); }
+.slide-cap { position: absolute; left: 20px; bottom: 20px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 16px; border-radius: 999px; background: var(--bg); /* opaque: nothing shows through (tour, scan run-3) */ box-shadow: 0 6px 18px rgb(0 12 31 / .12); font-size: 14px; color: var(--label-2); transition: transform .3s var(--spring); }
 .slide-cap b { color: var(--label); font-weight: 600; }
 .slide-cap .ico { width: 16px; height: 16px; color: var(--label); transition: transform .3s var(--spring); }
 .slide:hover { text-decoration: none; }
@@ -390,7 +394,7 @@ html.is-home:not(.scrolled) .nav::after { opacity: 0; }
 .map-stage::before { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 60% at 50% 45%, rgb(255 255 255 / .5), transparent 70%); pointer-events: none; }
 .map-h { position: absolute; z-index: 6; left: 24px; top: 24px; display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px 0 14px; border-radius: 999px; background: var(--bg); box-shadow: var(--shadow-card); font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
 .map-h .dot { width: 8px; height: 8px; background: #b9c3d9; box-shadow: 0 0 0 3px #e3e8f3; }
-.map { position: relative; width: 100%; height: clamp(420px, 46vw, 600px); }
+.map { position: relative; width: 100%; height: clamp(500px, 46vw, 600px); } /* 500: the floating city card (about 455 px) fits inside the stage at tablet widths */
 .map > img.map-us { position: absolute; left: 13%; top: 50%; width: 74%; height: auto; transform: translateY(-50%); user-select: none; -webkit-user-drag: none; }
 .mk-anchor { position: absolute; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: var(--label); box-shadow: 0 0 0 2.5px rgb(255 255 255 / .9); pointer-events: none; transition: transform .3s var(--spring); }
 .mk-anchor.on { transform: scale(1.6); }
@@ -518,7 +522,7 @@ article.addr { display: block; }
 .kv dt { color: var(--label-2); }
 .kv dd { overflow-wrap: anywhere; }
 .answers { min-width: 0; }
-.answers-head { display: flex; align-items: baseline; justify-content: space-between; gap: 4px 16px; flex-wrap: wrap; margin: 8px 4px 16px; }
+.answers-head { display: flex; align-items: baseline; justify-content: space-between; gap: 4px 16px; flex-wrap: wrap; margin: 8px 0 16px; }
 .answers-head .addr-actions { margin: 0 0 0 auto; order: 2; }
 .answers-head .note { order: 3; flex-basis: 100%; }
 .answers-head h2 { font: 400 var(--fs-h2)/1.08 var(--display); letter-spacing: -.015em; }
@@ -585,6 +589,9 @@ article.addr { display: block; }
 .l3 { margin-top: 4px; }
 .l3-ok { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 14px; font-weight: 550; color: var(--applies); }
 .l3-ok .ico { width: 16px; height: 16px; stroke-width: 2.6; }
+.src-note { display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; padding: 10px 12px; border: 1px solid var(--unk-ln); border-radius: 12px; background: var(--unk-tint); color: var(--unknown); font-size: 14px; line-height: 1.45; }
+.src-note .ico { flex: none; width: 16px; height: 16px; margin-top: 2px; }
+.src-note b { font-weight: 650; }
 .l3-tr { font-size: 13px; color: var(--label-2); margin-bottom: 8px; }
 .flag { margin-top: 12px; border-radius: 14px; background: var(--unk-tint); color: var(--label); font-size: 15px; }
 .flag > summary { display: flex; align-items: center; gap: 8px; padding: 10px 14px; min-height: 44px; }
@@ -622,6 +629,27 @@ article.addr { display: block; }
 .topic-actions > a:hover, .topic-actions > button:hover { text-decoration: none; box-shadow: inset 0 0 0 1px var(--label); }
 .topic-actions > a:active, .topic-actions > button:active { transform: scale(.96); }
 .topic-actions .ce-explain span, .topic-actions .ce-explain:hover span { text-decoration: none; }
+/* tablet and desktop: one filled action (Check ...) first, Listen and Share as quiet words in one style
+   (phones have their own in mobile.css) */
+@media (min-width: 641px) and (min-height: 501px), (min-width: 641px) and (pointer: fine) {
+  html .topic-actions { align-items: center; gap: 8px 24px; }
+  html .topic-actions > a, html .topic-actions > button { padding: 0; border: 0; background: none; box-shadow: none; color: var(--label-2); font-weight: 500; }
+  html .topic-actions > a:hover, html .topic-actions > button:hover { box-shadow: none; color: var(--label); }
+  html .topic-actions > button:hover span { text-decoration: underline; text-underline-offset: 3px; }
+  html .topic-actions > .ce-share-b .ico { display: none; }
+  html .topic-actions > .ce-share-b[aria-expanded="true"] { background: none; box-shadow: none; color: var(--accent); }
+  html .topic-actions > .ck-entry { order: -1; min-height: 40px; padding: 0 20px; border-radius: 999px; background: var(--ink-btn); color: #fff; font-weight: 600; white-space: nowrap; box-shadow: 0 2px 0 var(--ink-btn-edge); }
+  html .topic-actions > .ck-entry:hover { background: var(--accent-hover); color: #fff; box-shadow: 0 2px 0 var(--ink-btn-edge); }
+  html .topic-actions > .ck-entry:active { transform: translateY(2px); box-shadow: none; }
+}
+@media (min-width: 641px) and (min-height: 501px) and (pointer: coarse) { html .topic-actions > a, html .topic-actions > button, html .topic-actions > .ck-entry { min-height: 44px; } }
+/* tablets: place chips, compare's Change, check's back pill and the chart's list toggle are full 44 px targets */
+@media (min-width: 641px) and (min-height: 501px) and (pointer: coarse) {
+  html .chip-f { height: 44px; }
+  html .ck-back, html .pt-data summary { min-height: 44px; }
+  html .cmp-link { min-height: 44px; } /* a real 44 px box (a padded hit area would overlap the street link above) */
+  html .cmp-street a { display: inline-flex; align-items: center; min-height: 44px; }
+}
 
 .rd { max-width: 680px; }
 .rd + .rd { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--sep-2); }
@@ -659,6 +687,7 @@ article.addr { display: block; }
 .notfound h1 { font: 400 var(--fs-l)/1 var(--display); letter-spacing: -.03em; }
 .notfound p { color: var(--label-2); margin: 12px 0 24px; }
 .notfound .group { margin-top: 32px; text-align: left; }
+.notfound .nf-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 
 /* lookup steps: what the server did for this address, revealed in order (a padded white card in the hero) */
 .steps-card { margin-top: 24px; padding: 8px 20px; border-radius: 22px; background: var(--bg); box-shadow: var(--shadow-card); }
@@ -710,7 +739,7 @@ article.addr { display: block; }
 .ev-t { font-weight: 550; }
 .ev-s { font-size: var(--fs-s); color: var(--label-2); }
 .ev:not(.past) .ev-t { color: var(--label); }
-.chips-f { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.chips-f { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 40px; }
 .chip-f { height: 38px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--cool); color: var(--label); font-size: 14px; font-weight: 550; cursor: pointer; transition: background-color .2s, color .2s, transform .2s var(--spring); }
 .chip-f:hover { background: var(--cool-2); }
 .chip-f:active { transform: scale(.95); }
@@ -819,6 +848,7 @@ article.addr { display: block; }
 .facts3 > div { display: flex; flex-direction: column; gap: 8px; padding-top: 22px; border-top: 1px solid var(--sep); }
 .facts3 dd { font: 400 clamp(2.6rem, 2rem + 1.8vw, 3.75rem)/1 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .facts3 dd.f3-date { font-size: clamp(2rem, 1.6rem + 1.2vw, 2.75rem); }
+@media (min-width: 901px) { .facts3 dd.f3-date { display: flex; align-items: flex-end; height: clamp(2.6rem, 2rem + 1.8vw, 3.75rem); } } /* desktop: the smaller date sits on the numbers' line, so the three labels align */
 .facts3 dt { font-size: 15px; color: var(--label-2); max-width: 18em; }
 /* how it works: three steps */
 .how3 ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: h; }
@@ -874,7 +904,8 @@ article.addr { display: block; }
 /* ------------------------------------------------------------- footer */
 .footer { margin-top: 96px; }
 .footer-inner { max-width: calc(var(--page) + 2 * var(--inset)); margin: 0 auto; padding: 28px max(var(--inset), env(safe-area-inset-right)) calc(36px + var(--tabbar-h) + var(--dock-h) + env(safe-area-inset-bottom)) max(var(--inset), env(safe-area-inset-left)); font-size: 13px; color: var(--label-2); border-top: 1px solid var(--sep-2); }
-.footer-nla { max-width: 720px; line-height: 1.55; word-spacing: .03em; } /* #149 */
+.footer-nla { max-width: 720px; line-height: 1.55; } /* #149 */
+.footer-inner, .strip { word-spacing: .06em; } /* #149: Inter at 12-13 px (no SF Pro) keeps clear word gaps at 1x */
 .footer-nla strong { color: var(--label); font-weight: 650; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 16px; }
 .footer-links a { color: var(--label); font-weight: 500; }
@@ -966,7 +997,7 @@ main p a, .footer-nla .linkish, .mp-small a { text-decoration: underline; text-d
 .tv .ev-x[open] > summary .chev { transform: rotate(90deg); }
 .ch-big { margin-top: 72px; }
 .ch-big [data-slot="changes-top"] > .pt { margin-bottom: 16px; }
-@media (max-width: 640px) {
+@media (max-width: 640px), (pointer: coarse) and (max-height: 500px) {
   .tv { border-radius: 24px; }
   .tv::before { left: 21px; }
   .tv .ev-x > summary.ev { grid-template-columns: 20px minmax(0, 1fr) 24px; margin-left: 12px; gap: 6px 12px; }
@@ -982,7 +1013,7 @@ main p a, .footer-nla .linkish, .mp-small a { text-decoration: underline; text-d
 .rev-ask { margin: 0 0 16px; }
 .rev-ask .btn { white-space: normal; text-align: left; justify-content: flex-start; }
 .how3, .srcs, #rules-all, .rp-answers .answers-head { margin-top: 56px; }
-@media (max-width: 640px) {
+@media (max-width: 640px), (pointer: coarse) and (max-height: 500px) {
   /* Rules on phones: a state segmented control, then that state's places wrapping onto lines (no sideways scroll) */
   .pc-seg { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; padding: 3px; margin: -8px 0 12px; border-radius: 999px; background: var(--cool-2); }
   .pc-seg button { min-height: 44px; border: 0; border-radius: 999px; background: none; font-size: 14px; font-weight: 600; color: var(--label-2); cursor: pointer; transition: background-color .2s, color .2s; }
@@ -1000,3 +1031,24 @@ main p a, .footer-nla .linkish, .mp-small a { text-decoration: underline; text-d
 .hero-nla { display: none; }
 .pc-seg .l-abbr { display: none; }
 @media (max-width: 400px) { .pc-seg .l-full { display: none; } .pc-seg .l-abbr { display: inline; } }
+.s-chips { margin-left: .22em; }
+.ch-sel { display: none; }
+.notfound .chips a { display: flex; gap: 10px; align-items: center; min-height: 52px; padding: 8px 14px; text-decoration: none; }
+.notfound .ex-c { color: var(--label-2); margin-right: auto; }
+.ch-sel select { min-width: 0; width: 100%; } .ch-sel { min-width: 0; }
+.date-bad { display: block; flex-basis: 100%; margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--danger); text-align: right; }
+input[type="date"][data-bad] { box-shadow: inset 0 0 0 2px var(--danger) !important; }
+/* open lists always paint above the page: the hero (and any block holding a typeahead) sits above later sections */
+.hero, .hero-media { position: relative; z-index: 30; }
+.suggest, .mp-ta-list, .cmp-sug { background: var(--bg); z-index: 60; box-shadow: var(--shadow-float); isolation: isolate; }
+.mp-ta, .cmp-slot, .ck-row:focus-within { position: relative; z-index: 40; }
+.nla-s { display: none; }
+/* one surface: an opened topic is not a second card inside the list card */
+.topics.group > .topic[open] { background: none; }
+.topics.group > .topic[open] > summary { background: none; }
+/* Rules (a place, no building): the depends/double-check rings would be on every row and green dots on only some
+   rows read as a pattern that means nothing; the answer line and the notes inside say it */
+.rp-answers .sdot { visibility: hidden; }
+/* no lone last words: headings balance their lines, running text avoids an orphan */
+h1, h2, h3, .topic-a, .ck-big { text-wrap: balance; }
+p, li, .topic-q, .why { text-wrap: pretty; }

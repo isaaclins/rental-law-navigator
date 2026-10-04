@@ -122,3 +122,9 @@
   .ce-sp, .ce-sp.is-out, .ce-sp-copy.is-done, .ce-sp-scrim { animation-duration: .01ms !important; }
   .ce-sp-copy .cp-a, .ce-sp-copy .cp-b, .ce-sp-copy .cp-b path, .ce-sp .sh-prev img { transition-duration: .01ms !important; }
 }
+@media (max-width: 640px) {
+  .sh-seg { padding: 0; background: none; box-shadow: none; }
+  .sh-seg::before { display: none; }
+  .sh-seg a { color: var(--accent); font-size: 15px; font-weight: 650; background: none; box-shadow: none; }
+  .btn.primary { box-shadow: none !important; }
+}

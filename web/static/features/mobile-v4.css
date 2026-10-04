@@ -1,0 +1,449 @@
+/* Phones, redesign v4 (Isaac approved the mockups 2026-10-04, share/hacknation/mockups/mobile-v4/).
+   Loaded last; every rule is inside the phone query below, so tablets (601-900 px) and desktop are unchanged.
+   Header: one line of the sources strip, a 52 px row (round brand, "As of" pill, labelled EN | ES), auto-hides on
+   scroll down (features/mobile-v4.js moves `top`: the tab bar is position:fixed inside the header, so the header never
+   gets a transform). Tab bar 52 px + safe area, 11.5 px labels. Answers are cards (1 px line, radius 14, dot, chevron,
+   pressed state); the rent answer is the navy-tinted lead card. Readable text at least 13 px and 76 % ink. */
+
+/* outside phones the few extra nodes this layer adds stay hidden */
+.strip-ab, .strip-xs, .frow-t .ps, .mv4-why, .mv4-src, .mv4-flag, .mv4-dots, .sh-strip, .sh-ph, .sh-nla-m, .sh-ok-r { display: none; }
+
+@media (max-width: 599px), (pointer: coarse) and (max-height: 500px) {
+  :root {
+    --inset: 16px; --nav-h: 52px; --tabbar-h: 52px;
+    --label-2: rgb(0 12 31 / .76); --label-3: rgb(0 12 31 / .76);
+    --mv4-line: rgb(0 12 31 / .12); --mv4-card-line: rgb(0 12 31 / .11); --mv4-press: #eef1f5;
+    --mv4-lead: #eef3fb; --mv4-lead-line: rgb(0 38 100 / .16);
+    --mv4-chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 6 6 6-6 6'/%3E%3C/svg%3E");
+    --mv4-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  }
+
+  /* ---------------------------------------------------------------- chrome: strip, header, tab bar, footer */
+  html .strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 6px; min-height: 28px; padding: 4px 16px;
+    font-size: 13px; line-height: 1.5; color: var(--label-2); background: var(--cool); }
+  html .strip .strip-l, html .strip .strip-more, html .strip .strip-i { display: none; }
+  html .strip .strip-s { display: inline; } /* no nowrap: a longer line wraps instead of running off the screen */
+  html .strip .strip-ab { display: inline-flex; align-items: center; min-height: 20px; padding: 0; border: 0; background: none; font: inherit; font-weight: 600;
+    color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; cursor: pointer; position: relative; }
+  html .strip .strip-ab::after { content: ""; position: absolute; inset: -12px -8px; } /* 44 px target */
+
+  html .nav { top: 0; transition: top .32s var(--ease-out), background-color .2s; }
+  html.mv4-away .nav { top: calc(-1 * var(--mv4-hide, 60px)); }
+  /* the strip and the header are one opaque sticky block at the very top: iOS 26 Safari tints the status-bar area
+     with it instead of blurring the strip (the edge blur only covers content that scrolls under the bar); the
+     safe-area inset sits on the strip, so on a notch / Dynamic Island the strip starts below the status bar */
+  html body > .strip { position: sticky; top: 0; z-index: 52; padding-top: calc(4px + env(safe-area-inset-top)); transition: top .32s var(--ease-out); }
+  html body:has(> .strip) .nav { top: var(--mv4-strip, 28px); padding-top: 0; }
+  html.mv4-away body > .strip { top: calc(-1 * var(--mv4-strip, 28px)); }
+  html.mv4-away body:has(> .strip) .nav { top: calc(-1 * var(--mv4-hide, 60px)); }
+  /* the steps view turns into the page in place: the photo and the title stay exactly where they were, only the new parts fade in */
+  html main.fade-in:has(> article.addr) { animation: fade .3s ease-out both; } /* an address page fades in where it will stay */
+  html main.fade-quick { animation: none; }
+  html main.fade-quick .addr-head > :not(h1), html main.fade-quick .gal > .spot, html main.fade-quick .adetail { animation: fade .26s ease-out both; }
+  html:has(body > .strip) { scroll-padding-top: calc(var(--nav-h) + var(--mv4-strip, 28px) + 16px); }
+  html.scrolled .nav::after { background: var(--mv4-line); }
+  html .nav-inner { height: 52px; gap: 8px; }
+  html .brand { gap: 8px; min-height: 44px; margin-right: auto; }
+  html .brand-mark { width: 30px; height: 30px; font-size: 19px; border-radius: 50%; box-shadow: none; }
+  html .brand-word { font-size: 20px; }
+  html .nav-tools { gap: 8px; }
+
+  /* as-of: a pill with the date (the 44 px target is the label, the pill is drawn inside it) */
+  html .tool.asof { position: relative; isolation: isolate; height: 44px; min-width: 0; padding: 0 10px 0 9px; gap: 5px; background: none; box-shadow: none;
+    font-size: 13px; font-weight: 600; color: var(--label); }
+  html .tool.asof::before { content: ""; position: absolute; z-index: -1; left: 0; right: 0; top: 5px; bottom: 5px; border-radius: 999px; background: var(--cool-2); }
+  html .asof .cal-i { display: block; width: 15px; height: 15px; color: var(--accent); }
+  html .asof .asof-l { display: inline; }
+  html .asof .caret { display: block; width: 13px; height: 13px; margin-left: -1px; color: var(--label-2); }
+  html .asof.changed .asof-l { display: inline; height: auto; padding: 0; background: none; color: var(--accent); font-size: 13px; font-weight: 650; }
+  html .asof.changed::before { background: #e3eaf6; }
+  html .asof.changed .caret { display: none; }
+  html .asof-reset { height: 44px; width: 30px; min-width: 30px; padding: 0; box-shadow: none; background: none; }
+
+  /* language: a labelled two-part control, the current one on a white pill */
+  html .seg, html.hf-2 .seg { padding: 3px; background: var(--cool-2); border-radius: 999px; }
+  html .seg::before { display: block; top: 3px; bottom: 3px; }
+  html .seg button, html .seg button[aria-pressed="true"], html.hf-2 .seg button { display: grid; place-items: center; height: 28px; min-width: 34px; padding: 0 8px;
+    background: none; box-shadow: none; font-size: 13px; font-weight: 650; color: var(--label-2); }
+  html .seg button[aria-pressed="true"] { color: var(--label); }
+  html .seg button::after { content: ""; position: absolute; left: 0; right: 0; top: -8px; bottom: -8px; } /* 44 px target */
+
+  /* bottom tab bar */
+  html .tabs { padding-bottom: env(safe-area-inset-bottom); background: #fff; border-top: 0; box-shadow: 0 -1px 0 var(--mv4-line); }
+  html .tabs a { height: 52px; min-height: 0; gap: 3px; font-size: 11.5px; line-height: 1.2; font-weight: 550; letter-spacing: -.005em; color: var(--label-2); }
+  html .tabs a[data-short] { gap: 0; font-size: 0; }
+  html .tabs a[data-short]::after { font-size: 11.5px; line-height: 1.2; margin-top: 3px; }
+  html .tabs .tab-i { margin-top: 0; width: 22px; height: 22px; }
+  html .tabs a { gap: 6px; }
+  html .tabs a[data-short] { gap: 0; }
+  html .tabs a[data-short]::after { margin-top: 6px; }
+  html .tabs a[aria-current="page"], html .tabs a[aria-current="page"]:hover { color: var(--accent); font-weight: 700; }
+  /* the pill is the current tab's own background (not the sliding .tab-ind): it is on the right tab in the same frame
+     as aria-current, also right after a rotation or under load; features/mobile-v4.js moves aria-current on the tap */
+  html .tab-ind { display: none; }
+  html .tabs a[aria-current="page"]::before { content: ""; display: block; position: absolute; z-index: -1; left: 0; right: 0; top: 3px;
+    width: min(52px, calc(100% - 6px)); height: 26px; margin: 0 auto; border-radius: 999px; background: #e3eaf6; -webkit-mask: none; mask: none;
+    animation: mv4-pill .32s var(--spring); }
+  html .tabs a, html .tabs a:hover, html .tabs a:focus, html .tabs a:active, html .tabs a::after { text-decoration: none; }
+  html .tabs a:not([aria-current="page"]):hover { color: var(--label-2); }
+
+  /* footer: the disclaimer and one line, at 13 px; clears the tab bar */
+  html .footer { margin-top: 28px; }
+  html .footer-inner { padding-top: 16px; padding-bottom: calc(64px + env(safe-area-inset-bottom)); font-size: 13px; line-height: 1.5; color: var(--label-2);
+    border-top: 0; background: linear-gradient(var(--mv4-line), var(--mv4-line)) top center / calc(100% - 2 * var(--inset)) 1px no-repeat; }
+  html .footer-nla { font-size: 13px; line-height: 1.5; }
+  html .footer-meta { margin-top: 2px; font-size: 13px; color: var(--label-2); }
+  html .footer-meta .fw { font-size: 17px; margin-right: 6px; }
+  html main { padding-top: 12px; }
+
+  /* shared pieces: cards press like buttons */
+  html .answers-head h2, html .page-head h1 { letter-spacing: -.02em; }
+  html .note, html .answers-head .note { font-size: 13px; line-height: 1.4; color: var(--label-2); }
+
+  /* ---------------------------------------------------------------- landing */
+  html .hero { margin: -12px -16px 0; width: auto; padding: 20px 16px 0; border-radius: 0; text-align: center;
+    background: linear-gradient(180deg, var(--cool) 0%, #fff 78%); }
+  html .hero h1 { font-size: 54px; line-height: .95; letter-spacing: -.03em; }
+  html .hero h1 .l2 { display: block; }
+  html .hero .lead { max-width: 340px; margin: 12px auto 0; padding: 0; font-size: 16px; line-height: 1.45; color: var(--label-2); }
+  html .hero-media { margin-top: 20px; padding-top: 0; }
+  html .big-search { position: relative; z-index: 3; left: auto; right: auto; top: auto; margin: 0; }
+  html .big-search .box { height: 58px; padding: 0 6px 0 20px; background: #fff; box-shadow: inset 0 0 0 2px var(--label), 0 10px 26px rgb(0 12 31 / .12); }
+  html .big-search .box:focus-within { box-shadow: inset 0 0 0 2px var(--accent), 0 0 0 4px var(--ring), 0 10px 26px rgb(0 12 31 / .12); }
+  html .bs-f input { font-size: 16px; }
+  html .big-search .go { width: 46px; height: 46px; box-shadow: 0 2px 0 var(--ink-btn-edge) !important; }
+  html .slides { margin: -29px 6px 0; height: 214px; border-radius: 24px; box-shadow: 0 14px 34px rgb(0 12 31 / .12); }
+  html .slide-cap { display: inline-flex; left: 12px; bottom: 12px; height: 36px; padding: 0 12px 0 14px; gap: 6px; font-size: 14px; color: var(--label-2); }
+  html .mv4-dots { position: absolute; z-index: 2; right: 16px; top: 40px; display: flex; gap: 5px; pointer-events: none; }
+  html .mv4-dots i { width: 6px; height: 6px; border-radius: 3px; background: rgb(255 255 255 / .6); box-shadow: 0 1px 3px rgb(0 0 0 / .25); transition: width .3s var(--spring), background-color .3s; }
+  html .mv4-dots i.on { width: 16px; background: #fff; }
+  /* the four rows become compact cards with their object */
+  html .frow, html .frow.flip { position: relative; display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: center; gap: 12px;
+    margin: 10px 0 0; padding: 14px 44px 14px 14px; border: 1px solid var(--mv4-card-line); border-bottom: 1px solid var(--mv4-card-line); border-radius: 16px;
+    background: #fff; box-shadow: 0 1px 2px rgb(0 12 31 / .04), 0 6px 18px rgb(0 12 31 / .04); transition: background-color .15s, transform .2s var(--spring); }
+  html .statement + .frow, html .hero + .frow, html .frow:first-of-type, html .map-stage + .frow { margin-top: 16px; border-top: 1px solid var(--mv4-card-line); }
+  html .frow-m, html .frow.flip .frow-m { display: block; order: 0; width: 48px; height: 48px; border-radius: 12px; background: var(--stage); overflow: hidden; aspect-ratio: auto; }
+  html .frow-m img { transform: scale(1.18); }
+  html .frow-m[href="#/check"] img { content: url("/static/img/scales-balanced.webp"); } /* the rent check card: the scales, as in the mockup */
+  html .frow-t { padding-right: 0; }
+  html .frow-t h2 { font: 650 16px/1.25 var(--font); letter-spacing: -.012em; max-width: none; }
+  html .frow-t p .pl { display: none; }
+  html .frow-t p .ps { display: inline; }
+  html .frow-t p { margin-top: 3px; font-size: 13.5px; line-height: 1.4; color: var(--label-2); }
+  html .frow-l { display: block; height: 0; min-height: 0; margin: 0; padding: 0; overflow: visible; }
+  html .frow-l .ico { display: none; }
+  html .frow-l::before { content: ""; position: absolute; right: 12px; top: 50%; width: 20px; height: 20px; margin-top: -10px; background: var(--label-2);
+    -webkit-mask: var(--mv4-chev) center / contain no-repeat; mask: var(--mv4-chev) center / contain no-repeat; }
+  html .hero .tour-slot { margin-top: 2px; }
+  html .hero .tour-entry { display: inline-flex; align-items: center; min-height: 44px; margin: 0; font-size: 14px; font-weight: 600; }
+  html .frow:has(.frow-l:active) { background: var(--mv4-press); transform: scale(.985); }
+
+  /* ---------------------------------------------------------------- address */
+  html .ahero { display: block; padding: 0; background: none; border-radius: 0; }
+  html .ahero .gal { height: auto; min-height: 0; aspect-ratio: 16 / 10; margin-top: 4px; border-radius: 24px;
+    box-shadow: 0 1px 2px rgb(0 12 31 / .06), 0 14px 34px rgb(0 12 31 / .12); }
+  html .ahero .gal.street > img { object-position: 50% 62%; }
+  html .ahero .gal .spot { display: flex; max-width: min(206px, 62%); padding: 8px 12px 9px; border-radius: 14px; }
+  html .ahero .gal .spot-3 { display: none; }
+  html .spot small { font-size: 13px; font-weight: 500; color: var(--label-2); }
+  html .spot b { font-size: 14px; line-height: 1.25; }
+  html .spot::after { width: 9px; height: 9px; background: var(--st-muted); box-shadow: 0 0 0 3px rgb(255 255 255 / .92); }
+  /* the chip's dot has its answer's status (features/mobile-v4.js copies it from the card below) */
+  html .spot[data-sd="ok"]::after { background: var(--applies); }
+  html .spot[data-sd="ask"]::after { background: #c77700; }
+  html .spot[data-sd="later"]::after { background: var(--soon); }
+  html .spot-1 { left: 12px; top: 12px; }
+  html .spot-1::after { right: -18px; bottom: 8px; top: auto; left: auto; }
+  html .spot-2 { left: auto; right: 12px; top: auto; bottom: 12px; }
+  html .spot-2::after { left: -18px; top: 12px; margin: 0; }
+  html .addr-head { display: flex; flex-direction: column; padding: 0; }
+  html .addr-head > * { order: 0; }
+  /* "How we found this address" (the geocoder window): a quiet link under the address facts, no state chip */
+  html .ahero .addr-top { display: flex; order: 1; justify-content: flex-start; margin-top: 4px; font-size: 13px; }
+  html .ahero .addr-top .cc-st { display: none; }
+  html .ahero .addr-top .linkish { display: inline-flex; align-items: center; min-height: 44px; margin: -6px 0 -10px; padding: 0; font-size: 13px; font-weight: 500; color: var(--label-2); }
+  html .ahero .prop-cta { order: 2; }
+  html .addr-head h1 { margin: 18px 0 0; font: 400 44px/1 var(--display); letter-spacing: -.025em; }
+  html .addr-line { margin-top: 8px; font-size: 16px; font-weight: 550; color: var(--label); }
+  html .addr-line .sep { color: var(--label-2); margin: 0 6px; }
+  html .ahero .prop-cta { display: block; padding-top: 18px; }
+  html .prop-cta .btn.primary { display: flex; width: 100%; height: 52px; justify-content: center; gap: 8px; border-radius: 999px; font-size: 16px; font-weight: 650; letter-spacing: -.01em;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / .12), 0 3px 0 var(--ink-btn-edge), 0 8px 20px rgb(0 38 100 / .22) !important; }
+  html .prop-cta .btn.primary:active { transform: translateY(3px); box-shadow: inset 0 1px 0 rgb(255 255 255 / .12), 0 0 0 var(--ink-btn-edge) !important; }
+  html .prop-cta .addr-actions { justify-content: center; gap: 0 24px; margin-top: 6px; font-size: 14px; font-weight: 600; }
+  html .prop-cta .addr-actions > *, html .prop-cta .addr-actions a, html .prop-cta .addr-actions button { color: var(--accent); font-weight: 600; text-decoration: none; }
+  html .adetail .answers { margin-top: 0; }
+  html .adetail .answers-head { margin: 24px 0 0; }
+  html .answers-head h2 { font: 400 32px/1 var(--display); }
+  html .answers-head .note { margin-top: 6px; }
+
+  /* answer rows are cards */
+  html .topics.group { display: grid; gap: 10px; margin-top: 16px; padding: 0; border: 0; border-top: 0; border-radius: 0; background: none; box-shadow: none; }
+  html .topics.group > .topic + .topic { margin-top: 0; }
+  html .topics.group > .topic + .topic::after { display: none; }
+  html .topics.group > .topic { position: relative; margin: 0; border: 1px solid var(--mv4-card-line); border-radius: 14px; background: #fff;
+    box-shadow: 0 1px 2px rgb(0 12 31 / .04); transition: background-color .15s, transform .2s var(--spring), border-color .15s; }
+  html .topics.group > .topic[open] { background: #fff; }
+  html .topics.group > .topic > summary { padding: 16px 12px 16px 16px; border-radius: 14px; }
+  html .topics.group > .topic:not(.plain) > summary { grid-template-columns: 10px minmax(0, 1fr) 20px; gap: 0 9px; align-items: start; }
+  html .topics.group > .topic:not(.plain) > summary > .topic-main { grid-column: 2; grid-row: 1; }
+  html .topics.group > .topic:not(.plain) > summary > .sdot { grid-column: 1; grid-row: 1; width: 10px; height: 10px; margin: 4px 0 0; visibility: visible !important; }
+  html .topics.group > .topic > summary > .chev { grid-column: 3; grid-row: 1; align-self: center; width: 20px; height: 20px; margin: 0; background: none; color: var(--label-2); }
+  html .topics.group > .topic > summary > .chev .ico { width: 18px; height: 18px; }
+  html .topics.group > .topic.plain > summary { grid-template-columns: minmax(0, 1fr) auto 20px; gap: 4px 8px; }
+  html .topics.group > .topic.plain > summary > .chev { grid-column: auto; grid-row: auto; }
+  html .sdot.sd-ok { background: var(--applies); box-shadow: 0 0 0 3px var(--ok-tint); }
+  html .sdot.sd-ask { background: #c77700; box-shadow: 0 0 0 3px var(--unk-tint); }
+  html .sdot.sd-none { box-shadow: 0 0 0 3px rgb(163 169 179 / .2); }
+  html .sdot.sd-later { box-shadow: 0 0 0 3px var(--soon-tint); }
+  html .topics.group .topic-q { font-size: 13px; line-height: 1.35; font-weight: 500; color: var(--label-2); }
+  html .topics.group .topic-a { margin-top: 5px; font-size: 19px; line-height: 1.28; font-weight: 600; letter-spacing: -.018em; }
+  html .topics.group .topic-x { font-size: 13px; }
+  html .topics.group .topic-q, html .topics.group .topic-a { text-wrap: pretty; } /* full card width, as in the mockup (balance wraps early) */
+  html .topics.group > .topic > .topic-body { padding: 0 16px 16px; }
+  html .topics.group > .topic:not([open]):has(> summary:active) { background: var(--mv4-press); border-color: rgb(0 12 31 / .16); transform: scale(.985); }
+  html .topics.group > .topic > summary:active { transform: none; }
+  /* the flag of a double-check answer, on the closed card */
+  html .topic:not([open]) .mv4-flag { display: inline-flex; align-self: flex-start; align-items: center; height: 24px; margin-top: 8px; padding: 0 9px; border-radius: 999px;
+    background: var(--unk-tint); font-size: 13px; font-weight: 650; color: var(--unknown); }
+  /* the rent answer leads: navy tint, bigger answer, the why line and the source */
+  html .topics.group > .topic.mv4-lead { background: var(--mv4-lead); border-color: var(--mv4-lead-line); box-shadow: 0 1px 2px rgb(0 38 100 / .05), 0 10px 26px rgb(0 38 100 / .07);
+    transition: transform .2s var(--spring); } /* tinted from its first frame: the class arrives after the first paint */
+  html .topics.group > .topic.mv4-lead > summary { padding: 18px 12px 18px 16px; }
+  html .topics.group > .topic.mv4-lead .topic-q { font-weight: 600; color: var(--accent); }
+  html .topics.group > .topic.mv4-lead .topic-a { font-size: 22px; line-height: 1.22; font-weight: 650; letter-spacing: -.022em; }
+  html .topics.group > .topic.mv4-lead:not([open]):has(> summary:active) { background: #e3eaf6; border-color: var(--mv4-lead-line); }
+  html .topic.mv4-lead:not([open]) .mv4-why { display: block; margin-top: 8px; font-size: 15px; line-height: 1.45; color: var(--label-2); }
+  html .topic.mv4-lead:not([open]) .mv4-src { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; height: 28px; margin-top: 12px; padding: 0 10px; border-radius: 999px;
+    background: rgb(255 255 255 / .8); box-shadow: inset 0 0 0 1px var(--mv4-lead-line); font-size: 13px; font-weight: 550; color: var(--label); }
+  html .mv4-src .ico { width: 14px; height: 14px; color: var(--applies); stroke-width: 2.4; }
+  /* Coming up here */
+  html .adetail { row-gap: 0; }
+  html .aside { margin-top: 24px; gap: 10px; }
+  html .aside-card { padding: 16px; border: 0; border-radius: 14px; background: var(--cool); }
+  html .aside-card h2 { font: 650 16px/1.3 var(--font); letter-spacing: -.01em; }
+  html .aside-card .muted { margin-top: 4px; font-size: 14px; color: var(--label-2); }
+  html .cu-go { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; margin: 2px 0 -10px; padding: 0 !important; font-size: 14px; font-weight: 650; color: var(--accent); text-decoration: none; }
+  html .cu-go::after { content: ""; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--mv4-arrow) center / contain no-repeat; mask: var(--mv4-arrow) center / contain no-repeat; }
+
+  /* ---------------------------------------------------------------- ask */
+  html .ask-page[data-state="home"] .ask-hero { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; margin: 0; padding: 0 0 4px; text-align: left; background: none; border-radius: 0; }
+  html .ask-page[data-state="home"] .ask-stage { display: contents; }
+  html .ask-page[data-state="home"] .ask-photo { display: block; grid-row: 1 / 3; grid-column: 1; height: auto; min-height: 168px; border-radius: 24px; background: var(--stage); box-shadow: none; }
+  html .ask-page[data-state="home"] .ask-photo::after { display: none; }
+  html .ask-page[data-state="home"] .ask-photo img { position: absolute; right: -14px; top: 6px; width: auto; height: 196px; object-fit: contain; transform: none; animation: none; }
+  html .ask-page[data-state="home"] .ask-h1 { position: relative; z-index: 1; grid-row: 1; grid-column: 1; max-width: 62%; margin: 0; padding: 22px 0 0 18px; font-size: 46px; line-height: .95; letter-spacing: -.03em; text-align: left; }
+  html .ask-page[data-state="home"] .ask-sub { position: relative; z-index: 1; grid-row: 2; grid-column: 1; max-width: 64%; margin: 10px 0 0; padding: 0 0 22px 18px; font-size: 15px; line-height: 1.4; color: var(--label-2); text-align: left; }
+  html .ask-page[data-state="home"] .ask-at { margin: 14px 0 0; }
+  html .ask-page[data-state="home"] .ask-bar--hero { position: relative; inset: auto; margin: 14px 0 0; min-height: 58px; padding: 0 6px 0 20px; border: 0;
+    box-shadow: inset 0 0 0 2px var(--label), 0 10px 26px rgb(0 12 31 / .1); }
+  html .ask-page[data-state="home"] .ask-bar--hero:focus-within { box-shadow: inset 0 0 0 2px var(--accent), 0 0 0 4px var(--ring), 0 10px 26px rgb(0 12 31 / .1); }
+  html .ask-bar--hero .ask-send { width: 46px; height: 46px; }
+  html .ask-chips { display: grid; gap: 8px; margin: 22px 0 0; }
+  html .ask-chips::before { content: attr(aria-label); margin-bottom: 2px; font-size: 13px; font-weight: 650; letter-spacing: .01em; color: var(--label-2); }
+  html .ask-chips .ask-chip, html .ask-chips .ask-chip:nth-child(n+4) { display: grid; grid-template-columns: 32px minmax(0, 1fr) 18px; align-items: center; gap: 12px; width: 100%;
+    padding: 12px; border: 1px solid var(--mv4-card-line); border-radius: 14px; background: #fff; box-shadow: 0 1px 2px rgb(0 12 31 / .04);
+    font-size: 15px; line-height: 1.35; font-weight: 550; letter-spacing: -.008em; color: var(--label); text-align: left; transition: background-color .15s, transform .2s var(--spring); }
+  html .ask-chips .ask-chip::before { content: ""; width: 32px; height: 32px; border-radius: 10px; background: var(--cool) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23002664' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z'/%3E%3Cpath d='M9 10.5h6M9 13.5h4'/%3E%3C/svg%3E") center / 17px no-repeat; }
+  html .ask-chips .ask-chip::after { content: ""; width: 18px; height: 18px; background: var(--label-2); -webkit-mask: var(--mv4-chev) center / contain no-repeat; mask: var(--mv4-chev) center / contain no-repeat; }
+  html .ask-chips .ask-chip:active { background: var(--mv4-press); transform: scale(.985); }
+  html .ask-privacy { margin: 18px 0 0; text-align: center; font-size: 13px; color: var(--label-2); white-space: normal; }
+  html .ask-privacy .ask-info { color: var(--accent); }
+  html .ask-page[data-state="home"] .ask-statement { display: block; margin-top: 28px; padding: 22px 18px; border-radius: 20px; background: var(--cool); }
+  html .ask-page[data-state="home"] .ask-statement p { margin: 0; font: 400 27px/1.18 var(--display); letter-spacing: -.012em; text-align: left; }
+  html .ask-statement .ask-ichip { width: 40px; height: 28px; vertical-align: -5px; }
+  /* the docked follow-up bar sits right on the tab bar; a new turn scrolls clear of both */
+  html .ask-dock { bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
+  html.ask-docked { scroll-padding-bottom: calc(var(--tabbar-h) + 84px + env(safe-area-inset-bottom)); }
+  /* Listen: the caption sheet keeps to the lower third */
+  html .ce-cap { max-height: min(46vh, 340px); bottom: calc(var(--tabbar-h, 0px) + env(safe-area-inset-bottom) + var(--dock-h, 0px)); }
+
+  /* ---------------------------------------------------------------- shared answer (/s/...) */
+  html .sh-strip { display: flex; }
+  html .sh-seg { padding: 3px; background: var(--cool-2); box-shadow: none; }
+  html .sh-seg::before { display: block; top: 3px; bottom: 3px; }
+  html .sh-seg a, html .sh-seg a[aria-pressed="true"] { display: grid; place-items: center; height: 28px; min-width: 34px; padding: 0 8px; background: none; box-shadow: none;
+    font-size: 13px; font-weight: 650; color: var(--label-2); }
+  html .sh-seg a[aria-pressed="true"] { color: var(--label); }
+  html .sh-seg a::after { content: ""; position: absolute; left: 0; right: 0; top: -8px; bottom: -8px; }
+  html .sh-main { display: flex; flex-direction: column; align-items: stretch; padding-top: 16px; padding-bottom: 8px; min-height: 0; }
+  html .sh-asof { align-self: flex-start; height: 28px; padding: 0 11px 0 9px; gap: 6px; border-radius: 999px; background: var(--cool); font-size: 13px; font-weight: 600; color: var(--label); }
+  html .sh-asof .ico { color: var(--accent); }
+  html .sh-addr:has(.sh-ph) { position: relative; display: block; height: 112px; margin-top: 12px; border-radius: 20px; overflow: hidden; background: var(--stage); }
+  html .sh-addr:has(.sh-ph) > img:not(.sh-ph) { display: none; }
+  html .sh-addr .sh-ph { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; }
+  html .sh-addr:has(.sh-ph) > span { position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px); display: inline-flex; align-items: center; height: 34px; padding: 0 12px;
+    border-radius: 999px; background: rgb(255 255 255 / .94); box-shadow: 0 6px 18px rgb(0 12 31 / .12); font-size: 14px; font-weight: 600; color: var(--label); }
+  html .sh-q { margin: 16px 0 0; font-size: 15px; font-weight: 600; color: var(--accent); }
+  html .sh-a { margin: 6px 0 0; font-size: 44px; line-height: .98; }
+  html .sh-why { margin: 10px 0 0; font-size: 16px; line-height: 1.45; color: var(--label-2); }
+  html .sh-law { order: 1; margin-top: 16px; padding: 4px 16px 16px; border: 0; border-radius: 16px; background: var(--cool); }
+  html .sh-law > summary { min-height: 44px; font-size: 13px; font-weight: 650; }
+  html .sh-law > summary .chev { color: var(--label-2); }
+  html .sh-law-in { padding: 0; }
+  html .sh-quote { margin-top: 2px; padding-left: 12px; font-size: 19px; line-height: 1.25; letter-spacing: -.005em; }
+  html .sh-quote::before { top: 2px; bottom: 2px; }
+  html .sh-cite { gap: 6px; margin-top: 12px; font-size: 13px; }
+  html .sh-cite > span:first-child, html .sh-cite > a { display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 999px; background: #fff;
+    box-shadow: inset 0 0 0 1px var(--mv4-card-line); font-size: 13px; font-weight: 550; color: var(--label); white-space: nowrap; }
+  html .sh-cite > a { color: var(--accent); font-weight: 650; text-decoration: none; }
+  html .sh-cite > span:last-child:not(:first-child) { flex-basis: 100%; margin-top: 4px; color: var(--label-2); }
+  html .sh-cite > span:last-child:not(:first-child)::first-letter, html .sh-ok::first-letter { text-transform: uppercase; }
+  html .sh-ok { margin-top: 6px; font-size: 13px; font-weight: 550; color: var(--label-2); }
+  html .sh-ok .ico { width: 14px; height: 14px; color: var(--applies); }
+  html .sh-ok { display: block; } /* one line of text that wraps where it must (not two flex items) */
+  html .sh-ok > .ico { display: inline-block; vertical-align: -2px; margin-right: 6px; }
+  html .sh-ok .sh-ok-l { display: none; }
+  html .sh-ok .sh-ok-r { display: inline; min-width: 0; overflow-wrap: anywhere; }
+  html .sh-law-in:has(.sh-ok-r) .sh-cite > .sh-ret { display: none; } /* the date moves into the checked line */
+  html .sh-ok { margin-top: 10px; }
+  html .sh-law .sh-nla { display: none; }
+  html .sh-acts { order: 2; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; margin-top: 16px; }
+  html .sh-acts .btn.primary { display: flex; justify-content: center; gap: 8px; width: 100%; height: 52px; border-radius: 999px; font-size: 16px; font-weight: 650;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / .12), 0 3px 0 var(--ink-btn-edge), 0 8px 20px rgb(0 38 100 / .22) !important; }
+  html .sh-acts .btn.primary:active { transform: translateY(3px); box-shadow: 0 0 0 var(--ink-btn-edge) !important; }
+  html .sh-share { justify-content: center; gap: 8px; height: 52px; min-width: 112px; margin: 0; padding: 0 20px; border-radius: 999px; background: #fff; color: var(--accent);
+    font-size: 16px; font-weight: 650; box-shadow: inset 0 0 0 1.5px rgb(0 38 100 / .28), 0 3px 0 rgb(0 38 100 / .1); }
+  html .sh-share:active { transform: translateY(3px); box-shadow: inset 0 0 0 1.5px rgb(0 38 100 / .28); }
+  html .sh-share[hidden] { display: none; }
+  html .sh-nla-m { display: block; order: 3; margin: 24px 0 0; font-size: 13px; line-height: 1.5; color: var(--label-2); }
+  html .sh-foot { margin-top: 28px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+  html .sh-foot p { padding-top: 16px; border-top: 1px solid var(--mv4-line); font-size: 13px; color: var(--label-2); text-align: center; }
+
+  /* ---------------------------------------------------------------- other pages: the same cards and type */
+  /* Changes: each law change is a card */
+  html .tv { display: grid; gap: 10px; padding: 0; border: 0; }
+  html .tv > .tv-i { margin: 0; padding: 0; border: 1px solid var(--mv4-card-line); border-radius: 14px; background: #fff; box-shadow: 0 1px 2px rgb(0 12 31 / .04);
+    transition: background-color .15s, transform .2s var(--spring); }
+  html .tv > .tv-i::before, html .tv > .tv-i::after { display: none; }
+  html .tv .ev-x > summary.ev { padding: 14px 12px 14px 16px; border: 0; border-radius: 14px; }
+  html .tv .ev-x > summary .chev { width: 20px; height: 20px; color: var(--label-2); background: none; }
+  html .tv .ev-body { padding: 0 16px 16px; }
+  html .tv .ev-t { font-size: 17px; line-height: 1.3; font-weight: 600; }
+  html .tv > .tv-i:has(> .ev-x:not([open]) > summary:active) { background: var(--mv4-press); transform: scale(.985); }
+  /* Sources: each state is a card */
+  html .sr-list { display: grid; gap: 10px; }
+  html .sr-g { padding: 4px 16px; border: 1px solid var(--mv4-card-line); border-top: 1px solid var(--mv4-card-line); border-radius: 14px; background: #fff; box-shadow: 0 1px 2px rgb(0 12 31 / .04); }
+  /* My properties: each building is a card (the actions inside stay as they are) */
+  html .mp-card { padding: 12px 12px 14px; border: 1px solid var(--mv4-card-line); border-top: 1px solid var(--mv4-card-line); border-radius: 16px; background: #fff;
+    box-shadow: 0 1px 2px rgb(0 12 31 / .04), 0 6px 18px rgb(0 12 31 / .04); }
+  html .mp-card > .mp-photo { border-radius: 12px; }
+  html .page-head h1 { font-size: 40px; line-height: 1; }
+  html .page-head p { font-size: 16px; line-height: 1.45; color: var(--label-2); }
+  html .ev-d, html .ev-s, html .sr-s, html .addr-meta { font-size: 13px; color: var(--label-2); }
+  html .facts dt, html .badge, html .mp-stop-d span, html .num-b, html .mp-tag, html .mp-set-f, html .pt-unk, html .sb, html .log-row .lt, html .log-raw { font-size: 13px; }
+  html .mono { font-size: 13px; }
+  html .ask-dock-note { font-size: 13px; }
+  html .hm-key, html .pt-axis-in > span, html .pt-colh, html .pwa-nudge-t span, html .pwa-hero small, html .pwa-head p { font-size: 13px; }
+}
+
+/* small phones */
+@media (max-width: 374px) {
+  html .tool.asof { padding: 0 8px 0 8px; }
+  html .tool.asof .caret { display: none; }
+  html .hero h1 { font-size: 48px; }
+}
+@media (max-width: 359px) {
+  html .strip .strip-s { display: none; } /* the short line keeps the strip to one line */
+  html .strip .strip-xs { display: inline; }
+  html .seg button, html .seg button[aria-pressed="true"] { min-width: 30px; padding: 0 6px; }
+  html .hero h1 { font-size: 44px; }
+  html .addr-head h1 { font-size: 38px; }
+  html .ahero .gal .spot { max-width: 70%; }
+  html .ahero .gal .spot b { -webkit-line-clamp: 2; }
+}
+/* short screens (iPhone SE, any phone with the browser bars showing): a smaller photo, so a card shows above the bar */
+@media (max-width: 599px) and (max-height: 700px) {
+  html .hero { padding-top: 14px; }
+  html .hero h1 { font-size: 46px; }
+  html .hero .lead { margin-top: 10px; font-size: 15px; }
+  html .hero-media { margin-top: 16px; }
+  html .big-search .box { height: 54px; }
+  html .big-search .go { width: 42px; height: 42px; }
+  html .slides { height: 140px; margin-top: -27px; }
+  html .slide-cap { height: 32px; font-size: 13px; }
+  html .mv4-dots { top: 36px; }
+}
+/* small phones: a compact Listen sheet */
+@media (max-width: 374px), (max-width: 599px) and (max-height: 600px) {
+  html .ce-cap { max-height: 32vh; }
+  html .ce-cap-h { padding: 10px 6px 2px 16px; }
+  html .ce-cap-body { padding: 2px 16px 4px; }
+  html .ce-cap-p { font-size: 16px; line-height: 1.5; margin-bottom: 8px; }
+  html .ce-cap-f { gap: 10px; padding: 6px 12px 8px; }
+}
+/* phones in landscape (short): icon-only tabs, a compact Ask dock, a compact Listen sheet */
+@media (pointer: coarse) and (max-height: 500px) {
+  :root { --tabbar-h: 44px; }
+  html .tabs a, html .tabs a[data-short] { height: 44px; font-size: 0; gap: 0; }
+  html .tabs a[data-short]::after { display: none; }
+  html .tabs a[aria-current="page"]::before { top: calc(50% - 14px); height: 28px; }
+  html .tabs .tab-i { width: 24px; height: 24px; }
+  html .ask-dock { padding-top: 6px; padding-bottom: 6px; }
+  html .ask-bar--dock { min-height: 50px; padding: 3px 3px 3px 18px; }
+  html .ask-bar--dock .ask-send { width: 44px; height: 44px; }
+  html.ask-docked { scroll-padding-bottom: calc(var(--tabbar-h) + 70px + env(safe-area-inset-bottom)); }
+  html .ce-cap { max-height: 42vh; }
+}
+/* phones in landscape: the photos keep a sensible height */
+@media (pointer: coarse) and (max-height: 500px) and (min-width: 600px) {
+  html .ahero .gal { aspect-ratio: auto; height: 220px; }
+  html .slides { height: 220px; }
+  html .ask-page[data-state="home"] .ask-sub { max-width: 40ch; }
+}
+/* every pill on phones: one line, 12 px each side, 6 px to its icon; long text ends in "…" instead of a two-line pill
+   (features/mobile-v4.js also shortens long hosts: leginfo.legislature.ca.gov -> ca.gov) */
+@media (max-width: 599px), (pointer: coarse) and (max-height: 500px) {
+  html body .topic.mv4-lead:not([open]) .mv4-src { max-width: 100%; height: 28px; min-height: 0; padding: 0 12px; gap: 6px; white-space: nowrap; overflow: hidden; }
+  html body .topic.mv4-lead:not([open]) .mv4-src > span { white-space: nowrap; overflow-wrap: normal; }
+  html .mv4-src > .mv4-src-w { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  html .mv4-src > .mv4-src-w:not(:last-child)::after { content: " \00b7"; }
+  html .mv4-src > .mv4-src-h { flex: none; }
+  html .mv4-src > .mv4-src-h:empty { display: none; }
+  html .mv4-src.tight > .mv4-src-w { display: none; } /* not even "Word for word" fits: "✓ lacity.gov" */
+  html .mv4-src .ico { flex: none; }
+  html .topic:not([open]) .mv4-flag { max-width: 100%; padding: 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  html .badge { padding-left: 12px; padding-right: 12px; }
+  html .sh-asof { padding: 0 12px; max-width: 100%; }
+  html .sh-asof > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  html .sh-cite > span:first-child, html .sh-cite > a { max-width: 100%; padding: 0 12px; gap: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  html .sh-cite > a .ico { flex: none; }
+}
+/* UI scan run-3 (phones): nothing reaches past a 320 px screen */
+@media (max-width: 599px), (pointer: coarse) and (max-height: 500px) {
+  /* Ask's place pill: the link is the box that ends in "…", so it never runs past the pill or the screen */
+  html .ask-at > span { display: flex; align-items: baseline; gap: .3em; min-width: 0; }
+  html .ask-at > span > a { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* the PWA update toast fits 320 px in English and Spanish: its text wraps, the two buttons keep their size */
+  html .toasts { width: calc(100vw - 24px); max-width: 440px; }
+  html .toast { max-width: 100%; }
+  html .toast.pwa-update { white-space: normal; padding: 4px 2px 4px 16px; border-radius: 24px; line-height: 1.3; }
+  html .pwa-update > span { flex: 1; min-width: 0; }
+  html .pwa-update .pwa-refresh { flex: none; min-height: 36px; white-space: nowrap; }
+  html .pwa-update .pwa-tx { flex: none; width: 44px; height: 44px; }
+  /* Rules / Changes place picker: the select may shrink below its longest option ("Massachusetts (todo el estado)") */
+  html .ch-sel > span { flex: none; }
+  html .ch-sel select { min-width: 0; width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Spanish tab labels (Dirección, Preguntar) are up to 55 px: the pill is as wide as the label */
+  html[lang="es"] .tabs a[aria-current="page"]::before { width: min(60px, calc(100% - 4px)); }
+}
+@keyframes mv4-pill { from { opacity: 0; transform: scale(.72); } }
+/* 200% zoom (about 195 px): icon-only tabs, the pill on the icon; the photo chips say what the cards below say, so
+   they step aside instead of overlapping; the as-of pill keeps its icon so EN | ES fits with its side margin */
+@media (max-width: 299px) {
+  html .ahero .gal .spot { display: none; }
+  html .mv4-src > .mv4-src-h { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; } /* 200% zoom only */
+}
+@media (max-width: 260px) {
+  html .tabs a[aria-current="page"]::before { top: calc(50% - 14px); height: 28px; }
+  html .tabs .tab-i { width: 24px; height: 24px; }
+  html .nav-inner { gap: 6px; }
+  html .nav-tools { gap: 6px; }
+  html .tool.asof:not(.changed) .asof-l { display: none; } /* the calendar alone; a picked past date still shows */
+  html .tool.asof { padding: 0 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html .tabs a[aria-current="page"]::before { animation: none; }
+  html .nav, html body > .strip { transition: none; }
+  html .topics.group > .topic, html .frow, html .ask-chips .ask-chip, html .mv4-dots i { transition: none; }
+}

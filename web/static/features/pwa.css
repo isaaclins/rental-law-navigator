@@ -222,3 +222,8 @@ b.pm-hit { width: 34px; height: 34px; }
   .pwa-slide.on .pm-dialog, .pwa-slide.on .pm-home, .pwa-slide.on .pm-new { animation: none; }
   .pwa-slide.on .pm-home { opacity: 0; }
 }
+
+/* never over the Listen captions or the Ask dock (iPhone QA) */
+.pwa-nudge { bottom: calc(var(--tabbar-h, 0px) + var(--dock-h, 0px) + 14px + env(safe-area-inset-bottom)) !important; }
+html:has(.ce-cap-open) .pwa-nudge { display: none; }
+.pwa-nudge .icon-btn { width: 44px; height: 44px; }

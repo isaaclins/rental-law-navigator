@@ -25,8 +25,9 @@ const EN = {
   ex_t: "Example portfolio", ex_b: "Sign in with Google to save your own.", ex_nums: "Example numbers",
   st_bldg: (n) => (n === 1 ? "building" : "buildings"), st_bldg_s: (c) => c,
   st_chg: (n) => (n === 1 ? "change in the next 12 months" : "changes in the next 12 months"), st_chg_s: (d) => `Next on ${d}`, st_chg_none: "Nothing dated ahead",
-  st_q: (n) => (n === 1 ? "open question" : "open questions"), st_q_s: (n) => (n ? `${n} you can answer in one tap` : "Answers we can't give yet"), st_q_none: "Every answer is definite",
+  st_q: (n) => (n === 1 ? "open question" : "open questions"), st_q_s: (n) => (n ? `${n} ${n === 1 ? "has" : "have"} a one-tap answer` : "Answers we can't give yet"), st_q_none: "Every answer is definite",
   st_notice: "next rent notice due", st_notice_s: (l, n) => `${l} · ${n} days ahead`, st_notice_none: "No rent notice dated yet", st_notice_add: "Add a rent to see it",
+  ol_ex: (n) => `${n} example buildings`, ol_n: (n) => n === 1 ? "1 building" : `${n} buildings`, ol_next: (l, d) => `Next: ${l.replace(/^Send /, '').charAt(0).toLowerCase() + l.replace(/^Send /, '').slice(1)} by ${d}`, see_all: "See all",
   coming: "Coming up", coming_s: "Next 24 months, all buildings", coming_none: "Nothing dated in the next 24 months.", today: "Today",
   ev_notice: "Send rent notice", ev_raise: (v) => `Raise up to ${v}`,
   bldgs: "Your buildings",
@@ -53,6 +54,7 @@ const EN = {
   nr_notout_w: (p, d, a) => `${p}% ends ${d}. ${a} sets the next one.`, nr_notsrc_w: (p, d, a) => `${p}% ran to ${d}. ${a} sets the new figure.`,
   nr_cpi: (v, m) => `at most ${v} (${m}% max)`, nr_cpi_w: "The exact cap depends on local inflation.", nr_nocap_w: "No rent cap covers this building. Notice rules still apply.",
   nr_from: (d, r) => `From your last raise on ${d} and rent of ${r}.`, nr_from_ex: (d, r) => `Example: last raise ${d}, rent ${r}.`,
+  share: "Share", sh_next: (d, v) => (v ? `Next raise ${d}, up to ${v} a month.` : `Next raise ${d}.`), sh_notice: (d) => `Send notice by ${d}.`, tl_more: "Show later dates", tl_less: "Show earlier dates",
   draft: "Draft the notice", why: "Why", edit: "Edit", add_cal: "Add to calendar", save: "Save", cancel: "Cancel", clear: "Clear",
   why_t: (d, v) => (v ? `Why ${d} and ${v}` : `Why ${d}`), why_sub: (l, d, r) => `${l} · last raise ${d} · rent ${r}`,
   why_12: "One raise per 12 months", why_12_b: (a, b) => `Your last raise took effect ${a}, so the next can start ${b}.`, why_12_now: (a, b) => `12 months since ${a} have passed; with notice, the earliest is ${b}.`,
@@ -79,7 +81,7 @@ const EN = {
   mail_t: "Email alerts", mail_digest: "Email me about 30 days before a change", mail_note: (e) => `To ${e}. One-click unsubscribe in every email.`,
   mail_demo: "The example portfolio doesn't send email.",
   // account
-  signout: "Sign out", delete_acct: "Delete account", privacy: "Privacy", terms: "Terms",
+  signout: "Sign out", leave_demo: "Leave the example", signed_as: (e) => `Signed in as ${e}`, delete_acct: "Delete account", privacy: "Privacy", terms: "Terms",
   delacct_t: "Delete your account?", delacct_b: "This deletes your account, every saved building, your alert settings and your calendar link. It cannot be undone.",
   delacct_go: "Delete everything", acct_deleted: "Account deleted", signin_failed: "Google sign-in did not complete. Please try again.",
   // detail
@@ -101,7 +103,7 @@ const EN = {
   error: "Something went wrong.", demo_ro: "The example portfolio can't be changed. Sign in to save your own.",
 };
 const ES = {
-  nav: "Mis propiedades", nav_short: "Mías", title: "Mis propiedades",
+  nav: "Mis propiedades", nav_short: "Edificios", title: "Mis propiedades",
   sub: (d) => `Al ${d}. No es asesoría legal.`,
   out_lead: "Guarde los edificios que posee, administra o alquila. Vea qué normas aplican a cada uno y reciba un correo antes de que un cambio entre en vigor.",
   google: "Acceder con Google", demo: "Ver una cartera de ejemplo",
@@ -109,8 +111,9 @@ const ES = {
   ex_t: "Cartera de ejemplo", ex_b: "Acceda con Google para guardar la suya.", ex_nums: "Cifras de ejemplo",
   st_bldg: (n) => (n === 1 ? "edificio" : "edificios"), st_bldg_s: (c) => c,
   st_chg: (n) => (n === 1 ? "cambio en los próximos 12 meses" : "cambios en los próximos 12 meses"), st_chg_s: (d) => `El próximo: ${d}`, st_chg_none: "Nada con fecha por delante",
-  st_q: (n) => (n === 1 ? "pregunta abierta" : "preguntas abiertas"), st_q_s: (n) => (n ? `${n} con respuesta de un toque` : "Respuestas que aún no podemos dar"), st_q_none: "Todas las respuestas son claras",
+  st_q: (n) => (n === 1 ? "pregunta abierta" : "preguntas abiertas"), st_q_s: (n) => (n ? `${n} ${n === 1 ? "se responde" : "se responden"} con un toque` : "Respuestas que aún no podemos dar"), st_q_none: "Todas las respuestas son claras",
   st_notice: "próximo aviso de aumento", st_notice_s: (l, n) => `${l} · ${n} días antes`, st_notice_none: "Sin aviso con fecha", st_notice_add: "Agregue una renta para verlo",
+  ol_ex: (n) => `${n} edificios de ejemplo`, ol_n: (n) => n === 1 ? "1 edificio" : `${n} edificios`, ol_next: (l, d) => `Próximo: ${l.charAt(0).toLowerCase() + l.slice(1)} antes del ${d}`, see_all: "Ver todo",
   coming: "Próximamente", coming_s: "Próximos 24 meses, todos los edificios", coming_none: "Nada con fecha en los próximos 24 meses.", today: "Hoy",
   ev_notice: "Enviar aviso de aumento", ev_raise: (v) => `Aumento hasta ${v}`,
   bldgs: "Sus edificios",
@@ -135,6 +138,7 @@ const ES = {
   nr_notout_w: (p, d, a) => `El ${p}% termina el ${d}. ${a} fija el siguiente.`, nr_notsrc_w: (p, d, a) => `El ${p}% rigió hasta el ${d}. ${a} fija la nueva cifra.`,
   nr_cpi: (v, m) => `como máximo ${v} (${m}% máx.)`, nr_cpi_w: "El tope exacto depende de la inflación local.", nr_nocap_w: "Ningún tope de renta cubre este edificio. Las reglas de aviso siguen vigentes.",
   nr_from: (d, r) => `Según su último aumento del ${d} y una renta de ${r}.`, nr_from_ex: (d, r) => `Ejemplo: último aumento ${d}, renta ${r}.`,
+  share: "Compartir", sh_next: (d, v) => (v ? `Próximo aumento: ${d}, hasta ${v} al mes.` : `Próximo aumento: ${d}.`), sh_notice: (d) => `Envíe el aviso antes del ${d}.`, tl_more: "Ver fechas posteriores", tl_less: "Ver fechas anteriores",
   draft: "Redactar el aviso", why: "Por qué", edit: "Editar", add_cal: "Agregar al calendario", save: "Guardar", cancel: "Cancelar", clear: "Borrar",
   why_t: (d, v) => (v ? `Por qué ${d} y ${v}` : `Por qué ${d}`), why_sub: (l, d, r) => `${l} · último aumento ${d} · renta ${r}`,
   why_12: "Un aumento cada 12 meses", why_12_b: (a, b) => `Su último aumento rige desde el ${a}; el siguiente puede empezar el ${b}.`, why_12_now: (a, b) => `Ya pasaron 12 meses desde el ${a}; con aviso, lo más pronto es el ${b}.`,
@@ -157,7 +161,7 @@ const ES = {
   cal_private: "Enlace privado: quien lo tenga ve los nombres de sus edificios y las fechas.", cal_new: "Nuevo enlace", cal_rotated: "Nuevo enlace. El anterior ya no funciona.",
   mail_t: "Alertas por correo", mail_digest: "Avisarme unos 30 días antes de un cambio", mail_note: (e) => `A ${e}. Cada correo permite darse de baja con un clic.`,
   mail_demo: "La cartera de ejemplo no envía correos.",
-  signout: "Cerrar sesión", delete_acct: "Eliminar cuenta", privacy: "Privacidad", terms: "Términos",
+  signout: "Cerrar sesión", leave_demo: "Salir del ejemplo", signed_as: (e) => `Sesión iniciada como ${e}`, delete_acct: "Eliminar cuenta", privacy: "Privacidad", terms: "Términos",
   delacct_t: "¿Eliminar su cuenta?", delacct_b: "Se eliminan su cuenta, todos los edificios, sus alertas y su enlace de calendario. No se puede deshacer.",
   delacct_go: "Eliminar todo", acct_deleted: "Cuenta eliminada", signin_failed: "El acceso con Google no se completó. Inténtelo de nuevo.",
   back: "Mis propiedades", edit_facts: "Editar datos", whats_changing: "Qué va a cambiar", facts: "Datos del edificio",
@@ -208,6 +212,7 @@ const I = {
   trash: svg('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>'),
   pen: svg('<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/>'),
   alert: svg('<path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17.5v.01"/>'),
+  share: svg('<path d="M12 15V4M8 8l4-4 4 4M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>'),
   ext: svg('<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'),
   cat: {
     rent_increase_limits: svg('<path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>'),
@@ -259,7 +264,18 @@ async function j(url, { method = "GET", body } = {}) {
   }
   return d;
 }
-const me = async () => (ME = await j("/api/me"));
+const me = async () => { ME = await j("/api/me"); headerAcct(); return ME; };
+// signed in (not the example): an initial in the header opens My properties, where the account menu signs out
+function headerAcct() {
+  const tools = document.querySelector(".nav-tools");
+  let a = document.querySelector(".acct-b");
+  const u = ME?.signed_in && !ME.user?.demo ? ME.user : null;
+  if (!u) { a?.remove(); return; }
+  if (!a && tools) { a = document.createElement("a"); a.className = "acct-b"; a.href = "#/properties"; tools.append(a); }
+  if (!a) return;
+  a.textContent = String(u.name || u.email || "?").trim().charAt(0).toUpperCase();
+  a.title = t("signed_as")(u.email); a.setAttribute("aria-label", t("signed_as")(u.email));
+}
 
 // ------------------------------------------------------------------ small UI helpers --
 const toast = (msg) => CE.toast(msg);
@@ -373,7 +389,7 @@ const within = (d, months) => { const n = daysBetween(asOf(), d); return n > 0 &
 // ------------------------------------------------------------------ dashboard --
 let LIST = null, ALERTS = null;
 function accountBar(demo) {
-  if (demo) return "";
+  if (demo) return `<button type="button" class="linkish mp-leave" data-signout>${esc(t("leave_demo"))}</button>`; // the example ends like a session
   const u = ME.user;
   return `<details class="mp-menu"><summary class="tool" aria-label="${esc(u.email)}"><span class="mp-email">${esc(u.email)}</span><span class="chev">${I.chev}</span></summary>
       <div class="mp-pop">
@@ -410,6 +426,11 @@ function eventsOf(props, months) {
   ev.sort((a, b) => a.date.localeCompare(b.date) || a.p.id - b.p.id);
   return ev;
 }
+// phones: the portfolio in one line (the stat grid is for wide screens)
+function onelineHtml(props, demo) {
+  const ev = eventsOf(props, 12)[0];
+  return `<p class="mp-oneline">${demo ? `<b>${esc(t("ex_t"))}</b> · ${esc(t("ol_n")(props.length))}` : esc(t("ol_n")(props.length))}${ev ? ` · ${esc(t("ol_next")(ev.label, fmtMD(ev.date)))}` : ""}</p>`;
+}
 function comingHtml(props) {
   const ev = eventsOf(props, 24);
   const stop = (e, i) => `<li class="mp-stop k-${e.k}" style="--i:${i + 1}">
@@ -418,7 +439,8 @@ function comingHtml(props) {
       <a class="mp-stop-c" href="#/properties/${e.p.id}">${img(photo(e.p, true), "mp-stop-img")}<span><b>${esc(e.label)}</b><span>${esc(e.p.label)}</span></span></a></li>`;
   return `<section class="mp-coming mp-panel">
     <div class="mp-sec-h"><h2>${esc(t("coming"))}</h2><span>${esc(t("coming_s"))}</span></div>
-    ${ev.length ? `<ol class="mp-tl2"><li class="mp-stop k-today" style="--i:0"><span class="mp-stop-d"><b>${esc(t("today"))}</b><span>${esc(fmtDate(asOf()))}</span></span><span class="mp-stop-dot" aria-hidden="true"></span></li>${ev.map(stop).join("")}</ol>` : `<p class="mp-small">${esc(t("coming_none"))}</p>`}
+    ${ev.length > 3 ? `<button type="button" class="linkish mp-all" data-tl-all>${esc(t("see_all"))}</button>` : ""}
+    ${ev.length ? `<div class="mp-tl-wrap"><ol class="mp-tl2"><li class="mp-stop k-today" style="--i:0"><span class="mp-stop-d"><b>${esc(t("today"))}</b><span>${esc(fmtDate(asOf()))}</span></span><span class="mp-stop-dot" aria-hidden="true"></span></li>${ev.map(stop).join("")}</ol><button type="button" class="mp-tl-more" data-tl-more aria-label="${esc(t("tl_more"))}" title="${esc(t("tl_more"))}">${I.chev}</button><button type="button" class="mp-tl-more is-back" data-tl-less aria-label="${esc(t("tl_less"))}" title="${esc(t("tl_less"))}">${I.chev}</button></div>` : `<p class="mp-small">${esc(t("coming_none"))}</p>`}
   </section>`;
 }
 function dotsHtml(p) {
@@ -490,7 +512,7 @@ function raiseHtml(p, demo, full = false) {
 }
 function cardHtml(p, i, demo) {
   const st = statusLine(p), nx = p.summary.next;
-  return `<article class="mp-card" style="--i:${i}" data-pid="${p.id}">
+  return `<article class="mp-card${noticeHref(p) ? " has-notice" : ""}" style="--i:${i}" data-pid="${p.id}">
     <a class="mp-photo" href="#/properties/${p.id}" aria-label="${esc(t("open")(p.label))}">${img(photo(p), "", i > 2, true)}<span class="mp-place">${esc(cityOf(p) || p.state)}</span></a>
     <div class="mp-body">
       <h3 class="mp-name"><a href="#/properties/${p.id}">${esc(p.label)}</a></h3>
@@ -515,7 +537,7 @@ function addCardHtml(demo, i) {
     <div class="mp-addc-art">${img("/static/img/house-with-checkmark.webp", "", true, true)}</div>
     <h3 class="mp-name">${esc(t("add_t"))}</h3><p class="mp-addr">${esc(t("add_s"))}</p>
     <div class="mp-ta">
-      <form class="mp-search" data-addsearch role="search" autocomplete="off"><span class="mp-search-i">${I.search}</span><input name="q" type="text" role="combobox" aria-expanded="false" aria-controls="mp-ta-list" aria-autocomplete="list" spellcheck="false" autocomplete="off" placeholder="${esc(t("add_ph"))}" aria-label="${esc(t("add_t"))}" maxlength="200"></form>
+      <form class="mp-search" data-addsearch role="search" autocomplete="off"><span class="mp-search-i">${I.search}</span><input id="mp-find" name="ce-find-building" type="search" role="combobox" aria-expanded="false" aria-controls="mp-ta-list" aria-autocomplete="list" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search" enterkeyhint="search" placeholder="${esc(t("add_ph"))}" aria-label="${esc(t("add_t"))}" maxlength="200"></form>
       <ul class="suggest mp-ta-list" id="mp-ta-list" role="listbox" hidden></ul>
     </div>
   </article>`;
@@ -547,10 +569,12 @@ async function paintList(my) {
   const demo = list.demo, props = list.properties;
   paint(`<div class="mp-dash">
     <header class="mp-top">
-      <div class="mp-title"><h1>${esc(t("title"))}</h1><p class="mp-lead">${esc(t("sub")(fmtDate(list.as_of)))}</p></div>
-      <div class="mp-acct">${accountBar(demo)}</div>
+      <div class="mp-title"><h1>${esc(t("title"))}</h1>
+        ${props.length ? onelineHtml(props, demo) : ""}
+        ${demo ? `<div class="mp-hrow">${ME.google ? gsiButton("sm") : ""}${accountBar(demo)}</div>` : ""}
+        <p class="mp-lead">${esc(t("sub")(fmtDate(list.as_of)))}</p></div>
+      ${demo ? "" : `<div class="mp-acct">${accountBar(demo)}</div>`}
     </header>
-    ${demo ? `<div class="mp-exbar"><span class="mp-exdot" aria-hidden="true"></span><span><b>${esc(t("ex_t"))}</b> · ${esc(t("ex_b"))}</span>${ME.google ? gsiButton("sm") : ""}</div>` : ""}
     ${props.length ? statsHtml(props) + comingHtml(props) : ""}
     <section class="mp-bldgs">
       <div class="mp-sec-h"><h2>${esc(t("bldgs"))}</h2></div>
@@ -560,6 +584,25 @@ async function paintList(my) {
   </div>`, t("nav"));
   wireAccount();
   wireList(demo);
+  wireTimeline();
+}
+// Coming up on wide screens is one scrolling row: fade the edge that has more and offer an arrow (persona round 1)
+function wireTimeline() {
+  const box = $(".mp-coming", main), ol = $(".mp-tl2", box || main);
+  if (!box || !ol) return;
+  const upd = () => {
+    if (!ol.isConnected) return removeEventListener("resize", upd);
+    const max = ol.scrollWidth - ol.clientWidth;
+    box.classList.toggle("is-more", max > 2 && ol.scrollLeft < max - 2);
+    box.classList.toggle("is-less", max > 2 && ol.scrollLeft > 2);
+  };
+  ol.addEventListener("scroll", upd, { passive: true });
+  addEventListener("resize", upd);
+  const go = (dir) => ol.scrollBy({ left: dir * Math.max(200, ol.clientWidth * 0.6), behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  $("[data-tl-more]", box)?.addEventListener("click", () => go(1));
+  $("[data-tl-less]", box)?.addEventListener("click", () => go(-1));
+  upd();
+  setTimeout(upd, 400); // after the photos and fonts settle
 }
 function wireList(demo) {
   $("[data-copy]", main)?.addEventListener("click", async (e) => {
@@ -712,7 +755,7 @@ async function answer(p, btn, demo) {
     const i = LIST.properties.findIndex((x) => x.id === p.id);
     LIST.properties[i] = np;
     const card = $(`.mp-card[data-pid="${p.id}"]`, main);
-    card.outerHTML = cardHtml(np, 0, demo).replace('class="mp-card"', 'class="mp-card is-new"');
+    card.outerHTML = cardHtml(np, 0, demo).replace('class="mp-card', 'class="mp-card is-new');
     const stats = $(".mp-stats", main);
     if (stats) stats.outerHTML = statsHtml(LIST.properties).replace('class="mp-stats"', 'class="mp-stats is-new"');
   } catch (err) { $$("button", q).forEach((b) => { b.disabled = false; }); btn.classList.remove("is-on"); toast(err.message); }
@@ -792,7 +835,7 @@ function removeSheet(p) {
 function wireAccount() {
   $("[data-signout]", main)?.addEventListener("click", async () => {
     try { await j("/auth/logout", { method: "POST" }); } catch { /* signed out anyway */ }
-    ME = null; if (location.hash === "#/properties") rerender(); else location.hash = "#/properties";
+    ME = null; headerAcct(); if (location.hash === "#/properties") rerender(); else location.hash = "#/properties";
   });
   $("[data-delacct]", main)?.addEventListener("click", () => {
     openSheet(t("delacct_t"), `<p class="mp-confirm">${esc(t("delacct_b"))}</p><div class="mp-row end"><button type="button" class="btn" data-close>${esc(t("cancel"))}</button><button type="button" class="btn danger" data-go>${I.trash}<span>${esc(t("delacct_go"))}</span></button></div>`, (b) => {
@@ -887,7 +930,7 @@ async function paintDetail(id, my) {
       <header class="mp-dhead">
         <div class="mp-dphoto">${img(photo(p), "", false, true)}</div>
         <div class="mp-dtitle"><h1>${esc(p.label)}</h1><p class="mp-addr">${esc(p.address)}</p><p class="mp-dmeta">${esc(meta)}</p>
-          <div class="mp-acts"><button type="button" class="btn primary sm" data-check>${esc(t("check"))}</button>${demo ? "" : `<button type="button" class="btn sm" data-edit>${esc(t("edit_facts"))}</button><button type="button" class="icon-btn mp-rm" data-rm aria-label="${esc(t("remove"))}" title="${esc(t("remove"))}">${I.trash}</button>`}</div></div>
+          <div class="mp-acts"><button type="button" class="btn primary sm" data-check>${esc(t("check"))}</button><button type="button" class="btn sm mp-share" data-share aria-haspopup="dialog" aria-expanded="false" hidden>${I.share}<span>${esc(t("share"))}</span></button>${demo ? "" : `<button type="button" class="btn sm" data-edit>${esc(t("edit_facts"))}</button><button type="button" class="icon-btn mp-rm" data-rm aria-label="${esc(t("remove"))}" title="${esc(t("remove"))}">${I.trash}</button>`}</div></div>
       </header>
       <div class="mp-dgrid">
         <div class="mp-dmain">
@@ -905,7 +948,33 @@ async function paintDetail(id, my) {
       </div>
     </article>`, p.label);
   CE.renderAnswers($(".mp-answers", main), v);
+  wireShare(p);
   if (/\/changes$/.test(location.hash)) setTimeout(() => $("#changes", main)?.scrollIntoView({ block: "start", behavior: "smooth" }), 60);
+}
+
+// Share a building: the address page's Share (features/share.js, window.CEShare) with this building's rent answer.
+// The link is the public, cited answer for the address (/s/<id>/rent/<as_of>); only our sample addresses have one.
+async function sampleId(p) {
+  const street = String(p.address || "").split(",")[0].trim().toUpperCase();
+  const all = await CE.api("/api/addresses").catch(() => []);
+  return (all || []).find((a) => a.street === street && a.state === p.state)?.id || null;
+}
+async function wireShare(p) {
+  const b = $("[data-share]", main);
+  for (let i = 0; !window.CEShare && i < 20; i++) await new Promise((r) => setTimeout(r, 100)); // share.js loads after us
+  if (!b || !window.CEShare) return;
+  const id = await sampleId(p);
+  if (!id || !b.isConnected) return;
+  b.hidden = false;
+  b.addEventListener("click", () => window.CEShare.share(b, async () => {
+    const r = await fetch(`/api/share/${id}/rent/${encodeURIComponent(asOf())}?lang=${lang()}`);
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json(), nr = p.next_raise || {}, n = nr.notice;
+    const known = ["ok", "need_cpi", "no_cap"].includes(nr.state);
+    const raise = nr.date ? t("sh_next")(fmtDate(nr.date), nr.state === "ok" ? money(nr.max_rent) : "") : "";
+    const notice = known && n?.by && n.by > asOf() ? t("sh_notice")(fmtDate(n.by)) : "";
+    return { ...d, title: `${p.label} · ${d.street}`, question: `${p.label} · ${p.address}`, answer: [d.answer, raise, notice].filter(Boolean).join(" ") };
+  }));
 }
 
 // ------------------------------------------------------------------ boot --
@@ -914,3 +983,6 @@ document.addEventListener("click", (e) => { $$(".mp-menu[open]").forEach((m) => 
 document.addEventListener("ce:lang", navLink);
 document.addEventListener("ce:route", (e) => { if (e.detail?.view !== "properties") $("#modal")?.classList.remove("mp-sheet"); });
 navLink();
+
+document.addEventListener("click", (e) => { const b = e.target.closest("[data-tl-all]"); if (!b) return; b.closest(".mp-coming").classList.add("all"); b.remove(); });
+j("/api/me").then((x) => { if (!ME) { ME = x; headerAcct(); } }).catch(() => {});

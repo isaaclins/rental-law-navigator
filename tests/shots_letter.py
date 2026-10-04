@@ -82,7 +82,7 @@ async def run(b, w, h, lang, problems, full=True):
     # the reader fills the fields; the same field fills everywhere it appears
     await pg.fill('.lt-f[data-f="name"] >> nth=0', "Maria Lopez")
     await pg.fill('.lt-f[data-f="unit"]', "Apt 3")
-    await pg.fill('.lt-f[data-f="landlord"]', "Mr. Chen")
+    await pg.fill('.lt-f[data-f="landlord"] >> nth=0', "Mr. Chen")
     both = await pg.evaluate(
         "[...document.querySelectorAll('.lt-f[data-f=name]')].map((e) => e.value)"
     )

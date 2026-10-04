@@ -189,3 +189,21 @@ def test_fields_stay_in_the_browser():
     d = notice(address_id="A0027", current_rent=2400)
     fields = [s["f"] for b in d["letter"]["blocks"] for s in b["s"] if "f" in s]
     assert fields == ["tenant", "unit", "owner", "contact", "given"]
+
+
+def test_notice_never_prints_a_negative_increase():
+    """A new rent below the current one (a typo, or a fast clear + type) leaves the placeholder, never '$-237,574.00'."""
+    from fastapi.testclient import TestClient
+
+    from web.app import app
+
+    c = TestClient(app)
+    for lang in ("en", "es"):
+        r = c.post(
+            "/api/notice",
+            json={"address_id": "A0016", "current_rent": 240000, "new_rent": 2450, "lang": lang},
+        )
+        if r.status_code != 200:
+            continue
+        text = str(r.json())
+        assert "$-" not in text and "-$" not in text

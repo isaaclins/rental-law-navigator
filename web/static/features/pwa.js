@@ -449,8 +449,10 @@ async function pageIsStale() {
 }
 
 // ------------------------------------------------------------------ service worker --
+let swStarted = false;
 async function registerSW() {
-  if (!("serviceWorker" in navigator)) return;
+  if (swStarted || !("serviceWorker" in navigator)) return;
+  swStarted = true;
   let controlled = !!navigator.serviceWorker.controller;
   navigator.serviceWorker.addEventListener("controllerchange", async () => {
     if (controlled && (await pageIsStale())) updateToast();
@@ -490,7 +492,10 @@ function boot() {
   }
   if (q.has("source") || q.has("action")) history.replaceState(null, "", location.pathname + location.hash);
   refreshNet();
-  if (document.readyState === "complete") registerSW(); else addEventListener("load", registerSW, { once: true });
+  // Cloudflare Rocket Loader (on for the zone) reports readyState "loading" for good and swallows "load", so the
+  // real load time comes from navigation timing, with a timer as the last resort
+  const loaded = document.readyState === "complete" || performance.getEntriesByType?.("navigation")[0]?.loadEventEnd > 0;
+  if (loaded) registerSW(); else { addEventListener("load", registerSW, { once: true }); setTimeout(registerSW, 5000); }
 }
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot, { once: true }); else boot();
 

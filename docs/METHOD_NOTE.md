@@ -9,10 +9,11 @@ the text. Every answer must trace back to its source.
 **Method.** The model reads, code decides.
 
 1. **Extract.** Claude (`claude -p --model sonnet`) turns each document into schema-constrained rule records with a
-   machine-readable `coverage` object. Prompts name no specific law. Responses are cached by
-   `sha256(system + prompt + schema)`, so an offline rerun rebuilds `lookups.json` and `changes.json` byte for byte.
+   machine-readable `coverage` object. Prompts name laws only as format examples and organiser context. Responses are
+   cached by `sha256(system + prompt + schema)`, so an offline rerun rebuilds `lookups.json` and `changes.json` byte for byte.
 2. **Verify.** Code checks every `quoted_span` verbatim against its document. A failure gets one retry, then snaps to
-   the closest exact passage or the record is dropped.
+   the closest exact passage or the record is dropped. 16 reviewed field corrections (`review_fixes.py`) apply only
+   when code finds their supporting sentence verbatim in the source.
 3. **Consolidate.** One pass per jurisdiction merges duplicates, audits coverage and turns empty cells into cited
    *no-rule findings*.
 4. **Resolve.** The US Census Geocoder places each address in its incorporated place (486 batch, 7 single-line,
@@ -43,7 +44,7 @@ every span verbatim.
 | T4 MA S.2983 / H.5222 | both `pending`, never in force; 110/110 MA addresses |
 | T5 MA ballot question | recorded as `failed`; affected set empty |
 
-**Responsible design.** "Not legal advice" on every page and API response. `unknown` names the missing fact instead
+**Responsible design.** "Not legal advice" on every page and in every API response header. `unknown` names the missing fact instead
 of guessing (626 answers). Enacted, not-yet-effective, pending and failed law stay separate. 9 rules carry a
 conflict flag for human review (721 answers). `audit.jsonl` logs every model call with prompt hash, model and raw
 output. *Ask the law* is the one place a model writes at request time: Claude Haiku via the `claude` CLI with no

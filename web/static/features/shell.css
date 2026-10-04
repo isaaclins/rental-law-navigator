@@ -1,0 +1,18 @@
+/* First screen before app.js (index.html): the pre-rendered home hero uses the real classes; deep links show a
+   route-shaped skeleton built from the real page classes (.page-head, .ahero, .gal, .steps-card), so the geometry is
+   the page's own. It fills the screen, so the footer never shows (and moves) before the content arrives. */
+.ce-sk { min-height: calc(100vh - var(--nav-h) - 40px); }
+.ce-sk-x { display: inline-block; height: .78em; vertical-align: -.06em; border-radius: .3em; background: var(--cool-2); }
+.ce-sk .page-head p .ce-sk-x { height: 1em; }
+.ce-sk-card { border-radius: var(--r-card); background: var(--bg); box-shadow: var(--shadow-card); padding: 0 28px; }
+.ce-sk-row { display: flex; flex-direction: column; gap: 10px; padding: 22px 0; }
+.ce-sk-row + .ce-sk-row { border-top: 1px solid var(--sep-2); }
+.ce-sk-q { width: min(22ch, 60%); height: 14px; }
+.ce-sk-a { width: min(32ch, 80%); height: 20px; }
+.ce-sk .gal { background: var(--cool-2); }
+.ce-sk .steps-card .ce-sk-row { padding: 12px 0; }
+/* a slow, subtle sheen; static with reduced motion */
+.ce-sk-x, .ce-sk .gal { background-image: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / .6) 50%, transparent 70%); background-size: 220% 100%; background-repeat: no-repeat; animation: ce-sk-sheen 1.6s ease-in-out infinite; }
+@keyframes ce-sk-sheen { from { background-position: 120% 0; } to { background-position: -120% 0; } }
+@media (prefers-reduced-motion: reduce) { .ce-sk-x, .ce-sk .gal { animation: none; background-image: none; } }
+@media (max-width: 640px) { .ce-sk-card { padding: 0 18px; } }

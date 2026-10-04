@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-01",
- "generated_at": "2026-10-04T02:30:17",
+ "generated_at": "2026-10-04T04:22:11",
  "disclaimer": "Not legal advice. Automated extraction from the supplied corpus; verify against the cited source.",
  "rules": [
   {
@@ -79,6 +79,13 @@
    "verification": "primary_source",
    "extracted_from_candidates": [
     "c23"
+   ],
+   "earlier_version": "same",
+   "review_evidence": [
+    {
+     "doc_id": "D024",
+     "quoted_span": "This section shall apply to all rent increases subject to subdivision (a) occurring on or after March 15, 2019"
+    }
    ]
   },
   {
@@ -221,6 +228,17 @@
    "extracted_from_candidates": [
     "c9",
     "c24"
+   ],
+   "earlier_version": "in_sources",
+   "review_evidence": [
+    {
+     "doc_id": "D025",
+     "quoted_span": "This subdivision shall not apply to a security collected or demanded by the landlord before July 1, 2024"
+    },
+    {
+     "doc_id": "D007",
+     "quoted_span": "Before July 1, 2024, landlords could charge up to two months' rent for unfurnished units, and up to three months' rent for furnished units"
+    }
    ]
   },
   {
@@ -281,6 +299,13 @@
     "c5",
     "c25",
     "c96"
+   ],
+   "earlier_version": "same",
+   "review_evidence": [
+    {
+     "doc_id": "D026",
+     "quoted_span": "The thirty dollar ($30) application screening fee may be adjusted annually by the landlord or their agent commensurate with an increase in the Consumer Price Index, beginning on January 1, 1998"
+    }
    ]
   },
   {
@@ -760,8 +785,8 @@
    "category": "application_screening_fees",
    "status": "in_force",
    "title": "NJ residential rental application fee cap ($50)",
-   "requirement": "Landlords or their agents cannot charge an application or similar fee above $50 to apply to lease or sublease a residential rental. The cap is adjusted annually for CPI, and wrongly charged amounts are refunded to the applicant.",
-   "key_value": "$50 per application, CPI-adjusted annually",
+   "requirement": "Landlords or their agents cannot charge an application or similar fee above $50 to apply to lease or sublease a residential rental. From January 1, 2027 the cap is adjusted each year for CPI (only if CPI rises), and wrongly charged amounts are refunded to the applicant.",
+   "key_value": "$50 per application (CPI-adjusted yearly from 2027)",
    "coverage_conditions": null,
    "exemptions": "One-family or two-family dwellings; NJ Real Estate Commission licensees unless they are the landlord.",
    "overrides": [],
@@ -815,6 +840,20 @@
    "verification": "primary_source",
    "extracted_from_candidates": [
     "c52"
+   ],
+   "review_evidence": [
+    {
+     "doc_id": "D066",
+     "quoted_span": "Beginning on\nJanuary 1 of the year next following enactment of P.L.2025, c.405"
+    },
+    {
+     "doc_id": "D066",
+     "quoted_span": "An adjustment in the fee limitation shall be\nmade only if the percent change in the Consumer Price Index for the period\nspecified is greater than zero"
+    },
+    {
+     "doc_id": "D066",
+     "quoted_span": "Approved January 20, 2026"
+    }
    ]
   },
   {
@@ -1196,8 +1235,8 @@
    "category": "just_cause_eviction",
    "status": "in_force",
    "title": "Notice to determine estate at will",
-   "requirement": "Either party must give three months' written notice to end a tenancy at will (or the rent interval or 30 days, whichever is longer, if rent is paid at intervals under three months). For nonpayment, 14 days' notice to quit applies, with a 10-day right to cure for tenants without a similar notice in the prior 12 months.",
-   "key_value": "3 months' notice; 14 days for nonpayment with 10-day cure right",
+   "requirement": "Without a lease (a tenancy at will), either party may end the tenancy with written notice of one rent period or 30 days, whichever is longer, or three months if rent is paid every three months or less often. For nonpayment, 14 days' notice to quit applies, with a 10-day right to cure for tenants without a similar notice in the prior 12 months.",
+   "key_value": "One rent period or 30 days (whichever is longer); 3 months if rent is paid quarterly; 14 days for nonpayment",
    "coverage_conditions": "Tenancies at will.",
    "exemptions": null,
    "overrides": [],
@@ -1241,6 +1280,16 @@
    "verification": "primary_source",
    "extracted_from_candidates": [
     "c45"
+   ],
+   "review_evidence": [
+    {
+     "doc_id": "D051",
+     "quoted_span": "if the rent reserved is payable at periods of less than three months, the time of such notice shall be sufficient if it is equal to the interval between the days of payment or thirty days, whichever is longer"
+    },
+    {
+     "doc_id": "D051",
+     "quoted_span": "In case of neglect or refusal to pay the rent due from a tenant at will, fourteen days' notice to quit, given in writing by the landlord to the tenant, shall be sufficient to determine the tenancy"
+    }
    ]
   },
   {
@@ -1404,8 +1453,13 @@
     {
      "doc_id": "D052",
      "quoted_span": "Introductory paragraph of clause (b) of subsection (1) as amended by 2025, 9, Secs. 54 and 55 effective August 1, 2025"
+    },
+    {
+     "doc_id": "D052",
+     "quoted_span": "effective until August 1, 2025.  For text effective August 1, 2025, see below.]\n(b) At or prior to the commencement of any tenancy, no lessor may require a tenant or prospective tenant to pay any amount in excess of the following:"
     }
-   ]
+   ],
+   "earlier_version": "same"
   },
   {
    "team_rule_id": "MA-FEE-01",
@@ -1515,6 +1569,13 @@
    "extracted_from_candidates": [
     "c47",
     "c105"
+   ],
+   "earlier_version": "same",
+   "review_evidence": [
+    {
+     "doc_id": "D052",
+     "quoted_span": "effective until August 1, 2025.  For text effective August 1, 2025, see below.]\n(b) At or prior to the commencement of any tenancy, no lessor may require a tenant or prospective tenant to pay any amount in excess of the following:"
+    }
    ]
   },
   {
@@ -1690,8 +1751,8 @@
    "category": "rent_increase_limits",
    "status": "in_force",
    "title": "Los Angeles Rent Stabilization Ordinance (RSO) – allowable rent increases",
-   "requirement": "For RSO units, rent may be raised only once every 12 months by the annual allowable percentage set by LAHD (3% for 7/1/2025–6/30/2026). Since Feb 2, 2026 no extra percentage for utilities and no extra 10% for an added dependent; 10% for an added non-dependent tenant is still allowed.",
-   "key_value": "Once per 12 months; annual percentage set by LAHD (3% for 7/1/2025–6/30/2026)",
+   "requirement": "For RSO units, rent may be raised only once every 12 months by the annual allowable percentage set by LAHD (last published: 3% for 7/1/2025–6/30/2026). Since Feb 2, 2026 no extra percentage for utilities and no extra 10% for an added dependent; 10% for an added non-dependent tenant is still allowed.",
+   "key_value": "Once per 12 months, by LAHD's yearly percentage (last published: 3% for 7/1/2025–6/30/2026)",
    "coverage_conditions": null,
    "exemptions": "Condos/townhomes with tenancies commenced after 12/31/1995 not rent-regulated; luxury exemption; temporary exemptions.",
    "overrides": [
@@ -1752,6 +1813,12 @@
    "extracted_from_candidates": [
     "c33",
     "c35"
+   ],
+   "review_evidence": [
+    {
+     "doc_id": "D042",
+     "quoted_span": "Annual rent increases for rental units subject to the City of Los Angeles Rent Stabilization Ordinance (RSO), effective\nJuly 1, 2025, through June 30, 2026\nis\n3%"
+    }
    ]
   },
   {
@@ -2166,6 +2233,13 @@
     "c74",
     "c75",
     "c79"
+   ],
+   "earlier_version": "in_sources",
+   "review_evidence": [
+    {
+     "doc_id": "D080",
+     "quoted_span": "The annual allowable increase amount effective March 1, 2025 through February 28, 2026 is 1.4%"
+    }
    ]
   },
   {
@@ -2290,6 +2364,13 @@
    "extracted_from_candidates": [
     "c77",
     "c81"
+   ],
+   "earlier_version": "in_sources",
+   "review_evidence": [
+    {
+     "doc_id": "D082",
+     "quoted_span": "3/01/25 – 2/28/26\n$8,062.00\n$24,184.00\n$5,375.00"
+    }
    ]
   },
   {
@@ -2348,6 +2429,13 @@
    "verification": "primary_source",
    "extracted_from_candidates": [
     "c80"
+   ],
+   "earlier_version": "in_sources",
+   "review_evidence": [
+    {
+     "doc_id": "D083",
+     "quoted_span": "March 1, 2025 – February 28, 2026\n5.0%"
+    }
    ]
   },
   {
@@ -2742,6 +2830,16 @@
     "c6",
     "c10",
     "c11"
+   ],
+   "letter_quote": {
+    "doc_id": "D008",
+    "quoted_span": "The 2026 AGA of 1.0% represents 65% of the increase in the Consumer Price Index (CPI) for All Urban Consumers in the Bay Area"
+   },
+   "review_evidence": [
+    {
+     "doc_id": "D008",
+     "quoted_span": "The 2026 AGA of 1.0% represents 65% of the increase in the Consumer \nPrice Index (CPI) for All Urban Consumers in the Bay Area"
+    }
    ]
   },
   {
@@ -3128,6 +3226,16 @@
    "extracted_from_candidates": [
     "c83",
     "c85"
+   ],
+   "letter_quote": {
+    "doc_id": "D084",
+    "quoted_span": "2.87 percent is the maximum allowable rent increase for the period of September 1, 2026 through August 31, 2027."
+   },
+   "review_evidence": [
+    {
+     "doc_id": "D084",
+     "quoted_span": "2.87 percent is the maximum allowable rent increase for the period of September 1, 2026 through August 31, 2027"
+    }
    ]
   },
   {
@@ -3330,6 +3438,16 @@
    "verification": "primary_source",
    "extracted_from_candidates": [
     "c29"
+   ],
+   "letter_quote": {
+    "doc_id": "D036",
+    "quoted_span": "The Office of Landlord Tenant Relations administers and enforces the Rent Control Ordinance, Chapter 260 of the Jersey City Municipal Code"
+   },
+   "review_evidence": [
+    {
+     "doc_id": "D036",
+     "quoted_span": "The Office of Landlord Tenant Relations administers and enforces the\nRent Control Ordinance, Chapter 260\nof the Jersey City Municipal Code"
+    }
    ]
   },
   {

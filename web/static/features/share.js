@@ -174,6 +174,7 @@ if (PAGE) {
     const m = document.getElementById("main");
     if (m) new MutationObserver(inject).observe(m, { childList: true, subtree: true });
   };
+  window.CEShare = { share }; // My properties shares a building with the same sheet/popover (features/properties.js)
   document.addEventListener("ce:route", inject);
   document.addEventListener("ce:lang", () => { relabel(); closePop({ focus: false }); });
   document.addEventListener("ce:asof", () => closePop({ focus: false }));

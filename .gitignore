@@ -10,3 +10,7 @@ docs/*.pdf
 output/ask_audit.jsonl
 cache/ask/
 cache/og/
+
+cache/try/
+.try-budget.json
+.try-budget.tmp

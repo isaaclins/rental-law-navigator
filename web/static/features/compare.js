@@ -18,7 +18,7 @@ const EN = {
   lead: "See how renter protections differ before you move.",
   example: "For example, San Francisco next to Boston",
   pick: "Search an address", change: "Change", cancel: "Cancel",
-  any: (q) => `Check “${q}”`, any_sub: "Any US address",
+  any: (q) => `Check “${q}”`, any_sub: "Any address in CA, NJ or MA",
   finding: "Finding the address…", nomatch: "We could not find this address. Add the city and state.",
   out: "This address is outside California, New Jersey and Massachusetts.",
   busy: "Too many lookups. Please wait a minute.", down: "The address service did not answer. Try again in a moment.",
@@ -47,7 +47,7 @@ const ES = {
   lead: "Vea cómo cambian sus derechos como inquilino antes de mudarse.",
   example: "Por ejemplo, San Francisco junto a Boston",
   pick: "Buscar una dirección", change: "Cambiar", cancel: "Cancelar",
-  any: (q) => `Consultar “${q}”`, any_sub: "Cualquier dirección de EE. UU.",
+  any: (q) => `Consultar “${q}”`, any_sub: "Cualquier dirección en CA, NJ o MA",
   finding: "Buscando la dirección…", nomatch: "No encontramos esta dirección. Añada la ciudad y el estado.",
   out: "Esta dirección está fuera de California, Nueva Jersey y Massachusetts.",
   busy: "Demasiadas consultas. Espere un minuto.", down: "El servicio de direcciones no respondió. Inténtelo de nuevo.",
@@ -82,10 +82,11 @@ const firstClause = (s) => String(s || "").split(/[;(]/)[0].trim();
 function short(item) {
   const r = item.rule;
   if (!r.headline_short) return { p: 1.9, s: firstClause(r.key_value_display || r.key_value) || r.title_display || r.title };
-  const after = r.headline_short_until && asOf() > r.headline_short_until;
+  const after = r.headline_short_after && ((r.headline_short_until && asOf() > r.headline_short_until) || (r.headline_short_from && asOf() < r.headline_short_from));
   return { p: r.headline_priority ?? 1, s: after ? r.headline_short_after : r.headline_short };
 }
 function dependsOn(item) {
+  if (item.version_gap && item.headline) return item.headline; // an older version applied on this date (web/headlines.py)
   const need = item.needs_fact || [];
   const m = String(item.missing_fact || "").toLowerCase();
   const k = need.includes("year_built") || /year|año/.test(m) ? "year_built" : need.includes("units") || /unit/.test(m) ? "units"
@@ -118,6 +119,9 @@ function answer(cat) {
 const b64e = (o) => btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 const b64d = (s) => JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0))));
 const titleCase = (s) => String(s || "").toLowerCase().replace(/\b\w/g, (m) => m.toUpperCase()).replace(/\b(Ca|Nj|Ma)\b/g, (m) => m.toUpperCase());
+// display only: the usual street suffixes the way people write them ("69-71 Westland Ave")
+const SUFFIX = { av: "Ave", "ave.": "Ave", avenue: "Ave", bl: "Blvd", blv: "Blvd", "st.": "St", "pl.": "Pl", wy: "Way" };
+const streetName = (s) => titleCase(s).replace(/(\s)(\S+)$/, (m, sp, w) => sp + (SUFFIX[w.toLowerCase()] || w)).replace(/(\d)(St|Nd|Rd|Th)\b/g, (m, d, x) => d + x.toLowerCase());
 const STATE = { CA: "California", NJ: "New Jersey", MA: "Massachusetts" };
 let ADDR = [];
 const addrList = async () => (ADDR.length ? ADDR : (ADDR = await CE.api("/api/addresses").catch(() => [])));
@@ -135,7 +139,7 @@ function parseSide(key) {
   const id = key.toUpperCase();
   if (!/^A\d{3,}$/.test(id)) return null;
   const a = ADDR.find((x) => x.id === id);
-  return { key: id, id, street: a ? titleCase(a.street) : id, place: a ? `${a.city || a.postal_city}, ${a.state}` : "" };
+  return { key: id, id, street: a ? streetName(a.street) : id, place: a ? `${a.city || a.postal_city}, ${a.state}` : "" };
 }
 const evalCache = new Map();
 async function post(url, body) {
@@ -161,7 +165,14 @@ const I = CE.icons || {};
 const chev = I.chev || "";
 let seq = 0, keys = [null, null], editing = [false, false], focusSlot = null;
 
+// row labels on phones: the city (or the street when both are in one city), not the full address twelve times
+let SIDES = [];
+const shortSide = (side) => {
+  const city = (x) => String(x?.place || "").split(",")[0].trim();
+  return SIDES.length === 2 && city(SIDES[0]) && city(SIDES[0]) !== city(SIDES[1]) ? city(side) : String(side.street || "").split(/\s+/).slice(0, 3).join(" ");
+};
 function slotHtml(i, side) {
+  if (side) SIDES[i] = side;
   if (side && !editing[i]) {
     const name = side.id ? `<a href="#/a/${esc(side.id)}">${esc(side.street)}</a>` : esc(side.street);
     const scope = side.custom && !side.custom.j ? ` · ${esc(t("state_only"))}` : "";
@@ -177,12 +188,12 @@ function slotHtml(i, side) {
       ${facts}
     </div>`;
   }
-  return `<div class="cmp-slot" data-side="${i}">
+  return `<div class="cmp-slot" data-side="${i}" data-ph="${esc(CE.lang() === "es" ? "Elija una dirección para comparar" : "Pick an address to compare")}">
     <div class="cmp-pick">
-      <input type="search" enterkeyhint="search" autocomplete="off" spellcheck="false" placeholder="${esc(t("pick"))}" aria-label="${esc(t("pick"))}" data-pick="${i}">
+      <input type="search" enterkeyhint="search" autocomplete="off" spellcheck="false" placeholder="${esc(t("pick"))}" aria-label="${esc(t("pick"))}" data-pick="${i}" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="cmp-sug-${i}">
       ${editing[i] ? `<button type="button" class="linkish cmp-link" data-cancel="${i}">${esc(t("cancel"))}</button>` : ""}
     </div>
-    <ul class="cmp-sug" role="listbox" hidden></ul>
+    <ul class="cmp-sug" id="cmp-sug-${i}" role="listbox" hidden></ul>
     <p class="cmp-msg" aria-live="polite" hidden></p>
   </div>`;
 }
@@ -206,7 +217,7 @@ function ruleHtml(item) {
   return `<li>
     <p class="cmp-rt">${esc(r.title_display || r.title)}</p>
     ${st ? `<p class="cmp-rs">${esc(st)}</p>` : ""}
-    ${r.quoted_span ? `<blockquote class="quote">“${esc(r.quoted_span)}”</blockquote>` : ""}
+    ${r.quoted_span ? `<blockquote class="quote"><span class="cmp-qt">“${esc(r.quoted_span)}”</span></blockquote>` : ""}
     <p class="rd-cite">${r.source_url ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(r.citation || r.source_url)}</a>` : esc(r.citation || "")}</p>
   </li>`;
 }
@@ -227,8 +238,8 @@ function bodyHtml(sides, data, open) {
     const isOpen = open.has(id);
     const ans = same
       ? `<span class="cmp-a both"><span class="cmp-who">${esc(t("both"))}</span><span class="cmp-v">${esc(a)}</span></span>`
-      : `<span class="cmp-a"><span class="cmp-who">${esc(sides[0].street)}</span><span class="cmp-v">${esc(a)}</span></span>
-         <span class="cmp-a"><span class="cmp-who">${esc(sides[1].street)}</span><span class="cmp-v">${esc(b)}</span></span>`;
+      : `<span class="cmp-a"><span class="cmp-who">${esc(shortSide(sides[0]))}</span><span class="cmp-v">${esc(a)}</span></span>
+         <span class="cmp-a"><span class="cmp-who">${esc(shortSide(sides[1]))}</span><span class="cmp-v">${esc(b)}</span></span>`;
     return `<details class="topic cmp-row${same ? " same" : ""}" data-cat="${id}"${isOpen ? " open" : ""}>
       <summary class="cmp-sum"><span class="cmp-l">${esc(t("cats")[id])}</span>${ans}<span class="chev cmp-chev" aria-hidden="true">${chev}</span></summary>
       <div class="cmp-detail"><span></span>${sideRulesHtml(cA, sides[0])}${sideRulesHtml(cB, sides[1])}</div>
@@ -285,7 +296,7 @@ async function render(main, arg) {
   wire(main);
   const f = focusSlot ?? (sides[0] && !sides[1] ? 1 : !sides[0] && sides[1] ? 0 : null);
   focusSlot = null;
-  if (f != null) requestAnimationFrame(() => $(`[data-pick="${f}"]`, main)?.focus({ preventScroll: true }));
+  if (f != null && !matchMedia("(pointer: coarse)").matches) requestAnimationFrame(() => { autoFocus = true; $(`[data-pick="${f}"]`, main)?.focus({ preventScroll: true }); autoFocus = false; }); // phones: no keyboard popping up on its own
   if (sides[0] && sides[1]) fillBody(my, sides);
 }
 function rerender() { render($("#main"), keys.map((k) => k || "").join(",").replace(/,$/, "")); }
@@ -304,15 +315,19 @@ function setSide(i, key) {
 function suggest(input) {
   const i = +input.dataset.pick, slot = input.closest(".cmp-slot"), list = $(".cmp-sug", slot);
   const q = input.value.trim().toLowerCase();
-  if (!q) { list.hidden = true; list.innerHTML = ""; return; }
   const words = q.split(/\s+/);
   const other = keys[i ? 0 : 1];
-  const hits = ADDR.filter((a) => a.id !== other && words.every((w) => `${a.street} ${a.city} ${a.postal_city} ${a.state} ${a.zip}`.toLowerCase().includes(w))).slice(0, 6);
+  // an empty field: a few sample addresses in other cities than the other side's (one per covered state first)
+  const otherCity = ADDR.find((a) => a.id === other)?.city;
+  const EXC = ["Los Angeles", "San Francisco", "Boston", "Hoboken", "San Diego", "Jersey City"];
+  const hits = !q ? EXC.filter((c) => c !== otherCity).map((c) => ADDR.find((a) => a.city === c && a.id !== other)).filter(Boolean).slice(0, 5) : ADDR.filter((a) => a.id !== other && words.every((w) => `${a.street} ${a.city} ${a.postal_city} ${a.state} ${a.zip}`.toLowerCase().includes(w))).slice(0, 6);
   const raw = input.value.trim();
-  list.innerHTML = hits.map((a) => `<li role="option" aria-selected="false" data-id="${esc(a.id)}"><span class="cmp-o1">${esc(titleCase(a.street))}</span><span class="cmp-o2">${esc(a.city || a.postal_city)}, ${esc(a.state)}</span></li>`).join("")
+  list.innerHTML = (hits.length ? `<li class="cmp-grp" role="presentation">${esc(CE.lang() === "es" ? (q ? "Direcciones" : "Ejemplos") : q ? "Addresses" : "Examples")}</li>` : "") + hits.map((a) => `<li role="option" aria-selected="false" data-id="${esc(a.id)}"><span class="cmp-o1">${esc(streetName(a.street))}</span><span class="cmp-o2">${esc(a.city || a.postal_city)}, ${esc(a.state)}</span></li>`).join("")
     + (looksLikeAddress(raw) ? `<li role="option" aria-selected="false" data-q="${esc(raw)}"><span class="cmp-o1">${esc(t("any")(raw))}</span><span class="cmp-o2">${esc(t("any_sub"))}</span></li>` : "");
-  list.hidden = !list.children.length;
-  if (list.children.length) list.children[0].setAttribute("aria-selected", "true");
+  const opts = $$('li[role="option"]', list);
+  list.hidden = !opts.length;
+  input.setAttribute("aria-expanded", String(!list.hidden));
+  // nothing pre-selected (like the home search): the first ArrowDown lands on the first row
 }
 async function resolveAny(i, q, slot) {
   const msg = $(".cmp-msg", slot), list = $(".cmp-sug", slot);
@@ -332,8 +347,15 @@ function choose(li) {
   if (li.dataset.id) setSide(i, li.dataset.id);
   else if (li.dataset.q) resolveAny(i, li.dataset.q, slot);
 }
-let factTimer = null;
+let factTimer = null, autoFocus = false;
 function wire(root) {
+  // focus shows the sample addresses (not when the page itself put the cursor there); leaving the field closes the list
+  root.addEventListener("focusin", (e) => { if (e.target.matches?.("[data-pick]") && !autoFocus) suggest(e.target); });
+  root.addEventListener("focusout", (e) => {
+    const input = e.target.closest?.("[data-pick]");
+    if (!input) return;
+    setTimeout(() => { if (document.activeElement === input) return; const list = $(".cmp-sug", input.closest(".cmp-slot") || document); if (list) list.hidden = true; input.setAttribute("aria-expanded", "false"); }, 200);
+  });
   root.addEventListener("input", (e) => {
     if (e.target.matches("[data-pick]")) { $(".cmp-msg", e.target.closest(".cmp-slot")).hidden = true; suggest(e.target); }
     const box = e.target.closest("[data-facts]");
@@ -355,7 +377,7 @@ function wire(root) {
   root.addEventListener("keydown", (e) => {
     const input = e.target.closest?.("[data-pick]");
     if (!input) return;
-    const list = $(".cmp-sug", input.closest(".cmp-slot")), opts = $$("li", list);
+    const list = $(".cmp-sug", input.closest(".cmp-slot")), opts = $$('li[role="option"]', list);
     const cur = opts.findIndex((o) => o.getAttribute("aria-selected") === "true");
     if (e.key === "ArrowDown" || e.key === "ArrowUp") {
       e.preventDefault();
@@ -364,14 +386,17 @@ function wire(root) {
       opts.forEach((o, k) => o.setAttribute("aria-selected", k === n));
     } else if (e.key === "Enter") {
       e.preventDefault();
+      const ours = opts.filter((o) => o.dataset.id);
       if (opts[cur]) choose(opts[cur]);
+      else if (ours.length === 1) choose(ours[0]); // the one sample address that matches
       else if (looksLikeAddress(input.value.trim())) resolveAny(+input.dataset.pick, input.value.trim(), input.closest(".cmp-slot"));
     } else if (e.key === "Escape" && editing[+input.dataset.pick]) {
       editing[+input.dataset.pick] = false; rerender();
     }
   });
   root.addEventListener("click", (e) => {
-    const li = e.target.closest(".cmp-sug li");
+    if (e.target.matches?.("[data-pick]")) return suggest(e.target); // a field the page had already focused
+    const li = e.target.closest(".cmp-sug li[role=\"option\"]");
     if (li) return choose(li);
     const ch = e.target.closest("[data-change]");
     if (ch) { editing[+ch.dataset.change] = true; focusSlot = +ch.dataset.change; return rerender(); }

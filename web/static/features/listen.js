@@ -100,12 +100,12 @@ async function load(k) {
 }
 
 // ------------------------------------------------------------------ browser voice (fallback)
-// ?voice=device (remembered) forces the device voice instead of the recorded one; ?voice=auto resets
+// ?voice=device forces the device voice for this page load only (testing); nothing is remembered
 function deviceVoice() {
   try {
     const q = new URLSearchParams(location.search).get("voice");
-    if (q) localStorage.setItem("ce.voice", q);
-    return localStorage.getItem("ce.voice") === "device" && "speechSynthesis" in window;
+    localStorage.removeItem("ce.voice"); // older builds remembered it; drop that
+    return q === "device" && "speechSynthesis" in window;
   } catch { return false; }
 }
 function pickVoice(lang) {
